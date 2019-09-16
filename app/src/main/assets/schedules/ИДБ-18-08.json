@@ -1,0 +1,554 @@
+[
+    {
+        "title": "Политология",
+        "lecturer": "Пинчук А.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.02-2019.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.11.11-2019.12.09"
+            }
+        ]
+    },
+    {
+        "title": "Архитектура ЭВМ и вычислительных систем",
+        "lecturer": "Саркисова И.О",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.02-2019.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.11.11-2019.12.09"
+            }
+        ]
+    },
+    {
+        "title": "Математическая логика и теория алгоритмов",
+        "lecturer": "Елисеева Ю.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.02"
+            }
+        ]
+    },
+    {
+        "title": "Инновационные технологии и автоматизированные комплексы цифрового машиностроительного производства",
+        "lecturer": "Оганян Г.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 6",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.09-2019.10.07"
+            }
+        ]
+    },
+    {
+        "title": "Инновационные технологии и автоматизированные комплексы цифрового машиностроительного производства",
+        "lecturer": "Оганян Г.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 6",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.16-2019.10.14"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "С/3 СТАНКИН",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.03"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "C/3 СТАНКИН",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.10-2019.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Объектно-ориентированное программирование на языке высокого уровня",
+        "lecturer": "Петухов П.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "309",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.10-2019.10.15"
+            }
+        ]
+    },
+    {
+        "title": "Архитектура ЭВМ и вычислительных систем",
+        "lecturer": "Саркисова И.О",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.10-2019.10.01"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Карпова Е.Е",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "408",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.11.05-2019.12.10"
+            }
+        ]
+    },
+    {
+        "title": "Математическая логика и теория алгоритмов",
+        "lecturer": "Елисеева Ю.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.04"
+            }
+        ]
+    },
+    {
+        "title": "Политология",
+        "lecturer": "Пинчук А.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.18-2019.11.20"
+            }
+        ]
+    },
+    {
+        "title": "Объектно-ориентированное программирование на языке высокого уровня",
+        "lecturer": "Разумовский А.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.04-2019.12.18"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Лоскутов А.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "417",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.18-2019.10.30"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная геометрия и графика",
+        "lecturer": "Разумовский А.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(и)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.11-2019.11.06"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Лоскутов А.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "417",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.11-2019.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная геометрия и графика",
+        "lecturer": "Разумовский А.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(и)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.18-2019.11.13"
+            }
+        ]
+    },
+    {
+        "title": "Математическая логика и теория алгоритмов",
+        "lecturer": "Елисеева Ю.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "308",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.10.31-2019.11.14"
+            }
+        ]
+    },
+    {
+        "title": "Математическая логика и теория алгоритмов",
+        "lecturer": "Елисеева Ю.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "308",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.19-2019.11.14"
+            }
+        ]
+    },
+    {
+        "title": "Иностранный язык",
+        "lecturer": "Зайдефтер М.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "238",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.05-2019.12.19"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Лоскутов А.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.05-2019.12.05"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "С/3 СТАНКИН",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.06"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "C/3 СТАНКИН",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.13-2019.12.20"
+            }
+        ]
+    },
+    {
+        "title": "Философия",
+        "lecturer": "Логина Н.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "505",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.13-2019.12.13"
+            }
+        ]
+    },
+    {
+        "title": "Архитектура ЭВМ и вычислительных систем",
+        "lecturer": "Саркисова И.О",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(д)",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.10.11-2019.12.06"
+            }
+        ]
+    },
+    {
+        "title": "Архитектура ЭВМ и вычислительных систем",
+        "lecturer": "Саркисова И.О",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(д)",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.10.18-2019.12.13"
+            }
+        ]
+    },
+    {
+        "title": "Объектно-ориентированное программирование на языке высокого уровня",
+        "lecturer": "Петухов П.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(з)",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.20-2019.12.13"
+            }
+        ]
+    },
+    {
+        "title": "Объектно-ориентированное программирование на языке высокого уровня",
+        "lecturer": "Петухов П.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(з)",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.27-2019.12.20"
+            }
+        ]
+    },
+    {
+        "title": "Математическая логика и теория алгоритмов",
+        "lecturer": "Елисеева Ю.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.14-2019.11.16"
+            }
+        ]
+    },
+    {
+        "title": "Философия",
+        "lecturer": "Логина Н.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.07-2019.12.07"
+            }
+        ]
+    },
+    {
+        "title": "Инновационные технологии и автоматизированные комплексы цифрового машиностроительного производства",
+        "lecturer": "Оганян Г.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.07-2019.11.09"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная геометрия и графика",
+        "lecturer": "Толок А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.07-2019.11.09"
+            }
+        ]
+    }
+]

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/remove_date"
+        android:icon="@drawable/ic_delete_button_white"
+        android:title="@string/remove_date"
+        app:showAsAction="ifRoom|withText" />
+
+    <item
+        android:id="@+id/apply_date"
+        android:icon="@drawable/ic_apply_button_white"
+        android:title="@string/apply"
+        app:showAsAction="ifRoom|withText" />
+</menu>

@@ -1,0 +1,161 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" translatable="false">PROJECT PEPEGA</string>
+    <string name="nav_header_title" translatable="false">PROJECT PEPEGA</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_subtitle" translatable="false">aka Stankin Schedule</string>
+
+    <!-- debug -->
+    <string name="debug_text" translatable="false">Some text</string>
+
+    <!-- activities -->
+    <string name="pair_editor">Pair editor</string>
+    <string name="date_editor">Date editor</string>
+    <string name="schedule_editor">Schedule editor</string>
+
+    <!-- drawer -->
+    <string name="nav_home">Home</string>
+    <string name="nav_schedule">Schedule</string>
+    <string name="nav_module_journal">Module journal</string>
+    <string name="nav_schedule_manager">Schedule repository</string>
+    <string name="nav_schedule_view">Schedule View</string>
+    <string name="university_map">University map</string>
+    <string name="information">Information</string>
+    <string name="about_application">About application</string>
+
+    <!-- home -->
+    <string name="no_favorite_schedule">No favorite schedule</string>
+
+    <!-- module journal -->
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+
+    <!-- my schedules -->
+    <string name="my_schedules">My schedules</string>
+    <string name="selected_subgroup">Selected subgroup</string>
+    <string name="no_available_schedules">No available schedules</string>
+    <string name="add_schedule">Add schedule</string>
+    <string name="remove_schedule">Remove schedule</string>
+    <string name="schedule_removed">Schedule removed</string>
+    <string name="undo">Undo</string>
+    <string name="from_repository">From repository</string>
+    <string name="new_schedule">New schedule</string>
+    <string name="load_schedule">Load schedule…</string>
+
+    <!-- repository -->
+    <string name="update">Update</string>
+    <string name="repository_version">Current version: Autumn-2019 (last update 16.09.19)</string>
+
+    <!-- schedules view -->
+    <string name="no_pairs">No pairs</string>
+    <string name="add_pair">Add pair</string>
+    <string name="remove_pair" tools:ignore="MissingTranslation">Remove pair</string>
+    <string name="save_schedule">Save schedule…</string>
+
+    <!-- pair editor -->
+    <string name="title">Title</string>
+    <string name="lecturer">Lecturer</string>
+    <string name="type">Type</string>
+    <string name="subgroup">Subgroup</string>
+    <string name="classroom">Classroom</string>
+    <string name="time">Time</string>
+    <string name="add_date">Add date</string>
+    <string name="date">Date</string>
+    <string name="not_dates">Not dates</string>
+    <string name="remove_date">Remove date</string>
+
+    <!-- date editor -->
+    <string name="enter_valid_date">Enter a valid date: DD.MM.YYYY</string>
+    <string name="example_date" translatable="false">25.05.2019</string>
+    <string name="date_type">Date type</string>
+    <string name="calendar_picker">Calendar picker</string>
+    <string name="start_date">Start date</string>
+    <string name="end_date">End date</string>
+    <string name="frequency">Frequency</string>
+
+    <!-- schedule editor -->
+    <string name="rename_schedule">Rename schedule</string>
+    <string name="schedule_name">Schedule name</string>
+    <string name="name">Name</string>
+    <string name="not_allowed_character">Not allowed character</string>
+
+    <!-- date alert -->
+    <string name="invalid_date">Unable to create date: %1$s. Check the correct date.</string>
+    <string name="invalid_day_of_week">Not a valid day of the week: %1$s</string>
+    <string name="invalid_frequency">The date range is not a multiple of its duration</string>
+    <string name="impossible_added_date">You cannot add a date because there will be a date intersection / no match on day of the week.</string>
+    <string name="added_date">Added date:</string>
+    <string name="dates">Dates:</string>
+
+    <!-- pair alert -->
+    <string name="invalid_add_pair">You can\'t add a pair because it overlaps already existing pairs.</string>
+
+    <!-- schedule alert -->
+    <string name="schedule_deleted">Attention schedule will be deleted irrevocably!</string>
+    <string name="schedule_exists">A schedule with this name exists.</string>
+    <string name="schedule">Schedule</string>
+    <string name="successfully_added">successfully added</string>
+    <string name="failed_add">failed to add</string>
+    <string name="schedule_renamed">Schedule renamed</string>
+    <string name="unable_schedule_rename">Unable to rename schedule</string>
+    <string name="empty_field">The field cannot be empty</string>
+    <string name="empty_dates_list">You must add at least one date.</string>
+
+    <!-- other -->
+    <string name="error">Error</string>
+    <string name="warning">Warning</string>
+    <string name="apply">Apply</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes_continue">Yes, continue</string>
+    <string name="choose_folder">Choose folder</string>
+
+    <!-- subgroup values -->
+    <string-array name="subgroup_list">
+        <item>---</item>
+        <item>A</item>
+        <item>B</item>
+    </string-array>
+
+    <!-- type values -->
+    <string-array name="type_list">
+        <item>Lecture</item>
+        <item>Seminar</item>
+        <item>Laboratory</item>
+    </string-array>
+
+    <string-array name="time_start_list">
+        <item>8:30</item>
+        <item>10:20</item>
+        <item>12:20</item>
+        <item>14:10</item>
+        <item>16:00</item>
+        <item>18:00</item>
+        <item>19:40</item>
+        <item>21:20</item>
+    </string-array>
+
+    <string-array name="time_end_list">
+        <item>10:10</item>
+        <item>12:00</item>
+        <item>14:00</item>
+        <item>15:50</item>
+        <item>17:40</item>
+        <item>19:30</item>
+        <item>21:10</item>
+        <item>22:50</item>
+    </string-array>
+
+    <!-- date type values -->
+    <string-array name="date_type_list">
+        <item>Single</item>
+        <item>Range</item>
+    </string-array>
+
+    <!-- date frequency values -->
+    <string-array name="frequency_list">
+        <item>Every week</item>
+        <item>In a week</item>
+    </string-array>
+
+</resources>

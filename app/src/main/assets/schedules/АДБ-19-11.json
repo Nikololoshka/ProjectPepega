@@ -1,0 +1,545 @@
+[
+    {
+        "title": "Математика",
+        "lecturer": "Яновская Е.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "342",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.09-2019.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Математика",
+        "lecturer": "Иванова Н.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "308",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.11.11-2019.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Математика",
+        "lecturer": "Яновская Е.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "342",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.09-2019.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.11.11-2019.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Русский язык и культура речи",
+        "lecturer": "Трофимова Г.К",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.09-2019.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.11.11-2019.12.02"
+            }
+        ]
+    },
+    {
+        "title": "Химия",
+        "lecturer": "Разводова Н.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.09-2019.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.11.18"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "С/3 Фрезер",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.03"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "С/3 Фрезер",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.03"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "С/3 Фрезер",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.10-2019.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "С/3 Фрезер",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.10-2019.12.17"
+            }
+        ]
+    },
+    {
+        "title": "История",
+        "lecturer": "Свирина М.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "Фрезер 202",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.10-2019.11.12"
+            }
+        ]
+    },
+    {
+        "title": "Иностранный язык",
+        "lecturer": "Карелина Е.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "240(г)",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.04-2019.12.18"
+            }
+        ]
+    },
+    {
+        "title": "Технологические процессы в машиностроении",
+        "lecturer": "Иванов Г.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0209",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.04-2019.12.04"
+            }
+        ]
+    },
+    {
+        "title": "Русский язык и культура речи",
+        "lecturer": "Бурдыкина А.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0301",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.11-2019.11.27"
+            }
+        ]
+    },
+    {
+        "title": "Инженерная и компьютерная графика: инженерная графика",
+        "lecturer": "Тюрина Л.Ф",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "ИГ-2",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.11-2019.11.13"
+            }
+        ]
+    },
+    {
+        "title": "Информатика",
+        "lecturer": "Нежметдинова Р.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "342",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.11.27"
+            }
+        ]
+    },
+    {
+        "title": "Информатика",
+        "lecturer": "Нежметдинова Р.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "342",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.12-2019.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Карпова Е.Е",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.05-2019.12.05"
+            }
+        ]
+    },
+    {
+        "title": "Инженерная и компьютерная графика: инженерная графика",
+        "lecturer": "Тюрина Л.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.05-2019.11.07"
+            }
+        ]
+    },
+    {
+        "title": "История",
+        "lecturer": "Свирина М.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "342",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.06-2019.11.08"
+            }
+        ]
+    },
+    {
+        "title": "Математика",
+        "lecturer": "Иванова Н.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "308",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.13-2019.11.08"
+            }
+        ]
+    },
+    {
+        "title": "Математика",
+        "lecturer": "Иванова Н.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "308",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.13-2019.10.25"
+            }
+        ]
+    },
+    {
+        "title": "Информатика",
+        "lecturer": "Деркач Е.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "302",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.11.15-2019.12.06"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Мандель А.М",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "408",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.11.15-2019.12.20"
+            }
+        ]
+    },
+    {
+        "title": "Химия",
+        "lecturer": "Разводова Н.М",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "256",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.11.15-2019.12.13"
+            }
+        ]
+    },
+    {
+        "title": "Химия",
+        "lecturer": "Разводова Н.М",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "256",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.11.22-2019.12.20"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Мандель А.М",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "420",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.14-2019.10.26"
+            }
+        ]
+    },
+    {
+        "title": "Информатика",
+        "lecturer": "Аль_Хури А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "210",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.21-2019.11.16"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Мандель А.М",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "420",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.21-2019.11.02"
+            }
+        ]
+    },
+    {
+        "title": "Информатика",
+        "lecturer": "Аль_Хури А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "210",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.28-2019.11.23"
+            }
+        ]
+    },
+    {
+        "title": "Технологические процессы в машиностроении",
+        "lecturer": "Иванов Г.Н",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "Фрезер 216",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.11.16-2019.12.14"
+            }
+        ]
+    },
+    {
+        "title": "Технологические процессы в машиностроении",
+        "lecturer": "Иванов Г.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "Фрезер 216",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.11.23-2019.12.21"
+            }
+        ]
+    }
+]

@@ -1,0 +1,129 @@
+<resources>
+    <!-- activities -->
+    <string name="pair_editor">Редактор пары</string>
+    <string name="date_editor">Редактор даты</string>
+    <string name="schedule_editor">Редактор расписания</string>
+
+    <!-- drawer -->
+    <string name="nav_home">Главная</string>
+    <string name="nav_schedule">Расписания</string>
+    <string name="nav_module_journal">Модульный журнал</string>
+    <string name="nav_schedule_manager">Репозиторий расписаний</string>
+    <string name="nav_schedule_view">Просмотр расписания</string>
+    <string name="university_map">Карта</string>
+    <string name="information">Справка</string>
+    <string name="about_application">О приложении</string>
+
+    <!-- home -->
+    <string name="no_favorite_schedule">Нету избранного расписания</string>
+
+    <!-- module journal -->
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+
+    <!-- my schedules -->
+    <string name="my_schedules">Мои расписания</string>
+    <string name="selected_subgroup">Выбранная подгруппа</string>
+    <string name="no_available_schedules">Нет доступных расписаний</string>
+    <string name="add_schedule">Добавить расписание</string>
+    <string name="remove_schedule">Удалить расписание</string>
+    <string name="schedule_removed">Расписание удалено</string>
+    <string name="undo">Отмена</string>
+    <string name="from_repository">Из репозитория</string>
+    <string name="new_schedule">Новое расписание</string>
+    <string name="load_schedule">Загрузить расписание…</string>
+
+    <!-- repository -->
+    <string name="update">Обновить</string>
+    <string name="repository_version">Текущая версия: Осень-2019 (последнее обновление 16.09.19)</string>
+
+    <!-- schedules view -->
+    <string name="no_pairs">Нет пар</string>
+    <string name="add_pair">Добавить пару</string>
+    <string name="remove_pair">Удалить пару</string>
+    <string name="save_schedule">Сохранить расписание…</string>
+
+    <!-- pair editor -->
+    <string name="title">Название</string>
+    <string name="lecturer">Преподаватель</string>
+    <string name="type">Тип</string>
+    <string name="subgroup">Подгруппа</string>
+    <string name="classroom">Аудитория</string>
+    <string name="time">Время</string>
+    <string name="date">Дата</string>
+    <string name="not_dates">Нет дат</string>
+    <string name="add_date">Добавить дату</string>
+    <string name="remove_date">Удалить дату</string>
+
+    <!-- date editor -->
+    <string name="enter_valid_date">Введите правильно дату: DD.MM.YYYY</string>
+    <string name="date_type">Тип даты</string>
+    <string name="calendar_picker">Окно календаря</string>
+    <string name="start_date">Начало</string>
+    <string name="end_date">Конец</string>
+    <string name="frequency">Периодичность</string>
+
+    <!-- schedule editor -->
+    <string name="rename_schedule">Переименновать расписание</string>
+    <string name="schedule_name">Название расписания</string>
+    <string name="name">Название</string>
+    <string name="not_allowed_character">Не разрешенный символ</string>
+
+    <!-- date alert -->
+    <string name="invalid_date">Невозможно создать дату: %1$s. Проверьте правильность даты.</string>
+    <string name="invalid_day_of_week">К сожелению, в СТАНКИНе пока что ещё 6-ти дневная учебная неделю, а не 7-ми. Именно поэтому Вы не можите создать дату с днём недели: %1$s.</string>
+    <string name="invalid_frequency">Диапозон даты не кратен указанной периодичности.</string>
+    <string name="impossible_added_date">Вы не можите добавить дату, т.к. будет пересечение дат / не совпадение по дню недели. </string>
+    <string name="added_date">Добавляемая дата:</string>
+    <string name="dates">Даты:</string>
+
+    <!-- pair alert -->
+    <string name="invalid_add_pair">Невозможно добавить пару т.к. она пересекается уже с существующими парами.</string>
+
+    <!-- schedule alert -->
+    <string name="schedule_deleted">Внимание, расписание будет удалено безвозратно!</string>
+    <string name="schedule_exists">Расписание с таким именем уже существует.</string>
+    <string name="schedule">Расписание</string>
+    <string name="successfully_added">успешно добавлено</string>
+    <string name="failed_add">не удалось добавить</string>
+    <string name="schedule_renamed">Расписание переименованно</string>
+    <string name="unable_schedule_rename">Не удалось переименновать расписание</string>
+    <string name="empty_field">Поле не может быть пустым</string>
+    <string name="empty_dates_list">Необходимо добавить хотя бы одну дату.</string>
+
+    <!-- other -->
+    <string name="error">Ошибка</string>
+    <string name="warning">Предупреждение</string>
+    <string name="apply">Применить</string>
+    <string name="ok">ОК</string>
+    <string name="cancel">Отмена</string>
+    <string name="yes_continue">Да, продолжить</string>
+    <string name="choose_folder">Выберите папку</string>
+
+    <!-- subgroup values -->
+    <string-array name="subgroup_list">
+        <item>---</item>
+        <item>А</item>
+        <item>Б</item>
+    </string-array>
+
+    <!-- type values -->
+    <string-array name="type_list">
+        <item>Лекция</item>
+        <item>Семинар</item>
+        <item>Лабораторная</item>
+    </string-array>
+
+    <!-- date type values -->
+    <string-array name="date_type_list">
+        <item>Однажды</item>
+        <item>Диапозон</item>
+    </string-array>
+
+    <!-- date frequency values -->
+    <string-array name="frequency_list">
+        <item>Каждую неделю</item>
+        <item>Через неделю</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,480 @@
+[
+    {
+        "title": "Математика",
+        "lecturer": "Иванова О.К",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "410",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.09-2019.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.11.18"
+            }
+        ]
+    },
+    {
+        "title": "Математика",
+        "lecturer": "Иванова О.К",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "410",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.02-2019.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.11.11"
+            }
+        ]
+    },
+    {
+        "title": "Управление человеческими ресурсами",
+        "lecturer": "Водолажский Е.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "305",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.02-2019.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.11.11"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование современного производства",
+        "lecturer": "Оганян Г.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.02-2019.10.21"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование современного производства",
+        "lecturer": "Оганян Г.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "410",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.10-2019.10.01"
+            }
+        ]
+    },
+    {
+        "title": "Управление человеческими ресурсами",
+        "lecturer": "Кузнецов Б.М",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "504",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.17-2019.10.22"
+            }
+        ]
+    },
+    {
+        "title": "Управление человеческими ресурсами",
+        "lecturer": "Кузнецов Б.М",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "441",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.11.05"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Управление человеческими ресурсами",
+        "lecturer": "Кузнецов Б.М",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "441",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.10.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.11.12"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование современного производства",
+        "lecturer": "Оганян Г.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 6",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.12.03"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование современного производства",
+        "lecturer": "Оганян Г.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 6",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.11.26"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.12.10"
+            }
+        ]
+    },
+    {
+        "title": "Макроэкономика",
+        "lecturer": "Шинкевич И.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "508",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.25-2019.11.27"
+            }
+        ]
+    },
+    {
+        "title": "Иностранный язык",
+        "lecturer": "Барышникова О.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "405",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.04-2019.12.18"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Фокин М.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "342",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.04-2019.11.20"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Фокин М.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "410",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.11-2019.11.27"
+            }
+        ]
+    },
+    {
+        "title": "Макроэкономика",
+        "lecturer": "Шинкевич И.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.05-2019.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Теория организации",
+        "lecturer": "Можаровская А.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.05-2019.11.21"
+            }
+        ]
+    },
+    {
+        "title": "Теория организации",
+        "lecturer": "Можаровская А.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0205",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.26-2019.11.14"
+            }
+        ]
+    },
+    {
+        "title": "Философия",
+        "lecturer": "Ливанова А.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "441",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.12-2019.12.12"
+            }
+        ]
+    },
+    {
+        "title": "Организация предпринимательской деятельности",
+        "lecturer": "Георгиев М.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "508",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.27-2019.11.29"
+            }
+        ]
+    },
+    {
+        "title": "Организация предпринимательской деятельности",
+        "lecturer": "Георгиев М.Д",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "506",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.10.04-2019.12.20"
+            }
+        ]
+    },
+    {
+        "title": "Организация предпринимательской деятельности",
+        "lecturer": "Георгиев М.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "508",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.10.04"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "С/3 СТАНКИН",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.07"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "С/3 СТАНКИН",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.07"
+            }
+        ]
+    },
+    {
+        "title": "Философия",
+        "lecturer": "Шитов С.Б",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.07-2019.12.07"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "C/3 СТАНКИН",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.14-2019.12.21"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "C/3 СТАНКИН",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.14-2019.12.21"
+            }
+        ]
+    }
+]

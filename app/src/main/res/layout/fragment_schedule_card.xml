@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/schedule_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="4dp"
+    app:cardMaxElevation="8dp"
+    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="25dp">
+
+        <TextView
+            android:id="@+id/schedule_card_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorTextPrimary" />
+
+        <LinearLayout
+            android:id="@+id/schedule_card_values"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/divider"
+            android:drawableBottom="@drawable/divider"
+            android:orientation="vertical"
+            android:showDividers="beginning|middle|end">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/no_pairs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_pairs"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:background="#FFFFFF"
+            android:padding="15dp"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

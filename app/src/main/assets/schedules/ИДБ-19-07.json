@@ -1,0 +1,413 @@
+[
+    {
+        "title": "Информатика",
+        "lecturer": "Адамова Ю.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "307",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.09-2019.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.11.11-2019.12.02"
+            }
+        ]
+    },
+    {
+        "title": "Русский язык и культура речи",
+        "lecturer": "Волкова Е.П",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0202",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.09-2019.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.11.11-2019.12.02"
+            }
+        ]
+    },
+    {
+        "title": "Алгебра и геометрия",
+        "lecturer": "Яновская Е.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.09-2019.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.11.11-2019.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Русский язык и культура речи",
+        "lecturer": "Васильева Т.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0209",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.03-2019.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Иностранный язык",
+        "lecturer": "Осина Г.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "239",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.03-2019.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Информатика",
+        "lecturer": "Адамова Ю.С",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "249(б)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.17-2019.11.26"
+            }
+        ]
+    },
+    {
+        "title": "Информатика",
+        "lecturer": "Адамова Ю.С",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "249(б)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.24-2019.12.03"
+            }
+        ]
+    },
+    {
+        "title": "Информатика",
+        "lecturer": "Саркисова И.О",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.04-2019.12.04"
+            }
+        ]
+    },
+    {
+        "title": "Структурное программирование",
+        "lecturer": "Тясто С.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.04-2019.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Информатика",
+        "lecturer": "Саркисова И.О",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.10.30-2019.12.04"
+            }
+        ]
+    },
+    {
+        "title": "Алгебра и геометрия",
+        "lecturer": "Елькин А.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "308",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.11-2019.12.11"
+            }
+        ]
+    },
+    {
+        "title": "Математический анализ",
+        "lecturer": "Елькин А.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "308",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.11-2019.12.11"
+            }
+        ]
+    },
+    {
+        "title": "Психология и педагогика",
+        "lecturer": "Ревина М.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "Фрезер 303",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.05-2019.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Психология и педагогика",
+        "lecturer": "Михайлова М.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "Фрезер 311",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.12-2019.10.17"
+            }
+        ]
+    },
+    {
+        "title": "Математический анализ",
+        "lecturer": "Иванова О.К",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "Фрезер 303",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.06-2019.12.06"
+            }
+        ]
+    },
+    {
+        "title": "Цифровая экономика",
+        "lecturer": "Дорожкина О.К",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "Фрезер 303",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.06-2019.12.06"
+            }
+        ]
+    },
+    {
+        "title": "Физическая культура и спорт",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "С/3 Фрезер",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.06"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.09.13"
+            }
+        ]
+    },
+    {
+        "title": "Физическая культура и спорт",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "С/3 Фрезер",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.20-2019.12.20"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "С/3 Фрезер",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.06-2019.12.20"
+            }
+        ]
+    },
+    {
+        "title": "Структурное программирование",
+        "lecturer": "Петухов П.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "Фрезер 311",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.09.28-2019.11.09"
+            }
+        ]
+    },
+    {
+        "title": "Цифровая экономика",
+        "lecturer": "Дорожкина О.К",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "Фрезер 311",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.21-2019.11.23"
+            }
+        ]
+    },
+    {
+        "title": "Структурное программирование",
+        "lecturer": "Петухов П.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "Фрезер 204",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.28-2019.11.09"
+            }
+        ]
+    },
+    {
+        "title": "Структурное программирование",
+        "lecturer": "Петухов П.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "Фрезер 204",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.10.05-2019.11.16"
+            }
+        ]
+    }
+]

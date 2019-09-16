@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.github.nikololoshka.pepegaschedule.home.HomeFragment"
+        android:label="@string/nav_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/toScheduleFragment"
+            app:destination="@id/scheduleFragment" />
+        <action
+            android:id="@+id/toModuleJournalFragment"
+            app:destination="@id/moduleJournalFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.github.nikololoshka.pepegaschedule.schedule.fragments.ScheduleFragment"
+        android:label="@string/nav_schedule"
+        tools:layout="@layout/fragment_schedule" >
+        <action
+            android:id="@+id/toScheduleManagerFragment"
+            app:destination="@id/scheduleRepositoryFragment" />
+        <action
+            android:id="@+id/toScheduleViewFragment"
+            app:destination="@id/scheduleViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/moduleJournalFragment"
+        android:name="com.github.nikololoshka.pepegaschedule.ModuleJournalFragment"
+        android:label="@string/nav_module_journal"
+        tools:layout="@layout/fragment_module_journal" />
+
+    <fragment
+        android:id="@+id/scheduleRepositoryFragment"
+        android:name="com.github.nikololoshka.pepegaschedule.schedule.fragments.repository.ScheduleRepositoryFragment"
+        android:label="@string/nav_schedule_manager"
+        tools:layout="@layout/fragment_schedule_repository" />
+    <fragment
+        android:id="@+id/scheduleViewFragment"
+        android:name="com.github.nikololoshka.pepegaschedule.schedule.fragments.view.ScheduleViewFragment"
+        tools:layout="@layout/fragment_schedule_view" />
+
+</navigation>

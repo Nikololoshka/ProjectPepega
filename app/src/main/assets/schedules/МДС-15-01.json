@@ -1,0 +1,625 @@
+[
+    {
+        "title": "Корпоративное право",
+        "lecturer": "Куткин В.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "308",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.02-2019.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.11.11-2019.11.25"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация производственных процессов в машиностроении",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "415",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.10.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация производственных процессов в машиностроении",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "415",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.10.07"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.10.21"
+            }
+        ]
+    },
+    {
+        "title": "САПР технологических процессов",
+        "lecturer": "Левчук В.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.09-2019.10.21"
+            }
+        ]
+    },
+    {
+        "title": "САПР технологических процессов",
+        "lecturer": "Левчук В.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.16-2019.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Программирование станков с ЧПУ",
+        "lecturer": "Мартинова Л.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "415",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.11.11-2019.12.09"
+            }
+        ]
+    },
+    {
+        "title": "Программирование станков с ЧПУ",
+        "lecturer": "Мартинова Л.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "415",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.11.18-2019.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация производственных процессов в машиностроении",
+        "lecturer": "Луцюк С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0408",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.03-2019.11.05"
+            }
+        ]
+    },
+    {
+        "title": "Технологический маркетинг",
+        "lecturer": "Попов Д.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.17-2019.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Технологический маркетинг",
+        "lecturer": "Попов Д.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0812",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.24-2019.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Технология машиностроения (специальная часть)",
+        "lecturer": "Новиков В.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "416",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.24-2019.11.26"
+            }
+        ]
+    },
+    {
+        "title": "Технологический маркетинг",
+        "lecturer": "Попов Д.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0812",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Математическое моделирование технологических процессов",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.04-2019.11.06"
+            }
+        ]
+    },
+    {
+        "title": "Корпоративное право",
+        "lecturer": "Куткин В.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "305",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.11-2019.10.30"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация производственных процессов в машиностроении",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.11-2019.10.16"
+            }
+        ]
+    },
+    {
+        "title": "Корпоративное право",
+        "lecturer": "Куткин В.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "305",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.11.27-2019.12.18"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование и производство заготовок",
+        "lecturer": "Кареев Ю.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.10.30"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.11.13"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование и производство заготовок",
+        "lecturer": "Кареев Ю.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.11.06"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование и производство заготовок",
+        "lecturer": "Седых М.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.05-2019.10.24"
+            }
+        ]
+    },
+    {
+        "title": "САПР технологических процессов",
+        "lecturer": "Кутин А.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.05"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.09.19-2019.12.12"
+            }
+        ]
+    },
+    {
+        "title": "Программирование станков с ЧПУ",
+        "lecturer": "Мартинова Л.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.12-2019.10.17"
+            }
+        ]
+    },
+    {
+        "title": "САПР технологических процессов",
+        "lecturer": "Левчук В.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "416",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.12-2019.10.17"
+            }
+        ]
+    },
+    {
+        "title": "Математическое моделирование технологических процессов",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.10.24-2019.11.14"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование и производство заготовок",
+        "lecturer": "Кареев Ю.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "416",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.10.24-2019.11.14"
+            }
+        ]
+    },
+    {
+        "title": "Программирование станков с ЧПУ",
+        "lecturer": "Мартинова Л.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.06-2019.11.22"
+            }
+        ]
+    },
+    {
+        "title": "Технология машиностроения (специальная часть)",
+        "lecturer": "Тимирязев В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.12.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.12.20"
+            }
+        ]
+    },
+    {
+        "title": "Технология машиностроения (специальная часть)",
+        "lecturer": "Тимирязев В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.06-2019.12.20"
+            }
+        ]
+    },
+    {
+        "title": "Математическое моделирование технологических процессов",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "415",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.13-2019.10.11"
+            }
+        ]
+    },
+    {
+        "title": "Технология машиностроения (специальная часть)",
+        "lecturer": "Новиков В.Ю",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.20-2019.11.01"
+            }
+        ]
+    },
+    {
+        "title": "Математическое моделирование технологических процессов",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "415",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.20-2019.10.18"
+            }
+        ]
+    },
+    {
+        "title": "Технология машиностроения (специальная часть)",
+        "lecturer": "Новиков В.Ю",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.27-2019.11.08"
+            }
+        ]
+    },
+    {
+        "title": "Технология размерной нанообработки",
+        "lecturer": "Кириллов А.К",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.11.15-2019.12.13"
+            }
+        ]
+    },
+    {
+        "title": "Технология размерной нанообработки",
+        "lecturer": "Кириллов А.К",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.11.22-2019.12.20"
+            }
+        ]
+    },
+    {
+        "title": "Технология размерной нанообработки",
+        "lecturer": "Кириллов А.К",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.07-2019.11.23"
+            }
+        ]
+    },
+    {
+        "title": "Технология размерной нанообработки",
+        "lecturer": "Кириллов А.К",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "416",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2019.09.14-2019.10.19"
+            }
+        ]
+    }
+]

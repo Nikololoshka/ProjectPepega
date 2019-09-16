@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="@string/date_type"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinner_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/date_type_list"/>
+    </LinearLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/single_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:useDefaultMargins="true" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/single_date_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:hint="@string/example_date"
+            android:inputType="date"
+            android:maxEms="10"
+            android:minEms="5"
+            android:singleLine="true"
+            app:layout_gravity="fill_horizontal"
+            tools:ignore="Autofill" />
+
+        <ImageButton
+            android:id="@+id/single_date_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_calendar"
+            style="?android:attr/borderlessButtonStyle"
+            android:minWidth="32dp"
+            android:minHeight="32dp"
+            android:contentDescription="@string/calendar_picker" />
+    </androidx.gridlayout.widget.GridLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/range_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:useDefaultMargins="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_date"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="18sp"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <EditText
+            android:id="@+id/range_date_edit_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:hint="@string/example_date"
+            android:inputType="date"
+            android:maxEms="10"
+            android:minEms="5"
+            android:singleLine="true"
+            app:layout_gravity="fill_horizontal"
+            app:layout_column="1"
+            app:layout_row="0"
+            tools:ignore="Autofill" />
+
+        <ImageButton
+            android:id="@+id/range_date_start_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_column="2"
+            app:layout_row="0"
+            app:srcCompat="@drawable/ic_calendar"
+            style="?android:attr/borderlessButtonStyle"
+            android:minWidth="32dp"
+            android:minHeight="32dp"
+            android:contentDescription="@string/calendar_picker" />
+
+        <EditText
+            android:id="@+id/range_date_edit_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:hint="@string/example_date"
+            android:inputType="date"
+            android:maxEms="10"
+            android:minEms="5"
+            android:singleLine="true"
+            app:layout_gravity="fill_horizontal"
+            app:layout_column="1"
+            app:layout_row="1"
+            tools:ignore="Autofill" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/end_date"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="18sp"
+            app:layout_column="0"
+            app:layout_row="1" />
+
+        <ImageButton
+            android:id="@+id/range_date_end_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_column="2"
+            app:layout_row="1"
+            app:srcCompat="@drawable/ic_calendar"
+            style="?android:attr/borderlessButtonStyle"
+            android:minWidth="32dp"
+            android:minHeight="32dp"
+            android:contentDescription="@string/calendar_picker" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/frequency"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="18sp"
+            app:layout_column="0"
+            app:layout_row="2" />
+
+        <Spinner
+            android:id="@+id/spinner_frequency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/frequency_list"
+            app:layout_column="1"
+            app:layout_columnSpan="2"
+            app:layout_gravity="fill_horizontal"
+            app:layout_row="2" />
+    </androidx.gridlayout.widget.GridLayout>
+
+</LinearLayout>
