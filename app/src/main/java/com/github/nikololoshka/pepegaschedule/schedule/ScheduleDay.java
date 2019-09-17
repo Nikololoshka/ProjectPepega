@@ -2,6 +2,7 @@ package com.github.nikololoshka.pepegaschedule.schedule;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -157,6 +158,9 @@ public class ScheduleDay implements Parcelable {
     public static class SortPairComparator implements Comparator<Pair> {
         @Override
         public int compare(Pair o1, Pair o2) {
+            if (o1.time().startNumber() == o2.time().startNumber()) {
+                return o1.subgroup().subgroup().compareTo(o2.subgroup().subgroup());
+            }
             return Integer.compare(o1.time().startNumber(),
                     o2.time().startNumber());
         }

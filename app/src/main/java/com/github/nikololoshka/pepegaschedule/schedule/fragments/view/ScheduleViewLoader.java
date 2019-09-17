@@ -15,6 +15,7 @@ import org.json.JSONException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TreeSet;
 
@@ -73,8 +74,21 @@ public class ScheduleViewLoader
             locale = getContext().getResources().getConfiguration().locale;
         }
 
+
+        Calendar date = new GregorianCalendar();
+        long currentTime = new GregorianCalendar(date.get(Calendar.YEAR),
+                date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH)).getTimeInMillis();
+        long currentTimeDiff = System.currentTimeMillis();
+
+        int i = 0;
         while (startDate.compareTo(endDate) <= 0) {
             dataView.daysPair.add(dataView.schedule.pairsByDate(startDate));
+
+            long timeDiff = Math.abs(startDate.getTimeInMillis() - currentTime);
+            if (timeDiff < currentTimeDiff) {
+                currentTimeDiff = timeDiff;
+                dataView.correctIndex = i;
+            }
 
             String dayFormat = new SimpleDateFormat("EEEE, dd MMMM",
                     locale) .format(startDate.getTime());
@@ -85,6 +99,8 @@ public class ScheduleViewLoader
             if (startDate.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
                 startDate.add(Calendar.DAY_OF_MONTH, 1);
             }
+
+            i++;
         }
 
         return dataView;
@@ -94,5 +110,6 @@ public class ScheduleViewLoader
         Schedule schedule;
         ArrayList<TreeSet<Pair>> daysPair;
         ArrayList<String> daysFormat;
+        int correctIndex;
     }
 }

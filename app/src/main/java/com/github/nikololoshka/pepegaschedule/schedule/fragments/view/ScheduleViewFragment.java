@@ -399,6 +399,7 @@ public class ScheduleViewFragment extends Fragment
 
         mDataView = data;
         mScheduleViewAdapter.update(mDataView.daysPair, mDataView.daysFormat);
+        mRecycler.scrollToPosition(mDataView.correctIndex);
 
         mLoadingView.setVisibility(View.GONE);
         mRecycler.setVisibility(View.VISIBLE);
