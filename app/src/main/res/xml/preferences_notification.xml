@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/common_notification"
+        app:iconSpaceReserved="false" >
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="common_notification_turn"
+            android:title="@string/pref_notification_turn"
+            app:defaultValue="true"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/deanery_news"
+        app:enabled="false"
+        app:iconSpaceReserved="false" >
+
+        <SwitchPreferenceCompat
+            android:key="deanery_news_turn"
+            android:title="@string/pref_notification_turn"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/university_news"
+        app:enabled="false"
+        app:iconSpaceReserved="false" >
+
+        <SwitchPreferenceCompat
+            android:key="university_news_turn"
+            android:title="@string/pref_notification_turn"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

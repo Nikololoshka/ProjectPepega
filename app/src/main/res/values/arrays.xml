@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- start time -->
+    <string-array name="time_start_list">
+        <item>8:30</item>
+        <item>10:20</item>
+        <item>12:20</item>
+        <item>14:10</item>
+        <item>16:00</item>
+        <item>18:00</item>
+        <item>19:40</item>
+        <item>21:20</item>
+    </string-array>
+
+    <!-- end time -->
+    <string-array name="time_end_list">
+        <item>10:10</item>
+        <item>12:00</item>
+        <item>14:00</item>
+        <item>15:50</item>
+        <item>17:40</item>
+        <item>19:30</item>
+        <item>21:10</item>
+        <item>22:50</item>
+    </string-array>
+
+    <!-- subgroup values -->
+    <string-array name="subgroup_list">
+        <item>---</item>
+        <item>A</item>
+        <item>B</item>
+    </string-array>
+
+    <!-- type values -->
+    <string-array name="type_list">
+        <item>Lecture</item>
+        <item>Seminar</item>
+        <item>Laboratory</item>
+    </string-array>
+
+    <!-- date type values -->
+    <string-array name="date_type_list">
+        <item>Single</item>
+        <item>Range</item>
+    </string-array>
+
+    <!-- date frequency values -->
+    <string-array name="frequency_list">
+        <item>Every week</item>
+        <item>In a week</item>
+    </string-array>
+
+    <!-- schedule view methods -->
+    <string-array name="pref_schedule_method_list">
+        <item>Vertical</item>
+        <item>Horizontal</item>
+    </string-array>
+
+    <string-array name="pref_schedule_method_list_entry">
+        <item>pref_vertical</item>
+        <item>pref_horizontal</item>
+    </string-array>
+
+</resources>

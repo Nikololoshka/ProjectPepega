@@ -4,164 +4,173 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="10dp">
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_layout_padding"
+    android:orientation="vertical" >
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        style="@style/Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="4dp">
+        android:layout_margin="@dimen/card_elevation">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:text="@string/date_type"
-            android:textColor="@color/colorTextPrimary"
-            android:textSize="18sp" />
-
-        <Spinner
-            android:id="@+id/spinner_date"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/date_type_list"/>
-    </LinearLayout>
+            android:orientation="vertical" >
 
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/single_date"
+            <TextView
+                style="@style/Text.Hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_type" />
+
+            <Spinner
+                android:id="@+id/spinner_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/date_type_list"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_label_vertical_spacing" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+        android:id="@+id/stateful_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:useDefaultMargins="true" >
+        android:layout_marginTop="@dimen/input_label_vertical_spacing" >
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/single_date_mode"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/date"
-            android:textColor="@color/colorTextPrimary"
-            android:textSize="18sp" />
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true" >
 
-        <EditText
-            android:id="@+id/single_date_edit"
-            android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+
+                <EditText
+                    android:id="@+id/single_date_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/date"
+                    android:inputType="date"
+                    android:singleLine="true"
+                    tools:ignore="Autofill" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                style="@style/Button.Borderless"
+                android:id="@+id/single_date_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_calendar"
+                android:contentDescription="@string/calendar_picker"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/range_date_mode"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="8"
-            android:hint="@string/example_date"
-            android:inputType="date"
-            android:maxEms="10"
-            android:minEms="5"
-            android:singleLine="true"
-            app:layout_gravity="fill_horizontal"
-            tools:ignore="Autofill" />
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true" >
 
-        <ImageButton
-            android:id="@+id/single_date_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_calendar"
-            style="?android:attr/borderlessButtonStyle"
-            android:minWidth="32dp"
-            android:minHeight="32dp"
-            android:contentDescription="@string/calendar_picker" />
-    </androidx.gridlayout.widget.GridLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/range_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:useDefaultMargins="true">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/start_date"
-            android:textColor="@color/colorTextPrimary"
-            android:textSize="18sp"
-            app:layout_column="0"
-            app:layout_row="0" />
+                    <EditText
+                        android:id="@+id/range_date_edit_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/start_date"
+                        android:inputType="date"
+                        android:singleLine="true"
+                        tools:ignore="Autofill" />
 
-        <EditText
-            android:id="@+id/range_date_edit_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="8"
-            android:hint="@string/example_date"
-            android:inputType="date"
-            android:maxEms="10"
-            android:minEms="5"
-            android:singleLine="true"
-            app:layout_gravity="fill_horizontal"
-            app:layout_column="1"
-            app:layout_row="0"
-            tools:ignore="Autofill" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <ImageButton
-            android:id="@+id/range_date_start_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_column="2"
-            app:layout_row="0"
-            app:srcCompat="@drawable/ic_calendar"
-            style="?android:attr/borderlessButtonStyle"
-            android:minWidth="32dp"
-            android:minHeight="32dp"
-            android:contentDescription="@string/calendar_picker" />
+                <ImageButton
+                    style="@style/Button.Borderless"
+                    android:id="@+id/range_date_start_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/ic_calendar"
+                    android:contentDescription="@string/calendar_picker"
+                    android:layout_gravity="center" />
 
-        <EditText
-            android:id="@+id/range_date_edit_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="8"
-            android:hint="@string/example_date"
-            android:inputType="date"
-            android:maxEms="10"
-            android:minEms="5"
-            android:singleLine="true"
-            app:layout_gravity="fill_horizontal"
-            app:layout_column="1"
-            app:layout_row="1"
-            tools:ignore="Autofill" />
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/end_date"
-            android:textColor="@color/colorTextPrimary"
-            android:textSize="18sp"
-            app:layout_column="0"
-            app:layout_row="1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <ImageButton
-            android:id="@+id/range_date_end_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_column="2"
-            app:layout_row="1"
-            app:srcCompat="@drawable/ic_calendar"
-            style="?android:attr/borderlessButtonStyle"
-            android:minWidth="32dp"
-            android:minHeight="32dp"
-            android:contentDescription="@string/calendar_picker" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frequency"
-            android:textColor="@color/colorTextPrimary"
-            android:textSize="18sp"
-            app:layout_column="0"
-            app:layout_row="2" />
+                    <EditText
+                        android:id="@+id/range_date_edit_end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/end_date"
+                        android:inputType="date"
+                        android:singleLine="true"
+                        tools:ignore="Autofill" />
 
-        <Spinner
-            android:id="@+id/spinner_frequency"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:entries="@array/frequency_list"
-            app:layout_column="1"
-            app:layout_columnSpan="2"
-            app:layout_gravity="fill_horizontal"
-            app:layout_row="2" />
-    </androidx.gridlayout.widget.GridLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    style="@style/Button.Borderless"
+                    android:id="@+id/range_date_end_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/ic_calendar"
+                    android:contentDescription="@string/calendar_picker"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/Text.Hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/frequency" />
+
+            <Spinner
+                android:id="@+id/spinner_frequency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/frequency_list" />
+
+        </LinearLayout>
+
+    </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
 
 </LinearLayout>

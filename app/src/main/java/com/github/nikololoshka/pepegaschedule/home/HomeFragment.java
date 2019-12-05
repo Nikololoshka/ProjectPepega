@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,27 +12,37 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.viewpager.widget.ViewPager;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.schedule.fragments.view.PairCardView;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayPairsAdapter;
+import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayPairsPager;
+import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayTitlesAdapter;
+import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayTitlesPager;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
+import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.Objects;
 
+import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment.ARG_SCHEDULE_NAME;
+import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment.ARG_SCHEDULE_PATH;
+
 
 public class HomeFragment extends Fragment
-        implements LoaderManager.LoaderCallbacks<HomeLoader.DataView> {
+        implements LoaderManager.LoaderCallbacks<HomeLoader.DataView> , View.OnClickListener {
 
     private static final int HOME_LOADER = 0;
 
-    private LinearLayout mPairsView;
-    private TextView mNoPairsView;
+    private StatefulLayout mStatefulLayout;
     private TextView mScheduleNameView;
-    private TextView mNoFavoriteScheduleView;
-    private LinearLayout mPairsContainer;
-    private TextView mTodayView;
-    private View mScheduleLoadView;
+
+    private HomeDayPairsPager mDayPager;
+    private HomeDayTitlesPager mTitlePager;
+    private HomeDayPairsAdapter mPagerDaysAdapter;
+    private HomeDayTitlesAdapter mPagerTitlesAdapter;
 
     private Loader<HomeLoader.DataView> mHomeLoader;
     private HomeLoader.DataView mDataView;
@@ -46,19 +55,82 @@ public class HomeFragment extends Fragment
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        mTodayView = view.findViewById(R.id.schedule_card_title);
+        mStatefulLayout = view.findViewById(R.id.stateful_layout);
+        mStatefulLayout.addXMLViews();
+        mStatefulLayout.setLoadState();
 
-        mPairsView = view.findViewById(R.id.schedule_card);
-        mNoPairsView = view.findViewById(R.id.no_pairs);
-        mPairsContainer = view.findViewById(R.id.schedule_card_values);
+        mTitlePager = view.findViewById(R.id.dayTitle);
+        mDayPager = view.findViewById(R.id.dayPager);
+
+        mPagerTitlesAdapter = new HomeDayTitlesAdapter();
+        mTitlePager.setAdapter(mPagerTitlesAdapter);
+
+        mPagerDaysAdapter = new HomeDayPairsAdapter();
+        mDayPager.setAdapter(mPagerDaysAdapter);
+
+        final TabLayout dayIndicator = view.findViewById(R.id.dayIndicator);
+        dayIndicator.setupWithViewPager(mDayPager, true);
+
         mScheduleNameView = view.findViewById(R.id.schedule_name);
-        mNoFavoriteScheduleView = view.findViewById(R.id.no_favorite_schedule);
-
-        mScheduleLoadView = view.findViewById(R.id.loading_fragment);
-        mScheduleLoadView.setVisibility(View.GONE);
+        mScheduleNameView.setOnClickListener(this);
 
         mHomeLoader = LoaderManager.getInstance(this)
                 .initLoader(HOME_LOADER, null, this);
+
+        mTitlePager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            private int mScrollState = ViewPager.SCROLL_STATE_IDLE;
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if (mScrollState == ViewPager.SCROLL_STATE_IDLE) {
+                    return;
+                }
+
+                if (mScrollState != ViewPager.SCROLL_STATE_SETTLING) {
+                    mDayPager.setDragging(true);
+                }
+                mDayPager.scrollTo(mTitlePager.getScrollX(), mTitlePager.getScrollY());
+                dayIndicator.setScrollPosition(position, positionOffset, false);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                mScrollState = state;
+                if (state == ViewPager.SCROLL_STATE_IDLE) {
+                    mDayPager.setCurrentItem(mTitlePager.getCurrentItem(), false);
+                }
+            }
+        });
+
+        mDayPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            private int mScrollState = ViewPager.SCROLL_STATE_IDLE;
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if (mScrollState == ViewPager.SCROLL_STATE_IDLE) {
+                    return;
+                }
+                mTitlePager.scrollTo(mDayPager.getScrollX(), mDayPager.getScrollY());
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                mScrollState = state;
+                if (state == ViewPager.SCROLL_STATE_IDLE) {
+                    mTitlePager.setCurrentItem(mDayPager.getCurrentItem(), false);
+                }
+            }
+        });
 
         return view;
     }
@@ -80,55 +152,51 @@ public class HomeFragment extends Fragment
         }
 
         mDataView = data;
-
-        mScheduleLoadView.setVisibility(View.GONE);
+        mStatefulLayout.setState(R.id.schedule_card);
         updateScheduleView();
     }
 
     private void updateScheduleData() {
-        mScheduleLoadView.setVisibility(View.VISIBLE);
-        mPairsView.setVisibility(View.GONE);
-        mNoFavoriteScheduleView.setVisibility(View.GONE);
+        mStatefulLayout.setLoadState();
         mScheduleNameView.setText("");
 
         mHomeLoader.forceLoad();
     }
 
     private void updateScheduleView() {
-        mTodayView.setText(mDataView.today);
-
-        if (mDataView.favorite != null && mDataView.favorite.isEmpty()) {
-            mNoFavoriteScheduleView.setVisibility(View.VISIBLE);
-            mPairsView.setVisibility(View.GONE);
+        if (mDataView.favorite == null || mDataView.favorite.isEmpty()) {
+            mStatefulLayout.setState(R.id.no_favorite_schedule);
             mScheduleNameView.setText("");
-            return;
         } else {
-            mNoFavoriteScheduleView.setVisibility(View.GONE);
-            mPairsView.setVisibility(View.VISIBLE);
+            mPagerDaysAdapter.setDays(mDataView.days);
+            mPagerTitlesAdapter.setTitles(mDataView.titles);
+
+            mTitlePager.update(2);
+            mDayPager.update(2);
+
+            mStatefulLayout.setState(R.id.schedule_card);
             mScheduleNameView.setText(mDataView.favorite);
-        }
-
-        if (mDataView.pairs == null || mDataView.pairs.isEmpty()) {
-            mNoPairsView.setVisibility(View.VISIBLE);
-            return;
-        } else {
-            mNoPairsView.setVisibility(View.GONE);
-        }
-
-        if (getActivity() == null) {
-            return;
-        }
-
-        mPairsContainer.removeAllViews();
-        for (Pair pair : mDataView.pairs) {
-            PairCardView cardView = new PairCardView(getActivity(), pair);
-            cardView.setClickable(false);
-            cardView.setFocusable(false);
-            mPairsContainer.addView(cardView);
         }
     }
 
     @Override
     public void onLoaderReset(@NonNull Loader<HomeLoader.DataView> loader) {
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.schedule_name) {
+            if (getActivity() == null) {
+                return;
+            }
+
+            Bundle args = new Bundle();
+            String path = SchedulePreference.createPath(getActivity(), mDataView.favorite);
+            args.putString(ARG_SCHEDULE_PATH, path);
+            args.putString(ARG_SCHEDULE_NAME, mDataView.favorite);
+
+            NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host);
+            navController.navigate(R.id.fromHomeFragmentToScheduleViewFragment, args);
+        }
     }
 }

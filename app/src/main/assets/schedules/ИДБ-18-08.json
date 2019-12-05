@@ -12,7 +12,11 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
+                "date": "2019.09.02-2019.09.23"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.10.07-2019.10.28"
             },
             {
                 "frequency": "every",
@@ -97,7 +101,7 @@
         "lecturer": "",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "С/3 СТАНКИН",
+        "classroom": "C/3 СТАНКИН",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -110,11 +114,28 @@
         ]
     },
     {
+        "title": "Политология",
+        "lecturer": "Пинчук А.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.11.26"
+            }
+        ]
+    },
+    {
         "title": "Прикладная физическая культура",
         "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "C/3 СТАНКИН",
+        "classroom": "С/3 СТАНКИН",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -206,8 +227,20 @@
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2019.09.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.09.25"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.10.16"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.18-2019.11.20"
+                "date": "2019.10.30-2019.12.11"
             }
         ]
     },
@@ -225,6 +258,23 @@
             {
                 "frequency": "every",
                 "date": "2019.09.04-2019.12.18"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Лоскутов А.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "417",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2019.09.11-2019.10.23"
             }
         ]
     },
@@ -259,23 +309,6 @@
             {
                 "frequency": "throughout",
                 "date": "2019.09.11-2019.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Лоскутов А.И",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "417",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.11-2019.10.23"
             }
         ]
     },
@@ -386,7 +419,7 @@
         "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "C/3 СТАНКИН",
+        "classroom": "С/3 СТАНКИН",
         "time": {
             "start": "12:20",
             "end": "14:00"

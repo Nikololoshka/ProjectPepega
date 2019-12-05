@@ -3,26 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:padding="10dp"
-    tools:context=".schedule.activities.ScheduleEditorActivity">
+    android:orientation="vertical"
+    android:padding="@dimen/default_layout_padding"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".schedule.editor.ScheduleEditorActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/name"
-        android:textSize="18sp"
-        android:layout_marginEnd="10dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/schedule_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="@string/schedule_name"
-        android:inputType="textPersonName"
-        tools:ignore="Autofill" />
+        <EditText
+            android:id="@+id/schedule_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/schedule_name"
+            android:inputType="textPersonName"
+            tools:ignore="Autofill" />
 
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:fillViewport="true"
     tools:context=".home.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/default_layout_padding" >
 
         <androidx.cardview.widget.CardView
+            style="@style/CardStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="4dp"
-            app:cardMaxElevation="8dp"
-            app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true" >
+            android:layout_height="wrap_content" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -28,22 +27,22 @@
                 android:layout_marginBottom="25dp" >
 
                 <androidx.cardview.widget.CardView
+                    style="@style/CardStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="10dp" >
+                    app:cardUseCompatPadding="false">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
+                        android:orientation="horizontal">
 
                         <TextView
+                            style="@style/Text.Large"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/schedule"
-                            android:textColor="@color/colorTextPrimary"
-                            android:textSize="20sp" />
+                            android:padding="5dp" />
 
                         <Space
                             android:layout_width="0dp"
@@ -51,72 +50,64 @@
                             android:layout_weight="1" />
 
                         <TextView
+                            style="@style/Text.Large"
                             android:id="@+id/schedule_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextPrimary"
-                            android:textSize="20sp" />
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:padding="5dp" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
-                <LinearLayout
-                    android:id="@+id/schedule_card"
+                <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+                    android:id="@+id/stateful_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp" >
-
-                    <TextView
-                        android:id="@+id/schedule_card_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:text="@string/debug_text"
-                        android:textSize="16sp"
-                        android:textColor="@color/colorTextPrimary" />
+                    android:layout_height="wrap_content" >
 
                     <LinearLayout
-                        android:id="@+id/schedule_card_values"
+                        android:id="@+id/schedule_card"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:divider="@drawable/divider"
-                        android:drawableBottom="@drawable/divider"
-                        android:orientation="vertical"
-                        android:showDividers="beginning|middle|end">
+                        android:orientation="vertical" >
+
+                        <com.github.nikololoshka.pepegaschedule.home.pager.HomeDayTitlesPager
+                            android:id="@+id/dayTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/dayIndicator"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            app:tabBackground="@color/colorTabLayoutBackground"
+                            app:tabIndicatorHeight="1dp"
+                            app:tabMaxWidth="0dp"
+                            app:tabGravity="fill"
+                            app:tabMode="fixed" />
+
+                        <com.github.nikololoshka.pepegaschedule.home.pager.HomeDayPairsPager
+                            android:id="@+id/dayPager"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true" />
 
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/no_pairs"
+                        android:id="@+id/no_favorite_schedule"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/no_pairs"
-                        android:textSize="16sp"
+                        android:padding="15dp"
+                        android:layout_margin="5dp"
+                        android:text="@string/no_favorite_schedule"
                         android:textAlignment="center"
-                        android:padding="15dp"/>
+                        android:textSize="16sp" />
 
-                </LinearLayout>
-
-
-                <TextView
-                    android:id="@+id/no_favorite_schedule"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:layout_margin="5dp"
-                    android:text="@string/no_favorite_schedule"
-                    android:textAlignment="center"
-                    android:textSize="16sp" />
-
-                <include
-                    layout="@layout/fragment_loading"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
+                </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
 
             </LinearLayout>
 

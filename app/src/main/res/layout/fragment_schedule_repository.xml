@@ -5,34 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".schedule.fragments.repository.ScheduleRepositoryFragment" >
+    android:padding="@dimen/default_layout_padding"
+    tools:context=".schedule.repository.ScheduleRepositoryFragment" >
 
-    <LinearLayout
-        android:id="@+id/repository_container"
+    <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+        android:id="@+id/stateful_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:gravity="center" >
 
-        <TextView
-            android:id="@+id/repository_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableBottom="@drawable/divider"
-            android:padding="10dp"
-            android:textSize="14sp"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_repository"
+        <LinearLayout
+            android:id="@+id/repository_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_schedule_repository"
-            tools:itemCount="3"/>
+            android:orientation="vertical"
+            android:divider="@drawable/divider"
+            android:showDividers="middle" >
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/repository_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_layout_padding"/>
 
-    <include
-        layout="@layout/fragment_loading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_repository"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/item_schedule_repository"
+                tools:itemCount="3"/>
+
+        </LinearLayout>
+
+    </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
 
 </LinearLayout>

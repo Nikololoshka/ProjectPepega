@@ -9,10 +9,10 @@
     <string name="nav_schedule">Расписания</string>
     <string name="nav_module_journal">Модульный журнал</string>
     <string name="nav_schedule_manager">Репозиторий расписаний</string>
-    <string name="nav_schedule_view">Просмотр расписания</string>
     <string name="university_map">Карта</string>
     <string name="information">Справка</string>
     <string name="about_application">О приложении</string>
+    <string name="settings">Настройки</string>
 
     <!-- home -->
     <string name="no_favorite_schedule">Нету избранного расписания</string>
@@ -35,9 +35,11 @@
 
     <!-- repository -->
     <string name="update">Обновить</string>
-    <string name="repository_version">Текущая версия: Осень-2019 (последнее обновление 16.09.19)</string>
+    <string name="repository_version">Текущая версия: Осень-2019 (последнее обновление 07.10.19)</string>
+    <string name="loading_schedule">Загрузка расписания</string>
 
     <!-- schedules view -->
+    <string name="schedule_view">Просмотр расписания</string>
     <string name="no_pairs">Нет пар</string>
     <string name="add_pair">Добавить пару</string>
     <string name="remove_pair">Удалить пару</string>
@@ -54,6 +56,7 @@
     <string name="not_dates">Нет дат</string>
     <string name="add_date">Добавить дату</string>
     <string name="remove_date">Удалить дату</string>
+    <string name="date_was_removed">Дата была удалена</string>
 
     <!-- date editor -->
     <string name="enter_valid_date">Введите правильно дату: DD.MM.YYYY</string>
@@ -71,7 +74,8 @@
 
     <!-- date alert -->
     <string name="invalid_date">Невозможно создать дату: %1$s. Проверьте правильность даты.</string>
-    <string name="invalid_day_of_week">К сожелению, в СТАНКИНе пока что ещё 6-ти дневная учебная неделю, а не 7-ми. Именно поэтому Вы не можите создать дату с днём недели: %1$s.</string>
+    <string name="invalid_day_of_week">К сожелению, в СТАНКИНе пока что ещё 6-ти дневная учебная неделю,
+        а не 7-ми. Именно поэтому Вы не можите создать дату с днём недели: %1$s.</string>
     <string name="invalid_frequency">Диапозон даты не кратен указанной периодичности.</string>
     <string name="impossible_added_date">Вы не можите добавить дату, т.к. будет пересечение дат / не совпадение по дню недели. </string>
     <string name="added_date">Добавляемая дата:</string>
@@ -81,15 +85,55 @@
     <string name="invalid_add_pair">Невозможно добавить пару т.к. она пересекается уже с существующими парами.</string>
 
     <!-- schedule alert -->
-    <string name="schedule_deleted">Внимание, расписание будет удалено безвозратно!</string>
+    <string name="schedule_will_be_deleted">Внимание, расписание будет удалено безвозратно!</string>
     <string name="schedule_exists">Расписание с таким именем уже существует.</string>
     <string name="schedule">Расписание</string>
     <string name="successfully_added">успешно добавлено</string>
     <string name="failed_add">не удалось добавить</string>
+    <string name="error_loading_schedule">Ошибка при загрузки расписания</string>
     <string name="schedule_renamed">Расписание переименованно</string>
     <string name="unable_schedule_rename">Не удалось переименновать расписание</string>
     <string name="empty_field">Поле не может быть пустым</string>
     <string name="empty_dates_list">Необходимо добавить хотя бы одну дату.</string>
+    <string name="schedule_saved">Расписание сохранено</string>
+
+    <!-- about application -->
+    <string name="changelog">Список изменений</string>
+    <string name="description">Описание</string>
+    <string name="description_text">
+        Powered by PEPEGA INC. NORTH.   \n\n
+        Спасибо за тестирование:        \n
+        - Богодайко С.Ю.                \n
+        - Биннятов Р.А.                 \n
+        - Одинцова Э.А.
+    </string>
+
+    <!-- notification -->
+    <string name="notification">Уведомления</string>
+    <string name="common_notification">Общие</string>
+    <string name="common_notification_description">Загрузка расписания, важная информация</string>
+    <string name="schedule_downloaded">Расписание загружено</string>
+    <string name="awaiting_download">Ожидание загрузки</string>
+
+    <!--  notification alert  -->
+    <string name="choose_color">Выберете цвет</string>
+
+    <!-- settings -->
+    <string name="pref_schedule_summary">Изменение настроек расписания</string>
+    <string name="pref_notification_summary">Настройка уведомлений</string>
+    <string name="pref_schedule_view">Отображение расписания</string>
+    <string name="pref_schedule_view_method">Способ отображения расписания</string>
+    <string name="pref_notification_turn">Включить уведомления</string>
+    <string name="pref_lecture_color">Цвет лекции</string>
+    <string name="pref_color_summary">Цвет, отображаемый в расписании</string>
+    <string name="pref_seminar_color">Цвет семинара</string>
+    <string name="pref_laboratory_color">Цвет лабораторных занятий</string>
+    <string name="pref_subgroup_a_color">Цвет подгруппы А</string>
+    <string name="pref_subgroup_b_color">Цвет подгруппы Б</string>
+
+    <!-- news -->
+    <string name="university_news">Новости университета</string>
+    <string name="deanery_news">Новости деканата</string>
 
     <!-- other -->
     <string name="error">Ошибка</string>
@@ -97,33 +141,11 @@
     <string name="apply">Применить</string>
     <string name="ok">ОК</string>
     <string name="cancel">Отмена</string>
+    <string name="default_">По умолчанию</string>
     <string name="yes_continue">Да, продолжить</string>
     <string name="choose_folder">Выберите папку</string>
-
-    <!-- subgroup values -->
-    <string-array name="subgroup_list">
-        <item>---</item>
-        <item>А</item>
-        <item>Б</item>
-    </string-array>
-
-    <!-- type values -->
-    <string-array name="type_list">
-        <item>Лекция</item>
-        <item>Семинар</item>
-        <item>Лабораторная</item>
-    </string-array>
-
-    <!-- date type values -->
-    <string-array name="date_type_list">
-        <item>Однажды</item>
-        <item>Диапозон</item>
-    </string-array>
-
-    <!-- date frequency values -->
-    <string-array name="frequency_list">
-        <item>Каждую неделю</item>
-        <item>Через неделю</item>
-    </string-array>
+    <string name="moving_handler">Контроллер передвижения</string>
+    <string name="retry">Повторить</string>
+    <string name="current_color">Текущий цвет</string>
 
 </resources>

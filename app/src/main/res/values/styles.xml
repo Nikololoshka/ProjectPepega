@@ -1,19 +1,87 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Основная тема приложения -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Основная тема приложения без бара -->
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <!-- Тема для загрузочного экрана -->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+    <!-- Тема для карточек -->
+    <style name="CardStyle" parent="CardView.Light">
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardMaxElevation">3dp</item>
+        <item name="cardCornerRadius">5dp</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--  Темы для текстов  -->
+
+    <!--  Просто текст  -->
+    <style name="Text" parent="TextAppearance.AppCompat" >
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+    <!--  Подпись к элементу -->
+    <style name="Text.Caption" parent="TextAppearance.AppCompat.Caption" >
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/text_caption_size</item>
+    </style>
+    <!--  Маленький текст  -->
+    <style name="Text.Small" parent="TextAppearance.AppCompat.Small" >
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/text_small_size</item>
+    </style>
+    <!--  Средний текст  -->
+    <style name="Text.Medium" parent="TextAppearance.AppCompat.Medium" >
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/text_medium_size</item>
+    </style>
+    <!--  Большой текст  -->
+    <style name="Text.Large" parent="TextAppearance.AppCompat.Large" >
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/text_large_size</item>
+    </style>
+    <!--  Заголовок  -->
+    <style name="Text.Headline" parent="TextAppearance.AppCompat.Headline" >
+
+    </style>
+    <!--  Подзаголовок  -->
+    <style name="Text.Subhead" parent="TextAppearance.AppCompat.Subhead" >
+        <item name="android:textColor">@color/colorTextSecondary</item>
+        <item name="android:textSize">@dimen/text_subhead_size</item>
+    </style>
+    <!--  Текст-подсказка  -->
+    <style name="Text.Hint" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/colorTextHint</item>
+        <item name="android:paddingBottom">@dimen/input_label_vertical_spacing</item>
+        <item name="android:paddingLeft">@dimen/input_label_horizontal_spacing</item>
+        <item name="android:paddingRight">@dimen/input_label_horizontal_spacing</item>
+    </style>
+
+    <style name="Text.Button" parent="TextAppearance.AppCompat.Button" >
+
+    </style>
+
+    <!-- Темы для кнопок -->
+    <style name="Button" parent="Widget.AppCompat.Button" />
+    <style name="Button.Borderless" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:padding">10dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
 
 </resources>

@@ -1,44 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="5dp">
-
+    android:padding="@dimen/default_layout_padding">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="@dimen/default_layout_padding">
 
         <TextView
+            style="@style/Text.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/selected_subgroup"
-            android:textColor="@color/colorTextPrimary"
-            android:textSize="18sp"
-            android:layout_marginEnd="15dp"/>
+            android:text="@string/selected_subgroup" />
 
-        <Spinner
+        <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/subgroup_selector"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:entries="@array/subgroup_list"
-            android:layout_gravity="center"/>
+            android:spinnerMode="dropdown" />
 
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
+        style="@style/CardStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="4dp"
-        app:cardMaxElevation="8dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardCornerRadius="10dp"
-        app:cardUseCompatPadding="true">
+        android:layout_height="wrap_content" >
 
         <LinearLayout
             android:id="@+id/layout_schedules"
@@ -58,17 +52,10 @@
                 android:textColor="@color/colorTextPrimary"
                 android:textSize="20sp"/>
 
-
-            <include
-                layout="@layout/fragment_loading"
+            <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+                android:id="@+id/stateful_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <LinearLayout
-                android:id="@+id/my_schedules_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_my_schedules"
@@ -76,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:background="#FFFFFF"
                     tools:listitem="@layout/item_schedule"
-                    tools:itemCount="3"/>
+                    tools:itemCount="1"/>
 
                 <TextView
                     android:id="@+id/empty_my_schedules"
@@ -88,7 +75,7 @@
                     android:padding="20dp"
                     android:textSize="16sp"/>
 
-            </LinearLayout>
+            </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
 
         </LinearLayout>
 

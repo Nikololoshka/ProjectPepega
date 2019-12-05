@@ -12,7 +12,11 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
+                "date": "2019.09.02-2019.09.23"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.10.07-2019.10.28"
             },
             {
                 "frequency": "every",
@@ -148,6 +152,40 @@
             {
                 "frequency": "once",
                 "date": "2019.09.03"
+            }
+        ]
+    },
+    {
+        "title": "Политология",
+        "lecturer": "Пинчук А.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.11.26"
+            }
+        ]
+    },
+    {
+        "title": "Политология",
+        "lecturer": "Пинчук А.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.12.10"
             }
         ]
     },
@@ -288,23 +326,6 @@
         ]
     },
     {
-        "title": "Политология",
-        "lecturer": "Пинчук А.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.19-2019.11.21"
-            }
-        ]
-    },
-    {
         "title": "Математическая логика и теория алгоритмов",
         "lecturer": "Красикова Е.М",
         "type": "Seminar",
@@ -318,6 +339,35 @@
             {
                 "frequency": "every",
                 "date": "2019.09.19-2019.12.05"
+            }
+        ]
+    },
+    {
+        "title": "Политология",
+        "lecturer": "Пинчук А.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.09.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.09.26"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.10.10"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.10.31-2019.12.05"
             }
         ]
     },
@@ -394,7 +444,7 @@
         "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "C/3 СТАНКИН",
+        "classroom": "С/3 СТАНКИН",
         "time": {
             "start": "10:20",
             "end": "12:00"

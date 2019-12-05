@@ -38,6 +38,27 @@
         ]
     },
     {
+        "title": "История",
+        "lecturer": "Павельева Т.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "505",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.11.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.11.25"
+            }
+        ]
+    },
+    {
         "title": "Инженерная и компьютерная графика",
         "lecturer": "Лыткин И.Н",
         "type": "Seminar",
@@ -80,7 +101,20 @@
             {
                 "frequency": "once",
                 "date": "2019.11.11"
-            },
+            }
+        ]
+    },
+    {
+        "title": "Иностранный язык",
+        "lecturer": "Изотова А.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "343",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
             {
                 "frequency": "once",
                 "date": "2019.11.18"
@@ -88,11 +122,11 @@
         ]
     },
     {
-        "title": "История",
-        "lecturer": "Павельева Т.Ю",
+        "title": "Иностранный язык",
+        "lecturer": "Изотова А.С",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "505",
+        "classroom": "343",
         "time": {
             "start": "12:20",
             "end": "14:00"

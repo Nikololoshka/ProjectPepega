@@ -2,7 +2,6 @@ package com.github.nikololoshka.pepegaschedule.schedule;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -15,7 +14,6 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Objects;
 import java.util.TreeSet;
@@ -27,7 +25,7 @@ public class ScheduleDay implements Parcelable {
     private ArrayList<Pair> mBufferedPairs;
 
     // for table view of schedule
-    // private ArrayList<HashMap<Integer, ArrayList<Pair>>> m_pairLines;
+    // private ArrayList<HashMap<Integer, ArrayList<pair>>> m_pairLines;
 
     ScheduleDay() {
         mBufferedPairs = new ArrayList<>();
@@ -109,12 +107,19 @@ public class ScheduleDay implements Parcelable {
             return null;
         }
 
-        return Collections.min(mBufferedPairs, new Comparator<Pair>() {
-            @Override
-            public int compare(Pair o1, Pair o2) {
-                return o1.date().minDate().compareTo(o2.date().minDate());
+        Calendar result = null;
+        for (Pair pair : mBufferedPairs) {
+            Calendar min = pair.date().minDate();
+            if (result != null) {
+                if (min.compareTo(result) < 0) {
+                    result = min;
+                }
+            } else {
+                result = min;
             }
-        }).date().minDate();
+        }
+
+        return result;
     }
 
     @Nullable
@@ -123,12 +128,19 @@ public class ScheduleDay implements Parcelable {
             return null;
         }
 
-        return Collections.max(mBufferedPairs, new Comparator<Pair>() {
-            @Override
-            public int compare(Pair o1, Pair o2) {
-                return o1.date().maxDate().compareTo(o2.date().maxDate());
+        Calendar result = null;
+        for (Pair pair : mBufferedPairs) {
+            Calendar max = pair.date().maxDate();
+            if (result != null) {
+                if (max.compareTo(result) > 0) {
+                    result = max;
+                }
+            } else {
+                result = max;
             }
-        }).date().maxDate();
+        }
+
+        return result;
     }
 
     private boolean checkPossibleAdded(Pair addedPair) {

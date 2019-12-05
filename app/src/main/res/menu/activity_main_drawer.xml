@@ -29,9 +29,13 @@
             android:enabled="false" />
 
         <item
+            android:id="@+id/aboutFragment"
             android:icon="@drawable/ic_nav_about"
-            android:title="@string/about_application"
-            android:enabled="false"  />
+            android:title="@string/about_application"  />
+
+        <item
+            android:title=""
+            android:enabled="false" />
 
     </group>
 </menu>

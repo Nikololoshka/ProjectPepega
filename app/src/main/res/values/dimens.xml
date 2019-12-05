@@ -6,4 +6,26 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <dimen name="default_layout_padding">10dp</dimen>
+    <dimen name="default_drawable_padding">8dp</dimen>
+
+    <dimen name="drawer_icon_padding">15dp</dimen>
+    <dimen name="drawer_horizontal_padding">15dp</dimen>
+
+    <dimen name="card_elevation">2dp</dimen>
+
+
+    <!-- Размеры для стилей текстов -->
+    <dimen name="text_caption_size">18sp</dimen>
+
+    <dimen name="text_small_size">16sp</dimen>
+    <dimen name="text_medium_size">18sp</dimen>
+    <dimen name="text_large_size">20sp</dimen>
+
+    <dimen name="text_subhead_size">18sp</dimen>
+
+    <!--  Для размещения текста-подсказки  -->
+    <dimen name="input_label_vertical_spacing">8dp</dimen>
+    <dimen name="input_label_horizontal_spacing">4dp</dimen>
+
 </resources>

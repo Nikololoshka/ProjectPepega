@@ -1,9 +1,9 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name" translatable="false">PROJECT PEPEGA</string>
     <string name="nav_header_title" translatable="false">PROJECT PEPEGA</string>
+    <string name="nav_header_subtitle" translatable="false">aka Stankin Schedule</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-    <string name="nav_header_subtitle" translatable="false">aka Stankin Schedule</string>
 
     <!-- debug -->
     <string name="debug_text" translatable="false">Some text</string>
@@ -18,10 +18,10 @@
     <string name="nav_schedule">Schedule</string>
     <string name="nav_module_journal">Module journal</string>
     <string name="nav_schedule_manager">Schedule repository</string>
-    <string name="nav_schedule_view">Schedule View</string>
     <string name="university_map">University map</string>
     <string name="information">Information</string>
     <string name="about_application">About application</string>
+    <string name="settings">Settings</string>
 
     <!-- home -->
     <string name="no_favorite_schedule">No favorite schedule</string>
@@ -44,12 +44,14 @@
 
     <!-- repository -->
     <string name="update">Update</string>
-    <string name="repository_version">Current version: Autumn-2019 (last update 16.09.19)</string>
+    <string name="repository_version">Current version: Autumn-2019 (last update 07.10.19)</string>
+    <string name="loading_schedule">Loading schedule</string>
 
     <!-- schedules view -->
+    <string name="schedule_view">Schedule View</string>
     <string name="no_pairs">No pairs</string>
     <string name="add_pair">Add pair</string>
-    <string name="remove_pair" tools:ignore="MissingTranslation">Remove pair</string>
+    <string name="remove_pair">Remove pair</string>
     <string name="save_schedule">Save schedule…</string>
 
     <!-- pair editor -->
@@ -63,10 +65,10 @@
     <string name="date">Date</string>
     <string name="not_dates">Not dates</string>
     <string name="remove_date">Remove date</string>
+    <string name="date_was_removed">Date was removed</string>
 
     <!-- date editor -->
     <string name="enter_valid_date">Enter a valid date: DD.MM.YYYY</string>
-    <string name="example_date" translatable="false">25.05.2019</string>
     <string name="date_type">Date type</string>
     <string name="calendar_picker">Calendar picker</string>
     <string name="start_date">Start date</string>
@@ -91,15 +93,57 @@
     <string name="invalid_add_pair">You can\'t add a pair because it overlaps already existing pairs.</string>
 
     <!-- schedule alert -->
-    <string name="schedule_deleted">Attention schedule will be deleted irrevocably!</string>
+    <string name="schedule_will_be_deleted">Attention schedule will be deleted irrevocably!</string>
     <string name="schedule_exists">A schedule with this name exists.</string>
     <string name="schedule">Schedule</string>
     <string name="successfully_added">successfully added</string>
     <string name="failed_add">failed to add</string>
+    <string name="error_loading_schedule">Error loading schedule</string>
     <string name="schedule_renamed">Schedule renamed</string>
     <string name="unable_schedule_rename">Unable to rename schedule</string>
     <string name="empty_field">The field cannot be empty</string>
     <string name="empty_dates_list">You must add at least one date.</string>
+    <string name="schedule_saved">Schedule saved</string>
+
+    <!-- about application -->
+    <string name="changelog">ChangeLog</string>
+    <string name="description">Description</string>
+    <string name="description_text">
+        Powered by PEPEGA INC. NORTH.   \n\n
+        Thanks for the closed beta:     \n
+        - Bogodayko S.Y.                \n
+        - Binnyatov R.A.                \n
+        - Odintsova E.A.
+    </string>
+
+    <!-- notification -->
+    <string name="notification">Notification</string>
+    <string name="common_notification">Common</string>
+    <string name="common_notification_description">Download schedule, important information</string>
+    <string name="schedule_downloaded">Schedule downloaded</string>
+    <string name="awaiting_download">Awaiting download</string>
+
+    <!--  notification alert  -->
+    <string name="rgb_select_hint" translatable="false">FF00FF</string>
+    <string name="rgb" translatable="false">RGB</string>
+    <string name="choose_color">Choose color</string>
+
+    <!-- settings -->
+    <string name="pref_schedule_summary">Customize the schedule</string>
+    <string name="pref_notification_summary">Setting up notifications</string>
+    <string name="pref_schedule_view">Schedule view</string>
+    <string name="pref_schedule_view_method">Schedule view method</string>
+    <string name="pref_notification_turn">Turn notifications</string>
+    <string name="pref_lecture_color">Lecture color</string>
+    <string name="pref_color_summary">Color displayed in the schedule</string>
+    <string name="pref_seminar_color">Seminar color</string>
+    <string name="pref_laboratory_color">Laboratory color</string>
+    <string name="pref_subgroup_a_color">Subgroup A color</string>
+    <string name="pref_subgroup_b_color">Subgroup B color</string>
+
+    <!-- news -->
+    <string name="university_news">University News</string>
+    <string name="deanery_news">Deanery News</string>
 
     <!-- other -->
     <string name="error">Error</string>
@@ -107,55 +151,11 @@
     <string name="apply">Apply</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="default_">Default</string>
     <string name="yes_continue">Yes, continue</string>
     <string name="choose_folder">Choose folder</string>
-
-    <!-- subgroup values -->
-    <string-array name="subgroup_list">
-        <item>---</item>
-        <item>A</item>
-        <item>B</item>
-    </string-array>
-
-    <!-- type values -->
-    <string-array name="type_list">
-        <item>Lecture</item>
-        <item>Seminar</item>
-        <item>Laboratory</item>
-    </string-array>
-
-    <string-array name="time_start_list">
-        <item>8:30</item>
-        <item>10:20</item>
-        <item>12:20</item>
-        <item>14:10</item>
-        <item>16:00</item>
-        <item>18:00</item>
-        <item>19:40</item>
-        <item>21:20</item>
-    </string-array>
-
-    <string-array name="time_end_list">
-        <item>10:10</item>
-        <item>12:00</item>
-        <item>14:00</item>
-        <item>15:50</item>
-        <item>17:40</item>
-        <item>19:30</item>
-        <item>21:10</item>
-        <item>22:50</item>
-    </string-array>
-
-    <!-- date type values -->
-    <string-array name="date_type_list">
-        <item>Single</item>
-        <item>Range</item>
-    </string-array>
-
-    <!-- date frequency values -->
-    <string-array name="frequency_list">
-        <item>Every week</item>
-        <item>In a week</item>
-    </string-array>
+    <string name="moving_handler">Moving handler</string>
+    <string name="retry">Retry</string>
+    <string name="current_color">current color</string>
 
 </resources>

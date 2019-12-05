@@ -20,8 +20,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.Objects;
 import java.util.Scanner;
@@ -69,7 +67,7 @@ public class Schedule implements Parcelable {
 
     public static void possibleChangePair(Schedule schedule, Pair removedPair, Pair addedPair) {
         DayOfWeek day = addedPair.date().dayOfWeek();
-        ScheduleDay scheduleDay = Objects.requireNonNull(schedule.mWeek.get(day));
+        ScheduleDay scheduleDay = schedule.mWeek.get(day);
         ScheduleDay.possibleChangePair(scheduleDay, removedPair, addedPair);
     }
 
@@ -192,23 +190,32 @@ public class Schedule implements Parcelable {
     }
 
     private void updateMinMaxDate() {
-        mMinDate = Collections.min(mWeek.values(), new Comparator<ScheduleDay>() {
-            @Override
-            public int compare(ScheduleDay o1, ScheduleDay o2) {
-                Calendar first = o1.minDay();
-                Calendar second = o2.minDay();
-                return first != null ? first.compareTo(second) : 0;
-            }
-        }).minDay();
+        mMinDate = null;
+        mMaxDate = null;
 
-        mMaxDate = Collections.max(mWeek.values(), new Comparator<ScheduleDay>() {
-            @Override
-            public int compare(ScheduleDay o1, ScheduleDay o2) {
-                Calendar first = o1.maxDay();
-                Calendar second = o2.maxDay();
-                return first != null ? first.compareTo(second) : 0;
+        for (ScheduleDay day : mWeek.values()) {
+            Calendar min = day.minDay();
+            if (min != null) {
+                if (mMinDate != null) {
+                    if (min.compareTo(mMinDate) < 0) {
+                        mMinDate = min;
+                    }
+                } else {
+                    mMinDate = min;
+                }
             }
-        }).maxDay();
+
+            Calendar max = day.maxDay();
+            if (max != null) {
+                if (mMaxDate != null) {
+                    if (max.compareTo(mMaxDate) > 0) {
+                        mMaxDate = max;
+                    }
+                } else {
+                    mMaxDate = max;
+                }
+            }
+        }
     }
 
     @Override

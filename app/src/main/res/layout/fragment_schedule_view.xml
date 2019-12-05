@@ -1,22 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".schedule.fragments.view.ScheduleViewFragment">
+    android:background="@color/colorCardViewBackground"
+    tools:context=".schedule.view.ScheduleViewFragment">
+    <!--  Padding находится внутри schedule_card чтобы анимация была красивая -->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+        android:id="@+id/stateful_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/fragment_schedule_card"
-        tools:itemCount="3"/>
+        android:gravity="center" >
 
-    <include
-        layout="@layout/fragment_loading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/fragment_schedule_card"
+            tools:itemCount="3"/>
 
-</LinearLayout>
+    </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/default_pos_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:visibility="invisible"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="2dp"
+        app:useCompatPadding="true" />
+
+</RelativeLayout>
+

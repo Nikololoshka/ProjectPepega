@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="settings_schedule_fragment"
+        android:summary="@string/pref_schedule_summary"
+        android:title="@string/schedule"
+        android:icon="@drawable/ic_nav_schedule" />
+
+    <Preference
+        android:key="settings_notification_fragment"
+        android:summary="@string/pref_notification_summary"
+        android:title="@string/notification"
+        android:icon="@drawable/ic_notifications_black" />
+
+</PreferenceScreen>

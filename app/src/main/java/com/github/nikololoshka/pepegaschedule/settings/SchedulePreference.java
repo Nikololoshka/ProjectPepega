@@ -11,6 +11,7 @@ import com.github.nikololoshka.pepegaschedule.schedule.pair.SubgroupEnum;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -37,9 +38,22 @@ public class SchedulePreference {
         save(context);
     }
 
+    public static void move(@NonNull Context context, int fromPosition, int toPosition) {
+        if (mSchedulesList == null) {
+            load(context);
+        }
+
+        Collections.swap(mSchedulesList, fromPosition, toPosition);
+        save(context);
+    }
+
     public static void remove(@NonNull Context context, String scheduleName) {
         if (mSchedulesList == null) {
             load(context);
+        }
+
+        if (scheduleName.equals(mFavoriteSchedule)) {
+            setFavorite(context, "");
         }
 
         mSchedulesList.remove(scheduleName);
@@ -106,7 +120,7 @@ public class SchedulePreference {
         String schedulesString = PREFERENCES.getString(SCHEDULES, "");
         ArrayList<String> schedules = new ArrayList<>();
 
-        if (schedulesString != null && !schedulesString.isEmpty()) {
+        if (!schedulesString.isEmpty()) {
             schedules = new ArrayList<>(Arrays.asList(schedulesString.split(";")));
         }
 

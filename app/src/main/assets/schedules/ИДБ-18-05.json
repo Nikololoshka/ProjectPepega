@@ -12,7 +12,11 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
+                "date": "2019.09.02-2019.09.23"
+            },
+            {
+                "frequency": "every",
+                "date": "2019.10.07-2019.10.28"
             },
             {
                 "frequency": "every",
@@ -118,11 +122,28 @@
         ]
     },
     {
+        "title": "Политология",
+        "lecturer": "Пинчук А.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2019.11.26"
+            }
+        ]
+    },
+    {
         "title": "Прикладная физическая культура",
         "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "C/3 СТАНКИН",
+        "classroom": "С/3 СТАНКИН",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -275,7 +296,7 @@
         "lecturer": "Воронова М.Н",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
+        "classroom": "0404",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -377,7 +398,7 @@
         "lecturer": "",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "С/3 СТАНКИН",
+        "classroom": "C/3 СТАНКИН",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -401,8 +422,20 @@
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2019.09.20"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.09.27"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.20-2019.11.22"
+                "date": "2019.10.11-2019.11.22"
+            },
+            {
+                "frequency": "once",
+                "date": "2019.12.06"
             }
         ]
     },

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- subgroup values -->
+    <string-array name="subgroup_list">
+        <item>---</item>
+        <item>А</item>
+        <item>Б</item>
+    </string-array>
+
+    <!-- type values -->
+    <string-array name="type_list">
+        <item>Лекция</item>
+        <item>Семинар</item>
+        <item>Лабораторная</item>
+    </string-array>
+
+    <!-- date type values -->
+    <string-array name="date_type_list">
+        <item>Однажды</item>
+        <item>Диапозон</item>
+    </string-array>
+
+    <!-- date frequency values -->
+    <string-array name="frequency_list">
+        <item>Каждую неделю</item>
+        <item>Через неделю</item>
+    </string-array>
+
+    <!-- schedule view methods -->
+    <string-array name="pref_schedule_method_list">
+        <item>Вертикально</item>
+        <item>Горизонтально</item>
+    </string-array>
+</resources>

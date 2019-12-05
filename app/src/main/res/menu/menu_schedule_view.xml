@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <item
-        android:id="@+id/edit_schedule"
+        android:id="@+id/rename_schedule"
         android:icon="@drawable/ic_edit_button_white"
         android:title="@string/rename_schedule" />
 
@@ -23,6 +23,5 @@
         android:icon="@drawable/ic_add_button_white"
         android:title="@string/add_pair"
         app:showAsAction="ifRoom|withText" />
-
 
 </menu>

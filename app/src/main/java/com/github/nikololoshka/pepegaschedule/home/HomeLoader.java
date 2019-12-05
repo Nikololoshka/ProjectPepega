@@ -2,6 +2,7 @@ package com.github.nikololoshka.pepegaschedule.home;
 
 import android.content.Context;
 import android.os.Build;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +26,8 @@ import java.util.TreeSet;
 
 public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
 
+    public static final int DAY_COUNT = 5;
+
     HomeLoader(@NonNull Context context) {
         super(context);
     }
@@ -32,10 +35,12 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
     @Nullable
     @Override
     public DataView loadInBackground() {
+        // get today date
         Calendar date = new GregorianCalendar();
-        Calendar today = new GregorianCalendar(date.get(Calendar.YEAR),
+        Calendar dayNow = new GregorianCalendar(date.get(Calendar.YEAR),
                 date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));
 
+        // get locale
         Locale locale;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             locale = getContext().getResources().getConfiguration().getLocales().get(0);
@@ -43,50 +48,63 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
             locale = getContext().getResources().getConfiguration().locale;
         }
 
+        // create dataView
         DataView dataView = new DataView();
         dataView.changeCount = SchedulePreference.changeCount();
 
-        String dayFormat = new SimpleDateFormat("EEEE, dd MMMM",
-                locale) .format(today.getTime());
-        dataView.today = dayFormat.substring(0, 1).toUpperCase() + dayFormat.substring(1);
-
-
+        // set favorite schedule
         String favorite = SchedulePreference.favorite(getContext());
         if (favorite.isEmpty()) {
             return dataView;
         }
-
         dataView.favorite = favorite;
-        String path = SchedulePreference.createPath(getContext(), favorite);
 
+        // load schedule
+        String path = SchedulePreference.createPath(getContext(), favorite);
         Schedule schedule = new Schedule();
         try {
             schedule.load(path);
         } catch (JSONException e) {
             e.printStackTrace();
+            Toast.makeText(getContext(), "Error loading schedule", Toast.LENGTH_SHORT).show();
         }
 
-        TreeSet<Pair> pairs = new TreeSet<>(new ScheduleDay.SortPairComparator());
-        if (today.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
-            pairs = schedule.pairsByDate(today);
+        // prepare for create days and titles
+        dayNow.add(Calendar.DAY_OF_MONTH, -2);
+        dataView.days = new ArrayList<>();
+        dataView.titles = new ArrayList<>();
 
-            final SubgroupEnum subgroup = SchedulePreference.subgroup(getContext());
+        for (int i = 0; i < DAY_COUNT; i++) {
+            TreeSet<Pair> pairs = new TreeSet<>(new ScheduleDay.SortPairComparator());
+            if (dayNow.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
+                pairs = schedule.pairsByDate(dayNow);
 
-            removeIf(pairs, new RemovePairPredicate() {
-                @Override
-                public boolean isRemove(Pair pair) {
-                    switch (subgroup) {
-                        case A:
-                            return pair.subgroup().subgroup() == SubgroupEnum.B;
-                        case B:
-                            return pair.subgroup().subgroup() == SubgroupEnum.A;
+                final SubgroupEnum subgroup = SchedulePreference.subgroup(getContext());
+
+                removeIf(pairs, new RemovePairPredicate() {
+                    @Override
+                    public boolean isRemove(Pair pair) {
+                        switch (subgroup) {
+                            case A:
+                                return pair.subgroup().subgroup() == SubgroupEnum.B;
+                            case B:
+                                return pair.subgroup().subgroup() == SubgroupEnum.A;
+                        }
+                        return false;
                     }
-                    return false;
-                }
-            });
+                });
+            }
+
+            String dayFormat = new SimpleDateFormat("EEEE, dd MMMM",
+                    locale).format(dayNow.getTime());
+            String dayString = dayFormat.substring(0, 1).toUpperCase() + dayFormat.substring(1);
+
+            dataView.days.add(new ArrayList<>(pairs));
+            dataView.titles.add(dayString);
+
+            dayNow.add(Calendar.DAY_OF_MONTH, 1);
         }
 
-        dataView.pairs = new ArrayList<>(pairs);
         return dataView;
     }
 
@@ -106,11 +124,12 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
 
     class DataView {
         @Nullable
-        ArrayList<Pair> pairs;
-        @Nullable
         String favorite;
+        @Nullable
+        ArrayList<ArrayList<Pair>> days;
+        @Nullable
+        ArrayList<String> titles;
 
-        String today;
         long changeCount;
     }
 }

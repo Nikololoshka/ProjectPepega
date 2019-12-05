@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- application colors -->
-    <color name="colorPrimary">#00241E</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#D81B60</color>
-
-    <color name="colorToolBarText">#FFFFFF</color>
+    <!-- Цвета приложения -->
+    <color name="colorPrimary">#00acc1</color>
+    <color name="colorPrimaryDark">#007c91</color>
+    <color name="colorPrimaryLight">#5ddef4</color>
+    <color name="colorAccent">#f50057</color>
+    <color name="colorAccentDark">#bb002f</color>
+    <color name="colorAccentLight">#CDFF5983</color>
 
     <color name="colorTextPrimary">#000000</color>
     <color name="colorTextSecondary">#8a000000</color>
+    <color name="colorTextHint">#808080</color>
 
-    <!--card color-->
-    <color name="colorCardBackground">#80EEEEEE</color>
+    <color name="colorToolBarText">#FFFFFF</color>
+    <color name="colorTabLayoutBackground">#EEEEEE</color>
+
+    <!-- Цвета иконки -->
+    <color name="ic_launcher_background">#FFFFFF</color>
+
+    <!-- Цвета загрузочного экрана -->
+    <color name="colorBackgroundSplash">#FFFFFF</color>
+
+    <!-- Цвета карточки с расписанием -->
+    <color name="colorCardViewBackground">#EEEEEE</color>
 
     <color name="colorCardLecture">#80DEEA</color>
     <color name="colorCardSeminar">#FFF59D</color>

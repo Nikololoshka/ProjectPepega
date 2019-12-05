@@ -6,6 +6,5 @@
         android:id="@+id/update_schedule"
         android:title="@string/update"
         android:icon="@drawable/ic_update"
-        android:visible="false"
         app:showAsAction="ifRoom|withText"/>
 </menu>

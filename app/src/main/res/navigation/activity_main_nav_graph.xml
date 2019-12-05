@@ -10,41 +10,125 @@
         android:name="com.github.nikololoshka.pepegaschedule.home.HomeFragment"
         android:label="@string/nav_home"
         tools:layout="@layout/fragment_home" >
+
         <action
             android:id="@+id/toScheduleFragment"
-            app:destination="@id/scheduleFragment" />
+            app:destination="@id/scheduleFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
         <action
             android:id="@+id/toModuleJournalFragment"
-            app:destination="@id/moduleJournalFragment" />
+            app:destination="@id/moduleJournalFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+        <action
+            android:id="@+id/toAboutFragment"
+            app:destination="@id/aboutFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+        <action
+            android:id="@+id/fromHomeFragmentToScheduleViewFragment"
+            app:destination="@id/scheduleViewFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
     </fragment>
 
     <fragment
         android:id="@+id/scheduleFragment"
-        android:name="com.github.nikololoshka.pepegaschedule.schedule.fragments.ScheduleFragment"
+        android:name="com.github.nikololoshka.pepegaschedule.schedule.myschedules.MyScheduleFragment"
         android:label="@string/nav_schedule"
         tools:layout="@layout/fragment_schedule" >
+
         <action
-            android:id="@+id/toScheduleManagerFragment"
-            app:destination="@id/scheduleRepositoryFragment" />
+            android:id="@+id/toScheduleRepositoryFragment"
+            app:destination="@id/scheduleRepositoryFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
         <action
-            android:id="@+id/toScheduleViewFragment"
-            app:destination="@id/scheduleViewFragment" />
+            android:id="@+id/fromScheduleFragmentToScheduleViewFragment"
+            app:destination="@id/scheduleViewFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
     </fragment>
 
     <fragment
         android:id="@+id/moduleJournalFragment"
-        android:name="com.github.nikololoshka.pepegaschedule.ModuleJournalFragment"
-        android:label="@string/nav_module_journal"
-        tools:layout="@layout/fragment_module_journal" />
+        android:name="com.github.nikololoshka.pepegaschedule.modulejournal.ModuleJournalFragment"
+        android:label="@string/nav_module_journal" />
 
     <fragment
         android:id="@+id/scheduleRepositoryFragment"
-        android:name="com.github.nikololoshka.pepegaschedule.schedule.fragments.repository.ScheduleRepositoryFragment"
-        android:label="@string/nav_schedule_manager"
-        tools:layout="@layout/fragment_schedule_repository" />
+        android:name="com.github.nikololoshka.pepegaschedule.schedule.repository.ScheduleRepositoryFragment"
+        android:label="@string/nav_schedule_manager" />
+
     <fragment
         android:id="@+id/scheduleViewFragment"
-        android:name="com.github.nikololoshka.pepegaschedule.schedule.fragments.view.ScheduleViewFragment"
-        tools:layout="@layout/fragment_schedule_view" />
+        android:name="com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment"
+        android:label="@string/schedule_view" />
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.github.nikololoshka.pepegaschedule.about.AboutFragment"
+        android:label="@string/about_application"
+        tools:layout="@layout/fragment_about" />
+
+    <navigation
+        android:id="@+id/settings_nav_graph"
+        android:label="@string/settings"
+        app:startDestination="@id/settingsFragment">
+
+        <fragment
+            android:id="@+id/settingsFragment"
+            android:name="com.github.nikololoshka.pepegaschedule.settings.SettingsFragment"
+            android:label="@string/settings" >
+            <action
+                android:id="@+id/toSettingsScheduleFragment"
+                app:destination="@id/settingsScheduleFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+            <action
+                android:id="@+id/toSettingsNotificationFragment"
+                app:destination="@id/settingsNotificationFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+        </fragment>
+
+        <fragment
+            android:id="@+id/settingsNotificationFragment"
+            android:name="com.github.nikololoshka.pepegaschedule.settings.SettingsFragment$SettingsNotificationFragment"
+            android:label="@string/notification" />
+
+        <fragment
+            android:id="@+id/settingsScheduleFragment"
+            android:name="com.github.nikololoshka.pepegaschedule.settings.SettingsFragment$SettingsScheduleFragment"
+            android:label="@string/schedule" />
+
+    </navigation>
+
+    <action
+        android:id="@+id/toSettings"
+        app:destination="@id/settings_nav_graph"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
 
 </navigation>

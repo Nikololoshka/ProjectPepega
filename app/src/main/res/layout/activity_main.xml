@@ -19,7 +19,48 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        app:itemIconPadding="@dimen/drawer_icon_padding"
+        app:itemHorizontalPadding="@dimen/drawer_horizontal_padding"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_drawer" >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="8dp"
+            app:cardMaxElevation="12dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/Button.Borderless"
+                    android:id="@+id/settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_settings_black"
+                    android:drawablePadding="@dimen/drawer_icon_padding"
+                    android:paddingStart="@dimen/drawer_horizontal_padding"
+                    android:paddingEnd="@dimen/drawer_horizontal_padding"
+                    android:textSize="16sp"
+                    android:text="@string/settings"
+                    android:textAllCaps="false"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </com.google.android.material.navigation.NavigationView>
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

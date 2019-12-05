@@ -134,7 +134,7 @@ public class Pair implements Parcelable {
 
     @Override
     public @NonNull String toString() {
-        return "Pair{" +
+        return "pair{" +
                 "mTitle=" + mTitle +
                 ", mLecturer=" + mLecturer +
                 ", mType=" + mType +
