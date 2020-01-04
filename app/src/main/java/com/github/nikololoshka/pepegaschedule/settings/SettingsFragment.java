@@ -22,6 +22,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
         implements Preference.OnPreferenceClickListener {
 
     private static final String SETTINGS_SCHEDULE_FRAGMENT = "settings_schedule_fragment";
+    private static final String SETTINGS_WIDGET_FRAGMENT = "settings_widget_fragment";
     private static final String SETTINGS_NOTIFICATION_FRAGMENT = "settings_notification_fragment";
 
     public SettingsFragment() {
@@ -34,6 +35,11 @@ public class SettingsFragment extends PreferenceFragmentCompat
         Preference preferenceSchedule = findPreference(SETTINGS_SCHEDULE_FRAGMENT);
         if (preferenceSchedule != null) {
             preferenceSchedule.setOnPreferenceClickListener(this);
+        }
+
+        Preference preferenceWidget = findPreference(SETTINGS_WIDGET_FRAGMENT);
+        if (preferenceWidget != null) {
+            preferenceWidget.setOnPreferenceClickListener(this);
         }
 
         Preference preferenceNotification = findPreference(SETTINGS_NOTIFICATION_FRAGMENT);
@@ -59,6 +65,10 @@ public class SettingsFragment extends PreferenceFragmentCompat
             case SETTINGS_SCHEDULE_FRAGMENT:
                 destination = R.id.toSettingsScheduleFragment;
                 break;
+            // к настрокам виджетов
+            case SETTINGS_WIDGET_FRAGMENT:
+                destination = R.id.toSettingsWidgetFragment;
+                break;
             // к настрокам уведомлений
             case SETTINGS_NOTIFICATION_FRAGMENT:
                 // android 8.0+
@@ -82,33 +92,5 @@ public class SettingsFragment extends PreferenceFragmentCompat
 
         navController.navigate(destination);
         return true;
-    }
-
-    /**
-     * Категориия настроек расписания приложения.
-     */
-    public static class SettingsScheduleFragment extends PreferenceFragmentCompat {
-
-        public SettingsScheduleFragment() {
-        }
-
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.preferences_schedule, rootKey);
-        }
-    }
-
-    /**
-     * Категория настроек уведомлений приложения.
-     */
-    public static class SettingsNotificationFragment extends PreferenceFragmentCompat {
-
-        public SettingsNotificationFragment() {
-        }
-
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.preferences_notification, rootKey);
-        }
     }
 }

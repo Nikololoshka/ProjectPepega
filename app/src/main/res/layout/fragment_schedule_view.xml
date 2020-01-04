@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorCardViewBackground"
     tools:context=".schedule.view.ScheduleViewFragment">
     <!--  Padding находится внутри schedule_card чтобы анимация была красивая -->
 
@@ -19,9 +18,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/fragment_schedule_card"
-            tools:itemCount="3"/>
+            android:layout_height="match_parent" />
 
     </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
 
@@ -33,7 +30,7 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="10dp"
         android:visibility="invisible"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="?android:attr/colorPrimary"
         app:elevation="2dp"
         app:useCompatPadding="true" />
 

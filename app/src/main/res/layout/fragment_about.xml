@@ -18,7 +18,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:src="@drawable/info_pepega"
-            android:contentDescription="@string/debug_text" />
+            android:contentDescription="@string/application_icon" />
 
         <Space
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:id="@+id/app_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorTextPrimary" />
+            android:textColor="?android:attr/textColorPrimary" />
 
         <Space
             android:layout_width="match_parent"

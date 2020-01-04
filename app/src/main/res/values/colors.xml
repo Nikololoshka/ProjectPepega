@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Цвета приложения -->
-    <color name="colorPrimary">#00acc1</color>
-    <color name="colorPrimaryDark">#007c91</color>
-    <color name="colorPrimaryLight">#5ddef4</color>
-    <color name="colorAccent">#f50057</color>
-    <color name="colorAccentDark">#bb002f</color>
-    <color name="colorAccentLight">#CDFF5983</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryLight">#C5CAE9</color>
+    <color name="colorAccent">#FF9800</color>
+    <color name="colorAccentDark">#cf7b00</color>
+    <color name="colorAccentLight">#feba56</color>
 
     <color name="colorTextPrimary">#000000</color>
     <color name="colorTextSecondary">#8a000000</color>
     <color name="colorTextHint">#808080</color>
+
+    <color name="colorDivider">#26000000</color>
 
     <color name="colorToolBarText">#FFFFFF</color>
     <color name="colorTabLayoutBackground">#EEEEEE</color>
@@ -18,16 +20,21 @@
     <!-- Цвета иконки -->
     <color name="ic_launcher_background">#FFFFFF</color>
 
-    <!-- Цвета загрузочного экрана -->
+    <!-- Цвета для загрузочных экранов -->
     <color name="colorBackgroundSplash">#FFFFFF</color>
+    <color name="colorBackgroundShimmer">#dddddd</color>
 
     <!-- Цвета карточки с расписанием -->
-    <color name="colorCardViewBackground">#EEEEEE</color>
-
+    <color name="colorCardBackground">#FFFFFF</color>
     <color name="colorCardLecture">#80DEEA</color>
     <color name="colorCardSeminar">#FFF59D</color>
     <color name="colorCardLaboratory">#C5E1A5</color>
-
     <color name="colorCardSubgroupA">#FFCC80</color>
     <color name="colorCardSubgroupB">#D1C4E9</color>
+
+    <!-- Цвета виджета расписания -->
+    <color name="widgetColorTitleBackground">#3F51B5</color>
+    <color name="widgetColorTitleText">#FFFFFF</color>
+    <color name="widgetColorBodyBackground">#FFFFFF</color>
+
 </resources>

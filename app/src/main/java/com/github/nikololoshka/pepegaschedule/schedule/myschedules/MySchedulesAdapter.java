@@ -21,8 +21,7 @@ import java.util.List;
 
 
 public class MySchedulesAdapter
-        extends RecyclerView.Adapter<MySchedulesAdapter.MySchedulesViewHolder>
-        implements ItemTouchHelperAdapter{
+        extends RecyclerView.Adapter<MySchedulesAdapter.MySchedulesViewHolder> {
 
     private static final String TAG = "MySchedulesAdapterLog";
     private static final boolean DEBUG = false;
@@ -37,13 +36,13 @@ public class MySchedulesAdapter
      * Callback для нажатия по расписанию
      */
     private final OnItemClickListener mClickListener;
-    private final OnStartDragListener mDragStartListener;
+    private final DragToMoveCallback.OnStartDragListener mDragStartListener;
 
     private List<String> mSchedules;
     private String mFavoriteSchedule;
     private boolean mIsAnimate;
 
-    MySchedulesAdapter(OnItemClickListener clickListener, OnStartDragListener dragStartListener) {
+    MySchedulesAdapter(OnItemClickListener clickListener, DragToMoveCallback.OnStartDragListener dragStartListener) {
         mClickListener = clickListener;
         mDragStartListener = dragStartListener;
 
@@ -84,8 +83,7 @@ public class MySchedulesAdapter
         return mSchedules.size();
     }
 
-    @Override
-    public void onItemMove(int fromPosition, int toPosition) {
+    public void moveItem(int fromPosition, int toPosition) {
         Collections.swap(mSchedules, fromPosition, toPosition);
 
         mClickListener.onScheduleItemMove(fromPosition, toPosition);

@@ -2,6 +2,8 @@ package com.github.nikololoshka.pepegaschedule.schedule.pair;
 
 import android.os.Parcel;
 
+import androidx.annotation.NonNull;
+
 import com.github.nikololoshka.pepegaschedule.schedule.pair.exceptions.InvalidPairParseException;
 
 import org.json.JSONException;
@@ -150,6 +152,7 @@ public class TimePair extends AttributePair {
         return Objects.hash(mStart, mEnd);
     }
 
+    @NonNull
     @Override
     public String toString() {
         return mStart + "-" + mEnd;

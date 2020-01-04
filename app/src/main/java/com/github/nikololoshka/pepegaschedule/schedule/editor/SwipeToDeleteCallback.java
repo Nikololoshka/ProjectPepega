@@ -3,9 +3,6 @@ package com.github.nikololoshka.pepegaschedule.schedule.editor;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
@@ -18,33 +15,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.github.nikololoshka.pepegaschedule.R;
 
 
-
+/**
+ * Callback для удаления с помощью swipe из RecyclerView.
+ *
+ * https://medium.com/@zackcosborn/step-by-step-recyclerview-swipe-to-delete-and-undo-7bbae1fce27e
+ */
 public abstract class SwipeToDeleteCallback extends ItemTouchHelper.Callback {
 
-    private Paint mClearPaint;
     private ColorDrawable mBackground;
-    private int backgroundColor;
     private Drawable deleteDrawable;
-    private int intrinsicWidth;
-    private int intrinsicHeight;
 
-    SwipeToDeleteCallback(Context context) {
-        mBackground = new ColorDrawable();
-        backgroundColor = Color.parseColor("#b80f0a");
-
-        mClearPaint = new Paint();
-        mClearPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+    SwipeToDeleteCallback(@NonNull Context context) {
+        int backgroundColor = Color.parseColor("#b80f0a");
+        mBackground = new ColorDrawable(backgroundColor);
 
         deleteDrawable = ContextCompat.getDrawable(context, R.drawable.ic_delete_button_white);
-        if (deleteDrawable != null) {
-            intrinsicWidth = deleteDrawable.getIntrinsicWidth();
-            intrinsicHeight = deleteDrawable.getIntrinsicHeight();
-        }
     }
 
     @Override
     public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
-        return makeMovementFlags(0, ItemTouchHelper.LEFT);
+        return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
     }
 
     @Override
@@ -56,42 +46,41 @@ public abstract class SwipeToDeleteCallback extends ItemTouchHelper.Callback {
     public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView,
                             @NonNull RecyclerView.ViewHolder viewHolder,
                             float dX, float dY, int actionState, boolean isCurrentlyActive) {
-
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
 
         View itemView = viewHolder.itemView;
-        int itemHeight = itemView.getHeight();
+        int backgroundCornerOffset = 20; //so background is behind the rounded corners of itemView
 
-        boolean isCancelled = dX == 0 && !isCurrentlyActive;
+        int iconMargin = (itemView.getHeight() - deleteDrawable.getIntrinsicHeight()) / 2;
+        int iconTop = itemView.getTop() + (itemView.getHeight() - deleteDrawable.getIntrinsicHeight()) / 2;
+        int iconBottom = iconTop + deleteDrawable.getIntrinsicHeight();
 
-        if (isCancelled) {
-            clearCanvas(c, itemView.getRight() + dX, (float) itemView.getTop(),
-                    (float) itemView.getRight(), (float) itemView.getBottom());
+        if (dX > 0) {
+            // Swiping to the right
+            int iconLeft = itemView.getLeft() + iconMargin;
+            int iconRight = itemView.getLeft() + iconMargin + deleteDrawable.getIntrinsicWidth();
 
-            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-            return;
+            deleteDrawable.setBounds(iconLeft, iconTop, iconRight, iconBottom);
+
+            mBackground.setBounds(itemView.getLeft(), itemView.getTop(),
+                    itemView.getLeft() + ((int) dX) + backgroundCornerOffset,
+                    itemView.getBottom());
+
+        } else if (dX < 0) {
+            // Swiping to the left
+            int iconLeft = itemView.getRight() - iconMargin - deleteDrawable.getIntrinsicWidth();
+            int iconRight = itemView.getRight() - iconMargin;
+
+            deleteDrawable.setBounds(iconLeft, iconTop, iconRight, iconBottom);
+
+            mBackground.setBounds(itemView.getRight() + ((int) dX) - backgroundCornerOffset,
+                    itemView.getTop(), itemView.getRight(), itemView.getBottom());
+        } else { // view is unSwiped
+            mBackground.setBounds(0, 0, 0, 0);
         }
 
-        mBackground.setColor(backgroundColor);
-        mBackground.setBounds(itemView.getRight() + (int) dX,
-                itemView.getTop(), itemView.getRight(), itemView.getBottom());
         mBackground.draw(c);
-
-        int deleteIconTop = itemView.getTop() + (itemHeight - intrinsicHeight) / 2;
-        int deleteIconMargin = (itemHeight - intrinsicHeight) / 2;
-        int deleteIconLeft = itemView.getRight() - deleteIconMargin - intrinsicWidth;
-        int deleteIconRight = itemView.getRight() - deleteIconMargin;
-        int deleteIconBottom = deleteIconTop + intrinsicHeight;
-
-
-        deleteDrawable.setBounds(deleteIconLeft, deleteIconTop, deleteIconRight, deleteIconBottom);
         deleteDrawable.draw(c);
-
-        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-    }
-
-    private void clearCanvas(Canvas c, Float left, Float top, Float right, Float bottom) {
-        c.drawRect(left, top, right, bottom, mClearPaint);
     }
 
     @Override

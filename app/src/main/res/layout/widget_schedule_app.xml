@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/widgetColorBodyBackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/widgetColorTitleBackground" >
+
+        <TextView
+            style="@style/Text.Body2"
+            android:id="@+id/widget_schedule_name"
+            android:text="@string/debug_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/widgetColorTitleText"
+            android:padding="@dimen/default_layout_padding" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/widget_schedule_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/widget_item_schedule_app_pair"/>
+
+    <TextView
+        android:id="@+id/widget_schedule_error"
+        android:text="@string/widget_schedule_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -159,6 +159,9 @@ public class Schedule implements Parcelable {
     }
 
     public TreeSet<Pair> pairsByDate(Calendar date) {
+        if (date.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+            return new TreeSet<>(new ScheduleDay.SortPairComparator());
+        }
         ScheduleDay day = Objects.requireNonNull(mWeek.get(DayOfWeek.valueOf(date)));
         return day.pairsByDate(date);
     }

@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF"
-    android:padding="5dp"
+    android:background="@color/colorCardBackground"
+    android:padding="@dimen/pair_card_padding"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:paddingTop="3dp"
             android:text="@string/debug_text"
             android:textSize="18sp"
-            android:textColor="@color/colorTextPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:textStyle="bold" />
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="@string/debug_text"
             android:textSize="18sp"
-            android:textColor="@color/colorTextPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -48,7 +48,7 @@
             android:paddingStart="3dp"
             android:paddingEnd="3dp"
             android:text="@string/debug_text"
-            android:textColor="@color/colorTextPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="16sp" />
 
         <TextView
@@ -64,6 +64,7 @@
             android:paddingEnd="3dp"
             android:layout_marginBottom="5dp"
             android:text="@string/debug_text"
+            android:textColor="@color/colorTextSecondary"
             android:textSize="14sp" />
 
         <TextView
@@ -77,6 +78,7 @@
             android:paddingStart="3dp"
             android:paddingEnd="3dp"
             android:text="@string/debug_text"
+            android:textColor="@color/colorTextSecondary"
             android:textSize="14sp" />
 
         <TextView
@@ -88,7 +90,7 @@
             android:includeFontPadding="false"
             android:padding="3dp"
             android:text="@string/debug_text"
-            android:textColor="@color/colorTextPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="14sp" />
 
         <TextView
@@ -101,7 +103,7 @@
             android:includeFontPadding="false"
             android:padding="3dp"
             android:text="@string/debug_text"
-            android:textColor="@color/colorTextPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="14sp" />
 
     </RelativeLayout>

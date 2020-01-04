@@ -73,7 +73,7 @@
     <fragment
         android:id="@+id/scheduleRepositoryFragment"
         android:name="com.github.nikololoshka.pepegaschedule.schedule.repository.ScheduleRepositoryFragment"
-        android:label="@string/nav_schedule_manager" />
+        android:label="@string/schedule_repository" />
 
     <fragment
         android:id="@+id/scheduleViewFragment"
@@ -109,16 +109,28 @@
                 app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
                 app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+            <action
+                android:id="@+id/toSettingsWidgetFragment"
+                app:destination="@id/settingsWidgetFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         </fragment>
 
         <fragment
             android:id="@+id/settingsNotificationFragment"
-            android:name="com.github.nikololoshka.pepegaschedule.settings.SettingsFragment$SettingsNotificationFragment"
+            android:name="com.github.nikololoshka.pepegaschedule.settings.subsection.SettingsNotificationFragment"
             android:label="@string/notification" />
 
         <fragment
+            android:id="@+id/settingsWidgetFragment"
+            android:name="com.github.nikololoshka.pepegaschedule.settings.subsection.SettingsWidgetFragment"
+            android:label="@string/widget" />
+
+        <fragment
             android:id="@+id/settingsScheduleFragment"
-            android:name="com.github.nikololoshka.pepegaschedule.settings.SettingsFragment$SettingsScheduleFragment"
+            android:name="com.github.nikololoshka.pepegaschedule.settings.subsection.SettingsScheduleFragment"
             android:label="@string/schedule" />
 
     </navigation>

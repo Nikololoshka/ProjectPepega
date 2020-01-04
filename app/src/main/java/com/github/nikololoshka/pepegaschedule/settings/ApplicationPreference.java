@@ -16,8 +16,6 @@ import com.github.nikololoshka.pepegaschedule.R;
  */
 public class ApplicationPreference {
 
-    public static final String SCHEDULE_VIEW_METHOD = "schedule_view_method";
-
     public static final String LECTURE_COLOR = "schedule_lecture_color";
     public static final String SEMINAR_COLOR = "schedule_seminar_color";
     public static final String LABORATORY_COLOR = "schedule_laboratory_color";
@@ -28,6 +26,8 @@ public class ApplicationPreference {
     public static final String SCHEDULE_VIEW_HORIZONTAL = "pref_horizontal";
 
     private static final String FIRST_RUN = "first_run";
+    private static final String SCHEDULE_VIEW_METHOD = "schedule_view_method";
+    private static final String SCHEDULE_WIDGETS = "schedule_app_widgets";
 
     /**
      * Возвращает значение, как должно отображаться расписание.
@@ -100,4 +100,65 @@ public class ApplicationPreference {
 
         return defaultColor;
     }
+
+//    /**
+//     * Сохраняет ID виджета с расписанием в список.
+//     * @param context контекст.
+//     * @param scheduleID ID виджета.
+//     */
+//    public static void addScheduleWidget(@NonNull Context context, int scheduleID) {
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+//
+//        Set<String> widgets = preferences.getStringSet(SCHEDULE_WIDGETS, new HashSet<String>());
+//        widgets.add(String.valueOf(scheduleID));
+//
+//        preferences.edit()
+//                .putStringSet(SCHEDULE_WIDGETS, widgets)
+//                .apply();
+//    }
+//
+//    /**
+//     * Удаляет ID виджета с расписанием из списка.
+//     * @param context контекст.
+//     * @param scheduleID ID виджета.
+//     */
+//    public static void removeScheduleWidget(@NonNull Context context, int scheduleID) {
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+//
+//        Set<String> widgets = preferences.getStringSet(SCHEDULE_WIDGETS, new HashSet<String>());
+//        widgets.remove(String.valueOf(scheduleID));
+//
+//        preferences.edit()
+//                .putStringSet(SCHEDULE_WIDGETS, widgets)
+//                .apply();
+//    }
+//
+//    /**
+//     * Возвращает список ID виджетов с расписанями.
+//     * @param context контекст.
+//     * @return список ID.
+//     */
+//    public static ArrayList<Integer> scheduleWidgetIDs(@NonNull Context context) {
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+//
+//        Set<String> widgets = preferences.getStringSet(SCHEDULE_WIDGETS, new HashSet<String>());
+//
+//        ArrayList<Integer> ids = new ArrayList<>();
+//        for (String id : widgets) {
+//            ids.add(Integer.valueOf(id));
+//        }
+//
+//        return ids;
+//    }
+//
+//    /**
+//     * Очищает весь список ID виджетов.
+//     * @param context контекст.
+//     */
+//    public static void clearScheduleWidgetIDs(@NonNull Context context) {
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+//        preferences.edit()
+//                .remove(SCHEDULE_WIDGETS)
+//                .apply();
+//    }
 }

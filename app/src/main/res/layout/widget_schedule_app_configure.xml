@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".widget.ScheduleAppWidgetConfigureActivity" >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/default_layout_padding"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+        <TextView
+            style="@style/Text.Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/input_label_horizontal_spacing"
+            android:paddingEnd="@dimen/input_label_horizontal_spacing"
+            android:text="@string/widget_schedule_configure" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginTop="@dimen/default_layout_padding"
+            android:layout_marginBottom="@dimen/default_layout_padding" />
+
+        <TextView
+            style="@style/Text.Hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/widget_schedule" />
+
+        <Spinner
+            android:id="@+id/widget_schedule_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/input_label_vertical_spacing" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/widget_schedule_add"
+            style="@style/CardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <TextView
+                style="@style/Text.Medium"
+                android:id="@+id/widget_schedule_add_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/default_layout_padding"
+                android:text="@string/widget_schedule_add"
+                android:textColor="?android:attr/textColorPrimary" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

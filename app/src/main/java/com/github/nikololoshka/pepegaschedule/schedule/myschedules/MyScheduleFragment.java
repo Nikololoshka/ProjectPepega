@@ -1,8 +1,11 @@
 package com.github.nikololoshka.pepegaschedule.schedule.myschedules;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -22,9 +24,9 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,7 +34,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.Schedule;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.ScheduleEditorActivity;
+import com.github.nikololoshka.pepegaschedule.schedule.repository.ScheduleDownloaderService;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
+import com.github.nikololoshka.pepegaschedule.utils.DividerItemDecoration;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -57,7 +61,7 @@ import static com.github.nikololoshka.pepegaschedule.settings.SchedulePreference
 
 public class MyScheduleFragment extends Fragment
         implements MySchedulesAdapter.OnItemClickListener,
-        OnStartDragListener,
+        DragToMoveCallback.OnStartDragListener,
         LoaderManager.LoaderCallbacks<MySchedulesLoader.DataView> {
 
     private static final int MY_SCHEDULES_LOADER = 0;
@@ -68,11 +72,18 @@ public class MyScheduleFragment extends Fragment
     private static final int REQUEST_PERMISSION_READ_STORAGE = 0;
 
     private StatefulLayout mStatefulLayout;
+    // TODO: расписаниями должен заниматься адаптер
     private List<String> mSchedules;
     private MySchedulesAdapter mSchedulesAdapter;
-    private LinearLayout mLayoutSchedulesCard;
     private Loader<MySchedulesLoader.DataView> mMySchedulesLoader;
     private ItemTouchHelper mItemTouchHelper;
+
+    private BroadcastReceiver mScheduleDownloaderReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateSchedules();
+        }
+    };
 
     public MyScheduleFragment() {
     }
@@ -91,8 +102,6 @@ public class MyScheduleFragment extends Fragment
         mStatefulLayout = view.findViewById(R.id.stateful_layout);
         mStatefulLayout.addXMLViews();
         mStatefulLayout.setLoadState();
-
-        mLayoutSchedulesCard = view.findViewById(R.id.layout_schedules);
 
         Spinner subgroupSpinner = view.findViewById(R.id.subgroup_selector);
         if (getActivity() != null) {
@@ -136,20 +145,47 @@ public class MyScheduleFragment extends Fragment
         recyclerView.setAdapter(mSchedulesAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ItemTouchHelper.Callback callback = new ScheduleMoveCallback(mSchedulesAdapter);
-        mItemTouchHelper = new ItemTouchHelper(callback);
+        // добавление разделителя
+        if (getContext() != null) {
+            recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), R.drawable.divider));
+        }
+
+        DragToMoveCallback dragToMoveCallback = new DragToMoveCallback() {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView,
+                                  @NonNull RecyclerView.ViewHolder viewHolder,
+                                  @NonNull RecyclerView.ViewHolder target) {
+                mSchedulesAdapter.moveItem(viewHolder.getAdapterPosition(), target.getAdapterPosition());
+                return true;
+            }
+        };
+
+        mItemTouchHelper = new ItemTouchHelper(dragToMoveCallback);
         mItemTouchHelper.attachToRecyclerView(recyclerView);
-
-        DividerItemDecoration decoration = new DividerItemDecoration(recyclerView.getContext(),
-                DividerItemDecoration.VERTICAL);
-        decoration.setDrawable(getResources().getDrawable(R.drawable.divider));
-        recyclerView.addItemDecoration(decoration);
-
 
         mMySchedulesLoader = LoaderManager.getInstance(this)
                 .initLoader(MY_SCHEDULES_LOADER, null, this);
 
         return view;
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        LocalBroadcastManager.getInstance(context)
+                .registerReceiver(mScheduleDownloaderReceiver,
+                        new IntentFilter(ScheduleDownloaderService.SCHEDULE_DOWNLOADED_EVEN));
+    }
+
+    @Override
+    public void onDestroy() {
+        if (getContext() != null) {
+            LocalBroadcastManager.getInstance(getContext())
+                    .unregisterReceiver(mScheduleDownloaderReceiver);
+        }
+
+        super.onDestroy();
     }
 
     @Override
@@ -327,22 +363,13 @@ public class MyScheduleFragment extends Fragment
     private void schedulesCountChanged() {
         if (mSchedules.isEmpty()) {
             mStatefulLayout.setState(R.id.empty_my_schedules);
-            mLayoutSchedulesCard.setShowDividers(LinearLayout.SHOW_DIVIDER_NONE);
         } else {
             mStatefulLayout.setState(R.id.recycler_my_schedules);
-            mLayoutSchedulesCard.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
         }
     }
 
     private void updateSchedules() {
         mStatefulLayout.setLoadState();
-
-//        getChildFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.my_schedules_container, new LoadingFragment())
-//                .addToBackStack(null)
-//                .commit();
-
         mMySchedulesLoader.forceLoad();
     }
 

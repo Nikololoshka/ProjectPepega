@@ -1,4 +1,6 @@
 <resources>
+    <string name="application_icon">Иконка приложения</string>
+
     <!-- activities -->
     <string name="pair_editor">Редактор пары</string>
     <string name="date_editor">Редактор даты</string>
@@ -8,14 +10,13 @@
     <string name="nav_home">Главная</string>
     <string name="nav_schedule">Расписания</string>
     <string name="nav_module_journal">Модульный журнал</string>
-    <string name="nav_schedule_manager">Репозиторий расписаний</string>
     <string name="university_map">Карта</string>
     <string name="information">Справка</string>
     <string name="about_application">О приложении</string>
     <string name="settings">Настройки</string>
 
     <!-- home -->
-    <string name="no_favorite_schedule">Нету избранного расписания</string>
+    <string name="no_favorite_schedule">Нет избранного расписания</string>
 
     <!-- module journal -->
     <string name="login">Логин</string>
@@ -30,17 +31,21 @@
     <string name="schedule_removed">Расписание удалено</string>
     <string name="undo">Отмена</string>
     <string name="from_repository">Из репозитория</string>
-    <string name="new_schedule">Новое расписание</string>
+    <string name="new_schedule">Создать новое расписание</string>
     <string name="load_schedule">Загрузить расписание…</string>
 
     <!-- repository -->
+    <string name="schedule_repository">Репозиторий</string>
     <string name="update">Обновить</string>
-    <string name="repository_version">Текущая версия: Осень-2019 (последнее обновление 07.10.19)</string>
+    <string name="search">Поиск</string>
+    <string name="repository_version">Текущая версия: Осень-2019</string>
+    <string name="repository_last_update">Последнее обновление: 07.10.19</string>
     <string name="loading_schedule">Загрузка расписания</string>
+    <string name="repository_info_bg">Фон информации репозитория</string>
 
     <!-- schedules view -->
     <string name="schedule_view">Просмотр расписания</string>
-    <string name="no_pairs">Нет пар</string>
+    <string name="not_pairs">Нет пар</string>
     <string name="add_pair">Добавить пару</string>
     <string name="remove_pair">Удалить пару</string>
     <string name="save_schedule">Сохранить расписание…</string>
@@ -65,6 +70,8 @@
     <string name="start_date">Начало</string>
     <string name="end_date">Конец</string>
     <string name="frequency">Периодичность</string>
+    <string name="frequency_mismatch">Несовпадение по периодичности!</string>
+    <string name="date_less_than_another">Одна дата меньше другой!</string>
 
     <!-- schedule editor -->
     <string name="rename_schedule">Переименновать расписание</string>
@@ -115,12 +122,11 @@
     <string name="schedule_downloaded">Расписание загружено</string>
     <string name="awaiting_download">Ожидание загрузки</string>
 
-    <!--  notification alert  -->
-    <string name="choose_color">Выберете цвет</string>
-
     <!-- settings -->
     <string name="pref_schedule_summary">Изменение настроек расписания</string>
+    <string name="pref_widget_summary">Настройка виджетов приложения</string>
     <string name="pref_notification_summary">Настройка уведомлений</string>
+    <string name="not_widgets">Ни одного виджета не создано</string>
     <string name="pref_schedule_view">Отображение расписания</string>
     <string name="pref_schedule_view_method">Способ отображения расписания</string>
     <string name="pref_notification_turn">Включить уведомления</string>
@@ -130,6 +136,21 @@
     <string name="pref_laboratory_color">Цвет лабораторных занятий</string>
     <string name="pref_subgroup_a_color">Цвет подгруппы А</string>
     <string name="pref_subgroup_b_color">Цвет подгруппы Б</string>
+
+    <!--  settings alert  -->
+    <string name="choose_color">Выберете цвет</string>
+    <string name="not_color">Не является цветом</string>
+
+    <!-- schedule widget -->
+    <string name="widget">Виджет</string>
+    <string name="widget_schedule_name">Расписание</string>
+    <string name="widget_schedule_configure">Конфигурация виджета с расписанием</string>
+    <string name="widget_schedule_widget">Виджеты с расписаниями</string>
+    <string name="widget_schedule">Расписание виджета</string>
+    <string name="widget_schedule_add">Добавить виджет с расписанием</string>
+    <string name="widget_schedule_update">Обновить виджет расписания</string>
+    <string name="widget_schedule_type_marker">Маркер типа пары</string>
+    <string name="widget_schedule_error">Произошла ошибка при работе виджета</string>
 
     <!-- news -->
     <string name="university_news">Новости университета</string>

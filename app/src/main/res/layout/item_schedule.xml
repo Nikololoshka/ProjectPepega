@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:padding="10dp"
-            android:textColor="@color/colorTextPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="18sp" />
 
         <com.github.nikololoshka.pepegaschedule.utils.FavoriteButton

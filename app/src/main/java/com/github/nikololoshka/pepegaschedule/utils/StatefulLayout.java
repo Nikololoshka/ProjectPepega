@@ -37,6 +37,11 @@ public class StatefulLayout extends LinearLayout {
      */
     protected String mCurrentState = "";
 
+    /**
+     * Будет ли анимирован переход между состояниями.
+     */
+    protected boolean mIsAnimated = true;
+
     public StatefulLayout(@NonNull Context context) {
         super(context);
         initialization(context);
@@ -93,7 +98,7 @@ public class StatefulLayout extends LinearLayout {
             return;
         }
 
-        if (!mCurrentState.isEmpty()) {
+        if (!mCurrentState.isEmpty() && mIsAnimated) {
             TransitionSet transition = new TransitionSet();
             transition.addTransition(new Fade());
             transition.setDuration(250);
@@ -111,6 +116,15 @@ public class StatefulLayout extends LinearLayout {
         if (newView != null) {
             newView.setVisibility(VISIBLE);
         }
+    }
+
+    /**
+     * Отвечает за анимацию переходов между состояниями.
+     * По умолчанию: true.
+     * @param animate true - плавный перехож, false - резкий.
+     */
+    public void setAnimation(boolean animate) {
+        mIsAnimated = animate;
     }
 
     /**

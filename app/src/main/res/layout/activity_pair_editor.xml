@@ -18,7 +18,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <AutoCompleteTextView
                 android:id="@+id/edit_text_title"
@@ -128,61 +128,68 @@
                 android:layout_height="wrap_content"
                 android:text="@string/date" />
 
-            <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
-                android:id="@+id/stateful_layout"
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            style="@style/CardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:animateLayoutChanges="true" >
+                android:orientation="vertical" >
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_dates"
+                <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+                    android:id="@+id/stateful_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="vertical"
-                    tools:itemCount="3"
-                    tools:listitem="@layout/item_dates_pair">
+                    android:animateLayoutChanges="true" >
 
-                </androidx.recyclerview.widget.RecyclerView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="vertical"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_dates_pair">
 
-                <TextView
-                    style="@style/Text.Large"
-                    android:id="@+id/empty_dates"
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <TextView
+                        style="@style/Text.Medium"
+                        android:id="@+id/empty_dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/not_dates"
+                        android:textAlignment="center"
+                        android:padding="@dimen/default_information_padding"/>
+
+                </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/add_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/not_dates"
-                    android:textAlignment="center"
-                    android:padding="@dimen/default_layout_padding"/>
-
-            </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
-
-            <androidx.cardview.widget.CardView
-                style="@style/CardStyle"
-                android:id="@+id/add_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:foreground="?android:attr/selectableItemBackground" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="0dp" >
 
                     <TextView
                         style="@style/Text.Medium"
                         android:text="@string/add_date"
+                        android:textColor="?android:attr/textColorPrimary"
                         android:drawableStart="@drawable/ic_add_button"
                         android:drawablePadding="@dimen/default_drawable_padding"
                         android:padding="@dimen/default_layout_padding"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
 
-                </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

@@ -38,6 +38,7 @@ public class ColorPickerDialog extends DialogFragment
     private static final String ARG_KEY = "arg_key";
     private static final String ARG_OLD_COLOR = "arg_old_color";
 
+    private ColorPicker mColorPicker;
     private EditText mRGBEditor;
     private int mOldColor;
     private boolean mColorEditable;
@@ -101,7 +102,7 @@ public class ColorPickerDialog extends DialogFragment
         @SuppressLint("InflateParams")
         View view = inflater.inflate(R.layout.picker_color, null);
 
-        ColorPicker colorPicker = view.findViewById(R.id.color_picker);
+        mColorPicker = view.findViewById(R.id.color_picker);
         SVBar svBar = view.findViewById(R.id.color_picker_sv_bar);
 
         mRGBEditor = view.findViewById(R.id.rgb_editor);
@@ -119,11 +120,12 @@ public class ColorPickerDialog extends DialogFragment
                     }
 
                     try {
-                        Color.parseColor(s.toString());
-                        mRGBEditor.setError(null);
+                        int color = Color.parseColor(s.toString());
 
+                        mColorPicker.setColor(color);
+                        mRGBEditor.setError(null);
                     } catch (IllegalArgumentException e) {
-                        mRGBEditor.setError("Not color");
+                        mRGBEditor.setError(getString(R.string.not_color));
                     }
                 }
             }
@@ -134,11 +136,11 @@ public class ColorPickerDialog extends DialogFragment
             }
         });
 
-        colorPicker.addSVBar(svBar);
-        colorPicker.setOnColorChangedListener(this);
+        mColorPicker.addSVBar(svBar);
+        mColorPicker.setOnColorChangedListener(this);
 
-        colorPicker.setOldCenterColor(mOldColor);
-        colorPicker.setColor(mOldColor);
+        mColorPicker.setOldCenterColor(mOldColor);
+        mColorPicker.setColor(mOldColor);
 
         builder.setView(view);
 

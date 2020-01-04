@@ -12,6 +12,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
@@ -27,6 +28,9 @@ import java.util.Scanner;
  * Service по скачиванию расписания.
  */
 public class ScheduleDownloaderService extends IntentService {
+
+    public static final String SCHEDULE_DOWNLOADED_EVEN = "schedule_downloaded_even";
+    public static final String ARG_SCHEDULE_DOWNLOADED = "schedule_downloaded";
 
     private static final String EXTRA_SCHEDULE_URL = "schedule_url";
     private static final String EXTRA_SCHEDULE_NAME = "schedule_name";
@@ -140,7 +144,7 @@ public class ScheduleDownloaderService extends IntentService {
 
             // TODO: удалить задержку
             try {
-                Thread.sleep(500);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -157,6 +161,11 @@ public class ScheduleDownloaderService extends IntentService {
                 }
 
                 SchedulePreference.add(this, scheduleName);
+
+                // уведомляем о загруженном расписании
+                Intent msgIntent = new Intent(SCHEDULE_DOWNLOADED_EVEN);
+                msgIntent.putExtra(ARG_SCHEDULE_DOWNLOADED, scheduleName);
+                LocalBroadcastManager.getInstance(this).sendBroadcast(msgIntent);
 
             } catch (IOException e) {
                 e.printStackTrace();

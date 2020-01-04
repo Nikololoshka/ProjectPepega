@@ -20,6 +20,9 @@ import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
 import com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference;
 
+/**
+ * Карточка пары в расписании.
+ */
 public class PairCardView extends CardView {
 
     private TextView mTitleView;
@@ -42,18 +45,34 @@ public class PairCardView extends CardView {
 
     public PairCardView(@NonNull Context context, Pair pair) {
         super(context);
+        initialization(context);
+        updatePair(pair);
+    }
 
+    public PairCardView(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        initialization(context);
+    }
+
+    public PairCardView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initialization(context);
+    }
+
+    private void initialization(@NonNull Context context) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        inflater.inflate(R.layout.pair_card, this);
-        setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
+        inflater.inflate(R.layout.view_pair_card, this);
 
+        setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         setClickable(true);
         setFocusable(true);
+
         TypedValue value = new TypedValue();
         context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, value, true);
         setForeground(context.getDrawable(value.resourceId));
         setRadius(0);
+        setCardElevation(0);
+        setMaxCardElevation(0);
 
         mTitleView = findViewById(R.id.pair_card_title);
         mLecturerView = findViewById(R.id.pair_card_lecturer);
@@ -73,16 +92,6 @@ public class PairCardView extends CardView {
 
         mRectRound = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 10, getResources().getDisplayMetrics());
-
-        updatePair(pair);
-    }
-
-    public PairCardView(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public PairCardView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
     }
 
     public void updatePair(Pair pair) {

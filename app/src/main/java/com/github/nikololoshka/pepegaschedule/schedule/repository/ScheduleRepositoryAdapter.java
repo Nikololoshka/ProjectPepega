@@ -12,11 +12,18 @@ import com.github.nikololoshka.pepegaschedule.R;
 
 import java.util.ArrayList;
 
+/**
+ * Адаптер для отображения расписаний в репозитории.
+ */
 public class ScheduleRepositoryAdapter
         extends RecyclerView.Adapter<ScheduleRepositoryAdapter.ScheduleRepositoryHolder> {
 
-    private ArrayList<String> mNames;
-    private ArrayList<String> mPaths;
+    private ArrayList<String> mNamesLoaded;
+    private ArrayList<String> mPathsLoaded;
+
+    private ArrayList<String> mNamesFilter;
+    private ArrayList<String> mPathsFilter;
+
     final private OnRepositoryClickListener mListener;
 
     public interface OnRepositoryClickListener {
@@ -24,14 +31,47 @@ public class ScheduleRepositoryAdapter
     }
 
     ScheduleRepositoryAdapter(OnRepositoryClickListener listener) {
-        mNames = new ArrayList<>();
-        mPaths = new ArrayList<>();
+        mNamesLoaded = new ArrayList<>();
+        mPathsLoaded = new ArrayList<>();
+        mNamesFilter = mNamesLoaded;
+        mPathsFilter = mPathsLoaded;
+
         mListener = listener;
     }
 
     public void update(ArrayList<String> names, ArrayList<String> paths) {
-        mNames = names;
-        mPaths = paths;
+        mNamesLoaded = names;
+        mPathsLoaded = paths;
+
+        filter("");
+    }
+
+    /**
+     * Показывает только элементы удовлетворяющие запросу.
+     * @param query запрос.
+     */
+    void filter(String query) {
+        if (query.isEmpty()) {
+            mNamesFilter = mNamesLoaded;
+            mPathsFilter = mPathsLoaded;
+
+            notifyDataSetChanged();
+            return;
+        }
+
+        mNamesFilter = new ArrayList<>();
+        mPathsFilter = new ArrayList<>();
+
+        String right = query.toLowerCase();
+        for (int i = 0; i < mNamesLoaded.size(); i++) {
+            String left = mNamesLoaded.get(i).toLowerCase();
+
+            if (left.contains(right)) {
+                mNamesFilter.add(mNamesLoaded.get(i));
+                mPathsFilter.add(mPathsLoaded.get(i));
+            }
+        }
+
         notifyDataSetChanged();
     }
 
@@ -45,15 +85,17 @@ public class ScheduleRepositoryAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ScheduleRepositoryHolder holder, int position) {
-        holder.setTitle(mNames.get(position));
-        holder.setNumber(position);
+        holder.bind(mNamesFilter.get(position), position);
     }
 
     @Override
     public int getItemCount() {
-        return mNames.size();
+        return mNamesFilter.size();
     }
 
+    /**
+     * Расписание, отображаемое в RecyclerView.
+     */
     class ScheduleRepositoryHolder extends RecyclerView.ViewHolder {
 
         private TextView mTitle;
@@ -65,16 +107,19 @@ public class ScheduleRepositoryAdapter
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mListener.onScheduleItemClicked(mNames.get(mNumber), mPaths.get(mNumber));
+                    mListener.onScheduleItemClicked(mNamesFilter.get(mNumber),
+                            mPathsFilter.get(mNumber));
                 }
             });
         }
 
-        void setTitle(String title) {
+        /**
+         * Обновляет данные в элементе.
+         * @param title название расписания.
+         * @param number номер расписания в полученном списке.
+         */
+        void bind(String title, int number) {
             mTitle.setText(title);
-        }
-
-        void setNumber(int number) {
             mNumber = number;
         }
     }

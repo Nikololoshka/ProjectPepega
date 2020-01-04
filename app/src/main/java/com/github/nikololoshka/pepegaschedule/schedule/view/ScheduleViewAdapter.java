@@ -1,138 +1,53 @@
 package com.github.nikololoshka.pepegaschedule.schedule.view;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.TreeSet;
 
 /**
  * Adapter для RecyclerView с расписанием
  */
-public class ScheduleViewAdapter
-        extends RecyclerView.Adapter<ScheduleViewAdapter.ScheduleViewHolder> {
-
-    private ArrayList<TreeSet<Pair>> mDaysPair;
-    private ArrayList<String> mDaysFormat;
-    private WeakReference<Context> mContext;
-    private OnPairCardClickListener mListener;
-
-    /**
-     * Интерфейс callback'а для обработки нажатия на пару.
-     */
-    public interface OnPairCardClickListener {
-        void onPairCardClicked(Pair pair);
-    }
-
-    ScheduleViewAdapter(OnPairCardClickListener listener) {
-        mDaysPair = new ArrayList<>();
-        mDaysFormat = new ArrayList<>();
-        mListener = listener;
-    }
-
+abstract public class ScheduleViewAdapter<T extends RecyclerView.ViewHolder>
+        extends RecyclerView.Adapter<T> {
     /**
      * Обновляет содержимое adapter.
-     * @param daysPair - пары расписания.
-     * @param daysFormat - подписи к дням с парами.
+     * @param daysPair пары расписания.
+     * @param daysTitles подписи к дням с парами.
      */
-    public void update(ArrayList<TreeSet<Pair>> daysPair, ArrayList<String> daysFormat) {
-        mDaysPair = daysPair;
-        mDaysFormat = daysFormat;
-        notifyDataSetChanged();
-    }
-
-    @NonNull
-    @Override
-    public ScheduleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if (mContext == null) {
-            mContext = new WeakReference<>(parent.getContext());
-        }
-
-        // создаем
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        return new ScheduleViewHolder(inflater.inflate(R.layout.fragment_schedule_card,
-                parent, false));
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ScheduleViewHolder holder, int position) {
-        holder.bind(mDaysPair.get(position), mDaysFormat.get(position));
-    }
-
-    @Override
-    public int getItemCount() {
-        return mDaysPair.size();
-    }
+    abstract public void update(ArrayList<TreeSet<Pair>> daysPair, ArrayList<String> daysTitles);
 
     /**
-     * День с парами в расписании.
+     * Переделывает индекс, отображаемой на самом деле элемента, исходя из собственной реализации.
+     * @param position текущая отображаемая позиция.
+     * @return отображаемый элемент.
      */
-    class ScheduleViewHolder extends RecyclerView.ViewHolder {
+    abstract public int translateIndex(int position);
 
-        private ArrayList<PairCardView>  mPairCardViews;
-        private LinearLayout mLinearLayout;
-        private TextView mTitle;
-        private TextView mEmptyDay;
+    /**
+     * Проверяет, было ли прокрученно расписание к последующим дням.
+     * @param firstPosition первая показываема позиция.
+     * @param lastPosition последняя показыаемая позиция.
+     * @param todayPosition позиция текущего дня.
+     * @return True если прокрученно, иначе False
+     */
+    abstract public boolean scrolledNext(int firstPosition, int lastPosition, int todayPosition);
 
-        ScheduleViewHolder(@NonNull View itemView) {
-            super(itemView);
+    /**
+     * Проверяет, было ли прокрученно расписание к предыдущим дням.
+     * @param firstPosition первая показываема позиция.
+     * @param lastPosition последняя показыаемая позиция.
+     * @param todayPosition позиция текущего дня.
+     * @return True если прокрученно, иначе False
+     */
+    abstract public boolean scrolledPrev(int firstPosition, int lastPosition, int todayPosition);
 
-            mPairCardViews = new ArrayList<>();
-            mLinearLayout = itemView.findViewById(R.id.schedule_card_values);
-            mTitle = itemView.findViewById(R.id.schedule_card_title);
-            mEmptyDay = itemView.findViewById(R.id.no_pairs);
-        }
-
-        /**
-         * Соединяем данные с view.
-         * @param pairs - пары.
-         * @param title - подпись дня.
-         */
-        void bind(TreeSet<Pair> pairs, String title) {
-            mTitle.setText(title);
-
-            mLinearLayout.removeAllViews();
-
-            int i = 0;
-            for (Pair pair : pairs) {
-                PairCardView cardView;
-
-                // до создаем view пары, если не хватает
-                if (i < mPairCardViews.size()) {
-                    cardView = mPairCardViews.get(i);
-                    cardView.updatePair(pair);
-                } else {
-                    cardView = new PairCardView(mContext.get(), pair);
-                    cardView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            mListener.onPairCardClicked(((PairCardView) v).pair());
-                        }
-                    });
-                    mPairCardViews.add(cardView);
-                }
-
-                mLinearLayout.addView(cardView);
-                i++;
-            }
-
-            // если нет пар
-            if (pairs.isEmpty()) {
-                mEmptyDay.setVisibility(View.VISIBLE);
-            } else {
-                mEmptyDay.setVisibility(View.GONE);
-            }
-        }
-    }
+    /**
+     * Пролистовывает RecyclerView до необхоимой позиции.
+     * @param attachedRecyclerView присоединеный RecyclerView.
+     * @param position позиция.
+     */
+    abstract public void scrollTo(RecyclerView attachedRecyclerView, int position);
 }

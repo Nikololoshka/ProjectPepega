@@ -12,14 +12,43 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--   Widgets   -->
+        <receiver
+            android:name=".widget.ScheduleAppWidget"
+            android:label="@string/widget_schedule_name" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_schedule_app_info" />
+        </receiver>
+
+        <activity
+            android:name=".widget.ScheduleAppWidgetConfigureActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <!--  Services   -->
         <service
             android:name=".schedule.repository.ScheduleDownloaderService"
             android:exported="false" />
+
+        <service
+            android:name=".widget.ScheduleAppWidgetRemoteService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <!--  Activities   -->
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">

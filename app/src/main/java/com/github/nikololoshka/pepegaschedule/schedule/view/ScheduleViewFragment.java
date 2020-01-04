@@ -1,6 +1,5 @@
 package com.github.nikololoshka.pepegaschedule.schedule.view;
 
-
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
@@ -37,6 +36,7 @@ import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
 import com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
+import com.github.nikololoshka.pepegaschedule.utils.StickHeaderItemDecoration;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -62,8 +62,7 @@ import static com.github.nikololoshka.pepegaschedule.schedule.editor.ScheduleEdi
  * Фрагмент просмотра расписания.
  */
 public class ScheduleViewFragment extends Fragment
-        implements ScheduleViewAdapter.OnPairCardClickListener,
-        LoaderManager.LoaderCallbacks<ScheduleViewLoader.ScheduleDataView> {
+        implements OnPairCardCallback, LoaderManager.LoaderCallbacks<ScheduleViewLoader.ScheduleDataView> {
 
     public static final String ARG_SCHEDULE_PATH = "schedule_path";
     public static final String ARG_SCHEDULE_NAME = "schedule_name";
@@ -78,6 +77,8 @@ public class ScheduleViewFragment extends Fragment
 
     private static final String ARG_PAIR_CACHE = "pair_cache";
     private static final String ARG_CURRENT_POSITION = "current_position";
+    private static final String ARG_FIRST_POSITION = "first_position";
+    private static final String ARG_LAST_POSITION = "last_position";
 
     /**
      * Редактируемая пара.
@@ -99,14 +100,19 @@ public class ScheduleViewFragment extends Fragment
 
     private FloatingActionButton mDefaultPosButton;
     private RecyclerView mRecyclerSchedule;
-    private ScheduleViewAdapter mScheduleViewAdapter;
+    private ScheduleViewAdapter mScheduleAdapter;
 
     /**
      * Текущая отображаемая позиция.
      */
-    private int mCurrentPosition = -1;
+    private int mCurrentPosition = RecyclerView.NO_POSITION;
+    private int mFirstPosition = RecyclerView.NO_POSITION;
+    private int mLastPosition = RecyclerView.NO_POSITION;
     private boolean mIsHorizontalView = false;
 
+    /**
+     * Конструктор фрагмента.
+     */
     public ScheduleViewFragment() {
     }
 
@@ -118,7 +124,9 @@ public class ScheduleViewFragment extends Fragment
             mSchedulePath = savedInstanceState.getString(ARG_SCHEDULE_PATH);
             mScheduleName = savedInstanceState.getString(ARG_SCHEDULE_NAME);
             mPairCache = savedInstanceState.getParcelable(ARG_PAIR_CACHE);
-            mCurrentPosition = savedInstanceState.getInt(ARG_CURRENT_POSITION, -1);
+            mCurrentPosition = savedInstanceState.getInt(ARG_CURRENT_POSITION, RecyclerView.NO_POSITION);
+            mFirstPosition = savedInstanceState.getInt(ARG_FIRST_POSITION, RecyclerView.NO_POSITION);
+            mLastPosition = savedInstanceState.getInt(ARG_LAST_POSITION, RecyclerView.NO_POSITION);
         } else if (getArguments() != null) {
             // если создаемся первый раз
             mSchedulePath = getArguments().getString(ARG_SCHEDULE_PATH);
@@ -148,16 +156,27 @@ public class ScheduleViewFragment extends Fragment
         if (getContext() != null) {
             String method = ApplicationPreference.scheduleViewMethod(getContext());
             mIsHorizontalView = method.equals(ApplicationPreference.SCHEDULE_VIEW_HORIZONTAL);
-
-            if (mIsHorizontalView) {
-                manager.setOrientation(RecyclerView.HORIZONTAL);
-                LinearSnapHelper snapHelper = new LinearSnapHelper();
-                snapHelper.attachToRecyclerView(mRecyclerSchedule);
-            }
         }
 
-        mScheduleViewAdapter = new ScheduleViewAdapter(this);
-        mRecyclerSchedule.setAdapter(mScheduleViewAdapter);
+        if (mIsHorizontalView) {
+            mScheduleAdapter = new ScheduleHorizontalAdapter(this);
+
+            manager.setOrientation(RecyclerView.HORIZONTAL);
+            LinearSnapHelper snapHelper = new LinearSnapHelper();
+            snapHelper.attachToRecyclerView(mRecyclerSchedule);
+
+        } else {
+            mScheduleAdapter = new ScheduleVerticalAdapter(this);
+
+            // "липкий" заголовок
+            mRecyclerSchedule.addItemDecoration(new StickHeaderItemDecoration(
+                    (StickHeaderItemDecoration.StickyHeaderInterface) mScheduleAdapter));
+            // разделитель между днями
+            mRecyclerSchedule.addItemDecoration(new ScheduleViewSpaceItemDecoration(
+                    getResources().getDimensionPixelSize(R.dimen.vertical_view_space)));
+        }
+
+        mRecyclerSchedule.setAdapter(mScheduleAdapter);
 
         // listener на отображение кнопки возврата к текущему дню.
         mRecyclerSchedule.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -165,44 +184,9 @@ public class ScheduleViewFragment extends Fragment
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 // если происходит прокрутка
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                  LinearLayoutManager manager = (LinearLayoutManager) mRecyclerSchedule.getLayoutManager();
-
-                  if (manager == null) {
-                      return;
-                  }
-
-                  int firstPos = manager.findFirstVisibleItemPosition();
-                  int lastPos = manager.findLastVisibleItemPosition();
-
-                  mCurrentPosition = firstPos;
-
-                  int firstOffset = firstPos - mScheduleDataView.correctIndex;
-                  int lastOffset = lastPos - mScheduleDataView.correctIndex;
-
-                  // если сейчас отображается последующие дни
-                  if (firstOffset > 0 && lastOffset > 0) {
-                      if (getContext() != null) {
-                          if (mIsHorizontalView) {
-                              mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_left_white));
-                          } else {
-                              mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_up_white));
-                          }
-                      }
-                      mDefaultPosButton.show();
-
-                  // если сейчас отображается предыдущие дни
-                  } else if (firstOffset < 0 && lastOffset < 0) {
-                      if (getContext() != null) {
-                          if (mIsHorizontalView) {
-                              mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_right_white));
-                          } else {
-                              mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_down_white));
-                          }
-                      }
-                      mDefaultPosButton.show();
-                  }
+                    updateDefaultButton();
                 } else {
-                  mDefaultPosButton.hide();
+                    mDefaultPosButton.hide();
                 }
                 super.onScrollStateChanged(recyclerView, newState);
             }
@@ -212,7 +196,7 @@ public class ScheduleViewFragment extends Fragment
         mDefaultPosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mRecyclerSchedule.smoothScrollToPosition(mScheduleDataView.correctIndex);
+                mScheduleAdapter.scrollTo(mRecyclerSchedule, mScheduleDataView.correctIndex);
             }
         });
 
@@ -224,8 +208,9 @@ public class ScheduleViewFragment extends Fragment
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onStart() {
+        super.onStart();
+
         updateActionBar();
     }
 
@@ -238,7 +223,7 @@ public class ScheduleViewFragment extends Fragment
     @Override
     public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        // если расписание еще не загружено или при загрузки произошла ошибка
+        // если расписание еще не загружено или при загрузке произошла ошибка
         if (mScheduleDataView == null || mScheduleDataView.hasErrors) {
             menu.findItem(R.id.rename_schedule).setEnabled(false);
             menu.findItem(R.id.save_schedule).setEnabled(false);
@@ -323,6 +308,19 @@ public class ScheduleViewFragment extends Fragment
         outState.putString(ARG_SCHEDULE_PATH, mSchedulePath);
         outState.putParcelable(ARG_PAIR_CACHE, mPairCache);
         outState.putInt(ARG_CURRENT_POSITION, mCurrentPosition);
+
+        LinearLayoutManager manager = (LinearLayoutManager) mRecyclerSchedule.getLayoutManager();
+
+        int firstPos = RecyclerView.NO_POSITION;
+        int lastPos = RecyclerView.NO_POSITION;
+
+        if (manager != null) {
+            firstPos = manager.findFirstVisibleItemPosition();
+            lastPos = manager.findLastVisibleItemPosition();
+        }
+
+        outState.putInt(ARG_FIRST_POSITION, firstPos);
+        outState.putInt(ARG_LAST_POSITION, lastPos);
     }
 
     /**
@@ -560,6 +558,60 @@ public class ScheduleViewFragment extends Fragment
         }
     }
 
+    /**
+     * Обновляет отображание кнопки "к текущему дню".
+     */
+    private void updateDefaultButton() {
+        LinearLayoutManager manager = (LinearLayoutManager) mRecyclerSchedule.getLayoutManager();
+
+        if (manager == null) {
+            return;
+        }
+
+        int firstPos = manager.findFirstVisibleItemPosition();
+        int lastPos = manager.findLastVisibleItemPosition();
+
+        mCurrentPosition = firstPos;
+        updateDefaultButton(firstPos, lastPos, mScheduleDataView.correctIndex);
+    }
+
+    /**
+     * Обновляет отображание кнопки "к текущему дню".
+     * @param firstPos позиция первого отображаемого элемента.
+     * @param lastPos позиция последнего отображаемого элемента.
+     * @param position позиция текущего дня.
+     */
+    private void updateDefaultButton(int firstPos, int lastPos, int position) {
+        if (firstPos == RecyclerView.NO_POSITION || lastPos == RecyclerView.NO_POSITION) {
+            return;
+        }
+        // если сейчас отображается последующие дни
+        if (mScheduleAdapter.scrolledNext(firstPos, lastPos, position)) {
+            if (getContext() != null) {
+                if (mIsHorizontalView) {
+                    mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_left_white));
+                } else {
+                    mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_up_white));
+                }
+            }
+            mDefaultPosButton.show();
+
+            // если сейчас отображается предыдущие дни
+        } else if (mScheduleAdapter.scrolledPrev(firstPos, lastPos, position)) {
+            if (getContext() != null) {
+                if (mIsHorizontalView) {
+                    mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_right_white));
+                } else {
+                    mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_down_white));
+                }
+            }
+            mDefaultPosButton.show();
+
+        } else {
+            mDefaultPosButton.hide();
+        }
+    }
+
     @NonNull
     @Override
     public Loader<ScheduleViewLoader.ScheduleDataView> onCreateLoader(int id, @Nullable Bundle args) {
@@ -577,12 +629,19 @@ public class ScheduleViewFragment extends Fragment
         }
 
         mScheduleDataView = data;
-        mScheduleViewAdapter.update(mScheduleDataView.daysPair, mScheduleDataView.daysFormat);
-        mRecyclerSchedule.scrollToPosition(
-                mCurrentPosition != -1 ? mCurrentPosition : mScheduleDataView.correctIndex);
+        mScheduleAdapter.update(mScheduleDataView.daysPair, mScheduleDataView.daysFormat);
+
+        if (mCurrentPosition != RecyclerView.NO_POSITION) {
+            mRecyclerSchedule.scrollToPosition(mCurrentPosition);
+
+            if (getArguments() != null) {
+                updateDefaultButton(mFirstPosition, mLastPosition, mScheduleDataView.correctIndex);
+            }
+        } else {
+            mRecyclerSchedule.scrollToPosition(mScheduleAdapter.translateIndex(mScheduleDataView.correctIndex));
+        }
 
         mStatefulLayout.setState(R.id.recycler_view);
-
         updateActionBar();
     }
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +13,7 @@
         android:padding="@dimen/default_layout_padding">
 
         <TextView
-            style="@style/Text.Caption"
+            style="@style/Text.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/selected_subgroup" />
@@ -32,25 +31,25 @@
     <androidx.cardview.widget.CardView
         style="@style/CardStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/layout_schedules"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:divider="@drawable/divider"
+            android:orientation="vertical"
             android:paddingTop="5dp"
-            android:paddingBottom="25dp">
+            android:paddingBottom="25dp"
+            android:showDividers="middle|end">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 android:layout_marginBottom="5dp"
+                android:padding="5dp"
                 android:text="@string/my_schedules"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="20sp"/>
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="20sp" />
 
             <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
                 android:id="@+id/stateful_layout"
@@ -62,18 +61,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#FFFFFF"
-                    tools:listitem="@layout/item_schedule"
-                    tools:itemCount="1"/>
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_schedule" />
 
                 <TextView
                     android:id="@+id/empty_my_schedules"
+                    style="@style/Text.Medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/no_available_schedules"
+                    android:background="@color/colorCardBackground"
                     android:gravity="center"
-                    android:background="#FFFFFF"
-                    android:padding="20dp"
-                    android:textSize="16sp"/>
+                    android:padding="@dimen/default_information_padding"
+                    android:text="@string/no_available_schedules" />
 
             </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
 

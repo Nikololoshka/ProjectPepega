@@ -3,7 +3,6 @@ package com.github.nikololoshka.pepegaschedule.schedule.editor;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -202,7 +201,6 @@ public class PairEditorActivity extends AppCompatActivity
                                 updateDatesCountView();
                             }
                         })
-                        .setActionTextColor(Color.YELLOW)
                         .show();
 
                 updateDatesCountView();

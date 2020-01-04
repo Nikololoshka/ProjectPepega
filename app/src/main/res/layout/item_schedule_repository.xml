@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/CardStyle"
     android:id="@+id/schedule_manager_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:foreground="?android:attr/selectableItemBackground">
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="0dp" >
 
     <TextView
-        style="@style/Text.Small"
+        style="@style/Text.Medium"
+        android:textColor="?android:attr/textColorPrimary"
+        android:text="@string/debug_text"
+        android:textAlignment="center"
         android:id="@+id/schedule_repository_item_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="@dimen/default_layout_padding"/>
+        android:padding="@dimen/item_schedule_repository_padding"/>
 
 </androidx.cardview.widget.CardView>

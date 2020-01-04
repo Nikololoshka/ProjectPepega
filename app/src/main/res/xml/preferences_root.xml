@@ -8,6 +8,12 @@
         android:icon="@drawable/ic_nav_schedule" />
 
     <Preference
+        android:key="settings_widget_fragment"
+        android:summary="@string/pref_widget_summary"
+        android:title="@string/widget"
+        android:icon="@drawable/ic_widgets_black" />
+
+    <Preference
         android:key="settings_notification_fragment"
         android:summary="@string/pref_notification_summary"
         android:title="@string/notification"

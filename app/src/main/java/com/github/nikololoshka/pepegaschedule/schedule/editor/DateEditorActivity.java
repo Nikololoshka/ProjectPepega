@@ -54,6 +54,11 @@ public class DateEditorActivity extends AppCompatActivity
     private static final String ARG_FREQUENCY = "arg_frequency";
     private static final String ARG_DATE_ITEMS = "arg_date_items";
 
+    private static final int SINGLE_MODE = 0;
+    private static final int RANGE_MODE = 1;
+
+    private static final String TAG = "DateEditorActivityTag";
+
     private Spinner mSpinnerDate;
 
     private EditText mSingleDateEdit;
@@ -73,6 +78,7 @@ public class DateEditorActivity extends AppCompatActivity
         setContentView(R.layout.activity_date_editor);
 
         mStatefulLayout = findViewById(R.id.stateful_layout);
+        mStatefulLayout.setAnimation(false);
         mStatefulLayout.addXMLViews();
 
         mSingleDateEdit = findViewById(R.id.single_date_edit);
@@ -88,10 +94,10 @@ public class DateEditorActivity extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    case 0:
+                    case SINGLE_MODE:
                         mStatefulLayout.setState(R.id.single_date_mode);
                         break;
-                    case 1:
+                    case RANGE_MODE:
                         mStatefulLayout.setState(R.id.range_date_mode);
                         break;
                 }
@@ -360,6 +366,7 @@ public class DateEditorActivity extends AppCompatActivity
      * @return - true если все корректно, иначе false.
      */
     public boolean checkRangeDates() {
+        // TODO: случайно вызывается от mSpinnerFrequency::Listener при смене режима на "диапозон"
         try {
             String startString = mRangeDateEditStart.getText().toString();
             String endString = mRangeDateEditEnd.getText().toString();
@@ -370,12 +377,12 @@ public class DateEditorActivity extends AppCompatActivity
             long diff = format.parse(endString).getTime() - format.parse(startString).getTime();
 
             if (diff < 0) {
-                mRangeDateEditStart.setError("Less!");
-                mRangeDateEditEnd.setError("Less!");
+                mRangeDateEditStart.setError(getResources().getString(R.string.date_less_than_another));
+                mRangeDateEditEnd.setError(getResources().getString(R.string.date_less_than_another));
                 return false;
             } else if (((diff) / 86400000) % mFrequency != 0) {
-                mRangeDateEditStart.setError("Frequency!");
-                mRangeDateEditEnd.setError("Frequency!");
+                mRangeDateEditStart.setError(getResources().getString(R.string.frequency_mismatch));
+                mRangeDateEditEnd.setError(getResources().getString(R.string.frequency_mismatch));
                 return false;
             } else {
                 mRangeDateEditStart.setError(null);
@@ -485,7 +492,11 @@ public class DateEditorActivity extends AppCompatActivity
                 mEditText.setError(getResources().getString(R.string.enter_valid_date));
             } else {
                 mEditText.setError(null);
-                checkRangeDates();
+
+                // для проверки с 2-ым редактором даты
+                if (mSpinnerDate.getSelectedItemPosition() == RANGE_MODE) {
+                    checkRangeDates();
+                }
             }
         }
 

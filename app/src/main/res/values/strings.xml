@@ -4,6 +4,7 @@
     <string name="nav_header_subtitle" translatable="false">aka Stankin Schedule</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="application_icon">Application icon</string>
 
     <!-- debug -->
     <string name="debug_text" translatable="false">Some text</string>
@@ -17,7 +18,6 @@
     <string name="nav_home">Home</string>
     <string name="nav_schedule">Schedule</string>
     <string name="nav_module_journal">Module journal</string>
-    <string name="nav_schedule_manager">Schedule repository</string>
     <string name="university_map">University map</string>
     <string name="information">Information</string>
     <string name="about_application">About application</string>
@@ -39,17 +39,21 @@
     <string name="schedule_removed">Schedule removed</string>
     <string name="undo">Undo</string>
     <string name="from_repository">From repository</string>
-    <string name="new_schedule">New schedule</string>
+    <string name="new_schedule">Create new schedule</string>
     <string name="load_schedule">Load schedule…</string>
 
     <!-- repository -->
+    <string name="schedule_repository">Repository</string>
     <string name="update">Update</string>
-    <string name="repository_version">Current version: Autumn-2019 (last update 07.10.19)</string>
+    <string name="search">Search</string>
+    <string name="repository_version">Current version: Autumn-2019</string>
+    <string name="repository_last_update">Last update: 07.10.19</string>
     <string name="loading_schedule">Loading schedule</string>
+    <string name="repository_info_bg">Repository information background</string>
 
     <!-- schedules view -->
     <string name="schedule_view">Schedule View</string>
-    <string name="no_pairs">No pairs</string>
+    <string name="not_pairs">No pairs</string>
     <string name="add_pair">Add pair</string>
     <string name="remove_pair">Remove pair</string>
     <string name="save_schedule">Save schedule…</string>
@@ -74,6 +78,8 @@
     <string name="start_date">Start date</string>
     <string name="end_date">End date</string>
     <string name="frequency">Frequency</string>
+    <string name="frequency_mismatch">Frequency mismatch!</string>
+    <string name="date_less_than_another">One date is less than another!</string>
 
     <!-- schedule editor -->
     <string name="rename_schedule">Rename schedule</string>
@@ -123,14 +129,11 @@
     <string name="schedule_downloaded">Schedule downloaded</string>
     <string name="awaiting_download">Awaiting download</string>
 
-    <!--  notification alert  -->
-    <string name="rgb_select_hint" translatable="false">FF00FF</string>
-    <string name="rgb" translatable="false">RGB</string>
-    <string name="choose_color">Choose color</string>
-
     <!-- settings -->
     <string name="pref_schedule_summary">Customize the schedule</string>
+    <string name="pref_widget_summary">Configuring app widgets</string>
     <string name="pref_notification_summary">Setting up notifications</string>
+    <string name="not_widgets">No widgets have been created</string>
     <string name="pref_schedule_view">Schedule view</string>
     <string name="pref_schedule_view_method">Schedule view method</string>
     <string name="pref_notification_turn">Turn notifications</string>
@@ -140,6 +143,23 @@
     <string name="pref_laboratory_color">Laboratory color</string>
     <string name="pref_subgroup_a_color">Subgroup A color</string>
     <string name="pref_subgroup_b_color">Subgroup B color</string>
+
+    <!--  settings alert  -->
+    <string name="rgb_select_hint" translatable="false">FF00FF</string>
+    <string name="rgb" translatable="false">RGB</string>
+    <string name="choose_color">Choose color</string>
+    <string name="not_color">Not a color</string>
+
+    <!-- schedule widget -->
+    <string name="widget">Widget</string>
+    <string name="widget_schedule_name">Schedule</string>
+    <string name="widget_schedule_configure">Configuration of a widget with a schedule</string>
+    <string name="widget_schedule_widget">Widgets with schedules</string>
+    <string name="widget_schedule">Schedule</string>
+    <string name="widget_schedule_add">Add schedule widget</string>
+    <string name="widget_schedule_update">Update the schedule widget</string>
+    <string name="widget_schedule_type_marker">Pair type marker</string>
+    <string name="widget_schedule_error">An error occurred when the widget was running</string>
 
     <!-- news -->
     <string name="university_news">University News</string>
@@ -157,5 +177,4 @@
     <string name="moving_handler">Moving handler</string>
     <string name="retry">Retry</string>
     <string name="current_color">current color</string>
-
 </resources>
