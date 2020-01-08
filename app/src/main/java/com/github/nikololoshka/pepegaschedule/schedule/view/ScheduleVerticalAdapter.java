@@ -55,6 +55,14 @@ public class ScheduleVerticalAdapter
     }
 
     @Override
+    public int unTranslateIndex(int position) {
+        if (position % 2 == 0) {
+            return position / 2;
+        }
+        return (position - 1) / 2;
+    }
+
+    @Override
     public boolean scrolledNext(int firstPosition, int lastPosition, int todayPosition) {
         int today = translateIndex(todayPosition);
 
@@ -75,7 +83,7 @@ public class ScheduleVerticalAdapter
     }
 
     @Override
-    public void scrollTo(RecyclerView attachedRecyclerView, int position) {
+    public void scrollTo(RecyclerView attachedRecyclerView, int position, boolean smooth) {
         LinearLayoutManager manager = (LinearLayoutManager) attachedRecyclerView.getLayoutManager();
 
         if (manager == null) {
@@ -86,9 +94,17 @@ public class ScheduleVerticalAdapter
         int lastPos = manager.findLastVisibleItemPosition();
 
         if (scrolledNext(firstPos, lastPos, position)) {
-            attachedRecyclerView.smoothScrollToPosition(position * 2);
+            if (smooth) {
+                attachedRecyclerView.smoothScrollToPosition(position * 2);
+            } else {
+                attachedRecyclerView.scrollToPosition(position * 2);
+            }
         } else if (scrolledPrev(firstPos, lastPos, position)) {
-            attachedRecyclerView.smoothScrollToPosition(position * 2 + 1);
+            if (smooth) {
+                attachedRecyclerView.smoothScrollToPosition(position * 2 + 1);
+            } else {
+                attachedRecyclerView.scrollToPosition(position * 2 + 1);
+            }
         }
     }
 

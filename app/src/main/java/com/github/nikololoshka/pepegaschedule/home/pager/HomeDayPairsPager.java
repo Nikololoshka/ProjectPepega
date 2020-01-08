@@ -1,7 +1,9 @@
 package com.github.nikololoshka.pepegaschedule.home.pager;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,11 @@ public class HomeDayPairsPager extends ViewPager {
 
     private View mCurrentView;
     private boolean isDragging;
+
+    private int mHc;
+    private int mHt;
+
+    private boolean init = false;
 
     public HomeDayPairsPager(@NonNull Context context) {
         super(context);
@@ -42,6 +49,7 @@ public class HomeDayPairsPager extends ViewPager {
             public void onPageScrollStateChanged(int state) {
                 if (state != SCROLL_STATE_SETTLING) {
                     isDragging = state != SCROLL_STATE_IDLE;
+
                     requestLayout();
                 }
             }
@@ -50,6 +58,7 @@ public class HomeDayPairsPager extends ViewPager {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
         if (mCurrentView == null) {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
             return;
@@ -57,6 +66,9 @@ public class HomeDayPairsPager extends ViewPager {
 
         mCurrentView.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
         int height = mCurrentView.getMeasuredHeight();
+
+        int hc = getMeasuredHeight();
+        int ht = height;
 
         if (isDragging) {
             for(int i = 0; i < getChildCount(); i++) {
@@ -71,26 +83,70 @@ public class HomeDayPairsPager extends ViewPager {
 
         // Log.d("MyLog", "Now " + getCurrentItem() + "; h " + height + "; drag " + isDragging);
 
-        heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
+        if (init) {
+            heightMeasureSpec = MeasureSpec.makeMeasureSpec(ht, MeasureSpec.EXACTLY);
+            init = false;
+        }
+
+        animate(hc, height);
+
+//        Log.d("MyLog", mHc + " now " + mHt);
+//        Log.d("MyLog", hc + " to " + height);
+
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
+    private void animate(int current, int target) {
+        Log.d("MyLog", "------------------");
+        Log.d("MyLog", mHc + " now " + mHt);
+        Log.d("MyLog", current + " to " + target);
 
-//        int delta = h - oldh;
-//        Log.d("MyLog", String.valueOf(delta));
+        if (mHc == 0 || mHt != target) {
+            mHc = current;
+            mHt = target;
+        } else {
+            return;
+        }
+
+        Log.d("MyLogAnimate", current + " to " + target);
+
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(current, target);
+        valueAnimator.setDuration(400);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Integer value = (Integer) animation.getAnimatedValue();
+                HomeDayPairsPager.this.getLayoutParams().height = value;
+                HomeDayPairsPager.this.requestLayout();
+            }
+        });
+        valueAnimator.start();
+    }
+
+    private void reanimate() {
+        if (mCurrentView == null) {
+            return;
+        }
+
+        int hc = getMeasuredHeight();
+
+        mCurrentView.measure(0, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+        int ht = mCurrentView.getMeasuredHeight();
+
+        animate(hc, ht);
     }
 
     public void measureCurrentView(View currentView) {
         mCurrentView = currentView;
         isDragging = false;
-        requestLayout();
+
+        reanimate();
     }
 
     public void update(int index) {
         setCurrentItem(index);
+
+        init = true;
         measure(0, 0);
     }
 }

@@ -35,7 +35,7 @@ public class HomeDayTitlesAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater inflater = LayoutInflater.from(container.getContext());
-        TextView view = (TextView) inflater.inflate(R.layout.item_day_title, container, false);
+        TextView view = (TextView) inflater.inflate(R.layout.item_pager_day_title, container, false);
         view.setText(mTitles.get(position));
 
         container.addView(view, 0);

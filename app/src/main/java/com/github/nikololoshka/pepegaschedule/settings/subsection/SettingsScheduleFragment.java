@@ -12,6 +12,7 @@ import com.github.nikololoshka.pepegaschedule.R;
 public class SettingsScheduleFragment extends PreferenceFragmentCompat {
 
     public SettingsScheduleFragment() {
+        super();
     }
 
     @Override

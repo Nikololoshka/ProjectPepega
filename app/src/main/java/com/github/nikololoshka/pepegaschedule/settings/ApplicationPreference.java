@@ -22,12 +22,62 @@ public class ApplicationPreference {
     public static final String SUBGROUP_A_COLOR = "schedule_subgroup_a_color";
     public static final String SUBGROUP_B_COLOR = "schedule_subgroup_b_color";
 
+    public static final String DARK_MODE_SYSTEM_DEFAULT = "pref_system_default";
+    public static final String DARK_MODE_BATTERY_SAVER = "pref_battery_saver";
+    public static final String DARK_MODE_MANUAL = "pref_manual_mode";
+
     public static final String SCHEDULE_VIEW_VERTICAL = "pref_vertical";
     public static final String SCHEDULE_VIEW_HORIZONTAL = "pref_horizontal";
 
     private static final String FIRST_RUN = "first_run";
     private static final String SCHEDULE_VIEW_METHOD = "schedule_view_method";
-    private static final String SCHEDULE_WIDGETS = "schedule_app_widgets";
+    private static final String DARK_MODE = "dark_mode";
+    private static final String MANUAL_MODE = "manual_mode";
+
+
+    /**
+     * Возвращает текущие созраненое значение режима темной темы.
+     * @param context контекст.
+     * @return режим темной темы.
+     */
+    public static String currentDarkMode(@NonNull Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getString(DARK_MODE, DARK_MODE_SYSTEM_DEFAULT);
+    }
+
+    /**
+     * Устанавливает значение режима темной темы.
+     * @param context контекст.
+     * @param darkMode режим темной темы.
+     */
+    public static void setDarkMode(@NonNull Context context, @NonNull String darkMode) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit()
+                .putString(DARK_MODE, darkMode)
+                .apply();
+    }
+
+    /**
+     * Возвращает текущие значение ручного переключателя темной темы.
+     * @param context контекст.
+     * @return true если темная тема включена, иначе false.
+     */
+    public static boolean currentManualMode(@NonNull Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean(MANUAL_MODE, false);
+    }
+
+    /**
+     * Устанавливает значение ручного переключателя темной темы.
+     * @param context контекст.
+     * @param isDarkModeEnabled true если включить темную тему, иначе false.
+     */
+    public static void setManualMode(@NonNull Context context, boolean isDarkModeEnabled) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit()
+                .putBoolean(MANUAL_MODE, isDarkModeEnabled)
+                .apply();
+    }
 
     /**
      * Возвращает значение, как должно отображаться расписание.
@@ -100,65 +150,4 @@ public class ApplicationPreference {
 
         return defaultColor;
     }
-
-//    /**
-//     * Сохраняет ID виджета с расписанием в список.
-//     * @param context контекст.
-//     * @param scheduleID ID виджета.
-//     */
-//    public static void addScheduleWidget(@NonNull Context context, int scheduleID) {
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-//
-//        Set<String> widgets = preferences.getStringSet(SCHEDULE_WIDGETS, new HashSet<String>());
-//        widgets.add(String.valueOf(scheduleID));
-//
-//        preferences.edit()
-//                .putStringSet(SCHEDULE_WIDGETS, widgets)
-//                .apply();
-//    }
-//
-//    /**
-//     * Удаляет ID виджета с расписанием из списка.
-//     * @param context контекст.
-//     * @param scheduleID ID виджета.
-//     */
-//    public static void removeScheduleWidget(@NonNull Context context, int scheduleID) {
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-//
-//        Set<String> widgets = preferences.getStringSet(SCHEDULE_WIDGETS, new HashSet<String>());
-//        widgets.remove(String.valueOf(scheduleID));
-//
-//        preferences.edit()
-//                .putStringSet(SCHEDULE_WIDGETS, widgets)
-//                .apply();
-//    }
-//
-//    /**
-//     * Возвращает список ID виджетов с расписанями.
-//     * @param context контекст.
-//     * @return список ID.
-//     */
-//    public static ArrayList<Integer> scheduleWidgetIDs(@NonNull Context context) {
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-//
-//        Set<String> widgets = preferences.getStringSet(SCHEDULE_WIDGETS, new HashSet<String>());
-//
-//        ArrayList<Integer> ids = new ArrayList<>();
-//        for (String id : widgets) {
-//            ids.add(Integer.valueOf(id));
-//        }
-//
-//        return ids;
-//    }
-//
-//    /**
-//     * Очищает весь список ID виджетов.
-//     * @param context контекст.
-//     */
-//    public static void clearScheduleWidgetIDs(@NonNull Context context) {
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-//        preferences.edit()
-//                .remove(SCHEDULE_WIDGETS)
-//                .apply();
-//    }
 }

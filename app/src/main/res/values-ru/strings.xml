@@ -14,6 +14,7 @@
     <string name="information">Справка</string>
     <string name="about_application">О приложении</string>
     <string name="settings">Настройки</string>
+    <string name="dark_mode_description">Кнопка переключения ночного режима</string>
 
     <!-- home -->
     <string name="no_favorite_schedule">Нет избранного расписания</string>
@@ -47,6 +48,8 @@
     <string name="schedule_view">Просмотр расписания</string>
     <string name="not_pairs">Нет пар</string>
     <string name="add_pair">Добавить пару</string>
+    <string name="to_the_current_day">К текущему дню</string>
+    <string name="go_to_day">Перейти к дню</string>
     <string name="remove_pair">Удалить пару</string>
     <string name="save_schedule">Сохранить расписание…</string>
 
@@ -83,7 +86,7 @@
     <string name="invalid_date">Невозможно создать дату: %1$s. Проверьте правильность даты.</string>
     <string name="invalid_day_of_week">К сожелению, в СТАНКИНе пока что ещё 6-ти дневная учебная неделю,
         а не 7-ми. Именно поэтому Вы не можите создать дату с днём недели: %1$s.</string>
-    <string name="invalid_frequency">Диапозон даты не кратен указанной периодичности.</string>
+    <string name="invalid_frequency">Диапазон даты не кратен указанной периодичности.</string>
     <string name="impossible_added_date">Вы не можите добавить дату, т.к. будет пересечение дат / не совпадение по дню недели. </string>
     <string name="added_date">Добавляемая дата:</string>
     <string name="dates">Даты:</string>
@@ -123,6 +126,10 @@
     <string name="awaiting_download">Ожидание загрузки</string>
 
     <!-- settings -->
+    <string name="general">Основное</string>
+    <string name="dark_mode">Темная тема</string>
+    <string name="mode">Режим</string>
+    <string name="pref_general_summary">Основные настройки приложения</string>
     <string name="pref_schedule_summary">Изменение настроек расписания</string>
     <string name="pref_widget_summary">Настройка виджетов приложения</string>
     <string name="pref_notification_summary">Настройка уведомлений</string>
@@ -143,6 +150,7 @@
 
     <!-- schedule widget -->
     <string name="widget">Виджет</string>
+    <string name="widget_configurator">Конфигуратор</string>
     <string name="widget_schedule_name">Расписание</string>
     <string name="widget_schedule_configure">Конфигурация виджета с расписанием</string>
     <string name="widget_schedule_widget">Виджеты с расписаниями</string>

@@ -70,7 +70,7 @@ public class ScheduleDownloaderService extends IntentService {
                 .setContentText(context.getString(R.string.awaiting_download))
                 .setWhen(System.currentTimeMillis())
                 .setGroup(DOWNLOADER_NOTIFICATION_GROUP)
-                .setSmallIcon(R.drawable.ic_file_download_black);
+                .setSmallIcon(R.drawable.ic_notification_file_download);
 
         NotificationDispatcher.notify(context,
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE),
@@ -99,7 +99,7 @@ public class ScheduleDownloaderService extends IntentService {
                 .setWhen(System.currentTimeMillis())
                 .setGroup(DOWNLOADER_NOTIFICATION_GROUP)
                 .setOngoing(true)
-                .setSmallIcon(R.drawable.ic_file_download_black)
+                .setSmallIcon(R.drawable.ic_notification_file_download)
                 .setProgress(MAX_PROGRESS, 0, true);
 
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -142,13 +142,6 @@ public class ScheduleDownloaderService extends IntentService {
             NotificationDispatcher.notify(this, mNotificationManager,
                     SERVICE_NOTIFICATION_ID, mNotificationBuilder.build());
 
-            // TODO: удалить задержку
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
             // загрузка (чтение)
             try (FileWriter fileWriter = new FileWriter(
                     new File(SchedulePreference.createPath(this, scheduleName)))) {
@@ -177,7 +170,7 @@ public class ScheduleDownloaderService extends IntentService {
                     .setContentTitle(scheduleName)
                     .setContentIntent(PendingIntent.getActivity(getApplicationContext(), 0, new Intent(), 0))
                     .setWhen(System.currentTimeMillis())
-                    .setSmallIcon(R.drawable.ic_file_download_black)
+                    .setSmallIcon(R.drawable.ic_notification_file_download)
                     .setAutoCancel(true)
                     .setGroup(DOWNLOADER_NOTIFICATION_GROUP);
 
@@ -192,7 +185,7 @@ public class ScheduleDownloaderService extends IntentService {
      */
     private void createNotificationGroup(NotificationManager notificationManager) {
         NotificationCompat.Builder builder = NotificationDispatcher.createCommonNotification(this)
-                .setSmallIcon(R.drawable.ic_file_download_black)
+                .setSmallIcon(R.drawable.ic_notification_file_download)
                 .setAutoCancel(true)
                 .setGroup(DOWNLOADER_NOTIFICATION_GROUP)
                 .setGroupSummary(true)

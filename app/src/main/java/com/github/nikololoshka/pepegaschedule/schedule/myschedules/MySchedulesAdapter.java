@@ -19,22 +19,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
+/**
+ * Адаптер для списка с расписаниями.
+ */
 public class MySchedulesAdapter
         extends RecyclerView.Adapter<MySchedulesAdapter.MySchedulesViewHolder> {
 
     private static final String TAG = "MySchedulesAdapterLog";
     private static final boolean DEBUG = false;
 
+    /**
+     * Listener для нажатия по расписанию
+     */
     public interface OnItemClickListener {
-        void onScheduleItemClicked(int pos);
+        void onScheduleItemClicked(String schedule);
         void onScheduleItemMove(int fromPosition, int toPosition);
         void onScheduleFavoriteSelected(String favorite);
     }
 
-    /**
-     * Callback для нажатия по расписанию
-     */
     private final OnItemClickListener mClickListener;
     private final DragToMoveCallback.OnStartDragListener mDragStartListener;
 
@@ -73,8 +75,7 @@ public class MySchedulesAdapter
                     + ";" + mFavoriteSchedule.equals(mSchedules.get(position)));
         }
 
-        holder.setTitle(mSchedules.get(position));
-        holder.setFavorite(mFavoriteSchedule.equals(mSchedules.get(position)));
+        holder.bind(mSchedules.get(position), mFavoriteSchedule.equals(mSchedules.get(position)));
         holder.setOnTouchListener(holder);
     }
 
@@ -83,13 +84,21 @@ public class MySchedulesAdapter
         return mSchedules.size();
     }
 
-    public void moveItem(int fromPosition, int toPosition) {
+    /**
+     * Перемещает элемент в списке.
+     * @param fromPosition начальная позиция.
+     * @param toPosition конечная позиция.
+     */
+    void moveItem(int fromPosition, int toPosition) {
         Collections.swap(mSchedules, fromPosition, toPosition);
 
         mClickListener.onScheduleItemMove(fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
     }
 
+    /**
+     * Holder элемента расписания в списке.
+     */
     class MySchedulesViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
@@ -108,11 +117,14 @@ public class MySchedulesAdapter
             itemView.findViewById(R.id.favorite_schedule).setOnClickListener(this);
         }
 
-        private void setTitle(String title) {
+        /**
+         * Обновляет данные в holder.
+         * @param title название расписания.
+         * @param check избранное ли расписание.
+         */
+        void bind(String title, boolean check) {
             mTitle.setText(title);
-        }
 
-        private void setFavorite(boolean check) {
             boolean animate = check && mIsAnimate;
             mFavorite.setToggle(check, animate);
 
@@ -138,8 +150,9 @@ public class MySchedulesAdapter
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.schedule_item:
-                    mClickListener.onScheduleItemClicked(getAdapterPosition());
+                    mClickListener.onScheduleItemClicked(mSchedules.get(getAdapterPosition()));
                     break;
+
                 case R.id.favorite_schedule:
                     mFavoriteSchedule = mTitle.getText().toString();
                     mClickListener.onScheduleFavoriteSelected(mFavoriteSchedule);

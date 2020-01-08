@@ -73,6 +73,7 @@ public class HomeDayPairsAdapter extends PagerAdapter {
         if (position != mCurrentPosition) {
             HomeDayPairsPager pager = (HomeDayPairsPager) container;
             mCurrentPosition = position;
+
             pager.measureCurrentView((View) object);
         }
     }

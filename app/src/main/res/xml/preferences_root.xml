@@ -2,6 +2,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Preference
+        android:key="settings_general_fragment"
+        android:summary="@string/pref_general_summary"
+        android:title="@string/general"
+        android:icon="@drawable/ic_pref_general"/>
+
+    <Preference
         android:key="settings_schedule_fragment"
         android:summary="@string/pref_schedule_summary"
         android:title="@string/schedule"
@@ -11,12 +17,12 @@
         android:key="settings_widget_fragment"
         android:summary="@string/pref_widget_summary"
         android:title="@string/widget"
-        android:icon="@drawable/ic_widgets_black" />
+        android:icon="@drawable/ic_pref_widgets" />
 
     <Preference
         android:key="settings_notification_fragment"
         android:summary="@string/pref_notification_summary"
         android:title="@string/notification"
-        android:icon="@drawable/ic_notifications_black" />
+        android:icon="@drawable/ic_pref_notifications" />
 
 </PreferenceScreen>

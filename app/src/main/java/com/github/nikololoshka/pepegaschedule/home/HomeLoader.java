@@ -16,6 +16,7 @@ import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 
 import org.json.JSONException;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -65,6 +66,9 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
         try {
             schedule.load(path);
         } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "Error parsing schedule", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(getContext(), "Error loading schedule", Toast.LENGTH_SHORT).show();
         }

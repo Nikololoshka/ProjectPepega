@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/ic_calendar"
+                android:src="@drawable/ic_button_calendar"
                 android:contentDescription="@string/calendar_picker"
                 android:layout_gravity="center" />
 
@@ -117,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/ic_calendar"
+                    app:srcCompat="@drawable/ic_button_calendar"
                     android:contentDescription="@string/calendar_picker"
                     android:layout_gravity="center" />
 
@@ -150,7 +150,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/ic_calendar"
+                    app:srcCompat="@drawable/ic_button_calendar"
                     android:contentDescription="@string/calendar_picker"
                     android:layout_gravity="center"/>
 

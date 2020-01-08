@@ -51,6 +51,11 @@ public class ScheduleHorizontalAdapter
     }
 
     @Override
+    public int unTranslateIndex(int position) {
+        return position;
+    }
+
+    @Override
     public boolean scrolledNext(int firstPosition, int lastPosition, int todayPosition) {
         int firstOffset = firstPosition - todayPosition;
         int lastOffset = lastPosition - todayPosition;
@@ -67,8 +72,12 @@ public class ScheduleHorizontalAdapter
     }
 
     @Override
-    public void scrollTo(RecyclerView attachedRecyclerView, int position) {
-        attachedRecyclerView.smoothScrollToPosition(position);
+    public void scrollTo(RecyclerView attachedRecyclerView, int position, boolean smooth) {
+        if (smooth) {
+            attachedRecyclerView.smoothScrollToPosition(position);
+        } else {
+            attachedRecyclerView.scrollToPosition(position);
+        }
     }
 
     @NonNull

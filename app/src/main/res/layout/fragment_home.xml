@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/default_layout_padding" >
+        android:padding="@dimen/default_layout_padding">
 
         <androidx.cardview.widget.CardView
             style="@style/CardStyle"
@@ -72,7 +72,8 @@
                         android:id="@+id/schedule_card"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical" >
+                        android:orientation="vertical"
+                        android:animateLayoutChanges="true">
 
                         <com.github.nikololoshka.pepegaschedule.home.pager.HomeDayTitlesPager
                             android:id="@+id/dayTitle"
@@ -92,8 +93,7 @@
                         <com.github.nikololoshka.pepegaschedule.home.pager.HomeDayPairsPager
                             android:id="@+id/dayPager"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:animateLayoutChanges="true" />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
 

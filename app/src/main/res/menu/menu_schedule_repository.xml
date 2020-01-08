@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/search_schedule"
-        android:icon="@drawable/ic_search_white"
+        android:icon="@drawable/ic_menu_search"
         android:title="@string/search"
         app:showAsAction="always"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
     <item
         android:id="@+id/update_schedule"
-        android:icon="@drawable/ic_update"
+        android:icon="@drawable/ic_menu_update"
         android:title="@string/update" />
 </menu>

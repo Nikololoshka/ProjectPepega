@@ -22,6 +22,7 @@
     <string name="information">Information</string>
     <string name="about_application">About application</string>
     <string name="settings">Settings</string>
+    <string name="dark_mode_description">Dark mode switch button</string>
 
     <!-- home -->
     <string name="no_favorite_schedule">No favorite schedule</string>
@@ -55,6 +56,8 @@
     <string name="schedule_view">Schedule View</string>
     <string name="not_pairs">No pairs</string>
     <string name="add_pair">Add pair</string>
+    <string name="to_the_current_day">To the current day</string>
+    <string name="go_to_day">Go to day</string>
     <string name="remove_pair">Remove pair</string>
     <string name="save_schedule">Save schedule…</string>
 
@@ -130,6 +133,10 @@
     <string name="awaiting_download">Awaiting download</string>
 
     <!-- settings -->
+    <string name="general">General</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="mode">Mode</string>
+    <string name="pref_general_summary">Main application settings</string>
     <string name="pref_schedule_summary">Customize the schedule</string>
     <string name="pref_widget_summary">Configuring app widgets</string>
     <string name="pref_notification_summary">Setting up notifications</string>
@@ -152,6 +159,7 @@
 
     <!-- schedule widget -->
     <string name="widget">Widget</string>
+    <string name="widget_configurator">Configurator</string>
     <string name="widget_schedule_name">Schedule</string>
     <string name="widget_schedule_configure">Configuration of a widget with a schedule</string>
     <string name="widget_schedule_widget">Widgets with schedules</string>
@@ -177,4 +185,5 @@
     <string name="moving_handler">Moving handler</string>
     <string name="retry">Retry</string>
     <string name="current_color">current color</string>
+
 </resources>

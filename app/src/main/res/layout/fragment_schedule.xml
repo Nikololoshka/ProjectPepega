@@ -69,7 +69,7 @@
                     style="@style/Text.Medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorCardBackground"
+                    android:background="@color/colorCardViewBackground"
                     android:gravity="center"
                     android:padding="@dimen/default_information_padding"
                     android:text="@string/no_available_schedules" />

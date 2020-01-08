@@ -21,6 +21,7 @@ import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayPairsAdapter;
 import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayPairsPager;
 import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayTitlesAdapter;
 import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayTitlesPager;
+import com.github.nikololoshka.pepegaschedule.home.pager.HomePager;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
 import com.google.android.material.tabs.TabLayout;
@@ -44,6 +45,8 @@ public class HomeFragment extends Fragment
     private HomeDayPairsAdapter mPagerDaysAdapter;
     private HomeDayTitlesAdapter mPagerTitlesAdapter;
 
+    private HomePager mHomePager;
+
     private Loader<HomeLoader.DataView> mHomeLoader;
     private HomeLoader.DataView mDataView;
 
@@ -58,6 +61,8 @@ public class HomeFragment extends Fragment
         mStatefulLayout = view.findViewById(R.id.stateful_layout);
         mStatefulLayout.addXMLViews();
         mStatefulLayout.setLoadState();
+
+        mHomePager = view.findViewById(R.id.home_pager);
 
         mTitlePager = view.findViewById(R.id.dayTitle);
         mDayPager = view.findViewById(R.id.dayPager);
@@ -150,6 +155,8 @@ public class HomeFragment extends Fragment
             updateScheduleData();
             return;
         }
+
+        mHomePager.update(data.titles, data.days);
 
         mDataView = data;
         mStatefulLayout.setState(R.id.schedule_card);

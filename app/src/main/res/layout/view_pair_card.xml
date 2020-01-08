@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorCardBackground"
+    android:background="@color/colorCardViewBackground"
     android:padding="@dimen/pair_card_padding"
     android:orientation="horizontal">
 
@@ -64,7 +64,7 @@
             android:paddingEnd="3dp"
             android:layout_marginBottom="5dp"
             android:text="@string/debug_text"
-            android:textColor="@color/colorTextSecondary"
+            android:textColor="?android:attr/textColorSecondary"
             android:textSize="14sp" />
 
         <TextView
@@ -78,10 +78,11 @@
             android:paddingStart="3dp"
             android:paddingEnd="3dp"
             android:text="@string/debug_text"
-            android:textColor="@color/colorTextSecondary"
+            android:textColor="?android:attr/textColorSecondary"
             android:textSize="14sp" />
 
         <TextView
+            style="@style/Text.Pair"
             android:id="@+id/pair_card_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,10 +91,10 @@
             android:includeFontPadding="false"
             android:padding="3dp"
             android:text="@string/debug_text"
-            android:textColor="?android:attr/textColorPrimary"
             android:textSize="14sp" />
 
         <TextView
+            style="@style/Text.Pair"
             android:id="@+id/pair_card_subgroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,7 +104,6 @@
             android:includeFontPadding="false"
             android:padding="3dp"
             android:text="@string/debug_text"
-            android:textColor="?android:attr/textColorPrimary"
             android:textSize="14sp" />
 
     </RelativeLayout>

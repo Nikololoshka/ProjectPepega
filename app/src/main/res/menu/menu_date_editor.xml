@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/remove_date"
-        android:icon="@drawable/ic_delete_button_white"
+        android:icon="@drawable/ic_menu_delete_button"
         android:title="@string/remove_date"
         app:showAsAction="ifRoom|withText" />
 
     <item
         android:id="@+id/apply_date"
-        android:icon="@drawable/ic_apply_button_white"
+        android:icon="@drawable/ic_menu_apply_button"
         android:title="@string/apply"
         app:showAsAction="ifRoom|withText" />
 </menu>

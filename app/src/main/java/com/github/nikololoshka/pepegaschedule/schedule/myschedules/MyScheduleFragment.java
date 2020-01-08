@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,8 +46,6 @@ import org.json.JSONException;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
@@ -58,7 +57,9 @@ import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewF
 import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment.ARG_SCHEDULE_PATH;
 import static com.github.nikololoshka.pepegaschedule.settings.SchedulePreference.ROOT_PATH;
 
-
+/**
+ * Фрагмент списка расписаний.
+ */
 public class MyScheduleFragment extends Fragment
         implements MySchedulesAdapter.OnItemClickListener,
         DragToMoveCallback.OnStartDragListener,
@@ -72,8 +73,7 @@ public class MyScheduleFragment extends Fragment
     private static final int REQUEST_PERMISSION_READ_STORAGE = 0;
 
     private StatefulLayout mStatefulLayout;
-    // TODO: расписаниями должен заниматься адаптер
-    private List<String> mSchedules;
+
     private MySchedulesAdapter mSchedulesAdapter;
     private Loader<MySchedulesLoader.DataView> mMySchedulesLoader;
     private ItemTouchHelper mItemTouchHelper;
@@ -86,6 +86,7 @@ public class MyScheduleFragment extends Fragment
     };
 
     public MyScheduleFragment() {
+        super();
     }
 
     @Override
@@ -229,6 +230,7 @@ public class MyScheduleFragment extends Fragment
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        // запрос разрешения на чтения внешнего хранилища
         if (requestCode == REQUEST_PERMISSION_READ_STORAGE) {
             if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 loadSchedule();
@@ -243,6 +245,7 @@ public class MyScheduleFragment extends Fragment
         }
 
         switch (requestCode) {
+            // добавление нового расписания
             case REQUEST_NEW_SCHEDULE: {
                 if (data == null || getView() == null || getActivity() == null) {
                     return;
@@ -256,30 +259,30 @@ public class MyScheduleFragment extends Fragment
                 File file = new File(dir, scheduleName + ".json");
 
                 Schedule schedule = new Schedule();
-                boolean isSaved = false;
-
                 try {
-                    isSaved = schedule.save(file.getAbsolutePath());
-                } catch (JSONException e) {
+                    schedule.save(file.getAbsolutePath());
+                } catch (JSONException | IOException e) {
                     e.printStackTrace();
+
+                    showMessage(String.format("%s: %s %s",
+                            getString(R.string.schedule),
+                            scheduleName,
+                            getString(R.string.failed_add)));
+
+                    return;
                 }
 
-                if (isSaved) {
-                    SchedulePreference.add(getActivity(), scheduleName);
-                    updateSchedules();
+                SchedulePreference.add(getActivity(), scheduleName);
+                updateSchedules();
 
-                    Snackbar.make(getView(),
-                            String.format("%s: %s %s", getString(R.string.schedule),
-                                    scheduleName, getString(R.string.successfully_added)),
-                            Snackbar.LENGTH_SHORT).show();
-                } else {
-                    Snackbar.make(getView(),
-                            String.format("%s: %s %s", getString(R.string.schedule),
-                                    scheduleName, getString(R.string.failed_add)),
-                            Snackbar.LENGTH_SHORT).show();
-                }
+                showMessage(String.format("%s: %s %s",
+                        getString(R.string.schedule),
+                        scheduleName,
+                        getString(R.string.successfully_added)));
+
                 break;
             }
+            // загрузка расписания из вне
             case REQUEST_LOAD_SCHEDULE: {
                 if (data == null) {
                     return;
@@ -291,11 +294,11 @@ public class MyScheduleFragment extends Fragment
                 }
 
                 try {
-                    if (getActivity() == null) {
+                    if (getContext() == null) {
                         return;
                     }
 
-                    ContentResolver resolver = getActivity().getContentResolver();
+                    ContentResolver resolver = getContext().getContentResolver();
                     InputStream stream = resolver.openInputStream(uri);
 
                     if (stream == null) {
@@ -305,13 +308,18 @@ public class MyScheduleFragment extends Fragment
                     Schedule schedule = new Schedule();
                     schedule.load(stream);
 
-                    File file = new File(uri.getPath());
-                    File outputFile = new File(getActivity()
+                    String pathToFile = uri.getPath();
+                    if (pathToFile == null) {
+                        return;
+                    }
+
+                    File file = new File(pathToFile);
+                    File outputFile = new File(getContext()
                             .getExternalFilesDir(ROOT_PATH), file.getName());
 
                     schedule.save(outputFile.getAbsolutePath());
 
-                    SchedulePreference.add(getActivity(),
+                    SchedulePreference.add(getContext(),
                             file.getName().replace(".json", ""));
                     updateSchedules();
 
@@ -324,20 +332,25 @@ public class MyScheduleFragment extends Fragment
         }
     }
 
+    /**
+     * Создает Intent для выбора расписания из вне, которое необходимо загрузить.
+     */
     private void loadSchedule() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
+
         startActivityForResult(intent, REQUEST_LOAD_SCHEDULE);
     }
 
     @Override
-    public void onScheduleItemClicked(int pos) {
+    public void onScheduleItemClicked(String schedule) {
         if (getActivity() != null) {
             Bundle args = new Bundle();
-            String path = SchedulePreference.createPath(getActivity(), mSchedules.get(pos));
+
+            String path = SchedulePreference.createPath(getActivity(), schedule);
             args.putString(ARG_SCHEDULE_PATH, path);
-            args.putString(ARG_SCHEDULE_NAME, mSchedules.get(pos));
+            args.putString(ARG_SCHEDULE_NAME, schedule);
 
             NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host);
             navController.navigate(R.id.fromScheduleFragmentToScheduleViewFragment, args);
@@ -346,8 +359,6 @@ public class MyScheduleFragment extends Fragment
 
     @Override
     public void onScheduleItemMove(int fromPosition, int toPosition) {
-        Collections.swap(mSchedules, fromPosition, toPosition);
-
         if (getActivity() != null) {
             SchedulePreference.move(getActivity(), fromPosition, toPosition);
         }
@@ -360,17 +371,36 @@ public class MyScheduleFragment extends Fragment
         }
     }
 
+    /**
+     * Показывает view с информацией об отсутствии расписаний если нет ни
+     * одного расписания. Иначе показывает список с расписаниями.
+     */
     private void schedulesCountChanged() {
-        if (mSchedules.isEmpty()) {
+        if (mSchedulesAdapter.getItemCount() == 0) {
             mStatefulLayout.setState(R.id.empty_my_schedules);
         } else {
             mStatefulLayout.setState(R.id.recycler_my_schedules);
         }
     }
 
+    /**
+     * Обновляет список расписаний.
+     */
     private void updateSchedules() {
         mStatefulLayout.setLoadState();
         mMySchedulesLoader.forceLoad();
+    }
+
+    /**
+     * Показывает информационное сообщение на экран пользователю.
+     * @param message - сообщение.
+     */
+    private void showMessage(String message) {
+        if (getView() != null) {
+            Snackbar.make(getView(), message, Snackbar.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @NonNull
@@ -390,8 +420,7 @@ public class MyScheduleFragment extends Fragment
             return;
         }
 
-        mSchedules = data.schedules;
-        mSchedulesAdapter.update(mSchedules, data.favorite);
+        mSchedulesAdapter.update(data.schedules, data.favorite);
 
         schedulesCountChanged();
     }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Текст с тенью для карточки с парой -->
+    <style name="Text.Pair">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+
+</resources>

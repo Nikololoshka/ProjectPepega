@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/type" />
 
-            <Spinner
+            <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 app:layout_column="0"
                 app:layout_row="1" />
 
-            <Spinner
+            <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_subgroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,14 +106,14 @@
                 android:orientation="horizontal"
                 android:paddingBottom="@dimen/input_label_vertical_spacing" >
 
-                <Spinner
+                <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/spinner_time_start"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:entries="@array/time_start_list" />
 
-                <Spinner
+                <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/spinner_time_end"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -178,7 +178,7 @@
                         style="@style/Text.Medium"
                         android:text="@string/add_date"
                         android:textColor="?android:attr/textColorPrimary"
-                        android:drawableStart="@drawable/ic_add_button"
+                        android:drawableStart="@drawable/ic_button_add"
                         android:drawablePadding="@dimen/default_drawable_padding"
                         android:padding="@dimen/default_layout_padding"
                         android:layout_width="wrap_content"

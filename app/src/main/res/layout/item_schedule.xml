@@ -39,7 +39,7 @@
             android:layout_height="match_parent"
             android:scaleType="center"
             android:layout_gravity="center_vertical|start"
-            android:src="@drawable/ic_reorder_grey"
+            android:src="@drawable/ic_swipe_reorder"
             android:contentDescription="@string/moving_handler" />
 
     </LinearLayout>

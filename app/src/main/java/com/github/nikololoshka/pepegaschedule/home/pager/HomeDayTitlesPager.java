@@ -17,29 +17,29 @@ public class HomeDayTitlesPager extends ViewPager {
         super(context, attrs);
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int height = 0;
+        @Override
+        protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+            int height = 0;
 
-        for(int i = 0; i < getChildCount(); i++) {
-            View child = getChildAt(i);
-            child.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+            for(int i = 0; i < getChildCount(); i++) {
+                View child = getChildAt(i);
+                child.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
 
-            int h = child.getMeasuredHeight();
-            if(h > height) {
-                height = h;
+                int h = child.getMeasuredHeight();
+                if(h > height) {
+                    height = h;
+                }
             }
+
+            if (height != 0) {
+                heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
+            }
+
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         }
 
-        if (height != 0) {
-            heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
+        public void update(int index) {
+            setCurrentItem(index);
+            measure(0, 0);
         }
-
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
-
-    public void update(int index) {
-        setCurrentItem(index);
-        measure(0, 0);
-    }
 }

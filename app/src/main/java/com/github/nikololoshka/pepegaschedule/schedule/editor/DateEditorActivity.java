@@ -332,6 +332,7 @@ public class DateEditorActivity extends AppCompatActivity
             year = current.get(Calendar.YEAR);
             month = current.get(Calendar.MONTH);
             dayOfMonth = current.get(Calendar.DAY_OF_MONTH);
+
         } catch (ParseException e) {
             Calendar current = Calendar.getInstance();
             year = current.get(Calendar.YEAR);

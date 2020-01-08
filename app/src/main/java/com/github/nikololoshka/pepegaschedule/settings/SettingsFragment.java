@@ -21,6 +21,7 @@ import com.github.nikololoshka.pepegaschedule.R;
 public class SettingsFragment extends PreferenceFragmentCompat
         implements Preference.OnPreferenceClickListener {
 
+    private static final String SETTINGS_GENERAL_FRAGMENT = "settings_general_fragment";
     private static final String SETTINGS_SCHEDULE_FRAGMENT = "settings_schedule_fragment";
     private static final String SETTINGS_WIDGET_FRAGMENT = "settings_widget_fragment";
     private static final String SETTINGS_NOTIFICATION_FRAGMENT = "settings_notification_fragment";
@@ -31,6 +32,11 @@ public class SettingsFragment extends PreferenceFragmentCompat
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.preferences_root, rootKey);
+
+        Preference preferenceGeneral = findPreference(SETTINGS_GENERAL_FRAGMENT);
+        if (preferenceGeneral!= null) {
+            preferenceGeneral.setOnPreferenceClickListener(this);
+        }
 
         Preference preferenceSchedule = findPreference(SETTINGS_SCHEDULE_FRAGMENT);
         if (preferenceSchedule != null) {
@@ -61,6 +67,10 @@ public class SettingsFragment extends PreferenceFragmentCompat
         int destination;
 
         switch (preference.getKey()) {
+            // к основным настройкам
+            case SETTINGS_GENERAL_FRAGMENT:
+                destination = R.id.toSettingsGeneralFragment;
+                break;
             // к настройкам расписания
             case SETTINGS_SCHEDULE_FRAGMENT:
                 destination = R.id.toSettingsScheduleFragment;

@@ -16,8 +16,8 @@
 
     <!-- date type values -->
     <string-array name="date_type_list">
-        <item>Однажды</item>
-        <item>Диапозон</item>
+        <item>Единожды</item>
+        <item>Диапазон</item>
     </string-array>
 
     <!-- date frequency values -->
@@ -31,4 +31,12 @@
         <item>Вертикально</item>
         <item>Горизонтально</item>
     </string-array>
+
+    <!--  dark mode  -->
+    <string-array name="pref_dark_mode_list">
+        <item>По умолчанию</item>
+        <item>С учеом режима энергосбережения</item>
+        <item>Ручная смена темы</item>
+    </string-array>
+
 </resources>

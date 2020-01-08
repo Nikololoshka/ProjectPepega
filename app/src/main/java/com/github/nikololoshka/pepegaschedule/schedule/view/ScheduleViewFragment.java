@@ -2,6 +2,7 @@ package com.github.nikololoshka.pepegaschedule.schedule.view;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,7 +39,6 @@ import com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
 import com.github.nikololoshka.pepegaschedule.utils.StickHeaderItemDecoration;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.apache.commons.io.FileUtils;
@@ -47,6 +48,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Objects;
 
 import static android.app.Activity.RESULT_CANCELED;
@@ -66,6 +69,7 @@ public class ScheduleViewFragment extends Fragment
 
     public static final String ARG_SCHEDULE_PATH = "schedule_path";
     public static final String ARG_SCHEDULE_NAME = "schedule_name";
+    public static final String ARG_SCHEDULE_DAY = "schedule_day";
 
     private static final int SCHEDULE_VIEW_LOADER = 0;
 
@@ -77,8 +81,7 @@ public class ScheduleViewFragment extends Fragment
 
     private static final String ARG_PAIR_CACHE = "pair_cache";
     private static final String ARG_CURRENT_POSITION = "current_position";
-    private static final String ARG_FIRST_POSITION = "first_position";
-    private static final String ARG_LAST_POSITION = "last_position";
+    private static final String ARG_LOADING_SCHEDULE = "loading_schedule";
 
     /**
      * Редактируемая пара.
@@ -87,33 +90,36 @@ public class ScheduleViewFragment extends Fragment
     /**
      * Информация, загруженная загрузчиком.
      */
+    // TODO: попытаться убрать (переделать)
     private ScheduleViewLoader.ScheduleDataView mScheduleDataView;
     /**
      * Загрузчик расписания.
      */
     private ScheduleViewLoader mViewLoader;
 
+    @Nullable
     private String mScheduleName;
+    @Nullable
     private String mSchedulePath;
 
     private StatefulLayout mStatefulLayout;
 
-    private FloatingActionButton mDefaultPosButton;
     private RecyclerView mRecyclerSchedule;
     private ScheduleViewAdapter mScheduleAdapter;
 
-    /**
-     * Текущая отображаемая позиция.
-     */
-    private int mCurrentPosition = RecyclerView.NO_POSITION;
-    private int mFirstPosition = RecyclerView.NO_POSITION;
-    private int mLastPosition = RecyclerView.NO_POSITION;
+    private int mCurrentViewPosition = RecyclerView.NO_POSITION;
+    private int mTodayPosition = RecyclerView.NO_POSITION;
+
+    private long mRequestTimeDay= System.currentTimeMillis();
+
+    private boolean mIsLoading = true;
     private boolean mIsHorizontalView = false;
 
     /**
      * Конструктор фрагмента.
      */
     public ScheduleViewFragment() {
+        super();
     }
 
     @Override
@@ -123,14 +129,21 @@ public class ScheduleViewFragment extends Fragment
         if (savedInstanceState != null) {
             mSchedulePath = savedInstanceState.getString(ARG_SCHEDULE_PATH);
             mScheduleName = savedInstanceState.getString(ARG_SCHEDULE_NAME);
+
             mPairCache = savedInstanceState.getParcelable(ARG_PAIR_CACHE);
-            mCurrentPosition = savedInstanceState.getInt(ARG_CURRENT_POSITION, RecyclerView.NO_POSITION);
-            mFirstPosition = savedInstanceState.getInt(ARG_FIRST_POSITION, RecyclerView.NO_POSITION);
-            mLastPosition = savedInstanceState.getInt(ARG_LAST_POSITION, RecyclerView.NO_POSITION);
+            mCurrentViewPosition = savedInstanceState.getInt(ARG_CURRENT_POSITION, RecyclerView.NO_POSITION);
+
+            mIsLoading = savedInstanceState.getBoolean(ARG_LOADING_SCHEDULE, true);
+
         } else if (getArguments() != null) {
             // если создаемся первый раз
-            mSchedulePath = getArguments().getString(ARG_SCHEDULE_PATH);
             mScheduleName = getArguments().getString(ARG_SCHEDULE_NAME);
+            mSchedulePath = getArguments().getString(ARG_SCHEDULE_PATH);
+            mRequestTimeDay = getArguments().getLong(ARG_SCHEDULE_DAY, System.currentTimeMillis());
+
+            if (mSchedulePath == null && getContext() != null) {
+                mSchedulePath = SchedulePreference.createPath(getContext(), mScheduleName);
+            }
         }
 
         setHasOptionsMenu(true);
@@ -144,9 +157,6 @@ public class ScheduleViewFragment extends Fragment
         mStatefulLayout = view.findViewById(R.id.stateful_layout);
         mStatefulLayout.addXMLViews();
         mStatefulLayout.setLoadState();
-
-        mDefaultPosButton = view.findViewById(R.id.default_pos_button);
-        mDefaultPosButton.hide();
 
         mRecyclerSchedule = view.findViewById(R.id.recycler_view);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
@@ -182,21 +192,16 @@ public class ScheduleViewFragment extends Fragment
         mRecyclerSchedule.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                // если происходит прокрутка
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    updateDefaultButton();
-                } else {
-                    mDefaultPosButton.hide();
-                }
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-        });
+            if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                LinearLayoutManager layout = (LinearLayoutManager) recyclerView.getLayoutManager();
 
-        // по нажатию на кнопку возвращаемся к текущему дню
-        mDefaultPosButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mScheduleAdapter.scrollTo(mRecyclerSchedule, mScheduleDataView.correctIndex);
+                if (layout == null) {
+                    return;
+                }
+
+                mCurrentViewPosition = mScheduleAdapter
+                        .unTranslateIndex(layout.findFirstCompletelyVisibleItemPosition());
+            }
             }
         });
 
@@ -221,26 +226,49 @@ public class ScheduleViewFragment extends Fragment
     }
 
     @Override
-    public void onPrepareOptionsMenu(@NonNull Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        // если расписание еще не загружено или при загрузке произошла ошибка
-        if (mScheduleDataView == null || mScheduleDataView.hasErrors) {
-            menu.findItem(R.id.rename_schedule).setEnabled(false);
-            menu.findItem(R.id.save_schedule).setEnabled(false);
-        } else {
-            menu.findItem(R.id.rename_schedule).setEnabled(true);
-            menu.findItem(R.id.save_schedule).setEnabled(true);
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (mIsLoading || mScheduleDataView.hasErrors) {
+            return super.onOptionsItemSelected(item);
         }
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // если нужно переименновать расписание
             case R.id.rename_schedule: {
                 Intent intent = new Intent(getActivity(), ScheduleEditorActivity.class);
                 intent.putExtra(EXTRA_SCHEDULE_NAME, mScheduleName);
                 startActivityForResult(intent, REQUEST_SCHEDULE_NAME);
+                return true;
+            }
+            // к текущему дню
+            case R.id.show_current_day: {
+                mScheduleAdapter.scrollTo(mRecyclerSchedule, mTodayPosition, true);
+                return true;
+            }
+            case R.id.go_to_day: {
+                if (mCurrentViewPosition == RecyclerView.NO_POSITION) {
+                    return true;
+                }
+
+                Calendar date = Calendar.getInstance();
+                date.setTimeInMillis(mScheduleDataView.dayDates.get(mCurrentViewPosition));
+                int year = date.get(Calendar.YEAR);
+                int month = date.get(Calendar.MONTH);
+                int dayOfMonth = date.get(Calendar.DAY_OF_MONTH);
+
+                if (getContext() == null) {
+                    return true;
+                }
+
+                new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        Calendar date = new GregorianCalendar(year, month, dayOfMonth);
+                        mRequestTimeDay = date.getTimeInMillis();
+                        mScheduleDataView = null;
+                        reloadSchedule(ScheduleViewLoader.REQUEST_LOAD_SCHEDULE);
+                    }
+                }, year, month, dayOfMonth).show();
+
                 return true;
             }
             // если нужно сохранить расписание
@@ -287,9 +315,6 @@ public class ScheduleViewFragment extends Fragment
             }
             // если добавить пару
             case R.id.add_pair: {
-                if (mScheduleDataView == null || mScheduleDataView.hasErrors) {
-                    return true;
-                }
 
                 Intent intent = new Intent(getContext(), PairEditorActivity.class);
                 intent.putExtra(PairEditorActivity.EXTRA_SCHEDULE, mScheduleDataView.schedule);
@@ -307,20 +332,8 @@ public class ScheduleViewFragment extends Fragment
         outState.putString(ARG_SCHEDULE_NAME, mScheduleName);
         outState.putString(ARG_SCHEDULE_PATH, mSchedulePath);
         outState.putParcelable(ARG_PAIR_CACHE, mPairCache);
-        outState.putInt(ARG_CURRENT_POSITION, mCurrentPosition);
-
-        LinearLayoutManager manager = (LinearLayoutManager) mRecyclerSchedule.getLayoutManager();
-
-        int firstPos = RecyclerView.NO_POSITION;
-        int lastPos = RecyclerView.NO_POSITION;
-
-        if (manager != null) {
-            firstPos = manager.findFirstVisibleItemPosition();
-            lastPos = manager.findLastVisibleItemPosition();
-        }
-
-        outState.putInt(ARG_FIRST_POSITION, firstPos);
-        outState.putInt(ARG_LAST_POSITION, lastPos);
+        outState.putInt(ARG_CURRENT_POSITION, mCurrentViewPosition);
+        outState.putBoolean(ARG_LOADING_SCHEDULE, mIsLoading);
     }
 
     /**
@@ -387,7 +400,7 @@ public class ScheduleViewFragment extends Fragment
             }
             // запрос на изменение имени
             case REQUEST_SCHEDULE_NAME: {
-                if (resultCode != RESULT_OK || data == null) {
+                if (resultCode != RESULT_OK || data == null || mScheduleName == null) {
                     return;
                 }
 
@@ -410,16 +423,7 @@ public class ScheduleViewFragment extends Fragment
 
                 } catch (IOException e) {
                     e.printStackTrace();
-
-                    if (getView() != null) {
-                        Snackbar.make(getView(),
-                                getString(R.string.unable_schedule_rename),
-                                Snackbar.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getContext(),
-                                getString(R.string.unable_schedule_rename),
-                                Toast.LENGTH_SHORT).show();
-                    }
+                    showMessage(getString(R.string.unable_schedule_rename));
                     return;
                 }
 
@@ -492,17 +496,19 @@ public class ScheduleViewFragment extends Fragment
      * Удаляет текущие расписание.
      */
     private void removeSchedule() {
-        if (getActivity() == null) {
+        if (getContext() == null) {
             return;
         }
 
-        try {
-            FileUtils.forceDelete(new File(mSchedulePath));
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (mSchedulePath != null) {
+            try {
+                FileUtils.forceDelete(new File(mSchedulePath));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-        SchedulePreference.remove(getActivity(), mScheduleName);
+        SchedulePreference.remove(getContext(), mScheduleName);
         showMessage(getString(R.string.schedule_removed));
     }
 
@@ -520,13 +526,18 @@ public class ScheduleViewFragment extends Fragment
      */
     private void reloadSchedule(int request) {
         mStatefulLayout.setLoadState();
-        mDefaultPosButton.hide();
+
+        mIsLoading = true;
+
+        long showingPosition = mRequestTimeDay;
+        if (mScheduleDataView != null && !mScheduleDataView.dayDates.isEmpty()) {
+            showingPosition = mScheduleDataView.dayDates.get(mCurrentViewPosition);
+        }
 
         mViewLoader.reloadData(mSchedulePath,
                 mScheduleDataView != null ? mScheduleDataView.schedule : null,
-                request);
-
-        mScheduleDataView = null;
+                request,
+                showingPosition);
     }
 
     /**
@@ -558,59 +569,6 @@ public class ScheduleViewFragment extends Fragment
         }
     }
 
-    /**
-     * Обновляет отображание кнопки "к текущему дню".
-     */
-    private void updateDefaultButton() {
-        LinearLayoutManager manager = (LinearLayoutManager) mRecyclerSchedule.getLayoutManager();
-
-        if (manager == null) {
-            return;
-        }
-
-        int firstPos = manager.findFirstVisibleItemPosition();
-        int lastPos = manager.findLastVisibleItemPosition();
-
-        mCurrentPosition = firstPos;
-        updateDefaultButton(firstPos, lastPos, mScheduleDataView.correctIndex);
-    }
-
-    /**
-     * Обновляет отображание кнопки "к текущему дню".
-     * @param firstPos позиция первого отображаемого элемента.
-     * @param lastPos позиция последнего отображаемого элемента.
-     * @param position позиция текущего дня.
-     */
-    private void updateDefaultButton(int firstPos, int lastPos, int position) {
-        if (firstPos == RecyclerView.NO_POSITION || lastPos == RecyclerView.NO_POSITION) {
-            return;
-        }
-        // если сейчас отображается последующие дни
-        if (mScheduleAdapter.scrolledNext(firstPos, lastPos, position)) {
-            if (getContext() != null) {
-                if (mIsHorizontalView) {
-                    mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_left_white));
-                } else {
-                    mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_up_white));
-                }
-            }
-            mDefaultPosButton.show();
-
-            // если сейчас отображается предыдущие дни
-        } else if (mScheduleAdapter.scrolledPrev(firstPos, lastPos, position)) {
-            if (getContext() != null) {
-                if (mIsHorizontalView) {
-                    mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_right_white));
-                } else {
-                    mDefaultPosButton.setImageDrawable(getContext().getDrawable(R.drawable.ic_arrow_down_white));
-                }
-            }
-            mDefaultPosButton.show();
-
-        } else {
-            mDefaultPosButton.hide();
-        }
-    }
 
     @NonNull
     @Override
@@ -629,20 +587,19 @@ public class ScheduleViewFragment extends Fragment
         }
 
         mScheduleDataView = data;
-        mScheduleAdapter.update(mScheduleDataView.daysPair, mScheduleDataView.daysFormat);
 
-        if (mCurrentPosition != RecyclerView.NO_POSITION) {
-            mRecyclerSchedule.scrollToPosition(mCurrentPosition);
-
-            if (getArguments() != null) {
-                updateDefaultButton(mFirstPosition, mLastPosition, mScheduleDataView.correctIndex);
-            }
-        } else {
-            mRecyclerSchedule.scrollToPosition(mScheduleAdapter.translateIndex(mScheduleDataView.correctIndex));
+        if (mIsLoading || mCurrentViewPosition == RecyclerView.NO_POSITION) {
+            mCurrentViewPosition = data.currentShowPosition;
         }
+        mTodayPosition = data.todayPosition;
+
+        mScheduleAdapter.update(data.dayPairs, data.dayTitles);
+        mScheduleAdapter.scrollTo(mRecyclerSchedule, mCurrentViewPosition, false);
 
         mStatefulLayout.setState(R.id.recycler_view);
         updateActionBar();
+
+        mIsLoading = false;
     }
 
     @Override

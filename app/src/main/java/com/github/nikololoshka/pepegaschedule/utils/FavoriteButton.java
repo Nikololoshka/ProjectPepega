@@ -43,8 +43,8 @@ public class FavoriteButton extends AppCompatImageButton {
     private void initialization() {
         mIsFavorite = false;
 
-        mNotFavorite = getContext().getDrawable(R.drawable.ic_star_unchecked);
-        mFavorite = getContext().getDrawable(R.drawable.ic_star_checked);
+        mNotFavorite = getContext().getDrawable(R.drawable.ic_favorite_star_unchecked);
+        mFavorite = getContext().getDrawable(R.drawable.ic_favorite_star_checked);
         mFavoriteActivated = AnimatedVectorDrawableCompat.create(getContext(), R.drawable.avd_favorite_button);
 
         setImageDrawable(mNotFavorite);

@@ -8,10 +8,12 @@
     <color name="colorAccentDark">#cf7b00</color>
     <color name="colorAccentLight">#feba56</color>
 
+    <!-- Цвет текста, если ссылки на тему не поддерживаются -->
     <color name="colorTextPrimary">#000000</color>
     <color name="colorTextSecondary">#8a000000</color>
-    <color name="colorTextHint">#808080</color>
+    <color name="colorTextLight">#FFFFFF</color>
 
+    <color name="colorTextHint">#808080</color>
     <color name="colorDivider">#26000000</color>
 
     <color name="colorToolBarText">#FFFFFF</color>
@@ -24,8 +26,19 @@
     <color name="colorBackgroundSplash">#FFFFFF</color>
     <color name="colorBackgroundShimmer">#dddddd</color>
 
+    <!-- Цвет карточки -->
+    <color name="colorCardViewBackground">#FFFFFFFF</color>
+
+    <!-- Цвет фона "просмотра расписания" -->
+    <color name="colorScheduleViewBackground">#F0F0F0</color>
+
+    <!-- Цвет drawable объектов -->
+    <color name="colorDrawableLight">#FFFFFFFF</color>
+    <color name="colorDrawableDark">#FF000000</color>
+    <color name="colorDrawableMenu">#FFFFFFFF</color>
+    <color name="colorDrawableFloatingButton">#FFFFFFFF</color>
+
     <!-- Цвета карточки с расписанием -->
-    <color name="colorCardBackground">#FFFFFF</color>
     <color name="colorCardLecture">#80DEEA</color>
     <color name="colorCardSeminar">#FFF59D</color>
     <color name="colorCardLaboratory">#C5E1A5</color>

@@ -116,6 +116,14 @@
                 app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
                 app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            <action
+                android:id="@+id/toSettingsGeneralFragment"
+                app:destination="@id/settingsGeneralFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
         </fragment>
 
         <fragment
@@ -132,6 +140,10 @@
             android:id="@+id/settingsScheduleFragment"
             android:name="com.github.nikololoshka.pepegaschedule.settings.subsection.SettingsScheduleFragment"
             android:label="@string/schedule" />
+        <fragment
+            android:id="@+id/settingsGeneralFragment"
+            android:name="com.github.nikololoshka.pepegaschedule.settings.subsection.SettingsGeneralFragment"
+            android:label="@string/general" />
 
     </navigation>
 

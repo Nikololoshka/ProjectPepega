@@ -6,12 +6,14 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.schedule.Schedule;
 import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
 
 import org.json.JSONException;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,14 +27,18 @@ import java.util.TreeSet;
  */
 public class ScheduleViewLoader extends AsyncTaskLoader<ScheduleViewLoader.ScheduleDataView> {
 
-    public static final int REQUEST_SAVE_SCHEDULE = 1;
-    public static final int REQUEST_LOAD_SCHEDULE = 2;
+    static final int REQUEST_SAVE_SCHEDULE = 1;
+    static final int REQUEST_LOAD_SCHEDULE = 2;
 
     private static final String TAG = "ScheduleViewLoaderLog";
     private static final boolean DEBUG = true;
 
+    @Nullable
     private String mSchedulePath;
+    @Nullable
     private Schedule mSchedule;
+
+    private long mNearbyDay = System.currentTimeMillis();
     private int mRequest;
 
     ScheduleViewLoader(@NonNull Context context) {
@@ -41,14 +47,17 @@ public class ScheduleViewLoader extends AsyncTaskLoader<ScheduleViewLoader.Sched
 
     /**
      * Запускает загрузчик.
-     * @param schedulePath - путь до расписания.
-     * @param schedule - расписание.
-     * @param request - тип запроса.
+     * @param schedulePath путь до расписания.
+     * @param schedule расписание.
+     * @param request тип запроса.
+     * @param currentDate текущая отображаемая дата.
      */
-    void reloadData(String schedulePath, @Nullable Schedule schedule, int request) {
+    void reloadData(@Nullable String schedulePath, @Nullable Schedule schedule,
+                    int request, long currentDate) {
         mSchedulePath = schedulePath;
         mSchedule = schedule;
         mRequest = request;
+        mNearbyDay = currentDate;
 
         forceLoad();
     }
@@ -67,10 +76,9 @@ public class ScheduleViewLoader extends AsyncTaskLoader<ScheduleViewLoader.Sched
             }
 
             try {
-                // TODO: исправить обработку исключений
                 mSchedule.save(mSchedulePath);
 
-            } catch (JSONException e) {
+            } catch (JSONException | IOException e) {
                 e.printStackTrace();
 
                 scheduleDataView.exception = e;
@@ -81,10 +89,10 @@ public class ScheduleViewLoader extends AsyncTaskLoader<ScheduleViewLoader.Sched
         // если запрос на загрузку расписания
         if (mRequest == REQUEST_LOAD_SCHEDULE) {
             try {
-                // TODO: исправить обработку исключений
                 mSchedule = new Schedule();
                 mSchedule.load(mSchedulePath);
-            } catch (JSONException e) {
+
+            } catch (JSONException | IOException e) {
                 e.printStackTrace();
 
                 scheduleDataView.exception = e;
@@ -93,8 +101,9 @@ public class ScheduleViewLoader extends AsyncTaskLoader<ScheduleViewLoader.Sched
         }
 
         scheduleDataView.schedule = mSchedule;
-        scheduleDataView.daysPair = new ArrayList<>();
-        scheduleDataView.daysFormat = new ArrayList<>();
+        scheduleDataView.dayPairs = new ArrayList<>();
+        scheduleDataView.dayTitles = new ArrayList<>();
+        scheduleDataView.dayDates = new ArrayList<>();
 
         Calendar startDate = scheduleDataView.schedule.minDate();
         Calendar endDate = scheduleDataView.schedule.maxDate();
@@ -105,6 +114,7 @@ public class ScheduleViewLoader extends AsyncTaskLoader<ScheduleViewLoader.Sched
             return scheduleDataView;
         }
 
+        // получение текущей локали
         Locale locale;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             locale = getContext().getResources().getConfiguration().getLocales().get(0);
@@ -112,36 +122,51 @@ public class ScheduleViewLoader extends AsyncTaskLoader<ScheduleViewLoader.Sched
             locale = getContext().getResources().getConfiguration().locale;
         }
 
-
-        Calendar date = new GregorianCalendar();
-        long currentTime = new GregorianCalendar(
-                date.get(Calendar.YEAR),
-                date.get(Calendar.MONTH),
-                date.get(Calendar.DAY_OF_MONTH)).getTimeInMillis();
-
+        // дата отображаемая сейчас
+        Calendar currentDate = Calendar.getInstance();
+        currentDate.setTimeInMillis(mNearbyDay);
+        long currentTime = normalizeDate(currentDate);
         long currentTimeDiff = System.currentTimeMillis();
+
+        // дата текущего дня
+        Calendar todayDate = Calendar.getInstance();
+        long todayTime = normalizeDate(todayDate);
+        long todayTimeDiff = System.currentTimeMillis();
 
         int i = 0;
         while (startDate.compareTo(endDate) <= 0) {
-            scheduleDataView.daysPair.add(scheduleDataView.schedule.pairsByDate(startDate));
+            scheduleDataView.dayPairs.add(scheduleDataView.schedule.pairsByDate(startDate));
 
-            long timeDiff = Math.abs(startDate.getTimeInMillis() - currentTime);
-            if (timeDiff < currentTimeDiff) {
-                currentTimeDiff = timeDiff;
-                scheduleDataView.correctIndex = i;
+            // близкая к предыдущей отображаемой позиции
+            long currentDiff = Math.abs(startDate.getTimeInMillis() - currentTime);
+            if (currentDiff < currentTimeDiff) {
+                currentTimeDiff = currentDiff;
+                scheduleDataView.currentShowPosition = i;
             }
 
-            String dayFormat = new SimpleDateFormat("EEEE, dd MMMM",
-                    locale) .format(startDate.getTime());
-            dayFormat = dayFormat.substring(0, 1).toUpperCase() + dayFormat.substring(1);
-            scheduleDataView.daysFormat.add(dayFormat);
+            // близкая к текущему дню позиция
+            long todayDiff = Math.abs(startDate.getTimeInMillis() - todayTime);
+            if (todayDiff < todayTimeDiff) {
+                todayTimeDiff = todayDiff;
+                scheduleDataView.todayPosition = i;
+            }
 
+            // заголок дня
+            String dayTitle = new SimpleDateFormat("EEEE, dd MMMM",
+                    locale) .format(startDate.getTime());
+            dayTitle = dayTitle.substring(0, 1).toUpperCase() + dayTitle.substring(1);
+            scheduleDataView.dayTitles.add(dayTitle);
+
+            // дата дня
+            scheduleDataView.dayDates.add(startDate.getTimeInMillis());
+
+            i++;
             startDate.add(Calendar.DAY_OF_MONTH, 1);
+
+            // пропускаем воскресение
             if (startDate.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
                 startDate.add(Calendar.DAY_OF_MONTH, 1);
             }
-
-            i++;
         }
 
         scheduleDataView.hasErrors = false;
@@ -149,16 +174,31 @@ public class ScheduleViewLoader extends AsyncTaskLoader<ScheduleViewLoader.Sched
     }
 
     /**
-     * Результата загрузчика.
+     * Нормализует дату относительно полночи.
+     * @param date дата.
+     * @return время в миллисекундах.
+     */
+    private long normalizeDate(@NonNull Calendar date) {
+        return new GregorianCalendar(
+                date.get(Calendar.YEAR),
+                date.get(Calendar.MONTH),
+                date.get(Calendar.DAY_OF_MONTH)).getTimeInMillis();
+    }
+
+    /**
+     * Результат загрузчика.
      */
     class ScheduleDataView {
         Schedule schedule;
 
-        ArrayList<TreeSet<Pair>> daysPair;
-        ArrayList<String> daysFormat;
-        int correctIndex;
+        ArrayList<Long> dayDates;
+        ArrayList<TreeSet<Pair>> dayPairs;
+        ArrayList<String> dayTitles;
 
-        boolean hasErrors;
-        Exception exception;
+        int todayPosition = RecyclerView.NO_POSITION;
+        int currentShowPosition = RecyclerView.NO_POSITION;
+
+        boolean hasErrors = false;
+        Exception exception = null;
     }
 }

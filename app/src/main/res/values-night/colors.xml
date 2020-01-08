@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Цвета приложения -->
+    <color name="colorPrimary">#424242</color>
+    <color name="colorPrimaryDark">#6d6d6d</color>
+    <color name="colorPrimaryLight">#1b1b1b</color>
+
+    <!-- Цвет текста, если ссылки на тему не поддерживаются -->
+    <color name="colorTextPrimary">#FFFFFF</color>
+    <color name="colorTextSecondary">#8AC0C0C0</color>
+
+    <!-- Цвет карточки -->
+    <color name="colorCardViewBackground">#FF424242</color>
+
+    <!-- Цвет фона "просмотра расписания" -->
+    <color name="colorScheduleViewBackground">@null</color>
+
+    <!-- Цвет drawable объектов -->
+    <color name="colorDrawableLight">#FF000000</color>
+    <color name="colorDrawableDark">#FFFFFFFF</color>
+
+</resources>

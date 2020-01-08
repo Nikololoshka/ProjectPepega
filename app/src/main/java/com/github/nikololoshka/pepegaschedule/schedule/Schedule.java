@@ -12,7 +12,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -71,7 +70,7 @@ public class Schedule implements Parcelable {
         ScheduleDay.possibleChangePair(scheduleDay, removedPair, addedPair);
     }
 
-    public boolean load(String filepath) throws JSONException {
+    public void load(String filepath) throws JSONException, IOException {
         try (FileReader fileReader = new FileReader(filepath)) {
             Scanner scanner = new Scanner(fileReader);
 
@@ -87,16 +86,10 @@ public class Schedule implements Parcelable {
                 pair.load(jsonPair);
                 addPair(pair);
             }
-            return true;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        return false;
     }
 
-    public boolean load(InputStream stream) throws JSONException {
+    public void load(InputStream stream) throws JSONException {
         Scanner scanner = new Scanner(stream);
 
         StringBuilder builder = new StringBuilder();
@@ -111,25 +104,19 @@ public class Schedule implements Parcelable {
             pair.load(jsonPair);
             addPair(pair);
         }
-
-        return false;
     }
 
-    public boolean save(String filepath) throws JSONException {
+    public void save(String filepath) throws JSONException, IOException {
         try (FileWriter fileWriter = new FileWriter(filepath)) {
             JSONArray jsonPairs = new JSONArray();
             for (ScheduleDay day : mWeek.values()) {
                 day.save(jsonPairs);
             }
             fileWriter.write(jsonPairs.toString(4));
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        return false;
     }
 
-    public boolean save(OutputStream stream) throws JSONException {
+    public void save(OutputStream stream) throws JSONException {
         try (PrintWriter writer = new PrintWriter(stream)) {
             JSONArray jsonPairs = new JSONArray();
             for (ScheduleDay day : mWeek.values()) {
@@ -137,7 +124,6 @@ public class Schedule implements Parcelable {
             }
             writer.write(jsonPairs.toString(4));
         }
-        return true;
     }
 
     public void addPair(@Nullable Pair addedPair) {

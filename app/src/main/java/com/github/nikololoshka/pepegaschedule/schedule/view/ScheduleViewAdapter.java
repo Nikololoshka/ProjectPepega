@@ -21,10 +21,15 @@ abstract public class ScheduleViewAdapter<T extends RecyclerView.ViewHolder>
 
     /**
      * Переделывает индекс, отображаемой на самом деле элемента, исходя из собственной реализации.
-     * @param position текущая отображаемая позиция.
-     * @return отображаемый элемент.
+     * @param position текущая позиция элемента, который отображается.
+     * @return позиция отображаемого элемента в RecyclerView.
      */
     abstract public int translateIndex(int position);
+
+    /**
+     * Работает противоположо translateIndex.
+     */
+    abstract public int unTranslateIndex(int position);
 
     /**
      * Проверяет, было ли прокрученно расписание к последующим дням.
@@ -49,5 +54,5 @@ abstract public class ScheduleViewAdapter<T extends RecyclerView.ViewHolder>
      * @param attachedRecyclerView присоединеный RecyclerView.
      * @param position позиция.
      */
-    abstract public void scrollTo(RecyclerView attachedRecyclerView, int position);
+    abstract public void scrollTo(RecyclerView attachedRecyclerView, int position, boolean smooth);
 }

@@ -20,6 +20,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        app:itemTextColor="?android:attr/textColorPrimary"
+        app:itemIconTint="?android:attr/textColorPrimary"
         app:itemIconPadding="@dimen/drawer_icon_padding"
         app:itemHorizontalPadding="@dimen/drawer_horizontal_padding"
         app:headerLayout="@layout/nav_header_main"
@@ -43,7 +45,7 @@
                     android:id="@+id/settings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_settings_black"
+                    android:drawableStart="@drawable/ic_nav_settings"
                     android:drawablePadding="@dimen/drawer_icon_padding"
                     android:paddingStart="@dimen/drawer_horizontal_padding"
                     android:paddingEnd="@dimen/drawer_horizontal_padding"
@@ -55,6 +57,15 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
+
+                <ImageButton
+                    style="@style/Button.Borderless"
+                    android:id="@+id/dark_mode_button"
+                    android:src="@drawable/ic_button_dark_mode"
+                    android:adjustViewBounds="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/dark_mode_description" />
 
             </LinearLayout>
 

@@ -61,4 +61,17 @@
         <item>pref_horizontal</item>
     </string-array>
 
+    <!--  dark mode  -->
+    <string-array name="pref_dark_mode_list">
+        <item>System default</item>
+        <item>Set by Battery Saver</item>
+        <item>Manual change of Dark/Light mode</item>
+    </string-array>
+
+    <string-array name="pref_dark_mode_list_entry">
+        <item>pref_system_default</item>
+        <item>pref_battery_saver</item>
+        <item>pref_manual_mode</item>
+    </string-array>
+
 </resources>

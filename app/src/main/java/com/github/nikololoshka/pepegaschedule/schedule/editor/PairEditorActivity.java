@@ -13,12 +13,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -72,10 +72,10 @@ public class PairEditorActivity extends AppCompatActivity
     private AutoCompleteTextView mTitleEdit;
     private AutoCompleteTextView mLecturerEdit;
     private AutoCompleteTextView mClassroomEdit;
-    private Spinner mTypeSpinner;
-    private Spinner mSubgroupSpinner;
-    private Spinner mTimeStartSpinner;
-    private Spinner mTimeEndSpinner;
+    private AppCompatSpinner mTypeSpinner;
+    private AppCompatSpinner mSubgroupSpinner;
+    private AppCompatSpinner mTimeStartSpinner;
+    private AppCompatSpinner mTimeEndSpinner;
 
     private DateItem mDateCache;
     private ArrayList<DateItem> mDateItems;
@@ -126,11 +126,12 @@ public class PairEditorActivity extends AppCompatActivity
 
         mTimeStartSpinner = findViewById(R.id.spinner_time_start);
         mTimeStartSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int newPosition = mTimeEndSpinner.getSelectedItemPosition();
 
-                ArrayAdapter adapter = new ArrayAdapter<>(getApplicationContext(),
+                ArrayAdapter adapter = new ArrayAdapter<>(getBaseContext(),
                         android.R.layout.simple_spinner_item,
                         mTimeEndList.subList(position, mTimeEndList.size()));
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
