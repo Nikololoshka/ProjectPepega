@@ -68,34 +68,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <LinearLayout
-                        android:id="@+id/schedule_card"
+                    <com.github.nikololoshka.pepegaschedule.home.pager.HomePager
+                        android:id="@+id/home_pager"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:animateLayoutChanges="true">
-
-                        <com.github.nikololoshka.pepegaschedule.home.pager.HomeDayTitlesPager
-                            android:id="@+id/dayTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <com.google.android.material.tabs.TabLayout
-                            android:id="@+id/dayIndicator"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            app:tabBackground="@color/colorTabLayoutBackground"
-                            app:tabIndicatorHeight="1dp"
-                            app:tabMaxWidth="0dp"
-                            app:tabGravity="fill"
-                            app:tabMode="fixed" />
-
-                        <com.github.nikololoshka.pepegaschedule.home.pager.HomeDayPairsPager
-                            android:id="@+id/dayPager"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </LinearLayout>
+                        android:layout_height="wrap_content"/>
 
                     <TextView
                         style="@style/Text.Medium"

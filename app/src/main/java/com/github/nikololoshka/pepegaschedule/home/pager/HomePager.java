@@ -2,13 +2,16 @@ package com.github.nikololoshka.pepegaschedule.home.pager;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
 import com.google.android.material.tabs.TabLayout;
 
@@ -55,6 +58,8 @@ public class HomePager extends LinearLayout {
      */
     private void initialization(@NonNull Context context) {
         setOrientation(VERTICAL);
+        setDividerDrawable(ContextCompat.getDrawable(context, R.drawable.divider));
+        setShowDividers(SHOW_DIVIDER_END);
 
         mTitlePager = new HomePagerTitlePager(context);
         mPairsPager = new HomePagerPairsPager(context);
@@ -62,7 +67,7 @@ public class HomePager extends LinearLayout {
 
         mTitlePager.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         mPairsPager.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        mTabLayout.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        mTabLayout.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, createPixelSize(1)));
 
         addView(mTitlePager);
         addView(mTabLayout);
@@ -75,6 +80,9 @@ public class HomePager extends LinearLayout {
         mPairsPager.setAdapter(mPairsAdapter);
 
         mTabLayout.setupWithViewPager(mPairsPager, true);
+        mTabLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorDivider));
+        mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
 
         mTitlePager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -94,7 +102,7 @@ public class HomePager extends LinearLayout {
                     mPairsPager.setDragging(state != SCROLL_STATE_IDLE);
                 }
                 if (state == SCROLL_STATE_IDLE) {
-                    mPairsPager.setCurrentItem(mTitlePager.getCurrentItem(), true);
+                    mPairsPager.setCurrentItem(mTitlePager.getCurrentItem(), false);
                 }
             }
         });
@@ -116,7 +124,7 @@ public class HomePager extends LinearLayout {
                     mPairsPager.setDragging(state != SCROLL_STATE_IDLE);
                 }
                 if (state == SCROLL_STATE_IDLE) {
-                    mTitlePager.setCurrentItem(mPairsPager.getCurrentItem(), true);
+                    mTitlePager.setCurrentItem(mPairsPager.getCurrentItem(), false);
                 }
             }
         });
@@ -129,10 +137,19 @@ public class HomePager extends LinearLayout {
      * @param pairsData массив с парами в дне.
      */
     public void update(ArrayList<String> titleData, ArrayList<ArrayList<Pair>> pairsData) {
-        mTitleAdapter.update(titleData);
         mPairsAdapter.update(pairsData);
+        mTitleAdapter.update(titleData);
 
-        mTitlePager.setCurrentItem((titleData.size() + 1) / 2);
-        mPairsPager.setCurrentItem((pairsData.size() + 1) / 2);
+        mPairsPager.setCurrentItem((pairsData.size() - 1) / 2);
+        mTitlePager.setCurrentItem((titleData.size() - 1) / 2);
+
+        mPairsPager.remeasure();
+        mTitlePager.remeasure();
+    }
+
+    private int createPixelSize(int dp) {
+        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
+                getResources().getDisplayMetrics()));
     }
 }
+

@@ -36,7 +36,7 @@ public class HomePagerPairsAdapter extends PagerAdapter {
      * Обновляет данные  адапторе.
      * @param pairsData массив с парами на день.
      */
-    public void update(ArrayList<ArrayList<Pair>> pairsData) {
+    public void update(@NonNull ArrayList<ArrayList<Pair>> pairsData) {
         mPairsData = pairsData;
         notifyDataSetChanged();
     }

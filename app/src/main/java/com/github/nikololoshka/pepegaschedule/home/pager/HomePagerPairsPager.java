@@ -20,6 +20,7 @@ public class HomePagerPairsPager extends ViewPager {
     private ValueAnimator mHeightAnimator;
     private int mCurrentTargetHeight;
     private boolean mIsDragging;
+    private boolean mIsInitialization;
 
     @Nullable
     private View mCurrentView;
@@ -40,7 +41,7 @@ public class HomePagerPairsPager extends ViewPager {
      */
     private void initialization(@NonNull Context context) {
         mHeightAnimator = new ValueAnimator();
-        mHeightAnimator.setDuration(400);
+        mHeightAnimator.setDuration(300);
         mHeightAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -84,6 +85,13 @@ public class HomePagerPairsPager extends ViewPager {
         requestLayout();
     }
 
+    /**
+     * Переизмеряет pager.
+     */
+    public void remeasure() {
+        mIsInitialization = false;
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -99,9 +107,6 @@ public class HomePagerPairsPager extends ViewPager {
         // получаем её высоту
         int viewHeight = mCurrentView.getMeasuredHeight();
 
-        int hc = getMeasuredHeight();
-        int ht = viewHeight;
-
         // если сейчас нас двигают, то смотрим высоту ближайших child элементов.
         // getChildCount() - возвращает 3-ку, т.е. левый, наш и правый элемент.
         if (mIsDragging) {
@@ -116,13 +121,12 @@ public class HomePagerPairsPager extends ViewPager {
             }
         }
 
-//        if (init) {
-//            heightMeasureSpec = MeasureSpec.makeMeasureSpec(ht, MeasureSpec.EXACTLY);
-//            init = false;
-//        }
-//
-        createAnimation(viewHeight);
+        if (!mIsInitialization) {
+            heightMeasureSpec = MeasureSpec.makeMeasureSpec(viewHeight, MeasureSpec.EXACTLY);
+            mIsInitialization = true;
+        }
 
+        createAnimation(viewHeight);
 
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }

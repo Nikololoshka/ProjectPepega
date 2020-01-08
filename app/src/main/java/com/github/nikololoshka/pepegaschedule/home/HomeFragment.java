@@ -1,6 +1,5 @@
 package com.github.nikololoshka.pepegaschedule.home;
 
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,24 +13,20 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.viewpager.widget.ViewPager;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayPairsAdapter;
-import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayPairsPager;
-import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayTitlesAdapter;
-import com.github.nikololoshka.pepegaschedule.home.pager.HomeDayTitlesPager;
 import com.github.nikololoshka.pepegaschedule.home.pager.HomePager;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
-import com.google.android.material.tabs.TabLayout;
 
 import java.util.Objects;
 
 import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment.ARG_SCHEDULE_NAME;
 import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment.ARG_SCHEDULE_PATH;
 
-
+/**
+ * Фрагмент главной страницы.
+ */
 public class HomeFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<HomeLoader.DataView> , View.OnClickListener {
 
@@ -39,18 +34,13 @@ public class HomeFragment extends Fragment
 
     private StatefulLayout mStatefulLayout;
     private TextView mScheduleNameView;
-
-    private HomeDayPairsPager mDayPager;
-    private HomeDayTitlesPager mTitlePager;
-    private HomeDayPairsAdapter mPagerDaysAdapter;
-    private HomeDayTitlesAdapter mPagerTitlesAdapter;
-
     private HomePager mHomePager;
 
     private Loader<HomeLoader.DataView> mHomeLoader;
     private HomeLoader.DataView mDataView;
 
     public HomeFragment() {
+        super();
     }
 
     @Override
@@ -64,78 +54,12 @@ public class HomeFragment extends Fragment
 
         mHomePager = view.findViewById(R.id.home_pager);
 
-        mTitlePager = view.findViewById(R.id.dayTitle);
-        mDayPager = view.findViewById(R.id.dayPager);
-
-        mPagerTitlesAdapter = new HomeDayTitlesAdapter();
-        mTitlePager.setAdapter(mPagerTitlesAdapter);
-
-        mPagerDaysAdapter = new HomeDayPairsAdapter();
-        mDayPager.setAdapter(mPagerDaysAdapter);
-
-        final TabLayout dayIndicator = view.findViewById(R.id.dayIndicator);
-        dayIndicator.setupWithViewPager(mDayPager, true);
 
         mScheduleNameView = view.findViewById(R.id.schedule_name);
         mScheduleNameView.setOnClickListener(this);
 
         mHomeLoader = LoaderManager.getInstance(this)
                 .initLoader(HOME_LOADER, null, this);
-
-        mTitlePager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            private int mScrollState = ViewPager.SCROLL_STATE_IDLE;
-
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (mScrollState == ViewPager.SCROLL_STATE_IDLE) {
-                    return;
-                }
-
-                if (mScrollState != ViewPager.SCROLL_STATE_SETTLING) {
-                    mDayPager.setDragging(true);
-                }
-                mDayPager.scrollTo(mTitlePager.getScrollX(), mTitlePager.getScrollY());
-                dayIndicator.setScrollPosition(position, positionOffset, false);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                mScrollState = state;
-                if (state == ViewPager.SCROLL_STATE_IDLE) {
-                    mDayPager.setCurrentItem(mTitlePager.getCurrentItem(), false);
-                }
-            }
-        });
-
-        mDayPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            private int mScrollState = ViewPager.SCROLL_STATE_IDLE;
-
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (mScrollState == ViewPager.SCROLL_STATE_IDLE) {
-                    return;
-                }
-                mTitlePager.scrollTo(mDayPager.getScrollX(), mDayPager.getScrollY());
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                mScrollState = state;
-                if (state == ViewPager.SCROLL_STATE_IDLE) {
-                    mTitlePager.setCurrentItem(mDayPager.getCurrentItem(), false);
-                }
-            }
-        });
 
         return view;
     }
@@ -156,11 +80,16 @@ public class HomeFragment extends Fragment
             return;
         }
 
+        mDataView = data;
         mHomePager.update(data.titles, data.days);
 
-        mDataView = data;
-        mStatefulLayout.setState(R.id.schedule_card);
-        updateScheduleView();
+        if (mDataView.favorite == null || mDataView.favorite.isEmpty()) {
+            mStatefulLayout.setState(R.id.no_favorite_schedule);
+            mScheduleNameView.setText("");
+        } else {
+            mStatefulLayout.setState(R.id.home_pager);
+            mScheduleNameView.setText(mDataView.favorite);
+        }
     }
 
     private void updateScheduleData() {
@@ -168,22 +97,6 @@ public class HomeFragment extends Fragment
         mScheduleNameView.setText("");
 
         mHomeLoader.forceLoad();
-    }
-
-    private void updateScheduleView() {
-        if (mDataView.favorite == null || mDataView.favorite.isEmpty()) {
-            mStatefulLayout.setState(R.id.no_favorite_schedule);
-            mScheduleNameView.setText("");
-        } else {
-            mPagerDaysAdapter.setDays(mDataView.days);
-            mPagerTitlesAdapter.setTitles(mDataView.titles);
-
-            mTitlePager.update(2);
-            mDayPager.update(2);
-
-            mStatefulLayout.setState(R.id.schedule_card);
-            mScheduleNameView.setText(mDataView.favorite);
-        }
     }
 
     @Override

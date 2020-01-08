@@ -21,6 +21,14 @@ public class HomePagerTitlePager extends ViewPager {
         super(context, attrs);
     }
 
+    /**
+     * Переизмеряет pager.
+     */
+    public void remeasure() {
+        measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
+                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // Среди всех child элементов берем самы максимальный по высоте.

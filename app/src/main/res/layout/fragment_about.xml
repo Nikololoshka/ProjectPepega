@@ -19,7 +19,7 @@
             android:layout_height="200dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/application_icon"
-            android:src="@drawable/logo_splash" />
+            android:src="@drawable/logo_about" />
 
         <TextView
             style="@style/Text.Large"

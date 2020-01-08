@@ -2,19 +2,20 @@ package com.github.nikololoshka.pepegaschedule.schedule.view;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.core.graphics.ColorUtils;
 
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
@@ -40,10 +41,12 @@ public class PairCardView extends CardView {
     private int mSubgroupBColor;
     private float mRectRound;
 
+    private int mColorWhite = Color.WHITE;
+    private int mColorBlack = Color.BLACK;
+
     private Pair mPair;
 
-
-    public PairCardView(@NonNull Context context, Pair pair) {
+    public PairCardView(@NonNull Context context, @NonNull Pair pair) {
         super(context);
         initialization(context);
         updatePair(pair);
@@ -94,7 +97,7 @@ public class PairCardView extends CardView {
                 10, getResources().getDisplayMetrics());
     }
 
-    public void updatePair(Pair pair) {
+    public void updatePair(@NonNull Pair pair) {
         mPair = pair;
 
         // title
@@ -153,7 +156,7 @@ public class PairCardView extends CardView {
         mTimeEndView.setText(mPair.time().end());
     }
 
-    private void setupDrawableBackground(View view, int color) {
+    private void setupDrawableBackground(@NonNull TextView view, int color) {
         Drawable drawable = view.getBackground();
 
         if (drawable instanceof GradientDrawable) {
@@ -167,8 +170,20 @@ public class PairCardView extends CardView {
         gradientDrawable.setColor(color);
 
         view.setBackground(gradientDrawable);
+        view.setTextColor(isDark(color) ? mColorWhite : mColorBlack);
+
     }
 
+    /**
+     * Определяет является ли цвет темным.
+     * @param color цвет.
+     * @return true если темный, иначе false.
+     */
+    boolean isDark(int color) {
+        return ColorUtils.calculateLuminance(color) < 0.5;
+    }
+
+    @Nullable
     public Pair pair() {
         return mPair;
     }
