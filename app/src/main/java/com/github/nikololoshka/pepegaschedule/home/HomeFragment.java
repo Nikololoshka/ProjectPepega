@@ -37,6 +37,7 @@ public class HomeFragment extends Fragment
     private HomePager mHomePager;
 
     private Loader<HomeLoader.DataView> mHomeLoader;
+    @Nullable
     private HomeLoader.DataView mDataView;
 
     public HomeFragment() {
@@ -50,6 +51,7 @@ public class HomeFragment extends Fragment
 
         mStatefulLayout = view.findViewById(R.id.stateful_layout);
         mStatefulLayout.addXMLViews();
+        mStatefulLayout.setAnimation(false);
         mStatefulLayout.setLoadState();
 
         mHomePager = view.findViewById(R.id.home_pager);
@@ -106,7 +108,7 @@ public class HomeFragment extends Fragment
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.schedule_name) {
-            if (getActivity() == null) {
+            if (getActivity() == null || mDataView == null) {
                 return;
             }
 

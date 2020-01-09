@@ -3,6 +3,7 @@ package com.github.nikololoshka.pepegaschedule.settings;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -44,6 +45,7 @@ public class SchedulePreference {
         }
 
         Collections.swap(mSchedulesList, fromPosition, toPosition);
+        Log.d("MyLog", String.valueOf(mSchedulesList));
         save(context);
     }
 
@@ -72,7 +74,7 @@ public class SchedulePreference {
         if (mSchedulesList == null) {
             load(context);
         }
-        return mSchedulesList;
+        return new ArrayList<>(mSchedulesList);
     }
 
     public static void setFavorite(@NonNull Context context, String favoriteSchedule) {
@@ -138,14 +140,14 @@ public class SchedulePreference {
     }
 
     private static void save(@NonNull Context context) {
-        SharedPreferences PREFERENCES =
+        SharedPreferences preferences =
                 context.getSharedPreferences(SCHEDULE_PREFERENCE, Context.MODE_PRIVATE);
 
-        SharedPreferences.Editor editor = PREFERENCES.edit();
-        editor.putString(SCHEDULES, TextUtils.join(";", mSchedulesList));
-        editor.putString(FAVORITE_SCHEDULE, mFavoriteSchedule);
-        editor.putString(SUBGROUP, mSubgroup.tag());
-        editor.apply();
+        preferences.edit()
+                .putString(SCHEDULES, TextUtils.join(";", mSchedulesList))
+                .putString(FAVORITE_SCHEDULE, mFavoriteSchedule)
+                .putString(SUBGROUP, mSubgroup.tag())
+                .apply();
 
         ++mChangeCount;
     }

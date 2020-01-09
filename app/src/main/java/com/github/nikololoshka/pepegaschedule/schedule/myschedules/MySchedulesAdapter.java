@@ -32,9 +32,9 @@ public class MySchedulesAdapter
      * Listener для нажатия по расписанию
      */
     public interface OnItemClickListener {
-        void onScheduleItemClicked(String schedule);
+        void onScheduleItemClicked(@NonNull String schedule);
         void onScheduleItemMove(int fromPosition, int toPosition);
-        void onScheduleFavoriteSelected(String favorite);
+        void onScheduleFavoriteSelected(@NonNull String favorite);
     }
 
     private final OnItemClickListener mClickListener;

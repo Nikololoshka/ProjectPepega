@@ -149,6 +149,10 @@ public class MyScheduleFragment extends Fragment
         // добавление разделителя
         if (getContext() != null) {
             recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), R.drawable.divider));
+
+            DragToMoveCallback.RecyclerViewBackground background = new DragToMoveCallback.RecyclerViewBackground(getContext());
+            background.attachRecyclerView(recyclerView);
+            recyclerView.setBackground(background);
         }
 
         DragToMoveCallback dragToMoveCallback = new DragToMoveCallback() {
@@ -344,7 +348,7 @@ public class MyScheduleFragment extends Fragment
     }
 
     @Override
-    public void onScheduleItemClicked(String schedule) {
+    public void onScheduleItemClicked(@NonNull String schedule) {
         if (getActivity() != null) {
             Bundle args = new Bundle();
 
@@ -359,15 +363,15 @@ public class MyScheduleFragment extends Fragment
 
     @Override
     public void onScheduleItemMove(int fromPosition, int toPosition) {
-        if (getActivity() != null) {
-            SchedulePreference.move(getActivity(), fromPosition, toPosition);
+        if (getContext() != null) {
+            SchedulePreference.move(getContext(), fromPosition, toPosition);
         }
     }
 
     @Override
-    public void onScheduleFavoriteSelected(String favorite) {
-        if (getActivity() != null) {
-            SchedulePreference.setFavorite(getActivity(), favorite);
+    public void onScheduleFavoriteSelected(@NonNull String favorite) {
+        if (getContext() != null) {
+            SchedulePreference.setFavorite(getContext(), favorite);
         }
     }
 
@@ -421,7 +425,6 @@ public class MyScheduleFragment extends Fragment
         }
 
         mSchedulesAdapter.update(data.schedules, data.favorite);
-
         schedulesCountChanged();
     }
 

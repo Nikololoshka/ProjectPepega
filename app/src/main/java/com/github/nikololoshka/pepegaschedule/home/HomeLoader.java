@@ -75,8 +75,6 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
 
         // prepare for create days and titles
         dayNow.add(Calendar.DAY_OF_MONTH, -2);
-        dataView.days = new ArrayList<>();
-        dataView.titles = new ArrayList<>();
 
         for (int i = 0; i < DAY_COUNT; i++) {
             TreeSet<Pair> pairs = new TreeSet<>(new ScheduleDay.SortPairComparator());
@@ -127,12 +125,9 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
     }
 
     class DataView {
-        @Nullable
-        String favorite;
-        @Nullable
-        ArrayList<ArrayList<Pair>> days;
-        @Nullable
-        ArrayList<String> titles;
+        String favorite = "";
+        ArrayList<ArrayList<Pair>> days = new ArrayList<>();
+        ArrayList<String> titles = new ArrayList<>();
 
         long changeCount;
     }
