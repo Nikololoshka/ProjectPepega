@@ -38,7 +38,7 @@ public class ModuleJournalFragment extends Fragment {
                     .getSystemService(Context.INPUT_METHOD_SERVICE);
 
             View currentFocusedView = getActivity().getCurrentFocus();
-            if (currentFocusedView != null) {
+            if (currentFocusedView != null && manager != null) {
                 manager.hideSoftInputFromWindow(currentFocusedView.getWindowToken(),
                         InputMethodManager.HIDE_NOT_ALWAYS);
             }
