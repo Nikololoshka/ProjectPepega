@@ -233,7 +233,7 @@ public class DateEditorActivity extends AppCompatActivity
                     }
                     return true;
                 } catch (InvalidDateException e) {
-                    errorMessage = getString(R.string.invalid_date, e.inputDate());
+                    errorMessage = getString(R.string.date_editor_invalid_date, e.inputDate());
                 } catch (InvalidDayOfWeekException e) {
                     Locale locale;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -242,9 +242,9 @@ public class DateEditorActivity extends AppCompatActivity
                         locale = getResources().getConfiguration().locale;
                     }
                     String dayOfWeek = e.date().getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, locale);
-                    errorMessage = getString(R.string.invalid_day_of_week, dayOfWeek);
+                    errorMessage = getString(R.string.date_editor_invalid_day_of_week, dayOfWeek);
                 } catch (InvalidFrequencyForDateException e) {
-                    errorMessage = getString(R.string.invalid_frequency);
+                    errorMessage = getString(R.string.date_editor_invalid_frequency);
                 } catch (Exception e) {
                     errorMessage = "Unchecked error! Please tell me about it\n\n" + e;
                 }
@@ -356,7 +356,7 @@ public class DateEditorActivity extends AppCompatActivity
             format.parse(dateString);
 
         } catch (ParseException ignored) {
-            mSingleDateEdit.setError(getResources().getString(R.string.enter_valid_date));
+            mSingleDateEdit.setError(getResources().getString(R.string.date_editor_enter_valid_date));
             return false;
         }
         return true;
@@ -378,12 +378,12 @@ public class DateEditorActivity extends AppCompatActivity
             long diff = format.parse(endString).getTime() - format.parse(startString).getTime();
 
             if (diff < 0) {
-                mRangeDateEditStart.setError(getResources().getString(R.string.date_less_than_another));
-                mRangeDateEditEnd.setError(getResources().getString(R.string.date_less_than_another));
+                mRangeDateEditStart.setError(getResources().getString(R.string.date_editor_less_than_another));
+                mRangeDateEditEnd.setError(getResources().getString(R.string.date_editor_less_than_another));
                 return false;
             } else if (((diff) / 86400000) % mFrequency != 0) {
-                mRangeDateEditStart.setError(getResources().getString(R.string.frequency_mismatch));
-                mRangeDateEditEnd.setError(getResources().getString(R.string.frequency_mismatch));
+                mRangeDateEditStart.setError(getResources().getString(R.string.date_editor_frequency_mismatch));
+                mRangeDateEditEnd.setError(getResources().getString(R.string.date_editor_frequency_mismatch));
                 return false;
             } else {
                 mRangeDateEditStart.setError(null);
@@ -391,8 +391,8 @@ public class DateEditorActivity extends AppCompatActivity
             }
 
         } catch (ParseException ignored) {
-            mRangeDateEditStart.setError(getResources().getString(R.string.enter_valid_date));
-            mRangeDateEditEnd.setError(getResources().getString(R.string.enter_valid_date));
+            mRangeDateEditStart.setError(getResources().getString(R.string.date_editor_enter_valid_date));
+            mRangeDateEditEnd.setError(getResources().getString(R.string.date_editor_enter_valid_date));
             return false;
         }
         return true;
@@ -409,10 +409,10 @@ public class DateEditorActivity extends AppCompatActivity
             items.remove(dateItem);
 
             alertDialog.setMessage(String.format("%s\n\n%s %s\n%s %s",
-                    getString(R.string.impossible_added_date),
-                    getString(R.string.added_date),
+                    getString(R.string.date_editor_impossible_added_date),
+                    getString(R.string.date_editor_added_date),
                     dateItem.toString(),
-                    getString(R.string.dates),
+                    getString(R.string.date_editor_dates),
                     items.toString()));
 
             alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL,
@@ -490,7 +490,7 @@ public class DateEditorActivity extends AppCompatActivity
             }
 
             if (!isValid) {
-                mEditText.setError(getResources().getString(R.string.enter_valid_date));
+                mEditText.setError(getResources().getString(R.string.date_editor_enter_valid_date));
             } else {
                 mEditText.setError(null);
 

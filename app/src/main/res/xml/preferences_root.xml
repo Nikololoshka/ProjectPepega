@@ -4,7 +4,7 @@
     <Preference
         android:key="settings_general_fragment"
         android:summary="@string/pref_general_summary"
-        android:title="@string/general"
+        android:title="@string/pref_general"
         android:icon="@drawable/ic_pref_general"/>
 
     <Preference

@@ -15,7 +15,7 @@ import java.util.Scanner;
 import static org.junit.Assert.assertTrue;
 
 
-public class ScheduleUnitTest {
+public class ScheduleTest {
     @Test
     public void loading() {
         Schedule schedule = new Schedule();

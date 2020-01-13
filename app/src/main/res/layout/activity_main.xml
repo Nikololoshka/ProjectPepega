@@ -50,7 +50,7 @@
                     android:paddingStart="@dimen/drawer_horizontal_padding"
                     android:paddingEnd="@dimen/drawer_horizontal_padding"
                     android:textSize="16sp"
-                    android:text="@string/settings"
+                    android:text="@string/nav_settings"
                     android:textAllCaps="false"/>
 
                 <Space
@@ -65,7 +65,7 @@
                     android:adjustViewBounds="true"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:contentDescription="@string/dark_mode_description" />
+                    android:contentDescription="@string/nav_dark_mode" />
 
             </LinearLayout>
 

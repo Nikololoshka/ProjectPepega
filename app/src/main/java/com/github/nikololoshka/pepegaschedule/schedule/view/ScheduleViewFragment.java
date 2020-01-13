@@ -290,7 +290,7 @@ public class ScheduleViewFragment extends Fragment
             case R.id.remove_schedule: {
                 AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
                 alertDialog.setTitle(R.string.warning);
-                alertDialog.setMessage(getString(R.string.schedule_will_be_deleted));
+                alertDialog.setMessage(getString(R.string.schedule_view_will_be_deleted));
                 alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,
                         getString(R.string.cancel),
                         new DialogInterface.OnClickListener() {
@@ -423,7 +423,7 @@ public class ScheduleViewFragment extends Fragment
 
                 } catch (IOException e) {
                     e.printStackTrace();
-                    showMessage(getString(R.string.unable_schedule_rename));
+                    showMessage(getString(R.string.schedule_view_unable_rename));
                     return;
                 }
 
@@ -439,7 +439,7 @@ public class ScheduleViewFragment extends Fragment
                 mScheduleName = newScheduleName;
                 mSchedulePath = newFile.getAbsolutePath();
 
-                showMessage(getString(R.string.schedule_renamed));
+                showMessage(getString(R.string.schedule_view_renamed));
                 reloadSchedule(ScheduleViewLoader.REQUEST_LOAD_SCHEDULE);
                 break;
             }
@@ -480,7 +480,7 @@ public class ScheduleViewFragment extends Fragment
 
                         mScheduleDataView.schedule.save(stream);
 
-                        showMessage(getString(R.string.schedule_saved));
+                        showMessage(getString(R.string.schedule_view_saved));
                     }
 
                 } catch (FileNotFoundException | JSONException e) {
@@ -582,7 +582,7 @@ public class ScheduleViewFragment extends Fragment
     public void onLoadFinished(@NonNull Loader<ScheduleViewLoader.ScheduleDataView> loader,
                                ScheduleViewLoader.ScheduleDataView data) {
         if (data == null || data.schedule == null || data.hasErrors) {
-            showMessage(getString(R.string.error_loading_schedule));
+            showMessage(getString(R.string.schedule_view_error_loading));
             return;
         }
 

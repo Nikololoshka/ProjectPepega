@@ -18,10 +18,12 @@ import java.util.Scanner;
  * https://github.com/stankin/mj/blob/master/src/main/java/ru/stankin/mj/http/HttpApi2.java
  */
 public class ModuleJournalConnection {
+    public static final String URL = "https://lk.stankin.ru";
+
     private static final String REQUEST_SEMESTERS = "semesters";
     private static final String REQUEST_MARKS = "marks";
 
-    private static final String URL = "https://lk.stankin.ru/webapi/api2/";
+    private static final String API_URL = URL + "/webapi/api2/";
     private static final String POST_METHOD = "POST";
     private static final String CHARSET_UTF_8 = "utf-8";
     private static final String CONTENT_TYPE = "Content-type";
@@ -68,7 +70,7 @@ public class ModuleJournalConnection {
     private String connect(@NonNull String request, @NonNull String... params)
             throws IOException, ModuleJournalConnectionException {
 
-        URL url = new URL(URL + request + "/");
+        URL url = new URL(API_URL + request + "/");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         try {

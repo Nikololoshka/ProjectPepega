@@ -10,6 +10,6 @@
         android:layout_height="32dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:contentDescription="@string/current_color" />
+        android:contentDescription="@string/pref_current_color" />
 
 </FrameLayout>

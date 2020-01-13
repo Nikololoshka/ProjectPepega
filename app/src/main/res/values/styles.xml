@@ -73,9 +73,7 @@
 
     <!-- Темы для кнопок -->
     <style name="Button" parent="Widget.AppCompat.Button" />
-    <style name="Button.Borderless" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:padding">10dp</item>
-        <item name="android:background">?attr/selectableItemBackground</item>
-    </style>
+    <style name="Button.Colored" parent="Widget.AppCompat.Button.Borderless.Colored" />
+    <style name="Button.Borderless" parent="Widget.AppCompat.Button.Borderless" />
 
 </resources>

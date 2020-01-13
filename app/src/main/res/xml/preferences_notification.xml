@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        android:title="@string/common_notification"
+        android:title="@string/notification_common"
         app:iconSpaceReserved="false" >
 
         <SwitchPreferenceCompat
@@ -16,7 +16,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/deanery_news"
+        android:title="@string/news_deanery"
         app:enabled="false"
         app:iconSpaceReserved="false" >
 
@@ -28,7 +28,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/university_news"
+        android:title="@string/news_university"
         app:enabled="false"
         app:iconSpaceReserved="false" >
 

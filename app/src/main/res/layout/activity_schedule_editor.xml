@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/schedule_name"
+            android:hint="@string/schedule_editor_name"
             android:inputType="textPersonName"
             tools:ignore="Autofill" />
 

@@ -65,7 +65,7 @@ public class AboutFragment extends Fragment {
             }
 
             DropdownTextView changelogView = view.findViewById(R.id.changelog_view);
-            changelogView.setTitleText(R.string.changelog);
+            changelogView.setTitleText(R.string.about_changelog);
             changelogView.setContentText(builder.toString());
         }
 

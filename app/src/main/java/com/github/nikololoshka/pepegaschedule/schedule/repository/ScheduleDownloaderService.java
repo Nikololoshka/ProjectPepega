@@ -67,7 +67,7 @@ public class ScheduleDownloaderService extends IntentService {
 
         NotificationCompat.Builder builder = NotificationDispatcher.createCommonNotification(context)
                 .setContentTitle(name)
-                .setContentText(context.getString(R.string.awaiting_download))
+                .setContentText(context.getString(R.string.notification_awaiting_download))
                 .setWhen(System.currentTimeMillis())
                 .setGroup(DOWNLOADER_NOTIFICATION_GROUP)
                 .setSmallIcon(R.drawable.ic_notification_file_download);
@@ -95,7 +95,7 @@ public class ScheduleDownloaderService extends IntentService {
 
         // общие уведомление сервера
         mNotificationBuilder = NotificationDispatcher.createCommonNotification(this)
-                .setContentText(getString(R.string.loading_schedule))
+                .setContentText(getString(R.string.repository_loading_schedule))
                 .setWhen(System.currentTimeMillis())
                 .setGroup(DOWNLOADER_NOTIFICATION_GROUP)
                 .setOngoing(true)
@@ -166,7 +166,7 @@ public class ScheduleDownloaderService extends IntentService {
 
             // окончательное уведомление
             NotificationCompat.Builder builder = NotificationDispatcher.createCommonNotification(this)
-                    .setContentText(getString(R.string.schedule_downloaded))
+                    .setContentText(getString(R.string.notification_schedule_downloaded))
                     .setContentTitle(scheduleName)
                     .setContentIntent(PendingIntent.getActivity(getApplicationContext(), 0, new Intent(), 0))
                     .setWhen(System.currentTimeMillis())

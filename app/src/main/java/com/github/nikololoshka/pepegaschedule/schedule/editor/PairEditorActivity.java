@@ -193,7 +193,7 @@ public class PairEditorActivity extends AppCompatActivity
                 mPairEditorAdaptor.notifyItemRemoved(position);
 
                 Snackbar.make(findViewById(R.id.pair_edit_layout),
-                        getString(R.string.date_was_removed), Snackbar.LENGTH_LONG)
+                        getString(R.string.pair_editor_date_removed), Snackbar.LENGTH_LONG)
                         .setAction(getString(R.string.undo), new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -316,7 +316,7 @@ public class PairEditorActivity extends AppCompatActivity
      */
     private boolean checkTitleField() {
         if (mTitleEdit.getText().toString().isEmpty()) {
-            mTitleEdit.setError(getString(R.string.empty_field));
+            mTitleEdit.setError(getString(R.string.pair_editor_empty_title));
             return false;
         }
         mTitleEdit.setError(null);
@@ -331,7 +331,7 @@ public class PairEditorActivity extends AppCompatActivity
         if(mDateItems == null || mDateItems.isEmpty()) {
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setTitle(R.string.error);
-            alertDialog.setMessage(getString(R.string.empty_dates_list));
+            alertDialog.setMessage(getString(R.string.pair_editor_empty_dates_list));
             alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL,
                     getString(R.string.ok),
                     new DialogInterface.OnClickListener() {

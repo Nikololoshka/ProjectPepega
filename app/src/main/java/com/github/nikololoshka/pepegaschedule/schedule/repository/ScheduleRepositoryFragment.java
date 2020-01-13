@@ -10,12 +10,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
@@ -67,6 +69,22 @@ public class ScheduleRepositoryFragment extends Fragment
         }
 
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        // скрыть клавиатуру если выходим
+        if (getActivity() != null) {
+            InputMethodManager manager = ContextCompat.getSystemService(getActivity(),
+                    InputMethodManager.class);
+
+            View currentFocusedView = getActivity().getCurrentFocus();
+            if (currentFocusedView != null && manager != null) {
+                manager.hideSoftInputFromWindow(currentFocusedView.getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        }
     }
 
     @Override
@@ -123,7 +141,7 @@ public class ScheduleRepositoryFragment extends Fragment
             }
         }
 
-        searchView.setQueryHint(getString(R.string.schedule_name));
+        searchView.setQueryHint(getString(R.string.schedule_editor_name));
         searchView.setIconifiedByDefault(true);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -192,14 +210,14 @@ public class ScheduleRepositoryFragment extends Fragment
         }
 
         if (SchedulePreference.schedules(getContext()).contains(name)){
-            showMessage(getString(R.string.schedule_exists));
+            showMessage(getString(R.string.schedule_editor_exists));
             return;
         }
 
         // создаем Service для скачивания расписания
         ScheduleDownloaderService.createTask(getContext(), name, path);
 
-        showMessage(String.format("%s: %s ", getString(R.string.loading_schedule), name));
+        showMessage(String.format("%s: %s ", getString(R.string.repository_loading_schedule), name));
     }
 
     /**

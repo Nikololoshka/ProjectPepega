@@ -15,7 +15,6 @@ import androidx.viewpager.widget.ViewPager;
 public class HomePagerPairsPager extends ViewPager {
 
     private static final String TAG = "HomePagerPairsPagerLog";
-    private static final boolean DEBUG = true;
 
     private ValueAnimator mHeightAnimator;
     private int mCurrentTargetHeight;
@@ -60,6 +59,14 @@ public class HomePagerPairsPager extends ViewPager {
             return;
         }
         mCurrentTargetHeight = targetHeight;
+
+        if (!mIsInitialization) {
+            mIsInitialization = true;
+
+            getLayoutParams().height = targetHeight;
+            requestLayout();
+            return;
+        }
 
         mHeightAnimator.cancel();
         mHeightAnimator.setIntValues(getMeasuredHeight(), targetHeight);
@@ -123,7 +130,6 @@ public class HomePagerPairsPager extends ViewPager {
 
         if (!mIsInitialization) {
             heightMeasureSpec = MeasureSpec.makeMeasureSpec(viewHeight, MeasureSpec.EXACTLY);
-            mIsInitialization = true;
         }
 
         createAnimation(viewHeight);

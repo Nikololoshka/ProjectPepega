@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/title"
+                android:hint="@string/pair_editor_title"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName" />
 
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:imeOptions="actionNext"
-                android:hint="@string/lecturer"
+                android:hint="@string/pair_editor_lecturer"
                 android:inputType="textPersonName"  />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:imeOptions="actionDone"
-                android:hint="@string/classroom"
+                android:hint="@string/pair_editor_classroom"
                 android:inputType="textPersonName" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -70,7 +70,7 @@
                 style="@style/Text.Hint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/type" />
+                android:text="@string/pair_editor_type" />
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_type"
@@ -83,7 +83,7 @@
                 style="@style/Text.Hint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/subgroup"
+                android:text="@string/pair_editor_subgroup"
                 app:layout_column="0"
                 app:layout_row="1" />
 
@@ -98,7 +98,7 @@
                 style="@style/Text.Hint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/time" />
+                android:text="@string/pair_editor_time" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -126,7 +126,7 @@
                 style="@style/Text.Hint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/date" />
+                android:text="@string/pair_editor_date" />
 
         </LinearLayout>
 
@@ -161,7 +161,7 @@
                         android:id="@+id/empty_dates"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/not_dates"
+                        android:text="@string/pair_editor_not_dates"
                         android:textAlignment="center"
                         android:padding="@dimen/default_information_padding"/>
 
@@ -176,7 +176,7 @@
 
                     <TextView
                         style="@style/Text.Medium"
-                        android:text="@string/add_date"
+                        android:text="@string/pair_editor_add_date"
                         android:textColor="?android:attr/textColorPrimary"
                         android:drawableStart="@drawable/ic_button_add"
                         android:drawablePadding="@dimen/default_drawable_padding"

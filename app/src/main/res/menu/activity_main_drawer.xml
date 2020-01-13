@@ -5,33 +5,32 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/homeFragment"
+            android:id="@+id/nav_home_fragment"
             android:icon="@drawable/ic_nav_home"
             android:title="@string/nav_home" />
         <item
-            android:id="@+id/scheduleFragment"
+            android:id="@+id/nav_schedule_fragment"
             android:icon="@drawable/ic_nav_schedule"
             android:title="@string/nav_schedule" />
         <item
-            android:id="@+id/moduleJournalFragment"
+            android:id="@+id/nav_module_journal_fragment"
             android:icon="@drawable/ic_nav_module_journal"
-            android:title="@string/nav_module_journal"
-            android:enabled="false" />
+            android:title="@string/nav_module_journal" />
 
         <item
             android:icon="@drawable/ic_nav_university_map"
-            android:title="@string/university_map"
+            android:title="@string/nav_university_map"
             android:enabled="false" />
 
         <item
             android:icon="@drawable/ic_nav_information"
-            android:title="@string/information"
+            android:title="@string/nav_information"
             android:enabled="false" />
 
         <item
-            android:id="@+id/aboutFragment"
+            android:id="@+id/nav_about_fragment"
             android:icon="@drawable/ic_nav_about"
-            android:title="@string/about_application"  />
+            android:title="@string/nav_about_application"  />
 
         <item
             android:title=""

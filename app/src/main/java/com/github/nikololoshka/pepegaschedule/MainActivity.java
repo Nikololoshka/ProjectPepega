@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // toggle navigation bar
         mDrawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, mDrawer, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
         mDrawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -67,10 +67,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 NotificationChannel channelCommon = new NotificationChannel(
                         NotificationDispatcher.CHANNEL_COMMON,
-                        getString(R.string.common_notification),
+                        getString(R.string.notification_common),
                         NotificationManager.IMPORTANCE_DEFAULT);
 
-                channelCommon.setDescription(getString(R.string.common_notification_description));
+                channelCommon.setDescription(getString(R.string.notification_common_description));
                 channelCommon.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
                 channelCommon.enableVibration(true);
                 channelCommon.enableLights(true);

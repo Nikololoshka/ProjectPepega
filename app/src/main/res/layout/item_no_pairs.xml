@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorCardViewBackground"
-        android:text="@string/not_pairs"
+        android:text="@string/schedule_view_no_pairs"
         android:textAlignment="center"
         android:padding="@dimen/default_information_padding" />
 

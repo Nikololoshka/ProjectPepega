@@ -14,7 +14,7 @@ import java.util.Scanner;
 import static org.junit.Assert.assertTrue;
 
 
-public class PairUnitTest {
+public class PairTest {
 
     private final String PATH = "src/test/resources/";
 

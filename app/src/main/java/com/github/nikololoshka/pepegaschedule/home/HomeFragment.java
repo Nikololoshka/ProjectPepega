@@ -30,6 +30,8 @@ import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewF
 public class HomeFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<HomeLoader.DataView> , View.OnClickListener {
 
+    private static final String TAG = "HomeFragmenLog";
+
     private static final int HOME_LOADER = 0;
 
     private StatefulLayout mStatefulLayout;
@@ -69,7 +71,7 @@ public class HomeFragment extends Fragment
     @NonNull
     @Override
     public Loader<HomeLoader.DataView> onCreateLoader(int id, @Nullable Bundle args) {
-        mHomeLoader = new HomeLoader(Objects.requireNonNull(getActivity()));
+        mHomeLoader = new HomeLoader(Objects.requireNonNull(getContext()));
         updateScheduleData();
         return mHomeLoader;
     }

@@ -137,9 +137,10 @@ public class HomePager extends LinearLayout {
      * @param pairsData массив с парами в дне.
      */
     public void update(ArrayList<String> titleData, ArrayList<ArrayList<Pair>> pairsData) {
-        mPairsPager.remeasure();
         mPairsAdapter.update(pairsData);
         mTitleAdapter.update(titleData);
+
+        mPairsPager.remeasure();
 
         mPairsPager.setCurrentItem((pairsData.size() - 1) / 2);
         mTitlePager.setCurrentItem((titleData.size() - 1) / 2);

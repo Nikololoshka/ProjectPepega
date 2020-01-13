@@ -5,7 +5,7 @@
     <item
         android:id="@+id/remove_date"
         android:icon="@drawable/ic_menu_delete_button"
-        android:title="@string/remove_date"
+        android:title="@string/date_editor_remove_date"
         app:showAsAction="ifRoom|withText" />
 
     <item

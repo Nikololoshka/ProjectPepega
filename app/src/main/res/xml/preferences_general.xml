@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        android:title="@string/dark_mode"
+        android:title="@string/pref_dark_mode"
         app:iconSpaceReserved="false" >
 
         <ListPreference
             android:key="dark_mode"
-            android:title="@string/mode"
+            android:title="@string/pref_mode"
             android:entries="@array/pref_dark_mode_list"
             android:entryValues="@array/pref_dark_mode_list_entry"
             android:defaultValue="pref_system_default"

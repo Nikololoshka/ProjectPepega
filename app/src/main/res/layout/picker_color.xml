@@ -31,14 +31,14 @@
                 style="@style/Text.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/rgb"
+                android:text="@string/picker_color_rgb"
                 android:layout_marginEnd="@dimen/default_layout_padding"/>
 
             <EditText
                 android:id="@+id/rgb_editor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/rgb_select_hint"
+                android:hint="@string/picker_color_hint"
                 android:maxLength="7"
                 android:inputType="textCapCharacters"
                 android:singleLine="true"

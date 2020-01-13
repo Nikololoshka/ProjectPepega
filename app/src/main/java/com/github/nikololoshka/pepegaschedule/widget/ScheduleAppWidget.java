@@ -51,7 +51,7 @@ public class ScheduleAppWidget extends AppWidgetProvider {
         PendingIntent schedulePendingIntent = new NavDeepLinkBuilder(context)
                 .setComponentName(MainActivity.class)
                 .setGraph(R.navigation.activity_main_nav_graph)
-                .setDestination(R.id.scheduleViewFragment)
+                .setDestination(R.id.nav_schedule_view_fragment)
                 .setArguments(scheduleBundle)
                 .createPendingIntent();
 
@@ -103,7 +103,7 @@ public class ScheduleAppWidget extends AppWidgetProvider {
             PendingIntent scheduleDayPendingIntent = new NavDeepLinkBuilder(context)
                     .setComponentName(MainActivity.class)
                     .setGraph(R.navigation.activity_main_nav_graph)
-                    .setDestination(R.id.scheduleViewFragment)
+                    .setDestination(R.id.nav_schedule_view_fragment)
                     .setArguments(scheduleDayBundle)
                     .createPendingIntent();
 

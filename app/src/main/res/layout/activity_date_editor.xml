@@ -22,7 +22,7 @@
                 style="@style/Text.Hint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/date_type" />
+                android:text="@string/date_editor_type" />
 
             <Spinner
                 android:id="@+id/spinner_date"
@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="@string/date"
+                    android:hint="@string/pair_editor_date"
                     android:inputType="date"
                     android:singleLine="true"
                     tools:ignore="Autofill" />
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:src="@drawable/ic_button_calendar"
-                android:contentDescription="@string/calendar_picker"
+                android:contentDescription="@string/date_editor_calendar_picker"
                 android:layout_gravity="center" />
 
         </LinearLayout>
@@ -104,7 +104,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="@string/start_date"
+                        android:hint="@string/date_editor_start_date"
                         android:inputType="date"
                         android:singleLine="true"
                         tools:ignore="Autofill" />
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/ic_button_calendar"
-                    android:contentDescription="@string/calendar_picker"
+                    android:contentDescription="@string/date_editor_calendar_picker"
                     android:layout_gravity="center" />
 
             </LinearLayout>
@@ -137,7 +137,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="@string/end_date"
+                        android:hint="@string/date_editor_end_date"
                         android:inputType="date"
                         android:singleLine="true"
                         tools:ignore="Autofill" />
@@ -151,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/ic_button_calendar"
-                    android:contentDescription="@string/calendar_picker"
+                    android:contentDescription="@string/date_editor_calendar_picker"
                     android:layout_gravity="center"/>
 
             </LinearLayout>
@@ -160,7 +160,7 @@
                 style="@style/Text.Hint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/frequency" />
+                android:text="@string/date_editor_frequency" />
 
             <Spinner
                 android:id="@+id/spinner_frequency"

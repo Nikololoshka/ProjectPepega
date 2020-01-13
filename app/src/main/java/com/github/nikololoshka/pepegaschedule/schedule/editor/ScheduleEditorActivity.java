@@ -58,13 +58,13 @@ public class ScheduleEditorActivity extends AppCompatActivity {
     private boolean checkNameField() {
         String name = mScheduleNameEdit.getText().toString();
         if (name.isEmpty()) {
-            mScheduleNameEdit.setError(getString(R.string.empty_field));
+            mScheduleNameEdit.setError(getString(R.string.schedule_editor_empty_name));
             return false;
         }
 
         for (String character : BAN_CHARACTERS) {
             if (name.contains(character)) {
-                mScheduleNameEdit.setError(getString(R.string.not_allowed_character) +
+                mScheduleNameEdit.setError(getString(R.string.schedule_editor_not_allowed_character) +
                         ": " + character);
                 return false;
             }
@@ -99,7 +99,7 @@ public class ScheduleEditorActivity extends AppCompatActivity {
             if (SchedulePreference.contains(this, schedule)) {
                 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
                 alertDialog.setTitle(R.string.error);
-                alertDialog.setMessage(getString(R.string.schedule_exists));
+                alertDialog.setMessage(getString(R.string.schedule_editor_exists));
                 alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL,
                         getString(R.string.ok),
                         new DialogInterface.OnClickListener() {

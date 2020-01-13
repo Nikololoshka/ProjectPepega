@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:adjustViewBounds="true"
-            android:contentDescription="@string/application_icon"
+            android:contentDescription="@string/app_icon"
             android:src="@drawable/logo_about" />
 
         <TextView
@@ -50,9 +50,9 @@
                 android:id="@+id/description_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:content_text="@string/description_text"
+                app:content_text="@string/about_description_text"
                 app:content_text_color="@color/colorTextSecondary"
-                app:title_text="@string/description"
+                app:title_text="@string/about_description"
                 app:title_text_color="@color/colorTextPrimary" />
 
         </androidx.cardview.widget.CardView>

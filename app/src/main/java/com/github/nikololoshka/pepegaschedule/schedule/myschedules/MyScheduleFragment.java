@@ -271,7 +271,7 @@ public class MyScheduleFragment extends Fragment
                     showMessage(String.format("%s: %s %s",
                             getString(R.string.schedule),
                             scheduleName,
-                            getString(R.string.failed_add)));
+                            getString(R.string.schedule_failed_add)));
 
                     return;
                 }
@@ -282,7 +282,7 @@ public class MyScheduleFragment extends Fragment
                 showMessage(String.format("%s: %s %s",
                         getString(R.string.schedule),
                         scheduleName,
-                        getString(R.string.successfully_added)));
+                        getString(R.string.schedule_successfully_added)));
 
                 break;
             }

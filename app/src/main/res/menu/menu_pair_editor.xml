@@ -5,7 +5,7 @@
     <item
         android:id="@+id/remove_pair"
         android:icon="@drawable/ic_menu_delete_button"
-        android:title="@string/remove_pair"
+        android:title="@string/schedule_view_remove_pair"
         app:showAsAction="ifRoom|withText" />
     <item
         android:id="@+id/apply_pair"

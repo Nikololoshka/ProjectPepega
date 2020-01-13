@@ -5,32 +5,32 @@
     <item
         android:id="@+id/add_pair"
         android:icon="@drawable/ic_menu_add_button"
-        android:title="@string/add_pair"
+        android:title="@string/schedule_view_add_pair"
         app:showAsAction="ifRoom|withText" />
 
     <item
         android:id="@+id/show_current_day"
         android:icon="@drawable/ic_menu_today_button"
-        android:title="@string/to_the_current_day"
+        android:title="@string/schedule_view_current_day"
         app:showAsAction="ifRoom|withText"/>
 
     <item
         android:id="@+id/go_to_day"
-        android:title="@string/go_to_day" />
+        android:title="@string/schedule_view_go_to_day" />
 
     <item
         android:id="@+id/rename_schedule"
         android:icon="@drawable/ic_menu_edit_button"
-        android:title="@string/rename_schedule" />
+        android:title="@string/schedule_view_rename" />
 
     <item
         android:id="@+id/save_schedule"
         android:icon="@drawable/ic_menu_save_button"
-        android:title="@string/save_schedule" />
+        android:title="@string/schedule_view_save_schedule" />
 
     <item
         android:id="@+id/remove_schedule"
         android:icon="@drawable/ic_menu_delete_button"
-        android:title="@string/remove_schedule" />
+        android:title="@string/schedule_remove" />
 
 </menu>

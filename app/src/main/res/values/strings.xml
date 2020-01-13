@@ -1,10 +1,7 @@
 <resources>
+    <!-- main -->
     <string name="app_name" translatable="false">PROJECT PEPEGA</string>
-    <string name="nav_header_title" translatable="false">PROJECT PEPEGA</string>
-    <string name="nav_header_subtitle" translatable="false">aka Stankin Schedule</string>
-    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
-    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-    <string name="application_icon">Application icon</string>
+    <string name="app_icon">Application icon</string>
 
     <!-- debug -->
     <string name="debug_text" translatable="false">Some text</string>
@@ -15,109 +12,114 @@
     <string name="schedule_editor">Schedule editor</string>
 
     <!-- drawer -->
+    <string name="nav_header_title" translatable="false">PROJECT PEPEGA</string>
+    <string name="nav_header_subtitle" translatable="false">aka Stankin Schedule</string>
+    <string name="nav_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="nav_drawer_close" translatable="false">Close navigation drawer</string>
+
     <string name="nav_home">Home</string>
     <string name="nav_schedule">Schedule</string>
     <string name="nav_module_journal">Module journal</string>
-    <string name="university_map">University map</string>
-    <string name="information">Information</string>
-    <string name="about_application">About application</string>
-    <string name="settings">Settings</string>
-    <string name="dark_mode_description">Dark mode switch button</string>
+    <string name="nav_university_map">University map</string>
+    <string name="nav_information">Information</string>
+    <string name="nav_about_application">About application</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_dark_mode">Dark mode switch button</string>
 
     <!-- home -->
-    <string name="no_favorite_schedule">No favorite schedule</string>
+    <string name="home_no_favorite_schedule">No favorite schedule</string>
 
     <!-- module journal -->
-    <string name="login">Login</string>
-    <string name="password">Password</string>
+    <string name="mj_login">Login</string>
+    <string name="mj_password">Password</string>
+    <string name="mj_forgot_password">Forgot password</string>
+    <string name="mj_sign_in">Sign in</string>
+    <string name="mj_failed_unauthorized">Failed to log in. Please make sure that you have entered your login and password correctly.</string>
+    <string name="mj_gateway_timeout">lk.stankin.ru took too long to respond.</string>
+    <string name="mj_data_error">Data error</string>
+    <string name="mj_data_error_description">An error occurred while working with the data.</string>
+    <string name="mj_read_data_error">Error reading data</string>
+    <string name="mj_read_data_error_description">An error occurred while reading the response data.</string>
 
     <!-- my schedules -->
-    <string name="my_schedules">My schedules</string>
-    <string name="selected_subgroup">Selected subgroup</string>
-    <string name="no_available_schedules">No available schedules</string>
-    <string name="add_schedule">Add schedule</string>
-    <string name="remove_schedule">Remove schedule</string>
+    <string name="schedule">Schedule</string>
+    <string name="schedule_my">My schedules</string>
+    <string name="schedule_selected_subgroup">Selected subgroup</string>
+    <string name="schedule_no_available">No available schedules</string>
+    <string name="schedule_add">Add schedule</string>
+    <string name="schedule_remove">Remove schedule</string>
     <string name="schedule_removed">Schedule removed</string>
-    <string name="undo">Undo</string>
-    <string name="from_repository">From repository</string>
-    <string name="new_schedule">Create new schedule</string>
-    <string name="load_schedule">Load schedule…</string>
+    <string name="schedule_from_repository">From repository</string>
+    <string name="schedule_create_new">Create new schedule</string>
+    <string name="schedule_load">Load schedule…</string>
+    <string name="schedule_successfully_added">successfully added</string>
+    <string name="schedule_failed_add">failed to add</string>
 
     <!-- repository -->
-    <string name="schedule_repository">Repository</string>
-    <string name="update">Update</string>
-    <string name="search">Search</string>
+    <string name="repository">Repository</string>
+    <string name="repository_update">Update</string>
+    <string name="repository_search">Search</string>
     <string name="repository_version">Current version: Autumn-2019</string>
     <string name="repository_last_update">Last update: 07.10.19</string>
-    <string name="loading_schedule">Loading schedule</string>
-    <string name="repository_info_bg">Repository information background</string>
+    <string name="repository_loading_schedule">Loading schedule</string>
+    <string name="repository_info_background">Repository information background</string>
 
     <!-- schedules view -->
     <string name="schedule_view">Schedule View</string>
-    <string name="not_pairs">No pairs</string>
-    <string name="add_pair">Add pair</string>
-    <string name="to_the_current_day">To the current day</string>
-    <string name="go_to_day">Go to day</string>
-    <string name="remove_pair">Remove pair</string>
-    <string name="save_schedule">Save schedule…</string>
+    <string name="schedule_view_no_pairs">No pairs</string>
+    <string name="schedule_view_add_pair">Add pair</string>
+    <string name="schedule_view_current_day">To the current day</string>
+    <string name="schedule_view_go_to_day">Go to day</string>
+    <string name="schedule_view_remove_pair">Remove pair</string>
+    <string name="schedule_view_save_schedule">Save schedule…</string>
+    <string name="schedule_view_rename">Rename schedule</string>
+    <string name="schedule_view_renamed">Schedule renamed</string>
+    <string name="schedule_view_unable_rename">Unable to rename schedule</string>
+    <string name="schedule_view_will_be_deleted">Attention schedule will be deleted irrevocably!</string>
+    <string name="schedule_view_error_loading">Error loading schedule</string>
+    <string name="schedule_view_saved">Schedule saved</string>
 
     <!-- pair editor -->
-    <string name="title">Title</string>
-    <string name="lecturer">Lecturer</string>
-    <string name="type">Type</string>
-    <string name="subgroup">Subgroup</string>
-    <string name="classroom">Classroom</string>
-    <string name="time">Time</string>
-    <string name="add_date">Add date</string>
-    <string name="date">Date</string>
-    <string name="not_dates">Not dates</string>
-    <string name="remove_date">Remove date</string>
-    <string name="date_was_removed">Date was removed</string>
+    <string name="pair_editor_title">Title</string>
+    <string name="pair_editor_lecturer">Lecturer</string>
+    <string name="pair_editor_type">Type</string>
+    <string name="pair_editor_subgroup">Subgroup</string>
+    <string name="pair_editor_classroom">Classroom</string>
+    <string name="pair_editor_time">Time</string>
+    <string name="pair_editor_add_date">Add date</string>
+    <string name="pair_editor_date">Date</string>
+    <string name="pair_editor_not_dates">Not dates</string>
+    <string name="pair_editor_date_removed">Date was removed</string>
+    <string name="pair_editor_empty_dates_list">You must add at least one date.</string>
+    <string name="pair_editor_empty_title">The field cannot be empty</string>
 
     <!-- date editor -->
-    <string name="enter_valid_date">Enter a valid date: DD.MM.YYYY</string>
-    <string name="date_type">Date type</string>
-    <string name="calendar_picker">Calendar picker</string>
-    <string name="start_date">Start date</string>
-    <string name="end_date">End date</string>
-    <string name="frequency">Frequency</string>
-    <string name="frequency_mismatch">Frequency mismatch!</string>
-    <string name="date_less_than_another">One date is less than another!</string>
+    <string name="date_editor_enter_valid_date">Enter a valid date: DD.MM.YYYY</string>
+    <string name="date_editor_type">Date type</string>
+    <string name="date_editor_calendar_picker">Calendar picker</string>
+    <string name="date_editor_start_date">Start date</string>
+    <string name="date_editor_end_date">End date</string>
+    <string name="date_editor_frequency">Frequency</string>
+    <string name="date_editor_frequency_mismatch">Frequency mismatch!</string>
+    <string name="date_editor_less_than_another">One date is less than another!</string>
+    <string name="date_editor_remove_date">Remove date</string>
+    <string name="date_editor_invalid_date">Unable to create date: %1$s. Check the correct date.</string>
+    <string name="date_editor_invalid_day_of_week">Not a valid day of the week: %1$s</string>
+    <string name="date_editor_invalid_frequency">The date range is not a multiple of its duration</string>
+    <string name="date_editor_impossible_added_date">You cannot add a date because there will be a date intersection / no match on day of the week.</string>
+    <string name="date_editor_added_date">Added date:</string>
+    <string name="date_editor_dates">Dates:</string>
 
     <!-- schedule editor -->
-    <string name="rename_schedule">Rename schedule</string>
-    <string name="schedule_name">Schedule name</string>
-    <string name="name">Name</string>
-    <string name="not_allowed_character">Not allowed character</string>
-
-    <!-- date alert -->
-    <string name="invalid_date">Unable to create date: %1$s. Check the correct date.</string>
-    <string name="invalid_day_of_week">Not a valid day of the week: %1$s</string>
-    <string name="invalid_frequency">The date range is not a multiple of its duration</string>
-    <string name="impossible_added_date">You cannot add a date because there will be a date intersection / no match on day of the week.</string>
-    <string name="added_date">Added date:</string>
-    <string name="dates">Dates:</string>
-
-    <!-- pair alert -->
-    <string name="invalid_add_pair">You can\'t add a pair because it overlaps already existing pairs.</string>
-
-    <!-- schedule alert -->
-    <string name="schedule_will_be_deleted">Attention schedule will be deleted irrevocably!</string>
-    <string name="schedule_exists">A schedule with this name exists.</string>
-    <string name="schedule">Schedule</string>
-    <string name="successfully_added">successfully added</string>
-    <string name="failed_add">failed to add</string>
-    <string name="error_loading_schedule">Error loading schedule</string>
-    <string name="schedule_renamed">Schedule renamed</string>
-    <string name="unable_schedule_rename">Unable to rename schedule</string>
-    <string name="empty_field">The field cannot be empty</string>
-    <string name="empty_dates_list">You must add at least one date.</string>
-    <string name="schedule_saved">Schedule saved</string>
+    <string name="schedule_editor_name">Schedule name</string>
+    <string name="schedule_editor_not_allowed_character">Not allowed character</string>
+    <string name="schedule_editor_exists">A schedule with this name exists.</string>
+    <string name="schedule_editor_empty_name">The field cannot be empty</string>
 
     <!-- about application -->
-    <string name="changelog">ChangeLog</string>
-    <string name="description">Description</string>
-    <string name="description_text">
+    <string name="about_changelog">ChangeLog</string>
+    <string name="about_description">Description</string>
+    <string name="about_description_text">
         Powered by PEPEGA INC. NORTH.   \n\n
         Thanks for the closed beta:     \n
         - Bogodayko S.Y.                \n
@@ -127,20 +129,20 @@
 
     <!-- notification -->
     <string name="notification">Notification</string>
-    <string name="common_notification">Common</string>
-    <string name="common_notification_description">Download schedule, important information</string>
-    <string name="schedule_downloaded">Schedule downloaded</string>
-    <string name="awaiting_download">Awaiting download</string>
+    <string name="notification_common">Common</string>
+    <string name="notification_common_description">Download schedule, important information</string>
+    <string name="notification_schedule_downloaded">Schedule downloaded</string>
+    <string name="notification_awaiting_download">Awaiting download</string>
 
     <!-- settings -->
-    <string name="general">General</string>
-    <string name="dark_mode">Dark mode</string>
-    <string name="mode">Mode</string>
+    <string name="pref_general">General</string>
+    <string name="pref_dark_mode">Dark mode</string>
+    <string name="pref_mode">Mode</string>
     <string name="pref_general_summary">Main application settings</string>
     <string name="pref_schedule_summary">Customize the schedule</string>
     <string name="pref_widget_summary">Configuring app widgets</string>
     <string name="pref_notification_summary">Setting up notifications</string>
-    <string name="not_widgets">No widgets have been created</string>
+    <string name="pref_not_widgets">No widgets have been created</string>
     <string name="pref_schedule_view">Schedule view</string>
     <string name="pref_schedule_view_method">Schedule view method</string>
     <string name="pref_notification_turn">Turn notifications</string>
@@ -150,12 +152,14 @@
     <string name="pref_laboratory_color">Laboratory color</string>
     <string name="pref_subgroup_a_color">Subgroup A color</string>
     <string name="pref_subgroup_b_color">Subgroup B color</string>
+    <string name="pref_current_color">current color</string>
 
-    <!--  settings alert  -->
-    <string name="rgb_select_hint" translatable="false">FF00FF</string>
-    <string name="rgb" translatable="false">RGB</string>
-    <string name="choose_color">Choose color</string>
-    <string name="not_color">Not a color</string>
+    <!--  picker color  -->
+    <string name="picker_color_hint" translatable="false">FF00FF</string>
+    <string name="picker_color_rgb" translatable="false">RGB</string>
+    <string name="picker_color_choose_color">Choose color</string>
+    <string name="picker_color_not_color">Not a color</string>
+    <string name="picker_color_default_color">Default</string>
 
     <!-- schedule widget -->
     <string name="widget">Widget</string>
@@ -170,8 +174,8 @@
     <string name="widget_schedule_error">An error occurred when the widget was running</string>
 
     <!-- news -->
-    <string name="university_news">University News</string>
-    <string name="deanery_news">Deanery News</string>
+    <string name="news_university">University News</string>
+    <string name="news_deanery">Deanery News</string>
 
     <!-- other -->
     <string name="error">Error</string>
@@ -179,11 +183,10 @@
     <string name="apply">Apply</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="default_">Default</string>
     <string name="yes_continue">Yes, continue</string>
     <string name="choose_folder">Choose folder</string>
     <string name="moving_handler">Moving handler</string>
     <string name="retry">Retry</string>
-    <string name="current_color">current color</string>
+    <string name="undo">Undo</string>
 
 </resources>

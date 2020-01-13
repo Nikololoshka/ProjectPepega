@@ -94,9 +94,9 @@ public class ColorPickerDialog extends DialogFragment
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-        builder.setTitle(R.string.choose_color);
+        builder.setTitle(R.string.picker_color_choose_color);
         builder.setPositiveButton(R.string.ok, this);
-        builder.setNeutralButton(R.string.default_, this);
+        builder.setNeutralButton(R.string.picker_color_default_color, this);
         builder.setNegativeButton(R.string.cancel, this);
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -126,7 +126,7 @@ public class ColorPickerDialog extends DialogFragment
                         mColorPicker.setColor(color);
                         mRGBEditor.setError(null);
                     } catch (IllegalArgumentException e) {
-                        mRGBEditor.setError(getString(R.string.not_color));
+                        mRGBEditor.setError(getString(R.string.picker_color_not_color));
                     }
                 }
             }

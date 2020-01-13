@@ -5,18 +5,18 @@
     <item
         android:id="@+id/add_schedule"
         android:icon="@drawable/ic_menu_add_button"
-        android:title="@string/add_schedule"
+        android:title="@string/schedule_add"
         app:showAsAction="ifRoom|withText" >
         <menu>
             <item
                 android:id="@+id/from_repository"
-                android:title="@string/from_repository" />
+                android:title="@string/schedule_from_repository" />
             <item
                 android:id="@+id/new_schedule"
-                android:title="@string/new_schedule" />
+                android:title="@string/schedule_create_new" />
             <item
                 android:id="@+id/load_schedule"
-                android:title="@string/load_schedule" />
+                android:title="@string/schedule_load" />
         </menu>
     </item>
 </menu>
