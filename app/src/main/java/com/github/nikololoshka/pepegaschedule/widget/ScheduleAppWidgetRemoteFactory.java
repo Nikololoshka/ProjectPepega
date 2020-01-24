@@ -180,7 +180,7 @@ public class ScheduleAppWidgetRemoteFactory implements RemoteViewsService.Remote
 
     @Override
     public RemoteViews getLoadingView() {
-        return null;
+        return new RemoteViews(mPackageName, R.layout.widget_item_schedule_app_pair_shimmer);
     }
 
     @Override

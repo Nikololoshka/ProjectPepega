@@ -58,6 +58,7 @@ public class ScheduleRepositoryFragment extends Fragment
     private String mFilterQuery = "";
 
     public ScheduleRepositoryFragment() {
+        super();
     }
 
     @Override

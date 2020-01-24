@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Text.Small"
+    android:id="@+id/mj_marks_column"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="@dimen/mj_min_column_header_size"
+    android:textColor="?android:attr/textColorPrimary"
+    android:textAlignment="center"
+    android:background="@drawable/background_mj_semester"
+    android:padding="@dimen/mj_table_cell_padding"/>

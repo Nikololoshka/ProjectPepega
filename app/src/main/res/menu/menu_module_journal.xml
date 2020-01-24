@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mj_update_marks"
+        android:title="@string/mj_update_marks"/>
+
+    <item
+        android:id="@+id/mj_sign_out"
+        android:title="@string/mj_sign_out" />
+
+</menu>

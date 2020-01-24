@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.modulejournal;
+package com.github.nikololoshka.pepegaschedule.modulejournal.login;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,7 +23,7 @@ import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.modulejournal.connection.ModuleJournalConnection;
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalService;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
@@ -105,7 +104,7 @@ public class ModuleJournalLoginFragment extends Fragment
             }
             // забыт пароль
             case R.id.mj_forgot_password: {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ModuleJournalConnection.URL));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ModuleJournalService.URL));
                 startActivity(intent);
                 break;
             }
@@ -153,7 +152,6 @@ public class ModuleJournalLoginFragment extends Fragment
     public void onLoadFinished(@NonNull Loader<ModuleJournalLoginLoader.LoadData> loader,
                                ModuleJournalLoginLoader.LoadData data) {
         if (data.signIn) {
-            Toast.makeText(getContext(), "Sign In: " + data.studentData.toString(), Toast.LENGTH_LONG).show();
             popToModuleJournal();
 
         } else {

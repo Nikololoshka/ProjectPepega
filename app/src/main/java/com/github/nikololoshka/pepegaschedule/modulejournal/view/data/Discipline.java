@@ -1,9 +1,14 @@
-package com.github.nikololoshka.pepegaschedule.modulejournal.model;
+package com.github.nikololoshka.pepegaschedule.modulejournal.view.data;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.util.EnumMap;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -11,27 +16,33 @@ import java.util.Objects;
  */
 public class Discipline {
 
-    public static final float NO_FACTOR = 0;
-    public static final int NO_MARK = 0;
+    private static final float NO_FACTOR = 0;
+    private static final int NO_MARK = 0;
 
     /**
      * Название дисциплины.
      */
+    @SerializedName("title")
+    @Expose
     private String mDisciplineTitle;
 
     /**
      * Оценки дисциплины.
      */
-    private EnumMap<MarkType, Integer> mMarks;
+    @SerializedName("marks")
+    @Expose
+    private LinkedHashMap<MarkType, Integer> mMarks;
 
     /**
      * Коэффициет предмета.
      */
+    @SerializedName("factor")
+    @Expose
     private double mFactor;
 
     Discipline() {
         mDisciplineTitle = "";
-        mMarks = new EnumMap<>(MarkType.class);
+        mMarks = new LinkedHashMap<>();
         mFactor = 0;
     }
 
@@ -78,6 +89,28 @@ public class Discipline {
      */
     public double factor() {
         return mFactor;
+    }
+
+    /**
+     * Создает список для отображения в таблице.
+     * @return список оценокю
+     */
+    public List<String> createRowCells() {
+        ArrayList<String> row = new ArrayList<>();
+        for (MarkType type : MarkType.values()) {
+            Integer mark = mMarks.get(type);
+
+            if (mark == null) {
+                row.add("");
+            } else if (mark == NO_MARK) {
+                row.add("  ");
+            } else {
+                row.add(String.valueOf(mark));
+            }
+        }
+        row.add(String.valueOf(mFactor));
+
+        return row;
     }
 
     /**

@@ -68,7 +68,7 @@
 
     <fragment
         android:id="@+id/nav_module_journal_fragment"
-        android:name="com.github.nikololoshka.pepegaschedule.modulejournal.ModuleJournalFragment"
+        android:name="com.github.nikololoshka.pepegaschedule.modulejournal.view.ModuleJournalFragment"
         android:label="@string/nav_module_journal" >
         <action
             android:id="@+id/toModuleJournalLoginFragment"
@@ -83,7 +83,7 @@
 
     <fragment
         android:id="@+id/nav_module_journal_login_fragment"
-        android:name="com.github.nikololoshka.pepegaschedule.modulejournal.ModuleJournalLoginFragment"
+        android:name="com.github.nikololoshka.pepegaschedule.modulejournal.login.ModuleJournalLoginFragment"
         android:label="@string/nav_module_journal" />
 
     <fragment

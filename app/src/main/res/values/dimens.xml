@@ -19,6 +19,11 @@
     <dimen name="item_schedule_repository_padding">12dp</dimen>
     <dimen name="appbar_repository_height">200dp</dimen>
 
+    <!-- Модульный журнал -->
+    <dimen name="app_bar_mj_height">150dp</dimen>
+    <dimen name="mj_table_cell_padding">3dp</dimen>
+    <dimen name="mj_min_column_header_size">25dp</dimen>
+
     <!-- Растояние между карточками при вертикальном отображении -->
     <dimen name="vertical_view_space">10dp</dimen>
 
