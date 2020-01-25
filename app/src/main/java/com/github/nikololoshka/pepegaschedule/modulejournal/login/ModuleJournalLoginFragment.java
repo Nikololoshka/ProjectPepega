@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalService;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.lang.ref.WeakReference;
 import java.util.Objects;
 
 /**
@@ -56,6 +58,12 @@ public class ModuleJournalLoginFragment extends Fragment
         mLoginFieldEditText = view.findViewById(R.id.mj_login);
         mPasswordFieldEditText = view.findViewById(R.id.mj_password);
 
+        DataTextWatcher loginWatcher = new DataTextWatcher(mLoginFieldEditText);
+        mLoginFieldEditText.addTextChangedListener(loginWatcher);
+
+        DataTextWatcher passwordWatcher = new DataTextWatcher(mPasswordFieldEditText);
+        mPasswordFieldEditText.addTextChangedListener(passwordWatcher);
+
         mSignInButton = view.findViewById(R.id.mj_sign_in);
         mSignInButton.setOnClickListener(this);
 
@@ -71,7 +79,7 @@ public class ModuleJournalLoginFragment extends Fragment
     @Override
     public void onDetach() {
         super.onDetach();
-        // скрыть клавиатуру если выходим
+        // скрыть клавиатуру перед выходом
         if (getActivity() != null) {
             InputMethodManager manager = ContextCompat.getSystemService(getActivity(),
                     InputMethodManager.class);
@@ -89,6 +97,10 @@ public class ModuleJournalLoginFragment extends Fragment
         switch (v.getId()) {
             // авторизация
             case R.id.mj_sign_in: {
+                if (!fieldsIsCorrect()) {
+                    return;
+                }
+
                 setEnabledView(false);
 
                 mLoginFieldEditText.clearFocus();
@@ -142,6 +154,34 @@ public class ModuleJournalLoginFragment extends Fragment
         mForgotPasswordButton.setEnabled(enabledView);
     }
 
+    /**
+     * Проверяет поля для ввода данных на корректность.
+     * @return true - поля заполнены правильно, иначе false.
+     */
+    private boolean fieldsIsCorrect() {
+        Editable login = mLoginFieldEditText.getText();
+        Editable password = mPasswordFieldEditText.getText();
+
+        String loginText = login != null ? login.toString() : null;
+        String passwordText = password != null ? password.toString() : null;
+
+        if (loginText == null || passwordText == null) {
+            return false;
+        }
+
+        if (loginText.isEmpty()) {
+            mLoginFieldEditText.setError(getString(R.string.mj_empty_filed));
+            return false;
+        }
+
+        if (passwordText.isEmpty()) {
+            mPasswordFieldEditText.setError(getString(R.string.mj_empty_filed));
+            return false;
+        }
+
+        return true;
+    }
+
     @NonNull
     @Override
     public Loader<ModuleJournalLoginLoader.LoadData> onCreateLoader(int id, @Nullable Bundle args) {
@@ -152,6 +192,7 @@ public class ModuleJournalLoginFragment extends Fragment
     public void onLoadFinished(@NonNull Loader<ModuleJournalLoginLoader.LoadData> loader,
                                ModuleJournalLoginLoader.LoadData data) {
         if (data.signIn) {
+            // если авторизовалить то к модульному журналу
             popToModuleJournal();
 
         } else {
@@ -174,5 +215,40 @@ public class ModuleJournalLoginFragment extends Fragment
     @Override
     public void onLoaderReset(@NonNull Loader<ModuleJournalLoginLoader.LoadData> loader) {
 
+    }
+
+    /**
+     * Watcher для проверки полей ввода данных.
+     */
+    private class DataTextWatcher implements TextWatcher {
+
+        private WeakReference<TextInputEditText> mFiled;
+
+        DataTextWatcher(@NonNull TextInputEditText filed) {
+            mFiled = new WeakReference<>(filed);
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            TextInputEditText field = mFiled.get();
+            if (field == null) {
+                return;
+            }
+
+            if (s.length() == 0) {
+                field.setError(getString(R.string.mj_empty_filed));
+            } else {
+                field.setError(null);
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
     }
 }

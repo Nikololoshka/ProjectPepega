@@ -24,17 +24,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.data.SemestersMarks;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.ModuleJournalModelFactory;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.ModuleJournalViewModel;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.StudentData;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.paging.SemestersAdapter;
 import com.github.nikololoshka.pepegaschedule.settings.ModuleJournalPreference;
+import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.io.File;
 import java.util.Objects;
 
+/**
+ * Фрагмент модульного журнала.
+ */
 public class ModuleJournalFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<ModuleJournalLoader.LoadData> {
 
@@ -43,6 +46,8 @@ public class ModuleJournalFragment extends Fragment
     private static final String CURRENT_PAGE = "current_page";
 
     private static final int MODULE_JOURNAL_LOADER = 0;
+
+    private StatefulLayout mStatefulLayout;
 
     private TextView mStudentNameTextView;
     private TextView mStudentGroupTextView;
@@ -74,6 +79,9 @@ public class ModuleJournalFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_module_journal, container, false);
+        mStatefulLayout = view.findViewById(R.id.stateful_layout);
+        mStatefulLayout.addXMLViews();
+        mStatefulLayout.setState(R.id.loading_shimmer);
 
         mStudentNameTextView = view.findViewById(R.id.mj_student_name);
         mStudentGroupTextView = view.findViewById(R.id.mj_student_group);
@@ -91,7 +99,8 @@ public class ModuleJournalFragment extends Fragment
         });
 
         mModuleJournalViewModel  = new ViewModelProvider(this,
-                new ModuleJournalModelFactory()).get(ModuleJournalViewModel.class);
+                new ViewModelProvider.NewInstanceFactory())
+                .get(ModuleJournalViewModel.class);
 
         new TabLayoutMediator(tabLayout, mPagerSemesters, true,
                 new TabLayoutMediator.TabConfigurationStrategy() {
@@ -119,6 +128,9 @@ public class ModuleJournalFragment extends Fragment
             case R.id.mj_sign_out: {
                 if (getContext() != null) {
                     ModuleJournalPreference.setSignIn(getContext(), false);
+                    StudentData.clearCacheData(getContext().getCacheDir());
+                    SemestersMarks.clearCacheData(getContext().getCacheDir());
+
                     navigateToLoginScreen();
                 }
             }
@@ -182,6 +194,8 @@ public class ModuleJournalFragment extends Fragment
         mStudentNameTextView.setText(getString(R.string.mj_student, data.response.studentName()));
         mStudentGroupTextView.setText(getString(R.string.mj_group, data.response.group()));
 
+        mStatefulLayout.setState(R.id.mj_student_data);
+
         mModuleJournalViewModel.semestersStorage().setLogin(data.login);
         mModuleJournalViewModel.semestersStorage().setPassword(data.password);
         mModuleJournalViewModel.semestersStorage().setSemesters(data.response.semesters());
@@ -199,6 +213,7 @@ public class ModuleJournalFragment extends Fragment
                     public void run() {
                         mPagerSemesters.setCurrentItem(pos, false);
                         Log.d(TAG, "run: " + mCurrentPage);
+                        Log.d(TAG, "run2: " + pos);
                     }
                 });
             }

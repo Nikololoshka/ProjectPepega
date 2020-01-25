@@ -1,11 +1,11 @@
-package com.github.nikololoshka.pepegaschedule.modulejournal.view.model;
+package com.github.nikololoshka.pepegaschedule.modulejournal.view;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.data.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.paging.SemestersDataSourcesFactory;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.paging.SemestersStorage;
 
@@ -17,7 +17,7 @@ public class ModuleJournalViewModel extends ViewModel {
     private SemestersDataSourcesFactory mSemestersFactory;
     private SemestersStorage mSemestersStorage;
 
-    ModuleJournalViewModel() {
+    public ModuleJournalViewModel() {
 
         mSemestersStorage = new SemestersStorage();
         mSemestersFactory = new SemestersDataSourcesFactory(mSemestersStorage);

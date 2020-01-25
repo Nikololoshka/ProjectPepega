@@ -3,18 +3,18 @@ package com.github.nikololoshka.pepegaschedule.modulejournal.view.paging;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.github.nikololoshka.pepegaschedule.MainApplication;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.MarkResponse;
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalErrorUtils;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalService;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.data.SemestersMarks;
-import com.google.gson.Gson;
-
-import org.apache.commons.io.FileUtils;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import retrofit2.Response;
@@ -25,8 +25,6 @@ import retrofit2.Response;
 public class SemestersStorage {
 
     private static final String TAG = "SemestersStorageLog";
-
-    private static final String SEMESTERS_FOLDER = "semesters_data";
 
     @Nullable
     private ArrayList<String> mSemesters;;
@@ -115,9 +113,14 @@ public class SemestersStorage {
 
         SemestersMarks marks;
         try {
-            marks = loadCacheData(semester);
+            marks = SemestersMarks.loadCacheData(semester, mCacheDirectory);
             // загружены из кэша и менее чем 10 минут назад
-            if (marks != null && (System.currentTimeMillis() - marks.time()) < 1000 * 60 * 10) {
+            if (marks != null && isOverData(marks.time(), 1000 * 60 * 10)) {
+                // кэшируем данные для отображения
+                marks.createCellsData();
+                marks.createColumnsData();
+                marks.createRowsData();
+
                 return Collections.singletonList(marks);
             }
 
@@ -126,8 +129,14 @@ public class SemestersStorage {
                     .getMarks(mLogin, mPassword, semester)
                     .execute();
 
-            marks = SemestersMarks.fromResponse(response.body());
-            saveCacheData(marks, semester);
+            if (response.isSuccessful()) {
+                marks = SemestersMarks.fromResponse(response.body());
+                SemestersMarks.saveCacheData(marks, semester, mCacheDirectory);
+            } else {
+                marks = new SemestersMarks();
+                // TODO: 25/01/20 Используется MainApplication как Context
+                marks.setError(ModuleJournalErrorUtils.responseError(response, MainApplication.getInstance()));
+            }
 
             // кэшируем данные для отображения
             marks.createCellsData();
@@ -137,54 +146,21 @@ public class SemestersStorage {
         } catch (IOException e) {
             e.printStackTrace();
             marks = new SemestersMarks();
+            // TODO: 25/01/20 Используется MainApplication как Context
+            marks.setError(ModuleJournalErrorUtils.exceptionError(e, MainApplication.getInstance()));
         }
 
         return Collections.singletonList(marks);
     }
 
     /**
-     * Загружает оценки из кэша.
-     * @param semester название семестра, которые необхожимо загрузить.
-     * @return Оценки за семестр из кэша.
+     * Проверяет, истек ли срок хранения кэша.
+     * @param calendar время загрузки даных в кэше.
+     * @param delta времяхранения.
+     * @return true - время истекло, иначе false.
      */
-    @Nullable
-    private SemestersMarks loadCacheData(@NonNull String semester) {
-        if (mCacheDirectory == null) {
-            return null;
-        }
-
-        File cacheFile = FileUtils.getFile(mCacheDirectory,SEMESTERS_FOLDER, semester + ".json");
-        if (!cacheFile.exists()) {
-            return null;
-        }
-
-        try {
-            String json = FileUtils.readFileToString(cacheFile, StandardCharsets.UTF_8);
-            return new Gson().fromJson(json, SemestersMarks.class);
-        } catch (IOException ignored) {
-
-        }
-
-        return null;
-    }
-
-    /**
-     * Сохраняет оценки в кэш.
-     * @param marks оценки за семестр.
-     * @param semester название семестра.
-     */
-    private void saveCacheData(@NonNull SemestersMarks marks, @NonNull String semester) {
-        if (mCacheDirectory == null) {
-            return;
-        }
-
-        File cacheFile = FileUtils.getFile(mCacheDirectory,SEMESTERS_FOLDER, semester + ".json");
-        String json = new Gson().toJson(marks);
-
-        try {
-            FileUtils.writeStringToFile(cacheFile, json, StandardCharsets.UTF_8, false);
-        } catch (IOException ignored) {
-
-        }
+    private boolean isOverData(@NonNull Calendar calendar, long delta) {
+        Calendar today = new GregorianCalendar();
+        return (today.getTimeInMillis() - calendar.getTimeInMillis()) < delta;
     }
 }

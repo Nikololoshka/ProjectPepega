@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.modulejournal.view.data;
+package com.github.nikololoshka.pepegaschedule.modulejournal.view.model;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

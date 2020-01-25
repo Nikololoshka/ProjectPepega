@@ -22,18 +22,21 @@
     <!-- module journal -->
     <string name="mj_login">Логин</string>
     <string name="mj_password">Пароль</string>
+    <string name="mj_empty_filed">Пустое поле!</string>
     <string name="mj_forgot_password">Забыл пароль</string>
     <string name="mj_sign_in">Войти</string>
-    <string name="mj_failed_unauthorized">Не удалось войти. Пожалуйста, проверьте правильность написания логина и пароля.</string>
-    <string name="mj_gateway_timeout">lk.stankin.ru слишком долго не отвечал.</string>
-    <string name="mj_data_error">Ошибка данных</string>
-    <string name="mj_data_error_description">При работе с данными возникла ошибка.</string>
-    <string name="mj_read_data_error">Ошибка чтения данных</string>
-    <string name="mj_read_data_error_description">При чтении данных с ответом возникла ошибка.</string>
+    <string name="mj_data_problem">При получении данных возникла проблема</string>
+    <string name="mj_unknown_host">Не удалось определить хост "lk.stankin.ru"</string>
+    <string name="mj_unknown_host_description">Хост "lk.stankin.ru" недоступен. Попробуйте проверить подключение к сети.</string>
+    <string name="mj_failed_unauthorized">Ошибка авторизации</string>
+    <string name="mj_failed_unauthorized_description">Не удалось войти. Пожалуйста, проверьте правильность написания логина и пароля.</string>
+    <string name="mj_socket_timeout">"lk.stankin.ru" слишком долго не отвечал.</string>
+    <string name="mj_socket_timeout_description">Хост "lk.stankin.ru" долго не отвечает. Попробуйте позже.</string>
     <string name="mj_sign_out">Выйти</string>
     <string name="mj_information_background">Фон информации модульного журнала</string>
     <string name="mj_student">Студент: %1$s</string>
     <string name="mj_group">Группа: %1$s</string>
+    <string name="mj_last_update">Последнее обновление: %1$s</string>
     <string name="mj_update_marks">Обновить оценки</string>
 
     <!-- my schedules -->

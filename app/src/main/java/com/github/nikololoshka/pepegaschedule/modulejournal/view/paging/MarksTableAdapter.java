@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.data.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
 import com.github.nikololoshka.pepegaschedule.utils.StretchTable;
 
 import java.util.ArrayList;

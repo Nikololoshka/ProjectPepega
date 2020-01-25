@@ -42,6 +42,7 @@ public class ModuleJournalService {
         if (mService == null) {
             mService = new ModuleJournalService();
         }
+
         return mService;
     }
 

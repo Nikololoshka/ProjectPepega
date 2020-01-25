@@ -3,7 +3,7 @@ package com.github.nikololoshka.pepegaschedule.modulejournal.view.paging;
 import androidx.annotation.NonNull;
 import androidx.paging.DataSource;
 
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.data.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
 
 
 public class SemestersDataSourcesFactory extends DataSource.Factory<Integer, SemestersMarks> {

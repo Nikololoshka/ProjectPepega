@@ -3,6 +3,7 @@ package com.github.nikololoshka.pepegaschedule.modulejournal.view.paging;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,7 +12,9 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.data.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
 import com.github.nikololoshka.pepegaschedule.utils.StretchTable;
 
 /**
@@ -54,15 +57,24 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
 
         private static final int MARKS_LAYOUT = 1;
         private static final int LOADING_LAYOUT = 2;
+        private static final int ERROR_LAYOUT = 3;
 
         private View mLoadingView;
+        private TextView mTimeView;
         private StretchTable mMarksTable;
+
+        private TextView mErrorTitleView;
+        private TextView mErrorDescriptionView;
 
         SemestersHolder(@NonNull View itemView) {
             super(itemView);
 
             mLoadingView = itemView.findViewById(R.id.progress_circular);
+            mTimeView = itemView.findViewById(R.id.mj_semester_time);
             mMarksTable = itemView.findViewById(R.id.mj_marks_table);
+
+            mErrorTitleView = itemView.findViewById(R.id.mj_error_title);
+            mErrorDescriptionView = itemView.findViewById(R.id.mj_error_description);
         }
 
         /**
@@ -75,6 +87,16 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
                 return;
             }
 
+            ModuleJournalError error = marks.error();
+            if (error != null) {
+                showView(ERROR_LAYOUT);
+                mErrorTitleView.setText(error.errorTitle());
+                mErrorDescriptionView.setText(error.errorDescription());
+                return;
+            }
+
+            mTimeView.setText(mTimeView.getContext().getString(R.string.mj_last_update,
+                    CommonUtils.of(marks.time(), "hh:mm:ss dd.MM.yyyy")));
             showView(MARKS_LAYOUT);
 
             MarksTableAdapter adapter2 = new MarksTableAdapter();
@@ -84,14 +106,36 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
 
         void showView(int layout) {
             switch (layout) {
-                case LOADING_LAYOUT:
+                case LOADING_LAYOUT: {
                     mLoadingView.setVisibility(View.VISIBLE);
+
                     mMarksTable.setVisibility(View.GONE);
+                    mTimeView.setVisibility(View.GONE);
+
+                    mErrorTitleView.setVisibility(View.GONE);
+                    mErrorDescriptionView.setVisibility(View.GONE);
                     break;
-                case MARKS_LAYOUT:
+                }
+                case MARKS_LAYOUT: {
                     mLoadingView.setVisibility(View.GONE);
+
                     mMarksTable.setVisibility(View.VISIBLE);
+                    mTimeView.setVisibility(View.VISIBLE);
+
+                    mErrorTitleView.setVisibility(View.GONE);
+                    mErrorDescriptionView.setVisibility(View.GONE);
                     break;
+                }
+                case ERROR_LAYOUT: {
+                    mLoadingView.setVisibility(View.GONE);
+
+                    mMarksTable.setVisibility(View.GONE);
+                    mTimeView.setVisibility(View.GONE);
+
+                    mErrorTitleView.setVisibility(View.GONE);
+                    mErrorDescriptionView.setVisibility(View.GONE);
+                    break;
+                }
             }
         }
     }

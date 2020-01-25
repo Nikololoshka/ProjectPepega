@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.modulejournal.view.data;
+package com.github.nikololoshka.pepegaschedule.modulejournal.view.model;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +19,11 @@ public class StudentData {
 
     private static final String STUDENT_FOLDER = "student_data";
 
+    /**
+     * Сохраняет ответ от сервера с информацией о студенте в кэш.
+     * @param response ответ от сервера.
+     * @param cacheDirectory директория с кэшом приложения.
+     */
     public static void saveCacheData(@NonNull SemestersResponse response, @Nullable File cacheDirectory) {
         if (cacheDirectory == null) {
             return;
@@ -34,6 +39,10 @@ public class StudentData {
         }
     }
 
+    /** Загружает ответ от сервера с информацией о студенте из кэша.
+     * @param cacheDirectory директория с кэшом приложения.
+     * @return ответ от сервера.
+     */
     @Nullable
     public static SemestersResponse loadCacheData(@Nullable File cacheDirectory) {
         if (cacheDirectory == null) {
@@ -53,5 +62,18 @@ public class StudentData {
         }
 
         return null;
+    }
+
+    /**
+     * Удаляет закэшированные данные.
+     * @param cacheDirectory директория с кэшом приложения.
+     */
+    public static void clearCacheData(@Nullable File cacheDirectory) {
+        if (cacheDirectory == null) {
+            return;
+        }
+        File cacheDir = FileUtils.getFile(cacheDirectory, STUDENT_FOLDER);
+
+        FileUtils.deleteQuietly(cacheDir);
     }
 }

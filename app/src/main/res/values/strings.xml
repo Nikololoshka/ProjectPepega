@@ -32,19 +32,24 @@
     <!-- module journal -->
     <string name="mj_login">Login</string>
     <string name="mj_password">Password</string>
+    <string name="mj_empty_filed">Empty filed!</string>
     <string name="mj_forgot_password">Forgot password</string>
     <string name="mj_sign_in">Sign in</string>
-    <string name="mj_failed_unauthorized">Failed to log in. Please make sure that you have entered your login and password correctly.</string>
-    <string name="mj_gateway_timeout">lk.stankin.ru took too long to respond.</string>
-    <string name="mj_data_error">Data error</string>
-    <string name="mj_data_error_description">An error occurred while working with the data.</string>
-    <string name="mj_read_data_error">Error reading data</string>
-    <string name="mj_read_data_error_description">An error occurred while reading the response data.</string>
+    <string name="mj_data_problem">There was a problem retrieving the data</string>
+    <string name="mj_unknown_host">Unable to resolve host "lk.stankin.ru"</string>
+    <string name="mj_unknown_host_description">Host "lk.stankin.ru" are unavailable. Try checking your network connection.</string>
+    <string name="mj_failed_unauthorized">Authorization error</string>
+    <string name="mj_failed_unauthorized_description">Failed to log in. Please make sure that you have entered your login and password correctly.</string>
+    <string name="mj_socket_timeout">"lk.stankin.ru" took too long to respond.</string>
+    <string name="mj_socket_timeout_description">The host "lk.stankin.ru" does not respond for a long time. Try later.</string>
     <string name="mj_sign_out">Sign out</string>
     <string name="mj_information_background">Module journal information background</string>
     <string name="mj_student">Student: %1$s</string>
     <string name="mj_group">Group: %1$s</string>
+    <string name="mj_last_update">Last update: %1$s</string>
     <string name="mj_update_marks">Update marks</string>
+    <string name="mj_shimmer_student_name" translatable="false">Student: StudentName</string>
+    <string name="mj_shimmer_group" translatable="false">Group: Group</string>
 
     <!-- my schedules -->
     <string name="schedule">Schedule</string>

@@ -14,11 +14,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.github.nikololoshka.pepegaschedule.utils.StretchTable
-            android:id="@+id/mj_marks_table"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_mj_semester" />
+            android:orientation="vertical">
+
+            <com.github.nikololoshka.pepegaschedule.utils.StretchTable
+                android:id="@+id/mj_marks_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_mj_semester" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/mj_semester_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/mj_table_cell_padding" />
+
+            <TextView
+                style="@style/Text.Head"
+                android:id="@+id/mj_error_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/mj_table_cell_padding" />
+
+            <TextView
+                style="@style/Text.Body1"
+                android:id="@+id/mj_error_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/mj_table_cell_padding" />
+
+        </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 

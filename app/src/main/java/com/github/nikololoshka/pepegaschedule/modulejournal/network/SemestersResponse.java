@@ -6,6 +6,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * POJO-класс "semesters" ответа от сервара.
@@ -33,10 +35,10 @@ public class SemestersResponse {
      */
     @SerializedName("time")
     @Expose
-    private long mTime;
+    private Calendar mTime;
 
     public SemestersResponse() {
-        mTime = System.currentTimeMillis();
+        mTime = new GregorianCalendar();
     }
 
     @NonNull
@@ -54,7 +56,7 @@ public class SemestersResponse {
         return mSemesters;
     }
 
-    public long time() {
+    public Calendar time() {
         return mTime;
     }
 

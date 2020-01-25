@@ -1,14 +1,17 @@
 package com.github.nikololoshka.pepegaschedule.modulejournal.login;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
 
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalErrorUtils;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalService;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.SemestersResponse;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.data.StudentData;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.StudentData;
 import com.github.nikololoshka.pepegaschedule.settings.ModuleJournalPreference;
 
 import java.io.IOException;
@@ -73,15 +76,15 @@ public class ModuleJournalLoginLoader extends AsyncTaskLoader<ModuleJournalLogin
                 if (response.body() != null) {
                     StudentData.saveCacheData(response.body(), getContext().getCacheDir());
                 }
+            } else {
+                data.error = ModuleJournalErrorUtils.responseError(response,getContext());
             }
-
-            // TODO: Обработка ошибок
         } catch (IOException e) {
-            data.errorTitle = e.toString();
             e.printStackTrace();
-
+            data.error = ModuleJournalErrorUtils.exceptionError(e, getContext());
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
+            Toast.makeText(getContext(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
         }
 
         return data;
@@ -95,6 +98,9 @@ public class ModuleJournalLoginLoader extends AsyncTaskLoader<ModuleJournalLogin
         String errorTitle = "";
         @NonNull
         String errorDescription = "";
+
+        @Nullable
+        ModuleJournalError error;
 
         boolean signIn = false;
     }

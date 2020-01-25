@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.paging.PositionalDataSource;
 
 import com.github.nikololoshka.pepegaschedule.BuildConfig;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.data.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
 
 import java.util.List;
 

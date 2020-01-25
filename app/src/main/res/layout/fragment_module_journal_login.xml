@@ -31,6 +31,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:singleLine="true"
+                    android:nextFocusDown="@id/mj_password"
                     android:hint="@string/mj_login"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -46,6 +47,7 @@
                     android:ems="10"
                     android:inputType="textPassword"
                     android:singleLine="true"
+                    android:nextFocusDown="@id/mj_sign_in"
                     android:hint="@string/mj_password" />
 
             </com.google.android.material.textfield.TextInputLayout>

@@ -1,16 +1,25 @@
-package com.github.nikololoshka.pepegaschedule.modulejournal.view.data;
+package com.github.nikololoshka.pepegaschedule.modulejournal.view.model;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.MarkResponse;
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
+import com.google.gson.Gson;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,6 +30,8 @@ public class SemestersMarks {
 
     public static final String RATING = "Рейтинг";
     public static final String ACCUMULATED_RATING = "Накопленный Рейтинг";
+
+    private static final String SEMESTERS_FOLDER = "semesters_data";
 
     /**
      * Дисциплины с оценками.
@@ -46,11 +57,11 @@ public class SemestersMarks {
     private Integer mAccumulatedRating;
 
     /**
-     * Время, получения оценок.
+     * Время получения оценок.
      */
     @SerializedName("time")
     @Expose
-    private long mTime;
+    private Calendar mTime;
 
     /**
      * Кэш заголовков строк.
@@ -66,10 +77,17 @@ public class SemestersMarks {
     @Nullable
     private List<List<String>> mCellsData;
 
+    /**
+     * Ошибка из-за которой не удалось получить данные.
+     */
+    @Expose(serialize = false, deserialize = false)
+    @Nullable
+    private ModuleJournalError mError;
+
 
     public SemestersMarks() {
         mDisciplines = new ArrayList<>(10);
-        mTime = System.currentTimeMillis();
+        mTime = new GregorianCalendar();
     }
 
     /**
@@ -206,7 +224,11 @@ public class SemestersMarks {
         return cellsData;
     }
 
-    public long time() {
+    /**
+     * @return время получения оценок.
+     */
+    @NonNull
+    public Calendar time() {
         return mTime;
     }
 
@@ -231,6 +253,82 @@ public class SemestersMarks {
         return mAccumulatedRating;
     }
 
+    /**
+     * Загружает оценки из кэша.
+     * @param semester название семестра, которые необхожимо загрузить.
+     * @param cacheDirectory директория с кэшом приложения.
+     * @return оценки за семестр из кэша.
+     */
+    @Nullable
+    public static SemestersMarks loadCacheData(@NonNull String semester, @Nullable File cacheDirectory) {
+        if (cacheDirectory == null) {
+            return null;
+        }
+
+        File cacheFile = FileUtils.getFile(cacheDirectory,SEMESTERS_FOLDER, semester + ".json");
+        if (!cacheFile.exists()) {
+            return null;
+        }
+
+        try {
+            String json = FileUtils.readFileToString(cacheFile, StandardCharsets.UTF_8);
+            return new Gson().fromJson(json, SemestersMarks.class);
+        } catch (IOException ignored) {
+
+        }
+
+        return null;
+    }
+
+    /**
+     * Сохраняет оценки в кэш.
+     * @param marks оценки за семестр.
+     * @param semester название семестра.
+     * @param cacheDirectory директория с кэшом приложения.
+     */
+    public static void saveCacheData(@NonNull SemestersMarks marks, @NonNull String semester, @Nullable File cacheDirectory) {
+        if (cacheDirectory == null) {
+            return;
+        }
+
+        File cacheFile = FileUtils.getFile(cacheDirectory,SEMESTERS_FOLDER, semester + ".json");
+        String json = new Gson().toJson(marks);
+
+        try {
+            FileUtils.writeStringToFile(cacheFile, json, StandardCharsets.UTF_8, false);
+        } catch (IOException ignored) {
+
+        }
+    }
+
+    /**
+     * Удаляет закэшированные данные.
+     * @param cacheDirectory директория с кэшом приложения.
+     */
+    public static void clearCacheData(@Nullable File cacheDirectory) {
+        if (cacheDirectory == null) {
+            return;
+        }
+        File cacheDir = FileUtils.getFile(cacheDirectory,SEMESTERS_FOLDER);
+
+        FileUtils.deleteQuietly(cacheDir);
+    }
+
+    /**
+     * @return ошибка во время получения данных.
+     */
+    @Nullable
+    public ModuleJournalError error() {
+        return mError;
+    }
+
+    /**
+     * Устанавливает ошибку во время получения данных.
+     * @param error ошибка.
+     */
+    public void setError(@Nullable ModuleJournalError error) {
+        mError = error;
+    }
 
     @Override
     public boolean equals(Object o) {
