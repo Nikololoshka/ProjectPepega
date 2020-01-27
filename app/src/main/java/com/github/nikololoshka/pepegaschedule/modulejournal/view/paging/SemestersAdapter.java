@@ -14,20 +14,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
-import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
+import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
 import com.github.nikololoshka.pepegaschedule.utils.StretchTable;
+
+import java.lang.ref.WeakReference;
 
 /**
  * Адаптер для модульного журнала с семестрами с оценками.
  */
 public class SemestersAdapter extends PagedListAdapter<SemestersMarks, SemestersAdapter.SemestersHolder> {
 
+    public interface OnSemestersListener {
+        void onUpdateSemesters();
+    }
+
+    @Nullable
+    private WeakReference<OnSemestersListener> mListener;
 
     public SemestersAdapter() {
         super(new DiffUtil.ItemCallback<SemestersMarks>() {
             @Override
             public boolean areItemsTheSame(@NonNull SemestersMarks oldItem, @NonNull SemestersMarks newItem) {
-                return oldItem == newItem;
+                return oldItem.time().equals(newItem.time());
             }
 
             @Override
@@ -50,18 +58,18 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
         holder.bind(getItem(position));
     }
 
+    public void setUpdateListener(OnSemestersListener listener) {
+        mListener = new WeakReference<>(listener);
+    }
+
     /**
      * Holder семетра с оценками. Представляет из себя таблицу.
      */
-    class SemestersHolder extends RecyclerView.ViewHolder {
+    class SemestersHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private static final int MARKS_LAYOUT = 1;
-        private static final int LOADING_LAYOUT = 2;
-        private static final int ERROR_LAYOUT = 3;
+        private StatefulLayout mStatefulLayout;
 
-        private View mLoadingView;
-        private TextView mTimeView;
-        private StretchTable mMarksTable;
+        private MarksTableAdapter mAdapter;
 
         private TextView mErrorTitleView;
         private TextView mErrorDescriptionView;
@@ -69,12 +77,19 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
         SemestersHolder(@NonNull View itemView) {
             super(itemView);
 
-            mLoadingView = itemView.findViewById(R.id.progress_circular);
-            mTimeView = itemView.findViewById(R.id.mj_semester_time);
-            mMarksTable = itemView.findViewById(R.id.mj_marks_table);
+            mStatefulLayout = itemView.findViewById(R.id.stateful_layout);
+            mStatefulLayout.addXMLViews();
+            mStatefulLayout.setAnimation(false);
+            mStatefulLayout.setLoadState();
+
+            StretchTable stretchTable= itemView.findViewById(R.id.mj_marks_table);
+            mAdapter = new MarksTableAdapter();
+            stretchTable.setAdapter(mAdapter);
 
             mErrorTitleView = itemView.findViewById(R.id.mj_error_title);
             mErrorDescriptionView = itemView.findViewById(R.id.mj_error_description);
+
+            itemView.findViewById(R.id.mj_update_marks).setOnClickListener(this);
         }
 
         /**
@@ -82,59 +97,43 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
          * @param marks семестр с оценками.
          */
         void bind(@Nullable SemestersMarks marks) {
+            // нет оценок
             if (marks == null) {
-                showView(LOADING_LAYOUT);
+                mStatefulLayout.setLoadState();
                 return;
             }
 
+            // ошибка при загрузке
             ModuleJournalError error = marks.error();
-            if (error != null) {
-                showView(ERROR_LAYOUT);
-                mErrorTitleView.setText(error.errorTitle());
-                mErrorDescriptionView.setText(error.errorDescription());
+            if (error != null && marks.isEmpty()) {
+                mStatefulLayout.setState(R.id.mj_semester_error);
+
+                String title = error.errorTitle();
+                if (title != null) {
+                    mErrorTitleView.setText(title);
+                } else {
+                    mErrorTitleView.setText(error.errorTitleRes());
+                }
+
+                String description = error.errorDescription();
+                if (description != null) {
+                    mErrorDescriptionView.setText(description);
+                } else {
+                    mErrorDescriptionView.setText(error.errorDescriptionRes());
+                }
                 return;
             }
 
-            mTimeView.setText(mTimeView.getContext().getString(R.string.mj_last_update,
-                    CommonUtils.of(marks.time(), "hh:mm:ss dd.MM.yyyy")));
-            showView(MARKS_LAYOUT);
-
-            MarksTableAdapter adapter2 = new MarksTableAdapter();
-            adapter2.addItems(marks.createColumnsData(), marks.createRowsData(), marks.createCellsData());
-            mMarksTable.setAdapter(adapter2);
+            // отображаем таблицу
+            mStatefulLayout.setState(R.id.mj_semester_table);
+            mAdapter.addItems(marks.createColumnsData(), marks.createRowsData(), marks.createCellsData());
         }
 
-        void showView(int layout) {
-            switch (layout) {
-                case LOADING_LAYOUT: {
-                    mLoadingView.setVisibility(View.VISIBLE);
-
-                    mMarksTable.setVisibility(View.GONE);
-                    mTimeView.setVisibility(View.GONE);
-
-                    mErrorTitleView.setVisibility(View.GONE);
-                    mErrorDescriptionView.setVisibility(View.GONE);
-                    break;
-                }
-                case MARKS_LAYOUT: {
-                    mLoadingView.setVisibility(View.GONE);
-
-                    mMarksTable.setVisibility(View.VISIBLE);
-                    mTimeView.setVisibility(View.VISIBLE);
-
-                    mErrorTitleView.setVisibility(View.GONE);
-                    mErrorDescriptionView.setVisibility(View.GONE);
-                    break;
-                }
-                case ERROR_LAYOUT: {
-                    mLoadingView.setVisibility(View.GONE);
-
-                    mMarksTable.setVisibility(View.GONE);
-                    mTimeView.setVisibility(View.GONE);
-
-                    mErrorTitleView.setVisibility(View.GONE);
-                    mErrorDescriptionView.setVisibility(View.GONE);
-                    break;
+        @Override
+        public void onClick(View v) {
+            if (v.getId() == R.id.mj_update_marks) {
+                if (mListener != null && mListener.get() != null) {
+                    mListener.get().onUpdateSemesters();
                 }
             }
         }

@@ -77,11 +77,10 @@ public class ModuleJournalLoginLoader extends AsyncTaskLoader<ModuleJournalLogin
                     StudentData.saveCacheData(response.body(), getContext().getCacheDir());
                 }
             } else {
-                data.error = ModuleJournalErrorUtils.responseError(response,getContext());
+                data.error = ModuleJournalErrorUtils.responseError(response);
             }
         } catch (IOException e) {
-            e.printStackTrace();
-            data.error = ModuleJournalErrorUtils.exceptionError(e, getContext());
+            data.error = ModuleJournalErrorUtils.exceptionError(e);
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
             Toast.makeText(getContext(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();

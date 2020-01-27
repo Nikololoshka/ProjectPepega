@@ -27,8 +27,16 @@ import retrofit2.Response;
  */
 public class ModuleJournalLoader extends AsyncTaskLoader<ModuleJournalLoader.LoadData> {
 
+    private boolean mUseCache;
+
     ModuleJournalLoader(@NonNull Context context) {
         super(context);
+        mUseCache = true;
+    }
+
+    void reload(boolean useCache) {
+        mUseCache = useCache;
+        forceLoad();
     }
 
     @Nullable
@@ -36,12 +44,14 @@ public class ModuleJournalLoader extends AsyncTaskLoader<ModuleJournalLoader.Loa
     public LoadData loadInBackground() {
         LoadData data = new LoadData();
 
+        @Nullable
+        SemestersResponse cacheData = mUseCache ? StudentData.loadCacheData(getContext().getCacheDir()) : null;
+        mUseCache = true;
         try {
             Pair<String, String> authorization = ModuleJournalPreference.loadSignData(getContext());
             String login = authorization.first == null ? "" : authorization.first;
             String password = authorization.second == null ? "" : authorization.second;
 
-            SemestersResponse cacheData = StudentData.loadCacheData(getContext().getCacheDir());
             data.response = cacheData;
             data.login = login;
             data.password = password;
@@ -65,15 +75,18 @@ public class ModuleJournalLoader extends AsyncTaskLoader<ModuleJournalLoader.Loa
                 data.password = password;
                 return data;
             } else {
-                data.error = ModuleJournalErrorUtils.responseError(response, getContext());
+                if (cacheData == null) {
+                    data.error = ModuleJournalErrorUtils.responseError(response);
+                }
             }
 
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
             Toast.makeText(getContext(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
         } catch (IOException e) {
-            e.printStackTrace();
-            data.error = ModuleJournalErrorUtils.exceptionError(e, getContext());
+            if (cacheData == null) {
+                data.error = ModuleJournalErrorUtils.exceptionError(e);
+            }
         }
 
         return data;
@@ -93,11 +106,10 @@ public class ModuleJournalLoader extends AsyncTaskLoader<ModuleJournalLoader.Loa
     class LoadData {
         @Nullable
         SemestersResponse response;
-        @Nullable
-        String login;
-        @Nullable
-        String password;
-
+        @NonNull
+        String login = "";
+        @NonNull
+        String password = "";
         @Nullable
         ModuleJournalError error;
     }

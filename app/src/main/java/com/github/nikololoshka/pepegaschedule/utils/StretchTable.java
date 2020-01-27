@@ -8,12 +8,16 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
 /**
- *
+ * Таблица с растягивающися столбцами. Сначало растягивается 1 столбец, затем
+ * если все строки у первого столбца помещаются, то растягиваюся другие столбцы
+ * поровну.
  */
 public class StretchTable extends TableLayout {
 
@@ -48,10 +52,12 @@ public class StretchTable extends TableLayout {
 
     public void setAdapter(StretchTableAdapter adapter) {
         mAdapter = adapter;
+        mAdapter.setTable(this);
+
         rebind();
     }
 
-    private void rebind() {
+    void rebind() {
         for (int i = 0; i < mAdapter.rowCount() + 1; i++) {
 
             TableRow tableRow;
@@ -122,7 +128,11 @@ public class StretchTable extends TableLayout {
 
             // убираем лишнии столбцы
             if (rowCells != null && mAdapter.columnCount() < rowCells.size()) {
-                ListIterator iterator = rowCells.listIterator(mAdapter.columnCount() - 1);
+                // DEBUG:
+                // Условие: 4 < 6
+                // Список: [0 1 2 3 4 5]
+                // Индекс: 4 удаляет 4 и т.д.
+                ListIterator iterator = rowCells.listIterator(mAdapter.columnCount());
                 while (iterator.hasNext()) {
                     StretchTableHolder holder = (StretchTableHolder) iterator.next();
                     tableRow.removeView(holder.itemView());
@@ -134,7 +144,11 @@ public class StretchTable extends TableLayout {
 
         // убираем лишнии строки
         if (mAdapter.rowCount() + 1 < mTableRows.size()) {
-            ListIterator iterator = mTableRows.listIterator(mAdapter.rowCount());
+            // DEBUG:
+            // Условие: 10 + 1 < 12 (кол-во строк вместе с заголовком)
+            // Список: [0 1 2 3 4 5 6 7 8 9 10 11]
+            // Индекс: 10 + 1 удаляет 11 элемент и т.д.
+            ListIterator iterator = mTableRows.listIterator(mAdapter.rowCount() + 1);
             while (iterator.hasNext()) {
                 TableRow tableRow = (TableRow) iterator.next();
                 tableRow.removeAllViews();
@@ -151,6 +165,9 @@ public class StretchTable extends TableLayout {
     }
 
     public static abstract class StretchTableAdapter<CH extends StretchTableHolder, RH extends StretchTableHolder, C extends StretchTableHolder> {
+
+        @Nullable
+        private WeakReference<StretchTable> mStretchTable;
 
         @NonNull
         public abstract CH onCreateColumnHeader(@NonNull ViewGroup parent);
@@ -170,6 +187,15 @@ public class StretchTable extends TableLayout {
         public abstract int columnCount();
         public abstract int rowCount();
 
+        public void notifyDataSetChanged() {
+            if (mStretchTable != null && mStretchTable.get() != null) {
+                mStretchTable.get().rebind();
+            }
+        }
+
+        void setTable(@NonNull StretchTable table) {
+            mStretchTable = new WeakReference<>(table);
+        }
     }
 
     public static abstract class StretchTableHolder {

@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.github.nikololoshka.pepegaschedule.utils.StatefulLayout android:id="@+id/stateful_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ProgressBar
-        android:id="@+id/progress_circular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/mj_semester_table"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,29 +22,46 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_mj_semester" />
 
-            <TextView
-                style="@style/Text.Small"
-                android:id="@+id/mj_semester_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/mj_table_cell_padding" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mj_semester_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/default_layout_padding">
 
             <TextView
-                style="@style/Text.Head"
+                style="@style/Text.Subhead"
                 android:id="@+id/mj_error_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/mj_table_cell_padding" />
 
             <TextView
-                style="@style/Text.Body1"
+                style="@style/Text"
                 android:id="@+id/mj_error_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/mj_table_cell_padding" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/Button.Colored"
+                android:id="@+id/mj_update_marks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mj_update_marks"
+                android:layout_gravity="center_horizontal"/>
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
-</LinearLayout>
+</com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>

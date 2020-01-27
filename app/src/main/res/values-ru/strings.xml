@@ -26,17 +26,17 @@
     <string name="mj_forgot_password">Забыл пароль</string>
     <string name="mj_sign_in">Войти</string>
     <string name="mj_data_problem">При получении данных возникла проблема</string>
-    <string name="mj_unknown_host">Не удалось определить хост "lk.stankin.ru"</string>
-    <string name="mj_unknown_host_description">Хост "lk.stankin.ru" недоступен. Попробуйте проверить подключение к сети.</string>
+    <string name="mj_unknown_host">Не удалось определить хост \"lk.stankin.ru\"</string>
+    <string name="mj_unknown_host_description">Хост \"lk.stankin.ru\" недоступен. Попробуйте проверить подключение к сети.</string>
     <string name="mj_failed_unauthorized">Ошибка авторизации</string>
     <string name="mj_failed_unauthorized_description">Не удалось войти. Пожалуйста, проверьте правильность написания логина и пароля.</string>
     <string name="mj_socket_timeout">"lk.stankin.ru" слишком долго не отвечал.</string>
-    <string name="mj_socket_timeout_description">Хост "lk.stankin.ru" долго не отвечает. Попробуйте позже.</string>
+    <string name="mj_socket_timeout_description">Хост \"lk.stankin.ru\" долго не отвечает. Попробуйте позже.</string>
     <string name="mj_sign_out">Выйти</string>
     <string name="mj_information_background">Фон информации модульного журнала</string>
     <string name="mj_student">Студент: %1$s</string>
     <string name="mj_group">Группа: %1$s</string>
-    <string name="mj_last_update">Последнее обновление: %1$s</string>
+    <string name="mj_last_update">Данные \"%1$s\" из кэша от: %2$s</string>
     <string name="mj_update_marks">Обновить оценки</string>
 
     <!-- my schedules -->

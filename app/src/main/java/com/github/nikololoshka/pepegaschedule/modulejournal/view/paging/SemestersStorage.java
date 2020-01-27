@@ -3,7 +3,6 @@ package com.github.nikololoshka.pepegaschedule.modulejournal.view.paging;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.github.nikololoshka.pepegaschedule.MainApplication;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.MarkResponse;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalErrorUtils;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalService;
@@ -35,10 +34,15 @@ public class SemestersStorage {
     @Nullable
     private File mCacheDirectory;
 
+    @NonNull
+    private ArrayList<Boolean> mUseCache;
+
     public SemestersStorage() {
         mSemesters = null;
         mLogin = null;
         mPassword = null;
+
+        mUseCache = new ArrayList<>();
     }
 
     /** Устанавливает семестры студента.
@@ -46,6 +50,16 @@ public class SemestersStorage {
      */
     public void setSemesters(@Nullable ArrayList<String> semesters) {
         mSemesters = semesters;
+
+        if (mSemesters != null) {
+            for (int i = 0; i < mSemesters.size(); i++) {
+                mUseCache.add(true);
+            }
+        }
+    }
+
+    public void setUseCache(boolean useCache) {
+        Collections.fill(mUseCache, useCache);
     }
 
     /**
@@ -110,18 +124,28 @@ public class SemestersStorage {
         }
 
         String semester = mSemesters.get(loadPosition);
+        Boolean useCache = mUseCache.get(loadPosition);
 
-        SemestersMarks marks;
+        @Nullable
+        SemestersMarks marks = useCache ? SemestersMarks.loadCacheData(semester, mCacheDirectory) : null;
+        mUseCache.set(loadPosition, true);
+
+        // загружены из кэша и менее чем 10 минут назад
+        if (marks != null && isOverData(marks.time(), 1000 * 60 * 10)) {
+            // кэшируем данные для отображения
+            marks.createCellsData();
+            marks.createColumnsData();
+            marks.createRowsData();
+
+            return Collections.singletonList(marks);
+        }
+
         try {
-            marks = SemestersMarks.loadCacheData(semester, mCacheDirectory);
-            // загружены из кэша и менее чем 10 минут назад
-            if (marks != null && isOverData(marks.time(), 1000 * 60 * 10)) {
-                // кэшируем данные для отображения
-                marks.createCellsData();
-                marks.createColumnsData();
-                marks.createRowsData();
+            // задержка между запросами
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ignored) {
 
-                return Collections.singletonList(marks);
             }
 
             Response<List<MarkResponse>> response = ModuleJournalService.getInstance()
@@ -133,9 +157,14 @@ public class SemestersStorage {
                 marks = SemestersMarks.fromResponse(response.body());
                 SemestersMarks.saveCacheData(marks, semester, mCacheDirectory);
             } else {
-                marks = new SemestersMarks();
-                // TODO: 25/01/20 Используется MainApplication как Context
-                marks.setError(ModuleJournalErrorUtils.responseError(response, MainApplication.getInstance()));
+                if (marks == null) {
+                    marks = new SemestersMarks();
+                    marks.setError(ModuleJournalErrorUtils.responseError(response));
+
+                    return Collections.singletonList(marks);
+                } else {
+                    marks.setCache(true);
+                }
             }
 
             // кэшируем данные для отображения
@@ -144,10 +173,12 @@ public class SemestersStorage {
             marks.createRowsData();
 
         } catch (IOException e) {
-            e.printStackTrace();
-            marks = new SemestersMarks();
-            // TODO: 25/01/20 Используется MainApplication как Context
-            marks.setError(ModuleJournalErrorUtils.exceptionError(e, MainApplication.getInstance()));
+            if (marks == null) {
+                marks = new SemestersMarks();
+                marks.setError(ModuleJournalErrorUtils.exceptionError(e));
+            } else {
+                marks.setCache(true);
+            }
         }
 
         return Collections.singletonList(marks);

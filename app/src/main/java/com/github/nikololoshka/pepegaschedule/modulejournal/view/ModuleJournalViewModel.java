@@ -11,25 +11,27 @@ import com.github.nikololoshka.pepegaschedule.modulejournal.view.paging.Semester
 
 import java.util.concurrent.Executors;
 
+/**
+ * ViewModel для хранения PagedList с семестрами.
+ */
 public class ModuleJournalViewModel extends ViewModel {
 
     private LiveData<PagedList<SemestersMarks>> mSemestersLiveData;
-    private SemestersDataSourcesFactory mSemestersFactory;
     private SemestersStorage mSemestersStorage;
 
     public ModuleJournalViewModel() {
 
         mSemestersStorage = new SemestersStorage();
-        mSemestersFactory = new SemestersDataSourcesFactory(mSemestersStorage);
+        SemestersDataSourcesFactory semestersFactory = new SemestersDataSourcesFactory(mSemestersStorage);
 
         PagedList.Config config = new PagedList.Config.Builder()
                 .setEnablePlaceholders(true)
                 .setInitialLoadSizeHint(1)
                 .setPageSize(1)
-                .setPrefetchDistance(0)
+                .setPrefetchDistance(1)
                 .build();
 
-        mSemestersLiveData = new LivePagedListBuilder<>(mSemestersFactory, config)
+        mSemestersLiveData = new LivePagedListBuilder<>(semestersFactory, config)
                 .setFetchExecutor(Executors.newSingleThreadExecutor())
                 .build();
     }

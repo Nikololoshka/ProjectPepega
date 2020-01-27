@@ -1,5 +1,8 @@
 package com.github.nikololoshka.pepegaschedule.modulejournal.network;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+
 /**
  * POJO класс информации об ошибке.
  */
@@ -11,33 +14,66 @@ public class ModuleJournalError {
     /**
      * Заголовок ошибки.
      */
+    @Nullable
     private String mErrorTitle;
+    @StringRes
+    private int mErrorTitleRes;
     /**
      * Описание ошибки.
      */
+    @Nullable
     private String mErrorDescription;
+    @StringRes
+    private int mErrorDescriptionRes;
+
+
+    ModuleJournalError() {
+        mErrorCode = -1;
+        mErrorTitleRes = -1;
+        mErrorDescriptionRes = -1;
+    }
 
     public int errorCode() {
         return mErrorCode;
     }
 
+    @Nullable
     public String errorTitle() {
         return mErrorTitle;
     }
 
+    @StringRes
+    public int errorTitleRes() {
+        return mErrorTitleRes;
+    }
+
+    @StringRes
+    public int errorDescriptionRes() {
+        return mErrorDescriptionRes;
+    }
+
+    @Nullable
     public String errorDescription() {
         return mErrorDescription;
     }
 
-    public void setErrorCode(int errorCode) {
+    void setErrorTitleRes(int errorTitleRes) {
+        mErrorTitleRes = errorTitleRes;
+    }
+
+    void setErrorDescriptionRes(int errorDescriptionRes) {
+        mErrorDescriptionRes = errorDescriptionRes;
+    }
+
+    void setErrorCode(int errorCode) {
         mErrorCode = errorCode;
     }
 
-    public void setErrorTitle(String errorTitle) {
+    void setErrorTitle(String errorTitle) {
         mErrorTitle = errorTitle;
     }
 
-    public void setErrorDescription(String errorDescription) {
+    void setErrorDescription(String errorDescription) {
         mErrorDescription = errorDescription;
     }
 }

@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,12 +24,15 @@ import androidx.paging.PagedList;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.github.nikololoshka.pepegaschedule.BuildConfig;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.StudentData;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.paging.SemestersAdapter;
 import com.github.nikololoshka.pepegaschedule.settings.ModuleJournalPreference;
+import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -39,29 +43,48 @@ import java.util.Objects;
  * Фрагмент модульного журнала.
  */
 public class ModuleJournalFragment extends Fragment
-        implements LoaderManager.LoaderCallbacks<ModuleJournalLoader.LoadData> {
+        implements LoaderManager.LoaderCallbacks<ModuleJournalLoader.LoadData>,
+        SemestersAdapter.OnSemestersListener {
 
     private static final String TAG = "ModuleJournalLog";
 
+    private static final String RELOAD_MJ = "reload_mj";
     private static final String CURRENT_PAGE = "current_page";
 
     private static final int MODULE_JOURNAL_LOADER = 0;
 
-    private StatefulLayout mStatefulLayout;
+    private StatefulLayout mStatefulLayoutMain;
+    private StatefulLayout mStatefulLayoutPager;
 
+    /**
+     * Информация о студенте.
+     */
     private TextView mStudentNameTextView;
     private TextView mStudentGroupTextView;
 
+    /**
+     * Поля для ошибок.
+     */
+    private TextView mErrorTitleView;
+    private TextView mErrorDescriptionView;
+
+    /**
+     * Pager с оценками.
+     */
     private ViewPager2 mPagerSemesters;
     private SemestersAdapter mSemestersAdapter;
 
     private ModuleJournalLoader mModuleJournalLoader;
     private ModuleJournalViewModel mModuleJournalViewModel;
 
+    private boolean mReloadModuleJournal;
     private int mCurrentPage;
+
 
     public ModuleJournalFragment() {
         super();
+
+        mReloadModuleJournal = false;
         mCurrentPage = RecyclerView.NO_POSITION;
     }
 
@@ -71,6 +94,7 @@ public class ModuleJournalFragment extends Fragment
         setHasOptionsMenu(true);
 
         if (savedInstanceState != null) {
+            mReloadModuleJournal = savedInstanceState.getBoolean(RELOAD_MJ, false);
             mCurrentPage = savedInstanceState.getInt(CURRENT_PAGE, RecyclerView.NO_POSITION);
         }
     }
@@ -79,9 +103,16 @@ public class ModuleJournalFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_module_journal, container, false);
-        mStatefulLayout = view.findViewById(R.id.stateful_layout);
-        mStatefulLayout.addXMLViews();
-        mStatefulLayout.setState(R.id.loading_shimmer);
+        mStatefulLayoutMain = view.findViewById(R.id.stateful_layout);
+        mStatefulLayoutMain.addXMLViews();
+        mStatefulLayoutMain.setState(R.id.mj_content_loading);
+
+        mStatefulLayoutPager = view.findViewById(R.id.stateful_layout_pager);
+        mStatefulLayoutPager.addXMLViews();
+        mStatefulLayoutPager.setLoadState();
+
+        mErrorTitleView = view.findViewById(R.id.mj_error_title);
+        mErrorDescriptionView = view.findViewById(R.id.mj_error_description);
 
         mStudentNameTextView = view.findViewById(R.id.mj_student_name);
         mStudentGroupTextView = view.findViewById(R.id.mj_student_group);
@@ -90,11 +121,14 @@ public class ModuleJournalFragment extends Fragment
         mPagerSemesters = view.findViewById(R.id.mj_pager_semesters);
 
         mSemestersAdapter = new SemestersAdapter();
+        mSemestersAdapter.setUpdateListener(this);
+
         mPagerSemesters.setAdapter(mSemestersAdapter);
         mPagerSemesters.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 mCurrentPage = position;
+                showCacheMessage(position);
             }
         });
 
@@ -125,6 +159,7 @@ public class ModuleJournalFragment extends Fragment
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            // выход из модульного журнала
             case R.id.mj_sign_out: {
                 if (getContext() != null) {
                     ModuleJournalPreference.setSignIn(getContext(), false);
@@ -134,8 +169,11 @@ public class ModuleJournalFragment extends Fragment
                     navigateToLoginScreen();
                 }
             }
+            // обновить данные
             case R.id.mj_update_marks: {
-                refreshPager();
+                if (!mReloadModuleJournal) {
+                    refreshAll();
+                }
             }
         }
 
@@ -145,23 +183,26 @@ public class ModuleJournalFragment extends Fragment
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putBoolean(RELOAD_MJ, mReloadModuleJournal);
         outState.putInt(CURRENT_PAGE, mCurrentPage);
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         if (getContext() != null) {
-             if (!ModuleJournalPreference.signIn(getContext())) {
-                 navigateToLoginScreen();
-             } else {
-                 mModuleJournalLoader.forceLoad();
-             }
+            if (!ModuleJournalPreference.signIn(getContext())) {
+                navigateToLoginScreen();
+            } else {
+                mModuleJournalLoader.reload(true);
+            }
         }
-
     }
 
+    /**
+     * Осуществляет переход к фргменту входа в модульный журнал.
+     */
     private void navigateToLoginScreen() {
         if (getActivity() != null) {
             NavController controller = Navigation.findNavController(getActivity(), R.id.nav_host);
@@ -169,12 +210,17 @@ public class ModuleJournalFragment extends Fragment
         }
     }
 
-    private void refreshPager() {
-        PagedList<SemestersMarks> marksPagedList = mSemestersAdapter.getCurrentList();
-        if (marksPagedList != null) {
-            marksPagedList.getDataSource().invalidate();
-            mCurrentPage = RecyclerView.NO_POSITION;
-        }
+    /**
+     * Запускает обновление данных модульного журнала.
+     */
+    private void refreshAll() {
+        mReloadModuleJournal = true;
+
+        mStatefulLayoutMain.setState(R.id.mj_content_loading);
+        mStatefulLayoutPager.setLoadState();
+
+        mModuleJournalViewModel.semestersStorage().setUseCache(false);
+        mModuleJournalLoader.reload(false);
     }
 
     @NonNull
@@ -185,16 +231,37 @@ public class ModuleJournalFragment extends Fragment
 
     @Override
     public void onLoadFinished(@NonNull Loader<ModuleJournalLoader.LoadData> loader,
-                               final ModuleJournalLoader.LoadData data) {
+                               ModuleJournalLoader.LoadData data) {
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "onLoadFinished: " + data.error);
+            Log.d(TAG, "onLoadFinished: " + data.response);
+            Log.d(TAG, "onLoadFinished: " + mReloadModuleJournal);
+            Log.d(TAG, "onLoadFinished: " + mCurrentPage);
+        }
 
-        if (data.response == null || data.login == null || data.password == null) {
+        // загрузились с ошибкой
+        if (data.error != null) {
+            mStatefulLayoutMain.setState(R.id.mj_content_error);
+
+            String title = data.error.errorTitle();
+            mErrorTitleView.setText(title != null ? title : getString(data.error.errorTitleRes()));
+
+            String description = data.error.errorDescription();
+            mErrorDescriptionView.setText(description != null ? description : getString(data.error.errorDescriptionRes()));
+
+            mReloadModuleJournal = false;
             return;
+        }
+
+        // не ошибка, но данные почему то не получили
+        if (data.response == null) {
+            Toast.makeText(getContext(), "Error getting data!", Toast.LENGTH_LONG).show();
         }
 
         mStudentNameTextView.setText(getString(R.string.mj_student, data.response.studentName()));
         mStudentGroupTextView.setText(getString(R.string.mj_group, data.response.group()));
 
-        mStatefulLayout.setState(R.id.mj_student_data);
+        mStatefulLayoutMain.setState(R.id.mj_content);
 
         mModuleJournalViewModel.semestersStorage().setLogin(data.login);
         mModuleJournalViewModel.semestersStorage().setPassword(data.password);
@@ -203,25 +270,72 @@ public class ModuleJournalFragment extends Fragment
         File cacheDir = getContext() == null ? null : getContext().getCacheDir();
         mModuleJournalViewModel.semestersStorage().setCacheDirectory(cacheDir);
 
-        final int pos = mCurrentPage == RecyclerView.NO_POSITION ? data.response.semesters().size() - 1 : mCurrentPage;
-
-        mModuleJournalViewModel.semestersLiveData().observe(this, new Observer<PagedList<SemestersMarks>>() {
-            @Override
-            public void onChanged(final PagedList<SemestersMarks> semestersMarks) {
-                mSemestersAdapter.submitList(semestersMarks, new Runnable() {
-                    @Override
-                    public void run() {
-                        mPagerSemesters.setCurrentItem(pos, false);
-                        Log.d(TAG, "run: " + mCurrentPage);
-                        Log.d(TAG, "run2: " + pos);
-                    }
-                });
+        // если перезагрузка данных
+        if (mReloadModuleJournal) {
+            PagedList<SemestersMarks> marksPagedList = mModuleJournalViewModel.semestersLiveData().getValue();
+            if (marksPagedList != null) {
+                marksPagedList.getDataSource().invalidate();
             }
-        });
+            mReloadModuleJournal = false;
+        }
+
+        boolean isObserve = mModuleJournalViewModel.semestersLiveData().hasObservers();
+        if (!isObserve) {
+            mModuleJournalViewModel.semestersLiveData().observe(this, new Observer<PagedList<SemestersMarks>>() {
+                @Override
+                public void onChanged(final PagedList<SemestersMarks> semestersMarks) {
+                    // TODO: 27/01/20 проблема, когда после перезагрузки выбирается не тот элемент
+                    final int pos;
+                    if (mCurrentPage == RecyclerView.NO_POSITION) {
+                        pos = semestersMarks.size() - 1;
+                    } else {
+                        pos = mCurrentPage;
+                    }
+
+                    mSemestersAdapter.submitList(semestersMarks, new Runnable() {
+                        @Override
+                        public void run() {
+                            mPagerSemesters.setCurrentItem(pos, false);
+                        }
+                    });
+                    mStatefulLayoutPager.setState(R.id.mj_pager_semesters);
+                }
+            });
+        }
     }
 
     @Override
     public void onLoaderReset(@NonNull Loader<ModuleJournalLoader.LoadData> loader) {
 
+    }
+
+    @Override
+    public void onUpdateSemesters() {
+        refreshAll();
+    }
+
+    /**
+     * Показывает сообщение о том, что данные загружены из кэша.
+     * @param position текущая отображаемая страница pager'а.
+     */
+    private void showCacheMessage(int position) {
+        PagedList<SemestersMarks> list = mSemestersAdapter.getCurrentList();
+        if (list == null) {
+            return;
+        }
+        SemestersMarks marks = list.get(position);
+        if (marks == null) {
+            return;
+        }
+        if (!marks.isCache()) {
+            return;
+        }
+
+        Snackbar.make(mStatefulLayoutMain,
+                getString(R.string.mj_last_update,
+                        mModuleJournalViewModel.semestersStorage().semesterTitle(position),
+                        CommonUtils.dateToString(marks.time(), "HH:mm:ss dd.MM.yyyy",
+                                CommonUtils.locale(getContext()))),
+                Snackbar.LENGTH_SHORT).show();
     }
 }

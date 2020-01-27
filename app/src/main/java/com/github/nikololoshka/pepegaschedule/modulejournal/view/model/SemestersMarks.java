@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.MarkResponse;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -83,11 +84,18 @@ public class SemestersMarks {
     @Expose(serialize = false, deserialize = false)
     @Nullable
     private ModuleJournalError mError;
+    /**
+     * Из кэша ли данные.
+     */
+    @Expose(serialize = false, deserialize = false)
+    private boolean mIsCache;
 
 
     public SemestersMarks() {
         mDisciplines = new ArrayList<>(10);
         mTime = new GregorianCalendar();
+        mError = null;
+        mIsCache = false;
     }
 
     /**
@@ -273,7 +281,7 @@ public class SemestersMarks {
         try {
             String json = FileUtils.readFileToString(cacheFile, StandardCharsets.UTF_8);
             return new Gson().fromJson(json, SemestersMarks.class);
-        } catch (IOException ignored) {
+        } catch (IOException | JsonSyntaxException ignored) {
 
         }
 
@@ -330,14 +338,27 @@ public class SemestersMarks {
         mError = error;
     }
 
+    public boolean isEmpty() {
+        return mDisciplines.isEmpty();
+    }
+
+    public boolean isCache() {
+        return mIsCache;
+    }
+
+    public void setCache(boolean cache) {
+        mIsCache = cache;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SemestersMarks marks = (SemestersMarks) o;
-        return mDisciplines.equals(marks.mDisciplines) &&
+        return Objects.equals(mDisciplines, marks.mDisciplines) &&
                 Objects.equals(mRating, marks.mRating) &&
-                Objects.equals(mAccumulatedRating, marks.mAccumulatedRating);
+                Objects.equals(mAccumulatedRating, marks.mAccumulatedRating) &&
+                Objects.equals(mTime, marks.mTime);
     }
 
     @Override

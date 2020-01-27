@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.SemestersResponse;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
 import org.apache.commons.io.FileUtils;
 
@@ -57,7 +58,7 @@ public class StudentData {
         try {
             String json = FileUtils.readFileToString(cacheFile, StandardCharsets.UTF_8);
             return new Gson().fromJson(json, SemestersResponse.class);
-        } catch (IOException ignored) {
+        } catch (IOException | JsonSyntaxException ignored) {
 
         }
 

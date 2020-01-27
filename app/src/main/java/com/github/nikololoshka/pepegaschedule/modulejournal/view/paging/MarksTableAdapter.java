@@ -84,6 +84,8 @@ public class MarksTableAdapter
         mColumns = columns;
         mRows = rows;
         mCells = cells;
+
+        notifyDataSetChanged();
     }
 
     @Override
@@ -131,9 +133,9 @@ public class MarksTableAdapter
             mTextView.setText(text);
 
             if (text.equals(SemestersMarks.ACCUMULATED_RATING) || text.equals(SemestersMarks.RATING)) {
-                mTextView.setTypeface(mTextView.getTypeface(), Typeface.BOLD);
+                mTextView.setTypeface(null, Typeface.BOLD);
             } else {
-                mTextView.setTypeface(mTextView.getTypeface(), Typeface.NORMAL);
+                mTextView.setTypeface(null, Typeface.NORMAL);
             }
         }
     }

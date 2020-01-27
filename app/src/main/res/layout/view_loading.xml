@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/loading_fragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_layout_padding">
 
     <ProgressBar
         android:layout_width="wrap_content"
