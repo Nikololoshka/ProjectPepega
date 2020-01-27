@@ -28,7 +28,7 @@ public class ModuleJournalViewModel extends ViewModel {
                 .setEnablePlaceholders(true)
                 .setInitialLoadSizeHint(1)
                 .setPageSize(1)
-                .setPrefetchDistance(1)
+                .setPrefetchDistance(2)
                 .build();
 
         mSemestersLiveData = new LivePagedListBuilder<>(semestersFactory, config)

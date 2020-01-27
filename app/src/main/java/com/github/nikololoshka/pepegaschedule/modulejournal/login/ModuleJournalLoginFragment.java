@@ -196,9 +196,25 @@ public class ModuleJournalLoginFragment extends Fragment
             popToModuleJournal();
 
         } else {
+            setEnabledView(true);
+
+            if (data.error == null) {
+                return;
+            }
+
+            String title = data.error.errorTitle();
+            if (title == null) {
+                    title = getString(data.error.errorTitleRes());
+            }
+
+            String description = data.error.errorDescription();
+            if (description == null) {
+                description = getString(data.error.errorDescriptionRes());
+            }
+
             new AlertDialog.Builder(getContext())
-                    .setTitle(data.errorTitle)
-                    .setMessage(data.errorDescription)
+                    .setTitle(title)
+                    .setMessage(description)
                     .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -208,7 +224,6 @@ public class ModuleJournalLoginFragment extends Fragment
                     .create()
                     .show();
 
-            setEnabledView(true);
         }
     }
 

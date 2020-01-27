@@ -57,8 +57,6 @@ public class ModuleJournalLoginLoader extends AsyncTaskLoader<ModuleJournalLogin
         LoadData data = new LoadData();
 
         if (mLogin == null || mPassword == null) {
-            data.errorTitle = "Logistical error";
-            data.errorDescription = "Incorrect authorization data";
             return data;
         }
 
@@ -93,11 +91,6 @@ public class ModuleJournalLoginLoader extends AsyncTaskLoader<ModuleJournalLogin
      * Результа работы загрузчика.
      */
     class LoadData {
-        @NonNull
-        String errorTitle = "";
-        @NonNull
-        String errorDescription = "";
-
         @Nullable
         ModuleJournalError error;
 
