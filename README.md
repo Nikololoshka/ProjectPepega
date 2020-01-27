@@ -21,6 +21,6 @@ ProjectPepega (aka Stankin Schedule) - приложение разработан
 
 #### Скриншоты
 
-![Screenshot 1](./screenshots/1.png)
-![Screenshot 2](./screenshots/2.png)
-![Screenshot 3](./screenshots/3.png)
+| Главная страница                     | Просмотр расписания                  | Модульный журнал                     |
+| ---                                  | ---                                  | ---                                  |
+| ![Screenshot 1](./screenshots/1.png) | ![Screenshot 2](./screenshots/2.png) | ![Screenshot 3](./screenshots/2.png) |
