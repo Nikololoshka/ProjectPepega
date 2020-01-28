@@ -1,6 +1,6 @@
 package com.github.nikololoshka.pepegaschedule;
 
-import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 
 import org.json.JSONException;
 import org.json.JSONObject;

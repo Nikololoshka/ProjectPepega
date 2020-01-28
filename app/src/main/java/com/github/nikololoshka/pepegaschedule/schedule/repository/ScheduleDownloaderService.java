@@ -29,7 +29,7 @@ import java.util.Scanner;
  */
 public class ScheduleDownloaderService extends IntentService {
 
-    public static final String SCHEDULE_DOWNLOADED_EVEN = "schedule_downloaded_even";
+    public static final String SCHEDULE_DOWNLOADED_EVENT = "schedule_downloaded_event";
     public static final String ARG_SCHEDULE_DOWNLOADED = "schedule_downloaded";
 
     private static final String EXTRA_SCHEDULE_URL = "schedule_url";
@@ -156,7 +156,7 @@ public class ScheduleDownloaderService extends IntentService {
                 SchedulePreference.add(this, scheduleName);
 
                 // уведомляем о загруженном расписании
-                Intent msgIntent = new Intent(SCHEDULE_DOWNLOADED_EVEN);
+                Intent msgIntent = new Intent(SCHEDULE_DOWNLOADED_EVENT);
                 msgIntent.putExtra(ARG_SCHEDULE_DOWNLOADED, scheduleName);
                 LocalBroadcastManager.getInstance(this).sendBroadcast(msgIntent);
 

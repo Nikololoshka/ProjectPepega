@@ -8,9 +8,13 @@ import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
 
 import java.io.IOException;
-import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ScheduleRepositoryLoader extends AsyncTaskLoader<TreeMap<String, String>> {
+/**
+ * Загрузчик расписаний для репозитория.
+ */
+public class ScheduleRepositoryLoader extends AsyncTaskLoader<List<RepositoryItem>> {
 
     ScheduleRepositoryLoader(@NonNull Context context) {
         super(context);
@@ -18,17 +22,22 @@ public class ScheduleRepositoryLoader extends AsyncTaskLoader<TreeMap<String, St
 
     @Nullable
     @Override
-    public TreeMap<String, String> loadInBackground() {
+    public List<RepositoryItem> loadInBackground() {
+
         try {
             final String ROOT = "schedules";
+
+            // локальный репозиторий
             AssetManager assetManager = getContext().getAssets();
-            TreeMap<String, String> loadingSchedules = new TreeMap<>();
+            ArrayList<RepositoryItem> repositoryItems= new ArrayList<>();
             String[] schedules = assetManager.list(ROOT);
 
             if (schedules != null) {
                 for (String schedule : schedules) {
-                    loadingSchedules.put(schedule.substring(0, schedule.length() - 5),
-                            ROOT + "/" + schedule);
+                    RepositoryItem item = new RepositoryItem();
+                    item.setName(schedule.substring(0, schedule.length() - 5));
+                    item.setPath(ROOT + "/" + schedule);
+                    repositoryItems.add(item);
                 }
             }
 
@@ -47,7 +56,7 @@ public class ScheduleRepositoryLoader extends AsyncTaskLoader<TreeMap<String, St
 
             // Thread.sleep(2000);
 
-            return loadingSchedules;
+            return repositoryItems;
         } catch (IOException e) {
             e.printStackTrace();
         }

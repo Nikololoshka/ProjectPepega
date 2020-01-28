@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.github.nikololoshka.pepegaschedule.BuildConfig;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.utils.FavoriteButton;
 
@@ -22,17 +23,25 @@ import java.util.List;
 /**
  * Адаптер для списка с расписаниями.
  */
-public class MySchedulesAdapter
-        extends RecyclerView.Adapter<MySchedulesAdapter.MySchedulesViewHolder> {
+public class MySchedulesAdapter extends RecyclerView.Adapter<MySchedulesAdapter.MySchedulesViewHolder> {
 
     private static final String TAG = "MySchedulesAdapterLog";
-    private static final boolean DEBUG = false;
 
     /**
      * Listener для нажатия по расписанию
      */
     public interface OnItemClickListener {
+        /**
+         * Вызывается если расписание было нажато.
+         * @param schedule название расписания.
+         */
         void onScheduleItemClicked(@NonNull String schedule);
+
+        /**
+         * Расписание перемещенно.
+         * @param fromPosition старая позиция.
+         * @param toPosition новая позиция.
+         */
         void onScheduleItemMove(int fromPosition, int toPosition);
         void onScheduleFavoriteSelected(@NonNull String favorite);
     }
@@ -44,7 +53,7 @@ public class MySchedulesAdapter
     private String mFavoriteSchedule;
     private boolean mIsAnimate;
 
-    MySchedulesAdapter(OnItemClickListener clickListener, DragToMoveCallback.OnStartDragListener dragStartListener) {
+    MySchedulesAdapter(@NonNull OnItemClickListener clickListener, @NonNull DragToMoveCallback.OnStartDragListener dragStartListener) {
         mClickListener = clickListener;
         mDragStartListener = dragStartListener;
 
@@ -69,10 +78,10 @@ public class MySchedulesAdapter
 
     @Override
     public void onBindViewHolder(@NonNull final MySchedulesViewHolder holder, int position) {
-        if (DEBUG) {
-            Log.d(TAG, "onBindViewHolder: " + mSchedules.get(position)
-                    + "; " + mFavoriteSchedule + " and "+ mSchedules.get(position)
-                    + ";" + mFavoriteSchedule.equals(mSchedules.get(position)));
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "onBindViewHolder: " + mSchedules.get(position));
+            Log.d(TAG, "onBindViewHolder: " + mFavoriteSchedule);
+            Log.d(TAG, "onBindViewHolder: " + mSchedules.get(position));
         }
 
         holder.bind(mSchedules.get(position), mFavoriteSchedule.equals(mSchedules.get(position)));
@@ -122,7 +131,7 @@ public class MySchedulesAdapter
          * @param title название расписания.
          * @param check избранное ли расписание.
          */
-        void bind(String title, boolean check) {
+        void bind(@NonNull String title, boolean check) {
             mTitle.setText(title);
 
             boolean animate = check && mIsAnimate;
@@ -149,11 +158,13 @@ public class MySchedulesAdapter
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.schedule_item:
+                // нажато расписание
+                case R.id.schedule_item: {
                     mClickListener.onScheduleItemClicked(mSchedules.get(getAdapterPosition()));
                     break;
-
-                case R.id.favorite_schedule:
+                }
+                // нажато на кнопку "избранное" расписание
+                case R.id.favorite_schedule: {
                     mFavoriteSchedule = mTitle.getText().toString();
                     mClickListener.onScheduleFavoriteSelected(mFavoriteSchedule);
 
@@ -161,6 +172,7 @@ public class MySchedulesAdapter
 
                     notifyDataSetChanged();
                     break;
+                }
             }
         }
     }

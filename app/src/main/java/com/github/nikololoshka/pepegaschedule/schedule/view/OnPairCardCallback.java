@@ -1,6 +1,6 @@
 package com.github.nikololoshka.pepegaschedule.schedule.view;
 
-import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 
 /**
  * Интерфейс callback'а для обработки нажатия на пару.

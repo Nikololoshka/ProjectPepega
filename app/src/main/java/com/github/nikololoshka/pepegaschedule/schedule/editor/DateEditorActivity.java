@@ -21,14 +21,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.DateItem;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.DatePair;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.DateRange;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.DateSingle;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.FrequencyEnum;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.exceptions.InvalidDateException;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.exceptions.InvalidDayOfWeekException;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.exceptions.InvalidFrequencyForDateException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DateItem;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DatePair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DateRange;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DateSingle;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.FrequencyEnum;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidDateException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidDayOfWeekException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidFrequencyForDateException;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
 
 import java.text.DateFormat;

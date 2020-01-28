@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".modulejournal.view.ModuleJournalFragment" >
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -76,96 +77,20 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.core.widget.NestedScrollView
+        <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+            android:id="@+id/stateful_layout_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" >
 
-            <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
-                android:id="@+id/stateful_layout_pager"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/mj_pager_semesters"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" />
 
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/mj_pager_semesters"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
-
-        </androidx.core.widget.NestedScrollView>
+        </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-    <!--  Загрузочный экран  -->
-    <LinearLayout
-        android:id="@+id/mj_content_loading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/app_bar_mj_height"
-        android:theme="@style/AppTheme.AppBarOverlay" >
-
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:contentScrim="?android:attr/colorPrimary" >
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/background_mj"
-                    android:scaleType="centerCrop"
-                    android:alpha="0.3"
-                    app:layout_collapseMode="parallax"
-                    android:contentDescription="@string/mj_information_background" />
-
-                <com.facebook.shimmer.ShimmerFrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/default_layout_padding">
-
-                        <TextView
-                            style="@style/Text.Head"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/mj_shimmer_student_name"
-                            android:textColor="@color/colorBackgroundShimmer"
-                            android:background="@color/colorBackgroundShimmer" />
-
-                        <TextView
-                            style="@style/Text.Subhead"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/mj_shimmer_group"
-                            android:textColor="@color/colorBackgroundShimmer"
-                            android:background="@color/colorBackgroundShimmer"
-                            android:layout_marginTop="@dimen/mj_student_data_margin" />
-
-                    </LinearLayout>
-
-                </com.facebook.shimmer.ShimmerFrameLayout>
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <include
-            layout="@layout/view_loading"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/mj_content_error"

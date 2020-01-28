@@ -1,12 +1,12 @@
-package com.github.nikololoshka.pepegaschedule.schedule;
+package com.github.nikololoshka.pepegaschedule.schedule.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.Nullable;
 
-import com.github.nikololoshka.pepegaschedule.schedule.pair.DayOfWeek;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DayOfWeek;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 
 import org.json.JSONArray;
 import org.json.JSONException;

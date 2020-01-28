@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 import com.github.nikololoshka.pepegaschedule.utils.StickHeaderItemDecoration;
 
 import java.lang.ref.WeakReference;

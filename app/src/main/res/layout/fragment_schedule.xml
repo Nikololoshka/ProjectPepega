@@ -16,7 +16,7 @@
             style="@style/Text.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/schedule_selected_subgroup" />
+            android:text="@string/sch_selected_subgroup" />
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/subgroup_selector"
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:padding="5dp"
-                android:text="@string/schedule_my"
+                android:text="@string/sch_my_schedule"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="20sp" />
 
@@ -72,7 +72,7 @@
                     android:background="@color/colorCardViewBackground"
                     android:gravity="center"
                     android:padding="@dimen/default_information_padding"
-                    android:text="@string/schedule_no_available" />
+                    android:text="@string/sch_no_available" />
 
             </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
 

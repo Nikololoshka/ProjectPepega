@@ -94,7 +94,7 @@
     <fragment
         android:id="@+id/nav_schedule_view_fragment"
         android:name="com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment"
-        android:label="@string/schedule_view" />
+        android:label="@string/sch_view" />
 
     <fragment
         android:id="@+id/nav_about_fragment"
@@ -155,7 +155,7 @@
         <fragment
             android:id="@+id/nav_settings_schedule_fragment"
             android:name="com.github.nikololoshka.pepegaschedule.settings.subsection.SettingsScheduleFragment"
-            android:label="@string/schedule" />
+            android:label="@string/sch_name" />
         <fragment
             android:id="@+id/nav_settings_general_fragment"
             android:name="com.github.nikololoshka.pepegaschedule.settings.subsection.SettingsGeneralFragment"

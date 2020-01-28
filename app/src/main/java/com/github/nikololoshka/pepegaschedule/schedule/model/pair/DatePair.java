@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.schedule.pair;
+package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import android.os.Parcel;
 import android.os.Parcelable;

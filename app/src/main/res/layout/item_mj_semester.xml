@@ -9,17 +9,19 @@
         android:id="@+id/mj_semester_table"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:clipToPadding="false" >
 
         <com.github.nikololoshka.pepegaschedule.utils.StretchTable
             android:id="@+id/mj_marks_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="?android:attr/actionBarSize"  />
+            android:background="@drawable/background_mj_semester"
+            android:layout_marginBottom="?android:attr/actionBarSize" />
 
     </androidx.core.widget.NestedScrollView>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/mj_semester_error"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -55,6 +57,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>

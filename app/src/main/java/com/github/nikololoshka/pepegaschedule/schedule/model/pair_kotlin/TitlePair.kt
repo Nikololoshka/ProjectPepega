@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.schedule.pair_kotlin
+package com.github.nikololoshka.pepegaschedule.schedule.model.pair_kotlin
 
 import org.json.JSONObject
 

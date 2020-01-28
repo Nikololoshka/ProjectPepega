@@ -6,11 +6,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.AsyncListDiffer;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Адаптер для отображения расписаний в репозитории.
@@ -18,61 +21,44 @@ import java.util.ArrayList;
 public class ScheduleRepositoryAdapter
         extends RecyclerView.Adapter<ScheduleRepositoryAdapter.ScheduleRepositoryHolder> {
 
-    private ArrayList<String> mNamesLoaded;
-    private ArrayList<String> mPathsLoaded;
-
-    private ArrayList<String> mNamesFilter;
-    private ArrayList<String> mPathsFilter;
+    private AsyncListDiffer<RepositoryItem> mDiffer;
 
     final private OnRepositoryClickListener mListener;
 
+    /**
+     * Listener для репозитория.
+     */
     public interface OnRepositoryClickListener {
-        void onScheduleItemClicked(String name, String path);
+        /**
+         * Вызывается если элемент был нажат.
+         * @param item нажатый элемент.
+         */
+        void onRepositoryItemClicked(@NonNull RepositoryItem item);
     }
 
-    ScheduleRepositoryAdapter(OnRepositoryClickListener listener) {
-        mNamesLoaded = new ArrayList<>();
-        mPathsLoaded = new ArrayList<>();
-        mNamesFilter = mNamesLoaded;
-        mPathsFilter = mPathsLoaded;
+    ScheduleRepositoryAdapter(@NonNull OnRepositoryClickListener listener) {
+        mDiffer = new AsyncListDiffer<>(this, new DiffUtil.ItemCallback<RepositoryItem>() {
+            @Override
+            public boolean areItemsTheSame(@NonNull RepositoryItem oldItem, @NonNull RepositoryItem newItem) {
+                return oldItem.name().equals(newItem.name());
+            }
+
+            @Override
+            public boolean areContentsTheSame(@NonNull RepositoryItem oldItem, @NonNull RepositoryItem newItem) {
+                return oldItem.equals(newItem);
+            }
+        });
 
         mListener = listener;
     }
 
-    public void update(ArrayList<String> names, ArrayList<String> paths) {
-        mNamesLoaded = names;
-        mPathsLoaded = paths;
-
-        filter("");
-    }
 
     /**
-     * Показывает только элементы удовлетворяющие запросу.
-     * @param query запрос.
+     * Обновляе данные в адапторе.
+     * @param data данные.
      */
-    void filter(String query) {
-        if (query.isEmpty()) {
-            mNamesFilter = mNamesLoaded;
-            mPathsFilter = mPathsLoaded;
-
-            notifyDataSetChanged();
-            return;
-        }
-
-        mNamesFilter = new ArrayList<>();
-        mPathsFilter = new ArrayList<>();
-
-        String right = query.toLowerCase();
-        for (int i = 0; i < mNamesLoaded.size(); i++) {
-            String left = mNamesLoaded.get(i).toLowerCase();
-
-            if (left.contains(right)) {
-                mNamesFilter.add(mNamesLoaded.get(i));
-                mPathsFilter.add(mPathsLoaded.get(i));
-            }
-        }
-
-        notifyDataSetChanged();
+    void submitList(@Nullable List<RepositoryItem> data) {
+        mDiffer.submitList(data);
     }
 
     @NonNull
@@ -85,12 +71,12 @@ public class ScheduleRepositoryAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ScheduleRepositoryHolder holder, int position) {
-        holder.bind(mNamesFilter.get(position), position);
+        holder.bind(mDiffer.getCurrentList().get(position).name());
     }
 
     @Override
     public int getItemCount() {
-        return mNamesFilter.size();
+        return mDiffer.getCurrentList().size();
     }
 
     /**
@@ -98,29 +84,26 @@ public class ScheduleRepositoryAdapter
      */
     class ScheduleRepositoryHolder extends RecyclerView.ViewHolder {
 
-        private TextView mTitle;
-        private int mNumber;
+        private TextView mScheduleNameTextView;
 
         ScheduleRepositoryHolder(@NonNull final View itemView) {
             super(itemView);
-            mTitle = itemView.findViewById(R.id.schedule_repository_item_text);
+
+            mScheduleNameTextView = itemView.findViewById(R.id.schedule_repository_item_text);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mListener.onScheduleItemClicked(mNamesFilter.get(mNumber),
-                            mPathsFilter.get(mNumber));
+                    mListener.onRepositoryItemClicked(mDiffer.getCurrentList().get(getAdapterPosition()));
                 }
             });
         }
 
         /**
          * Обновляет данные в элементе.
-         * @param title название расписания.
-         * @param number номер расписания в полученном списке.
+         * @param scheduleName название расписания.
          */
-        void bind(String title, int number) {
-            mTitle.setText(title);
-            mNumber = number;
+        void bind(@NonNull String scheduleName) {
+            mScheduleNameTextView.setText(scheduleName);
         }
     }
 }

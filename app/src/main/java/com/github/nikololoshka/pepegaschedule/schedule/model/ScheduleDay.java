@@ -1,13 +1,13 @@
-package com.github.nikololoshka.pepegaschedule.schedule;
+package com.github.nikololoshka.pepegaschedule.schedule.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.Nullable;
 
-import com.github.nikololoshka.pepegaschedule.schedule.exceptions.InvalidAddPairException;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.DateSingle;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidAddPairException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DateSingle;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 
 import org.json.JSONArray;
 import org.json.JSONException;

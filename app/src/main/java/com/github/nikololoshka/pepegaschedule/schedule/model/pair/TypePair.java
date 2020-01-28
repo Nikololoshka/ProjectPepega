@@ -1,8 +1,8 @@
-package com.github.nikololoshka.pepegaschedule.schedule.pair;
+package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import android.os.Parcel;
 
-import com.github.nikololoshka.pepegaschedule.schedule.pair.exceptions.InvalidPairParseException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidPairParseException;
 
 import org.json.JSONException;
 import org.json.JSONObject;

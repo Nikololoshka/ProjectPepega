@@ -125,8 +125,8 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
             }
 
             // отображаем таблицу
-            mStatefulLayout.setState(R.id.mj_semester_table);
             mAdapter.addItems(marks.createColumnsData(), marks.createRowsData(), marks.createCellsData());
+            mStatefulLayout.setState(R.id.mj_semester_table);
         }
 
         @Override

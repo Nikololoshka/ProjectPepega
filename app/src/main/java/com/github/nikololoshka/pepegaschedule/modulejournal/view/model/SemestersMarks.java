@@ -338,14 +338,26 @@ public class SemestersMarks {
         mError = error;
     }
 
+    /**
+     * Пуст ли семестр.
+     * @return true - пуст, иначе false.
+     */
     public boolean isEmpty() {
         return mDisciplines.isEmpty();
     }
 
+    /**
+     * Из кэша ли данные.
+     * @return true - из кэша, иначе false.
+     */
     public boolean isCache() {
         return mIsCache;
     }
 
+    /**
+     * Устанавливает были ли загружены данные из кэша.
+     * @param cache из кэша ли.
+     */
     public void setCache(boolean cache) {
         mIsCache = cache;
     }

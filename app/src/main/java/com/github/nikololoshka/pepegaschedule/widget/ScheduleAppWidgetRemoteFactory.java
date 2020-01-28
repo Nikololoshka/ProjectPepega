@@ -10,8 +10,8 @@ import android.widget.RemoteViewsService;
 import androidx.annotation.NonNull;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.schedule.Schedule;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.Schedule;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 import com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 

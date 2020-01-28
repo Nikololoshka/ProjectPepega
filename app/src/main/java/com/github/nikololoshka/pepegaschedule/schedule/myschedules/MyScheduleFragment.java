@@ -33,8 +33,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.schedule.Schedule;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.ScheduleEditorActivity;
+import com.github.nikololoshka.pepegaschedule.schedule.model.Schedule;
 import com.github.nikololoshka.pepegaschedule.schedule.repository.ScheduleDownloaderService;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.DividerItemDecoration;
@@ -50,9 +50,9 @@ import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
 import static com.github.nikololoshka.pepegaschedule.schedule.editor.ScheduleEditorActivity.EXTRA_SCHEDULE_NAME;
-import static com.github.nikololoshka.pepegaschedule.schedule.pair.SubgroupEnum.A;
-import static com.github.nikololoshka.pepegaschedule.schedule.pair.SubgroupEnum.B;
-import static com.github.nikololoshka.pepegaschedule.schedule.pair.SubgroupEnum.COMMON;
+import static com.github.nikololoshka.pepegaschedule.schedule.model.pair.SubgroupEnum.A;
+import static com.github.nikololoshka.pepegaschedule.schedule.model.pair.SubgroupEnum.B;
+import static com.github.nikololoshka.pepegaschedule.schedule.model.pair.SubgroupEnum.COMMON;
 import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment.ARG_SCHEDULE_NAME;
 import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment.ARG_SCHEDULE_PATH;
 import static com.github.nikololoshka.pepegaschedule.settings.SchedulePreference.ROOT_PATH;
@@ -73,7 +73,6 @@ public class MyScheduleFragment extends Fragment
     private static final int REQUEST_PERMISSION_READ_STORAGE = 0;
 
     private StatefulLayout mStatefulLayout;
-
     private MySchedulesAdapter mSchedulesAdapter;
     private Loader<MySchedulesLoader.DataView> mMySchedulesLoader;
     private ItemTouchHelper mItemTouchHelper;
@@ -180,7 +179,7 @@ public class MyScheduleFragment extends Fragment
 
         LocalBroadcastManager.getInstance(context)
                 .registerReceiver(mScheduleDownloaderReceiver,
-                        new IntentFilter(ScheduleDownloaderService.SCHEDULE_DOWNLOADED_EVEN));
+                        new IntentFilter(ScheduleDownloaderService.SCHEDULE_DOWNLOADED_EVENT));
     }
 
     @Override
@@ -202,6 +201,7 @@ public class MyScheduleFragment extends Fragment
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            // из репозитория
             case R.id.from_repository: {
                 if (getActivity() != null) {
                     NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host);
@@ -209,11 +209,13 @@ public class MyScheduleFragment extends Fragment
                 }
                 return true;
             }
-            case R.id.new_schedule: {
+            // создать новое
+            case R.id.create_schedule: {
                 Intent intent = new Intent(getActivity(), ScheduleEditorActivity.class);
                 startActivityForResult(intent, REQUEST_NEW_SCHEDULE);
                 return true;
             }
+            // загрузить расписание
             case R.id.load_schedule: {
                 if (getActivity() != null) {
                     int permissionStatus = ContextCompat.checkSelfPermission(getActivity(),
@@ -221,7 +223,7 @@ public class MyScheduleFragment extends Fragment
                     if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
                         loadSchedule();
                     } else {
-                        requestPermissions(new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},
+                        requestPermissions(new String[] { Manifest.permission.READ_EXTERNAL_STORAGE },
                                 REQUEST_PERMISSION_READ_STORAGE);
                     }
                 }
@@ -269,9 +271,9 @@ public class MyScheduleFragment extends Fragment
                     e.printStackTrace();
 
                     showMessage(String.format("%s: %s %s",
-                            getString(R.string.schedule),
+                            getString(R.string.sch_name),
                             scheduleName,
-                            getString(R.string.schedule_failed_add)));
+                            getString(R.string.sch_failed_add)));
 
                     return;
                 }
@@ -280,9 +282,9 @@ public class MyScheduleFragment extends Fragment
                 updateSchedules();
 
                 showMessage(String.format("%s: %s %s",
-                        getString(R.string.schedule),
+                        getString(R.string.sch_name),
                         scheduleName,
-                        getString(R.string.schedule_successfully_added)));
+                        getString(R.string.sch_successfully_added)));
 
                 break;
             }

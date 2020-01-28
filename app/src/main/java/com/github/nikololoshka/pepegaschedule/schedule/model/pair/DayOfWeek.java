@@ -1,8 +1,8 @@
-package com.github.nikololoshka.pepegaschedule.schedule.pair;
+package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import androidx.annotation.Nullable;
 
-import com.github.nikololoshka.pepegaschedule.schedule.pair.exceptions.InvalidDayOfWeekException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidDayOfWeekException;
 
 import java.util.Calendar;
 

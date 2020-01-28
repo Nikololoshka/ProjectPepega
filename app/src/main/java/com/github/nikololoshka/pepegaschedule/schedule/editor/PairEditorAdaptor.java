@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.DateItem;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DateItem;
 
 import java.util.ArrayList;
 

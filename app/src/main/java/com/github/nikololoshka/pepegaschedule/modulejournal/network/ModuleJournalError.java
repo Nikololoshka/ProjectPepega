@@ -69,11 +69,11 @@ public class ModuleJournalError {
         mErrorCode = errorCode;
     }
 
-    void setErrorTitle(String errorTitle) {
+    void setErrorTitle(@Nullable String errorTitle) {
         mErrorTitle = errorTitle;
     }
 
-    void setErrorDescription(String errorDescription) {
+    void setErrorDescription(@Nullable String errorDescription) {
         mErrorDescription = errorDescription;
     }
 }

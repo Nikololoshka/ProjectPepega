@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/widget_schedule_no_pairs"
-        android:text="@string/schedule_view_no_pairs"
+        android:text="@string/sch_view_no_pairs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />

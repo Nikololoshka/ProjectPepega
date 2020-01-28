@@ -7,7 +7,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.github.nikololoshka.pepegaschedule.schedule.pair.SubgroupEnum;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.SubgroupEnum;
 
 import java.io.File;
 import java.util.ArrayList;

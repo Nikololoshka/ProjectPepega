@@ -1,7 +1,6 @@
 package com.github.nikololoshka.pepegaschedule.schedule.repository;
 
 import android.app.SearchManager;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +23,7 @@ import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.github.nikololoshka.pepegaschedule.BuildConfig;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
@@ -31,34 +31,39 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.TreeMap;
 
 
 /**
  * Фрагмент репозитория с расписаниями.
  */
 public class ScheduleRepositoryFragment extends Fragment
-        implements ScheduleRepositoryAdapter.OnRepositoryClickListener,
-        LoaderManager.LoaderCallbacks<TreeMap<String, String>> {
+        implements ScheduleRepositoryAdapter.OnRepositoryClickListener, LoaderManager.LoaderCallbacks<List<RepositoryItem>> {
 
     private static final int SCHEDULE_REPOSITORY_LOADER = 0;
 
     private static final String ARG_FILTER_QUERY = "filter_query";
 
-    private static final String TAG = "ScheduleRepositoryTag";
-    private static final boolean DEBUG = false;
+    private static final String TAG = "ScheduleRepositoryLog";
 
-    private Loader<TreeMap<String, String>> mRepositoryLoader;
+    /**
+     * Загрузчик расписаний.
+     */
+    private Loader<List<RepositoryItem>> mRepositoryLoader;
+    @Nullable
+    private List<RepositoryItem> mRepositoryItems;
 
     private StatefulLayout mStatefulLayout;
     private ScheduleRepositoryAdapter mRepositoryAdapter;
     private AppBarLayout mAppBarRepository;
 
-    private String mFilterQuery = "";
+    @NonNull
+    private String mFilterQuery;
 
     public ScheduleRepositoryFragment() {
         super();
+        mFilterQuery = "";
     }
 
     @Override
@@ -75,7 +80,7 @@ public class ScheduleRepositoryFragment extends Fragment
     @Override
     public void onDetach() {
         super.onDetach();
-        // скрыть клавиатуру если выходим
+        // скрыть клавиатуру при выходе
         if (getActivity() != null) {
             InputMethodManager manager = ContextCompat.getSystemService(getActivity(),
                     InputMethodManager.class);
@@ -104,7 +109,6 @@ public class ScheduleRepositoryFragment extends Fragment
         textLastUpdate.setText(getString(R.string.repository_last_update));
 
         mAppBarRepository = view.findViewById(R.id.app_bar_repository);
-
         RecyclerView recyclerView = view.findViewById(R.id.recycler_repository);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
@@ -133,8 +137,7 @@ public class ScheduleRepositoryFragment extends Fragment
         final SearchView searchView = (SearchView) searchItem.getActionView();
 
         if (getActivity() != null) {
-            SearchManager searchManager = (SearchManager) getActivity()
-                    .getSystemService(Context.SEARCH_SERVICE);
+            SearchManager searchManager = getActivity().getSystemService(SearchManager.class);
 
             if (searchManager != null) {
                 searchView.setSearchableInfo(searchManager
@@ -142,7 +145,7 @@ public class ScheduleRepositoryFragment extends Fragment
             }
         }
 
-        searchView.setQueryHint(getString(R.string.schedule_editor_name));
+        searchView.setQueryHint(getString(R.string.repository_search_hint));
         searchView.setIconifiedByDefault(true);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -157,7 +160,7 @@ public class ScheduleRepositoryFragment extends Fragment
             }
         });
 
-        if (DEBUG) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "onCreateOptionsMenu: " + mFilterQuery);
         }
 
@@ -194,31 +197,58 @@ public class ScheduleRepositoryFragment extends Fragment
      * Вызывается если нужно искать расписание по запросу.
      * @param query запрос.
      */
-    private void searchSchedules(String query) {
+    private void searchSchedules(@NonNull String query) {
         ViewGroup.LayoutParams params = mAppBarRepository.getLayoutParams();
         params.height = query.isEmpty() ? getResources()
                 .getDimensionPixelSize(R.dimen.appbar_repository_height) : 0;
         mAppBarRepository.setLayoutParams(params);
 
+        if (mRepositoryItems == null) {
+            return;
+        }
+
         mFilterQuery = query;
-        mRepositoryAdapter.filter(query);
+
+        List<RepositoryItem> items;
+        if (query.isEmpty()) {
+            items = mRepositoryItems;
+        } else {
+            items = new ArrayList<>();
+            // поиск
+            String right = query.toLowerCase();
+            for (int i = 0; i < mRepositoryItems.size(); i++) {
+                String left = mRepositoryItems.get(i).name().toLowerCase();
+
+                if (left.contains(right)) {
+                    items.add(mRepositoryItems.get(i));
+                }
+            }
+        }
+
+        if (items.isEmpty()) {
+            mStatefulLayout.setState(R.id.repository_empty);
+            return;
+        }
+
+        mStatefulLayout.setState(R.id.repository_container);
+        mRepositoryAdapter.submitList(items);
     }
 
     @Override
-    public void onScheduleItemClicked(String name, String path) {
+    public void onRepositoryItemClicked(@NonNull RepositoryItem item) {
         if (getContext() == null) {
             return;
         }
 
-        if (SchedulePreference.schedules(getContext()).contains(name)){
+        if (SchedulePreference.schedules(getContext()).contains(item.name())){
             showMessage(getString(R.string.schedule_editor_exists));
             return;
         }
 
         // создаем Service для скачивания расписания
-        ScheduleDownloaderService.createTask(getContext(), name, path);
+        ScheduleDownloaderService.createTask(getContext(), item.name(), item.path());
 
-        showMessage(String.format("%s: %s ", getString(R.string.repository_loading_schedule), name));
+        showMessage(String.format("%s: %s ", getString(R.string.repository_loading_schedule), item.name()));
     }
 
     /**
@@ -235,19 +265,27 @@ public class ScheduleRepositoryFragment extends Fragment
 
     @NonNull
     @Override
-    public Loader<TreeMap<String, String>> onCreateLoader(int id, @Nullable Bundle args) {
+    public Loader<List<RepositoryItem>> onCreateLoader(int id, @Nullable Bundle args) {
         mRepositoryLoader = new ScheduleRepositoryLoader(Objects.requireNonNull(getActivity()));
         reloadData();
         return mRepositoryLoader;
     }
 
     @Override
-    public void onLoadFinished(@NonNull Loader<TreeMap<String, String>> loader, TreeMap<String, String> data) {
-        mRepositoryAdapter.update(new ArrayList<>(data.keySet()), new ArrayList<>(data.values()));
+    public void onLoadFinished(@NonNull Loader<List<RepositoryItem>> loader, List<RepositoryItem> data) {
+        if (data == null) {
+            // TODO: 28/01/20 обработка ошибки загрузки
+            Toast.makeText(getContext(), "Error loading data", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        mRepositoryItems = data;
+
+        mRepositoryAdapter.submitList(data);
         mStatefulLayout.setState(R.id.repository_container);
     }
 
     @Override
-    public void onLoaderReset(@NonNull Loader<TreeMap<String, String>> loader) {
+    public void onLoaderReset(@NonNull Loader<List<RepositoryItem>> loader) {
     }
 }

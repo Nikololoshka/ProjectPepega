@@ -52,42 +52,44 @@
     <string name="mj_shimmer_group" translatable="false">Group: Group</string>
 
     <!-- my schedules -->
-    <string name="schedule">Schedule</string>
-    <string name="schedule_my">My schedules</string>
-    <string name="schedule_selected_subgroup">Selected subgroup</string>
-    <string name="schedule_no_available">No available schedules</string>
-    <string name="schedule_add">Add schedule</string>
-    <string name="schedule_remove">Remove schedule</string>
-    <string name="schedule_removed">Schedule removed</string>
-    <string name="schedule_from_repository">From repository</string>
-    <string name="schedule_create_new">Create new schedule</string>
-    <string name="schedule_load">Load schedule…</string>
-    <string name="schedule_successfully_added">successfully added</string>
-    <string name="schedule_failed_add">failed to add</string>
+    <string name="sch_name">Schedule</string>
+    <string name="sch_my_schedule">My schedules</string>
+    <string name="sch_selected_subgroup">Selected subgroup</string>
+    <string name="sch_no_available">No available schedules</string>
+    <string name="sch_add">Add schedule</string>
+    <string name="sch_remove">Remove schedule</string>
+    <string name="sch_removed">Schedule removed</string>
+    <string name="sch_from_repository">From repository</string>
+    <string name="sch_create_new">Create new schedule</string>
+    <string name="sch_load">Load schedule</string>
+    <string name="sch_successfully_added">successfully added</string>
+    <string name="sch_failed_add">failed to add</string>
 
     <!-- repository -->
     <string name="repository">Repository</string>
     <string name="repository_update">Update</string>
     <string name="repository_search">Search</string>
+    <string name="repository_search_hint">Schedule…</string>
     <string name="repository_version">Current version: Autumn-2019</string>
     <string name="repository_last_update">Last update: 07.10.19</string>
     <string name="repository_loading_schedule">Loading schedule</string>
     <string name="repository_info_background">Repository information background</string>
+    <string name="repository_not_result">Not result</string>
 
     <!-- schedules view -->
-    <string name="schedule_view">Schedule View</string>
-    <string name="schedule_view_no_pairs">No pairs</string>
-    <string name="schedule_view_add_pair">Add pair</string>
-    <string name="schedule_view_current_day">To the current day</string>
-    <string name="schedule_view_go_to_day">Go to day</string>
-    <string name="schedule_view_remove_pair">Remove pair</string>
-    <string name="schedule_view_save_schedule">Save schedule…</string>
-    <string name="schedule_view_rename">Rename schedule</string>
-    <string name="schedule_view_renamed">Schedule renamed</string>
-    <string name="schedule_view_unable_rename">Unable to rename schedule</string>
-    <string name="schedule_view_will_be_deleted">Attention schedule will be deleted irrevocably!</string>
-    <string name="schedule_view_error_loading">Error loading schedule</string>
-    <string name="schedule_view_saved">Schedule saved</string>
+    <string name="sch_view">Schedule View</string>
+    <string name="sch_view_no_pairs">No pairs</string>
+    <string name="sch_view_add_pair">Add pair</string>
+    <string name="sch_view_current_day">To the current day</string>
+    <string name="sch_view_go_to_day">Go to day</string>
+    <string name="sch_view_remove_pair">Remove pair</string>
+    <string name="sch_view_save_schedule">Save schedule</string>
+    <string name="sch_view_rename">Rename schedule</string>
+    <string name="sch_view_renamed">Schedule renamed</string>
+    <string name="sch_view_unable_rename">Unable to rename schedule</string>
+    <string name="sch_view_will_be_deleted">Attention schedule will be deleted irrevocably!</string>
+    <string name="sch_view_error_loading">Error loading schedule</string>
+    <string name="sch_view_saved">Schedule saved</string>
 
     <!-- pair editor -->
     <string name="pair_editor_title">Title</string>

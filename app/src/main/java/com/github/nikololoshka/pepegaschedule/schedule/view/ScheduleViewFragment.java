@@ -34,7 +34,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.PairEditorActivity;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.ScheduleEditorActivity;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 import com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
@@ -120,6 +120,19 @@ public class ScheduleViewFragment extends Fragment
      */
     public ScheduleViewFragment() {
         super();
+    }
+
+    /**
+     * Создает bundle с данными, требуемыми для фрагмента.
+     * @param name название расписания.
+     * @param path путь к расписанию.
+     * @return bundle с данными.
+     */
+    public static Bundle createBundle(@NonNull String name, @NonNull String path) {
+        Bundle bundle = new Bundle();
+        bundle.putString(ARG_SCHEDULE_NAME, name);
+        bundle.putString(ARG_SCHEDULE_PATH, path);
+        return bundle;
     }
 
     @Override
@@ -290,7 +303,7 @@ public class ScheduleViewFragment extends Fragment
             case R.id.remove_schedule: {
                 AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
                 alertDialog.setTitle(R.string.warning);
-                alertDialog.setMessage(getString(R.string.schedule_view_will_be_deleted));
+                alertDialog.setMessage(getString(R.string.sch_view_will_be_deleted));
                 alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,
                         getString(R.string.cancel),
                         new DialogInterface.OnClickListener() {
@@ -423,7 +436,7 @@ public class ScheduleViewFragment extends Fragment
 
                 } catch (IOException e) {
                     e.printStackTrace();
-                    showMessage(getString(R.string.schedule_view_unable_rename));
+                    showMessage(getString(R.string.sch_view_unable_rename));
                     return;
                 }
 
@@ -439,7 +452,7 @@ public class ScheduleViewFragment extends Fragment
                 mScheduleName = newScheduleName;
                 mSchedulePath = newFile.getAbsolutePath();
 
-                showMessage(getString(R.string.schedule_view_renamed));
+                showMessage(getString(R.string.sch_view_renamed));
                 reloadSchedule(ScheduleViewLoader.REQUEST_LOAD_SCHEDULE);
                 break;
             }
@@ -480,7 +493,7 @@ public class ScheduleViewFragment extends Fragment
 
                         mScheduleDataView.schedule.save(stream);
 
-                        showMessage(getString(R.string.schedule_view_saved));
+                        showMessage(getString(R.string.sch_view_saved));
                     }
 
                 } catch (FileNotFoundException | JSONException e) {
@@ -509,7 +522,7 @@ public class ScheduleViewFragment extends Fragment
         }
 
         SchedulePreference.remove(getContext(), mScheduleName);
-        showMessage(getString(R.string.schedule_removed));
+        showMessage(getString(R.string.sch_removed));
     }
 
     /**
@@ -551,7 +564,7 @@ public class ScheduleViewFragment extends Fragment
                 if (mScheduleName != null) {
                     bar.setTitle(mScheduleName);
                 } else {
-                    bar.setTitle(R.string.schedule_view);
+                    bar.setTitle(R.string.sch_view);
                 }
             }
         }
@@ -582,7 +595,7 @@ public class ScheduleViewFragment extends Fragment
     public void onLoadFinished(@NonNull Loader<ScheduleViewLoader.ScheduleDataView> loader,
                                ScheduleViewLoader.ScheduleDataView data) {
         if (data == null || data.schedule == null || data.hasErrors) {
-            showMessage(getString(R.string.schedule_view_error_loading));
+            showMessage(getString(R.string.sch_view_error_loading));
             return;
         }
 

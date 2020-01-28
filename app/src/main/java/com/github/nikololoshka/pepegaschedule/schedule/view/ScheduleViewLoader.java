@@ -8,8 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.github.nikololoshka.pepegaschedule.schedule.Schedule;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.Schedule;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 
 import org.json.JSONException;
 

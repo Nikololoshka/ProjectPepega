@@ -68,12 +68,25 @@
             android:id="@+id/recycler_repository"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingStart="@dimen/default_layout_padding"
-            android:paddingEnd="@dimen/default_layout_padding"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:itemCount="3"
             tools:listitem="@layout/item_schedule_repository" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <FrameLayout
+        android:id="@+id/repository_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/Text.Medium"
+            android:text="@string/repository_not_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:padding="@dimen/default_information_padding" />
+
+    </FrameLayout>
 
 </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>

@@ -2,7 +2,7 @@ package com.github.nikololoshka.pepegaschedule.schedule.view;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 
 import java.util.ArrayList;
 import java.util.TreeSet;

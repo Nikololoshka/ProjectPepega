@@ -72,6 +72,7 @@ public class ModuleJournalFragment extends Fragment
      * Pager с оценками.
      */
     private ViewPager2 mPagerSemesters;
+    private TabLayout mTabSemesters;
     private SemestersAdapter mSemestersAdapter;
 
     private ModuleJournalLoader mModuleJournalLoader;
@@ -105,11 +106,10 @@ public class ModuleJournalFragment extends Fragment
         View view = inflater.inflate(R.layout.fragment_module_journal, container, false);
         mStatefulLayoutMain = view.findViewById(R.id.stateful_layout);
         mStatefulLayoutMain.addXMLViews();
-        mStatefulLayoutMain.setState(R.id.mj_content_loading);
+        mStatefulLayoutMain.setLoadState();
 
         mStatefulLayoutPager = view.findViewById(R.id.stateful_layout_pager);
         mStatefulLayoutPager.addXMLViews();
-        mStatefulLayoutPager.setLoadState();
 
         mErrorTitleView = view.findViewById(R.id.mj_error_title);
         mErrorDescriptionView = view.findViewById(R.id.mj_error_description);
@@ -117,13 +117,14 @@ public class ModuleJournalFragment extends Fragment
         mStudentNameTextView = view.findViewById(R.id.mj_student_name);
         mStudentGroupTextView = view.findViewById(R.id.mj_student_group);
 
-        TabLayout tabLayout = view.findViewById(R.id.mj_tab_semesters);
+        mTabSemesters = view.findViewById(R.id.mj_tab_semesters);
         mPagerSemesters = view.findViewById(R.id.mj_pager_semesters);
 
         mSemestersAdapter = new SemestersAdapter();
         mSemestersAdapter.setUpdateListener(this);
 
         mPagerSemesters.setAdapter(mSemestersAdapter);
+        mPagerSemesters.setOffscreenPageLimit(1);
         mPagerSemesters.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
@@ -136,7 +137,7 @@ public class ModuleJournalFragment extends Fragment
                 new ViewModelProvider.NewInstanceFactory())
                 .get(ModuleJournalViewModel.class);
 
-        new TabLayoutMediator(tabLayout, mPagerSemesters, true,
+        new TabLayoutMediator(mTabSemesters, mPagerSemesters, true,
                 new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
@@ -146,6 +147,8 @@ public class ModuleJournalFragment extends Fragment
 
         mModuleJournalLoader = (ModuleJournalLoader) LoaderManager.getInstance(this)
                 .initLoader(MODULE_JOURNAL_LOADER, null, this);
+
+        setSemestersLoading(true);
 
         return view;
     }
@@ -216,8 +219,8 @@ public class ModuleJournalFragment extends Fragment
     private void refreshAll() {
         mReloadModuleJournal = true;
 
-        mStatefulLayoutMain.setState(R.id.mj_content_loading);
-        mStatefulLayoutPager.setLoadState();
+        mStatefulLayoutMain.setLoadState();
+        setSemestersLoading(true);
 
         mModuleJournalViewModel.semestersStorage().setUseCache(false);
         mModuleJournalLoader.reload(false);
@@ -296,9 +299,9 @@ public class ModuleJournalFragment extends Fragment
                         @Override
                         public void run() {
                             mPagerSemesters.setCurrentItem(pos, false);
+                            setSemestersLoading(false);
                         }
                     });
-                    mStatefulLayoutPager.setState(R.id.mj_pager_semesters);
                 }
             });
         }
@@ -337,5 +340,19 @@ public class ModuleJournalFragment extends Fragment
                         CommonUtils.dateToString(marks.time(), "HH:mm:ss dd.MM.yyyy",
                                 CommonUtils.locale(getContext()))),
                 Snackbar.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Устанавливает загрузку в pager и скрывает/показывает tabs.
+     * @param loading true - загрузка, false - показать контент.
+     */
+    private void setSemestersLoading(boolean loading) {
+        if (loading) {
+            mTabSemesters.setVisibility(View.INVISIBLE);
+            mStatefulLayoutPager.setLoadState();
+        } else {
+            mTabSemesters.setVisibility(View.VISIBLE);
+            mStatefulLayoutPager.setState(R.id.mj_pager_semesters);
+        }
     }
 }

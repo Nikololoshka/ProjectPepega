@@ -1,18 +1,18 @@
 package com.github.nikololoshka.pepegaschedule.home;
 
 import android.content.Context;
-import android.os.Build;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
 
-import com.github.nikololoshka.pepegaschedule.schedule.Schedule;
-import com.github.nikololoshka.pepegaschedule.schedule.ScheduleDay;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.Pair;
-import com.github.nikololoshka.pepegaschedule.schedule.pair.SubgroupEnum;
+import com.github.nikololoshka.pepegaschedule.schedule.model.Schedule;
+import com.github.nikololoshka.pepegaschedule.schedule.model.ScheduleDay;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.SubgroupEnum;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
+import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
 
 import org.json.JSONException;
 
@@ -25,9 +25,9 @@ import java.util.Locale;
 import java.util.TreeSet;
 
 
-public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
+public class HomeLoader extends AsyncTaskLoader<HomeLoader.LoadData> {
 
-    public static final int DAY_COUNT = 5;
+    private static final int DAY_COUNT = 5;
 
     HomeLoader(@NonNull Context context) {
         super(context);
@@ -35,30 +35,25 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
 
     @Nullable
     @Override
-    public DataView loadInBackground() {
+    public LoadData loadInBackground() {
         // get today date
         Calendar date = new GregorianCalendar();
         Calendar dayNow = new GregorianCalendar(date.get(Calendar.YEAR),
                 date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));
 
         // get locale
-        Locale locale;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            locale = getContext().getResources().getConfiguration().getLocales().get(0);
-        } else {
-            locale = getContext().getResources().getConfiguration().locale;
-        }
+        Locale locale = CommonUtils.locale(getContext());
 
-        // create dataView
-        DataView dataView = new DataView();
-        dataView.changeCount = SchedulePreference.changeCount();
+        // create loadData
+        LoadData loadData = new LoadData();
+        loadData.changeCount = SchedulePreference.changeCount();
 
         // set favorite schedule
         String favorite = SchedulePreference.favorite(getContext());
         if (favorite.isEmpty()) {
-            return dataView;
+            return loadData;
         }
-        dataView.favorite = favorite;
+        loadData.favorite = favorite;
 
         // load schedule
         String path = SchedulePreference.createPath(getContext(), favorite);
@@ -85,7 +80,7 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
 
                 removeIf(pairs, new RemovePairPredicate() {
                     @Override
-                    public boolean isRemove(Pair pair) {
+                    public boolean isRemove(@NonNull Pair pair) {
                         switch (subgroup) {
                             case A:
                                 return pair.subgroup().subgroup() == SubgroupEnum.B;
@@ -101,16 +96,16 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
                     locale).format(dayNow.getTime());
             String dayString = dayFormat.substring(0, 1).toUpperCase() + dayFormat.substring(1);
 
-            dataView.days.add(new ArrayList<>(pairs));
-            dataView.titles.add(dayString);
+            loadData.days.add(new ArrayList<>(pairs));
+            loadData.titles.add(dayString);
 
             dayNow.add(Calendar.DAY_OF_MONTH, 1);
         }
 
-        return dataView;
+        return loadData;
     }
 
-    private void removeIf(TreeSet<Pair> pairs, RemovePairPredicate predicate) {
+    private void removeIf(@NonNull TreeSet<Pair> pairs, @NonNull RemovePairPredicate predicate) {
         ArrayList<Pair> removed = new ArrayList<>();
         for (Pair pair : pairs) {
             if (predicate.isRemove(pair)) {
@@ -121,12 +116,15 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.DataView> {
     }
 
     private interface RemovePairPredicate {
-        boolean isRemove(Pair pair);
+        boolean isRemove(@NonNull Pair pair);
     }
 
-    class DataView {
+    class LoadData {
+        @NonNull
         String favorite = "";
+        @NonNull
         ArrayList<ArrayList<Pair>> days = new ArrayList<>();
+        @NonNull
         ArrayList<String> titles = new ArrayList<>();
 
         long changeCount;

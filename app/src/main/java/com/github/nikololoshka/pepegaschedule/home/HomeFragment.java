@@ -16,21 +16,19 @@ import androidx.navigation.Navigation;
 
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.home.pager.HomePager;
+import com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
 
 import java.util.Objects;
 
-import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment.ARG_SCHEDULE_NAME;
-import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment.ARG_SCHEDULE_PATH;
-
 /**
  * Фрагмент главной страницы.
  */
 public class HomeFragment extends Fragment
-        implements LoaderManager.LoaderCallbacks<HomeLoader.DataView> , View.OnClickListener {
+        implements LoaderManager.LoaderCallbacks<HomeLoader.LoadData> , View.OnClickListener {
 
-    private static final String TAG = "HomeFragmenLog";
+    private static final String TAG = "HomeFragmentLog";
 
     private static final int HOME_LOADER = 0;
 
@@ -38,9 +36,13 @@ public class HomeFragment extends Fragment
     private TextView mScheduleNameView;
     private HomePager mHomePager;
 
-    private Loader<HomeLoader.DataView> mHomeLoader;
+    /**
+     * Загрузчик данных для pager'а.
+     */
+    private Loader<HomeLoader.LoadData> mHomeLoader;
+
     @Nullable
-    private HomeLoader.DataView mDataView;
+    private String mFavoriteName;
 
     public HomeFragment() {
         super();
@@ -70,32 +72,35 @@ public class HomeFragment extends Fragment
 
     @NonNull
     @Override
-    public Loader<HomeLoader.DataView> onCreateLoader(int id, @Nullable Bundle args) {
+    public Loader<HomeLoader.LoadData> onCreateLoader(int id, @Nullable Bundle args) {
         mHomeLoader = new HomeLoader(Objects.requireNonNull(getContext()));
         updateScheduleData();
         return mHomeLoader;
     }
 
     @Override
-    public void onLoadFinished(@NonNull Loader<HomeLoader.DataView> loader,
-                               HomeLoader.DataView data) {
+    public void onLoadFinished(@NonNull Loader<HomeLoader.LoadData> loader,
+                               HomeLoader.LoadData data) {
         if (data.changeCount != SchedulePreference.changeCount()) {
             updateScheduleData();
             return;
         }
 
-        mDataView = data;
+        mFavoriteName = data.favorite;
         mHomePager.update(data.titles, data.days);
 
-        if (mDataView.favorite == null || mDataView.favorite.isEmpty()) {
+        if (data.favorite.isEmpty()) {
             mStatefulLayout.setState(R.id.no_favorite_schedule);
             mScheduleNameView.setText("");
         } else {
             mStatefulLayout.setState(R.id.home_pager);
-            mScheduleNameView.setText(mDataView.favorite);
+            mScheduleNameView.setText(data.favorite);
         }
     }
 
+    /**
+     * Обновляет данные pager'а.
+     */
     private void updateScheduleData() {
         mStatefulLayout.setLoadState();
         mScheduleNameView.setText("");
@@ -104,23 +109,22 @@ public class HomeFragment extends Fragment
     }
 
     @Override
-    public void onLoaderReset(@NonNull Loader<HomeLoader.DataView> loader) {
+    public void onLoaderReset(@NonNull Loader<HomeLoader.LoadData> loader) {
     }
 
     @Override
     public void onClick(View v) {
+        // нажато название расписание
         if (v.getId() == R.id.schedule_name) {
-            if (getActivity() == null || mDataView == null) {
+            if (getActivity() == null || mFavoriteName == null || mFavoriteName.isEmpty()) {
                 return;
             }
 
-            Bundle args = new Bundle();
-            String path = SchedulePreference.createPath(getActivity(), mDataView.favorite);
-            args.putString(ARG_SCHEDULE_PATH, path);
-            args.putString(ARG_SCHEDULE_NAME, mDataView.favorite);
+            String path = SchedulePreference.createPath(getActivity(), mFavoriteName);
 
             NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host);
-            navController.navigate(R.id.fromHomeFragmentToScheduleViewFragment, args);
+            navController.navigate(R.id.fromHomeFragmentToScheduleViewFragment,
+                    ScheduleViewFragment.createBundle(mFavoriteName, path));
         }
     }
 }
