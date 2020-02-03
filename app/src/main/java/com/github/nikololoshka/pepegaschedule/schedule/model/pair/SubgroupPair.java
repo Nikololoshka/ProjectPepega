@@ -1,28 +1,36 @@
 package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import android.os.Parcel;
+import android.os.Parcelable;
 
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidPairParseException;
+import androidx.annotation.NonNull;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class SubgroupPair extends AttributePair implements Comparable<SubgroupPair> {
+/**
+ * Подгруппа пары.
+ */
+public class SubgroupPair implements Comparable<SubgroupPair>, Parcelable {
 
+    private static final String JSON_TAG = "subgroup";
+
+    @NonNull
     private SubgroupEnum mSubgroup;
 
-    SubgroupPair() {
-        mSubgroup = null;
+    public SubgroupPair(@NonNull SubgroupEnum subgroup) {
+        mSubgroup = subgroup;
     }
 
-    private SubgroupPair(Parcel in) {
-        mSubgroup = (SubgroupEnum) in.readSerializable();
-    }
+    private SubgroupPair(@NonNull Parcel in) {
+        Serializable subgroup = in.readSerializable();
+        if (subgroup == null) {
+            throw new IllegalArgumentException("No parsable type pair: " + in);
+        }
 
-    public SubgroupPair(SubgroupPair subgroupPair) {
-        mSubgroup = subgroupPair.mSubgroup;
+        mSubgroup = (SubgroupEnum) subgroup;
     }
 
     public static final Creator<SubgroupPair> CREATOR = new Creator<SubgroupPair>() {
@@ -37,44 +45,43 @@ public class SubgroupPair extends AttributePair implements Comparable<SubgroupPa
         }
     };
 
-    public static SubgroupPair of(SubgroupEnum subgroup) {
-        SubgroupPair subgroupPair = new SubgroupPair();
-        subgroupPair.mSubgroup = subgroup;
-        return subgroupPair;
-    }
-
+    /**
+     * @return подгруппа пары.
+     */
+    @NonNull
     public SubgroupEnum subgroup() {
         return mSubgroup;
     }
 
-    @Override
-    public void load(JSONObject loadObject) throws JSONException {
-        String subgroup = loadObject.getString("subgroup");
-        for (SubgroupEnum subgroupEnum: SubgroupEnum.values()) {
-            if (subgroupEnum.tag().equals(subgroup)) {
-                mSubgroup = subgroupEnum;
-                return;
-            }
-        }
-        throw new InvalidPairParseException("Not parse subgroup: " + subgroup);
+    /**
+     * Создает SubgroupPair из json объекта.
+     * @param object json объект.
+     * @return подгруппа пары.
+     */
+    public static SubgroupPair fromJson(@NonNull JsonObject object) {
+        return new SubgroupPair(SubgroupEnum.of(object.get(JSON_TAG).getAsString()));
     }
 
-    public boolean isConcurrently(SubgroupPair o) {
+    /**
+     * Добавляет SubgroupPair в json объект.
+     * @param object json объект.
+     */
+    public void toJson(@NonNull JsonObject object) {
+        object.addProperty(JSON_TAG, mSubgroup.toString());
+    }
+
+    /**
+     * Определяет могут ли подгруппы существовать параллельно в расписании.
+     * @param subgroup подгруппа другой пары.
+     * @return true если текущая пара и другая могут быть в расписании в одно и тоже время, иначе false.
+     */
+    public boolean isConcurrently(@NonNull SubgroupPair subgroup) {
         if ((mSubgroup == SubgroupEnum.A || mSubgroup == SubgroupEnum.B)
-                && (o.mSubgroup == SubgroupEnum.A || o.mSubgroup == SubgroupEnum.B)) {
-            return mSubgroup == o.mSubgroup;
+                && (subgroup.mSubgroup == SubgroupEnum.A || subgroup.mSubgroup == SubgroupEnum.B)) {
+            return mSubgroup != subgroup.mSubgroup;
         }
-        return true;
-    }
-
-    @Override
-    public void save(JSONObject saveObject) throws JSONException {
-        saveObject.put("subgroup", mSubgroup.tag());
-    }
-
-    @Override
-    public boolean isValid() {
-        return mSubgroup != null && mSubgroup != SubgroupEnum.COMMON;
+        // если обе общии пары
+        return false;
     }
 
     @Override
@@ -95,9 +102,10 @@ public class SubgroupPair extends AttributePair implements Comparable<SubgroupPa
         return Objects.hash(mSubgroup);
     }
 
+    @NonNull
     @Override
     public String toString() {
-        return mSubgroup.text();
+        return mSubgroup.toString();
     }
 
     @Override

@@ -2,80 +2,86 @@ package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import android.os.Parcel;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidDateException;
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidFrequencyForDateException;
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidIntersectDateException;
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidPairParseException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidDateFrequencyException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidDateParseException;
+import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Locale;
 import java.util.Objects;
 
+/**
+ * Дата пары с диапазоном.
+ */
 public class DateRange extends DateItem {
 
-    @Nullable
-    private Calendar mDateStart;
-    @Nullable
-    private Calendar mDateEnd;
+    @NonNull
+    private Calendar mFirstDate;
 
+    @NonNull
+    private Calendar mLastDate;
+
+    @NonNull
     private FrequencyEnum mFrequency;
 
-    DateRange() {
-        mDateStart = null;
-        mDateEnd = null;
-        mFrequency = FrequencyEnum.EVERY;
-    }
+    public DateRange(@NonNull String stringFirst, @NonNull String stringLast,
+                     @NonNull FrequencyEnum frequency, @NonNull String pattern) {
 
-    private DateRange(Parcel in) {
-        mDateStart = (Calendar) in.readSerializable();
-        mDateEnd = (Calendar) in.readSerializable();
-        mFrequency = (FrequencyEnum) in.readSerializable();
-    }
-
-    public DateRange(DateRange dateRange) {
-        mDateStart = (Calendar) (dateRange.mDateStart != null ? dateRange.mDateStart.clone() : null);
-        mDateEnd = (Calendar) (dateRange.mDateEnd != null ? dateRange.mDateEnd.clone() : null);
-        mFrequency = dateRange.mFrequency;
-    }
-
-    public static DateRange of(String start, String end, FrequencyEnum frequency) {
-        DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.ROOT);
+        DateFormat format = new SimpleDateFormat(pattern, CommonUtils.locale(null));
         format.setLenient(false);
+
         Calendar dateStart = new GregorianCalendar();
         Calendar dateEnd = new GregorianCalendar();
         try {
-            dateStart.setTime(format.parse(start));
-            dateEnd.setTime(format.parse(end));
-        } catch (ParseException ignored) {
-            throw new InvalidDateException(String.format("Start: %s; End: %s; Frequency: %s",
-                    start, end, frequency.tag()));
+            // игнор, т.к. parse кидает исключения
+            dateStart.setTime(format.parse(stringFirst));
+            dateEnd.setTime(format.parse(stringLast));
+
+        } catch (ParseException e) {
+            throw new InvalidDateParseException(
+                    String.format("%s-%s", stringFirst, stringLast), e);
         }
 
-        // check day of week
-        DayOfWeek.valueOf(dateStart);
-        DayOfWeek.valueOf(dateEnd);
+        // проверка дня недели
+        DayOfWeek.of(dateStart);
+        DayOfWeek.of(dateEnd);
 
         long diffInMillis = dateEnd.getTimeInMillis() - dateStart.getTimeInMillis();
-        if ((diffInMillis / 86400000) % frequency.period() != 0) {
-            throw new InvalidFrequencyForDateException(String.format("Start: %s; End: %s; Frequency: %s",
-                    start, end, frequency.tag()));
+        if (diffInMillis == 0 || (diffInMillis / 1000 * 60 * 60 * 24) % frequency.period() != 0) {
+            throw new InvalidDateFrequencyException(
+                    String.format("Start: %s; End: %s; Frequency: %s", stringFirst, stringLast, frequency));
         }
 
-        DateRange dateRange = new DateRange();
-        dateRange.mDateStart = dateStart;
-        dateRange.mDateEnd = dateEnd;
-        dateRange.mFrequency = frequency;
-        return dateRange;
+        mFirstDate = dateStart;
+        mLastDate = dateEnd;
+        mFrequency = frequency;
+    }
+
+    public DateRange(@NonNull String stringFirst, @NonNull String stringLast, @NonNull FrequencyEnum frequency) {
+        this(stringFirst, stringLast, frequency, "yyyy.MM.dd");
+    }
+
+    private DateRange(@NonNull Parcel in) {
+        Serializable start =  in.readSerializable();
+        Serializable end = in.readSerializable();
+        Serializable frequency = in.readSerializable();
+
+        if (start == null || end == null || frequency == null) {
+            throw new IllegalArgumentException("No parsable range date pair: " + in);
+        }
+
+        mFirstDate = (Calendar) start;
+        mLastDate = (Calendar) end;
+        mFrequency = (FrequencyEnum) frequency;
     }
 
     public static final Creator<DateRange> CREATOR = new Creator<DateRange>() {
@@ -90,154 +96,126 @@ public class DateRange extends DateItem {
         }
     };
 
-    @Nullable
-    public Calendar dateStart() {
-        return mDateStart;
+    /**
+     * @return первая дата диапазона.
+     */
+    @NonNull
+    public Calendar firstDate() {
+        return mFirstDate;
     }
 
-    @Nullable
-    public Calendar dateEnd() {
-        return mDateEnd;
+    /**
+     * @return последняя дата диапазона.
+     */
+    @NonNull
+    public Calendar lastDate() {
+        return mLastDate;
     }
 
+    @NonNull
     @Override
     public FrequencyEnum frequency() {
         return mFrequency;
     }
 
+    @NonNull
     @Override
     public DayOfWeek dayOfWeek() {
-        return DayOfWeek.valueOf(mDateStart);
+        return DayOfWeek.of(mFirstDate);
     }
 
-    @Override
-    public String compactDate() {
-        if (mDateStart == null || mDateEnd == null) {
-            return "";
-        }
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM", Locale.ROOT);
-        return dateFormat.format(mDateStart.getTime()) + "-"
-                + dateFormat.format(mDateEnd.getTime()) + " " + mFrequency.text();
-    }
-
+    @NonNull
     @Override
     public String fullDate() {
-        if (mDateStart == null || mDateEnd == null) {
-            return "";
+        return CommonUtils.dateToString(mFirstDate, "yyyy.MM.dd")
+                + "-" + CommonUtils.dateToString(mLastDate, "yyyy.MM.dd");
+    }
+
+    @NonNull
+    @Override
+    public Calendar firstDay() {
+        return mFirstDate;
+    }
+
+    @NonNull
+    @Override
+    public Calendar lastDay() {
+        return mLastDate;
+    }
+
+    /**
+     * Создает DateRange из json объекта.
+     * @param object json объект.
+     * @return дата пары с диапазоном.
+     */
+    public static DateRange fromJson(@NonNull JsonObject object) {
+        String inputFrequency = object.get(JSON_FREQUENCY).getAsString();
+        String inputDate = object.get(JSON_DATE).getAsString();
+
+        FrequencyEnum frequency = FrequencyEnum.of(inputFrequency);
+        if (frequency == FrequencyEnum.ONCE) {
+            throw new InvalidDateFrequencyException("Invalid frequency: " + frequency);
         }
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd", Locale.ROOT);
-        return dateFormat.format(mDateStart.getTime()) + "-"
-                + dateFormat.format(mDateEnd.getTime());
-    }
-
-    @Override
-    public Calendar minDate() {
-        return mDateStart;
-    }
-
-    @Override
-    public Calendar maxDate() {
-        return mDateEnd;
-    }
-
-    @Override
-    public void load(JSONObject loadObject) throws JSONException {
-        String frequency = loadObject.getString("frequency");
-        String date = loadObject.getString("date");
-
-        if (frequency.equals(FrequencyEnum.EVERY.tag())) {
-            mFrequency = FrequencyEnum.EVERY;
-        } else if (frequency.equals(FrequencyEnum.THROUGHOUT.tag())) {
-            mFrequency = FrequencyEnum.THROUGHOUT;
-        } else {
-            throw new InvalidPairParseException("Invalid frequency: " + frequency);
-        }
-
-        String[] dates = date.split("-");
+        String[] dates = inputDate.split("-");
         if (dates.length != 2) {
-            throw new InvalidDateException(date);
+            throw new InvalidDateParseException(inputDate);
         }
 
-        String startDate = dates[0];
-        String endDate = dates[1];
-
-        DateFormat format = new SimpleDateFormat("yyyy.MM.dd", Locale.ROOT);
-        format.setLenient(false);
-        Calendar dateStart = new GregorianCalendar();
-        Calendar dateEnd = new GregorianCalendar();
-
-        try {
-            dateStart.setTime(format.parse(startDate));
-            dateEnd.setTime(format.parse(endDate));
-        } catch (ParseException ignored) {
-            throw new InvalidDateException(String.format("Start: %s; End: %s; Frequency: %s",
-                    startDate, endDate, mFrequency.tag()));
-        }
-
-        long diffInMillis = dateEnd.getTimeInMillis() - dateStart.getTimeInMillis();
-        if ((diffInMillis / 86400000) % mFrequency.period() != 0) {
-            throw new InvalidFrequencyForDateException(String.format("Start: %s; End: %s; Frequency: %s",
-                    startDate, endDate, mFrequency.tag()));
-        }
-
-        mDateStart = dateStart;
-        mDateEnd = dateEnd;
+        return new DateRange(dates[0], dates[1], frequency);
     }
 
     @Override
-    public boolean intersect(DateItem dateItem) {
-        if (mDateStart != null) {
-            if (dateItem instanceof DateSingle) {
-                Calendar dateSingle = ((DateSingle) dateItem).date();
-                Calendar date = (Calendar) mDateStart.clone();
+    public void toJson(@NonNull JsonArray array) {
+        JsonObject dateObject = new JsonObject();
 
-                while (date.compareTo(mDateEnd) <= 0) {
-                    if (Objects.equals(date, dateSingle)) {
+        dateObject.addProperty(JSON_DATE, fullDate());
+        dateObject.addProperty(JSON_FREQUENCY, frequency().toString());
+
+        array.add(dateObject);
+    }
+
+    @Override
+    public boolean intersect(@NonNull DateItem dateItem) {
+        // пересечение с единождной датой
+        if (dateItem instanceof DateSingle) {
+            Calendar dateSingle = ((DateSingle) dateItem).date();
+
+            Calendar iteratorDate = CommonUtils.normalizeDate(mFirstDate);
+            while (iteratorDate.compareTo(mLastDate) <= 0) {
+                if (iteratorDate.equals(dateSingle)) {
+                    return true;
+                }
+                iteratorDate.add(Calendar.DAY_OF_MONTH, mFrequency.period());
+            }
+
+            return false;
+        }
+        // пересечение с другим диапазоном
+        if (dateItem instanceof DateRange) {
+            DateRange dateRange = (DateRange) dateItem;
+
+            Calendar iteratorFirst = CommonUtils.normalizeDate(dateRange.mFirstDate);
+            Calendar iteratorSecond = CommonUtils.normalizeDate(mFirstDate);
+
+            int i = 0;
+            while (iteratorFirst.compareTo(dateRange.lastDate()) <= 0) {
+                iteratorSecond.add(Calendar.DAY_OF_MONTH, i * mFrequency.period());
+                i = 0;
+                while (iteratorSecond.compareTo(mLastDate) <= 0) {
+                    if (iteratorFirst.equals(iteratorSecond)) {
                         return true;
                     }
-                    date.add(Calendar.DAY_OF_MONTH, mFrequency.period());
+                    iteratorSecond.add(Calendar.DAY_OF_MONTH, mFrequency.period());
+                    i--;
                 }
-                return false;
+                iteratorFirst.add(Calendar.DAY_OF_MONTH, dateRange.frequency().period());
             }
-            if (dateItem instanceof DateRange) {
-                DateRange dateRange = (DateRange) dateItem;
-
-                if (dateRange.dateStart() == null) {
-                    throw new InvalidIntersectDateException(String.format("Can not intersect date: '%s' and '%s'",
-                            this.toString(), dateItem.toString()));
-                }
-
-                Calendar firstDate = (Calendar) dateRange.dateStart().clone();
-                Calendar secondDate = (Calendar) mDateStart.clone();
-
-                int i = 0;
-                while (firstDate.compareTo(dateRange.dateEnd()) <= 0) {
-                    secondDate.add(Calendar.DAY_OF_MONTH, i * mFrequency.period());
-                    i = 0;
-                    while (secondDate.compareTo(mDateEnd) <= 0) {
-                        if (firstDate.equals(secondDate)) {
-                            return true;
-                        }
-                        secondDate.add(Calendar.DAY_OF_MONTH, mFrequency.period());
-                        i--;
-                    }
-                    firstDate.add(Calendar.DAY_OF_MONTH, dateRange.frequency().period());
-                }
-                return false;
-            }
+            return false;
         }
-        throw new InvalidIntersectDateException(String.format("Can not intersect date: '%s' and '%s'",
-                this.toString(), dateItem.toString()));
-    }
 
-    @Override
-    public void save(JSONArray saveArray) throws JSONException {
-        JSONObject dateObject = new JSONObject();
-        dateObject.put("frequency", mFrequency.tag());
-        dateObject.put("date", fullDate());
-        saveArray.put(dateObject);
+        throw new IllegalArgumentException(String.format("Can not intersect date: '%s' and '%s'",
+                this.toString(), dateItem.toString()));
     }
 
     @Override
@@ -255,29 +233,25 @@ public class DateRange extends DateItem {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(@Nullable Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DateRange dateRange = (DateRange) o;
-        return Objects.equals(mDateStart, dateRange.mDateStart) &&
-                Objects.equals(mDateEnd, dateRange.mDateEnd) &&
-                mFrequency == dateRange.mFrequency;
+        return mFirstDate.equals(dateRange.mFirstDate) && mLastDate.equals(dateRange.mLastDate)
+                && mFrequency == dateRange.mFrequency;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mDateStart, mDateEnd, mFrequency);
+        return Objects.hash(mFirstDate, mLastDate, mFrequency);
     }
 
+    @NonNull
     @Override
     public String toString() {
-        if (mDateStart == null || mDateEnd == null) {
-            return "null - null null";
-        }
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.ROOT);
-        return String.format("%s - %s %s", dateFormat.format(mDateStart.getTime()),
-                dateFormat.format(mDateEnd.getTime()), mFrequency.text());
+        return String.format("%s - %s",
+                CommonUtils.dateToString(mFirstDate, "dd.MM.yyyy"),
+                CommonUtils.dateToString(mLastDate, "dd.MM.yyyy"));
     }
 
     @Override
@@ -287,8 +261,8 @@ public class DateRange extends DateItem {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeSerializable(mDateStart);
-        dest.writeSerializable(mDateEnd);
+        dest.writeSerializable(mFirstDate);
+        dest.writeSerializable(mLastDate);
         dest.writeSerializable(mFrequency);
     }
 }

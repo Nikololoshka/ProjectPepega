@@ -5,39 +5,73 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 
+import java.lang.reflect.Type;
 import java.util.Objects;
 
+/**
+ * POJO класс пары в расписании.
+ */
 public class Pair implements Parcelable {
 
+    @NonNull
     private TitlePair mTitle;
+    @NonNull
     private LecturerPair mLecturer;
+    @NonNull
     private TypePair mType;
+    @NonNull
     private SubgroupPair mSubgroup;
+    @NonNull
     private ClassroomPair mClassroom;
+    @NonNull
     private TimePair mTime;
+    @NonNull
     private DatePair mDate;
 
-    public Pair() {
-        mTitle = new TitlePair();
-        mLecturer = new LecturerPair();
-        mType = new TypePair();
-        mSubgroup = new SubgroupPair();
-        mClassroom = new ClassroomPair();
-        mTime = new TimePair();
-        mDate = new DatePair();
+    public Pair(@NonNull TitlePair titlePair, @NonNull LecturerPair lecturerPair,
+                @NonNull TypePair typePair, @NonNull SubgroupPair subgroupPair,
+                @NonNull ClassroomPair classroomPair, @NonNull TimePair timePair,
+                @NonNull DatePair datePair) {
+
+        mTitle = titlePair;
+        mLecturer = lecturerPair;
+        mType = typePair;
+        mSubgroup = subgroupPair;
+        mClassroom = classroomPair;
+        mTime = timePair;
+        mDate = datePair;
     }
 
-    protected Pair(Parcel in) {
-        mTitle = in.readParcelable(TitlePair.class.getClassLoader());
-        mLecturer = in.readParcelable(LecturerPair.class.getClassLoader());
-        mType = in.readParcelable(TypePair.class.getClassLoader());
-        mSubgroup = in.readParcelable(SubgroupPair.class.getClassLoader());
-        mClassroom = in.readParcelable(ClassroomPair.class.getClassLoader());
-        mTime = in.readParcelable(TimePair.class.getClassLoader());
-        mDate = in.readParcelable(DatePair.class.getClassLoader());
+    private Pair(@NonNull Parcel in) {
+        TitlePair titlePair = in.readParcelable(TitlePair.class.getClassLoader());
+        LecturerPair lecturerPair = in.readParcelable(LecturerPair.class.getClassLoader());
+        TypePair typePair = in.readParcelable(TypePair.class.getClassLoader());
+        SubgroupPair subgroupPair = in.readParcelable(SubgroupPair.class.getClassLoader());
+        ClassroomPair classroomPair = in.readParcelable(ClassroomPair.class.getClassLoader());
+        TimePair timePair = in.readParcelable(TimePair.class.getClassLoader());
+        DatePair datePair = in.readParcelable(DatePair.class.getClassLoader());
+
+        if (titlePair == null || lecturerPair == null || typePair == null
+                || subgroupPair == null || classroomPair == null
+                || timePair == null || datePair == null) {
+            throw new IllegalArgumentException("No parsable pair: " + in);
+        }
+
+        mTitle = titlePair;
+        mLecturer = lecturerPair;
+        mType = typePair;
+        mSubgroup = subgroupPair;
+        mClassroom = classroomPair;
+        mTime = timePair;
+        mDate = datePair;
     }
 
     public static final Creator<Pair> CREATOR = new Creator<Pair>() {
@@ -52,97 +86,74 @@ public class Pair implements Parcelable {
         }
     };
 
-    public void load(JSONObject loadObject) throws JSONException {
-        mTitle.load(loadObject);
-        mLecturer.load(loadObject);
-        mType.load(loadObject);
-        mSubgroup.load(loadObject);
-        mClassroom.load(loadObject);
-        mTime.load(loadObject);
-        mDate.load(loadObject);
-    }
-
-    public JSONObject save() throws JSONException {
-        JSONObject jsonPair = new JSONObject();
-
-        mTitle.save(jsonPair);
-        mLecturer.save(jsonPair);
-        mType.save(jsonPair);
-        mSubgroup.save(jsonPair);
-        mClassroom.save(jsonPair);
-        mTime.save(jsonPair);
-        mDate.save(jsonPair);
-
-        return jsonPair;
-    }
-
+    @NonNull
     public TitlePair title() {
         return mTitle;
     }
 
+    public void setTitle(@NonNull TitlePair title) {
+        mTitle = title;
+    }
+
+    @NonNull
     public LecturerPair lecturer() {
         return mLecturer;
     }
 
+    public void setLecturer(@NonNull LecturerPair lecturer) {
+        mLecturer = lecturer;
+    }
+
+    @NonNull
     public TypePair type() {
         return mType;
     }
 
+    public void setType(@NonNull TypePair type) {
+        mType = type;
+    }
+
+    @NonNull
     public SubgroupPair subgroup() {
         return mSubgroup;
     }
 
+    public void setSubgroup(@NonNull SubgroupPair subgroup) {
+        mSubgroup = subgroup;
+    }
+
+    @NonNull
     public ClassroomPair classroom() {
         return mClassroom;
     }
 
+    public void setClassroom(@NonNull ClassroomPair classroom) {
+        mClassroom = classroom;
+    }
+
+    @NonNull
     public TimePair time() {
         return mTime;
     }
 
+    public void setTime(@NonNull TimePair time) {
+        mTime = time;
+    }
+
+    @NonNull
     public DatePair date() {
         return mDate;
     }
 
-    public void setTitle(TitlePair title) {
-        mTitle = title;
-    }
-
-    public void setLecturer(LecturerPair lecturer) {
-        mLecturer = lecturer;
-    }
-
-    public void setType(TypePair type) {
-        mType = type;
-    }
-
-    public void setSubgroup(SubgroupPair subgroup) {
-        mSubgroup = subgroup;
-    }
-
-    public void setClassroom(ClassroomPair classroom) {
-        mClassroom = classroom;
-    }
-
-    public void setTime(TimePair time) {
-        mTime = time;
-    }
-
-    public void setDate(DatePair date) {
+    public void setDate(@NonNull DatePair date) {
         mDate = date;
     }
 
+    @NonNull
     @Override
-    public @NonNull String toString() {
-        return "pair{" +
-                "mTitle=" + mTitle +
-                ", mLecturer=" + mLecturer +
-                ", mType=" + mType +
-                ", mSubgroup=" + mSubgroup +
-                ", mClassroom=" + mClassroom +
-                ", mTime=" + mTime +
-                ", mDate=" + mDate +
-                '}';
+    public String toString() {
+        return String.format("%s. %s. %s. %s. %s. %s. %s",
+                mTitle, mLecturer, mType, mSubgroup, mClassroom, mTime, mDate);
     }
 
     @Override
@@ -150,13 +161,13 @@ public class Pair implements Parcelable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pair pair = (Pair) o;
-        return Objects.equals(mTitle, pair.mTitle) &&
-                Objects.equals(mLecturer, pair.mLecturer) &&
-                Objects.equals(mType, pair.mType) &&
-                Objects.equals(mSubgroup, pair.mSubgroup) &&
-                Objects.equals(mClassroom, pair.mClassroom) &&
-                Objects.equals(mTime, pair.mTime) &&
-                Objects.equals(mDate, pair.mDate);
+        return mTitle.equals(pair.mTitle) &&
+                mLecturer.equals(pair.mLecturer) &&
+                mType.equals(pair.mType) &&
+                mSubgroup.equals(pair.mSubgroup) &&
+                mClassroom.equals(pair.mClassroom) &&
+                mTime.equals(pair.mTime) &&
+                mDate.equals(pair.mDate);
     }
 
     @Override
@@ -179,5 +190,45 @@ public class Pair implements Parcelable {
         dest.writeParcelable(mClassroom, flags);
         dest.writeParcelable(mTime, flags);
         dest.writeParcelable(mDate, flags);
+    }
+
+    /**
+     * Правило сериализации пары.
+     */
+    public static class PairSerialize implements JsonSerializer<Pair> {
+
+        @Override
+        public JsonElement serialize(Pair src, Type typeOfSrc, JsonSerializationContext context) {
+            JsonObject jsonObject = new JsonObject();
+
+            src.mTitle.toJson(jsonObject);
+            src.mLecturer.toJson(jsonObject);
+            src.mType.toJson(jsonObject);
+            src.mSubgroup.toJson(jsonObject);
+            src.mClassroom.toJson(jsonObject);
+            src.mTime.toJson(jsonObject);
+            src.mDate.toJson(jsonObject);
+
+            return jsonObject;
+        }
+    }
+
+    /**
+     * Правило десериализиции пары.
+     */
+    public static class PairDeserialize implements JsonDeserializer<Pair> {
+
+        @Override
+        public Pair deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+            JsonObject pairObject = json.getAsJsonObject();
+
+            return new Pair(TitlePair.fromJson(pairObject),
+                    LecturerPair.fromJson(pairObject),
+                    TypePair.fromJson(pairObject),
+                    SubgroupPair.fromJson(pairObject),
+                    ClassroomPair.fromJson(pairObject),
+                    TimePair.fromJson(pairObject),
+                    DatePair.fromJson(pairObject));
+        }
     }
 }

@@ -1,24 +1,59 @@
 package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
+import androidx.annotation.NonNull;
 
+import com.google.gson.annotations.Expose;
+
+/**
+ * Перечисление типы пары.
+ */
 public enum TypeEnum {
-    LECTURE("Lecture", "Лекция"),
-    SEMINAR("Seminar", "Семинар"),
-    LABORATORY("Laboratory", "Лабораторная работа");
 
-    private String m_tag;
-    private String m_text;
+    /**
+     * Лекция.
+     */
+    @Expose
+    LECTURE("Lecture"),
 
-    TypeEnum(String tag, String text) {
-        m_tag = tag;
-        m_text = text;
+    /**
+     * Семинар.
+     */
+    @Expose
+    SEMINAR("Seminar"),
+
+    /**
+     * Лабораторное занятие.
+     */
+    @Expose
+    LABORATORY("Laboratory");
+
+
+    @NonNull
+    private String mTag;
+
+    TypeEnum(@NonNull String tag) {
+        mTag = tag;
     }
 
-    public String tag() {
-        return m_tag;
+    /**
+     * Возвращает значение типа пары соотвествующие значению в строке.
+     * @param value строка с типом пары.
+     * @return тип пары.
+     */
+    @NonNull
+    public static TypeEnum of(@NonNull String value) {
+        for (TypeEnum type : TypeEnum.values()) {
+            if (type.mTag.equals(value)) {
+                return type;
+            }
+        }
+
+        throw new IllegalArgumentException("No parse type: " + value);
     }
 
-    public String text() {
-        return m_text;
+    @NonNull
+    @Override
+    public String toString() {
+        return mTag;
     }
 }

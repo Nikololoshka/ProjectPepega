@@ -1,27 +1,35 @@
 package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import android.os.Parcel;
+import android.os.Parcelable;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import androidx.annotation.NonNull;
+
+import com.google.gson.JsonObject;
 
 import java.util.Objects;
 
+/**
+ * Название пары.
+ */
+public class TitlePair implements Comparable<TitlePair>, Parcelable {
 
-public class TitlePair extends AttributePair implements Comparable<TitlePair> {
+    private static final String JSON_TAG = "title";
 
+    @NonNull
     private String mTitle;
 
-    TitlePair() {
-        mTitle = "";
+    public TitlePair(@NonNull String title) {
+        mTitle = title;
     }
 
-    private TitlePair(Parcel in) {
-        mTitle = in.readString();
-    }
+    private TitlePair(@NonNull Parcel in) {
+        String title = in.readString();
+        if (title == null) {
+            throw new IllegalArgumentException("No parsable title pair: " + in);
+        }
 
-    public TitlePair(TitlePair titlePair) {
-        mTitle = titlePair.mTitle;
+        mTitle = title;
     }
 
     public static final Creator<TitlePair> CREATOR = new Creator<TitlePair>() {
@@ -36,29 +44,28 @@ public class TitlePair extends AttributePair implements Comparable<TitlePair> {
         }
     };
 
-    public static TitlePair of(String s) {
-        TitlePair titlePair = new TitlePair();
-        titlePair.mTitle = s.trim();
-        return titlePair;
-    }
-
+    /**
+     * @return название пары.
+     */
     public String title() {
         return mTitle;
     }
 
-    @Override
-    public void load(JSONObject loadObject) throws JSONException {
-        mTitle = loadObject.getString("title");
+    /**
+     * Создает TitlePair из json объекта.
+     * @param object json объект.
+     * @return название пары.
+     */
+    public static TitlePair fromJson(@NonNull JsonObject object) {
+        return new TitlePair(object.get(JSON_TAG).getAsString());
     }
 
-    @Override
-    public void save(JSONObject saveObject) throws JSONException {
-        saveObject.put("title", mTitle);
-    }
-
-    @Override
-    public boolean isValid() {
-        return !mTitle.isEmpty();
+    /**
+     * Добавляет TitlePair в json объект.
+     * @param object json объект.
+     */
+    public void toJson(@NonNull JsonObject object) {
+        object.addProperty(JSON_TAG, mTitle);
     }
 
     @Override
@@ -79,6 +86,7 @@ public class TitlePair extends AttributePair implements Comparable<TitlePair> {
         return Objects.hash(mTitle);
     }
 
+    @NonNull
     @Override
     public String toString() {
         return mTitle;

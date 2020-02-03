@@ -2,20 +2,64 @@ package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import android.os.Parcelable;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.gson.JsonArray;
 
 import java.util.Calendar;
 
+/**
+ * Абстактный класс дат пары в расписании.
+ */
 public abstract class DateItem implements Comparable<DateItem>, Parcelable {
+
+    static final String JSON_DATE = "date";
+    static final String JSON_FREQUENCY = "frequency";
+
+    /**
+     * @return день недели даты.
+     */
+    @NonNull
     public abstract DayOfWeek dayOfWeek();
-    public abstract String compactDate();
+
+    /**
+     * @return возвращает полную дату в формате: YYYY.MM.DD.
+     */
+    @NonNull
     public abstract String fullDate();
-    public abstract Calendar minDate();
-    public abstract Calendar maxDate();
+
+    /**
+     * @return первый день даты.
+     */
+    @NonNull
+    public abstract Calendar firstDay();
+
+    /**
+     * @return последний день даты.
+     */
+    @NonNull
+    public abstract Calendar lastDay();
+
+    /**
+     * @return периодичность даты.
+     */
+    @NonNull
     public abstract FrequencyEnum frequency();
-    public abstract boolean intersect(DateItem dateItem);
-    public abstract void load(JSONObject loadObject) throws JSONException;
-    public abstract void save(JSONArray saveArray) throws JSONException;
+
+    /**
+     * Определяет, пересекаются ли даты между собой.
+     * @param dateItem сравниваемая дата.
+     * @return true если пересекаются, иначе false.
+     */
+    public abstract boolean intersect(@NonNull DateItem dateItem);
+
+    /**
+     * Добавляет DateItem в json массив.
+     * @param array json массив.
+     */
+    public abstract void toJson(@NonNull JsonArray array);
+
+    @Override
+    public abstract boolean equals(@Nullable Object o);
 }

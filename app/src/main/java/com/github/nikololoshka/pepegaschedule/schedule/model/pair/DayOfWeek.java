@@ -1,25 +1,56 @@
 package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidDayOfWeekException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidDayOfWeekException;
+import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
 
 import java.util.Calendar;
 
+/**
+ * Дни недели даты в расписании.
+ */
 public enum DayOfWeek {
+
+    /**
+     * Понедельник.
+     */
     MONDAY,
+
+    /**
+     * Вторник.
+     */
     TUESDAY,
+
+    /**
+     * Среда.
+     */
     WEDNESDAY,
+
+    /**
+     * Четверг.
+     */
     THURSDAY,
+
+    /**
+     * Пятница.
+     */
     FRIDAY,
+
+    /**
+     * Суббота.
+     */
     SATURDAY;
 
-    static public DayOfWeek valueOf(@Nullable Calendar date) {
-        if (date == null) {
-            throw new IllegalArgumentException("Day of week is null");
-        }
-
+    /**
+     * Возвращает день недели соотвествующей даты.
+     * @param date дата.
+     * @return день недели.
+     * @throws InvalidDayOfWeekException если не удалось узнать день недели.
+     */
+    public static DayOfWeek of(@NonNull Calendar date) {
         int dayNumber = date.get(Calendar.DAY_OF_WEEK);
+
         switch (dayNumber) {
             case Calendar.MONDAY:
                 return DayOfWeek.MONDAY;
@@ -35,6 +66,7 @@ public enum DayOfWeek {
                 return DayOfWeek.SATURDAY;
         }
 
-        throw new InvalidDayOfWeekException(date);
+        throw new InvalidDayOfWeekException("Invalid day of week: "
+                + CommonUtils.dateToString(date, "dd.MM.yyyy"));
     }
 }

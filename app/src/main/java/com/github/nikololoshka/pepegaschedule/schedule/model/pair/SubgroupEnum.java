@@ -1,23 +1,59 @@
 package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
+import androidx.annotation.NonNull;
+
+import com.google.gson.annotations.Expose;
+
+/**
+ * Перечисление подгруппы пары.
+ */
 public enum SubgroupEnum {
-    A("A", "(А)"),
-    B("B", "(Б)"),
-    COMMON("Common", "---");
 
-    private String m_tag;
-    private String m_text;
+    /**
+     * Подгруппа А.
+     */
+    @Expose
+    A("A"),
 
-    SubgroupEnum(String tag, String text) {
-        m_tag = tag;
-        m_text = text;
+    /**
+     * Подгруппа Б.
+     */
+    @Expose
+    B("B"),
+
+    /**
+     * Обшая пара.
+     */
+    @Expose
+    COMMON("Common");
+
+
+    @NonNull
+    private String mTag;
+
+    SubgroupEnum(@NonNull String tag) {
+        mTag = tag;
     }
 
-    public String tag() {
-        return m_tag;
+    /**
+     * Возвращает значение подгруппы соотвествующие значению в строке.
+     * @param value строка с подгруппой.
+     * @return подгруппа.
+     */
+    @NonNull
+    public static SubgroupEnum of(@NonNull String value) {
+        for (SubgroupEnum subgroup : SubgroupEnum.values()) {
+            if (subgroup.mTag.equals(value)) {
+                return subgroup;
+            }
+        }
+
+        throw new IllegalArgumentException("No parse subgroup: " + value);
     }
 
-    public String text() {
-        return m_text;
+    @NonNull
+    @Override
+    public String toString() {
+        return mTag;
     }
 }

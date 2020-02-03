@@ -3,11 +3,13 @@ package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,27 +17,53 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
 import java.util.TreeSet;
 
-public class DatePair extends AttributePair implements Comparable<DatePair> {
+import static com.github.nikololoshka.pepegaschedule.schedule.model.pair.DateItem.JSON_FREQUENCY;
 
+/**
+ * Дата пары.
+ */
+public class DatePair implements Comparable<DatePair>, Parcelable {
+
+    private static final String JSON_TAG = "dates";
+
+    /**
+     * Даты пары.
+     */
+    @NonNull
     private TreeSet<DateItem> mDates;
-    @Nullable
+
+    @NonNull
     private DayOfWeek mDayOfWeek;
 
-    DatePair() {
+    public DatePair(@NonNull Collection<? extends DateItem> items) {
+        if (!items.isEmpty()) {
+            mDayOfWeek = items.iterator().next().dayOfWeek();
+        } else {
+            throw new IllegalArgumentException("Collection of DateItem is empty");
+        }
+
         mDates = new TreeSet<>();
-        mDayOfWeek = null;
+        for (DateItem item : items) {
+            addDate(item);
+        }
     }
 
-    private DatePair(Parcel in) {
+    private DatePair(@NonNull Parcel in) {
         Parcelable[] dateItems = in.readParcelableArray(DateItem.class.getClassLoader());
         mDates = new TreeSet<>();
-        if (dateItems != null) {
-            for (Parcelable item : dateItems) {
-                addDate((DateItem) item);
-            }
+
+        if (dateItems == null || dateItems.length == 0) {
+            throw new IllegalArgumentException("Collection of DateItem is empty");
+        } else {
+            mDayOfWeek = ((DateItem) dateItems[0]).dayOfWeek();
+        }
+
+        for (Parcelable item : dateItems) {
+            addDate((DateItem) item);
         }
     }
 
@@ -51,17 +79,17 @@ public class DatePair extends AttributePair implements Comparable<DatePair> {
         }
     };
 
-    public static DatePair of(Collection<? extends DateItem> items) {
-        DatePair datePair = new DatePair();
-        for (DateItem item : items) {
-            datePair.addDate(item);
-        }
-        return datePair;
-    }
-
-    public static boolean possibleChangeDate(ArrayList<DateItem> dateItem,
-                                             @Nullable DateItem removedItem, DateItem addedItem) {
-        for (DateItem item : dateItem) {
+    /**
+     * Определяет, возможно ли заменить дату на другую без конфликта между ними.
+     * @param dateItems коллекция с датами.
+     * @param removedItem заменяемая дата.
+     * @param addedItem заменяющпя дата.
+     * @return true если возможно, иначе false.
+     */
+    public static boolean possibleChangeDate(@NonNull Collection<DateItem> dateItems,
+                                             @Nullable DateItem removedItem,
+                                             @NonNull DateItem addedItem) {
+        for (DateItem item : dateItems) {
             if (!Objects.equals(removedItem, item)) {
                 if (item.intersect(addedItem) ||
                         item.dayOfWeek() != addedItem.dayOfWeek()) {
@@ -72,11 +100,11 @@ public class DatePair extends AttributePair implements Comparable<DatePair> {
         return true;
     }
 
-    public void addDate(DateItem dateItem) {
-        if (mDayOfWeek == null) {
-            mDayOfWeek = dateItem.dayOfWeek();
-        }
-
+    /**
+     * Добавляет дату к датам пары.
+     * @param dateItem добавляемая дата.
+     */
+    public void addDate(@NonNull DateItem dateItem) {
         if (mDayOfWeek == dateItem.dayOfWeek()) {
             if (!intersect(dateItem)) {
                 mDates.add(dateItem);
@@ -84,19 +112,32 @@ public class DatePair extends AttributePair implements Comparable<DatePair> {
                 throw new IllegalArgumentException("Intersect date");
             }
         } else {
-            throw new IllegalArgumentException("Not add date");
+            throw new IllegalArgumentException("No added date");
         }
     }
 
-    public void removeDate(DateItem removedDateItem) {
+    /**
+     * Удаляет дату из дат пары.
+     * @param removedDateItem удаляемая дата.
+     */
+    public void removeDate(@NonNull DateItem removedDateItem) {
         mDates.remove(removedDateItem);
     }
 
+    /**
+     * @return день недели.
+     */
+    @NonNull
     public DayOfWeek dayOfWeek() {
         return mDayOfWeek;
     }
 
-    public boolean intersect(DateItem dateItem) {
+    /**
+     * Определяет, пересекается ли даты пары с сравниваемой датой.
+     * @param dateItem сравниваемая дата.
+     * @return true пересекаются, иначе false.
+     */
+    public boolean intersect(@NonNull DateItem dateItem) {
         for (DateItem item : mDates) {
             if (item.intersect(dateItem)) {
                 return true;
@@ -105,7 +146,12 @@ public class DatePair extends AttributePair implements Comparable<DatePair> {
         return false;
     }
 
-    public boolean intersect(DatePair datePair) {
+    /**
+     * Аналогично {@link #intersect(DateItem)}, но сравнивает с датами другой пары.
+     * @param datePair сравниваемая дата пары.
+     * @return true пересекаются, иначе false.
+     */
+    public boolean intersect(@NonNull DatePair datePair) {
         for (DateItem firstDate : mDates) {
             for (DateItem secondDate : datePair.mDates) {
                 if (firstDate.intersect(secondDate)) {
@@ -116,57 +162,62 @@ public class DatePair extends AttributePair implements Comparable<DatePair> {
         return false;
     }
 
-    public int count() {
-        return mDates.size();
+    /**
+     * @return первый день дат пары.
+     */
+    @NonNull
+    public Calendar firstDay() {
+        return CommonUtils.normalizeDate(mDates.first().firstDay());
     }
 
-    public Calendar minDate() {
-        return mDates.first().minDate();
-    }
-
-    public Calendar maxDate() {
-        return Collections.max(mDates, new Comparator<DateItem>() {
+    /**
+     * @return последний день дат пары.
+     */
+    @NonNull
+    public Calendar lastDay() {
+        return CommonUtils.normalizeDate(Collections.max(mDates, new Comparator<DateItem>() {
             @Override
             public int compare(DateItem o1, DateItem o2) {
-                return o1.maxDate().compareTo(o2.maxDate());
+                return o1.lastDay().compareTo(o2.lastDay());
             }
-        }).maxDate();
+        }).lastDay());
     }
 
-    @Override
-    public void load(JSONObject loadObject) throws JSONException {
-        JSONArray datesObject = loadObject.getJSONArray("dates");
-        for (int i = 0; i < datesObject.length(); i++) {
-            JSONObject dateObject = datesObject.getJSONObject(i);
-            String frequency = dateObject.getString("frequency");
+    /**
+     * Создает DatePair из json объекта.
+     * @param object json объект.
+     * @return дата пары.
+     */
+    public static DatePair fromJson(@NonNull JsonObject object) {
+        JsonArray dateArray = object.getAsJsonArray(JSON_TAG);
 
-            if (frequency.equals(FrequencyEnum.ONCE.tag())) {
-                DateSingle dateSingle = new DateSingle();
-                dateSingle.load(dateObject);
-                addDate(dateSingle);
-            } else if (frequency.equals(FrequencyEnum.EVERY.tag())
-                    || frequency.equals(FrequencyEnum.THROUGHOUT.tag())) {
-                DateRange dateRange = new DateRange();
-                dateRange.load(dateObject);
-                addDate(dateRange);
+        List<DateItem> dateItems = new ArrayList<>();
+        for (JsonElement dateElement : dateArray) {
+            JsonObject dateObject = dateElement.getAsJsonObject();
+            FrequencyEnum frequency = FrequencyEnum.of(dateObject.get(JSON_FREQUENCY).getAsString());
+
+            if (frequency == FrequencyEnum.ONCE) {
+                dateItems.add(DateSingle.fromJson(dateObject));
             } else {
-                throw new IllegalArgumentException("Not found correct frequency");
+                dateItems.add(DateRange.fromJson(dateObject));
             }
         }
+
+        return new DatePair(dateItems);
     }
 
-    @Override
-    public void save(JSONObject saveObject) throws JSONException {
-        JSONArray dateArray = new JSONArray();
-        for (DateItem dateItem : mDates) {
-            dateItem.save(dateArray);
+    /**
+     * Добавляет DatePair в json объект.
+     * @param object json объект.
+     */
+    public void toJson(@NonNull JsonObject object) {
+        JsonArray dateArray = new JsonArray();
+
+        for (DateItem item : mDates) {
+            item.toJson(dateArray);
         }
-        saveObject.put("dates", dateArray);
-    }
 
-    @Override
-    public boolean isValid() {
-        return !mDates.isEmpty();
+        object.add(JSON_TAG, dateArray);
     }
 
     @Override
@@ -174,10 +225,15 @@ public class DatePair extends AttributePair implements Comparable<DatePair> {
         return mDates.first().compareTo(o.mDates.first());
     }
 
+    /**
+     * @return список дат пары.
+     */
+    @NonNull
     public ArrayList<DateItem> toList() {
         return new ArrayList<>(mDates);
     }
 
+    @NonNull
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -210,7 +266,7 @@ public class DatePair extends AttributePair implements Comparable<DatePair> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DatePair datePair = (DatePair) o;
-        return Objects.equals(mDates, datePair.mDates);
+        return mDates.equals(datePair.mDates);
     }
 
     @Override

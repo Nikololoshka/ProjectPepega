@@ -3,53 +3,55 @@ package com.github.nikololoshka.pepegaschedule.schedule.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DayOfWeek;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
-import java.util.EnumMap;
+import java.util.LinkedHashMap;
 import java.util.Objects;
-import java.util.Scanner;
 import java.util.TreeSet;
 
-
+/**
+ * Расписание занятий.
+ */
 public class Schedule implements Parcelable {
 
-    private EnumMap<DayOfWeek, ScheduleDay> mWeek;
+    /**
+     * Дни недели в расписании.
+     */
+    @NonNull
+    private LinkedHashMap<DayOfWeek, ScheduleDay> mWeek;
 
-    @Nullable
-    private Calendar mMinDate;
-    @Nullable
-    private Calendar mMaxDate;
 
     public Schedule() {
-       mWeek = new EnumMap<>(DayOfWeek.class);
+       mWeek = new LinkedHashMap<>(6);
 
        for (DayOfWeek day: DayOfWeek.values()) {
            mWeek.put(day, new ScheduleDay());
        }
     }
 
-    private Schedule(Parcel in) {
-        mWeek = new EnumMap<>(DayOfWeek.class);
+    private Schedule(@NonNull Parcel in) {
+        mWeek = new LinkedHashMap<>(6);
 
         for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
             mWeek.put(dayOfWeek, (ScheduleDay) in.readParcelable(ScheduleDay.class.getClassLoader()));
         }
-        mMinDate = (Calendar) in.readSerializable();
-        mMaxDate = (Calendar) in.readSerializable();
     }
 
     public static final Creator<Schedule> CREATOR = new Creator<Schedule>() {
@@ -64,147 +66,165 @@ public class Schedule implements Parcelable {
         }
     };
 
-    public static void possibleChangePair(Schedule schedule, Pair removedPair, Pair addedPair) {
+    /**
+     * Определяет, возможно ли заменить пару в расписании.
+     * @param schedule расписание.
+     * @param removedPair заменяемая пара.
+     * @param addedPair заменяющая пара.
+     */
+    public static void possibleChangePair(@NonNull Schedule schedule, @Nullable Pair removedPair,
+                                          @NonNull Pair addedPair) {
+        if (Objects.equals(removedPair, addedPair)) {
+            return;
+        }
+
         DayOfWeek day = addedPair.date().dayOfWeek();
         ScheduleDay scheduleDay = schedule.mWeek.get(day);
-        ScheduleDay.possibleChangePair(scheduleDay, removedPair, addedPair);
-    }
-
-    public void load(String filepath) throws JSONException, IOException {
-        try (FileReader fileReader = new FileReader(filepath)) {
-            Scanner scanner = new Scanner(fileReader);
-
-            StringBuilder builder = new StringBuilder();
-            while (scanner.hasNextLine()) {
-                builder.append(scanner.nextLine());
-            }
-
-            JSONArray jsonPairs = new JSONArray(builder.toString());
-            for (int i = 0; i < jsonPairs.length(); i++) {
-                JSONObject jsonPair = jsonPairs.getJSONObject(i);
-                Pair pair = new Pair();
-                pair.load(jsonPair);
-                addPair(pair);
-            }
+        if (scheduleDay != null) {
+            ScheduleDay.possibleChangePair(scheduleDay, removedPair, addedPair);
         }
     }
 
-    public void load(InputStream stream) throws JSONException {
-        Scanner scanner = new Scanner(stream);
-
-        StringBuilder builder = new StringBuilder();
-        while (scanner.hasNextLine()) {
-            builder.append(scanner.nextLine());
-        }
-
-        JSONArray jsonPairs = new JSONArray(builder.toString());
-        for (int i = 0; i < jsonPairs.length(); i++) {
-            JSONObject jsonPair = jsonPairs.getJSONObject(i);
-            Pair pair = new Pair();
-            pair.load(jsonPair);
-            addPair(pair);
-        }
+    /**
+     * Загружает расписание из строки с json расписанием.
+     * @param json строка с расписанием.
+     * @return расписание.
+     * @throws JsonParseException не удалось распарсить json.
+     */
+    @NonNull
+    public static Schedule fromJson(@NonNull String json) throws JsonParseException {
+        return new GsonBuilder()
+                .registerTypeAdapter(Pair.class, new Pair.PairDeserialize())
+                .registerTypeAdapter(Schedule.class, new ScheduleDeserialize())
+                .create()
+                .fromJson(json, Schedule.class);
     }
 
-    public void save(String filepath) throws JSONException, IOException {
-        try (FileWriter fileWriter = new FileWriter(filepath)) {
-            JSONArray jsonPairs = new JSONArray();
-            for (ScheduleDay day : mWeek.values()) {
-                day.save(jsonPairs);
-            }
-            fileWriter.write(jsonPairs.toString(4));
-        }
+    /**
+     * Загружает расписание из входного потока с json расписанием.
+     * @param stream входной поток.
+     * @return расписание.
+     * @throws JsonParseException не удалось распарсить json.
+     */
+    @NonNull
+    public static Schedule fromJson(@NonNull InputStream stream) throws JsonParseException {
+        return new GsonBuilder()
+                .registerTypeAdapter(Pair.class, new Pair.PairDeserialize())
+                .registerTypeAdapter(Schedule.class, new ScheduleDeserialize())
+                .create()
+                .fromJson(new InputStreamReader(stream, StandardCharsets.UTF_8), Schedule.class);
     }
 
-    public void save(OutputStream stream) throws JSONException {
-        try (PrintWriter writer = new PrintWriter(stream)) {
-            JSONArray jsonPairs = new JSONArray();
-            for (ScheduleDay day : mWeek.values()) {
-                day.save(jsonPairs);
-            }
-            writer.write(jsonPairs.toString(4));
-        }
+    /**
+     * Сохраняет расписание в строке с json расписанием.
+     * @return json строка.
+     */
+    @NonNull
+    public String toJson() {
+        return new GsonBuilder()
+                .registerTypeAdapter(Pair.class, new Pair.PairSerialize())
+                .registerTypeAdapter(Schedule.class, new ScheduleSerialize())
+                .setPrettyPrinting()
+                .create()
+                .toJson(this);
     }
 
+    /**
+     * Добавляет пару в расписание.
+     * @param addedPair добавляемая пара.
+     */
     public void addPair(@Nullable Pair addedPair) {
         if (addedPair == null) {
             return;
         }
-        DayOfWeek day = addedPair.date().dayOfWeek();
-        Objects.requireNonNull(mWeek.get(day)).addPair(addedPair);
-        updateMinMaxDate(addedPair);
+        DayOfWeek dayOfWeek = addedPair.date().dayOfWeek();
+        ScheduleDay day = mWeek.get(dayOfWeek);
+        if (day != null) {
+            day.addPair(addedPair);
+        }
     }
 
+    /**
+     * Удаляет пару из расписания.
+     * @param removedPair удаляемая пара.
+     */
     public void removePair(@Nullable Pair removedPair) {
         if (removedPair == null) {
             return;
         }
-        DayOfWeek day = removedPair.date().dayOfWeek();
-        Objects.requireNonNull(mWeek.get(day)).removePair(removedPair);
-        updateMinMaxDate();
+        DayOfWeek dayOfWeek = removedPair.date().dayOfWeek();
+        ScheduleDay day = mWeek.get(dayOfWeek);
+        if (day != null) {
+            day.removePair(removedPair);
+        }
     }
 
-    public TreeSet<Pair> pairsByDate(Calendar date) {
+    /**
+     * Возвращает список пар, которые будут проводится в определенную дату.
+     * @param date дата.
+     * @return список пар, проходящих в этот день.
+     */
+    @NonNull
+    public TreeSet<Pair> pairsByDate(@NonNull Calendar date) {
+        // если воскресенье
         if (date.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-            return new TreeSet<>(new ScheduleDay.SortPairComparator());
+            return new TreeSet<>(new ScheduleDay.PairComparator());
         }
-        ScheduleDay day = Objects.requireNonNull(mWeek.get(DayOfWeek.valueOf(date)));
-        return day.pairsByDate(date);
+
+        ScheduleDay day = mWeek.get(DayOfWeek.of(date));
+        if (day != null) {
+            return day.pairsByDate(date);
+        }
+
+        return new TreeSet<>(new ScheduleDay.PairComparator());
     }
 
+    /**
+     * Возращает первую дату в расписании.
+     * Если дата отсутствует, то возвращается {@code null}.
+     * @return первая дата.
+     */
     @Nullable
-    public Calendar minDate() {
-        return mMinDate != null ? (Calendar) mMinDate.clone() : null;
-    }
-
-    @Nullable
-    public Calendar maxDate() {
-        return mMaxDate != null ? (Calendar) mMaxDate.clone() : null;
-    }
-
-    private void updateMinMaxDate(Pair pair) {
-        if (mMinDate == null || mMaxDate == null) {
-            mMinDate = pair.date().minDate();
-            mMaxDate = pair.date().maxDate();
-            return;
-        }
-
-        if (pair.date().minDate().compareTo(mMinDate) < 0) {
-            mMinDate = pair.date().minDate();
-        }
-
-        if (pair.date().maxDate().compareTo(mMaxDate) > 0) {
-            mMaxDate = pair.date().maxDate();
-        }
-    }
-
-    private void updateMinMaxDate() {
-        mMinDate = null;
-        mMaxDate = null;
+    public Calendar firstDate() {
+        Calendar first = null;
 
         for (ScheduleDay day : mWeek.values()) {
-            Calendar min = day.minDay();
-            if (min != null) {
-                if (mMinDate != null) {
-                    if (min.compareTo(mMinDate) < 0) {
-                        mMinDate = min;
-                    }
+            Calendar firstDay = day.firstDay();
+            if (firstDay != null) {
+                if (first == null) {
+                    first = firstDay;
                 } else {
-                    mMinDate = min;
-                }
-            }
-
-            Calendar max = day.maxDay();
-            if (max != null) {
-                if (mMaxDate != null) {
-                    if (max.compareTo(mMaxDate) > 0) {
-                        mMaxDate = max;
+                    if (firstDay.compareTo(first) < 0) {
+                        first = firstDay;
                     }
-                } else {
-                    mMaxDate = max;
                 }
             }
         }
+        return first;
+    }
+
+    /**
+     * Возвращает последнию дату в расписании.
+     * Если дата отсутствует, то возвращается {@code null}.
+     * @return последняя дата.
+     */
+    @Nullable
+    public Calendar lastDate() {
+        Calendar last = null;
+
+        for (ScheduleDay day : mWeek.values()) {
+            Calendar lastDay = day.lastDay();
+            if (lastDay != null) {
+                if (last == null) {
+                    last = lastDay;
+                } else {
+                    if (lastDay.compareTo(last) > 0) {
+                        last = lastDay;
+                    }
+                }
+            }
+        }
+        return last;
     }
 
     @Override
@@ -217,7 +237,43 @@ public class Schedule implements Parcelable {
         for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
             dest.writeParcelable(mWeek.get(dayOfWeek), flags);
         }
-        dest.writeSerializable(mMinDate);
-        dest.writeSerializable(mMaxDate);
+    }
+
+    /**
+     * Правило сериализации расписания.
+     */
+    public static class ScheduleSerialize implements JsonSerializer<Schedule> {
+
+        @Override
+        public JsonElement serialize(Schedule src, Type typeOfSrc, JsonSerializationContext context) {
+            JsonArray scheduleArray = new JsonArray();
+
+            for (ScheduleDay day : src.mWeek.values()) {
+                for (Pair pair : day.dayPairs()) {
+                    scheduleArray.add(context.serialize(pair, Pair.class));
+                }
+            }
+
+            return scheduleArray;
+        }
+    }
+
+    /**
+     * Правило десериализации расписания.
+     */
+    public static class ScheduleDeserialize implements JsonDeserializer<Schedule> {
+
+        @Override
+        public Schedule deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+            Schedule schedule = new Schedule();
+
+            JsonArray scheduleArray = json.getAsJsonArray();
+            for (JsonElement pairElement : scheduleArray) {
+                Pair pair = context.deserialize(pairElement, Pair.class);
+                schedule.addPair(pair);
+            }
+
+            return schedule;
+        }
     }
 }

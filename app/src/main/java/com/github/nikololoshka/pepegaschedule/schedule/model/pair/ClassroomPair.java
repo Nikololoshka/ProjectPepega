@@ -1,26 +1,35 @@
 package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import android.os.Parcel;
+import android.os.Parcelable;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import androidx.annotation.NonNull;
+
+import com.google.gson.JsonObject;
 
 import java.util.Objects;
 
-public class ClassroomPair extends AttributePair implements Comparable<ClassroomPair> {
+/**
+ * Аудитория пары.
+ */
+public class ClassroomPair implements Comparable<ClassroomPair>, Parcelable {
 
+    private final static String JSON_TAG = "classroom";
+
+    @NonNull
     private String mClassroom;
 
-    ClassroomPair() {
-        mClassroom = "";
+    public ClassroomPair(@NonNull String classroom) {
+        mClassroom = classroom;
     }
 
-    private ClassroomPair(Parcel in) {
-        mClassroom = in.readString();
-    }
+    private ClassroomPair(@NonNull Parcel in) {
+        String classroom = in.readString();
+        if (classroom == null) {
+            throw new IllegalArgumentException("No parsable classroom pair: " + in);
+        }
 
-    public ClassroomPair(ClassroomPair classroomPair) {
-        mClassroom = classroomPair.mClassroom;
+        mClassroom = classroom;
     }
 
     public static final Creator<ClassroomPair> CREATOR = new Creator<ClassroomPair>() {
@@ -35,29 +44,29 @@ public class ClassroomPair extends AttributePair implements Comparable<Classroom
         }
     };
 
-    public static ClassroomPair of(String s) {
-        ClassroomPair classroomPair = new ClassroomPair();
-        classroomPair.mClassroom = s;
-        return classroomPair;
-    }
-
+    /**
+     * @return аудитория.
+     */
+    @NonNull
     public String classroom() {
         return mClassroom;
     }
 
-    @Override
-    public void load(JSONObject loadObject) throws JSONException {
-        mClassroom = loadObject.getString("classroom");
+    /**
+     * Создает ClassroomPair из json объекта.
+     * @param object json объект.
+     * @return аудитория пары.
+     */
+    public static ClassroomPair fromJson(@NonNull JsonObject object) {
+        return new ClassroomPair(object.get(JSON_TAG).getAsString());
     }
 
-    @Override
-    public void save(JSONObject saveObject) throws JSONException {
-        saveObject.put("classroom", mClassroom);
-    }
-
-    @Override
-    public boolean isValid() {
-        return !mClassroom.isEmpty();
+    /**
+     * Добавляет ClassroomPair в json объект.
+     * @param object json объект.
+     */
+    public void toJson(@NonNull JsonObject object) {
+        object.addProperty(JSON_TAG, mClassroom);
     }
 
     @Override
@@ -78,6 +87,7 @@ public class ClassroomPair extends AttributePair implements Comparable<Classroom
         return Objects.hash(mClassroom);
     }
 
+    @NonNull
     @Override
     public String toString() {
         return mClassroom;

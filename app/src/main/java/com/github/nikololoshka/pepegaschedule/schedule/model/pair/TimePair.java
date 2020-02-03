@@ -1,44 +1,62 @@
 package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import android.os.Parcel;
+import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidPairParseException;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class TimePair extends AttributePair {
+/**
+ * Время пары.
+ */
+public class TimePair implements Parcelable {
 
+    private static final String JSON_TAG = "time";
+    private static final String JSON_START = "start";
+    private static final String JSON_END = "end";
+
+    /**
+     * Время начала.
+     */
+    @NonNull
     private String mStart;
+
+    /**
+     * Время конца.
+     */
+    @NonNull
     private String mEnd;
+
     private int mStartNumber;
     private int mEndNumber;
-    private Integer mDuration;
 
-    TimePair() {
-        mStart = null;
-        mEnd = null;
-        mDuration = null;
-    }
+    public TimePair(@NonNull String start, @NonNull String end) {
+        if (!timeStarts().contains(start) || !timeEnds().contains(end)) {
+            throw new IllegalArgumentException("Not parse time: " + start + " - " + end);
+        }
 
-    private TimePair(Parcel in) {
-        mStart = in.readString();
-        mEnd = in.readString();
-        calculateDuration();
+        mStart = start;
+        mEnd = end;
+
         updateNumbers();
     }
 
-    public TimePair(TimePair timePair) {
-        mStart = timePair.mStart;
-        mEnd = timePair.mEnd;
-        mDuration = timePair.mDuration;
+    private TimePair(@NonNull Parcel in) {
+        String start = in.readString();
+        String end = in.readString();
+        if (start == null || end == null) {
+            throw new IllegalArgumentException("No parsable time pair: " + in);
+        }
+
+        mStart = start;
+        mEnd = end;
+
         updateNumbers();
     }
 
@@ -54,88 +72,119 @@ public class TimePair extends AttributePair {
         }
     };
 
-    public static TimePair of(String start, String end) {
-        TimePair timePair = new TimePair();
-        timePair.setTime(start, end);
-        return timePair;
-    }
-
-    private void setTime(String start, String end) {
+    /**
+     * Устанавливает время пары.
+     * @param start начало пары.
+     * @param end конец пары.
+     */
+    private void setTime(@NonNull String start, @NonNull String end) {
         if (!timeStarts().contains(start) || !timeEnds().contains(end)) {
-            throw new InvalidPairParseException("Not parse time: " + start + " - " + end);
+            throw new IllegalArgumentException("Not parse time: " + start + " - " + end);
         }
+
         mStart = start;
         mEnd = end;
-        calculateDuration();
-        updateNumbers();
     }
 
+    /**
+     * @return начало пары.
+     */
+    @NonNull
     public String start() {
         return mStart;
     }
 
+    /**
+     * @return конец пары.
+     */
+    @NonNull
     public String end() {
         return mEnd;
     }
 
+    /**
+     * @return номер начала пары.
+     */
     public int startNumber() {
         return mStartNumber;
     }
 
+    /**
+     * @return номер конца пары.
+     */
     public int endNumber() {
         return mEndNumber;
     }
 
-    public Integer duration() {
-        return mDuration;
+    /**
+     * @return продолжительность пары.
+     */
+    public int duration() {
+        return timeEnds().indexOf(mEnd) - timeStarts().indexOf(mStart) + 1;
     }
 
-    private void calculateDuration() {
-        mDuration = timeEnds().indexOf(mEnd) - timeStarts().indexOf(mStart) + 1;
-    }
-
+    /**
+     * Обновляет номера начала и конца пары.
+     */
     private void updateNumbers() {
         mStartNumber = timeStarts().indexOf(mStart);
         mEndNumber = timeEnds().indexOf(mEnd);
     }
 
-    public boolean intersect(TimePair o) {
+    /**
+     * Определяет, пересекается ли время пар.
+     * @param o другая пара.
+     * @return true если время текущей и сравниваемой пары пересекается, иначе false.
+     */
+    public boolean intersect(@NonNull TimePair o) {
         return ((mStartNumber >= o.mStartNumber) && (mEndNumber <= o.mEndNumber))
                 || ((mStartNumber <= o.mStartNumber) && (mEndNumber >= o.mStartNumber))
                 || ((mStartNumber <= o.mEndNumber) && (mEndNumber >= o.mEndNumber));
     }
 
+    /**
+     * @return список времени начало пар.
+     */
     private static List<String> timeStarts() {
         return Collections.unmodifiableList(
                 Arrays.asList("8:30", "10:20", "12:20", "14:10",
                               "16:00", "18:00", "19:40", "21:20"));
     }
 
+    /**
+     * @return список времени окончания пар.
+     */
     private static List<String> timeEnds() {
         return Collections.unmodifiableList(
                 Arrays.asList("10:10", "12:00", "14:00", "15:50",
                               "17:40", "19:30", "21:10", "22:50"));
     }
 
-    @Override
-    public void load(JSONObject loadObject) throws JSONException {
-        JSONObject timeObject = loadObject.getJSONObject("time");
-        String start = timeObject.getString("start");
-        String end = timeObject.getString("end");
-        setTime(start, end);
+    /**
+     * Создает TimePair из json объекта.
+     * @param object json объект.
+     * @return время пары.
+     */
+    public static TimePair fromJson(@NonNull JsonObject object) {
+        JsonObject timeObject = object.getAsJsonObject(JSON_TAG);
+
+        String start = timeObject.get(JSON_START).getAsString();
+        String end = timeObject.get(JSON_END).getAsString();
+
+        return new TimePair(start, end);
     }
 
-    @Override
-    public void save(JSONObject saveObject) throws JSONException {
-        JSONObject timeObject = new JSONObject();
-        timeObject.put("start", mStart);
-        timeObject.put("end", mEnd);
-        saveObject.put("time", timeObject);
-    }
+    /**
+     * Добавляет TimePair в json объект.
+     * @param object json объект.
+     */
+    public void toJson(@NonNull JsonObject object) {
+        JsonObject timeObject = new JsonObject();
 
-    @Override
-    public boolean isValid() {
-        return (mStart != null) && (mEnd != null) && (mDuration != null);
+        timeObject.addProperty(JSON_START, mStart);
+        timeObject.addProperty(JSON_END, mEnd);
+
+        object.add(JSON_TAG, timeObject);
     }
 
     @Override

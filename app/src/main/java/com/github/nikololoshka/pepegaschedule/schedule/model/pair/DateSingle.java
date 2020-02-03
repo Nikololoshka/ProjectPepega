@@ -2,15 +2,16 @@ package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import android.os.Parcel;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidDateException;
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidPairParseException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidDateFrequencyException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidDateParseException;
+import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,25 +20,48 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Objects;
 
+/**
+ * Единождая дата пары.
+ */
 public class DateSingle extends DateItem {
 
-    @Nullable
+    @NonNull
     private Calendar mDate;
 
-    DateSingle() {
-        mDate = null;
+    public DateSingle(@NonNull String stringDate, @NonNull String pattern) {
+
+        DateFormat format = new SimpleDateFormat(pattern, CommonUtils.locale(null));
+        format.setLenient(false);
+
+        Calendar date = new GregorianCalendar();
+        try {
+            // игнор, т.к. parse кидает исключения
+            date.setTime(format.parse(stringDate));
+
+        } catch (ParseException e) {
+            throw new InvalidDateParseException(stringDate, e);
+        }
+
+        // проверка дня недели
+        DayOfWeek.of(date);
+        mDate = date;
     }
 
-    public DateSingle(Calendar date) {
-        mDate = (Calendar) date.clone();
+    public DateSingle(@NonNull String stringDate) {
+        this(stringDate, "yyyy.MM.dd");
     }
 
-    private DateSingle(Parcel in) {
-        mDate = (Calendar) in.readSerializable();
+    public DateSingle(@NonNull Calendar date) {
+        mDate = CommonUtils.normalizeDate(date);
     }
 
-    public DateSingle(DateSingle dateSingle) {
-        mDate = (Calendar) (dateSingle.mDate != null ? dateSingle.mDate.clone() : null);
+    private DateSingle(@NonNull Parcel in) {
+        Serializable date = in.readSerializable();
+        if (date == null) {
+            throw new IllegalArgumentException("No parsable single date pair: " + in);
+        }
+
+        mDate = (Calendar) date;
     }
 
     public static final Creator<DateSingle> CREATOR = new Creator<DateSingle>() {
@@ -52,135 +76,107 @@ public class DateSingle extends DateItem {
         }
     };
 
-    static public DateSingle of(String inputDate) {
-        DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.ROOT);
-        format.setLenient(false);
-
-        Calendar date = new GregorianCalendar();
-        try {
-            date.setTime(format.parse(inputDate));
-        } catch (ParseException ignored) {
-            throw new InvalidDateException(inputDate);
-        }
-
-        // check day of week
-        DayOfWeek.valueOf(date);
-
-        DateSingle dateSingle = new DateSingle();
-        dateSingle.mDate = date;
-
-        return dateSingle;
-    }
-
-    @Nullable
+    /**
+     * @return дата.
+     */
+    @NonNull
     public Calendar date() {
         return mDate;
     }
 
+    @NonNull
     @Override
     public DayOfWeek dayOfWeek() {
-        return DayOfWeek.valueOf(mDate);
+        return DayOfWeek.of(mDate);
     }
 
-    @Override
-    public String compactDate() {
-        if (mDate == null) {
-            return "";
-        }
-
-        return new SimpleDateFormat("dd.MM", Locale.ROOT)
-                .format(mDate.getTime());
-    }
-
+    @NonNull
     @Override
     public String fullDate() {
-        if (mDate == null) {
-            return "";
-        }
-
-        return new SimpleDateFormat("yyyy.MM.dd", Locale.ROOT)
-                .format(mDate.getTime());
+        return CommonUtils.dateToString(mDate, "yyyy.MM.dd", Locale.ROOT);
     }
 
+    @NonNull
     @Override
-    public Calendar minDate() {
+    public Calendar firstDay() {
         return mDate;
     }
 
+    @NonNull
     @Override
-    public Calendar maxDate() {
+    public Calendar lastDay() {
         return mDate;
     }
 
+    @NonNull
     @Override
     public FrequencyEnum frequency() {
         return FrequencyEnum.ONCE;
     }
 
     @Override
-    public boolean intersect(DateItem dateItem) {
+    public boolean intersect(@NonNull DateItem dateItem) {
         if (dateItem instanceof DateSingle) {
             DateSingle dateSingle = (DateSingle) dateItem;
+
             return this.equals(dateSingle);
         }
+
         if (dateItem instanceof DateRange) {
             DateRange dateRange = (DateRange) dateItem;
+
             return dateRange.intersect(this);
         }
+
         throw new IllegalArgumentException("Not intersect object");
     }
 
-    @Override
-    public void load(JSONObject loadObject) throws JSONException {
-        String frequency = loadObject.getString("frequency");
-        String inputDate = loadObject.getString("date");
+    /**
+     * Создает DateSingle из json объекта.
+     * @param object json объект.
+     * @return единождая дата пары.
+     */
+    public static DateSingle fromJson(@NonNull JsonObject object) {
+        String frequency = object.get(JSON_FREQUENCY).getAsString();
+        String inputDate = object.get(JSON_DATE).getAsString();
 
-        if (!frequency.equals(FrequencyEnum.ONCE.tag())) {
-            throw new InvalidPairParseException(String.format("Date: %s; Frequency: %s",
-                    inputDate, frequency));
+        if (!frequency.equals(FrequencyEnum.ONCE.toString())) {
+            throw new InvalidDateFrequencyException(
+                    String.format("Date: %s; Frequency: %s", inputDate, frequency));
         }
 
-        DateFormat format = new SimpleDateFormat("yyyy.MM.dd", Locale.ROOT);
-        format.setLenient(false);
-
-        Calendar date = new GregorianCalendar();
-        try {
-            date.setTime(format.parse(inputDate));
-        } catch (ParseException ignored) {
-            throw new InvalidDateException(inputDate);
-        }
-        // check day of week
-        DayOfWeek.valueOf(date);
-
-        mDate = date;
+        return new DateSingle(inputDate);
     }
 
     @Override
-    public void save(JSONArray saveArray) throws JSONException {
-       JSONObject dateObject = new JSONObject();
-       dateObject.put("frequency", FrequencyEnum.ONCE.tag());
-       dateObject.put("date", fullDate());
-       saveArray.put(dateObject);
+    public void toJson(@NonNull JsonArray array) {
+        JsonObject dateObject = new JsonObject();
+
+        dateObject.addProperty(JSON_DATE, fullDate());
+        dateObject.addProperty(JSON_FREQUENCY, frequency().toString());
+
+        array.add(dateObject);
     }
 
     @Override
-    public int compareTo(DateItem o) {
-        if (mDate != null) {
-            if (o instanceof DateSingle) {
-                DateSingle dateSingle = (DateSingle) o;
-                return mDate.compareTo(dateSingle.mDate);
-            }
-            if (o instanceof DateRange) {
-                DateRange dateRange = (DateRange) o;
-                return mDate.compareTo(dateRange.dateStart());
-            }
+    public int compareTo(@NonNull DateItem o) {
+        if (o instanceof DateSingle) {
+            DateSingle dateSingle = (DateSingle) o;
+
+            return mDate.compareTo(dateSingle.mDate);
         }
+        if (o instanceof DateRange) {
+            DateRange dateRange = (DateRange) o;
+
+            return mDate.compareTo(dateRange.firstDate());
+        }
+
         throw new IllegalArgumentException(String.format("Not compare objects: '%s' and '%s'",
                 this.toString(), o.toString()));
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(@Nullable Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DateSingle that = (DateSingle) o;
@@ -192,14 +188,10 @@ public class DateSingle extends DateItem {
         return Objects.hash(mDate);
     }
 
+    @NonNull
     @Override
     public String toString() {
-        if (mDate == null) {
-            return "null";
-        }
-
-        return new SimpleDateFormat("dd.MM.yyyy", Locale.ROOT)
-                .format(mDate.getTime());
+        return CommonUtils.dateToString(mDate, "dd.MM.yyyy", Locale.ROOT);
     }
 
     @Override

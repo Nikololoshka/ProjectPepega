@@ -1,26 +1,35 @@
 package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import android.os.Parcel;
+import android.os.Parcelable;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import androidx.annotation.NonNull;
+
+import com.google.gson.JsonObject;
 
 import java.util.Objects;
 
-public class LecturerPair extends AttributePair implements Comparable<LecturerPair> {
+/**
+ * Преподаватель пары.
+ */
+public class LecturerPair implements Comparable<LecturerPair>, Parcelable {
 
+    private static final String JSON_TAG = "lecturer";
+
+    @NonNull
     private String mLecturer;
 
-    LecturerPair() {
-        mLecturer = "";
+    public LecturerPair(@NonNull String lecturer) {
+        mLecturer = lecturer;
     }
 
-    private LecturerPair(Parcel in) {
-        mLecturer = in.readString();
-    }
+    private LecturerPair(@NonNull Parcel in) {
+        String lecturer = in.readString();
+        if (lecturer == null) {
+            throw new IllegalArgumentException("No parsable lecturer pair: " + in);
+        }
 
-    public LecturerPair(LecturerPair lecturerPair) {
-        mLecturer = lecturerPair.mLecturer;
+        mLecturer = lecturer;
     }
 
     public static final Creator<LecturerPair> CREATOR = new Creator<LecturerPair>() {
@@ -35,29 +44,29 @@ public class LecturerPair extends AttributePair implements Comparable<LecturerPa
         }
     };
 
-    public static LecturerPair of(String s) {
-        LecturerPair lecturerPair = new LecturerPair();
-        lecturerPair.mLecturer = s.trim();
-        return lecturerPair;
-    }
-
+    /**
+     * @return преподаватель.
+     */
+    @NonNull
     public String lecturer() {
         return mLecturer;
     }
 
-    @Override
-    public void load(JSONObject loadObject) throws JSONException {
-        mLecturer = loadObject.getString("lecturer");
+    /**
+     * Создает LecturerPair из json объекта.
+     * @param object json объект.
+     * @return преподаватель пары.
+     */
+    public static LecturerPair fromJson(@NonNull JsonObject object) {
+        return new LecturerPair(object.get(JSON_TAG).getAsString());
     }
 
-    @Override
-    public void save(JSONObject saveObject) throws JSONException {
-        saveObject.put("lecturer", mLecturer);
-    }
-
-    @Override
-    public boolean isValid() {
-        return !mLecturer.isEmpty();
+    /**
+     * Добавляет LecturerPair в json объект.
+     * @param object json объект.
+     */
+    public void toJson(@NonNull JsonObject object) {
+        object.addProperty(JSON_TAG, mLecturer);
     }
 
     @Override
@@ -78,6 +87,7 @@ public class LecturerPair extends AttributePair implements Comparable<LecturerPa
         return Objects.hash(mLecturer);
     }
 
+    @NonNull
     @Override
     public String toString() {
         return mLecturer;

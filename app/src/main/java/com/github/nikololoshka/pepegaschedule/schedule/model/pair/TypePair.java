@@ -1,28 +1,36 @@
 package com.github.nikololoshka.pepegaschedule.schedule.model.pair;
 
 import android.os.Parcel;
+import android.os.Parcelable;
 
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidPairParseException;
+import androidx.annotation.NonNull;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class TypePair extends AttributePair implements Comparable<TypePair> {
+/**
+ * Тип пары.
+ */
+public class TypePair implements Comparable<TypePair>, Parcelable {
 
+    private static final String JSON_TAG = "type";
+
+    @NonNull
     private TypeEnum mType;
 
-    TypePair() {
-        mType = null;
+    public TypePair(@NonNull TypeEnum type) {
+        mType = type;
     }
 
-    private TypePair(Parcel in) {
-        mType = (TypeEnum) in.readSerializable();
-    }
+    private TypePair(@NonNull Parcel in) {
+        Serializable type = in.readSerializable();
+        if (type == null) {
+            throw new IllegalArgumentException("No parsable type pair: " + in);
+        }
 
-    public TypePair(TypePair typePair) {
-        mType = typePair.mType;
+        mType = (TypeEnum) type;
     }
 
     public static final Creator<TypePair> CREATOR = new Creator<TypePair>() {
@@ -37,36 +45,28 @@ public class TypePair extends AttributePair implements Comparable<TypePair> {
         }
     };
 
-    public static TypePair of(TypeEnum type) {
-        TypePair typePair = new TypePair();
-        typePair.mType = type;
-        return typePair;
-    }
-
+    /**
+     * @return тип пары.
+     */
     public TypeEnum type() {
         return mType;
     }
 
-    @Override
-    public void load(JSONObject loadObject) throws JSONException {
-        String type = loadObject.getString("type");
-        for (TypeEnum typeEnum: TypeEnum.values()) {
-            if (typeEnum.tag().equals(type)) {
-                mType = typeEnum;
-                return;
-            }
-        }
-        throw new InvalidPairParseException("Not parse type: " + type);
+    /**
+     * Создает TypePair из json объекта.
+     * @param object json объект.
+     * @return тип пары.
+     */
+    public static TypePair fromJson(@NonNull JsonObject object) {
+        return new TypePair(TypeEnum.of(object.get(JSON_TAG).getAsString()));
     }
 
-    @Override
-    public void save(JSONObject saveObject) throws JSONException {
-        saveObject.put("type", mType.tag());
-    }
-
-    @Override
-    public boolean isValid() {
-        return mType != null;
+    /**
+     * Добавляет TypePair в json объект.
+     * @param object json объект.
+     */
+    public void toJson(@NonNull JsonObject object) {
+        object.addProperty(JSON_TAG, mType.toString());
     }
 
     @Override
@@ -87,9 +87,10 @@ public class TypePair extends AttributePair implements Comparable<TypePair> {
         return Objects.hash(mType);
     }
 
+    @NonNull
     @Override
     public String toString() {
-        return mType.text();
+        return mType.toString();
     }
 
     @Override
