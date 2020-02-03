@@ -7,6 +7,11 @@
         <item>Б</item>
     </string-array>
 
+    <string-array name="subgroup_simple_list">
+        <item>(А)</item>
+        <item>(Б)</item>
+    </string-array>
+
     <!-- type values -->
     <string-array name="type_list">
         <item>Лекция</item>
@@ -24,6 +29,11 @@
     <string-array name="frequency_list">
         <item>Каждую неделю</item>
         <item>Через неделю</item>
+    </string-array>
+
+    <string-array name="frequency_simple_list">
+        <item>к.н.</item>
+        <item>ч.н.</item>
     </string-array>
 
     <!-- schedule view methods -->

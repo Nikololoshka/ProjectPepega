@@ -19,7 +19,18 @@ import androidx.core.graphics.ColorUtils;
 
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.SubgroupEnum;
+import com.github.nikololoshka.pepegaschedule.schedule.model.pair.TypeEnum;
 import com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference.LABORATORY_COLOR;
+import static com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference.LECTURE_COLOR;
+import static com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference.SEMINAR_COLOR;
+import static com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference.SUBGROUP_A_COLOR;
+import static com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference.SUBGROUP_B_COLOR;
 
 /**
  * Карточка пары в расписании.
@@ -41,8 +52,8 @@ public class PairCardView extends CardView {
     private int mSubgroupBColor;
     private float mRectRound;
 
-    private int mColorWhite = Color.WHITE;
-    private int mColorBlack = Color.BLACK;
+    private List<String> mTypes;
+    private List<String> mSubgroups;
 
     private Pair mPair;
 
@@ -87,11 +98,14 @@ public class PairCardView extends CardView {
 
         mClassroomView.setPaintFlags(mClassroomView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-        mLectureColor = ApplicationPreference.pairColor(getContext(), ApplicationPreference.LECTURE_COLOR);
-        mSeminarColor = ApplicationPreference.pairColor(getContext(), ApplicationPreference.SEMINAR_COLOR);
-        mLaboratoryColor = ApplicationPreference.pairColor(getContext(), ApplicationPreference.LABORATORY_COLOR);
-        mSubgroupAColor = ApplicationPreference.pairColor(getContext(), ApplicationPreference.SUBGROUP_A_COLOR);
-        mSubgroupBColor = ApplicationPreference.pairColor(getContext(), ApplicationPreference.SUBGROUP_B_COLOR);
+        mLectureColor = ApplicationPreference.pairColor(context, LECTURE_COLOR);
+        mSeminarColor = ApplicationPreference.pairColor(context, SEMINAR_COLOR);
+        mLaboratoryColor = ApplicationPreference.pairColor(context, LABORATORY_COLOR);
+        mSubgroupAColor = ApplicationPreference.pairColor(context, SUBGROUP_A_COLOR);
+        mSubgroupBColor = ApplicationPreference.pairColor(context, SUBGROUP_B_COLOR);
+
+        mTypes = Arrays.asList(getResources().getStringArray(R.array.type_list));
+        mSubgroups = Arrays.asList(getResources().getStringArray(R.array.subgroup_simple_list));
 
         mRectRound = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 10, getResources().getDisplayMetrics());
@@ -104,7 +118,7 @@ public class PairCardView extends CardView {
         mTitleView.setText(mPair.title().title());
 
         // lecturer
-        if (!mPair.lecturer().isValid()) {
+        if (mPair.lecturer().lecturer().isEmpty()) {
             mLecturerView.setVisibility(GONE);
         } else {
             mLecturerView.setText(mPair.lecturer().lecturer());
@@ -112,7 +126,7 @@ public class PairCardView extends CardView {
         }
 
         // type
-        mTypeView.setText(mPair.type().type().text());
+        mTypeView.setText(typeForPair(mPair.type().type()));
         switch (mPair.type().type()) {
             case LECTURE:
                 setupDrawableBackground(mTypeView, mLectureColor);
@@ -126,7 +140,7 @@ public class PairCardView extends CardView {
         }
 
         // classroom
-        if (!mPair.classroom().isValid()) {
+        if (mPair.classroom().classroom().isEmpty()) {
             mClassroomView.setVisibility(GONE);
         } else {
             mClassroomView.setText(mPair.classroom().classroom());
@@ -134,10 +148,10 @@ public class PairCardView extends CardView {
         }
 
         // subgroup
-        if (!mPair.subgroup().isValid()) {
+        if (mPair.subgroup().subgroup() == SubgroupEnum.COMMON) {
             mSubgroupView.setVisibility(GONE);
         } else {
-            mSubgroupView.setText(mPair.subgroup().subgroup().text());
+            mSubgroupView.setText(subgroupForPair(mPair.subgroup().subgroup()));
 
             switch (mPair.subgroup().subgroup()) {
                 case A:
@@ -170,8 +184,43 @@ public class PairCardView extends CardView {
         gradientDrawable.setColor(color);
 
         view.setBackground(gradientDrawable);
-        view.setTextColor(isDark(color) ? mColorWhite : mColorBlack);
+        view.setTextColor(isDark(color) ? Color.WHITE : Color.BLACK);
+    }
 
+    /**
+     * @param type тип пары.
+     * @return строка типа пары.
+     */
+    @NonNull
+    private String typeForPair(@NonNull TypeEnum type) {
+        switch (type) {
+            case LECTURE:
+                return mTypes.get(0);
+            case SEMINAR:
+                return mTypes.get(1);
+            case LABORATORY:
+                return mTypes.get(2);
+        }
+
+        throw new RuntimeException("No found string type resources");
+    }
+
+    /**
+     * @param subgroup подгруппа пары.
+     * @return строка подгруппы пары.
+     */
+    @NonNull
+    private String subgroupForPair(@NonNull SubgroupEnum subgroup) {
+        switch (subgroup) {
+            case COMMON:
+                return "";
+            case A:
+                return mSubgroups.get(0);
+            case B:
+                return mSubgroups.get(1);
+        }
+
+        throw new RuntimeException("No found string subgroup resources");
     }
 
     /**

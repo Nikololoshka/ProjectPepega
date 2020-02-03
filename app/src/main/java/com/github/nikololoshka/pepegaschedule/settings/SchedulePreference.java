@@ -129,14 +129,8 @@ public class SchedulePreference {
         mSchedulesList = schedules;
         mFavoriteSchedule = PREFERENCES.getString(FAVORITE_SCHEDULE, "");
 
-        mSubgroup = SubgroupEnum.COMMON;
-        String tag = PREFERENCES.getString(SUBGROUP, SubgroupEnum.COMMON.tag());
-        for (SubgroupEnum value : SubgroupEnum.values()) {
-            if (value.tag().equals(tag)) {
-                mSubgroup = value;
-                break;
-            }
-        }
+        String tag = PREFERENCES.getString(SUBGROUP, SubgroupEnum.COMMON.toString());
+        mSubgroup = SubgroupEnum.of(tag);
     }
 
     private static void save(@NonNull Context context) {
@@ -146,7 +140,7 @@ public class SchedulePreference {
         preferences.edit()
                 .putString(SCHEDULES, TextUtils.join(";", mSchedulesList))
                 .putString(FAVORITE_SCHEDULE, mFavoriteSchedule)
-                .putString(SUBGROUP, mSubgroup.tag())
+                .putString(SUBGROUP, mSubgroup.toString())
                 .apply();
 
         ++mChangeCount;

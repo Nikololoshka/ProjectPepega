@@ -14,13 +14,15 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import com.github.nikololoshka.pepegaschedule.BuildConfig;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.NotificationDispatcher;
 
-import java.io.File;
-import java.io.FileWriter;
+import org.apache.commons.io.output.FileWriterWithEncoding;
+
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 
@@ -46,7 +48,6 @@ public class ScheduleDownloaderService extends IntentService {
     private static int DOWNLOAD_NOTIFICATION_ID = 3;
 
     private static final String TAG = "MyLog";
-    private static final boolean DEBUG = true;
 
     private static final int MAX_PROGRESS = 100;
 
@@ -76,7 +77,7 @@ public class ScheduleDownloaderService extends IntentService {
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE),
                 DOWNLOAD_NOTIFICATION_ID, builder.build());
 
-        if (DEBUG) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, String.format("createTask: name: %s, ID: %d", name, DOWNLOAD_NOTIFICATION_ID));
         }
 
@@ -131,7 +132,7 @@ public class ScheduleDownloaderService extends IntentService {
                 return;
             }
 
-            if (DEBUG) {
+            if (BuildConfig.DEBUG) {
                 Log.d(TAG, "onHandleIntent: loading: " + scheduleName);
             }
 
@@ -143,8 +144,9 @@ public class ScheduleDownloaderService extends IntentService {
                     SERVICE_NOTIFICATION_ID, mNotificationBuilder.build());
 
             // загрузка (чтение)
-            try (FileWriter fileWriter = new FileWriter(
-                    new File(SchedulePreference.createPath(this, scheduleName)))) {
+            String resultPath = SchedulePreference.createPath(this, scheduleName);
+            try (FileWriterWithEncoding fileWriter =
+                         new FileWriterWithEncoding(resultPath, StandardCharsets.UTF_8)) {
 
                 AssetManager manager = getAssets();
                 Scanner scanner = new Scanner(manager.open(schedulePath));
@@ -161,6 +163,7 @@ public class ScheduleDownloaderService extends IntentService {
                 LocalBroadcastManager.getInstance(this).sendBroadcast(msgIntent);
 
             } catch (IOException e) {
+                // TODO: 30/01/20 обработать ошибку о невозможности загрузить расписание
                 e.printStackTrace();
             }
 

@@ -1,10 +1,9 @@
-package com.github.nikololoshka.pepegaschedule.schedule.editor;
+package com.github.nikololoshka.pepegaschedule.schedule.editor.date;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,14 +20,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.nikololoshka.pepegaschedule.R;
+import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidDateFrequencyException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidDateParseException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidDayOfWeekException;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DateItem;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DatePair;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DateRange;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DateSingle;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.FrequencyEnum;
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidDateException;
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidDayOfWeekException;
-import com.github.nikololoshka.pepegaschedule.schedule.model.pair.exceptions.InvalidFrequencyForDateException;
+import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
 
 import java.text.DateFormat;
@@ -36,6 +36,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 
@@ -51,23 +52,34 @@ public class DateEditorActivity extends AppCompatActivity
     public static final int RESULT_DATE_REMOVE = RESULT_FIRST_USER + 1;
     public static final int RESULT_DATE_ADD = RESULT_FIRST_USER + 2;
 
-    private static final String ARG_FREQUENCY = "arg_frequency";
-    private static final String ARG_DATE_ITEMS = "arg_date_items";
+    private static final String FREQUENCY = "frequency";
+    private static final String DATE_ITEMS = "date_items";
 
     private static final int SINGLE_MODE = 0;
     private static final int RANGE_MODE = 1;
 
-    private static final String TAG = "DateEditorActivityTag";
+    private static final String TAG = "DateEditorActivityLog";
 
+    /**
+     * Выбор типа даты.
+     */
     private Spinner mSpinnerDate;
 
+    // единождная дата
     private EditText mSingleDateEdit;
 
+    // дата с дипазоном
     private EditText mRangeDateEditStart;
     private EditText mRangeDateEditEnd;
     private Spinner mSpinnerFrequency;
 
+    /**
+     * Список с датами в паре.
+     */
     private ArrayList<DateItem> mDateItems;
+    /**
+     * Текущая периодичность в дате с диапозоном.
+     */
     private int mFrequency = 7;
 
     private StatefulLayout mStatefulLayout;
@@ -136,47 +148,39 @@ public class DateEditorActivity extends AppCompatActivity
 
         // инициализация полей
         if (savedInstanceState != null) {
-            mFrequency = savedInstanceState.getInt(ARG_FREQUENCY);
-            mDateItems = savedInstanceState.getParcelableArrayList(ARG_DATE_ITEMS);
+            mFrequency = savedInstanceState.getInt(FREQUENCY);
+            mDateItems = savedInstanceState.getParcelableArrayList(DATE_ITEMS);
+
         } else {
             mDateItems = getIntent().getParcelableArrayListExtra(EXTRA_DATE_LIST);
             DateItem dateItem = getIntent().getParcelableExtra(EXTRA_DATE);
+
             if (dateItem != null) {
+                // единождная пара
                 if (dateItem.frequency() == FrequencyEnum.ONCE) {
+                    mSpinnerDate.setSelection(SINGLE_MODE);
+
                     DateSingle dateSingle = (DateSingle) dateItem;
-                    Calendar date = dateSingle.date();
-                    if (date != null) {
-                        mSingleDateEdit.setText(String.format(Locale.ROOT,
-                                "%02d.%02d.%d",
-                                date.get(Calendar.DAY_OF_MONTH),
-                                date.get(Calendar.MONTH) + 1,
-                                date.get(Calendar.YEAR)));
-                    }
+
+                    mSingleDateEdit.setText(CommonUtils.dateToString(dateSingle.date(),
+                            "dd.MM.yyyy", CommonUtils.locale(this)));
                 } else {
-                    mSpinnerDate.setSelection(1);
+                    // дата с диапазоном
+                    mSpinnerDate.setSelection(RANGE_MODE);
 
                     DateRange dateRange = (DateRange) dateItem;
 
                     FrequencyEnum frequency = dateRange.frequency();
                     mSpinnerFrequency.setSelection(frequency == FrequencyEnum.EVERY ? 0 : 1);
 
-                    Calendar startDate = dateRange.dateStart();
-                    Calendar endDate = dateRange.dateEnd();
+                    Calendar startDate = dateRange.firstDate();
+                    Calendar endDate = dateRange.lastDate();
 
-                    if (startDate != null) {
-                        mRangeDateEditStart.setText(String.format(Locale.ROOT,
-                                "%02d.%02d.%d",
-                                startDate.get(Calendar.DAY_OF_MONTH),
-                                startDate.get(Calendar.MONTH) + 1,
-                                startDate.get(Calendar.YEAR)));
-                    }
-                    if (endDate != null) {
-                        mRangeDateEditEnd.setText(String.format(Locale.ROOT,
-                                "%02d.%02d.%d",
-                                endDate.get(Calendar.DAY_OF_MONTH),
-                                endDate.get(Calendar.MONTH) + 1,
-                                endDate.get(Calendar.YEAR)));
-                    }
+                    mRangeDateEditStart.setText(CommonUtils.dateToString(startDate,
+                            "dd.MM.yyyy", CommonUtils.locale(this)));
+
+                    mRangeDateEditEnd.setText(CommonUtils.dateToString(endDate,
+                            "dd.MM.yyyy", CommonUtils.locale(this)));
                 }
             }
         }
@@ -192,8 +196,8 @@ public class DateEditorActivity extends AppCompatActivity
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(ARG_FREQUENCY, mFrequency);
-        outState.putParcelableArrayList(ARG_DATE_ITEMS, mDateItems);
+        outState.putInt(FREQUENCY, mFrequency);
+        outState.putParcelableArrayList(DATE_ITEMS, mDateItems);
     }
 
     @Override
@@ -206,71 +210,75 @@ public class DateEditorActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // завершение редактирования даты
-            case R.id.apply_date:
+            case R.id.apply_date: {
                 String errorMessage;
                 try {
                     switch (mSpinnerDate.getSelectedItemPosition()) {
-                        case 0:
+                        // единождная дата
+                        case SINGLE_MODE: {
                             if (!checkSingleDate()) {
                                 return true;
                             }
 
-                            DateSingle dateSingle = DateSingle.of(mSingleDateEdit.getText().toString());
+                            DateSingle dateSingle = new DateSingle(mSingleDateEdit.getText().toString(), "dd.MM.yyyy");
+
                             sendDateResult(dateSingle);
                             break;
-                        case 1:
+                        }
+                        // дата с диапазоном
+                        case RANGE_MODE: {
                             if (!checkRangeDates()) {
                                 return true;
                             }
-                            DateRange dateRange = DateRange.of(mRangeDateEditStart.getText().toString(),
+
+                            DateRange dateRange = new DateRange(
+                                    mRangeDateEditStart.getText().toString(),
                                     mRangeDateEditEnd.getText().toString(),
-                                    mSpinnerFrequency.getSelectedItemPosition()
-                                            == 0 ? FrequencyEnum.EVERY : FrequencyEnum.THROUGHOUT);
+                                    mSpinnerFrequency.getSelectedItemPosition() == 0 ? FrequencyEnum.EVERY : FrequencyEnum.THROUGHOUT,
+                                    "dd.MM.yyyy");
+
                             sendDateResult(dateRange);
                             break;
-                        default:
-                            return true;
+                        }
                     }
+
                     return true;
-                } catch (InvalidDateException e) {
-                    errorMessage = getString(R.string.date_editor_invalid_date, e.inputDate());
+
+                    // не удалось распарсить даты
+                } catch (InvalidDateParseException e) {
+                    errorMessage = getString(R.string.date_editor_invalid_date, e.parseDate());
+
+                    // неправильный день недели
                 } catch (InvalidDayOfWeekException e) {
-                    Locale locale;
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        locale = getResources().getConfiguration().getLocales().get(0);
-                    } else {
-                        locale = getResources().getConfiguration().locale;
-                    }
-                    String dayOfWeek = e.date().getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, locale);
-                    errorMessage = getString(R.string.date_editor_invalid_day_of_week, dayOfWeek);
-                } catch (InvalidFrequencyForDateException e) {
+                    errorMessage = getString(R.string.date_editor_invalid_day_of_week);
+
+                    // неправильная периодичность даты
+                } catch (InvalidDateFrequencyException e) {
                     errorMessage = getString(R.string.date_editor_invalid_frequency);
-                } catch (Exception e) {
-                    errorMessage = "Unchecked error! Please tell me about it\n\n" + e;
+
                 }
 
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle(R.string.error);
-                alertDialog.setMessage(errorMessage);
-                alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL,
-                        getString(R.string.ok),
-                        new DialogInterface.OnClickListener() {
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.error)
+                        .setMessage(errorMessage)
+                        .setNeutralButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
                             }
-                        });
-                alertDialog.show();
+                        }).show();
 
                 return true;
-
+            }
             // удалить дату
-            case R.id.remove_date:
+            case R.id.remove_date: {
                 Intent intent = new Intent();
                 intent.putExtra(EXTRA_DATE, getIntent().getParcelableExtra(EXTRA_DATE));
                 setResult(RESULT_DATE_REMOVE, intent);
+
                 onBackPressed();
                 break;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -284,8 +292,8 @@ public class DateEditorActivity extends AppCompatActivity
                         new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        mSingleDateEdit.setText(String.format(Locale.ROOT,
-                                "%02d.%02d.%d", dayOfMonth, month + 1, year));
+                        mSingleDateEdit.setText(CommonUtils.dateToString(
+                                new GregorianCalendar(year, month, dayOfMonth), "dd.MM.yyyy"));
                     }
                 });
                 break;
@@ -294,8 +302,8 @@ public class DateEditorActivity extends AppCompatActivity
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                mRangeDateEditStart.setText(String.format(Locale.ROOT,
-                                        "%02d.%02d.%d", dayOfMonth, month + 1, year));
+                                mRangeDateEditStart.setText(CommonUtils.dateToString(
+                                        new GregorianCalendar(year, month, dayOfMonth), "dd.MM.yyyy"));
                                 checkRangeDates();
                             }
                         });
@@ -305,8 +313,8 @@ public class DateEditorActivity extends AppCompatActivity
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                mRangeDateEditEnd.setText(String.format(Locale.ROOT,
-                                        "%02d.%02d.%d", dayOfMonth, month + 1, year));
+                                mRangeDateEditEnd.setText(CommonUtils.dateToString(
+                                        new GregorianCalendar(year, month, dayOfMonth), "dd.MM.yyyy"));
                                 checkRangeDates();
                             }
                         });
@@ -324,7 +332,7 @@ public class DateEditorActivity extends AppCompatActivity
         int year, month, dayOfMonth;
 
         try {
-            DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.ROOT);
+            DateFormat format = new SimpleDateFormat("dd.MM.yyyy", CommonUtils.locale(this));
             format.setLenient(false);
             format.parse(inputDate);
 
@@ -334,13 +342,14 @@ public class DateEditorActivity extends AppCompatActivity
             dayOfMonth = current.get(Calendar.DAY_OF_MONTH);
 
         } catch (ParseException e) {
-            Calendar current = Calendar.getInstance();
+            Calendar current = new GregorianCalendar();
             year = current.get(Calendar.YEAR);
             month = current.get(Calendar.MONTH);
             dayOfMonth = current.get(Calendar.DAY_OF_MONTH);
         }
 
-        new DatePickerDialog(this, listener, year, month, dayOfMonth).show();
+        new DatePickerDialog(this, listener, year, month, dayOfMonth)
+                .show();
     }
 
     /**
@@ -351,7 +360,7 @@ public class DateEditorActivity extends AppCompatActivity
         try {
             String dateString = mSingleDateEdit.getText().toString();
 
-            DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.ROOT);
+            DateFormat format = new SimpleDateFormat("dd.MM.yyyy", CommonUtils.locale(this));
             format.setLenient(false);
             format.parse(dateString);
 
@@ -372,7 +381,7 @@ public class DateEditorActivity extends AppCompatActivity
             String startString = mRangeDateEditStart.getText().toString();
             String endString = mRangeDateEditEnd.getText().toString();
 
-            DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.ROOT);
+            DateFormat format = new SimpleDateFormat("dd.MM.yyyy", CommonUtils.locale(this));
             format.setLenient(false);
 
             long diff = format.parse(endString).getTime() - format.parse(startString).getTime();
@@ -381,7 +390,7 @@ public class DateEditorActivity extends AppCompatActivity
                 mRangeDateEditStart.setError(getResources().getString(R.string.date_editor_less_than_another));
                 mRangeDateEditEnd.setError(getResources().getString(R.string.date_editor_less_than_another));
                 return false;
-            } else if (((diff) / 86400000) % mFrequency != 0) {
+            } else if (diff == 0 || (((diff) / 86400000) % mFrequency != 0)) {
                 mRangeDateEditStart.setError(getResources().getString(R.string.date_editor_frequency_mismatch));
                 mRangeDateEditEnd.setError(getResources().getString(R.string.date_editor_frequency_mismatch));
                 return false;
@@ -398,41 +407,46 @@ public class DateEditorActivity extends AppCompatActivity
         return true;
     }
 
-    public void sendDateResult(DateItem dateItem) {
-        if (!DatePair.possibleChangeDate(mDateItems,
-                (DateItem) getIntent().getParcelableExtra(EXTRA_DATE), dateItem)) {
-
-            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle(R.string.error);
+    /**
+     * Отправляет результат редактирования даты.
+     * @param newDate дата.
+     */
+    public void sendDateResult(@NonNull DateItem newDate) {
+        DateItem oldDate = getIntent().getParcelableExtra(EXTRA_DATE);
+        if (!DatePair.possibleChangeDate(mDateItems, oldDate, newDate)) {
+            // если не удается заменить
 
             ArrayList<DateItem> items = new ArrayList<>(mDateItems);
-            items.remove(dateItem);
+            // items.remove(newDate);
 
-            alertDialog.setMessage(String.format("%s\n\n%s %s\n%s %s",
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.error)
+                    .setMessage(String.format("%s\n\n%s %s\n%s %s",
                     getString(R.string.date_editor_impossible_added_date),
                     getString(R.string.date_editor_added_date),
-                    dateItem.toString(),
+                    newDate.toString(),
                     getString(R.string.date_editor_dates),
-                    items.toString()));
-
-            alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL,
-                    getString(R.string.ok),
-                    new DialogInterface.OnClickListener() {
+                    items.toString()))
+                    .setNeutralButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-            });
-            alertDialog.show();
+                            dialog.dismiss();
+                        }
+                    }).show();
+
             return;
         }
 
         Intent intent = new Intent();
-        intent.putExtra(EXTRA_DATE, dateItem);
+        intent.putExtra(EXTRA_DATE, newDate);
         setResult(RESULT_DATE_ADD, intent);
+
         onBackPressed();
     }
 
+    /**
+     * Watcher для редактирования даты.
+     */
     private class DateWatcher implements TextWatcher {
 
         private EditText mEditText;

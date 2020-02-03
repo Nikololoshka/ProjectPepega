@@ -45,6 +45,16 @@ public class StretchTable extends TableLayout {
     private void initialization(@NonNull Context context) {
         mTableRows = new ArrayList<>();
 
+        for (int i = 0; i < 10; i++) {
+            TableRow tableRow = new TableRow(context);
+            TableLayout.LayoutParams params = new TableLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+            tableRow.setLayoutParams(params);
+
+            mTableRows.add(tableRow);
+            addView(tableRow);
+        }
+
         mColumnHeaders = new ArrayList<>();
         mRowHeaders = new ArrayList<>();
         mCells = new ArrayList<>();

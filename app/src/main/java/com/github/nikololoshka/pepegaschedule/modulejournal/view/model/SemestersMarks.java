@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.MarkResponse;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
-import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -280,7 +280,11 @@ public class SemestersMarks {
 
         try {
             String json = FileUtils.readFileToString(cacheFile, StandardCharsets.UTF_8);
-            return new Gson().fromJson(json, SemestersMarks.class);
+            return new GsonBuilder()
+                    .registerTypeAdapter(MarkType.class, new MarkType.MarkDeserialize())
+                    .create()
+                    .fromJson(json, SemestersMarks.class);
+
         } catch (IOException | JsonSyntaxException ignored) {
 
         }
@@ -300,7 +304,10 @@ public class SemestersMarks {
         }
 
         File cacheFile = FileUtils.getFile(cacheDirectory,SEMESTERS_FOLDER, semester + ".json");
-        String json = new Gson().toJson(marks);
+        String json = new GsonBuilder()
+                .registerTypeAdapter(MarkType.class, new MarkType.MarkSerialize())
+                .create()
+                .toJson(marks);
 
         try {
             FileUtils.writeStringToFile(cacheFile, json, StandardCharsets.UTF_8, false);
@@ -369,8 +376,7 @@ public class SemestersMarks {
         SemestersMarks marks = (SemestersMarks) o;
         return Objects.equals(mDisciplines, marks.mDisciplines) &&
                 Objects.equals(mRating, marks.mRating) &&
-                Objects.equals(mAccumulatedRating, marks.mAccumulatedRating) &&
-                Objects.equals(mTime, marks.mTime);
+                Objects.equals(mAccumulatedRating, marks.mAccumulatedRating);
     }
 
     @Override

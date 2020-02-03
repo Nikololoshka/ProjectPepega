@@ -16,6 +16,8 @@ import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 
+import java.util.Calendar;
+
 /**
  * Виджет с расписанием.
  */
@@ -35,18 +37,16 @@ public class ScheduleAppWidget extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
-        String schedule = ScheduleAppWidgetConfigureActivity.loadPref(context, appWidgetId);
-        if (schedule == null) {
-            schedule = context.getString(R.string.widget_schedule_name);
+        String scheduleName = ScheduleAppWidgetConfigureActivity.loadPref(context, appWidgetId);
+        if (scheduleName == null) {
+            scheduleName = context.getString(R.string.widget_schedule_name);
         }
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_schedule_app);
 
         // для открытия приложения на распиании
-        Bundle scheduleBundle = new Bundle();
-        scheduleBundle.putString(ScheduleViewFragment.ARG_SCHEDULE_NAME, schedule);
-        scheduleBundle.putString(ScheduleViewFragment.ARG_SCHEDULE_PATH,
-                SchedulePreference.createPath(context, schedule));
+        Bundle scheduleBundle = ScheduleViewFragment.createBundle(scheduleName,
+                SchedulePreference.createPath(context, scheduleName));
 
         PendingIntent schedulePendingIntent = new NavDeepLinkBuilder(context)
                 .setComponentName(MainActivity.class)
@@ -55,7 +55,7 @@ public class ScheduleAppWidget extends AppWidgetProvider {
                 .setArguments(scheduleBundle)
                 .createPendingIntent();
 
-        views.setTextViewText(R.id.widget_schedule_name, schedule);
+        views.setTextViewText(R.id.widget_schedule_name, scheduleName);
         views.setOnClickPendingIntent(R.id.widget_schedule_name, schedulePendingIntent);
 
         // для открытия приложения на распиании на определенном дне
@@ -86,7 +86,8 @@ public class ScheduleAppWidget extends AppWidgetProvider {
 
         String action = intent.getAction();
         if (action != null && action.equalsIgnoreCase(ACTION_SCHEDULE_DAY_CLICKED)) {
-            long time = intent.getLongExtra(SCHEDULE_DAY_TIME, -1);
+
+            Calendar date = (Calendar) intent.getSerializableExtra(SCHEDULE_DAY_TIME);
             String scheduleName =  intent.getStringExtra(SCHEDULE_NAME);
 
             if (scheduleName == null) {
@@ -94,11 +95,8 @@ public class ScheduleAppWidget extends AppWidgetProvider {
             }
 
             // создание intent'а на открытие расписание на определенном дне
-            Bundle scheduleDayBundle = new Bundle();
-            scheduleDayBundle.putString(ScheduleViewFragment.ARG_SCHEDULE_NAME, scheduleName);
-            scheduleDayBundle.putString(ScheduleViewFragment.ARG_SCHEDULE_PATH,
-                    SchedulePreference.createPath(context, scheduleName));
-            scheduleDayBundle.putLong(ScheduleViewFragment.ARG_SCHEDULE_DAY, time);
+            Bundle scheduleDayBundle = ScheduleViewFragment.createBundle(scheduleName,
+                    SchedulePreference.createPath(context, scheduleName), date);
 
             PendingIntent scheduleDayPendingIntent = new NavDeepLinkBuilder(context)
                     .setComponentName(MainActivity.class)

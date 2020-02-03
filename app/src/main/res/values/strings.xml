@@ -90,6 +90,7 @@
     <string name="sch_view_will_be_deleted">Attention schedule will be deleted irrevocably!</string>
     <string name="sch_view_error_loading">Error loading schedule</string>
     <string name="sch_view_saved">Schedule saved</string>
+    <string name="sch_view_today">Today</string>
 
     <!-- pair editor -->
     <string name="pair_editor_title">Title</string>
@@ -104,6 +105,8 @@
     <string name="pair_editor_date_removed">Date was removed</string>
     <string name="pair_editor_empty_dates_list">You must add at least one date.</string>
     <string name="pair_editor_empty_title">The field cannot be empty</string>
+    <string name="pair_editor_conflict_pair">You cannot add a pair. Conflicts with \"%1$s\".</string>
+    <string name="pair_editor_loading_schedule_error">Unable to load the schedule for editing</string>
 
     <!-- date editor -->
     <string name="date_editor_enter_valid_date">Enter a valid date: DD.MM.YYYY</string>
@@ -115,9 +118,9 @@
     <string name="date_editor_frequency_mismatch">Frequency mismatch!</string>
     <string name="date_editor_less_than_another">One date is less than another!</string>
     <string name="date_editor_remove_date">Remove date</string>
-    <string name="date_editor_invalid_date">Unable to create date: %1$s. Check the correct date.</string>
-    <string name="date_editor_invalid_day_of_week">Not a valid day of the week: %1$s</string>
-    <string name="date_editor_invalid_frequency">The date range is not a multiple of its duration</string>
+    <string name="date_editor_invalid_date">Unable to create date: [%1$s]. Check the correct date.</string>
+    <string name="date_editor_invalid_day_of_week">You cannot create a date with this day of the week.</string>
+    <string name="date_editor_invalid_frequency">The date range is not a multiple of its duration.</string>
     <string name="date_editor_impossible_added_date">You cannot add a date because there will be a date intersection / no match on day of the week.</string>
     <string name="date_editor_added_date">Added date:</string>
     <string name="date_editor_dates">Dates:</string>

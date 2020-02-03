@@ -1,5 +1,6 @@
 package com.github.nikololoshka.pepegaschedule.schedule.repository;
 
+import android.animation.ValueAnimator;
 import android.app.SearchManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -56,7 +57,10 @@ public class ScheduleRepositoryFragment extends Fragment
 
     private StatefulLayout mStatefulLayout;
     private ScheduleRepositoryAdapter mRepositoryAdapter;
+
     private AppBarLayout mAppBarRepository;
+    private ValueAnimator mAppBarAnimator;
+    private int mTargetAppBarHeight;
 
     @NonNull
     private String mFilterQuery;
@@ -64,6 +68,17 @@ public class ScheduleRepositoryFragment extends Fragment
     public ScheduleRepositoryFragment() {
         super();
         mFilterQuery = "";
+
+        mAppBarAnimator = new ValueAnimator();
+        mAppBarAnimator.setDuration(300);
+        mAppBarAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                mAppBarRepository.getLayoutParams().height = (int) animation.getAnimatedValue();
+                mAppBarRepository.requestLayout();
+            }
+        });
+
     }
 
     @Override
@@ -101,6 +116,8 @@ public class ScheduleRepositoryFragment extends Fragment
         mStatefulLayout = view.findViewById(R.id.stateful_layout);
         mStatefulLayout.addXMLViews();
         mStatefulLayout.setLoadState();
+
+        mTargetAppBarHeight = getResources().getDimensionPixelSize(R.dimen.appbar_repository_height);
 
         TextView textVersion = view.findViewById(R.id.repository_version);
         textVersion.setText(getString(R.string.repository_version));
@@ -198,10 +215,8 @@ public class ScheduleRepositoryFragment extends Fragment
      * @param query запрос.
      */
     private void searchSchedules(@NonNull String query) {
-        ViewGroup.LayoutParams params = mAppBarRepository.getLayoutParams();
-        params.height = query.isEmpty() ? getResources()
-                .getDimensionPixelSize(R.dimen.appbar_repository_height) : 0;
-        mAppBarRepository.setLayoutParams(params);
+        changeAppBarHeight(query.isEmpty() ? getResources()
+                .getDimensionPixelSize(R.dimen.appbar_repository_height) : 0);
 
         if (mRepositoryItems == null) {
             return;
@@ -232,6 +247,22 @@ public class ScheduleRepositoryFragment extends Fragment
 
         mStatefulLayout.setState(R.id.repository_container);
         mRepositoryAdapter.submitList(items);
+    }
+
+    /**
+     * Анимировано менят высоту appbar layout'а.
+     * @param targetHeight необходимая высота.
+     */
+    private void changeAppBarHeight(int targetHeight) {
+        if (targetHeight == mTargetAppBarHeight) {
+            return;
+        }
+
+        mTargetAppBarHeight = targetHeight;
+
+        mAppBarAnimator.cancel();
+        mAppBarAnimator.setIntValues(mAppBarRepository.getMeasuredHeight(), targetHeight);
+        mAppBarAnimator.start();
     }
 
     @Override

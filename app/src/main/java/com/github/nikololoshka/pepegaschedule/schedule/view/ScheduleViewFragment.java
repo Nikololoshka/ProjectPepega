@@ -1,14 +1,17 @@
 package com.github.nikololoshka.pepegaschedule.schedule.view;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,53 +28,49 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.Loader;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.schedule.editor.PairEditorActivity;
-import com.github.nikololoshka.pepegaschedule.schedule.editor.ScheduleEditorActivity;
+import com.github.nikololoshka.pepegaschedule.schedule.editor.name.ScheduleNameEditorActivity;
+import com.github.nikololoshka.pepegaschedule.schedule.editor.pair.PairEditorActivity;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
+import com.github.nikololoshka.pepegaschedule.schedule.view.paging.OnPairCardListener;
+import com.github.nikololoshka.pepegaschedule.schedule.view.paging.ScheduleDayItem;
+import com.github.nikololoshka.pepegaschedule.schedule.view.paging.ScheduleDayItemAdapter;
+import com.github.nikololoshka.pepegaschedule.schedule.view.paging.ScheduleDayItemStorage;
+import com.github.nikololoshka.pepegaschedule.schedule.view.paging.ScheduleViewSpaceItemDecoration;
 import com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
+import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
-import com.github.nikololoshka.pepegaschedule.utils.StickHeaderItemDecoration;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.apache.commons.io.FileUtils;
-import org.json.JSONException;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Objects;
 
 import static android.app.Activity.RESULT_CANCELED;
-import static android.app.Activity.RESULT_OK;
-import static com.github.nikololoshka.pepegaschedule.schedule.editor.PairEditorActivity.EXTRA_PAIR;
-import static com.github.nikololoshka.pepegaschedule.schedule.editor.PairEditorActivity.RESULT_PAIR_ADD;
-import static com.github.nikololoshka.pepegaschedule.schedule.editor.PairEditorActivity.RESULT_PAIR_EDIT;
-import static com.github.nikololoshka.pepegaschedule.schedule.editor.PairEditorActivity.RESULT_PAIR_REMOVE;
-import static com.github.nikololoshka.pepegaschedule.schedule.editor.ScheduleEditorActivity.EXTRA_SCHEDULE_NAME;
-
+import static com.github.nikololoshka.pepegaschedule.schedule.editor.name.ScheduleNameEditorActivity.EXTRA_SCHEDULE_NAME;
 
 /**
  * Фрагмент просмотра расписания.
  */
-public class ScheduleViewFragment extends Fragment
-        implements OnPairCardCallback, LoaderManager.LoaderCallbacks<ScheduleViewLoader.ScheduleDataView> {
+public class ScheduleViewFragment extends Fragment implements OnPairCardListener {
 
-    public static final String ARG_SCHEDULE_PATH = "schedule_path";
-    public static final String ARG_SCHEDULE_NAME = "schedule_name";
-    public static final String ARG_SCHEDULE_DAY = "schedule_day";
+    private static final String TAG = "ScheduleViewFragmentLog";
 
-    private static final int SCHEDULE_VIEW_LOADER = 0;
+    private static final String ARG_SCHEDULE_PATH = "schedule_path";
+    private static final String ARG_SCHEDULE_NAME = "schedule_name";
+    private static final String ARG_SCHEDULE_DAY = "schedule_day";
 
     private static final int REQUEST_SCHEDULE_NAME = 0;
     private static final int REQUEST_PAIR = 1;
@@ -79,47 +78,41 @@ public class ScheduleViewFragment extends Fragment
 
     private static final int REQUEST_PERMISSION_WRITE_STORAGE = 3;
 
-    private static final String ARG_PAIR_CACHE = "pair_cache";
-    private static final String ARG_CURRENT_POSITION = "current_position";
-    private static final String ARG_LOADING_SCHEDULE = "loading_schedule";
+    private static final String PAIR_CACHE = "pair_cache";
+    private static final String SCROLL_DATE = "scroll_date";
 
     /**
      * Редактируемая пара.
      */
+    @Nullable
     private Pair mPairCache;
     /**
-     * Информация, загруженная загрузчиком.
+     * Название расписания.
      */
-    // TODO: попытаться убрать (переделать)
-    private ScheduleViewLoader.ScheduleDataView mScheduleDataView;
-    /**
-     * Загрузчик расписания.
-     */
-    private ScheduleViewLoader mViewLoader;
-
-    @Nullable
     private String mScheduleName;
-    @Nullable
+    /**
+     * Путь к расписанию.
+     */
     private String mSchedulePath;
+    /**
+     * Горизонтальный ли режим отображения.
+     */
+    private boolean mIsHorizontalMode;
+    /**
+     * Дата, которую необходимо показать.
+     */
+    private Calendar mScrollDate;
 
     private StatefulLayout mStatefulLayout;
 
     private RecyclerView mRecyclerSchedule;
-    private ScheduleViewAdapter mScheduleAdapter;
+    private ScheduleDayItemAdapter mScheduleDayItemAdapter;
+    private ScheduleViewModel mScheduleViewModel;
 
-    private int mCurrentViewPosition = RecyclerView.NO_POSITION;
-    private int mTodayPosition = RecyclerView.NO_POSITION;
-
-    private long mRequestTimeDay= System.currentTimeMillis();
-
-    private boolean mIsLoading = true;
-    private boolean mIsHorizontalView = false;
-
-    /**
-     * Конструктор фрагмента.
-     */
     public ScheduleViewFragment() {
         super();
+
+        mIsHorizontalMode = false;
     }
 
     /**
@@ -128,10 +121,22 @@ public class ScheduleViewFragment extends Fragment
      * @param path путь к расписанию.
      * @return bundle с данными.
      */
-    public static Bundle createBundle(@NonNull String name, @NonNull String path) {
+    public static Bundle createBundle(@NonNull String name, @Nullable String path) {
+        return createBundle(name, path, null);
+    }
+
+    /**
+     * Создает bundle с данными, требуемыми для фрагмента.
+     * @param name название расписания.
+     * @param path путь к расписанию.
+     * @param date дата, которую необходимо показать.
+     * @return bundle с данными.
+     */
+    public static Bundle createBundle(@NonNull String name, @Nullable String path, @Nullable Calendar date) {
         Bundle bundle = new Bundle();
         bundle.putString(ARG_SCHEDULE_NAME, name);
         bundle.putString(ARG_SCHEDULE_PATH, path);
+        bundle.putSerializable(ARG_SCHEDULE_DAY, date);
         return bundle;
     }
 
@@ -140,22 +145,20 @@ public class ScheduleViewFragment extends Fragment
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState != null) {
+            // если было предыдущие состояние
             mSchedulePath = savedInstanceState.getString(ARG_SCHEDULE_PATH);
             mScheduleName = savedInstanceState.getString(ARG_SCHEDULE_NAME);
-
-            mPairCache = savedInstanceState.getParcelable(ARG_PAIR_CACHE);
-            mCurrentViewPosition = savedInstanceState.getInt(ARG_CURRENT_POSITION, RecyclerView.NO_POSITION);
-
-            mIsLoading = savedInstanceState.getBoolean(ARG_LOADING_SCHEDULE, true);
+            mPairCache = savedInstanceState.getParcelable(PAIR_CACHE);
+            mScrollDate = (Calendar) savedInstanceState.getSerializable(SCROLL_DATE);
 
         } else if (getArguments() != null) {
             // если создаемся первый раз
             mScheduleName = getArguments().getString(ARG_SCHEDULE_NAME);
             mSchedulePath = getArguments().getString(ARG_SCHEDULE_PATH);
-            mRequestTimeDay = getArguments().getLong(ARG_SCHEDULE_DAY, System.currentTimeMillis());
 
-            if (mSchedulePath == null && getContext() != null) {
-                mSchedulePath = SchedulePreference.createPath(getContext(), mScheduleName);
+            Context context = getContext();
+            if (mSchedulePath == null && context != null) {
+                mSchedulePath = SchedulePreference.createPath(context, mScheduleName);
             }
         }
 
@@ -163,7 +166,7 @@ public class ScheduleViewFragment extends Fragment
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_schedule_view, container, false);
 
@@ -171,56 +174,69 @@ public class ScheduleViewFragment extends Fragment
         mStatefulLayout.addXMLViews();
         mStatefulLayout.setLoadState();
 
-        mRecyclerSchedule = view.findViewById(R.id.recycler_view);
+        mRecyclerSchedule = view.findViewById(R.id.sch_view_container);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         mRecyclerSchedule.setLayoutManager(manager);
 
         // отображать горизонтально или вертикально расписание
-        if (getContext() != null) {
-            String method = ApplicationPreference.scheduleViewMethod(getContext());
-            mIsHorizontalView = method.equals(ApplicationPreference.SCHEDULE_VIEW_HORIZONTAL);
+        Context context = getContext();
+        if (context != null) {
+            String method = ApplicationPreference.scheduleViewMethod(context);
+            mIsHorizontalMode = method.equals(ApplicationPreference.SCHEDULE_VIEW_HORIZONTAL);
         }
 
-        if (mIsHorizontalView) {
-            mScheduleAdapter = new ScheduleHorizontalAdapter(this);
-
+        if (mIsHorizontalMode) {
+            // если горизонтальное отображение
             manager.setOrientation(RecyclerView.HORIZONTAL);
             LinearSnapHelper snapHelper = new LinearSnapHelper();
             snapHelper.attachToRecyclerView(mRecyclerSchedule);
 
         } else {
-            mScheduleAdapter = new ScheduleVerticalAdapter(this);
-
-            // "липкий" заголовок
-            mRecyclerSchedule.addItemDecoration(new StickHeaderItemDecoration(
-                    (StickHeaderItemDecoration.StickyHeaderInterface) mScheduleAdapter));
-            // разделитель между днями
+            // если вертикальное отображение
             mRecyclerSchedule.addItemDecoration(new ScheduleViewSpaceItemDecoration(
                     getResources().getDimensionPixelSize(R.dimen.vertical_view_space)));
         }
 
-        mRecyclerSchedule.setAdapter(mScheduleAdapter);
+        mScheduleDayItemAdapter = new ScheduleDayItemAdapter(this);
+        mRecyclerSchedule.setAdapter(mScheduleDayItemAdapter);
 
-        // listener на отображение кнопки возврата к текущему дню.
-        mRecyclerSchedule.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        // установка ViewModel
+        mScheduleViewModel = new ViewModelProvider(this,
+                new ScheduleViewModel.Factory(mSchedulePath)).get(ScheduleViewModel.class);
+
+        // установка отображаемого дня, если было указано в bundle
+        if (savedInstanceState == null && getArguments() != null) {
+            Calendar date = (Calendar) getArguments().getSerializable(ARG_SCHEDULE_DAY);
+            mScheduleViewModel.storage().setInitialKey(date);
+        }
+
+        mScheduleViewModel.scheduleDayItemData()
+                .observe(getViewLifecycleOwner(), new Observer<PagedList<ScheduleDayItem>>() {
             @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-            if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                LinearLayoutManager layout = (LinearLayoutManager) recyclerView.getLayoutManager();
+            public void onChanged(final PagedList<ScheduleDayItem> scheduleDayItems) {
+                mScheduleDayItemAdapter.submitList(scheduleDayItems, new Runnable() {
+                    @Override
+                    public void run() {
+                        Calendar day = mScrollDate;
 
-                if (layout == null) {
-                    return;
-                }
+                        if (day != null && !scheduleDayItems.isEmpty()) {
+                            ScheduleDayItem item = scheduleDayItems.get(0);
 
-                mCurrentViewPosition = mScheduleAdapter
-                        .unTranslateIndex(layout.findFirstCompletelyVisibleItemPosition());
-            }
+                            if (item != null) {
+                                int pos = (int) CommonUtils.calendarDiff(day, item.day());
+
+                                if (pos >= 0 && pos < scheduleDayItems.size()) {
+                                    mRecyclerSchedule.scrollToPosition(pos);
+                                }
+                            }
+                            mScrollDate = null;
+                        }
+
+                        mStatefulLayout.setState(R.id.sch_view_container);
+                    }
+                });
             }
         });
-
-        // загружаем расписание
-        mViewLoader = (ScheduleViewLoader) LoaderManager.getInstance(this)
-                .initLoader(SCHEDULE_VIEW_LOADER, null, this);
 
         return view;
     }
@@ -228,7 +244,6 @@ public class ScheduleViewFragment extends Fragment
     @Override
     public void onStart() {
         super.onStart();
-
         updateActionBar();
     }
 
@@ -240,48 +255,63 @@ public class ScheduleViewFragment extends Fragment
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (mIsLoading || mScheduleDataView.hasErrors) {
-            return super.onOptionsItemSelected(item);
-        }
-
         switch (item.getItemId()) {
             // если нужно переименновать расписание
             case R.id.rename_schedule: {
-                Intent intent = new Intent(getActivity(), ScheduleEditorActivity.class);
+                Intent intent = new Intent(getActivity(), ScheduleNameEditorActivity.class);
                 intent.putExtra(EXTRA_SCHEDULE_NAME, mScheduleName);
                 startActivityForResult(intent, REQUEST_SCHEDULE_NAME);
+
                 return true;
             }
             // к текущему дню
             case R.id.show_current_day: {
-                mScheduleAdapter.scrollTo(mRecyclerSchedule, mTodayPosition, true);
+                scrollScheduleTo(CommonUtils.normalizeDate(new GregorianCalendar()));
                 return true;
             }
+            // к выбраному дню
             case R.id.go_to_day: {
-                if (mCurrentViewPosition == RecyclerView.NO_POSITION) {
-                    return true;
-                }
+                Context context = getContext();
+                if (context != null) {
 
-                Calendar date = Calendar.getInstance();
-                date.setTimeInMillis(mScheduleDataView.dayDates.get(mCurrentViewPosition));
-                int year = date.get(Calendar.YEAR);
-                int month = date.get(Calendar.MONTH);
-                int dayOfMonth = date.get(Calendar.DAY_OF_MONTH);
+                    Calendar initialDate = null;
 
-                if (getContext() == null) {
-                    return true;
-                }
-
-                new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        Calendar date = new GregorianCalendar(year, month, dayOfMonth);
-                        mRequestTimeDay = date.getTimeInMillis();
-                        mScheduleDataView = null;
-                        reloadSchedule(ScheduleViewLoader.REQUEST_LOAD_SCHEDULE);
+                    // текущий отображаемый день
+                    int pos = currentPosition();
+                    PagedList<ScheduleDayItem> items = mScheduleDayItemAdapter.getCurrentList();
+                    if (items != null) {
+                        ScheduleDayItem dayItem = items.get(pos);
+                        if (dayItem != null) {
+                            initialDate = dayItem.day();
+                        }
                     }
-                }, year, month, dayOfMonth).show();
 
+                    // если не получилось то текущая дата.
+                    if (initialDate == null) {
+                        initialDate = new GregorianCalendar();
+                    }
+
+                    int year = initialDate.get(Calendar.YEAR);
+                    int month = initialDate.get(Calendar.MONTH);
+                    int dayOfMonth = initialDate.get(Calendar.DAY_OF_MONTH);
+
+                    // picker даты
+                    DatePickerDialog dialog = new DatePickerDialog(context,
+                            new DatePickerDialog.OnDateSetListener() {
+                                @Override
+                                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                    scrollScheduleTo(new GregorianCalendar(year, month, dayOfMonth));
+                                }
+                    }, year, month, dayOfMonth);
+                    dialog.setButton(DialogInterface.BUTTON_NEUTRAL, getString(R.string.sch_view_today),
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    scrollScheduleTo(CommonUtils.normalizeDate(new GregorianCalendar()));
+                                }
+                            });
+                    dialog.show();
+                }
                 return true;
             }
             // если нужно сохранить расписание
@@ -301,37 +331,35 @@ public class ScheduleViewFragment extends Fragment
             }
             // если удалить расписание
             case R.id.remove_schedule: {
-                AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
-                alertDialog.setTitle(R.string.warning);
-                alertDialog.setMessage(getString(R.string.sch_view_will_be_deleted));
-                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,
-                        getString(R.string.cancel),
-                        new DialogInterface.OnClickListener() {
+                new AlertDialog.Builder(getContext())
+                        .setTitle(R.string.warning)
+                        .setMessage(getString(R.string.sch_view_will_be_deleted))
+                        .setNeutralButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
                             }
-                        });
-                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,
-                        getString(R.string.yes_continue),
-                        new DialogInterface.OnClickListener() {
+                        })
+                        .setPositiveButton(getString(R.string.yes_continue), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 removeSchedule();
-                                if (getActivity() != null) {
-                                    getActivity().onBackPressed();
+                                Activity activity = getActivity();
+                                if (activity != null) {
+                                    activity.onBackPressed();
                                 }
                             }
-                        });
-                alertDialog.show();
+                        }).show();
+
                 return true;
             }
             // если добавить пару
             case R.id.add_pair: {
-
-                Intent intent = new Intent(getContext(), PairEditorActivity.class);
-                intent.putExtra(PairEditorActivity.EXTRA_SCHEDULE, mScheduleDataView.schedule);
-                startActivityForResult(intent, REQUEST_PAIR);
+                Context context = getContext();
+                if (context != null) {
+                    Intent intent = PairEditorActivity.newIntent(context, mSchedulePath, null);
+                    startActivityForResult(intent, REQUEST_PAIR);
+                }
                 return true;
             }
         }
@@ -344,9 +372,8 @@ public class ScheduleViewFragment extends Fragment
         super.onSaveInstanceState(outState);
         outState.putString(ARG_SCHEDULE_NAME, mScheduleName);
         outState.putString(ARG_SCHEDULE_PATH, mSchedulePath);
-        outState.putParcelable(ARG_PAIR_CACHE, mPairCache);
-        outState.putInt(ARG_CURRENT_POSITION, mCurrentViewPosition);
-        outState.putBoolean(ARG_LOADING_SCHEDULE, mIsLoading);
+        outState.putParcelable(PAIR_CACHE, mPairCache);
+        outState.putSerializable(SCROLL_DATE, mScrollDate);
     }
 
     /**
@@ -354,12 +381,14 @@ public class ScheduleViewFragment extends Fragment
      * @param pair - нажатая пара.
      */
     @Override
-    public void onPairCardClicked(@Nullable Pair pair) {
+    public void onPairClicked(@Nullable Pair pair) {
         mPairCache = pair;
-        Intent intent = new Intent(getContext(), PairEditorActivity.class);
-        intent.putExtra(PairEditorActivity.EXTRA_SCHEDULE, mScheduleDataView.schedule);
-        intent.putExtra(PairEditorActivity.EXTRA_PAIR, pair);
-        startActivityForResult(intent, REQUEST_PAIR);
+
+        Context context = getContext();
+        if (context != null) {
+            Intent intent = PairEditorActivity.newIntent(context, mSchedulePath, pair);
+            startActivityForResult(intent, REQUEST_PAIR);
+        }
     }
 
     @Override
@@ -375,60 +404,28 @@ public class ScheduleViewFragment extends Fragment
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_CANCELED) {
+        if (resultCode == RESULT_CANCELED || data == null) {
             return;
         }
 
         switch (requestCode) {
             // запрос связанный с парой
             case REQUEST_PAIR: {
-                if (data == null) {
-                    return;
-                }
-
-                Pair pair = data.getParcelableExtra(EXTRA_PAIR);
-
-                switch (resultCode) {
-                    // если требовалось добавить пару
-                    case RESULT_PAIR_ADD:
-                        mScheduleDataView.schedule.addPair(pair);
-                        break;
-                    // если требовалось отредактировать пару
-                    case RESULT_PAIR_EDIT:
-                        mScheduleDataView.schedule.removePair(mPairCache);
-                        mScheduleDataView.schedule.addPair(pair);
-                        break;
-                    // если требовалось удалить пару
-                    case RESULT_PAIR_REMOVE:
-                        mScheduleDataView.schedule.removePair(pair);
-                        break;
-                    default:
-                        return;
-                }
-
                 SchedulePreference.addChange();
-                reloadSchedule(ScheduleViewLoader.REQUEST_SAVE_SCHEDULE);
-
+                reloadSchedule();
                 break;
             }
             // запрос на изменение имени
             case REQUEST_SCHEDULE_NAME: {
-                if (resultCode != RESULT_OK || data == null || mScheduleName == null) {
+                Context context = getContext();
+                if (context == null) {
                     return;
                 }
 
                 String newScheduleName = data.getStringExtra(EXTRA_SCHEDULE_NAME);
 
-                File oldFile;
-                File newFile;
-
-                if (getContext() != null) {
-                    oldFile = new File(SchedulePreference.createPath(getContext(), mScheduleName));
-                    newFile = new File(SchedulePreference.createPath(getContext(), newScheduleName));
-                } else {
-                    return;
-                }
-
+                File oldFile = new File(SchedulePreference.createPath(context, mScheduleName));
+                File newFile = new File(SchedulePreference.createPath(context, newScheduleName));
 
                 try {
                     // пытаемся переименновать расписание
@@ -437,31 +434,32 @@ public class ScheduleViewFragment extends Fragment
                 } catch (IOException e) {
                     e.printStackTrace();
                     showMessage(getString(R.string.sch_view_unable_rename));
+
                     return;
                 }
 
                 // если удалось переименновать расписание
-                SchedulePreference.remove(getContext(), mScheduleName);
-                SchedulePreference.add(getContext(), newScheduleName);
+                SchedulePreference.remove(context, mScheduleName);
+                SchedulePreference.add(context, newScheduleName);
 
-                if (mScheduleName.equals(SchedulePreference.favorite(getContext()))) {
-                    SchedulePreference.setFavorite(getContext(), newScheduleName);
+                if (mScheduleName.equals(SchedulePreference.favorite(context))) {
+                    SchedulePreference.setFavorite(context, newScheduleName);
                 }
 
                 // новые значения расписания
                 mScheduleName = newScheduleName;
                 mSchedulePath = newFile.getAbsolutePath();
 
+                mScheduleViewModel.storage().setSchedulePath(mSchedulePath);
+                reloadSchedule();
+                updateActionBar();
+
                 showMessage(getString(R.string.sch_view_renamed));
-                reloadSchedule(ScheduleViewLoader.REQUEST_LOAD_SCHEDULE);
+
                 break;
             }
             // запрос на сохранения расписания
             case REQUEST_SAVE_SCHEDULE: {
-                if (resultCode != RESULT_OK || data == null) {
-                    return;
-                }
-
                 // uri папки пути сохранения
                 Uri uriFolder = data.getData();
                 if (uriFolder == null) {
@@ -469,10 +467,12 @@ public class ScheduleViewFragment extends Fragment
                 }
 
                 try {
-                    if (getContext() != null) {
+                    Context context = getContext();
+                    if (context != null) {
+                        // TODO: 30/01/20 переделать сохранение
 
                         // получаем объект файла по пути
-                        DocumentFile documentFile = DocumentFile.fromTreeUri(getContext(), uriFolder);
+                        DocumentFile documentFile = DocumentFile.fromTreeUri(context, uriFolder);
                         if (documentFile == null) {
                             return;
                         }
@@ -488,16 +488,20 @@ public class ScheduleViewFragment extends Fragment
                         Uri uriFile = documentFile.getUri();
 
                         // открывает поток для записи
-                        ContentResolver resolver = getContext().getContentResolver();
+                        ContentResolver resolver = context.getContentResolver();
                         OutputStream stream = resolver.openOutputStream(uriFile);
+                        if (stream == null) {
+                            return;
+                        }
 
-                        mScheduleDataView.schedule.save(stream);
+                        FileUtils.copyFile(new File(mSchedulePath), stream);
 
                         showMessage(getString(R.string.sch_view_saved));
                     }
 
-                } catch (FileNotFoundException | JSONException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
+                    showMessage("Cannot save schedule!");
                 }
 
                 break;
@@ -509,7 +513,8 @@ public class ScheduleViewFragment extends Fragment
      * Удаляет текущие расписание.
      */
     private void removeSchedule() {
-        if (getContext() == null) {
+        Context context = getContext();
+        if (context == null) {
             return;
         }
 
@@ -521,7 +526,7 @@ public class ScheduleViewFragment extends Fragment
             }
         }
 
-        SchedulePreference.remove(getContext(), mScheduleName);
+        SchedulePreference.remove(context, mScheduleName);
         showMessage(getString(R.string.sch_removed));
     }
 
@@ -530,27 +535,7 @@ public class ScheduleViewFragment extends Fragment
      */
     private void saveSchedule() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-        startActivityForResult(Intent.createChooser(intent, getString(R.string.choose_folder)),
-                REQUEST_SAVE_SCHEDULE);
-    }
-
-    /**
-     * Перезагружает расписание.
-     */
-    private void reloadSchedule(int request) {
-        mStatefulLayout.setLoadState();
-
-        mIsLoading = true;
-
-        long showingPosition = mRequestTimeDay;
-        if (mScheduleDataView != null && !mScheduleDataView.dayDates.isEmpty()) {
-            showingPosition = mScheduleDataView.dayDates.get(mCurrentViewPosition);
-        }
-
-        mViewLoader.reloadData(mSchedulePath,
-                mScheduleDataView != null ? mScheduleDataView.schedule : null,
-                request,
-                showingPosition);
+        startActivityForResult(Intent.createChooser(intent, getString(R.string.choose_folder)), REQUEST_SAVE_SCHEDULE);
     }
 
     /**
@@ -574,7 +559,7 @@ public class ScheduleViewFragment extends Fragment
      * Показывает информационное сообщение на экран пользователю.
      * @param message - сообщение.
      */
-    private void showMessage(String message) {
+    private void showMessage(@NonNull String message) {
         if (getView() != null) {
             Snackbar.make(getView(), message, Snackbar.LENGTH_SHORT).show();
         } else {
@@ -582,40 +567,75 @@ public class ScheduleViewFragment extends Fragment
         }
     }
 
+    /**
+     * @return текущая отображаемая позиция в списке.
+     */
+    private int currentPosition() {
+        RecyclerView.LayoutManager manager = mRecyclerSchedule.getLayoutManager();
+        if (manager == null) {
+            return RecyclerView.NO_POSITION;
+        }
 
-    @NonNull
-    @Override
-    public Loader<ScheduleViewLoader.ScheduleDataView> onCreateLoader(int id, @Nullable Bundle args) {
-        mViewLoader = new ScheduleViewLoader(Objects.requireNonNull(getActivity()));
-        reloadSchedule(ScheduleViewLoader.REQUEST_LOAD_SCHEDULE);
-        return mViewLoader;
+        LinearLayoutManager linearManager = (LinearLayoutManager) manager;
+        return linearManager.findFirstCompletelyVisibleItemPosition();
     }
 
-    @Override
-    public void onLoadFinished(@NonNull Loader<ScheduleViewLoader.ScheduleDataView> loader,
-                               ScheduleViewLoader.ScheduleDataView data) {
-        if (data == null || data.schedule == null || data.hasErrors) {
-            showMessage(getString(R.string.sch_view_error_loading));
+    /**
+     * Перезагружает расписание.
+     */
+    private void reloadSchedule() {
+        // отображаемый список
+        PagedList<ScheduleDayItem> items = mScheduleViewModel.scheduleDayItemData().getValue();
+        if (items == null) {
             return;
         }
 
-        mScheduleDataView = data;
-
-        if (mIsLoading || mCurrentViewPosition == RecyclerView.NO_POSITION) {
-            mCurrentViewPosition = data.currentShowPosition;
+        // установка текущего дня
+        int pos = currentPosition();
+        if (pos != RecyclerView.NO_POSITION) {
+            ScheduleDayItem item = items.get(pos);
+            if (item != null) {
+                mScrollDate = item.day();
+                mScheduleViewModel.storage().setInitialKey(item.day());
+            }
         }
-        mTodayPosition = data.todayPosition;
 
-        mScheduleAdapter.update(data.dayPairs, data.dayTitles);
-        mScheduleAdapter.scrollTo(mRecyclerSchedule, mCurrentViewPosition, false);
-
-        mStatefulLayout.setState(R.id.recycler_view);
-        updateActionBar();
-
-        mIsLoading = false;
+        mStatefulLayout.setLoadState();
+        items.getDataSource().invalidate();
     }
 
-    @Override
-    public void onLoaderReset(@NonNull Loader<ScheduleViewLoader.ScheduleDataView> loader) {
+    /**
+     * Отображает в расписаний необходимый день.
+     * @param targetDay необходимый день.
+     */
+    private void scrollScheduleTo(@NonNull Calendar targetDay) {
+        PagedList<ScheduleDayItem> items = mScheduleViewModel.scheduleDayItemData().getValue();
+        if (items == null) {
+            return;
+        }
+
+        int pos = currentPosition();
+        if (pos != RecyclerView.NO_POSITION) {
+            ScheduleDayItem item = items.get(pos);
+            Log.d(TAG, "scrollScheduleTo: " + pos);
+            if (item != null) {
+                Calendar currentDay = item.day();
+                int diff = (int) CommonUtils.calendarDiff(targetDay, currentDay);
+                Log.d(TAG, "scrollScheduleTo: " + diff);
+                if (Math.abs(diff) < ScheduleDayItemStorage.PAGE_SIZE) {
+                    int scrollItemPos = pos + diff;
+                    Log.d(TAG, "scrollScheduleTo: "+ scrollItemPos);
+                    if (scrollItemPos >= 0 && scrollItemPos < items.size()) {
+                        mRecyclerSchedule.smoothScrollToPosition(scrollItemPos);
+                        return;
+                    }
+                }
+            }
+        }
+
+        mScrollDate = targetDay;
+        mScheduleViewModel.storage().setInitialKey(targetDay);
+        mStatefulLayout.setLoadState();
+        items.getDataSource().invalidate();
     }
 }

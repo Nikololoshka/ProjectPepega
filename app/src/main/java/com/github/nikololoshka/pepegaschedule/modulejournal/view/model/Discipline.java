@@ -126,8 +126,7 @@ public class Discipline {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Discipline that = (Discipline) o;
-        return Double.compare(that.mFactor, mFactor) == 0 &&
-                mDisciplineTitle.equals(that.mDisciplineTitle) &&
+        return  mDisciplineTitle.equals(that.mDisciplineTitle) &&
                 mMarks.equals(that.mMarks);
     }
 

@@ -23,8 +23,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.Loader;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -33,39 +31,35 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.schedule.editor.ScheduleEditorActivity;
+import com.github.nikololoshka.pepegaschedule.schedule.editor.name.ScheduleNameEditorActivity;
 import com.github.nikololoshka.pepegaschedule.schedule.model.Schedule;
 import com.github.nikololoshka.pepegaschedule.schedule.repository.ScheduleDownloaderService;
+import com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.DividerItemDecoration;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.json.JSONException;
+import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Objects;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
-import static com.github.nikololoshka.pepegaschedule.schedule.editor.ScheduleEditorActivity.EXTRA_SCHEDULE_NAME;
+import static com.github.nikololoshka.pepegaschedule.schedule.editor.name.ScheduleNameEditorActivity.EXTRA_SCHEDULE_NAME;
 import static com.github.nikololoshka.pepegaschedule.schedule.model.pair.SubgroupEnum.A;
 import static com.github.nikololoshka.pepegaschedule.schedule.model.pair.SubgroupEnum.B;
 import static com.github.nikololoshka.pepegaschedule.schedule.model.pair.SubgroupEnum.COMMON;
-import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment.ARG_SCHEDULE_NAME;
-import static com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment.ARG_SCHEDULE_PATH;
 import static com.github.nikololoshka.pepegaschedule.settings.SchedulePreference.ROOT_PATH;
 
 /**
  * Фрагмент списка расписаний.
  */
 public class MyScheduleFragment extends Fragment
-        implements MySchedulesAdapter.OnItemClickListener,
-        DragToMoveCallback.OnStartDragListener,
-        LoaderManager.LoaderCallbacks<MySchedulesLoader.DataView> {
-
-    private static final int MY_SCHEDULES_LOADER = 0;
+        implements MySchedulesAdapter.OnItemClickListener, DragToMoveCallback.OnStartDragListener {
 
     private static final int REQUEST_NEW_SCHEDULE = 0;
     private static final int REQUEST_LOAD_SCHEDULE = 1;
@@ -74,7 +68,6 @@ public class MyScheduleFragment extends Fragment
 
     private StatefulLayout mStatefulLayout;
     private MySchedulesAdapter mSchedulesAdapter;
-    private Loader<MySchedulesLoader.DataView> mMySchedulesLoader;
     private ItemTouchHelper mItemTouchHelper;
 
     private BroadcastReceiver mScheduleDownloaderReceiver = new BroadcastReceiver() {
@@ -159,7 +152,12 @@ public class MyScheduleFragment extends Fragment
             public boolean onMove(@NonNull RecyclerView recyclerView,
                                   @NonNull RecyclerView.ViewHolder viewHolder,
                                   @NonNull RecyclerView.ViewHolder target) {
-                mSchedulesAdapter.moveItem(viewHolder.getAdapterPosition(), target.getAdapterPosition());
+                int fromPosition = viewHolder.getAdapterPosition();
+                int toPosition = target.getAdapterPosition();
+
+                mSchedulesAdapter.moveItem(fromPosition, toPosition);
+                onScheduleItemMove(fromPosition, toPosition);
+
                 return true;
             }
         };
@@ -167,8 +165,7 @@ public class MyScheduleFragment extends Fragment
         mItemTouchHelper = new ItemTouchHelper(dragToMoveCallback);
         mItemTouchHelper.attachToRecyclerView(recyclerView);
 
-        mMySchedulesLoader = LoaderManager.getInstance(this)
-                .initLoader(MY_SCHEDULES_LOADER, null, this);
+        updateSchedules();
 
         return view;
     }
@@ -176,7 +173,6 @@ public class MyScheduleFragment extends Fragment
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-
         LocalBroadcastManager.getInstance(context)
                 .registerReceiver(mScheduleDownloaderReceiver,
                         new IntentFilter(ScheduleDownloaderService.SCHEDULE_DOWNLOADED_EVENT));
@@ -211,7 +207,7 @@ public class MyScheduleFragment extends Fragment
             }
             // создать новое
             case R.id.create_schedule: {
-                Intent intent = new Intent(getActivity(), ScheduleEditorActivity.class);
+                Intent intent = new Intent(getActivity(), ScheduleNameEditorActivity.class);
                 startActivityForResult(intent, REQUEST_NEW_SCHEDULE);
                 return true;
             }
@@ -264,10 +260,14 @@ public class MyScheduleFragment extends Fragment
 
                 File file = new File(dir, scheduleName + ".json");
 
+                // TODO: 31/01/20 обработка ошибок
+
                 Schedule schedule = new Schedule();
                 try {
-                    schedule.save(file.getAbsolutePath());
-                } catch (JSONException | IOException e) {
+                    String json = schedule.toJson();
+                    FileUtils.writeStringToFile(file, json, StandardCharsets.UTF_8);
+
+                } catch (IOException e) {
                     e.printStackTrace();
 
                     showMessage(String.format("%s: %s %s",
@@ -311,8 +311,7 @@ public class MyScheduleFragment extends Fragment
                         return;
                     }
 
-                    Schedule schedule = new Schedule();
-                    schedule.load(stream);
+                    Schedule schedule = Schedule.fromJson(stream);
 
                     String pathToFile = uri.getPath();
                     if (pathToFile == null) {
@@ -323,13 +322,14 @@ public class MyScheduleFragment extends Fragment
                     File outputFile = new File(getContext()
                             .getExternalFilesDir(ROOT_PATH), file.getName());
 
-                    schedule.save(outputFile.getAbsolutePath());
+                    String json = schedule.toJson();
+                    FileUtils.writeStringToFile(outputFile, json, StandardCharsets.UTF_8);
 
                     SchedulePreference.add(getContext(),
                             file.getName().replace(".json", ""));
                     updateSchedules();
 
-                } catch (IOException | JSONException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
 
@@ -350,13 +350,11 @@ public class MyScheduleFragment extends Fragment
     }
 
     @Override
-    public void onScheduleItemClicked(@NonNull String schedule) {
+    public void onScheduleItemClicked(@NonNull String scheduleName) {
         if (getActivity() != null) {
-            Bundle args = new Bundle();
 
-            String path = SchedulePreference.createPath(getActivity(), schedule);
-            args.putString(ARG_SCHEDULE_PATH, path);
-            args.putString(ARG_SCHEDULE_NAME, schedule);
+            String schedulePath = SchedulePreference.createPath(getActivity(), scheduleName);
+            Bundle args = ScheduleViewFragment.createBundle(scheduleName, schedulePath);
 
             NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host);
             navController.navigate(R.id.fromScheduleFragmentToScheduleViewFragment, args);
@@ -364,16 +362,20 @@ public class MyScheduleFragment extends Fragment
     }
 
     @Override
-    public void onScheduleItemMove(int fromPosition, int toPosition) {
-        if (getContext() != null) {
-            SchedulePreference.move(getContext(), fromPosition, toPosition);
-        }
-    }
-
-    @Override
     public void onScheduleFavoriteSelected(@NonNull String favorite) {
         if (getContext() != null) {
             SchedulePreference.setFavorite(getContext(), favorite);
+        }
+    }
+
+    /**
+     * Расписание перемещенно.
+     * @param fromPosition старая позиция.
+     * @param toPosition новая позиция.
+     */
+    private void onScheduleItemMove(int fromPosition, int toPosition) {
+        if (getContext() != null) {
+            SchedulePreference.move(getContext(), fromPosition, toPosition);
         }
     }
 
@@ -393,8 +395,16 @@ public class MyScheduleFragment extends Fragment
      * Обновляет список расписаний.
      */
     private void updateSchedules() {
-        mStatefulLayout.setLoadState();
-        mMySchedulesLoader.forceLoad();
+        Context context = getContext();
+        if (context == null) {
+            return;
+        }
+
+        List<String> schedules = SchedulePreference.schedules(context);
+        String favorite = SchedulePreference.favorite(context);
+
+        mSchedulesAdapter.submitList(schedules, favorite);
+        schedulesCountChanged();
     }
 
     /**
@@ -407,31 +417,6 @@ public class MyScheduleFragment extends Fragment
         } else {
             Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
         }
-    }
-
-    @NonNull
-    @Override
-    public Loader<MySchedulesLoader.DataView> onCreateLoader(int id, @Nullable Bundle args) {
-        mMySchedulesLoader = new MySchedulesLoader(Objects.requireNonNull(getActivity()));
-        updateSchedules();
-        return mMySchedulesLoader;
-    }
-
-
-    @Override
-    public void onLoadFinished(@NonNull Loader<MySchedulesLoader.DataView> loader,
-                               MySchedulesLoader.DataView data) {
-        if (data.changeCount != SchedulePreference.changeCount()) {
-            updateSchedules();
-            return;
-        }
-
-        mSchedulesAdapter.update(data.schedules, data.favorite);
-        schedulesCountChanged();
-    }
-
-    @Override
-    public void onLoaderReset(@NonNull Loader<MySchedulesLoader.DataView> loader) {
     }
 
     @Override

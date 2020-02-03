@@ -1,196 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/stateful_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".schedule.editor.PairEditorActivity" >
+    tools:context=".schedule.editor.pair.PairEditorActivity" >
 
-    <LinearLayout
-        android:id="@+id/pair_edit_layout"
+    <ScrollView
+        android:id="@+id/pair_editor_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:padding="@dimen/default_layout_padding" >
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <AutoCompleteTextView
-                android:id="@+id/edit_text_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/pair_editor_title"
-                android:imeOptions="actionNext"
-                android:inputType="textPersonName" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <AutoCompleteTextView
-                android:id="@+id/edit_text_lecturer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:imeOptions="actionNext"
-                android:hint="@string/pair_editor_lecturer"
-                android:inputType="textPersonName"  />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <AutoCompleteTextView
-                android:id="@+id/edit_text_classroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:imeOptions="actionDone"
-                android:hint="@string/pair_editor_classroom"
-                android:inputType="textPersonName" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+        android:layout_height="match_parent" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="@dimen/default_layout_padding" >
 
-            <TextView
-                style="@style/Text.Hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pair_editor_type" />
-
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/spinner_type"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/type_list"
-                android:paddingBottom="@dimen/input_label_vertical_spacing"/>
+                android:layout_height="wrap_content">
 
-            <TextView
-                style="@style/Text.Hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pair_editor_subgroup"
-                app:layout_column="0"
-                app:layout_row="1" />
-
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/spinner_subgroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/subgroup_list"
-                android:paddingBottom="@dimen/input_label_vertical_spacing" />
-
-            <TextView
-                style="@style/Text.Hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pair_editor_time" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/input_label_vertical_spacing" >
-
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/spinner_time_start"
-                    android:layout_width="0dp"
+                <AutoCompleteTextView
+                    android:id="@+id/edit_text_title"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:entries="@array/time_start_list" />
+                    android:ems="10"
+                    android:hint="@string/pair_editor_title"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName" />
 
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/spinner_time_end"
-                    android:layout_width="0dp"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <AutoCompleteTextView
+                    android:id="@+id/edit_text_lecturer"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:entries="@array/time_end_list" />
+                    android:ems="10"
+                    android:imeOptions="actionNext"
+                    android:hint="@string/pair_editor_lecturer"
+                    android:inputType="textPersonName"  />
 
-            </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                style="@style/Text.Hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pair_editor_date" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-        </LinearLayout>
+                <AutoCompleteTextView
+                    android:id="@+id/edit_text_classroom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:imeOptions="actionDone"
+                    android:hint="@string/pair_editor_classroom"
+                    android:inputType="textPersonName" />
 
-        <androidx.cardview.widget.CardView
-            style="@style/CardStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
 
-                <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
-                    android:id="@+id/stateful_layout"
+                <TextView
+                    style="@style/Text.Hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pair_editor_type" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinner_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:animateLayoutChanges="true" >
+                    android:entries="@array/type_list"
+                    android:paddingBottom="@dimen/input_label_vertical_spacing"/>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recycler_dates"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbars="vertical"
-                        tools:itemCount="2"
-                        tools:listitem="@layout/item_dates_pair">
+                <TextView
+                    style="@style/Text.Hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pair_editor_subgroup"
+                    app:layout_column="0"
+                    app:layout_row="1" />
 
-                    </androidx.recyclerview.widget.RecyclerView>
-
-                    <TextView
-                        style="@style/Text.Medium"
-                        android:id="@+id/empty_dates"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/pair_editor_not_dates"
-                        android:textAlignment="center"
-                        android:padding="@dimen/default_information_padding"/>
-
-                </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/add_date"
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinner_subgroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="0dp" >
+                    android:entries="@array/subgroup_list"
+                    android:paddingBottom="@dimen/input_label_vertical_spacing" />
 
-                    <TextView
-                        style="@style/Text.Medium"
-                        android:text="@string/pair_editor_add_date"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:drawableStart="@drawable/ic_button_add"
-                        android:drawablePadding="@dimen/default_drawable_padding"
-                        android:padding="@dimen/default_layout_padding"
-                        android:layout_width="wrap_content"
+                <TextView
+                    style="@style/Text.Hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pair_editor_time" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/input_label_vertical_spacing" >
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinner_time_start"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center" />
+                        android:layout_weight="1"
+                        android:entries="@array/time_start_list" />
 
-                </androidx.cardview.widget.CardView>
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinner_time_end"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/time_end_list" />
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Text.Hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pair_editor_date" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                style="@style/CardStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
 
-</ScrollView>
+                    <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+                        android:id="@+id/stateful_layout_dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true" >
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycler_dates"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="vertical"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/item_dates_pair">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                        <TextView
+                            style="@style/Text.Medium"
+                            android:id="@+id/empty_dates"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pair_editor_not_dates"
+                            android:textAlignment="center"
+                            android:padding="@dimen/default_information_padding"/>
+
+                    </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/add_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="0dp" >
+
+                        <TextView
+                            style="@style/Text.Medium"
+                            android:text="@string/pair_editor_add_date"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:drawableStart="@drawable/ic_button_add"
+                            android:drawablePadding="@dimen/default_drawable_padding"
+                            android:padding="@dimen/default_layout_padding"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>

@@ -1,11 +1,10 @@
-package com.github.nikololoshka.pepegaschedule.schedule.editor;
+package com.github.nikololoshka.pepegaschedule.schedule.editor.pair;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,19 +12,23 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
+import com.github.nikololoshka.pepegaschedule.schedule.editor.date.DateEditorActivity;
 import com.github.nikololoshka.pepegaschedule.schedule.model.Schedule;
-import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidAddPairException;
+import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidChangePairException;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.ClassroomPair;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DateItem;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.DatePair;
@@ -38,37 +41,41 @@ import com.github.nikololoshka.pepegaschedule.schedule.model.pair.TitlePair;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.TypeEnum;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.TypePair;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
+import com.github.nikololoshka.pepegaschedule.utils.TextWatcherWrapper;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
-import static com.github.nikololoshka.pepegaschedule.schedule.editor.DateEditorActivity.EXTRA_DATE;
-import static com.github.nikololoshka.pepegaschedule.schedule.editor.DateEditorActivity.EXTRA_DATE_LIST;
-import static com.github.nikololoshka.pepegaschedule.schedule.editor.DateEditorActivity.RESULT_DATE_ADD;
-import static com.github.nikololoshka.pepegaschedule.schedule.editor.DateEditorActivity.RESULT_DATE_REMOVE;
+import static com.github.nikololoshka.pepegaschedule.schedule.editor.date.DateEditorActivity.EXTRA_DATE;
+import static com.github.nikololoshka.pepegaschedule.schedule.editor.date.DateEditorActivity.EXTRA_DATE_LIST;
+import static com.github.nikololoshka.pepegaschedule.schedule.editor.date.DateEditorActivity.RESULT_DATE_ADD;
+import static com.github.nikololoshka.pepegaschedule.schedule.editor.date.DateEditorActivity.RESULT_DATE_REMOVE;
 
 /**
- * Активность для редактирование пары.
+ * Activity для редактирование пары.
  */
 public class PairEditorActivity extends AppCompatActivity
-        implements View.OnClickListener, PairEditorAdaptor.OnItemClickListener {
+        implements View.OnClickListener, PairDatesAdaptor.OnDateItemClickListener {
 
-    public static final String EXTRA_SCHEDULE = "schedule_extra";
+    public static final String EXTRA_SCHEDULE_PATH = "schedule_path";
     public static final String EXTRA_PAIR = "schedule_pair";
-
-    public static final int RESULT_PAIR_REMOVE = RESULT_FIRST_USER + 1;
-    public static final int RESULT_PAIR_ADD = RESULT_FIRST_USER + 2;
-    public static final int RESULT_PAIR_EDIT = RESULT_FIRST_USER + 3;
 
     private static final int REQUEST_ADD_DATE = 0;
     private static final int REQUEST_EDIT_DATE = 1;
 
-    private static final String ARG_DATE_CACHE = "arg_date_cache";
-    private static final String ARG_DATE_LIST = "arg_date_list";
+    private static final String DATE_CACHE = "date_cache";
+    private static final String DATE_LIST = "date_list";
+    private static final String OLD_PAIR = "old_pair";
+    private static final String NEW_PAIR = "new_pair";
 
+    private StatefulLayout mStatefulLayoutMain;
+    private StatefulLayout mStatefulLayoutDates;
+
+    // поля для редактирования
     private AutoCompleteTextView mTitleEdit;
     private AutoCompleteTextView mLecturerEdit;
     private AutoCompleteTextView mClassroomEdit;
@@ -77,63 +84,96 @@ public class PairEditorActivity extends AppCompatActivity
     private AppCompatSpinner mTimeStartSpinner;
     private AppCompatSpinner mTimeEndSpinner;
 
+    /**
+     * ViewModel с расписаниемю
+     */
+    private PairEditorModel mPairEditorViewModel;
+    /**
+     * Редактируемая дата.
+     */
     private DateItem mDateCache;
+    /**
+     * Список дат.
+     */
     private ArrayList<DateItem> mDateItems;
-    private ArrayList<String> mTimeEndList;
+    /**
+     * Адаптор для дат.
+     */
+    private PairDatesAdaptor mPairDatesAdaptor;
+    /**
+     * Удаляемая пара.
+     */
+    private Pair mOldPair;
+    /**
+     * Создаваемая пара.
+     */
+    private Pair mNewPair;
 
-    private PairEditorAdaptor mPairEditorAdaptor;
-    private StatefulLayout mStatefulLayout;
+    /**
+     * Создает Intent для вызова PairEditorActivity.
+     * @param context контекст.
+     * @param schedulePath путь к расписанию.
+     * @param editPair пара.
+     * @return intent для PairEditorActivity.
+     */
+    @NonNull
+    public static Intent newIntent(@NonNull Context context, @NonNull String schedulePath, @Nullable Pair editPair) {
+        Intent intent = new Intent(context, PairEditorActivity.class);
+        intent.putExtra(EXTRA_SCHEDULE_PATH, schedulePath);
+        intent.putExtra(EXTRA_PAIR, editPair);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pair_editor);
 
+        mStatefulLayoutMain = findViewById(R.id.stateful_layout);
+        mStatefulLayoutMain.addXMLViews();
+        mStatefulLayoutMain.setAnimation(false);
+
+        mStatefulLayoutDates = findViewById(R.id.stateful_layout_dates);
+        mStatefulLayoutDates.addXMLViews();
+
+        // установка auto complete в поля
         mTitleEdit = findViewById(R.id.edit_text_title);
-        mTitleEdit.setAdapter(new ArrayAdapter<>(this,
-                R.layout.dropdown_item_multiline, R.id.dropdown_item,
-                readAutoCompleteStrings(R.raw.titles)));
-
-        mTitleEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                checkTitleField();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        mTitleEdit.setAdapter(new ArrayAdapter<>(this, R.layout.dropdown_item_multiline,
+                R.id.dropdown_item, readAutoCompleteStrings(R.raw.titles)));
 
         mLecturerEdit = findViewById(R.id.edit_text_lecturer);
-        mLecturerEdit.setAdapter(new ArrayAdapter<>(this,
-                R.layout.dropdown_item_multiline, R.id.dropdown_item,
-                readAutoCompleteStrings(R.raw.lecturers)));
+        mLecturerEdit.setAdapter(new ArrayAdapter<>(this, R.layout.dropdown_item_multiline,
+                R.id.dropdown_item, readAutoCompleteStrings(R.raw.lecturers)));
 
         mClassroomEdit = findViewById(R.id.edit_text_classroom);
-        mClassroomEdit.setAdapter(new ArrayAdapter<>(this,
-                R.layout.dropdown_item_multiline, R.id.dropdown_item,
-                readAutoCompleteStrings(R.raw.classrooms)));
+        mClassroomEdit.setAdapter(new ArrayAdapter<>(this, R.layout.dropdown_item_multiline,
+                R.id.dropdown_item, readAutoCompleteStrings(R.raw.classrooms)));
 
         mTypeSpinner = findViewById(R.id.spinner_type);
         mSubgroupSpinner = findViewById(R.id.spinner_subgroup);
-
         mTimeStartSpinner = findViewById(R.id.spinner_time_start);
-        mTimeStartSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mTimeEndSpinner = findViewById(R.id.spinner_time_end);
 
+        findViewById(R.id.add_date).setOnClickListener(this);
+
+        // Watcher для проверки правильности заполнения поля.
+        mTitleEdit.addTextChangedListener(new TextWatcherWrapper() {
+            @Override
+            public void onTextChanged(@NonNull String s) {
+                checkTitleField();
+            }
+        });
+
+        // Listener для ограничения списка окончания пар, при смене начала пары.
+        final List<String> endTimes = Arrays.asList(getResources().getStringArray(R.array.time_end_list));
+        mTimeStartSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int newPosition = mTimeEndSpinner.getSelectedItemPosition();
 
                 ArrayAdapter adapter = new ArrayAdapter<>(getBaseContext(),
                         android.R.layout.simple_spinner_item,
-                        mTimeEndList.subList(position, mTimeEndList.size()));
+                        endTimes.subList(position, endTimes.size()));
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                 mTimeEndSpinner.setAdapter(adapter);
@@ -151,36 +191,43 @@ public class PairEditorActivity extends AppCompatActivity
 
             }
         });
-        mTimeEndSpinner = findViewById(R.id.spinner_time_end);
-
-        findViewById(R.id.add_date).setOnClickListener(this);
-        mTimeEndList = new ArrayList<>(Arrays.asList(getResources()
-                .getStringArray(R.array.time_end_list)));
 
         // инициализация полей
-        Pair pair = getIntent().getParcelableExtra(EXTRA_PAIR);
-
         if (savedInstanceState != null) {
-            mDateCache = savedInstanceState.getParcelable(ARG_DATE_CACHE);
-            mDateItems = savedInstanceState.getParcelableArrayList(ARG_DATE_LIST);
-        } else if (pair != null) {
-            mTitleEdit.setText(pair.title().title());
-            mLecturerEdit.setText(pair.lecturer().lecturer());
-            mClassroomEdit.setText(pair.classroom().classroom());
-            setTypeSpinner(pair.type().type());
-            setSubgroupSpinner(pair.subgroup().subgroup());
-            setTimeSpinners(pair.time());
-            mDateItems = pair.date().toList();
+            // если было сохраненное состояние
+            mDateCache = savedInstanceState.getParcelable(DATE_CACHE);
+            mDateItems = savedInstanceState.getParcelableArrayList(DATE_LIST);
+            mOldPair = savedInstanceState.getParcelable(OLD_PAIR);
+            mNewPair = savedInstanceState.getParcelable(NEW_PAIR);
+
         } else {
-            mDateItems = new ArrayList<>();
+            // инициализая с начала
+            Pair pair = getIntent().getParcelableExtra(EXTRA_PAIR);
+            mOldPair = pair;
+
+            if (pair != null) {
+                mTitleEdit.setText(pair.title().title());
+                mLecturerEdit.setText(pair.lecturer().lecturer());
+                mClassroomEdit.setText(pair.classroom().classroom());
+
+                setTypeSpinner(pair.type().type());
+                setSubgroupSpinner(pair.subgroup().subgroup());
+                setTimeSpinners(pair.time());
+
+                mDateItems = pair.date().toList();
+            } else {
+                mDateItems = new ArrayList<>();
+            }
         }
 
-        mStatefulLayout = findViewById(R.id.stateful_layout);
-        mStatefulLayout.addXMLViews();
+        // адаптор с датами
+        String[] frequencies = getResources().getStringArray(R.array.frequency_simple_list);
+        String everyWeek = frequencies[0];
+        String throughWeek = frequencies[1];
+        mPairDatesAdaptor = new PairDatesAdaptor(this, everyWeek, throughWeek);
 
         RecyclerView recycler = findViewById(R.id.recycler_dates);
-        mPairEditorAdaptor = new PairEditorAdaptor(mDateItems, this);
-        recycler.setAdapter(mPairEditorAdaptor);
+        recycler.setAdapter(mPairDatesAdaptor);
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
         // добавляем swipe для удаления даты
@@ -189,16 +236,15 @@ public class PairEditorActivity extends AppCompatActivity
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 final int position = viewHolder.getAdapterPosition();
                 final DateItem item = mDateItems.remove(position);
+                mPairDatesAdaptor.submitList(mDateItems);
 
-                mPairEditorAdaptor.notifyItemRemoved(position);
-
-                Snackbar.make(findViewById(R.id.pair_edit_layout),
+                Snackbar.make(mStatefulLayoutMain,
                         getString(R.string.pair_editor_date_removed), Snackbar.LENGTH_LONG)
                         .setAction(getString(R.string.undo), new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 mDateItems.add(position, item);
-                                mPairEditorAdaptor.notifyItemInserted(position);
+                                mPairDatesAdaptor.submitList(mDateItems, position);
                                 updateDatesCountView();
                             }
                         })
@@ -211,14 +257,32 @@ public class PairEditorActivity extends AppCompatActivity
         ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeToDeleteCallback);
         itemTouchhelper.attachToRecyclerView(recycler);
 
+        mPairDatesAdaptor.submitList(mDateItems);
         updateDatesCountView();
+
+        // путь к расписанию
+        String schedulePath = getIntent().getStringExtra(EXTRA_SCHEDULE_PATH);
+        if (schedulePath == null) {
+            return;
+        }
+        // получение ViewModel
+        mPairEditorViewModel = new ViewModelProvider(this,
+                new PairEditorModel.Factory(schedulePath)).get(PairEditorModel.class);
+
+        mPairEditorViewModel.state().observe(this, new Observer<PairEditorModel.States>() {
+            @Override
+            public void onChanged(PairEditorModel.States state) {
+                stateChanged(state);
+            }
+        });
     }
 
     /**
      * Создает списки с автодополнением.
-     * @param id - ID ресурса с списком автодополнения.
-     * @return - список автодополнения.
+     * @param id ID ресурса с списком автодополнения.
+     * @return список автодополнения.
      */
+    @NonNull
     private ArrayList<String> readAutoCompleteStrings(@RawRes int id) {
         Scanner scanner = new Scanner(getResources().openRawResource(id));
         ArrayList<String> strings = new ArrayList<>();
@@ -231,8 +295,11 @@ public class PairEditorActivity extends AppCompatActivity
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(ARG_DATE_CACHE, mDateCache);
-        outState.putParcelableArrayList(ARG_DATE_LIST, mDateItems);
+        outState.putParcelable(DATE_CACHE, mDateCache);
+        outState.putParcelableArrayList(DATE_LIST, mDateItems);
+
+        outState.putParcelable(OLD_PAIR, mOldPair);
+        outState.putParcelable(NEW_PAIR, mNewPair);
     }
 
     @Override
@@ -247,10 +314,11 @@ public class PairEditorActivity extends AppCompatActivity
         switch (item.getItemId()) {
             // удалить текущию пару
             case R.id.remove_pair: {
-                Intent intent = new Intent();
-                intent.putExtra(EXTRA_PAIR, getIntent().getParcelableExtra(EXTRA_PAIR));
-                setResult(RESULT_PAIR_REMOVE, intent);
-                onBackPressed();
+                Schedule schedule = mPairEditorViewModel.schedule().getValue();
+                if (schedule != null) {
+                    schedule.removePair(mOldPair);
+                    mPairEditorViewModel.saveSchedule();
+                }
                 return true;
             }
             // завершить редактирование пары
@@ -263,46 +331,39 @@ public class PairEditorActivity extends AppCompatActivity
                         return true;
                     }
 
-                    Pair newPair = new Pair();
-                    newPair.setTitle(TitlePair.of(mTitleEdit.getText().toString()));
-                    newPair.setLecturer(LecturerPair.of(mLecturerEdit.getText().toString()));
-                    newPair.setClassroom(ClassroomPair.of(mClassroomEdit.getText().toString()));
-                    newPair.setType(TypePair.of(typeSpinner()));
-                    newPair.setSubgroup(SubgroupPair.of(subgroupSpinner()));
-                    newPair.setTime(TimePair.of(mTimeStartSpinner.getSelectedItem().toString(),
-                            mTimeEndSpinner.getSelectedItem().toString()));
-                    newPair.setDate(DatePair.of(mDateItems));
+                    TitlePair title = new TitlePair(mTitleEdit.getText().toString());
+                    LecturerPair lecturer = new LecturerPair(mLecturerEdit.getText().toString());
+                    ClassroomPair classroom = new ClassroomPair(mClassroomEdit.getText().toString());
+                    TypePair type = new TypePair(typeSpinner());
+                    SubgroupPair subgroup = new SubgroupPair(subgroupSpinner());
+                    TimePair time = new TimePair(mTimeStartSpinner.getSelectedItem().toString(),
+                            mTimeEndSpinner.getSelectedItem().toString());
+                    DatePair date = new DatePair(mDateItems);
 
-                    Schedule schedule = getIntent().getParcelableExtra(EXTRA_SCHEDULE);
-                    Pair removedPair = getIntent().getParcelableExtra(EXTRA_PAIR);
+                    mNewPair = new Pair(title, lecturer, type, subgroup, classroom, time, date);
 
-                    // проверка, на возможность добавления пары
-                    Schedule.possibleChangePair(schedule, removedPair, newPair);
-
-                    Intent intent = new Intent();
-                    intent.putExtra(EXTRA_PAIR, newPair);
-                    setResult(removedPair != null ? RESULT_PAIR_EDIT : RESULT_PAIR_ADD, intent);
-                    onBackPressed();
-
+                    Schedule schedule = mPairEditorViewModel.schedule().getValue();
+                    if (schedule != null) {
+                        schedule.removePair(mOldPair);
+                        schedule.addPair(mNewPair);
+                        mPairEditorViewModel.saveSchedule();
+                    }
                     return true;
-                } catch (InvalidAddPairException e) {
-                    errorMessage = e.toString();
-                } catch (Exception e) {
-                    errorMessage = "Unknown error: " + e;
+
+                } catch (InvalidChangePairException e) {
+                    errorMessage = getString(R.string.pair_editor_conflict_pair, e.conflictPair());
                 }
 
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle(R.string.error);
-                alertDialog.setMessage(errorMessage);
-                alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL,
-                        getString(R.string.ok),
-                        new DialogInterface.OnClickListener() {
+                // есль проблема с добавлением пары
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.error)
+                        .setMessage(errorMessage)
+                        .setNeutralButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
                             }
-                        });
-                alertDialog.show();
+                        }).show();
 
                 return true;
             }
@@ -312,7 +373,7 @@ public class PairEditorActivity extends AppCompatActivity
 
     /**
      * Проверяет, пусто ли в поле с название предмета.
-     * @return - true если не пусто, иначе false.
+     * @return true если не пусто, иначе false.
      */
     private boolean checkTitleField() {
         if (mTitleEdit.getText().toString().isEmpty()) {
@@ -325,22 +386,19 @@ public class PairEditorActivity extends AppCompatActivity
 
     /**
      * Проверяет, пуст ли список с датами пары.
-     * @return - true если не пусто, иначе false.
+     * @return true если не пусто, иначе false.
      */
     private boolean checkDatesList() {
         if(mDateItems == null || mDateItems.isEmpty()) {
-            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle(R.string.error);
-            alertDialog.setMessage(getString(R.string.pair_editor_empty_dates_list));
-            alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL,
-                    getString(R.string.ok),
-                    new DialogInterface.OnClickListener() {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.error)
+                    .setMessage(getString(R.string.pair_editor_empty_dates_list))
+                    .setNeutralButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                         }
-                    });
-            alertDialog.show();
+                    }).show();
 
             return false;
         }
@@ -349,6 +407,7 @@ public class PairEditorActivity extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
+        // добавить дату
         if (v.getId() == R.id.add_date) {
             Intent intent = new Intent(this, DateEditorActivity.class);
             intent.putParcelableArrayListExtra(EXTRA_DATE_LIST, mDateItems);
@@ -374,7 +433,7 @@ public class PairEditorActivity extends AppCompatActivity
 
             DateItem dateItem = data.getParcelableExtra(EXTRA_DATE);
             mDateItems.remove(dateItem);
-            mPairEditorAdaptor.notifyDataSetChanged();
+            mPairDatesAdaptor.submitList(mDateItems);
             updateDatesCountView();
             return;
         }
@@ -391,7 +450,7 @@ public class PairEditorActivity extends AppCompatActivity
                 DateItem dateItem = data.getParcelableExtra(EXTRA_DATE);
                 mDateItems.add(dateItem);
                 Collections.sort(mDateItems);
-                mPairEditorAdaptor.notifyDataSetChanged();
+                mPairDatesAdaptor.submitList(mDateItems);
                 updateDatesCountView();
 
                 return;
@@ -407,16 +466,16 @@ public class PairEditorActivity extends AppCompatActivity
                 mDateItems.remove(mDateCache);
                 mDateItems.add(dateItem);
                 Collections.sort(mDateItems);
-                mPairEditorAdaptor.notifyDataSetChanged();
+                mPairDatesAdaptor.submitList(mDateItems);
             }
         }
     }
 
     /**
      * Устанавливает поле с типом пары.
-     * @param type - тип пары.
+     * @param type тип пары.
      */
-    private void setTypeSpinner(TypeEnum type) {
+    private void setTypeSpinner(@NonNull TypeEnum type) {
         switch (type) {
             case LECTURE:
                 mTypeSpinner.setSelection(0);
@@ -432,9 +491,9 @@ public class PairEditorActivity extends AppCompatActivity
 
     /**
      * Устанавлтвает поле с подгруппой пары.
-     * @param subgroup - подгруппа пары.
+     * @param subgroup подгруппа пары.
      */
-    private void setSubgroupSpinner(SubgroupEnum subgroup) {
+    private void setSubgroupSpinner(@NonNull SubgroupEnum subgroup) {
         switch (subgroup) {
             case COMMON:
                 mSubgroupSpinner.setSelection(0);
@@ -451,6 +510,7 @@ public class PairEditorActivity extends AppCompatActivity
     /**
      * @return - тип пары, установленная в поле.
      */
+    @NonNull
     private TypeEnum typeSpinner() {
         switch (mTypeSpinner.getSelectedItemPosition()) {
             case 0:
@@ -467,6 +527,7 @@ public class PairEditorActivity extends AppCompatActivity
     /**
      * @return - подгруппа пары, установленная в поле.
      */
+    @NonNull
     private SubgroupEnum subgroupSpinner() {
         switch (mSubgroupSpinner.getSelectedItemPosition()) {
             case 0:
@@ -484,7 +545,7 @@ public class PairEditorActivity extends AppCompatActivity
      * Устанавливает значение времени пары в поля.
      * @param timePair - время пары.
      */
-    private void setTimeSpinners(TimePair timePair) {
+    private void setTimeSpinners(@NonNull TimePair timePair) {
         mTimeEndSpinner.setSelection(timePair.duration() - 1 > 0 ? timePair.duration() - 1: 0);
         mTimeStartSpinner.setSelection(timePair.startNumber());
     }
@@ -492,6 +553,7 @@ public class PairEditorActivity extends AppCompatActivity
     @Override
     public void onDateItemClicked(int pos) {
         Intent intent = new Intent(this, DateEditorActivity.class);
+
         mDateCache = mDateItems.get(pos);
         intent.putExtra(EXTRA_DATE, mDateCache);
         intent.putParcelableArrayListExtra(EXTRA_DATE_LIST, mDateItems);
@@ -504,9 +566,37 @@ public class PairEditorActivity extends AppCompatActivity
      */
     private void updateDatesCountView() {
         if (mDateItems.isEmpty()) {
-            mStatefulLayout.setState(R.id.empty_dates);
+            mStatefulLayoutDates.setState(R.id.empty_dates);
         } else {
-            mStatefulLayout.setState(R.id.recycler_dates);
+            mStatefulLayoutDates.setState(R.id.recycler_dates);
+        }
+    }
+
+    /**
+     * Вызывается, когда меняется состояние в ViewModel.
+     * @param state состояние.
+     */
+    private void stateChanged(@NonNull PairEditorModel.States state) {
+        switch (state) {
+            case SUCCESSFULLY_SAVED: {
+                Intent intent = new Intent();
+                intent.putExtra(EXTRA_PAIR, mNewPair);
+                setResult(RESULT_OK, intent);
+                onBackPressed();
+                break;
+            }
+            case SUCCESSFULLY_LOADED: {
+                mStatefulLayoutMain.setState(R.id.pair_editor_content);
+                break;
+            }
+            case LOADING: {
+                mStatefulLayoutMain.setLoadState();
+                break;
+            }
+            case ERROR: {
+                Toast.makeText(getApplicationContext(), R.string.pair_editor_loading_schedule_error, Toast.LENGTH_LONG).show();
+                break;
+            }
         }
     }
 }

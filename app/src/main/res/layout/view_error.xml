@@ -4,19 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center" >
+    android:gravity="center"
+    android:padding="@dimen/default_layout_padding" >
+
     <TextView
+        style="@style/Text.Large"
         android:id="@+id/error_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorTextPrimary"
-        android:textSize="22sp"/>
+        android:textColor="?android:attr/textColorPrimary"
+        android:layout_marginBottom="@dimen/default_layout_padding"/>
 
     <TextView
+        style="@style/Text.Medium"
         android:id="@+id/error_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorTextSecondary"
-        android:textSize="16sp"/>
+        android:textColor="?android:attr/textColorSecondary" />
 
 </LinearLayout>

@@ -38,11 +38,9 @@ public class MySchedulesAdapter extends RecyclerView.Adapter<MySchedulesAdapter.
         void onScheduleItemClicked(@NonNull String schedule);
 
         /**
-         * Расписание перемещенно.
-         * @param fromPosition старая позиция.
-         * @param toPosition новая позиция.
+         * Избранное расписание изменено.
+         * @param favorite избранное расписание.
          */
-        void onScheduleItemMove(int fromPosition, int toPosition);
         void onScheduleFavoriteSelected(@NonNull String favorite);
     }
 
@@ -51,6 +49,7 @@ public class MySchedulesAdapter extends RecyclerView.Adapter<MySchedulesAdapter.
 
     private List<String> mSchedules;
     private String mFavoriteSchedule;
+
     private boolean mIsAnimate;
 
     MySchedulesAdapter(@NonNull OnItemClickListener clickListener, @NonNull DragToMoveCallback.OnStartDragListener dragStartListener) {
@@ -61,7 +60,12 @@ public class MySchedulesAdapter extends RecyclerView.Adapter<MySchedulesAdapter.
         mFavoriteSchedule = "";
     }
 
-    public void update(List<String> schedules, String favoriteSchedule) {
+    /**
+     * Обновляе данные в адапторе.
+     * @param schedules расписания.
+     * @param favoriteSchedule избранное расписание.
+     */
+    void submitList(@NonNull List<String> schedules, @NonNull String favoriteSchedule) {
         mSchedules = schedules;
         mFavoriteSchedule = favoriteSchedule;
 
@@ -100,8 +104,6 @@ public class MySchedulesAdapter extends RecyclerView.Adapter<MySchedulesAdapter.
      */
     void moveItem(int fromPosition, int toPosition) {
         Collections.swap(mSchedules, fromPosition, toPosition);
-
-        mClickListener.onScheduleItemMove(fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
     }
 

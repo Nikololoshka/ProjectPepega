@@ -23,6 +23,11 @@
         <item name="android:windowBackground">@drawable/background_splash_dark</item>
     </style>
 
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
     <!-- Тема для карточек -->
     <style name="CardStyle" parent="CardView" >
         <item name="cardBackgroundColor">@color/colorCardViewBackground</item>

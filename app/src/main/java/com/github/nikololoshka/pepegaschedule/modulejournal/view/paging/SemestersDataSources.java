@@ -37,7 +37,6 @@ public class SemestersDataSources extends PositionalDataSource<SemestersMarks> {
         } else {
             callback.onResult(marks, pos);
         }
-
     }
 
     @Override

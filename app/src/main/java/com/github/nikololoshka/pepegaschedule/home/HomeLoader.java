@@ -13,10 +13,13 @@ import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.SubgroupEnum;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
+import com.google.gson.JsonParseException;
 
-import org.json.JSONException;
+import org.apache.commons.io.FileUtils;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -59,8 +62,12 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.LoadData> {
         String path = SchedulePreference.createPath(getContext(), favorite);
         Schedule schedule = new Schedule();
         try {
-            schedule.load(path);
-        } catch (JSONException e) {
+            // TODO: 31/01/20 обработка ошибок
+            File file = new File(path);
+            String json = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+            schedule = Schedule.fromJson(json);
+
+        } catch (JsonParseException e) {
             e.printStackTrace();
             Toast.makeText(getContext(), "Error parsing schedule", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
@@ -72,7 +79,7 @@ public class HomeLoader extends AsyncTaskLoader<HomeLoader.LoadData> {
         dayNow.add(Calendar.DAY_OF_MONTH, -2);
 
         for (int i = 0; i < DAY_COUNT; i++) {
-            TreeSet<Pair> pairs = new TreeSet<>(new ScheduleDay.SortPairComparator());
+            TreeSet<Pair> pairs = new TreeSet<>(new ScheduleDay.PairComparator());
             if (dayNow.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
                 pairs = schedule.pairsByDate(dayNow);
 

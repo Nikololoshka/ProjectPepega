@@ -31,6 +31,11 @@
         <item>B</item>
     </string-array>
 
+    <string-array name="subgroup_simple_list">
+        <item>(A)</item>
+        <item>(B)</item>
+    </string-array>
+
     <!-- type values -->
     <string-array name="type_list">
         <item>Lecture</item>
@@ -48,6 +53,11 @@
     <string-array name="frequency_list">
         <item>Every week</item>
         <item>In a week</item>
+    </string-array>
+
+    <string-array name="frequency_simple_list">
+        <item>e.w.</item>
+        <item>t.w.</item>
     </string-array>
 
     <!-- schedule view methods -->

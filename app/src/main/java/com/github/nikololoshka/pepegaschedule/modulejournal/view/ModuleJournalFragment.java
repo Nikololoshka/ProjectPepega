@@ -110,6 +110,7 @@ public class ModuleJournalFragment extends Fragment
 
         mStatefulLayoutPager = view.findViewById(R.id.stateful_layout_pager);
         mStatefulLayoutPager.addXMLViews();
+        mStatefulLayoutPager.setAnimation(false);
 
         mErrorTitleView = view.findViewById(R.id.mj_error_title);
         mErrorDescriptionView = view.findViewById(R.id.mj_error_description);
@@ -141,7 +142,7 @@ public class ModuleJournalFragment extends Fragment
                 new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                tab.setText(mModuleJournalViewModel.semestersStorage().semesterTitle(position));
+                tab.setText(mModuleJournalViewModel.storage().semesterTitle(position));
             }
         }).attach();
 
@@ -222,7 +223,7 @@ public class ModuleJournalFragment extends Fragment
         mStatefulLayoutMain.setLoadState();
         setSemestersLoading(true);
 
-        mModuleJournalViewModel.semestersStorage().setUseCache(false);
+        mModuleJournalViewModel.storage().setUseCache(false);
         mModuleJournalLoader.reload(false);
     }
 
@@ -266,25 +267,25 @@ public class ModuleJournalFragment extends Fragment
 
         mStatefulLayoutMain.setState(R.id.mj_content);
 
-        mModuleJournalViewModel.semestersStorage().setLogin(data.login);
-        mModuleJournalViewModel.semestersStorage().setPassword(data.password);
-        mModuleJournalViewModel.semestersStorage().setSemesters(data.response.semesters());
+        mModuleJournalViewModel.storage().setLogin(data.login);
+        mModuleJournalViewModel.storage().setPassword(data.password);
+        mModuleJournalViewModel.storage().setSemesters(data.response.semesters());
 
         File cacheDir = getContext() == null ? null : getContext().getCacheDir();
-        mModuleJournalViewModel.semestersStorage().setCacheDirectory(cacheDir);
+        mModuleJournalViewModel.storage().setCacheDirectory(cacheDir);
 
         // если перезагрузка данных
         if (mReloadModuleJournal) {
-            PagedList<SemestersMarks> marksPagedList = mModuleJournalViewModel.semestersLiveData().getValue();
+            PagedList<SemestersMarks> marksPagedList = mModuleJournalViewModel.semesters().getValue();
             if (marksPagedList != null) {
                 marksPagedList.getDataSource().invalidate();
             }
             mReloadModuleJournal = false;
         }
 
-        boolean isObserve = mModuleJournalViewModel.semestersLiveData().hasObservers();
+        boolean isObserve = mModuleJournalViewModel.semesters().hasObservers();
         if (!isObserve) {
-            mModuleJournalViewModel.semestersLiveData().observe(this, new Observer<PagedList<SemestersMarks>>() {
+            mModuleJournalViewModel.semesters().observe(getViewLifecycleOwner(), new Observer<PagedList<SemestersMarks>>() {
                 @Override
                 public void onChanged(final PagedList<SemestersMarks> semestersMarks) {
                     // TODO: 27/01/20 проблема, когда после перезагрузки выбирается не тот элемент
@@ -336,7 +337,7 @@ public class ModuleJournalFragment extends Fragment
 
         Snackbar.make(mStatefulLayoutMain,
                 getString(R.string.mj_last_update,
-                        mModuleJournalViewModel.semestersStorage().semesterTitle(position),
+                        mModuleJournalViewModel.storage().semesterTitle(position),
                         CommonUtils.dateToString(marks.time(), "HH:mm:ss dd.MM.yyyy",
                                 CommonUtils.locale(getContext()))),
                 Snackbar.LENGTH_SHORT).show();

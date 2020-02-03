@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.schedule.view;
+package com.github.nikololoshka.pepegaschedule.schedule.view.paging;
 
 import android.graphics.Rect;
 import android.view.View;
@@ -13,7 +13,7 @@ public class ScheduleViewSpaceItemDecoration extends RecyclerView.ItemDecoration
 
     private final int mVerticalSpaceHeight;
 
-    ScheduleViewSpaceItemDecoration(int verticalSpaceHeight) {
+    public ScheduleViewSpaceItemDecoration(int verticalSpaceHeight) {
         mVerticalSpaceHeight = verticalSpaceHeight;
     }
 

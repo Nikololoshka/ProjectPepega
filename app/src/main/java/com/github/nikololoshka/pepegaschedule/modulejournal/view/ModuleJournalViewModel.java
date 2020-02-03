@@ -16,13 +16,13 @@ import java.util.concurrent.Executors;
  */
 public class ModuleJournalViewModel extends ViewModel {
 
-    private LiveData<PagedList<SemestersMarks>> mSemestersLiveData;
-    private SemestersStorage mSemestersStorage;
+    private LiveData<PagedList<SemestersMarks>> mSemestersData;
+    private SemestersStorage mStorage;
 
     public ModuleJournalViewModel() {
 
-        mSemestersStorage = new SemestersStorage();
-        SemestersDataSourcesFactory semestersFactory = new SemestersDataSourcesFactory(mSemestersStorage);
+        mStorage = new SemestersStorage();
+        SemestersDataSourcesFactory semestersFactory = new SemestersDataSourcesFactory(mStorage);
 
         PagedList.Config config = new PagedList.Config.Builder()
                 .setEnablePlaceholders(true)
@@ -31,16 +31,16 @@ public class ModuleJournalViewModel extends ViewModel {
                 .setPrefetchDistance(2)
                 .build();
 
-        mSemestersLiveData = new LivePagedListBuilder<>(semestersFactory, config)
+        mSemestersData = new LivePagedListBuilder<>(semestersFactory, config)
                 .setFetchExecutor(Executors.newSingleThreadExecutor())
                 .build();
     }
 
-    public LiveData<PagedList<SemestersMarks>> semestersLiveData() {
-        return mSemestersLiveData;
+    public LiveData<PagedList<SemestersMarks>> semesters() {
+        return mSemestersData;
     }
 
-    public SemestersStorage semestersStorage() {
-        return mSemestersStorage;
+    public SemestersStorage storage() {
+        return mStorage;
     }
 }

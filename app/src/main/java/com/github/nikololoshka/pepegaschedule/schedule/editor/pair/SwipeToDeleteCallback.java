@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.schedule.editor;
+package com.github.nikololoshka.pepegaschedule.schedule.editor.pair;
 
 import android.content.Context;
 import android.graphics.Canvas;

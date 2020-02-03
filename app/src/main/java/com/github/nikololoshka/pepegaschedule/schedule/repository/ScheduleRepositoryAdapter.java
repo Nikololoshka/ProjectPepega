@@ -52,7 +52,6 @@ public class ScheduleRepositoryAdapter
         mListener = listener;
     }
 
-
     /**
      * Обновляе данные в адапторе.
      * @param data данные.

@@ -78,6 +78,7 @@
     <string name="sch_view_renamed">Расписание переименованно</string>
     <string name="sch_view_unable_rename">Не удалось переименновать расписание</string>
     <string name="sch_view_will_be_deleted">Внимание, расписание будет удалено безвозратно!</string>
+    <string name="sch_view_today">Сегодня</string>
 
     <!-- pair editor -->
     <string name="pair_editor_title">Название</string>
@@ -92,6 +93,8 @@
     <string name="pair_editor_date_removed">Дата была удалена</string>
     <string name="pair_editor_empty_dates_list">Необходимо добавить хотя бы одну дату.</string>
     <string name="pair_editor_empty_title">У пары нет названия</string>
+    <string name="pair_editor_conflict_pair">YНевозможно добавить пару. Конфликтует с \"%1$s\".</string>
+    <string name="pair_editor_loading_schedule_error">Не удалось загрузить расписание для редактирования</string>
 
     <!-- date editor -->
     <string name="date_editor_enter_valid_date">Введите правильно дату: DD.MM.YYYY</string>
@@ -104,7 +107,7 @@
     <string name="date_editor_less_than_another">Одна дата меньше другой!</string>
     <string name="date_editor_remove_date">Удалить дату</string>
     <string name="date_editor_invalid_date">Невозможно создать дату: %1$s. Проверьте правильность даты.</string>
-    <string name="date_editor_invalid_day_of_week">Невозможно создать дату с днём недели: %1$s.</string>
+    <string name="date_editor_invalid_day_of_week">Невозможно создать дату с этим днём недели</string>
     <string name="date_editor_invalid_frequency">Диапазон даты не кратен указанной периодичности.</string>
     <string name="date_editor_impossible_added_date">Вы не можите добавить дату, т.к. будет пересечение дат / не совпадение по дню недели. </string>
     <string name="date_editor_added_date">Добавляемая дата:</string>

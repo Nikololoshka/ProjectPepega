@@ -3,7 +3,6 @@ package com.github.nikololoshka.pepegaschedule.widget;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -14,11 +13,15 @@ import com.github.nikololoshka.pepegaschedule.schedule.model.Schedule;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 import com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
+import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
+import com.google.gson.JsonParseException;
 
-import org.json.JSONException;
+import org.apache.commons.io.FileUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,12 +37,16 @@ public class ScheduleAppWidgetRemoteFactory implements RemoteViewsService.Remote
     private static final String TAG = "ScheduleAppWgtFactoryLog";
 
     private String mPackageName;
-    private WeakReference<Context> mContext;
     private int mScheduleAppWidgetId;
 
+    private WeakReference<Context> mContext;
+
+    @NonNull
     private ArrayList<TreeSet<Pair>> mPairs;
+    @NonNull
     private ArrayList<String> mTitles;
-    private ArrayList<Long> mTimes;
+    @NonNull
+    private ArrayList<Calendar> mTimes;
 
     private int mLectureColor;
     private int mSeminarColor;
@@ -47,18 +54,23 @@ public class ScheduleAppWidgetRemoteFactory implements RemoteViewsService.Remote
 
     private String mScheduleName;
 
+    private boolean mLoadingError;
+    private String mErrorMessage;
+
+
     ScheduleAppWidgetRemoteFactory(@NonNull Context context, @NonNull Intent intent) {
         mContext = new WeakReference<>(context);
         mPackageName = context.getPackageName();
         mScheduleAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                 AppWidgetManager.INVALID_APPWIDGET_ID);
+
+        mPairs = new ArrayList<>();
+        mTitles = new ArrayList<>();
+        mTimes = new ArrayList<>();
     }
 
     @Override
     public void onCreate() {
-        mPairs = new ArrayList<>();
-        mTitles = new ArrayList<>();
-        mTimes = new ArrayList<>();
     }
 
     @Override
@@ -82,39 +94,37 @@ public class ScheduleAppWidgetRemoteFactory implements RemoteViewsService.Remote
 
         String schedulePath = SchedulePreference.createPath(mContext.get(), mScheduleName);
 
-        Schedule schedule = new Schedule();
+        Schedule schedule;
         try {
-            // TODO добавить информацию для пользователя об исключении
-            schedule.load(schedulePath);
-        } catch (JSONException | IOException e) {
+            File file = new File(schedulePath);
+            String json = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+            schedule = Schedule.fromJson(json);
+            mLoadingError = false;
+
+        } catch (JsonParseException | IOException e) {
             e.printStackTrace();
+
+            mErrorMessage = mContext.get().getString(R.string.widget_schedule_error);
+            mLoadingError = true;
+            return;
         }
 
-        Calendar now = new GregorianCalendar();
-        Calendar date = new GregorianCalendar(now.get(Calendar.YEAR),
-                now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH));
-
-        Locale locale;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            locale = mContext.get().getResources().getConfiguration().getLocales().get(0);
-        } else {
-            locale = mContext.get().getResources().getConfiguration().locale;
-        }
-
+        Locale locale = CommonUtils.locale(mContext.get());
         SimpleDateFormat formatter = new SimpleDateFormat("EE, dd MMMM", locale);
 
+        Calendar iterator = CommonUtils.normalizeDate(new GregorianCalendar());
         for (int i = 0; i < 14; i++) {
-            TreeSet<Pair> pairs = schedule.pairsByDate(date);
+            TreeSet<Pair> pairs = schedule.pairsByDate(iterator);
 
             mPairs.add(pairs);
 
-            String dayFormat = formatter.format(date.getTime());
+            String dayFormat = formatter.format(iterator.getTime());
             String dayTitle = dayFormat.substring(0, 1).toUpperCase() + dayFormat.substring(1);
 
             mTitles.add(dayTitle);
-            mTimes.add(date.getTimeInMillis());
+            mTimes.add((Calendar) iterator.clone());
 
-            date.add(Calendar.DAY_OF_MONTH, 1);
+            iterator.add(Calendar.DAY_OF_MONTH, 1);
         }
     }
 
@@ -125,13 +135,18 @@ public class ScheduleAppWidgetRemoteFactory implements RemoteViewsService.Remote
 
     @Override
     public int getCount() {
-        return mTitles.size();
+        return mLoadingError ? 1 : mTitles.size();
     }
 
     @Override
     public RemoteViews getViewAt(int position) {
-        RemoteViews dayView = new RemoteViews(mPackageName,
-                R.layout.widget_item_schedule_app);
+        if (mLoadingError) {
+            RemoteViews errorView = new RemoteViews(mPackageName, R.layout.view_error);
+            errorView.setTextViewText(R.id.error_title, mErrorMessage);
+            return errorView;
+        }
+
+        RemoteViews dayView = new RemoteViews(mPackageName, R.layout.widget_item_schedule_app);
         dayView.removeAllViews(R.id.schedule_day_pairs);
 
         dayView.setTextViewText(R.id.schedule_day_title, mTitles.get(position));
@@ -164,8 +179,7 @@ public class ScheduleAppWidgetRemoteFactory implements RemoteViewsService.Remote
                 dayView.addView(R.id.schedule_day_pairs, pairView);
             }
         } else {
-            RemoteViews pairView = new RemoteViews(mPackageName,
-                    R.layout.widget_item_schedule_app_no_pairs);
+            RemoteViews pairView = new RemoteViews(mPackageName, R.layout.widget_item_schedule_app_no_pairs);
             dayView.addView(R.id.schedule_day_pairs, pairView);
         }
 

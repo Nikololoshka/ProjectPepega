@@ -26,10 +26,11 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "MainActivityLog";
-    private static final boolean DEBUG = false;
 
     private DrawerLayout mDrawer;
     private ImageButton mDarkModeButton;
+
+    // private ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,12 +108,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 boolean isDark = ApplicationPreference.currentManualMode(this);
-
                 isDark = !isDark;
+
                 AppCompatDelegate.setDefaultNightMode(isDark ?
                         AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
-
                 ApplicationPreference.setManualMode(this, isDark);
+
+                /*
+                getWindow().setWindowAnimations(R.style.WindowAnimationTransition);
+                recreate();
+
+                int w = mDrawer.getMeasuredWidth();
+                int h = mDrawer.getMeasuredHeight();
+
+                Bitmap bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bitmap);
+                mDrawer.draw(canvas);
+
+                mImageView.setImageBitmap(bitmap);
+                mImageView.setVisibility(View.VISIBLE);
+
+                int startRadius = 0;
+                int endRadius = (int) Math.hypot(w, h);
+
+                Animator animator = ViewAnimationUtils.createCircularReveal(mDrawer, w / 2, h / 2, startRadius, endRadius);
+                animator.setDuration(2000);
+                animator.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        mImageView.setImageDrawable(null);
+                        mImageView.setVisibility(View.GONE);
+                    }
+                });
+                animator.start();
+                */
+
                 break;
             }
         }

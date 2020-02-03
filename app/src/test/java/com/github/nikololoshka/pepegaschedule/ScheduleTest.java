@@ -1,21 +1,28 @@
 package com.github.nikololoshka.pepegaschedule;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.github.nikololoshka.pepegaschedule.schedule.model.Schedule;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
+import com.google.gson.GsonBuilder;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
-import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
 
 import static org.junit.Assert.assertTrue;
 
-
+/**
+ * Тесты связанные с расписанием.
+ */
 public class ScheduleTest {
+
+    private static final String PATH = "src/test/resources/";
+
     @Test
     public void loading() {
         Schedule schedule = new Schedule();
@@ -45,26 +52,23 @@ public class ScheduleTest {
         schedule.addPair(loadPair("pair_6.json"));
     }
 
-    public Pair loadPair(String filename) {
-        final String PATH = "src/test/resources/";
+    /**
+     * Загружает пару из файла.
+     * @param filename имя файла.
+     * @return пара.
+     */
+    @Nullable
+    private Pair loadPair(@NonNull String filename) {
+        try {
+            File file = org.apache.commons.io.FileUtils.getFile(PATH, filename);
+            String json = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
 
-        try (FileReader reader = new FileReader(PATH + filename)){
-            Scanner scanner = new Scanner(reader);
-            StringBuilder builder = new StringBuilder();
-            while (scanner.hasNextLine()) {
-                builder.append(scanner.nextLine());
-            }
+            return new GsonBuilder()
+                    .registerTypeAdapter(Pair.class, new Pair.PairDeserialize())
+                    .create()
+                    .fromJson(json, Pair.class);
 
-            JSONObject jsonObject = new JSONObject(builder.toString());
-            Pair pair = new Pair();
-            pair.load(jsonObject);
-
-            return pair;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
             e.printStackTrace();
         }
         return null;

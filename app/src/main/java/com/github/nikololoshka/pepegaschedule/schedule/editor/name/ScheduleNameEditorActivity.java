@@ -1,31 +1,42 @@
-package com.github.nikololoshka.pepegaschedule.schedule.editor;
+package com.github.nikololoshka.pepegaschedule.schedule.editor.name;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
+import com.github.nikololoshka.pepegaschedule.utils.TextWatcherWrapper;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.List;
 
-public class ScheduleEditorActivity extends AppCompatActivity {
+/**
+ * Activity для редактирования названия расписания.
+ */
+public class ScheduleNameEditorActivity extends AppCompatActivity {
 
     public static final String EXTRA_SCHEDULE_NAME = "schedule_name";
 
     private final List<String> BAN_CHARACTERS = SchedulePreference.banCharacters();
 
+    /**
+     * Поле с название расписания.
+     */
     private EditText mScheduleNameEdit;
+    /**
+     * Слой с полей с названием расписанием.
+     */
+    private TextInputLayout mScheduleNameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,42 +46,38 @@ public class ScheduleEditorActivity extends AppCompatActivity {
         @Nullable
         String scheduleName = getIntent().getStringExtra(EXTRA_SCHEDULE_NAME);
 
+        mScheduleNameLayout = findViewById(R.id.schedule_name_layout);
+
         mScheduleNameEdit = findViewById(R.id.schedule_name);
         mScheduleNameEdit.setText(scheduleName);
-        mScheduleNameEdit.addTextChangedListener(new TextWatcher() {
+        mScheduleNameEdit.addTextChangedListener(new TextWatcherWrapper() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void onTextChanged(@NonNull String s) {
                 checkNameField();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
             }
         });
     }
 
+    /**
+     * Проверяет поле на правильность. Не пусто ли и не содержит не допустимых символов.
+     * @return true если правильно заполнено, иначе false.
+     */
     private boolean checkNameField() {
         String name = mScheduleNameEdit.getText().toString();
         if (name.isEmpty()) {
-            mScheduleNameEdit.setError(getString(R.string.schedule_editor_empty_name));
+            mScheduleNameLayout.setError(getString(R.string.schedule_editor_empty_name));
             return false;
         }
 
         for (String character : BAN_CHARACTERS) {
             if (name.contains(character)) {
-                mScheduleNameEdit.setError(getString(R.string.schedule_editor_not_allowed_character) +
+                mScheduleNameLayout.setError(getString(R.string.schedule_editor_not_allowed_character) +
                         ": " + character);
                 return false;
             }
         }
 
-        mScheduleNameEdit.setError(null);
+        mScheduleNameLayout.setError(null);
         return true;
     }
 
@@ -89,26 +96,25 @@ public class ScheduleEditorActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // подтвердить изменение
         if (item.getItemId() == R.id.apply_schedule) {
+            // правильно заполнено
             if (!checkNameField()) {
                 return true;
             }
 
+            // такое название уже есть
             String schedule = mScheduleNameEdit.getText().toString();
-
             if (SchedulePreference.contains(this, schedule)) {
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle(R.string.error);
-                alertDialog.setMessage(getString(R.string.schedule_editor_exists));
-                alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL,
-                        getString(R.string.ok),
-                        new DialogInterface.OnClickListener() {
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.error)
+                        .setMessage(getString(R.string.schedule_editor_exists))
+                        .setNeutralButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
                             }
-                        });
-                alertDialog.show();
+                        }).show();
 
                 return true;
             }

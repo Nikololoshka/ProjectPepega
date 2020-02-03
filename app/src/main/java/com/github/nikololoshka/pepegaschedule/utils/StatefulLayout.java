@@ -30,17 +30,17 @@ public class StatefulLayout extends LinearLayout {
     /**
      * Список всех view.
      */
-    protected HashMap<String, View> mStateViews = new HashMap<>();
+    private HashMap<String, View> mStateViews = new HashMap<>();
 
     /**
      * Текущая view.
      */
-    protected String mCurrentState = "";
+    private String mCurrentState = "";
 
     /**
      * Будет ли анимирован переход между состояниями.
      */
-    protected boolean mIsAnimated = true;
+    private boolean mIsAnimated = true;
 
     public StatefulLayout(@NonNull Context context) {
         super(context);
@@ -89,7 +89,7 @@ public class StatefulLayout extends LinearLayout {
      * Установить отображаемую view.
      * @param state - название view, которую необходимо отобразить.
      */
-    public void setState(String state) {
+    public void setState(@NonNull String state) {
         if (!mStateViews.containsKey(state)) {
             throw new IllegalStateException(String.format("Cannot switch to state: %s", state));
         }
@@ -151,7 +151,7 @@ public class StatefulLayout extends LinearLayout {
      * Устанавливает текст ошибки на стандартное view.
      * @param errorMessage - текст ошибки.
      */
-    public void setErrorText(String errorMessage) {
+    public void setErrorText(@NonNull String errorMessage) {
         setErrorText(errorMessage, null);
     }
 
@@ -160,7 +160,7 @@ public class StatefulLayout extends LinearLayout {
      * @param errorMessage - текст ошибки.
      * @param errorDescription - описание ошибки.
      */
-    public void setErrorText(String errorMessage, String errorDescription) {
+    public void setErrorText(@NonNull String errorMessage, @Nullable String errorDescription) {
         View view = mStateViews.get(ERROR_STATE);
         if (view == null) {
             return;
@@ -178,7 +178,7 @@ public class StatefulLayout extends LinearLayout {
      * @param errorMessage - текст ошибки.
      *
      */
-    public void setErrorStateWithMessage(String errorMessage) {
+    public void setErrorStateWithMessage(@NonNull String errorMessage) {
         setErrorStateWithMessage(errorMessage, null);
     }
 
@@ -188,7 +188,7 @@ public class StatefulLayout extends LinearLayout {
      * @param errorDescription - описание ошибки.
      */
     @SuppressLint("InflateParams")
-    public void setErrorStateWithMessage(String errorMessage, String errorDescription) {
+    public void setErrorStateWithMessage(@NonNull String errorMessage, @Nullable String errorDescription) {
         setErrorText(errorMessage, errorDescription);
 
         if (!mStateViews.containsKey(ERROR_STATE)) {
