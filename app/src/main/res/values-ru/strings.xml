@@ -79,6 +79,7 @@
     <string name="sch_view_unable_rename">Не удалось переименновать расписание</string>
     <string name="sch_view_will_be_deleted">Внимание, расписание будет удалено безвозратно!</string>
     <string name="sch_view_today">Сегодня</string>
+    <string name="sch_view_empty">Расписание пустое</string>
 
     <!-- pair editor -->
     <string name="pair_editor_title">Название</string>
@@ -156,6 +157,8 @@
     <string name="pref_subgroup_a_color">Цвет подгруппы А</string>
     <string name="pref_subgroup_b_color">Цвет подгруппы Б</string>
     <string name="pref_current_color">Текущий цвет</string>
+    <string name="pref_schedule_view_limit">Ограничивать расписание</string>
+    <string name="pref_schedule_view_limit_summary">Расписание будет ограничено крайними датами в нем</string>
 
     <!--  picker color  -->
     <string name="picker_color_choose_color">Выберете цвет</string>

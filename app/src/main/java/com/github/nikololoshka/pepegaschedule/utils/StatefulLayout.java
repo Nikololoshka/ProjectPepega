@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.transition.Fade;
@@ -101,7 +102,7 @@ public class StatefulLayout extends LinearLayout {
         if (!mCurrentState.isEmpty() && mIsAnimated) {
             TransitionSet transition = new TransitionSet();
             transition.addTransition(new Fade());
-            transition.setDuration(250);
+            transition.setDuration(300);
             TransitionManager.beginDelayedTransition(this, transition);
         }
 
@@ -227,10 +228,12 @@ public class StatefulLayout extends LinearLayout {
     }
 
     /**
-     * @return - название текущей отображаемой view.
+     * Проверяет, является ли переданный id слоя текущим.
+     * @param id слой.
+     * @return true если да, иначе false.
      */
-    public String currentState() {
-        return mCurrentState;
+    public boolean isCurrentState(@IdRes int id) {
+        return mCurrentState.equals(String.valueOf(id));
     }
 
     /**

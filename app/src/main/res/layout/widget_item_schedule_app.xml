@@ -12,6 +12,7 @@
         style="@style/Text.Subhead"
         android:id="@+id/schedule_day_title"
         android:text="@string/debug_text"
+        android:textColor="@color/colorTextPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/widget_schedule_padding" />

@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,6 +36,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.github.nikololoshka.pepegaschedule.BuildConfig;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.name.ScheduleNameEditorActivity;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.pair.PairEditorActivity;
@@ -48,6 +50,7 @@ import com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.CommonUtils;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
+import com.github.nikololoshka.pepegaschedule.utils.StorageErrorData;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.apache.commons.io.FileUtils;
@@ -104,6 +107,9 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
     private Calendar mScrollDate;
 
     private StatefulLayout mStatefulLayout;
+
+    private TextView mErrorTitle;
+    private TextView mErrorDescription;
 
     private RecyclerView mRecyclerSchedule;
     private ScheduleDayItemAdapter mScheduleDayItemAdapter;
@@ -174,6 +180,9 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
         mStatefulLayout.addXMLViews();
         mStatefulLayout.setLoadState();
 
+        mErrorTitle = view.findViewById(R.id.error_title);
+        mErrorDescription = view.findViewById(R.id.error_description);
+
         mRecyclerSchedule = view.findViewById(R.id.sch_view_container);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         mRecyclerSchedule.setLayoutManager(manager);
@@ -198,6 +207,12 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
         }
 
         mScheduleDayItemAdapter = new ScheduleDayItemAdapter(this);
+        mScheduleDayItemAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+                Log.d(TAG, "onItemRangeMoved: " + fromPosition + " " + toPosition + " " + itemCount);
+            }
+        });
         mRecyclerSchedule.setAdapter(mScheduleDayItemAdapter);
 
         // установка ViewModel
@@ -210,29 +225,98 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
             mScheduleViewModel.storage().setInitialKey(date);
         }
 
-        mScheduleViewModel.scheduleDayItemData()
-                .observe(getViewLifecycleOwner(), new Observer<PagedList<ScheduleDayItem>>() {
+        mScheduleViewModel.statesData().observe(getViewLifecycleOwner(), new Observer<ScheduleViewModel.States>() {
+            @Override
+            public void onChanged(ScheduleViewModel.States state) {
+                stateChanged(state);
+            }
+        });
+
+        mRecyclerSchedule.setItemAnimator(null);
+
+        mScheduleViewModel.scheduleData().observe(getViewLifecycleOwner(), new Observer<PagedList<ScheduleDayItem>>() {
             @Override
             public void onChanged(final PagedList<ScheduleDayItem> scheduleDayItems) {
+                if (scheduleDayItems.isEmpty()) {
+                    stateChanged(ScheduleViewModel.States.ZERO_ITEMS);
+                    return;
+                }
+
+                scheduleDayItems.addWeakCallback(scheduleDayItems.snapshot(), new PagedList.Callback() {
+                    @Override
+                    public void onChanged(int position, int count) {
+                    }
+
+                    @Override
+                    public void onInserted(int position, int count) {
+                        if (BuildConfig.DEBUG) {
+                            Log.d(TAG, "onInserted: " + position + ", count: " + count);
+                        }
+
+                        if (mScrollDate != null) {
+                            PagedList<ScheduleDayItem> items = mScheduleDayItemAdapter.getCurrentList();
+                            if (items != null) {
+                                ScheduleDayItem itemFirst = items.get(0);
+                                if (itemFirst != null && itemFirst.day().equals(mScrollDate)) {
+                                    mRecyclerSchedule.scrollToPosition(0);
+                                }
+                                ScheduleDayItem itemSecond = items.get(ScheduleDayItemStorage.PAGE_SIZE);
+                                if (itemSecond != null && itemSecond.day().equals(mScrollDate)) {
+                                    mRecyclerSchedule.scrollToPosition(ScheduleDayItemStorage.PAGE_SIZE);
+                                }
+                                mScrollDate = null;
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onRemoved(int position, int count) {
+
+                    }
+                });
+
+//                final ScheduleDayItem item;
+//                if (mScrollDate != null) {
+//                    item = scheduleDayItems.get(0);
+//                    mScrollDate = null;
+//                } else {
+//                    item = null;
+//                }
+
+//                mScheduleDayItemAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+//                    @Override
+//                    public void onChanged() {
+//                        super.onChanged();
+//                        Log.d(TAG, "onChangedAdapter: ");
+//                    }
+//                });
+
                 mScheduleDayItemAdapter.submitList(scheduleDayItems, new Runnable() {
                     @Override
                     public void run() {
-                        Calendar day = mScrollDate;
+                        // TODO: 04/02/20 Баг, когда в paging library вызывается несколько раз один и тот же метод.
+                        //                После чего в RecyclerView отображается не тот элемент.
 
-                        if (day != null && !scheduleDayItems.isEmpty()) {
-                            ScheduleDayItem item = scheduleDayItems.get(0);
+//                        if (item != null) {
+//                            mRecyclerSchedule.postDelayed(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    int pos = scheduleDayItems.indexOf(item);
+//                                    if (pos != -1) {
+//                                        mRecyclerSchedule.scrollToPosition(pos);
+//                                    }
+//
+//                                    if (BuildConfig.DEBUG) {
+//                                        Log.d(TAG, "run: " + pos);
+//                                    }
+//
+//                                    stateChanged(ScheduleViewModel.States.SUCCESS);
+//                                }
+//                            }, 400);
+//                        } else {
 
-                            if (item != null) {
-                                int pos = (int) CommonUtils.calendarDiff(day, item.day());
-
-                                if (pos >= 0 && pos < scheduleDayItems.size()) {
-                                    mRecyclerSchedule.scrollToPosition(pos);
-                                }
-                            }
-                            mScrollDate = null;
-                        }
-
-                        mStatefulLayout.setState(R.id.sch_view_container);
+//                        }
+                        stateChanged(ScheduleViewModel.States.SUCCESS);
                     }
                 });
             }
@@ -245,6 +329,20 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
     public void onStart() {
         super.onStart();
         updateActionBar();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Context context = getContext();
+        if (context != null) {
+            boolean limit = ApplicationPreference.scheduleLimit(context);
+            boolean changed = mScheduleViewModel.storage().setLimit(limit);
+            if (changed) {
+                reloadSchedule();
+            }
+        }
     }
 
     @Override
@@ -264,11 +362,6 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
 
                 return true;
             }
-            // к текущему дню
-            case R.id.show_current_day: {
-                scrollScheduleTo(CommonUtils.normalizeDate(new GregorianCalendar()));
-                return true;
-            }
             // к выбраному дню
             case R.id.go_to_day: {
                 Context context = getContext();
@@ -278,11 +371,13 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
 
                     // текущий отображаемый день
                     int pos = currentPosition();
-                    PagedList<ScheduleDayItem> items = mScheduleDayItemAdapter.getCurrentList();
-                    if (items != null) {
-                        ScheduleDayItem dayItem = items.get(pos);
-                        if (dayItem != null) {
-                            initialDate = dayItem.day();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        PagedList<ScheduleDayItem> items = mScheduleDayItemAdapter.getCurrentList();
+                        if (items != null) {
+                            ScheduleDayItem dayItem = items.get(pos);
+                            if (dayItem != null) {
+                                initialDate = dayItem.day();
+                            }
                         }
                     }
 
@@ -585,7 +680,7 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
      */
     private void reloadSchedule() {
         // отображаемый список
-        PagedList<ScheduleDayItem> items = mScheduleViewModel.scheduleDayItemData().getValue();
+        PagedList<ScheduleDayItem> items = mScheduleDayItemAdapter.getCurrentList();
         if (items == null) {
             return;
         }
@@ -600,7 +695,7 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
             }
         }
 
-        mStatefulLayout.setLoadState();
+        stateChanged(ScheduleViewModel.States.LOADING);
         items.getDataSource().invalidate();
     }
 
@@ -609,33 +704,60 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
      * @param targetDay необходимый день.
      */
     private void scrollScheduleTo(@NonNull Calendar targetDay) {
-        PagedList<ScheduleDayItem> items = mScheduleViewModel.scheduleDayItemData().getValue();
+        PagedList<ScheduleDayItem> items = mScheduleDayItemAdapter.getCurrentList();
         if (items == null) {
             return;
         }
 
         int pos = currentPosition();
         if (pos != RecyclerView.NO_POSITION) {
+
             ScheduleDayItem item = items.get(pos);
-            Log.d(TAG, "scrollScheduleTo: " + pos);
             if (item != null) {
+
                 Calendar currentDay = item.day();
-                int diff = (int) CommonUtils.calendarDiff(targetDay, currentDay);
-                Log.d(TAG, "scrollScheduleTo: " + diff);
-                if (Math.abs(diff) < ScheduleDayItemStorage.PAGE_SIZE) {
-                    int scrollItemPos = pos + diff;
-                    Log.d(TAG, "scrollScheduleTo: "+ scrollItemPos);
-                    if (scrollItemPos >= 0 && scrollItemPos < items.size()) {
-                        mRecyclerSchedule.smoothScrollToPosition(scrollItemPos);
-                        return;
-                    }
+                int dayDiff = (int) CommonUtils.calendarDiff(targetDay, currentDay);
+                int scrollItemPos = pos + dayDiff;
+
+                if (scrollItemPos >= 0 && scrollItemPos < items.size()) {
+                    mRecyclerSchedule.scrollToPosition(scrollItemPos);
+                    return;
                 }
             }
         }
 
+        stateChanged(ScheduleViewModel.States.LOADING);
         mScrollDate = targetDay;
         mScheduleViewModel.storage().setInitialKey(targetDay);
-        mStatefulLayout.setLoadState();
         items.getDataSource().invalidate();
+    }
+
+    private void stateChanged(@NonNull ScheduleViewModel.States state) {
+        switch (state) {
+            case SUCCESS: {
+                mStatefulLayout.setState(R.id.sch_view_container);
+                break;
+            }
+            case ZERO_ITEMS: {
+                if (mStatefulLayout.isCurrentState(R.id.sch_view_error)) {
+                    return;
+                }
+                mStatefulLayout.setState(R.id.sch_view_empty);
+                break;
+            }
+            case LOADING: {
+                mStatefulLayout.setLoadState();
+                break;
+            }
+            case ERROR: {
+                StorageErrorData data = mScheduleViewModel.storage().errorData();
+                if (data != null) {
+                    data.resolveTitle(mErrorTitle);
+                    data.resolveDescription(mErrorDescription);
+
+                    mStatefulLayout.setState(R.id.sch_view_error);
+                }
+            }
+        }
     }
 }

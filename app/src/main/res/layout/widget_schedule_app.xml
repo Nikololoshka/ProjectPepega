@@ -12,12 +12,12 @@
         android:background="@color/widgetColorTitleBackground" >
 
         <TextView
-            style="@style/Text.Body2"
+            style="@style/Text.Subhead"
             android:id="@+id/widget_schedule_name"
             android:text="@string/debug_text"
+            android:textColor="@color/widgetColorTitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/widgetColorTitleText"
             android:padding="@dimen/widget_schedule_padding" />
 
     </LinearLayout>
@@ -26,6 +26,7 @@
         android:id="@+id/widget_schedule_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:divider="@drawable/divider"
         tools:listitem="@layout/widget_item_schedule_app_pair"/>
 
 </LinearLayout>

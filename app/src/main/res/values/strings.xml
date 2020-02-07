@@ -91,6 +91,7 @@
     <string name="sch_view_error_loading">Error loading schedule</string>
     <string name="sch_view_saved">Schedule saved</string>
     <string name="sch_view_today">Today</string>
+    <string name="sch_view_empty">Schedule is empty</string>
 
     <!-- pair editor -->
     <string name="pair_editor_title">Title</string>
@@ -168,6 +169,8 @@
     <string name="pref_subgroup_a_color">Subgroup A color</string>
     <string name="pref_subgroup_b_color">Subgroup B color</string>
     <string name="pref_current_color">current color</string>
+    <string name="pref_schedule_view_limit">Limit the schedule</string>
+    <string name="pref_schedule_view_limit_summary">Schedule will be limited to the extreme dates in it</string>
 
     <!--  picker color  -->
     <string name="picker_color_hint" translatable="false">FF00FF</string>

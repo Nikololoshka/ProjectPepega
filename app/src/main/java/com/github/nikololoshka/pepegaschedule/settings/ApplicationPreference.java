@@ -31,6 +31,7 @@ public class ApplicationPreference {
 
     private static final String FIRST_RUN = "first_run";
     private static final String SCHEDULE_VIEW_METHOD = "schedule_view_method";
+    private static final String SCHEDULE_LIMIT = "schedule_view_limit";
     private static final String DARK_MODE = "dark_mode";
     private static final String MANUAL_MODE = "manual_mode";
 
@@ -87,6 +88,16 @@ public class ApplicationPreference {
     public static String scheduleViewMethod(@NonNull Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getString(SCHEDULE_VIEW_METHOD, SCHEDULE_VIEW_VERTICAL);
+    }
+
+    /**
+     * Возвращает значение, должно ли граничиваться расписание.
+     * @param context контекст.
+     * @return true - нужно ограничивать, иначе false.
+     */
+    public static boolean scheduleLimit(@NonNull Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean(SCHEDULE_LIMIT, false);
     }
 
     /**

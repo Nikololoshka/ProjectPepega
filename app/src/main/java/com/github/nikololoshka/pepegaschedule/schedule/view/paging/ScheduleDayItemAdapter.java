@@ -86,8 +86,9 @@ public class ScheduleDayItemAdapter extends PagedListAdapter<ScheduleDayItem, Sc
                 return;
             }
 
-            mTitleView.setText(CommonUtils.dateToString(dayItem.day(),
-                    "EEEE, dd MMMM", CommonUtils.locale(mTitleView.getContext())));
+            String title = CommonUtils.dateToString(dayItem.day(),
+                    "EEEE, dd MMMM", CommonUtils.locale(mTitleView.getContext()));
+            mTitleView.setText(CommonUtils.toTitleCase(title));
 
             mPairsLayout.removeAllViews();
 

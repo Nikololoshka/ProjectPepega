@@ -21,13 +21,11 @@ import static com.github.nikololoshka.pepegaschedule.schedule.view.paging.Schedu
  */
 class ScheduleViewModel extends ViewModel {
 
-    /**
-     * Состояние загрузки расписания.
-     */
     enum States {
-        SUCCESSFUL,
+        SUCCESS,
+        ZERO_ITEMS,
         LOADING,
-        ERROR
+        ERROR,
     }
 
     /**
@@ -46,9 +44,13 @@ class ScheduleViewModel extends ViewModel {
     @NonNull
     private MutableLiveData<States> mStatesData;
 
-
     private ScheduleViewModel(@NonNull String schedulePath) {
-        mStorage = new ScheduleDayItemStorage(schedulePath);
+        mStorage = new ScheduleDayItemStorage(schedulePath, new ScheduleDayItemStorage.OnStorageListener() {
+            @Override
+            public void onError() {
+                mStatesData.postValue(States.ERROR);
+            }
+        });
 
         ScheduleDayItemDataSource.Factory factory = new ScheduleDayItemDataSource.Factory(mStorage);
 
@@ -56,19 +58,25 @@ class ScheduleViewModel extends ViewModel {
                 .setEnablePlaceholders(false)
                 .setPrefetchDistance(PAGE_SIZE / 2)
                 .setPageSize(PAGE_SIZE)
-                .setInitialLoadSizeHint(PAGE_SIZE * 2)
-                .setMaxSize(PAGE_SIZE * 5)
+                .setInitialLoadSizeHint(PAGE_SIZE)
+                .setMaxSize(PAGE_SIZE * 2)
                 .build();
 
         mScheduleDayItemData = new LivePagedListBuilder<>(factory, config)
                 .setFetchExecutor(Executors.newSingleThreadExecutor())
+                .setBoundaryCallback(new PagedList.BoundaryCallback<ScheduleDayItem>() {
+                    @Override
+                    public void onZeroItemsLoaded() {
+                        mStatesData.postValue(States.ZERO_ITEMS);
+                    }
+                })
                 .build();
 
-        mStatesData = new MutableLiveData<>();
+        mStatesData = new MutableLiveData<>(States.LOADING);
     }
 
     @NonNull
-    LiveData<PagedList<ScheduleDayItem>> scheduleDayItemData() {
+    LiveData<PagedList<ScheduleDayItem>> scheduleData() {
         return mScheduleDayItemData;
     }
 
@@ -78,12 +86,18 @@ class ScheduleViewModel extends ViewModel {
     }
 
     @NonNull
-    public ScheduleDayItemStorage storage() {
+    ScheduleDayItemStorage storage() {
         return mStorage;
     }
 
+    /**
+     * Фабрика для создания ViewModel.
+     */
     public static class Factory extends ViewModelProvider.NewInstanceFactory {
 
+        /**
+         * Путь к расписанию.
+         */
         private final String mSchedulePath;
 
         Factory(@NonNull String schedulePath) {

@@ -125,7 +125,7 @@ public class ModuleJournalFragment extends Fragment
         mSemestersAdapter.setUpdateListener(this);
 
         mPagerSemesters.setAdapter(mSemestersAdapter);
-        mPagerSemesters.setOffscreenPageLimit(1);
+        mPagerSemesters.setOffscreenPageLimit(3);
         mPagerSemesters.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {

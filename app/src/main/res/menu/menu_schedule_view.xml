@@ -9,14 +9,10 @@
         app:showAsAction="ifRoom|withText" />
 
     <item
-        android:id="@+id/show_current_day"
-        android:icon="@drawable/ic_menu_today_button"
-        android:title="@string/sch_view_current_day"
-        app:showAsAction="ifRoom|withText"/>
-
-    <item
         android:id="@+id/go_to_day"
-        android:title="@string/sch_view_go_to_day" />
+        android:icon="@drawable/ic_menu_go_to_day_button"
+        android:title="@string/sch_view_go_to_day"
+        app:showAsAction="ifRoom|withText" />
 
     <item
         android:id="@+id/rename_schedule"

@@ -8,6 +8,13 @@
         android:title="@string/pref_schedule_view"
         app:iconSpaceReserved="false" >
 
+        <CheckBoxPreference
+            android:key="schedule_view_limit"
+            android:title="@string/pref_schedule_view_limit"
+            android:summary="@string/pref_schedule_view_limit_summary"
+            android:defaultValue="false"
+            app:iconSpaceReserved="false" />
+
         <ListPreference
             android:key="schedule_view_method"
             android:title="@string/pref_schedule_view_method"
