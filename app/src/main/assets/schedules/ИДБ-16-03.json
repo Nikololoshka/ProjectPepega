@@ -1,159 +1,7 @@
 [
     {
-        "title": "Операционные системы",
-        "lecturer": "Пушкин А.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            }
-        ]
-    },
-    {
-        "title": "Экология",
-        "lecturer": "Пустошная Л.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.12.09"
-            }
-        ]
-    },
-    {
-        "title": "Сети и телекоммуникации",
-        "lecturer": "Сосенушкин С.Е",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "210",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.30-2019.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Защита информации",
-        "lecturer": "Симонов М.Ф",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "210",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.09-2019.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование автоматизированных систем",
-        "lecturer": "Семячкова Е.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0202",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Системы искусственного интеллекта",
-        "lecturer": "Стоякова К.Л",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование автоматизированных систем",
-        "lecturer": "Семячкова Е.Г",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.05-2019.12.10"
-            }
-        ]
-    },
-    {
         "title": "Анализ деятельности проектно-конструкторских организаций",
         "lecturer": "Бердюгин А.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "240(а)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.24-2019.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Имитационное моделирование",
-        "lecturer": "Климанов В.П",
         "type": "Laboratory",
         "subgroup": "Common",
         "classroom": "313",
@@ -164,7 +12,211 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.17-2019.10.29"
+                "date": "2020.03.16-2020.04.13"
+            }
+        ]
+    },
+    {
+        "title": "Операционные системы",
+        "lecturer": "Пушкин А.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.11-2020.04.14"
+            }
+        ]
+    },
+    {
+        "title": "Методы оптимизации",
+        "lecturer": "Бекмурзаев В.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "302",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.18-2020.04.07"
+            }
+        ]
+    },
+    {
+        "title": "Методы оптимизации",
+        "lecturer": "Бекмурзаев В.А",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "209",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.18-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Концептуальное проектирование техники и технологий",
+        "lecturer": "Волкова Г.Д",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "313",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.04.07"
+            }
+        ]
+    },
+    {
+        "title": "Методы оптимизации",
+        "lecturer": "Бекмурзаев В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Методы оптимизации",
+        "lecturer": "Бекмурзаев В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование автоматизированных систем",
+        "lecturer": "Семячкова Е.Г",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "313",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.26-2020.03.25"
+            }
+        ]
+    },
+    {
+        "title": "Операционные системы",
+        "lecturer": "Пушкин А.Ю",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "235(з)",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.19-2020.04.15"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование автоматизированных систем",
+        "lecturer": "Семячкова Е.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.19-2020.04.09"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование автоматизированных систем",
+        "lecturer": "Семячкова Е.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.19-2020.04.09"
+            }
+        ]
+    },
+    {
+        "title": "Концептуальное проектирование техники и технологий",
+        "lecturer": "Волкова Г.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.10"
+            }
+        ]
+    },
+    {
+        "title": "Концептуальное проектирование техники и технологий",
+        "lecturer": "Волкова Г.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.10"
             }
         ]
     },
@@ -173,55 +225,21 @@
         "lecturer": "Новоселова О.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0202",
+        "classroom": "240(б)",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.04-2019.11.06"
+                "date": "2020.03.13-2020.04.17"
             }
         ]
     },
     {
-        "title": "Концептуальное моделирование проектных задач",
+        "title": "Концептуальное проектирование техники и технологий",
         "lecturer": "Волкова Г.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0202",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Концептуальное моделирование проектных задач",
-        "lecturer": "Волкова Г.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "306",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.18-2019.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Экология",
-        "lecturer": "Пустошная Л.С",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "302",
@@ -232,198 +250,66 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.18-2019.11.06"
+                "date": "2020.02.21-2020.04.17"
             }
         ]
     },
     {
-        "title": "Экология",
-        "lecturer": "Пустошная Л.С",
-        "type": "Laboratory",
+        "title": "Концептуальное проектирование техники и технологий",
+        "lecturer": "Волкова Г.Д",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0407",
+        "classroom": "302",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.11"
-            }
-        ]
-    },
-    {
-        "title": "Сети и телекоммуникации",
-        "lecturer": "Сосенушкин С.Е",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.12-2019.10.03"
-            }
-        ]
-    },
-    {
-        "title": "Системы искусственного интеллекта",
-        "lecturer": "Стоякова К.Л",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.12-2019.10.17"
-            }
-        ]
-    },
-    {
-        "title": "Сети и телекоммуникации",
-        "lecturer": "Сосенушкин С.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.12.05"
-            }
-        ]
-    },
-    {
-        "title": "Имитационное моделирование",
-        "lecturer": "Климанов В.П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "308",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.12-2019.10.31"
-            }
-        ]
-    },
-    {
-        "title": "Имитационное моделирование",
-        "lecturer": "Климанов В.П",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0202",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.12.20"
-            }
-        ]
-    },
-    {
-        "title": "Защита информации",
-        "lecturer": "Симонов М.Ф",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.12.20"
-            }
-        ]
-    },
-    {
-        "title": "Операционные системы",
-        "lecturer": "Пушкин А.Ю",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "209",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.13-2019.10.11"
-            }
-        ]
-    },
-    {
-        "title": "Концептуальное моделирование проектных задач",
-        "lecturer": "Волкова Г.Д",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "240(а)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.20-2019.10.18"
+                "date": "2020.04.17"
             }
         ]
     },
     {
         "title": "Проектирование автоматизированных систем",
         "lecturer": "Семячкова Е.Г",
-        "type": "Laboratory",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "240(а)",
+        "classroom": "442",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.15"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.29"
-            }
-        ]
-    },
-    {
-        "title": "Системы искусственного интеллекта",
-        "lecturer": "Стоякова К.Л",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "313",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.10.25-2019.12.06"
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.11"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование автоматизированных систем",
+        "lecturer": "Семячкова Е.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "442",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.11"
             }
         ]
     }

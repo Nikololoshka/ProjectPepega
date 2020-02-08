@@ -4,49 +4,120 @@
         "lecturer": "Поливанов А.Ю",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0306",
+        "classroom": "0410",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.02"
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
             },
             {
                 "frequency": "once",
-                "date": "2019.12.02"
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
     {
-        "title": "Правоведение",
-        "lecturer": "Куткин В.С",
+        "title": "Программное обеспечение мехатронных и робототехнических систем",
+        "lecturer": "Поливанов А.Ю",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0410",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
+                "frequency": "once",
+                "date": "2020.02.10"
             },
             {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
     {
-        "title": "Мехатронные устройства роботов",
-        "lecturer": "Егоров О.Д",
+        "title": "Программное обеспечение мехатронных и робототехнических систем",
+        "lecturer": "Поливанов А.Ю",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "ТехП 16",
+        "classroom": "0301",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.17"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.02"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование роботов и робототехнических систем",
+        "lecturer": "Карлов К.Р",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "210",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.16"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование роботов и робототехнических систем",
+        "lecturer": "Карлов К.Р",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "210",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование роботов и робототехнических систем",
+        "lecturer": "Карлов К.Р",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "442",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -54,14 +125,14 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.23-2019.10.14"
+                "date": "2020.02.18-2020.03.24"
             }
         ]
     },
     {
-        "title": "Приводы роботов и мехатронных устройств",
-        "lecturer": "Илюхин Ю.В",
-        "type": "Seminar",
+        "title": "Проектирование роботов и робототехнических систем",
+        "lecturer": "Карлов К.Р",
+        "type": "Lecture",
         "subgroup": "Common",
         "classroom": "442",
         "time": {
@@ -71,64 +142,81 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.23-2019.10.14"
+                "date": "2020.02.18-2020.03.24"
             }
         ]
     },
     {
-        "title": "Программное обеспечение мехатронных и робототехнических систем",
-        "lecturer": "Поливанов А.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0306",
+        "title": "САПР робототехнических систем",
+        "lecturer": "Ковальский В.М",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(з)",
         "time": {
             "start": "16:00",
-            "end": "17:40"
+            "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.23-2019.10.14"
+                "frequency": "throughout",
+                "date": "2020.02.18-2020.03.17"
             }
         ]
     },
     {
-        "title": "Программное обеспечение мехатронных и робототехнических систем",
-        "lecturer": "Поливанов А.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0306",
+        "title": "САПР робототехнических систем",
+        "lecturer": "Ковальский В.М",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(з)",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "16:00",
+            "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.12.02"
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.03.24"
             }
         ]
     },
     {
-        "title": "Информационные устройства в мехатронике",
-        "lecturer": "Илюхин Ю.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "442",
+        "title": "Проектирование роботов и робототехнических систем",
+        "lecturer": "Карлов К.Р",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "210",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "16:00",
+            "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.17-2019.11.05"
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.03.24"
             }
         ]
     },
     {
-        "title": "Приводы роботов и мехатронных устройств",
-        "lecturer": "Илюхин Ю.В",
+        "title": "Проектирование роботов и робототехнических систем",
+        "lecturer": "Карлов К.Р",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "210",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.03-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Моделирование и исследование робототехнических систем",
+        "lecturer": "Игнатьев В.А",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0309",
@@ -139,16 +227,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.11.05"
+                "date": "2020.02.13-2020.03.19"
             }
         ]
     },
     {
-        "title": "Микропроцессорная техника в мехатронике и робототехнике",
-        "lecturer": "Поливанов А.Ю",
+        "title": "Моделирование и исследование робототехнических систем",
+        "lecturer": "Игнатьев В.А",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0406",
+        "classroom": "0309",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -156,75 +244,24 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.11.05"
+                "date": "2020.02.13-2020.03.19"
             }
         ]
     },
     {
-        "title": "Микропроцессорные устройства управления робототехнических систем",
-        "lecturer": "Ким В.Л",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(д)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.12-2019.12.10"
-            }
-        ]
-    },
-    {
-        "title": "Микропроцессорные устройства управления робототехнических систем",
-        "lecturer": "Ким В.Л",
+        "title": "Моделирование и исследование робототехнических систем",
+        "lecturer": "Игнатьев В.А",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "235(д)",
+        "classroom": "235(з)",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "8:30",
+            "end": "12:00"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.11.19-2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Социология",
-        "lecturer": "Кузнецов Б.М",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "502",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.18-2019.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Микропроцессорная техника в мехатронике и робототехнике",
-        "lecturer": "Ким В.Л",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "235(е)",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.02-2019.10.23"
+                "date": "2020.02.27-2020.03.26"
             }
         ]
     },
@@ -232,8 +269,8 @@
         "title": "Программное обеспечение мехатронных и робототехнических систем",
         "lecturer": "Ким В.Л",
         "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "247",
+        "subgroup": "A",
+        "classroom": "214",
         "time": {
             "start": "8:30",
             "end": "12:00"
@@ -241,11 +278,28 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.18"
+                "date": "2020.02.27"
             },
             {
                 "frequency": "once",
-                "date": "2019.10.02"
+                "date": "2020.03.12"
+            }
+        ]
+    },
+    {
+        "title": "Моделирование и исследование робототехнических систем",
+        "lecturer": "Игнатьев В.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(з)",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.20-2020.03.19"
             }
         ]
     },
@@ -253,8 +307,8 @@
         "title": "Программное обеспечение мехатронных и робототехнических систем",
         "lecturer": "Ким В.Л",
         "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "247",
+        "subgroup": "B",
+        "classroom": "214",
         "time": {
             "start": "8:30",
             "end": "12:00"
@@ -262,270 +316,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.11"
+                "date": "2020.02.20"
             },
             {
                 "frequency": "once",
-                "date": "2019.09.25"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование роботов и робототехнических систем",
-        "lecturer": "Карлов К.Р",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "247",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.30-2019.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование роботов и робототехнических систем",
-        "lecturer": "Карлов К.Р",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "247",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.06-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Приводы роботов и мехатронных устройств",
-        "lecturer": "Колесниченко Р.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "246",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.13-2019.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Приводы роботов и мехатронных устройств",
-        "lecturer": "Колесниченко Р.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "246",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.20-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование роботов и робототехнических систем",
-        "lecturer": "Карлов К.Р",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0207",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.12-2019.11.28"
-            }
-        ]
-    },
-    {
-        "title": "Правоведение",
-        "lecturer": "Ливанова А.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "502",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.12-2019.11.28"
-            }
-        ]
-    },
-    {
-        "title": "Социология",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0411",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Микропроцессорные устройства управления робототехнических систем",
-        "lecturer": "Поливанов А.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.12.05"
-            }
-        ]
-    },
-    {
-        "title": "Управление роботами и робототехническими системами",
-        "lecturer": "Буйнов М.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.11.22"
-            }
-        ]
-    },
-    {
-        "title": "Информационные устройства в мехатронике",
-        "lecturer": "Илюхин Ю.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.10.25"
-            }
-        ]
-    },
-    {
-        "title": "Мехатронные устройства роботов",
-        "lecturer": "Егоров О.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "ТехП 16",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.20-2019.12.06"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение мехатронных и робототехнических систем",
-        "lecturer": "Поливанов А.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0306",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.01"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.08"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение мехатронных и робототехнических систем",
-        "lecturer": "Поливанов А.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0306",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.29-2019.12.13"
-            }
-        ]
-    },
-    {
-        "title": "Микропроцессорная техника в мехатронике и робототехнике",
-        "lecturer": "Ким В.Л",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "247",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.15-2019.12.13"
-            }
-        ]
-    },
-    {
-        "title": "Микропроцессорная техника в мехатронике и робототехнике",
-        "lecturer": "Ким В.Л",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "247",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.22-2019.12.20"
+                "date": "2020.03.05"
             }
         ]
     },
@@ -534,7 +329,7 @@
         "lecturer": "Игнатьев В.А",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0406",
+        "classroom": "0410",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -542,83 +337,142 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.07-2019.11.23"
-            }
-        ]
-    },
-    {
-        "title": "Управление роботами и робототехническими системами",
-        "lecturer": "Ким В.Л",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 16",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.28-2019.11.09"
-            }
-        ]
-    },
-    {
-        "title": "Управление роботами и робототехническими системами",
-        "lecturer": "Ким В.Л",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 16",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.05-2019.11.16"
+                "date": "2020.02.14-2020.03.13"
             }
         ]
     },
     {
         "title": "САПР робототехнических систем",
-        "lecturer": "Порунов М.Ю",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "210",
+        "lecturer": "Игнатьев В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.12.07"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.21"
+                "frequency": "every",
+                "date": "2020.02.14-2020.03.13"
             }
         ]
     },
     {
-        "title": "САПР робототехнических систем",
-        "lecturer": "Порунов М.Ю",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "210",
+        "title": "Управление роботами и робототехническими системами",
+        "lecturer": "Буйнов М.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "ТехП 16",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.21-2020.03.13"
+            }
+        ]
+    },
+    {
+        "title": "Управление роботами и робототехническими системами",
+        "lecturer": "Буйнов М.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "ТехП 16",
         "time": {
             "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.28"
+            }
+        ]
+    },
+    {
+        "title": "Управление роботами и робототехническими системами",
+        "lecturer": "Буйнов М.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "ТехП 16",
+        "time": {
+            "start": "10:20",
             "end": "12:00"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.11.30"
+                "date": "2020.02.29"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.14-2020.03.28"
+            }
+        ]
+    },
+    {
+        "title": "Управление роботами и робототехническими системами",
+        "lecturer": "Буйнов М.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "ТехП 16",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.15"
             },
             {
                 "frequency": "once",
-                "date": "2019.12.14"
+                "date": "2020.04.04"
+            }
+        ]
+    },
+    {
+        "title": "Моделирование и исследование робототехнических систем",
+        "lecturer": "Игнатьев В.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "302",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.04"
+            }
+        ]
+    },
+    {
+        "title": "Программное обеспечение мехатронных и робототехнических систем",
+        "lecturer": "Поливанов А.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0301",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.28"
             }
         ]
     }

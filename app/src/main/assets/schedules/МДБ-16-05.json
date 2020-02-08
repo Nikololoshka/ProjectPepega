@@ -2,17 +2,29 @@
     {
         "title": "Методы исследований, контроля и испытаний материалов",
         "lecturer": "Климов В.Н",
-        "type": "Seminar",
+        "type": "Lecture",
         "subgroup": "Common",
         "classroom": "201",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.14"
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
@@ -23,68 +35,92 @@
         "subgroup": "Common",
         "classroom": "201",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальная техника для обработки композитов",
-        "lecturer": "Кокарев В.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0402",
-        "time": {
             "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
             },
             {
                 "frequency": "once",
-                "date": "2019.11.11"
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
     {
-        "title": "Нанотехнологии и наноматериалы",
-        "lecturer": "Красновский А.Н",
+        "title": "Современные технологии обработки в машиностроении",
+        "lecturer": "Идармачев И.М",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0409",
+        "classroom": "442",
         "time": {
             "start": "16:00",
             "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
+                "frequency": "once",
+                "date": "2020.02.10"
             },
             {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
     {
-        "title": "Физико-химические процессы получения функциональных материалов",
+        "title": "Современные технологии обработки в машиностроении",
+        "lecturer": "Идармачев И.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "442",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
+            }
+        ]
+    },
+    {
+        "title": "Коррозия и защита металлов",
         "lecturer": "Проскурина Е.М",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0207",
+        "classroom": "0622",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -92,68 +128,81 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.01-2019.11.19"
+                "date": "2020.02.11-2020.03.31"
             }
         ]
     },
     {
-        "title": "Аддитивное производство",
-        "lecturer": "Хмыров Р.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.10"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Аддитивное производство",
-        "lecturer": "Хмыров Р.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Аддитивное производство",
-        "lecturer": "Хмыров Р.С",
+        "title": "Коррозия и защита металлов",
+        "lecturer": "Проскурина Е.М",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0402",
+        "classroom": "0622",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.11-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Современные технологии обработки в машиностроении",
+        "lecturer": "Идармачев И.М",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "201",
         "time": {
             "start": "16:00",
             "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.03-2019.10.08"
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.03.24"
             }
         ]
     },
     {
-        "title": "Физико-химические процессы получения функциональных материалов",
-        "lecturer": "Проскурина Е.М",
+        "title": "Современные технологии обработки в машиностроении",
+        "lecturer": "Идармачев И.М",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "201",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Методы исследований, контроля и испытаний материалов",
+        "lecturer": "Климов В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "201",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.02.26"
+            }
+        ]
+    },
+    {
+        "title": "Методы исследований, контроля и испытаний материалов",
+        "lecturer": "Климов В.Н",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "201",
@@ -164,28 +213,41 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.01-2019.10.22"
+                "date": "2020.02.12-2020.02.26"
             }
         ]
     },
     {
-        "title": "Физико-химические процессы получения функциональных материалов",
-        "lecturer": "Проскурина Е.М",
-        "type": "Laboratory",
+        "title": "Технология термической и химико-термической обработки",
+        "lecturer": "Сотова Е.С",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "256",
+        "classroom": "0622",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.10.29"
-            },
+                "frequency": "every",
+                "date": "2020.02.12-2020.03.11"
+            }
+        ]
+    },
+    {
+        "title": "Технология термической и химико-термической обработки",
+        "lecturer": "Сотова Е.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0622",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
             {
-                "frequency": "once",
-                "date": "2019.11.12"
+                "frequency": "every",
+                "date": "2020.02.12-2020.03.11"
             }
         ]
     },
@@ -194,66 +256,40 @@
         "lecturer": "Сотова Е.С",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "201",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.16"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальная техника для обработки композитов",
-        "lecturer": "Кокарев В.И",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0204",
+        "classroom": "0622",
         "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.04-2019.11.06"
+                "frequency": "once",
+                "date": "2020.03.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.25"
             }
         ]
     },
     {
-        "title": "Современные технологии обработки в машиностроении",
-        "lecturer": "Идармачев И.М",
-        "type": "Lecture",
+        "title": "Технология термической и химико-термической обработки",
+        "lecturer": "Сотова Е.С",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0309",
+        "classroom": "0622",
         "time": {
             "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.18-2019.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Современные технологии обработки в машиностроении",
-        "lecturer": "Идармачев И.М",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "201",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.03.18"
+            },
             {
-                "frequency": "every",
-                "date": "2019.09.18-2019.10.23"
+                "frequency": "once",
+                "date": "2020.03.25"
             }
         ]
     },
@@ -270,126 +306,50 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.10.30-2019.11.27"
+                "date": "2020.03.04-2020.04.01"
             }
         ]
     },
     {
         "title": "Технология термической и химико-термической обработки",
         "lecturer": "Сотова Е.С",
-        "type": "Lecture",
+        "type": "Laboratory",
         "subgroup": "Common",
-        "classroom": "0402",
+        "classroom": "201",
         "time": {
-            "start": "14:10",
+            "start": "12:20",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.05-2019.10.03"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.10.17-2019.11.21"
+                "frequency": "throughout",
+                "date": "2020.02.27-2020.03.26"
             }
         ]
     },
     {
-        "title": "Технология термической и химико-термической обработки",
-        "lecturer": "Сотова Е.С",
-        "type": "Seminar",
+        "title": "Методы исследований, контроля и испытаний материалов",
+        "lecturer": "Климов В.Н",
+        "type": "Laboratory",
         "subgroup": "Common",
         "classroom": "201",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.10.03"
-            }
-        ]
-    },
-    {
-        "title": "Технология термической и химико-термической обработки",
-        "lecturer": "Сотова Е.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0402",
         "time": {
             "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.28"
-            }
-        ]
-    },
-    {
-        "title": "Аддитивное производство",
-        "lecturer": "Хмыров Р.С",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "235(а)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.10.17-2019.12.12"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Технология термической и химико-термической обработки",
-        "lecturer": "Сотова Е.С",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "201",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.24-2019.11.21"
+                "date": "2020.03.05-2020.04.02"
             }
         ]
     },
     {
         "title": "Нанотехнологии и наноматериалы",
         "lecturer": "Красновский А.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "201",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.10.11"
-            }
-        ]
-    },
-    {
-        "title": "Основы научных исследований и техника эксперимента",
-        "lecturer": "Идармачев И.М",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "202",
+        "classroom": "0622",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -397,13 +357,13 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.20-2019.12.20"
+                "date": "2020.02.14-2020.04.03"
             }
         ]
     },
     {
-        "title": "Основы научных исследований и техника эксперимента",
-        "lecturer": "Идармачев И.М",
+        "title": "Нанотехнологии и наноматериалы",
+        "lecturer": "Красновский А.Н",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "201",
@@ -414,7 +374,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.20-2019.11.08"
+                "date": "2020.02.14-2020.03.06"
             }
         ]
     },
@@ -430,25 +390,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2019.11.15-2019.12.13"
-            }
-        ]
-    },
-    {
-        "title": "Основы научных исследований и техника эксперимента",
-        "lecturer": "Идармачев И.М",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "201",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.03.13"
+            },
             {
-                "frequency": "throughout",
-                "date": "2019.11.22-2019.12.20"
+                "frequency": "once",
+                "date": "2020.03.27"
             }
         ]
     },
@@ -459,13 +406,38 @@
         "subgroup": "Common",
         "classroom": "0309",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.07-2019.11.09"
+                "date": "2020.03.21-2020.04.04"
+            }
+        ]
+    },
+    {
+        "title": "Механика КОМПОЗИЦИОННЫХ материалов",
+        "lecturer": "Ересько А.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.04"
             }
         ]
     },
@@ -474,15 +446,32 @@
         "lecturer": "Ересько А.А",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "209",
+        "classroom": "0301",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.07-2019.09.28"
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            }
+        ]
+    },
+    {
+        "title": "Механика композиционных материалов",
+        "lecturer": "Ересько А.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0301",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
             }
         ]
     },
@@ -493,30 +482,13 @@
         "subgroup": "Common",
         "classroom": "210",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "12:20",
+            "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2019.10.05-2019.11.02"
-            }
-        ]
-    },
-    {
-        "title": "Методы исследований, контроля и испытаний материалов",
-        "lecturer": "Климов В.Н",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "202",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.26-2019.11.23"
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.04"
             }
         ]
     }

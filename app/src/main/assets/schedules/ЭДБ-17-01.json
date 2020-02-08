@@ -1,81 +1,10 @@
 [
     {
-        "title": "Бухгалтерский учет и анализ",
-        "lecturer": "Карплюк Ю.А",
+        "title": "Финансовый менеджмент",
+        "lecturer": "Пополитова С.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "445",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.14-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
-            }
-        ]
-    },
-    {
-        "title": "Бухгалтерский учет и анализ",
-        "lecturer": "Карплюк Ю.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "445",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
-            }
-        ]
-    },
-    {
-        "title": "Математическое моделирование бизнес-процессов",
-        "lecturer": "Назаренко К.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "450(в)",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Финансовое право",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "441",
+        "classroom": "0206",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -83,16 +12,28 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.12.02"
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
             }
         ]
     },
     {
-        "title": "Финансовое право",
-        "lecturer": "Водолажский Е.Ф",
+        "title": "Финансовый менеджмент",
+        "lecturer": "Пополитова С.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "441",
+        "classroom": "0206",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -100,16 +41,28 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.12.02"
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
             }
         ]
     },
     {
-        "title": "Математическое моделирование бизнес-процессов",
-        "lecturer": "Назаренко К.М",
-        "type": "Seminar",
+        "title": "Финансовый учет",
+        "lecturer": "Иванова Т.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "450(в)",
+        "classroom": "445",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -117,20 +70,41 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
+                "date": "2020.03.16-2020.04.27"
             },
             {
-                "frequency": "every",
-                "date": "2019.11.11-2019.12.02"
+                "frequency": "once",
+                "date": "2020.05.18"
             }
         ]
     },
     {
-        "title": "Статистика",
-        "lecturer": "Гринман И.Р",
+        "title": "Финансовый учет",
+        "lecturer": "Иванова Т.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "447",
+        "classroom": "445",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.16-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            }
+        ]
+    },
+    {
+        "title": "Управленческий учет",
+        "lecturer": "Червенкова С.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "445",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -138,20 +112,45 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.17-2019.10.22"
+                "date": "2020.02.11-2020.04.28"
             },
             {
-                "frequency": "every",
-                "date": "2019.11.05-2019.12.17"
+                "frequency": "once",
+                "date": "2020.05.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.19"
             }
         ]
     },
     {
-        "title": "Стоимостный анализ",
-        "lecturer": "Ковалев А.П",
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0409",
+        "classroom": "C/З СТАНКИН",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.18"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "C/З СТАНКИН",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -159,13 +158,266 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.12.03"
+                "date": "2020.02.25-2020.04.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.19"
             }
         ]
     },
     {
-        "title": "Стоимостный анализ",
-        "lecturer": "Ковалев А.П",
+        "title": "Налоги и налоговая система",
+        "lecturer": "Карплюк Ю.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.15"
+            }
+        ]
+    },
+    {
+        "title": "Налоги и налоговая система",
+        "lecturer": "Карплюк Ю.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.15"
+            }
+        ]
+    },
+    {
+        "title": "Финансовый учет",
+        "lecturer": "Иванова Т.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.06"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.13"
+            }
+        ]
+    },
+    {
+        "title": "Финансовый учет",
+        "lecturer": "Иванова Т.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.06"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.13"
+            }
+        ]
+    },
+    {
+        "title": "Эконометрика",
+        "lecturer": "Пополитова С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.05.13"
+            }
+        ]
+    },
+    {
+        "title": "Эконометрика",
+        "lecturer": "Пополитова С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.05.13"
+            }
+        ]
+    },
+    {
+        "title": "Финансовый менеджмент",
+        "lecturer": "Пополитова С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.20"
+            }
+        ]
+    },
+    {
+        "title": "Финансовый менеджмент",
+        "lecturer": "Пополитова С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.20"
+            }
+        ]
+    },
+    {
+        "title": "Управленческий учет",
+        "lecturer": "Червенкова С.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.20-2020.05.21"
+            }
+        ]
+    },
+    {
+        "title": "Организация и планирование производства",
+        "lecturer": "Дорожкин И.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "509",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.21-2020.04.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.08"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.15"
+            }
+        ]
+    },
+    {
+        "title": "Организация и планирование производства",
+        "lecturer": "Дорожкин И.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "509",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.08"
+            }
+        ]
+    },
+    {
+        "title": "Менеджмент",
+        "lecturer": "Коршунова Е.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.14"
+            }
+        ]
+    },
+    {
+        "title": "Менеджмент",
+        "lecturer": "Коршунова Е.Д",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "509",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.15"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.22"
+            }
+        ]
+    },
+    {
+        "title": "Менеджмент",
+        "lecturer": "Коршунова Е.Д",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "509",
@@ -176,308 +428,40 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.10-2019.12.10"
-            }
-        ]
-    },
-    {
-        "title": "Статистика",
-        "lecturer": "Гринман И.Р",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "447",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Бухгалтерский учет и анализ",
-        "lecturer": "Карплюк Ю.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "445",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.10.08"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.26-2019.12.10"
-            }
-        ]
-    },
-    {
-        "title": "Статистика",
-        "lecturer": "Гринман И.Р",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "447",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Деловой иностранный язык",
-        "lecturer": "Барышникова О.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "405",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Психология",
-        "lecturer": "Михайлова М.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "409",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "С/3 СТАНКИН",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.04"
+                "date": "2020.02.21-2020.04.24"
             },
             {
                 "frequency": "once",
-                "date": "2019.09.11"
-            }
-        ]
-    },
-    {
-        "title": "Психология",
-        "lecturer": "Кузнецов Б.М",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "441",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.30-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "C/3 СТАНКИН",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.18-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Маркетинг",
-        "lecturer": "Попов Д.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.12.05"
-            }
-        ]
-    },
-    {
-        "title": "Финансовое право",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "450(в)",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
-            }
-        ]
-    },
-    {
-        "title": "Финансовое право",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "450(в)",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
-            }
-        ]
-    },
-    {
-        "title": "Маркетинг",
-        "lecturer": "Попов Д.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "447",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.19-2019.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Страхование",
-        "lecturer": "Можаровская А.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0205",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.11.22"
-            }
-        ]
-    },
-    {
-        "title": "Финансовое право",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "441",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.01-2019.11.29"
-            }
-        ]
-    },
-    {
-        "title": "Финансовое право",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "441",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.01-2019.11.29"
-            }
-        ]
-    },
-    {
-        "title": "Страхование",
-        "lecturer": "Можаровская А.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0205",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.13-2019.11.29"
-            }
-        ]
-    },
-    {
-        "title": "Бухгалтерский учет и анализ",
-        "lecturer": "Иванова Т.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "443",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.06"
+                "date": "2020.05.15"
             },
             {
                 "frequency": "once",
-                "date": "2019.12.20"
+                "date": "2020.05.22"
+            }
+        ]
+    },
+    {
+        "title": "Менеджмент",
+        "lecturer": "Коршунова Е.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.08"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.15"
             }
         ]
     }

@@ -1,7 +1,61 @@
 [
     {
+        "title": "Аддитивное производство",
+        "lecturer": "Тарасова Т.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Обеспечение энергетической безопасности машиностроительных производств",
+        "lecturer": "Кулизаде Д.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0301",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.06"
+            }
+        ]
+    },
+    {
         "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "lecturer": "Крутов А.В",
+        "lecturer": "Соболев А.Н",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0209",
@@ -12,20 +66,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
+                "date": "2020.02.11-2020.04.28"
             }
         ]
     },
     {
-        "title": "Основы цифровых производств в машиностроении",
-        "lecturer": "Кутин А.А",
-        "type": "Lecture",
+        "title": "Причинность и условия возникновения производственных инцидентов",
+        "lecturer": "Артемьева М.С",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0209",
+        "classroom": "0301",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -33,17 +83,136 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
+                "date": "2020.03.10-2020.04.28"
             }
         ]
     },
     {
-        "title": "Нанотехнологии в машиностроении",
-        "lecturer": "Солис П",
+        "title": "Причинность и условия возникновения производственных инцидентов",
+        "lecturer": "Артемьева М.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0209",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.26-2020.04.15"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерные технологии в науке и производстве",
+        "lecturer": "Вишенков М.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.04-2020.03.25"
+            }
+        ]
+    },
+    {
+        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
+        "lecturer": "Соболев А.Н",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.01"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.15"
+            }
+        ]
+    },
+    {
+        "title": "Обеспечение энергетической безопасности машиностроительных производств",
+        "lecturer": "Шварцбург Л.Э",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Аддитивное производство",
+        "lecturer": "Тарасова Т.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0202",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.12-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
+        "lecturer": "Соболев А.Н",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.03.05"
+            }
+        ]
+    },
+    {
+        "title": "Аддитивное производство",
+        "lecturer": "Тарасова Т.В",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "235(е)",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.16-2020.05.28"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерные технологии в науке и производстве",
+        "lecturer": "Сидоров А.А",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0308",
@@ -54,37 +223,24 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.10.08"
-            }
-        ]
-    },
-    {
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "lecturer": "Домнин П.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0301",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.10"
+                "date": "2020.02.21-2020.04.24"
             },
             {
                 "frequency": "once",
-                "date": "2019.09.17"
+                "date": "2020.05.08"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.15"
             }
         ]
     },
     {
-        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "lecturer": "Новиков В.А",
+        "title": "Компьютерные технологии в науке и производстве",
+        "lecturer": "Сосенушкин А.Е",
         "type": "Laboratory",
         "subgroup": "Common",
-        "classroom": "ТехП 11",
+        "classroom": "210",
         "time": {
             "start": "19:40",
             "end": "22:50"
@@ -92,177 +248,158 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.24-2019.12.03"
+                "date": "2020.02.21-2020.03.20"
             }
         ]
     },
     {
-        "title": "Современные проблемы науки в области обеспечения безопасности",
-        "lecturer": "Букейханов Н.Р",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Нанотехнологии в машиностроении",
-        "lecturer": "Солис П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.11-2019.10.16"
-            }
-        ]
-    },
-    {
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "lecturer": "Домнин П.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.09.26"
-            }
-        ]
-    },
-    {
-        "title": "Современные проблемы науки в области обеспечения безопасности",
-        "lecturer": "Букейханов Н.Р",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0301",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.12-2019.10.31"
-            }
-        ]
-    },
-    {
-        "title": "Основы цифровых производств в машиностроении",
-        "lecturer": "Ивашин С.С",
+        "title": "Компьютерные технологии в науке и производстве",
+        "lecturer": "Сосенушкин А.Е",
         "type": "Laboratory",
         "subgroup": "Common",
-        "classroom": "415",
+        "classroom": "209",
         "time": {
             "start": "19:40",
             "end": "22:50"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2019.10.03-2019.11.14"
+                "frequency": "once",
+                "date": "2020.04.03"
             }
         ]
     },
     {
-        "title": "Технический иностранный язык",
-        "lecturer": "Барыбин А.В",
-        "type": "Seminar",
+        "title": "Экологические информационные системы",
+        "lecturer": "Фокин М.Г",
+        "type": "Laboratory",
         "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.10.25"
-            }
-        ]
-    },
-    {
-        "title": "Основы цифровых производств в машиностроении",
-        "lecturer": "Ивашин С.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0208",
+        "classroom": "0407",
         "time": {
             "start": "19:40",
-            "end": "21:10"
+            "end": "22:50"
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2020.04.17"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.06-2019.09.27"
+                "date": "2020.05.08-2020.05.29"
             }
         ]
     },
     {
-        "title": "Методология научных исследований в обеспечении инженерной защиты окружающей среды",
-        "lecturer": "Ягольницер О.В",
+        "title": "Моделирование процессов и систем экологической безопасности",
+        "lecturer": "Шарипов О.А",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0209",
+        "classroom": "0409",
         "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.07-2019.10.26"
+                "date": "2020.03.21-2020.04.25"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.16-2020.05.30"
             }
         ]
     },
     {
-        "title": "Методология научных исследований в обеспечении инженерной защиты окружающей среды",
-        "lecturer": "Ягольницер О.В",
-        "type": "Seminar",
+        "title": "Экологические информационные системы",
+        "lecturer": "Фокин М.Г",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0202",
+        "classroom": "0410",
         "time": {
             "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.07-2019.10.26"
+                "date": "2020.03.21-2020.04.25"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.16"
             }
         ]
     },
     {
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "lecturer": "Домнин П.В",
+        "title": "Моделирование процессов и систем экологической безопасности",
+        "lecturer": "Шарипов О.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0202",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.14"
+            }
+        ]
+    },
+    {
+        "title": "Моделирование процессов и систем экологической безопасности",
+        "lecturer": "Шарипов О.А",
         "type": "Laboratory",
         "subgroup": "Common",
-        "classroom": "ТехП 7",
+        "classroom": "214",
         "time": {
             "start": "8:30",
             "end": "12:00"
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.03.21-2020.04.18"
+            },
+            {
                 "frequency": "once",
-                "date": "2019.09.14"
+                "date": "2020.05.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.30"
+            }
+        ]
+    },
+    {
+        "title": "Обеспечение энергетической безопасности машиностроительных производств",
+        "lecturer": "Кулизаде Д.И",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "0407",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.28-2020.04.25"
             }
         ]
     }

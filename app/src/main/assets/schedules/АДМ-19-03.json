@@ -1,45 +1,7 @@
 [
     {
-        "title": "Деловой иностранный язык",
-        "lecturer": "Петрова И.К",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "240(г)",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Философские проблемы науки и техники",
-        "lecturer": "Шитов С.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.07"
-            }
-        ]
-    },
-    {
-        "title": "Базы, банки и анализ данных",
-        "lecturer": "Евстафиева С.В",
+        "title": "Программно-аппаратная архитектура современных систем с ЧПУ",
+        "lecturer": "Мартинов Г.М",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0208",
@@ -49,31 +11,43 @@
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.03-2019.11.19"
+                "date": "2020.03.23-2020.04.13"
             }
         ]
     },
     {
-        "title": "Базы, банки и анализ данных",
-        "lecturer": "Евстафиева С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "350",
+        "title": "Компьютерные технологии в области автоматизации и управления",
+        "lecturer": "Суханова Н.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "351",
         "time": {
             "start": "19:40",
-            "end": "21:10"
+            "end": "22:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.10-2019.10.01"
+                "frequency": "once",
+                "date": "2020.03.02"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
             }
         ]
     },
     {
-        "title": "Базы, банки и анализ данных",
-        "lecturer": "Евстафиева С.В",
+        "title": "Структура и математическое обеспечение систем управления",
+        "lecturer": "Бабин М.С",
         "type": "Laboratory",
         "subgroup": "A",
         "classroom": "355",
@@ -83,14 +57,18 @@
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2020.03.02"
+            },
+            {
                 "frequency": "throughout",
-                "date": "2019.10.08-2019.11.19"
+                "date": "2020.03.23-2020.04.20"
             }
         ]
     },
     {
-        "title": "Базы, банки и анализ данных",
-        "lecturer": "Евстафиева С.В",
+        "title": "Структура и математическое обеспечение систем управления",
+        "lecturer": "Бабин М.С",
         "type": "Laboratory",
         "subgroup": "B",
         "classroom": "355",
@@ -100,51 +78,42 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2019.10.15-2019.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Промышленная и мобильная робототехника",
-        "lecturer": "Ковальский В.М",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 16",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.02.17"
+            },
             {
                 "frequency": "throughout",
-                "date": "2019.10.22-2019.12.03"
+                "date": "2020.03.16-2020.04.13"
             }
         ]
     },
     {
-        "title": "Промышленная и мобильная робототехника",
-        "lecturer": "Ковальский В.М",
+        "title": "Компьютерные технологии в области автоматизации и управления",
+        "lecturer": "Суханова Н.В",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "ТехП 16",
+        "classroom": "351",
         "time": {
             "start": "19:40",
             "end": "22:50"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2019.10.29-2019.12.10"
+                "frequency": "once",
+                "date": "2020.02.17"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.16"
             }
         ]
     },
     {
-        "title": "Моделирование надежности машин",
+        "title": "Компьютерные технологии в области автоматизации и управления",
         "lecturer": "Суханова Н.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0204",
+        "classroom": "0206",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -152,12 +121,54 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.04-2019.12.04"
+                "date": "2020.02.11-2020.04.14"
             }
         ]
     },
     {
-        "title": "Моделирование надежности машин",
+        "title": "Средства мониторинга в системах управления",
+        "lecturer": "Соколов С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.11"
+            }
+        ]
+    },
+    {
+        "title": "Средства мониторинга в системах управления",
+        "lecturer": "Соколов С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "350",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.12"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерные технологии в области автоматизации и управления",
         "lecturer": "Суханова Н.В",
         "type": "Seminar",
         "subgroup": "Common",
@@ -169,16 +180,54 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.18-2019.12.18"
+                "date": "2020.04.07-2020.04.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.12"
             }
         ]
     },
     {
-        "title": "Нейронные сети и нечеткая логика в задачах управления",
-        "lecturer": "Никишечкин А.П",
+        "title": "Средства мониторинга в системах управления",
+        "lecturer": "Соколов С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "350",
+        "time": {
+            "start": "21:20",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.14"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерные технологии в области автоматизации и управления",
+        "lecturer": "Суханова Н.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "351",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.19"
+            }
+        ]
+    },
+    {
+        "title": "Средства мониторинга в системах управления",
+        "lecturer": "Соколов С.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0306",
+        "classroom": "0308",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -186,16 +235,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.10.24"
+                "date": "2020.02.19-2020.04.01"
             }
         ]
     },
     {
-        "title": "Нейронные сети и нечеткая логика в задачах управления",
-        "lecturer": "Никишечкин А.П",
+        "title": "Структура и математическое обеспечение систем управления",
+        "lecturer": "Мартинов Г.М",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "350",
+        "classroom": "355",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -203,16 +252,139 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.09.26"
+                "date": "2020.02.19-2020.03.25"
             }
         ]
     },
     {
-        "title": "Проектирование и разработка специализированных интерфейсов оператора",
-        "lecturer": "Козак Н.В",
+        "title": "Математическое моделирование",
+        "lecturer": "Никишечкин А.П",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "351",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.04.08-2020.05.13"
+            }
+        ]
+    },
+    {
+        "title": "Программно-аппаратная архитектура современных систем с ЧПУ",
+        "lecturer": "Бабин М.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "351",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.04.15-2020.05.20"
+            }
+        ]
+    },
+    {
+        "title": "Планирование эксперимента",
+        "lecturer": "Никишечкин А.П",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Структура и математическое обеспечение систем управления",
+        "lecturer": "Мартинов Г.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.13"
+            }
+        ]
+    },
+    {
+        "title": "Планирование эксперимента",
+        "lecturer": "Никишечкин А.П",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "351",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.20-2020.04.09"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование систем автоматизации и управления",
+        "lecturer": "Червоннова Н.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "350",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.04.16-2020.05.07"
+            }
+        ]
+    },
+    {
+        "title": "Структура и математическое обеспечение систем управления",
+        "lecturer": "Мартинов Г.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.21-2020.04.24"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.08-2020.05.22"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование систем автоматизации и управления",
+        "lecturer": "Червоннова Н.Ю",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "209",
+        "classroom": "350",
         "time": {
             "start": "19:40",
             "end": "22:50"
@@ -220,17 +392,59 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.10.10"
+                "date": "2020.04.24"
             },
             {
                 "frequency": "once",
-                "date": "2019.10.24"
+                "date": "2020.05.15"
             }
         ]
     },
     {
-        "title": "Нейронные сети и нечеткая логика в задачах управления",
-        "lecturer": "Никишечкин А.П",
+        "title": "Средства мониторинга в системах управления",
+        "lecturer": "Соколов С.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "355",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.15"
+            }
+        ]
+    },
+    {
+        "title": "Средства мониторинга в системах управления",
+        "lecturer": "Соколов С.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "355",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.17"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.08"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование систем автоматизации и управления",
+        "lecturer": "Червоннова Н.Ю",
         "type": "Laboratory",
         "subgroup": "A",
         "classroom": "350",
@@ -241,138 +455,95 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.10.10"
+                "date": "2020.04.17"
             },
             {
                 "frequency": "once",
-                "date": "2019.10.24"
+                "date": "2020.05.08"
             }
         ]
     },
     {
-        "title": "Проектирование и разработка специализированных интерфейсов оператора",
-        "lecturer": "Козак Н.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "209",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.03"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.17"
-            }
-        ]
-    },
-    {
-        "title": "Нейронные сети и нечеткая логика в задачах управления",
-        "lecturer": "Никишечкин А.П",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "350",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.03"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.17"
-            }
-        ]
-    },
-    {
-        "title": "Промышленная и мобильная робототехника",
-        "lecturer": "Карлов К.Р",
+        "title": "Проектирование систем автоматизации и управления",
+        "lecturer": "Червоннова Н.Ю",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.12.06"
-            }
-        ]
-    },
-    {
-        "title": "Промышленная и мобильная робототехника",
-        "lecturer": "Карлов К.Р",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0202",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.13-2019.10.18"
-            }
-        ]
-    },
-    {
-        "title": "Философские проблемы науки и техники",
-        "lecturer": "Шитов С.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "502",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.14-2019.10.19"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование и разработка специализированных интерфейсов оператора",
-        "lecturer": "Козак Н.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
+        "classroom": "0207",
         "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.07-2019.10.26"
+                "date": "2020.03.21-2020.04.18"
             }
         ]
     },
     {
-        "title": "Проектирование и разработка специализированных интерфейсов оператора",
-        "lecturer": "Козак Н.В",
-        "type": "Seminar",
+        "title": "Математическое моделирование",
+        "lecturer": "Никишечкин А.П",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "350",
+        "classroom": "0309",
         "time": {
             "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.14-2019.10.05"
+                "date": "2020.03.21-2020.04.04"
+            }
+        ]
+    },
+    {
+        "title": "Программно-аппаратная архитектура современных систем с ЧПУ",
+        "lecturer": "Бабин М.С",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "355",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.14-2020.04.11"
+            }
+        ]
+    },
+    {
+        "title": "Программно-аппаратная архитектура современных систем с ЧПУ",
+        "lecturer": "Бабин М.С",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "355",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.04"
             }
         ]
     }

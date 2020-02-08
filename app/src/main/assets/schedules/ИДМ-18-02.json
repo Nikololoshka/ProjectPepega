@@ -1,10 +1,133 @@
 [
     {
-        "title": "Теория управления",
-        "lecturer": "Ефромеева Е.В",
+        "title": "Системы менеджмента информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            }
+        ]
+    },
+    {
+        "title": "Управление активами предприятия",
+        "lecturer": "Пополитова С.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "342",
+        "classroom": "0411",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.11"
+            }
+        ]
+    },
+    {
+        "title": "Управление активами предприятия",
+        "lecturer": "Пополитова С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.11"
+            }
+        ]
+    },
+    {
+        "title": "Управление активами предприятия",
+        "lecturer": "Чаруйская М.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0205",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.18-2020.03.17"
+            }
+        ]
+    },
+    {
+        "title": "Системы менеджмента информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "246",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Управление активами предприятия",
+        "lecturer": "Чаруйская М.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "0205",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Системы менеджмента информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "246",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.03-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Вычислительные системы",
+        "lecturer": "Тарасов А.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "302",
         "time": {
             "start": "16:00",
             "end": "17:40"
@@ -12,16 +135,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.21"
+                "date": "2020.02.12-2020.04.01"
             }
         ]
     },
     {
-        "title": "Интеллектуальные системы",
-        "lecturer": "Стоякова К.Л",
-        "type": "Lecture",
+        "title": "Управление активами предприятия",
+        "lecturer": "Червенкова С.Г",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "409",
+        "classroom": "306",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -29,17 +152,81 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
+                "date": "2020.03.18-2020.04.01"
             }
         ]
     },
     {
-        "title": "Бизнес-архитектура предприятия",
-        "lecturer": "Мешков В.Г",
+        "title": "Управление активами предприятия",
+        "lecturer": "Червенкова С.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Вычислительные системы",
+        "lecturer": "Бердюгин А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "209",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.13-2020.03.26"
+            }
+        ]
+    },
+    {
+        "title": "Вычислительные системы",
+        "lecturer": "Бердюгин А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "209",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.20-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Системы менеджмента информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.03"
+            }
+        ]
+    },
+    {
+        "title": "Системы менеджмента информационной безопасности",
+        "lecturer": "Симонов М.Ф",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0206",
@@ -50,210 +237,53 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.02"
-            }
-        ]
-    },
-    {
-        "title": "Интеллектуальные системы",
-        "lecturer": "Стоякова К.Л",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "313",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
+                "date": "2020.03.27"
+            },
             {
-                "frequency": "throughout",
-                "date": "2019.09.16-2019.10.14"
+                "frequency": "once",
+                "date": "2020.04.03"
             }
         ]
     },
     {
-        "title": "Интеллектуальные системы",
-        "lecturer": "Стоякова К.Л",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "313",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.23-2019.10.21"
-            }
-        ]
-    },
-    {
-        "title": "Суперкомпьютерные вычисления",
-        "lecturer": "Стихова О.В",
+        "title": "Управление активами предприятия",
+        "lecturer": "Пополитова С.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0408",
+        "classroom": "0411",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.29"
+            },
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.10.08"
+                "date": "2020.03.14-2020.03.28"
             }
         ]
     },
     {
-        "title": "Теория управления",
-        "lecturer": "Бердюгин А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "240(а)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.02"
-            }
-        ]
-    },
-    {
-        "title": "Теория управления",
-        "lecturer": "Бердюгин А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "240(а)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.25"
-            }
-        ]
-    },
-    {
-        "title": "Организация внедрения и сопровождения программного продукта",
-        "lecturer": "Коган Ю.Г",
+        "title": "Управление активами предприятия",
+        "lecturer": "Пополитова С.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0308",
+        "classroom": "0411",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.06"
-            }
-        ]
-    },
-    {
-        "title": "Организация внедрения и сопровождения программного продукта",
-        "lecturer": "Коган Ю.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
+                "date": "2020.02.29"
+            },
             {
                 "frequency": "every",
-                "date": "2019.09.06-2019.10.18"
-            }
-        ]
-    },
-    {
-        "title": "Организация внедрения и сопровождения программного продукта",
-        "lecturer": "Коган Ю.Г",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "313",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.25"
-            }
-        ]
-    },
-    {
-        "title": "Организация внедрения и сопровождения программного продукта",
-        "lecturer": "Коган Ю.Г",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "313",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.04"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.18"
-            }
-        ]
-    },
-    {
-        "title": "Суперкомпьютерные вычисления",
-        "lecturer": "Коробов Н.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "357(з)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.14-2019.10.12"
-            }
-        ]
-    },
-    {
-        "title": "Суперкомпьютерные вычисления",
-        "lecturer": "Коробов Н.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "357(з)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.21-2019.10.19"
+                "date": "2020.03.14-2020.03.28"
             }
         ]
     }

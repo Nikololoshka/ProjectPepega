@@ -1,104 +1,7 @@
 [
     {
-        "title": "Специальные главы механики",
-        "lecturer": "Гиловой Л.Я",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Специальные главы механики",
-        "lecturer": "Гиловой Л.Я",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0202",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.16-2019.10.07"
-            }
-        ]
-    },
-    {
-        "title": "Автономные мобильные роботы",
-        "lecturer": "Ермолов И.Л",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "ТехП 15",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.14-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Специальные главы механики",
-        "lecturer": "Гиловой Л.Я",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.23"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.07"
-            }
-        ]
-    },
-    {
-        "title": "Специальные главы механики",
-        "lecturer": "Гиловой Л.Я",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.30"
-            }
-        ]
-    },
-    {
-        "title": "Информационные системы в мехатронике и робототехнике",
-        "lecturer": "Поливанов А.Ю",
+        "title": "Программирование обработки сложных поверхностей на станках ЧПУ",
+        "lecturer": "Мартинов Г.М",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0204",
@@ -108,17 +11,96 @@
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.03-2019.10.22"
+                "date": "2020.03.23-2020.04.13"
             }
         ]
     },
     {
-        "title": "Методы и теория оптимизации",
-        "lecturer": "Яновская Е.А",
+        "title": "Системы автоматизированного проектирования и производства",
+        "lecturer": "Исаев А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0209",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            }
+        ]
+    },
+    {
+        "title": "Современные проблемы автоматизации и управления",
+        "lecturer": "Карлов К.Р",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "246",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.02"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.03.23-2020.04.20"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Современные проблемы автоматизации и управления",
+        "lecturer": "Карлов К.Р",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "246",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.17"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.03.16-2020.04.27"
+            }
+        ]
+    },
+    {
+        "title": "Современные методы управления в робототехнике и мехатронике",
+        "lecturer": "Илюхин Ю.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0309",
+        "classroom": "0208",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -126,16 +108,71 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.01-2019.11.19"
+                "date": "2020.02.11-2020.03.31"
             }
         ]
     },
     {
-        "title": "Методы и теория оптимизации",
-        "lecturer": "Яновская Е.А",
+        "title": "Сенсорные и управляющие системы роботов",
+        "lecturer": "Пряничников В.Е",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "РГГУ",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Сенсорные и управляющие системы роботов",
+        "lecturer": "Пряничников В.Е",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "РГГУ",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Мобильная робототехника",
+        "lecturer": "Ромаш Е.В",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "209",
+        "classroom": "ТехП 15",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.22"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.06"
+            }
+        ]
+    },
+    {
+        "title": "Программирование обработки сложных поверхностей на станках ЧПУ",
+        "lecturer": "Мартинов Г.М",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "355",
         "time": {
             "start": "19:40",
             "end": "22:50"
@@ -143,13 +180,13 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.10.08-2019.11.19"
+                "date": "2020.04.15-2020.05.27"
             }
         ]
     },
     {
-        "title": "Информационные системы в мехатронике и робототехнике",
-        "lecturer": "Поливанов А.Ю",
+        "title": "Мобильная робототехника",
+        "lecturer": "Ромаш Е.В",
         "type": "Laboratory",
         "subgroup": "A",
         "classroom": "ТехП 15",
@@ -160,20 +197,20 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.10.08"
+                "date": "2020.04.15"
             },
             {
                 "frequency": "once",
-                "date": "2019.10.22"
+                "date": "2020.04.29"
             }
         ]
     },
     {
-        "title": "Методы и теория оптимизации",
-        "lecturer": "Яновская Е.А",
+        "title": "Программирование обработки сложных поверхностей на станках ЧПУ",
+        "lecturer": "Мартинов Г.М",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "209",
+        "classroom": "355",
         "time": {
             "start": "19:40",
             "end": "22:50"
@@ -181,34 +218,13 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.10.01-2019.11.12"
+                "date": "2020.04.08-2020.05.20"
             }
         ]
     },
     {
-        "title": "Информационные системы в мехатронике и робототехнике",
-        "lecturer": "Поливанов А.Ю",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 15",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.01"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.15"
-            }
-        ]
-    },
-    {
-        "title": "Научные и инженерные методы в мехатронике и робототехнике",
-        "lecturer": "Подураев Ю.В",
+        "title": "Системы автоматизированного проектирования и производства",
+        "lecturer": "Исаев А.В",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0309",
@@ -219,13 +235,13 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.09.26"
+                "date": "2020.02.13-2020.04.02"
             }
         ]
     },
     {
-        "title": "Научные и инженерные методы в мехатронике и робототехнике",
-        "lecturer": "Подураев Ю.В",
+        "title": "Современные проблемы автоматизации и управления",
+        "lecturer": "Карлов К.Р",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0309",
@@ -236,83 +252,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.09.26"
-            }
-        ]
-    },
-    {
-        "title": "Современные методы управления в робототехнике и мехатронике",
-        "lecturer": "Илюхин Ю.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.03-2019.10.24"
-            }
-        ]
-    },
-    {
-        "title": "Современные методы управления в робототехнике и мехатронике",
-        "lecturer": "Илюхин Ю.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.03-2019.10.24"
-            }
-        ]
-    },
-    {
-        "title": "Научные и инженерные методы в мехатронике и робототехнике",
-        "lecturer": "Воротников А.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 16",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.03"
-            }
-        ]
-    },
-    {
-        "title": "Научные и инженерные методы в мехатронике и робототехнике",
-        "lecturer": "Воротников А.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 16",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.12"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.26"
+                "date": "2020.02.20-2020.05.07"
             }
         ]
     },
@@ -323,13 +263,89 @@
         "subgroup": "Common",
         "classroom": "ТехП 16",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.20-2019.10.25"
+                "date": "2020.02.14-2020.04.03"
+            }
+        ]
+    },
+    {
+        "title": "Автономные мобильные роботы",
+        "lecturer": "Ермолов И.Л",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "ТехП 16",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.03"
+            }
+        ]
+    },
+    {
+        "title": "Современные проблемы автоматизации и управления",
+        "lecturer": "Карлов К.Р",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "246",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.29"
+            }
+        ]
+    },
+    {
+        "title": "Мобильная робототехника",
+        "lecturer": "Собольников С.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.18"
+            }
+        ]
+    },
+    {
+        "title": "Мобильная робототехника",
+        "lecturer": "Собольников С.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.21"
             }
         ]
     },
@@ -338,49 +354,15 @@
         "lecturer": "Колесниченко Р.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "442",
+        "classroom": "0409",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.11-2019.11.01"
-            }
-        ]
-    },
-    {
-        "title": "Информационные системы в мехатронике и робототехнике",
-        "lecturer": "Поливанов А.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0202",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.01-2019.11.22"
-            }
-        ]
-    },
-    {
-        "title": "Научные и инженерные методы в мехатронике и робототехнике",
-        "lecturer": "Воротников А.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0202",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.08-2019.11.29"
+                "date": "2020.03.28-2020.04.18"
             }
         ]
     },
@@ -391,17 +373,17 @@
         "subgroup": "B",
         "classroom": "235(з)",
         "time": {
-            "start": "19:40",
-            "end": "22:50"
+            "start": "12:20",
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.10.18"
+                "date": "2020.04.04"
             },
             {
                 "frequency": "once",
-                "date": "2019.11.01"
+                "date": "2020.04.18"
             }
         ]
     },
@@ -412,17 +394,59 @@
         "subgroup": "A",
         "classroom": "235(з)",
         "time": {
-            "start": "19:40",
-            "end": "22:50"
+            "start": "12:20",
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.10.11"
+                "date": "2020.03.28"
             },
             {
                 "frequency": "once",
-                "date": "2019.10.25"
+                "date": "2020.04.11"
+            }
+        ]
+    },
+    {
+        "title": "Системы автоматизированного проектирования и производства",
+        "lecturer": "Исаев А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.28"
+            }
+        ]
+    },
+    {
+        "title": "Системы автоматизированного проектирования и производства",
+        "lecturer": "Исаев А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.21"
             }
         ]
     }

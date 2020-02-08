@@ -1,115 +1,10 @@
 [
     {
-        "title": "Математическое и компьютерное моделирование",
-        "lecturer": "Уварова Л.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.09.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.09.30-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Моделирование сложных технических систем",
-        "lecturer": "Уварова Л.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "357(ж)",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.09.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.09.30-2019.10.21"
-            }
-        ]
-    },
-    {
-        "title": "Моделирование сложных технических систем",
-        "lecturer": "Уварова Л.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "357(ж)",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.02"
-            }
-        ]
-    },
-    {
-        "title": "Специальные разделы математической физики и приложения",
-        "lecturer": "Яновская Е.А",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "357(з)",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.07"
-            }
-        ]
-    },
-    {
-        "title": "Моделирование сложных технических систем",
-        "lecturer": "Уварова Л.А",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "357(з)",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.09"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.30"
-            }
-        ]
-    },
-    {
-        "title": "Технический иностранный язык",
-        "lecturer": "Воронова М.Н",
+        "title": "Управление жизненным циклом изделий",
+        "lecturer": "Феофанов А.Н",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
+        "classroom": "ИГ-1",
         "time": {
             "start": "16:00",
             "end": "17:40"
@@ -117,16 +12,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.12.17"
+                "date": "2020.03.30-2020.04.20"
             }
         ]
     },
     {
-        "title": "Специальные разделы математической физики и приложения",
-        "lecturer": "Яновская Е.А",
-        "type": "Lecture",
+        "title": "Управление проектами в сфере информационных технологий",
+        "lecturer": "Бердюгин А.В",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "310",
+        "classroom": "306",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -134,33 +29,33 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.09.17"
+                "date": "2020.03.30-2020.04.20"
             }
         ]
     },
     {
-        "title": "Специальные разделы математической физики и приложения",
-        "lecturer": "Яновская Е.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "310",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.03"
-            }
-        ]
-    },
-    {
-        "title": "Методология научных исследований",
-        "lecturer": "Логина Н.В",
+        "title": "Стандартизация ИТ продуктов и систем",
+        "lecturer": "Позднеев Б.М",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0206",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.11-2020.03.17"
+            }
+        ]
+    },
+    {
+        "title": "Стандартизация ИТ продуктов и систем",
+        "lecturer": "Куприяненко И.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "302",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -168,34 +63,30 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.11.12-2019.12.17"
+                "date": "2020.02.25-2020.03.31"
             }
         ]
     },
     {
-        "title": "Методология научных исследований",
-        "lecturer": "Логина Н.В",
+        "title": "Компьютерные технологии в науке и образовании",
+        "lecturer": "Бабарин С.С",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0206",
+        "classroom": "357(ж)",
         "time": {
-            "start": "19:40",
-            "end": "21:10"
+            "start": "16:00",
+            "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.11.05"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.17"
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
             }
         ]
     },
     {
-        "title": "Математическое и компьютерное моделирование",
-        "lecturer": "Соколов А.В",
+        "title": "Компьютерные технологии в науке и образовании",
+        "lecturer": "Бабарин С.С",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "357(ж)",
@@ -206,101 +97,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.11-2019.10.02"
+                "date": "2020.02.19-2020.03.11"
             }
         ]
     },
     {
-        "title": "Специальные разделы математической физики и приложения",
-        "lecturer": "Яновская Е.А",
+        "title": "Управление проектами в сфере информационных технологий",
+        "lecturer": "Стоякова К.Л",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "310",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Математическое и компьютерное моделирование",
-        "lecturer": "Соколов А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "357(з)",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.11-2019.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Математическое и компьютерное моделирование",
-        "lecturer": "Соколов А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "357(з)",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.18-2019.10.30"
-            }
-        ]
-    },
-    {
-        "title": "Интернет-технологии",
-        "lecturer": "Субботин П.М",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "246",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.16-2019.11.13"
-            }
-        ]
-    },
-    {
-        "title": "Интернет-технологии",
-        "lecturer": "Субботин П.М",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "246",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.23-2019.11.20"
-            }
-        ]
-    },
-    {
-        "title": "Интернет-технологии",
-        "lecturer": "Овчинников П.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
+        "classroom": "0209",
         "time": {
             "start": "16:00",
             "end": "17:40"
@@ -308,13 +114,13 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
+                "date": "2020.02.13-2020.04.16"
             }
         ]
     },
     {
-        "title": "Инфографика",
-        "lecturer": "Локтев М.А",
+        "title": "Управление жизненным циклом изделий",
+        "lecturer": "Феофанов А.Н",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0209",
@@ -325,33 +131,71 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
+                "date": "2020.02.13-2020.04.16"
             }
         ]
     },
     {
-        "title": "Специальные разделы математической физики и приложения",
-        "lecturer": "Яновская Е.А",
-        "type": "Lecture",
+        "title": "Вейвлет-анализ",
+        "lecturer": "Холщевникова Н.Н",
+        "type": "Laboratory",
         "subgroup": "Common",
-        "classroom": "310",
+        "classroom": "357(з)",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "19:40",
+            "end": "22:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.10.04-2019.10.18"
+                "frequency": "once",
+                "date": "2020.02.27"
             }
         ]
     },
     {
-        "title": "Методология научных исследований",
-        "lecturer": "Логина Н.В",
+        "title": "Компьютерные технологии в науке и образовании",
+        "lecturer": "Бабарин С.С",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "357(з)",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.20"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.05"
+            }
+        ]
+    },
+    {
+        "title": "Вейвлет-анализ",
+        "lecturer": "Холщевникова Н.Н",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "505",
+        "classroom": "357(ж)",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.21-2020.03.13"
+            }
+        ]
+    },
+    {
+        "title": "Вейвлет-анализ",
+        "lecturer": "Холщевникова Н.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "357(ж)",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -359,16 +203,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.11.15-2019.12.06"
+                "date": "2020.02.14-2020.03.20"
             }
         ]
     },
     {
-        "title": "Инфографика",
-        "lecturer": "Локтев М.А",
+        "title": "Управление проектами в сфере информационных технологий",
+        "lecturer": "Бердюгин А.В",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "209",
+        "classroom": "214",
         "time": {
             "start": "19:40",
             "end": "22:50"
@@ -376,13 +220,13 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.13-2019.10.11"
+                "date": "2020.02.21-2020.03.20"
             }
         ]
     },
     {
-        "title": "Инфографика",
-        "lecturer": "Локтев М.А",
+        "title": "Управление жизненным циклом изделий",
+        "lecturer": "Феофанов А.Н",
         "type": "Laboratory",
         "subgroup": "B",
         "classroom": "209",
@@ -393,7 +237,41 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.20-2019.10.18"
+                "date": "2020.02.21-2020.03.20"
+            }
+        ]
+    },
+    {
+        "title": "Управление проектами в сфере информационных технологий",
+        "lecturer": "Бердюгин А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "214",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.28-2020.03.27"
+            }
+        ]
+    },
+    {
+        "title": "Управление жизненным циклом изделий",
+        "lecturer": "Феофанов А.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "209",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.28-2020.03.27"
             }
         ]
     }

@@ -1,96 +1,7 @@
 [
     {
-        "title": "Организация и управление предприятием",
-        "lecturer": "Лукина С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.09.30"
-            }
-        ]
-    },
-    {
-        "title": "Организация и управление предприятием",
-        "lecturer": "Лукина С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.09.30"
-            }
-        ]
-    },
-    {
-        "title": "Базы данных",
-        "lecturer": "Тюрбеева Т.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "240(б)",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.12.09"
-            }
-        ]
-    },
-    {
-        "title": "Электротехника, электроника и схемотехника",
-        "lecturer": "Сергеев Ю.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "346/6",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.07-2019.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Теория конечных автоматов",
-        "lecturer": "Бекмурзаев В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "240(б)",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.17-2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Теория конечных автоматов",
-        "lecturer": "Бекмурзаев В.А",
+        "title": "Оптимальное планирование и оперативное управление производством",
+        "lecturer": "Фролов Е.Б",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "311",
@@ -100,17 +11,125 @@
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.17-2019.12.17"
+                "date": "2020.03.23-2020.04.06"
             }
         ]
     },
     {
-        "title": "Экономико-правовые основы рынка интеллектуальных продуктов",
-        "lecturer": "Гринман И.Р",
+        "title": "Оптимальное планирование и оперативное управление производством",
+        "lecturer": "Фролов Е.Б",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0406",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Оптимальное планирование и оперативное управление производством",
+        "lecturer": "Фролов Е.Б",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0406",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Физическая культура и спорт",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "C/З СТАНКИН",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.17"
+            }
+        ]
+    },
+    {
+        "title": "Физическая культура и спорт",
+        "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "449",
+        "classroom": "C/З СТАНКИН",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.02"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.16-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная графика",
+        "lecturer": "Болдарев А.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0306",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -118,16 +137,194 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.24-2019.12.10"
+                "date": "2020.02.11-2020.04.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.19"
             }
         ]
     },
     {
-        "title": "Базы данных",
-        "lecturer": "Тюрбеева Т.Б",
+        "title": "Системы цифровой обработки изображений",
+        "lecturer": "Гаврилов А.Г",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "214",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.04.21"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная графика",
+        "lecturer": "Болдарев А.С",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "247",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Системы цифровой обработки изображений",
+        "lecturer": "Гаврилов А.Г",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "214",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.18-2020.04.14"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная графика",
+        "lecturer": "Болдарев А.С",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "247",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.18-2020.03.17"
+            }
+        ]
+    },
+    {
+        "title": "Теория массового обслуживания",
+        "lecturer": "Климанов В.П",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "306",
+        "classroom": "235(е)",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.27"
+            }
+        ]
+    },
+    {
+        "title": "Теория массового обслуживания",
+        "lecturer": "Климанов В.П",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "235(е)",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.27"
+            }
+        ]
+    },
+    {
+        "title": "Функциональное и логическое программирование",
+        "lecturer": "Стоякова К.Л",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "313",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.26-2020.04.22"
+            }
+        ]
+    },
+    {
+        "title": "Функциональное и логическое программирование",
+        "lecturer": "Стоякова К.Л",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "313",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.04-2020.04.29"
+            }
+        ]
+    },
+    {
+        "title": "Оптимальное планирование и оперативное управление производством",
+        "lecturer": "Комиссаров Р.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "313",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.01-2020.05.13"
+            }
+        ]
+    },
+    {
+        "title": "Оптимальное планирование и оперативное управление производством",
+        "lecturer": "Комиссаров Р.Н",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "313",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.08-2020.05.20"
+            }
+        ]
+    },
+    {
+        "title": "Системы цифровой обработки изображений",
+        "lecturer": "Гаврилов А.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
         "time": {
             "start": "8:30",
             "end": "10:10"
@@ -135,16 +332,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.18-2019.10.23"
+                "date": "2020.02.13-2020.05.14"
             }
         ]
     },
     {
-        "title": "Человеко-машинное взаимодействие",
-        "lecturer": "Елисеева Н.В",
+        "title": "Web-программирование",
+        "lecturer": "Гаврилов А.Г",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0309",
+        "classroom": "0411",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -152,14 +349,82 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.04-2019.12.04"
+                "date": "2020.02.13-2020.04.16"
             }
         ]
     },
     {
-        "title": "Человеко-машинное взаимодействие",
-        "lecturer": "Елисеева Н.В",
+        "title": "Теория массового обслуживания",
+        "lecturer": "Климанов В.П",
         "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "235(е)",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.20-2020.04.30"
+            }
+        ]
+    },
+    {
+        "title": "Теория массового обслуживания",
+        "lecturer": "Климанов В.П",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0408",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.05.07-2020.05.28"
+            }
+        ]
+    },
+    {
+        "title": "Теория массового обслуживания",
+        "lecturer": "Климанов В.П",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0408",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.05.28"
+            }
+        ]
+    },
+    {
+        "title": "Функциональное и логическое программирование",
+        "lecturer": "Стоякова К.Л",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "410",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.21-2020.04.24"
+            }
+        ]
+    },
+    {
+        "title": "Функциональное и логическое программирование",
+        "lecturer": "Стоякова К.Л",
+        "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0306",
         "time": {
@@ -168,17 +433,17 @@
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.18-2019.10.23"
+                "frequency": "once",
+                "date": "2020.05.29"
             }
         ]
     },
     {
-        "title": "Организация и управление предприятием",
-        "lecturer": "Лукина С.В",
-        "type": "Seminar",
+        "title": "Функциональное и логическое программирование",
+        "lecturer": "Стоякова К.Л",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "447",
+        "classroom": "0306",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -186,274 +451,28 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.18-2019.10.02"
+                "date": "2020.02.14-2020.04.24"
             },
             {
-                "frequency": "once",
-                "date": "2019.10.16"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная графика",
-        "lecturer": "Болдарев А.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
                 "frequency": "every",
-                "date": "2019.09.05-2019.12.05"
+                "date": "2020.05.08-2020.05.29"
             }
         ]
     },
     {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "С/3 СТАНКИН",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.05"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.12"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
+        "title": "Теория массового обслуживания",
+        "lecturer": "Климанов В.П",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "C/3 СТАНКИН",
+        "classroom": "235(е)",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "16:00",
+            "end": "17:40"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.19-2019.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Организация и управление предприятием",
-        "lecturer": "Лукина С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "447",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.26"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная графика",
-        "lecturer": "Болдарев А.С",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(и)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.03-2019.11.28"
-            }
-        ]
-    },
-    {
-        "title": "Человеко-машинное взаимодействие",
-        "lecturer": "Бердюгин А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "313",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.24-2019.12.05"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная графика",
-        "lecturer": "Болдарев А.С",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(и)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.10-2019.12.05"
-            }
-        ]
-    },
-    {
-        "title": "Человеко-машинное взаимодействие",
-        "lecturer": "Бердюгин А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "313",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.31-2019.12.12"
-            }
-        ]
-    },
-    {
-        "title": "Экономико-правовые основы рынка интеллектуальных продуктов",
-        "lecturer": "Гринман И.Р",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "240(б)",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.11.22"
-            }
-        ]
-    },
-    {
-        "title": "Электротехника, электроника и схемотехника",
-        "lecturer": "Сергеев Ю.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "409",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.11.22"
-            }
-        ]
-    },
-    {
-        "title": "Базы данных",
-        "lecturer": "Рожкова О.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "216",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.20-2019.11.01"
-            }
-        ]
-    },
-    {
-        "title": "Базы данных",
-        "lecturer": "Рожкова О.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "216",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.27-2019.11.08"
-            }
-        ]
-    },
-    {
-        "title": "Электротехника, электроника и схемотехника",
-        "lecturer": "Сергеев Ю.Д",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "346/4",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.20-2019.11.29"
-            }
-        ]
-    },
-    {
-        "title": "Электротехника, электроника и схемотехника",
-        "lecturer": "Сергеев Ю.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "346/4",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.27-2019.12.06"
-            }
-        ]
-    },
-    {
-        "title": "Web-программирование",
-        "lecturer": "Яскевич К.И",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "313",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.15-2019.12.13"
+                "date": "2020.05.08-2020.05.22"
             }
         ]
     },
@@ -470,33 +489,83 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.11.22-2019.12.20"
+                "date": "2020.02.21-2020.03.20"
             }
         ]
     },
     {
         "title": "Web-программирование",
-        "lecturer": "Гаврилов А.Г",
+        "lecturer": "Яскевич К.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "313",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.28-2020.03.27"
+            }
+        ]
+    },
+    {
+        "title": "Метрология, стандартизация и сертификация",
+        "lecturer": "Сильвестрова Е.Э",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0409",
+        "classroom": "0208",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.25"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.16-2020.05.30"
+            }
+        ]
+    },
+    {
+        "title": "Метрология, стандартизация и сертификация",
+        "lecturer": "Сильвестрова Е.Э",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "310",
         "time": {
             "start": "10:20",
             "end": "12:00"
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.07-2019.11.23"
+                "date": "2020.03.21-2020.04.25"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.16"
             }
         ]
     },
     {
-        "title": "Web-программирование",
+        "title": "Системы цифровой обработки изображений",
         "lecturer": "Гаврилов А.Г",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0808",
+        "classroom": "306(а)",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -504,7 +573,28 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.21-2019.10.26"
+                "date": "2020.03.14-2020.04.04"
+            }
+        ]
+    },
+    {
+        "title": "Метрология, стандартизация и сертификация",
+        "lecturer": "Сильвестрова Е.Э",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.30"
             }
         ]
     }

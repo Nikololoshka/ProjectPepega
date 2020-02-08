@@ -1,10 +1,10 @@
 [
     {
-        "title": "Методология научного творчества",
-        "lecturer": "Павельева Т.Ю",
+        "title": "Организация финансово-экономического управления",
+        "lecturer": "Абаринов С.Н",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "0409",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -12,77 +12,47 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.02"
-            }
-        ]
-    },
-    {
-        "title": "Современный стратегический анализ",
-        "lecturer": "Бадалова А.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.14"
-            }
-        ]
-    },
-    {
-        "title": "Финансовый менеджмент (продвинутый уровень)",
-        "lecturer": "Пополитова С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "443",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.21"
+                "date": "2020.02.10"
             },
             {
-                "frequency": "once",
-                "date": "2019.10.28"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
             },
             {
                 "frequency": "every",
-                "date": "2019.11.11-2019.12.02"
+                "date": "2020.03.23-2020.04.13"
             }
         ]
     },
     {
-        "title": "Современный стратегический анализ",
-        "lecturer": "Бадалова А.Г",
+        "title": "Организация финансово-экономического управления",
+        "lecturer": "Абаринов С.Н",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "508",
+        "classroom": "0409",
         "time": {
             "start": "19:40",
             "end": "21:10"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.30-2019.10.28"
+                "frequency": "once",
+                "date": "2020.02.10"
             },
             {
-                "frequency": "once",
-                "date": "2019.11.11"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.13"
             }
         ]
     },
     {
-        "title": "Финансовый менеджмент (продвинутый уровень)",
+        "title": "Стратегический финансовый анализ",
         "lecturer": "Пополитова С.В",
-        "type": "Seminar",
+        "type": "Lecture",
         "subgroup": "Common",
         "classroom": "443",
         "time": {
@@ -91,17 +61,13 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.12.09"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.16"
+                "frequency": "every",
+                "date": "2020.03.10-2020.04.28"
             }
         ]
     },
     {
-        "title": "Финансовый менеджмент (продвинутый уровень)",
+        "title": "Стратегический финансовый анализ",
         "lecturer": "Пополитова С.В",
         "type": "Seminar",
         "subgroup": "Common",
@@ -113,16 +79,33 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.11.18-2019.12.09"
+                "date": "2020.03.10-2020.04.28"
             }
         ]
     },
     {
-        "title": "Методология научного творчества",
-        "lecturer": "Павельева Т.Ю",
+        "title": "Управление технологическим капиталом",
+        "lecturer": "Андреев В.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.03.18"
+            }
+        ]
+    },
+    {
+        "title": "Управление технологическим капиталом",
+        "lecturer": "Андреев В.Н",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "441",
+        "classroom": "445",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -130,11 +113,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.10-2019.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.05"
+                "date": "2020.02.12-2020.03.18"
             }
         ]
     },
@@ -143,7 +122,7 @@
         "lecturer": "Петрова И.К",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "239",
+        "classroom": "",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -151,33 +130,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.04-2019.10.23"
+                "date": "2020.02.13-2020.03.19"
             }
         ]
     },
     {
-        "title": "Математические модели в теории управления и исследовании операций",
-        "lecturer": "Пополитов В.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
-            }
-        ]
-    },
-    {
-        "title": "Математические модели в теории управления и исследовании операций",
-        "lecturer": "Пополитов В.Н",
+        "title": "Коммуникации в профессиональной деятельности",
+        "lecturer": "Петрова И.К",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -185,16 +147,33 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.12-2019.10.17"
+                "date": "2020.02.13-2020.03.19"
             }
         ]
     },
     {
-        "title": "Информационные ресурсы и технологии в менеджменте",
-        "lecturer": "Морозова И.В",
+        "title": "Управление стоимостью предприятия",
+        "lecturer": "Червенкова С.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0209",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.28-2020.04.17"
+            }
+        ]
+    },
+    {
+        "title": "Управление стоимостью предприятия",
+        "lecturer": "Червенкова С.Г",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "443",
+        "classroom": "0209",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -202,41 +181,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.31-2019.12.05"
-            }
-        ]
-    },
-    {
-        "title": "Методология научного творчества",
-        "lecturer": "Павельева Т.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.10.18"
-            }
-        ]
-    },
-    {
-        "title": "Информационные ресурсы и технологии в менеджменте",
-        "lecturer": "Лукина С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.25-2019.11.29"
+                "date": "2020.03.06-2020.04.24"
             }
         ]
     }

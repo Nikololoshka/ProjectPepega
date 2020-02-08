@@ -1,10 +1,10 @@
 [
     {
-        "title": "Методология научного творчества",
-        "lecturer": "Павельева Т.Ю",
+        "title": "Коммерциализация высокотехнологичной продукции",
+        "lecturer": "Попов Д.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "447",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -12,16 +12,62 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.02"
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.13"
             }
         ]
     },
     {
-        "title": "Современный стратегический анализ",
-        "lecturer": "Бадалова А.Г",
+        "title": "Коммерциализация высокотехнологичной продукции",
+        "lecturer": "Попов Д.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "447",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.13"
+            }
+        ]
+    },
+    {
+        "title": "Коммерциализация высокотехнологичной продукции",
+        "lecturer": "Попов Д.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "447",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.20"
+            }
+        ]
+    },
+    {
+        "title": "Экономика высокотехнологического бизнеса",
+        "lecturer": "Зимовец О.Е",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "447",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -29,16 +75,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.09-2019.10.14"
+                "date": "2020.03.04-2020.04.08"
             }
         ]
     },
     {
-        "title": "Современный стратегический анализ",
-        "lecturer": "Бадалова А.Г",
+        "title": "Экономика высокотехнологического бизнеса",
+        "lecturer": "Зимовец О.Е",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "508",
+        "classroom": "447",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -46,49 +92,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.30-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            }
-        ]
-    },
-    {
-        "title": "Информационная графика",
-        "lecturer": "Локтев М.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "ИГ-2",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.10-2019.10.15"
-            }
-        ]
-    },
-    {
-        "title": "Методология научного творчества",
-        "lecturer": "Павельева Т.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "441",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.10-2019.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.05"
+                "date": "2020.03.04-2020.04.08"
             }
         ]
     },
@@ -97,7 +101,7 @@
         "lecturer": "Петрова И.К",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "239",
+        "classroom": "",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -105,50 +109,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.04-2019.10.23"
+                "date": "2020.02.13-2020.03.19"
             }
         ]
     },
     {
-        "title": "Информационная графика",
-        "lecturer": "Локтев М.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "ИГ-4",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.10.09"
-            }
-        ]
-    },
-    {
-        "title": "Математические модели в теории управления и исследовании операций",
-        "lecturer": "Пополитов В.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
-            }
-        ]
-    },
-    {
-        "title": "Математические модели в теории управления и исследовании операций",
-        "lecturer": "Пополитов В.Н",
+        "title": "Коммуникации в профессиональной деятельности",
+        "lecturer": "Петрова И.К",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -156,16 +126,33 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.12-2019.10.17"
+                "date": "2020.02.13-2020.03.19"
             }
         ]
     },
     {
-        "title": "Информационные ресурсы и технологии в менеджменте",
-        "lecturer": "Морозова И.В",
+        "title": "Управление стоимостью предприятия",
+        "lecturer": "Червенкова С.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0209",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.28-2020.04.17"
+            }
+        ]
+    },
+    {
+        "title": "Управление стоимостью предприятия",
+        "lecturer": "Червенкова С.Г",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "443",
+        "classroom": "0209",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -173,41 +160,62 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.31-2019.12.05"
+                "date": "2020.03.06-2020.04.24"
             }
         ]
     },
     {
-        "title": "Методология научного творчества",
-        "lecturer": "Павельева Т.Ю",
+        "title": "Организация и нормирование высокотехнологичного производства",
+        "lecturer": "Дорожкин И.Н",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "447",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.06-2019.10.18"
+                "date": "2020.03.21-2020.04.18"
             }
         ]
     },
     {
-        "title": "Информационные ресурсы и технологии в менеджменте",
-        "lecturer": "Лукина С.В",
-        "type": "Lecture",
+        "title": "Организация и нормирование высокотехнологичного производства",
+        "lecturer": "Дорожкин И.Н",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0308",
+        "classroom": "447",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.25"
+            }
+        ]
+    },
+    {
+        "title": "Организация и нормирование высокотехнологичного производства",
+        "lecturer": "Дорожкин И.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "447",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.25-2019.11.29"
+                "date": "2020.03.14-2020.04.25"
             }
         ]
     }

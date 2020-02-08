@@ -1,24 +1,74 @@
 [
     {
-        "title": "Математическая статистика в технике",
-        "lecturer": "Девятерикова Е.А",
+        "title": "Теория информационных процессов и систем",
+        "lecturer": "Бабенко Е.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "308",
+        "classroom": "302",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.20"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Информационные технологии",
+        "lecturer": "Тихомирова В.Д",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "249(б)",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Информационные технологии",
+        "lecturer": "Тихомирова В.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
         "time": {
             "start": "10:20",
             "end": "12:00"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.14"
+                "frequency": "once",
+                "date": "2020.05.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.26"
             }
         ]
     },
     {
-        "title": "Основы прочностного моделирования технических систем",
-        "lecturer": "Чеканин А.В",
+        "title": "Моделирование информационных систем",
+        "lecturer": "Бумарин Д.П",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0308",
@@ -28,14 +78,22 @@
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2020.04.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.28"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.14"
+                "date": "2020.05.12-2020.05.26"
             }
         ]
     },
     {
-        "title": "Основы прочностного моделирования технических систем",
-        "lecturer": "Чеканин А.В",
+        "title": "Моделирование информационных систем",
+        "lecturer": "Бумарин Д.П",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0308",
@@ -46,16 +104,79 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.14"
+                "date": "2020.02.11-2020.04.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.12-2020.05.26"
             }
         ]
     },
     {
-        "title": "Информационно-телекоммуникационные сети",
-        "lecturer": "Сосенушкин С.Е",
+        "title": "Управление данными",
+        "lecturer": "Быстрикова В.А",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "312",
+        "classroom": "302",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.10-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Управление данными",
+        "lecturer": "Быстрикова В.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "246",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.28"
+            }
+        ]
+    },
+    {
+        "title": "Управление данными",
+        "lecturer": "Быстрикова В.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "246",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.07"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.21"
+            }
+        ]
+    },
+    {
+        "title": "Основы обеспечения качества",
+        "lecturer": "Поляков С.Д",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "442",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -63,16 +184,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.17-2019.11.05"
+                "date": "2020.04.08-2020.05.27"
             }
         ]
     },
     {
-        "title": "Интеллектуальные и экспертные системы",
-        "lecturer": "Быстрикова В.А",
+        "title": "Системы поддержки принятия решений",
+        "lecturer": "Рыбаков А.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0408",
+        "classroom": "0410",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -80,16 +201,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.12.17"
+                "date": "2020.02.12-2020.05.27"
             }
         ]
     },
     {
-        "title": "Управление данными",
-        "lecturer": "Быстрикова В.А",
+        "title": "Теория информационных процессов и систем",
+        "lecturer": "Тясто С.А",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0408",
+        "classroom": "0411",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -97,16 +218,50 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.12.17"
+                "date": "2020.02.12-2020.05.27"
             }
         ]
     },
     {
-        "title": "Математическая статистика в технике",
-        "lecturer": "Девятерикова Е.А",
-        "type": "Lecture",
+        "title": "Моделирование информационных систем",
+        "lecturer": "Бумарин Д.П",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0408",
+        "classroom": "310",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.19-2020.05.27"
+            }
+        ]
+    },
+    {
+        "title": "Моделирование информационных систем",
+        "lecturer": "Бумарин Д.П",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "310",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.19"
+            }
+        ]
+    },
+    {
+        "title": "Системы поддержки принятия решений",
+        "lecturer": "Евдокимов С.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "244",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -114,16 +269,33 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.04-2019.12.04"
+                "date": "2020.03.05-2020.04.23"
             }
         ]
     },
     {
-        "title": "Информационно-телекоммуникационные сети",
-        "lecturer": "Сосенушкин С.Е",
+        "title": "Администрирование информационных сетей",
+        "lecturer": "Левин М.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0408",
+        "classroom": "0411",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.05.07-2020.05.28"
+            }
+        ]
+    },
+    {
+        "title": "Администрирование информационных сетей",
+        "lecturer": "Левин М.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -131,16 +303,33 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.04-2019.12.18"
+                "date": "2020.02.13-2020.05.28"
             }
         ]
     },
     {
-        "title": "Математическая статистика в технике",
-        "lecturer": "Девятерикова Е.А",
+        "title": "Администрирование информационных сетей",
+        "lecturer": "Левин М.В",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "357(з)",
+        "classroom": "235(и)",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.27-2020.05.07"
+            }
+        ]
+    },
+    {
+        "title": "Информационные технологии",
+        "lecturer": "Тихомирова В.Д",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "249(б)",
         "time": {
             "start": "8:30",
             "end": "12:00"
@@ -148,12 +337,12 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.11-2019.10.23"
+                "date": "2020.03.12-2020.05.21"
             }
         ]
     },
     {
-        "title": "Основы проектирования информационных систем",
+        "title": "Информационные технологии",
         "lecturer": "Тихомирова В.Д",
         "type": "Laboratory",
         "subgroup": "A",
@@ -165,139 +354,92 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.18-2019.11.13"
+                "date": "2020.03.05-2020.05.28"
             }
         ]
     },
     {
-        "title": "Математическая статистика в технике",
-        "lecturer": "Девятерикова Е.А",
+        "title": "Администрирование информационных сетей",
+        "lecturer": "Левин М.В",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "357(з)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.18-2019.10.30"
-            }
-        ]
-    },
-    {
-        "title": "Основы проектирования информационных систем",
-        "lecturer": "Тихомирова В.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "249(б)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.25-2019.11.20"
-            }
-        ]
-    },
-    {
-        "title": "Основы прочностного моделирования технических систем",
-        "lecturer": "Чеканин А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "210",
+        "classroom": "235(и)",
         "time": {
             "start": "16:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.11.27"
+                "frequency": "throughout",
+                "date": "2020.03.05-2020.05.14"
             }
         ]
     },
     {
-        "title": "Основы прочностного моделирования технических систем",
-        "lecturer": "Чеканин А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "210",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
+        "title": "Основы обеспечения качества",
+        "lecturer": "Поляков С.Д",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "С/3 СТАНКИН",
+        "classroom": "0208",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.09.05"
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.24"
             },
             {
                 "frequency": "once",
-                "date": "2019.09.12"
-            }
-        ]
-    },
-    {
-        "title": "Основы проектирования информационных систем",
-        "lecturer": "Тихомирова В.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "312",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.19-2019.11.07"
+                "date": "2020.05.08"
             }
         ]
     },
     {
         "title": "Прикладная физическая культура",
         "lecturer": "",
-        "type": "Seminar",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "C/3 СТАНКИН",
+        "classroom": "C/З СТАНКИН",
         "time": {
             "start": "16:00",
             "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.19-2019.12.19"
+                "frequency": "once",
+                "date": "2020.02.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.21"
             }
         ]
     },
     {
-        "title": "Основы проектирования информационных систем",
-        "lecturer": "Позднеев Б.М",
+        "title": "Информационные технологии",
+        "lecturer": "Тихомирова В.Д",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0408",
+        "classroom": "0208",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.05.15-2020.05.29"
+            }
+        ]
+    },
+    {
+        "title": "Информационные технологии",
+        "lecturer": "Тихомирова В.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -305,37 +447,49 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.06-2019.12.20"
+                "date": "2020.02.28-2020.04.24"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.08-2020.05.29"
             }
         ]
     },
     {
-        "title": "Основы проектирования информационных систем",
-        "lecturer": "Позднеев Б.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
+        "title": "Теория информационных процессов и систем",
+        "lecturer": "Бабенко Е.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "249(б)",
         "time": {
             "start": "12:20",
-            "end": "14:00"
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.12.13"
+                "date": "2020.02.28"
             },
             {
                 "frequency": "once",
-                "date": "2019.12.20"
+                "date": "2020.03.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.15"
             }
         ]
     },
     {
-        "title": "Основы прочностного моделирования технических систем",
-        "lecturer": "Чеканин А.В",
+        "title": "Теория информационных процессов и систем",
+        "lecturer": "Бабенко Е.В",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "210",
+        "classroom": "249(б)",
         "time": {
             "start": "12:20",
             "end": "15:50"
@@ -343,98 +497,63 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.13-2019.10.11"
-            }
-        ]
-    },
-    {
-        "title": "Информационно-телекоммуникационные сети",
-        "lecturer": "Сосенушкин С.Е",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "247",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
+                "date": "2020.02.21-2020.03.20"
+            },
             {
-                "frequency": "throughout",
-                "date": "2019.09.20-2019.11.29"
+                "frequency": "once",
+                "date": "2020.05.08"
             }
         ]
     },
     {
-        "title": "Основы прочностного моделирования технических систем",
-        "lecturer": "Чеканин А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "210",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.20-2019.10.18"
-            }
-        ]
-    },
-    {
-        "title": "Информационно-телекоммуникационные сети",
-        "lecturer": "Сосенушкин С.Е",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "247",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.27-2019.12.06"
-            }
-        ]
-    },
-    {
-        "title": "Управление данными",
-        "lecturer": "Быстрикова В.А",
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "240(в)",
+        "classroom": "C/З СТАНКИН",
         "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.14-2019.11.16"
-            }
-        ]
-    },
-    {
-        "title": "Основы прочностного моделирования технических систем",
-        "lecturer": "Чеканин А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "307",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.02.29"
+            },
             {
                 "frequency": "every",
-                "date": "2019.09.21-2019.10.26"
+                "date": "2020.03.14-2020.04.25"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.16-2020.05.30"
             }
         ]
     },
     {
         "title": "Управление данными",
         "lecturer": "Быстрикова В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.21"
+            }
+        ]
+    },
+    {
+        "title": "Системы поддержки принятия решений",
+        "lecturer": "Евдокимов С.А",
         "type": "Laboratory",
         "subgroup": "A",
         "classroom": "235(и)",
@@ -444,31 +563,26 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2019.09.14-2019.12.07"
-            }
-        ]
-    },
-    {
-        "title": "Интеллектуальные и экспертные системы",
-        "lecturer": "Адамова Ю.С",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "249(б)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.04.04"
+            },
             {
-                "frequency": "throughout",
-                "date": "2019.11.02-2019.12.14"
+                "frequency": "once",
+                "date": "2020.04.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.30"
             }
         ]
     },
     {
-        "title": "Управление данными",
-        "lecturer": "Быстрикова В.А",
+        "title": "Системы поддержки принятия решений",
+        "lecturer": "Евдокимов С.А",
         "type": "Laboratory",
         "subgroup": "B",
         "classroom": "235(и)",
@@ -479,24 +593,11 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.21-2019.12.14"
-            }
-        ]
-    },
-    {
-        "title": "Интеллектуальные и экспертные системы",
-        "lecturer": "Адамова Ю.С",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "249(б)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
+                "date": "2020.03.28-2020.04.25"
+            },
             {
-                "frequency": "throughout",
-                "date": "2019.11.09-2019.12.21"
+                "frequency": "once",
+                "date": "2020.05.23"
             }
         ]
     }

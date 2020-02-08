@@ -1,10 +1,10 @@
 [
     {
-        "title": "Математическое и компьютерное моделирование",
-        "lecturer": "Уварова Л.А",
-        "type": "Lecture",
+        "title": "Управление жизненным циклом изделий",
+        "lecturer": "Феофанов А.Н",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0408",
+        "classroom": "ИГ-1",
         "time": {
             "start": "16:00",
             "end": "17:40"
@@ -12,45 +12,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.09.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.09.30-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.12.02"
+                "date": "2020.03.30-2020.04.20"
             }
         ]
     },
     {
-        "title": "Языки управления знаниями",
-        "lecturer": "Ковшов Е.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "445",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
-            }
-        ]
-    },
-    {
-        "title": "Языки управления знаниями",
-        "lecturer": "Ковшов Е.Е",
+        "title": "Управление проектами в сфере информационных технологий",
+        "lecturer": "Бердюгин А.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "445",
+        "classroom": "306",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -58,221 +29,13 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.11.25-2019.12.09"
+                "date": "2020.03.30-2020.04.20"
             }
         ]
     },
     {
-        "title": "Технический иностранный язык",
-        "lecturer": "Воронова М.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Языки управления знаниями",
-        "lecturer": "Ковшов Е.Е",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "445",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.05"
-            }
-        ]
-    },
-    {
-        "title": "Методология научных исследований",
-        "lecturer": "Логина Н.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.12-2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Методология научных исследований",
-        "lecturer": "Логина Н.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.05"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Экономическое обоснование ИТ-решений",
-        "lecturer": "Андреев В.Н",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "445",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.15-2019.11.12"
-            }
-        ]
-    },
-    {
-        "title": "Экономическое обоснование ИТ-решений",
-        "lecturer": "Андреев В.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "445",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.10.02"
-            }
-        ]
-    },
-    {
-        "title": "Математическое и компьютерное моделирование",
-        "lecturer": "Соколов А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "357(ж)",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.11-2019.10.02"
-            }
-        ]
-    },
-    {
-        "title": "Экономическое обоснование ИТ-решений",
-        "lecturer": "Андреев В.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "445",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.09"
-            }
-        ]
-    },
-    {
-        "title": "Математическое и компьютерное моделирование",
-        "lecturer": "Соколов А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "357(з)",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.11-2019.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Математическое и компьютерное моделирование",
-        "lecturer": "Соколов А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "357(з)",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.18-2019.10.30"
-            }
-        ]
-    },
-    {
-        "title": "Интернет-технологии",
-        "lecturer": "Субботин П.М",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "246",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.16-2019.11.13"
-            }
-        ]
-    },
-    {
-        "title": "Интернет-технологии",
-        "lecturer": "Субботин П.М",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "246",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.23-2019.11.20"
-            }
-        ]
-    },
-    {
-        "title": "Интернет-технологии",
-        "lecturer": "Овчинников П.Е",
+        "title": "Стандартизация ИТ продуктов и систем",
+        "lecturer": "Позднеев Б.М",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0206",
@@ -283,13 +46,132 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
+                "date": "2020.02.11-2020.03.17"
             }
         ]
     },
     {
-        "title": "Инфографика",
-        "lecturer": "Локтев М.А",
+        "title": "Стандартизация ИТ продуктов и систем",
+        "lecturer": "Куприяненко И.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "302",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.25-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Управление развитием компетенций персонала ИТ-подразделений",
+        "lecturer": "Еленева Ю.Я",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0622",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.03.04"
+            }
+        ]
+    },
+    {
+        "title": "Управление развитием компетенций персонала ИТ-подразделений",
+        "lecturer": "Еленева Ю.Я",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0622",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.11-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Управление конкурентоспособностью предприятия",
+        "lecturer": "Еленева Ю.Я",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0622",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.11-2020.04.29"
+            }
+        ]
+    },
+    {
+        "title": "Управление развитием компетенций персонала ИТ-подразделений",
+        "lecturer": "Еленева Ю.Я",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "0622",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.19-2020.03.11"
+            }
+        ]
+    },
+    {
+        "title": "Управление конкурентоспособностью предприятия",
+        "lecturer": "Еленева Ю.Я",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "0622",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.05.06-2020.05.27"
+            }
+        ]
+    },
+    {
+        "title": "Управление проектами в сфере информационных технологий",
+        "lecturer": "Стоякова К.Л",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0209",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.04.16"
+            }
+        ]
+    },
+    {
+        "title": "Управление жизненным циклом изделий",
+        "lecturer": "Феофанов А.Н",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0209",
@@ -300,75 +182,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
+                "date": "2020.02.13-2020.04.16"
             }
         ]
     },
     {
-        "title": "Языки управления знаниями",
-        "lecturer": "Ковшов Е.Е",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "445",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.15"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.22"
-            }
-        ]
-    },
-    {
-        "title": "Языки управления знаниями",
-        "lecturer": "Ковшов Е.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "445",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.08"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.29-2019.12.13"
-            }
-        ]
-    },
-    {
-        "title": "Методология научных исследований",
-        "lecturer": "Логина Н.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "505",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.15-2019.12.06"
-            }
-        ]
-    },
-    {
-        "title": "Инфографика",
-        "lecturer": "Локтев М.А",
+        "title": "Управление проектами в сфере информационных технологий",
+        "lecturer": "Бердюгин А.В",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "209",
+        "classroom": "214",
         "time": {
             "start": "19:40",
             "end": "22:50"
@@ -376,13 +199,13 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.13-2019.10.11"
+                "date": "2020.02.21-2020.03.20"
             }
         ]
     },
     {
-        "title": "Инфографика",
-        "lecturer": "Локтев М.А",
+        "title": "Управление жизненным циклом изделий",
+        "lecturer": "Феофанов А.Н",
         "type": "Laboratory",
         "subgroup": "B",
         "classroom": "209",
@@ -393,7 +216,41 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.20-2019.10.18"
+                "date": "2020.02.21-2020.03.20"
+            }
+        ]
+    },
+    {
+        "title": "Управление проектами в сфере информационных технологий",
+        "lecturer": "Бердюгин А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "214",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.28-2020.03.27"
+            }
+        ]
+    },
+    {
+        "title": "Управление жизненным циклом изделий",
+        "lecturer": "Феофанов А.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "209",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.28-2020.03.27"
             }
         ]
     }

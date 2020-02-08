@@ -1,69 +1,102 @@
 [
     {
-        "title": "Системы экологического управления предприятием",
-        "lecturer": "Букейханов Н.Р",
-        "type": "Lecture",
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "342",
+        "classroom": "445",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.06"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "445",
         "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
             },
             {
                 "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
+                "date": "2020.03.23-2020.04.06"
             }
         ]
     },
     {
-        "title": "Правоведение",
-        "lecturer": "Ливанова А.Н",
+        "title": "Системы качества",
+        "lecturer": "Серко Н.Б",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "502",
+        "classroom": "333",
         "time": {
             "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
             },
             {
-                "frequency": "every",
-                "date": "2019.11.11-2019.12.02"
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
     {
-        "title": "Технология разработки стандартов",
-        "lecturer": "Мороз А.Ю",
+        "title": "Системы качества",
+        "lecturer": "Серко Н.Б",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "311",
+        "classroom": "333",
         "time": {
             "start": "16:00",
             "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
     {
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "lecturer": "Глубоков А.В",
-        "type": "Seminar",
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Певцов Б.Г",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "235(е)",
+        "classroom": "409",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -71,7 +104,28 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.17-2019.10.22"
+                "date": "2020.02.12-2020.03.04"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.19"
             }
         ]
     },
@@ -80,7 +134,24 @@
         "lecturer": "Бушуев С.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "310",
+        "classroom": "333",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.11"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Певцов Б.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -88,75 +159,62 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.11.05"
+                "date": "2020.02.12-2020.03.18"
             }
         ]
     },
     {
-        "title": "Прикладная метрология",
-        "lecturer": "Глубокова С.В",
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0306",
+        "classroom": "409",
         "time": {
             "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.03-2019.12.17"
+                "frequency": "once",
+                "date": "2020.02.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.19"
             }
         ]
     },
     {
-        "title": "Организация и планирование эксперимента",
-        "lecturer": "Колесниченко И.И",
+        "title": "Организация и технология испытаний",
+        "lecturer": "Бушуев С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "333",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.11"
+            }
+        ]
+    },
+    {
+        "title": "Организация и технология испытаний",
+        "lecturer": "Бушуев С.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "307",
+        "classroom": "333",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.17-2019.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Организация и планирование эксперимента",
-        "lecturer": "Колесниченко И.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "308",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Организация и планирование эксперимента",
-        "lecturer": "Колесниченко И.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "311",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.05"
+                "date": "2020.03.18-2020.04.08"
             }
         ]
     },
@@ -167,124 +225,43 @@
         "subgroup": "Common",
         "classroom": "ТехП 20",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "12:20",
+            "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2019.11.12-2019.12.10"
+                "frequency": "every",
+                "date": "2020.03.25-2020.04.08"
             }
         ]
     },
     {
-        "title": "Организация и планирование эксперимента",
-        "lecturer": "Колесниченко И.И",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "323",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.19-2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "lecturer": "Глубоков А.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "322",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.11-2019.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Правоведение",
-        "lecturer": "Куткин В.С",
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0208",
+        "classroom": "409",
         "time": {
             "start": "10:20",
             "end": "12:00"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.05-2019.11.21"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная метрология",
-        "lecturer": "Глубокова С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "235(е)",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.02.27"
+            },
             {
-                "frequency": "every",
-                "date": "2019.09.19-2019.11.07"
+                "frequency": "once",
+                "date": "2020.03.05"
             }
         ]
     },
     {
         "title": "Организация и технология испытаний",
         "lecturer": "Бушуев С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "308",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.15-2019.12.06"
-            }
-        ]
-    },
-    {
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "lecturer": "Глубоков А.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.12.06"
-            }
-        ]
-    },
-    {
-        "title": "Системы экологического управления предприятием",
-        "lecturer": "Букейханов Н.Р",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0810",
+        "classroom": "333",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -292,16 +269,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.13-2019.11.29"
+                "date": "2020.02.13-2020.03.05"
             }
         ]
     },
     {
-        "title": "Анализ состояния производства при сертификации продукции",
-        "lecturer": "Мороз А.Ю",
+        "title": "Организация и технология испытаний",
+        "lecturer": "Бушуев С.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "306",
+        "classroom": "333",
         "time": {
             "start": "16:00",
             "end": "17:40"
@@ -309,24 +286,130 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.06-2019.12.20"
+                "date": "2020.02.13-2020.03.05"
             }
         ]
     },
     {
-        "title": "Анализ состояния производства при сертификации продукции",
-        "lecturer": "Мороз А.Ю",
-        "type": "Seminar",
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Певцов Б.Г",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "302",
+        "classroom": "409",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.19"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.13-2019.11.01"
+                "date": "2020.02.14-2020.02.28"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.02.28"
+            }
+        ]
+    },
+    {
+        "title": "Системы качества",
+        "lecturer": "Серко Н.Б",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "332",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.03.13"
+            }
+        ]
+    },
+    {
+        "title": "Системы качества",
+        "lecturer": "Серко Н.Б",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "332",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.03.13"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Певцов Б.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "309",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.13-2020.04.17"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Певцов Б.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "309",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.13-2020.04.17"
             }
         ]
     },
@@ -335,76 +418,117 @@
         "lecturer": "Колесниченко И.И",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "311",
+        "classroom": "324",
         "time": {
             "start": "8:30",
             "end": "10:10"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.07-2019.11.09"
+                "frequency": "once",
+                "date": "2020.02.15"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.29"
             }
         ]
     },
     {
-        "title": "Технология разработки стандартов",
-        "lecturer": "Мороз А.Ю",
+        "title": "Организация и планирование эксперимента",
+        "lecturer": "Колесниченко И.И",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0406",
+        "classroom": "324",
         "time": {
             "start": "10:20",
             "end": "12:00"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.07-2019.12.21"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная метрология",
-        "lecturer": "Глубокова С.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "323",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
                 "frequency": "throughout",
-                "date": "2019.09.21-2019.11.02"
-            }
-        ]
-    },
-    {
-        "title": "Анализ состояния производства при сертификации продукции",
-        "lecturer": "Мороз А.Ю",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "324",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.16"
+                "date": "2020.02.15-2020.03.14"
             },
             {
                 "frequency": "once",
-                "date": "2019.11.30"
+                "date": "2020.03.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.28"
             }
         ]
     },
     {
-        "title": "Технология разработки стандартов",
-        "lecturer": "Мороз А.Ю",
+        "title": "Организация и планирование эксперимента",
+        "lecturer": "Колесниченко И.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "324",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.28"
+            }
+        ]
+    },
+    {
+        "title": "Организация и планирование эксперимента",
+        "lecturer": "Колесниченко И.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "324",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.28"
+            }
+        ]
+    },
+    {
+        "title": "Организация и планирование эксперимента",
+        "lecturer": "Колесниченко И.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "324",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.04"
+            }
+        ]
+    },
+    {
+        "title": "Организация и планирование эксперимента",
+        "lecturer": "Колесниченко И.И",
         "type": "Laboratory",
         "subgroup": "Common",
         "classroom": "324",
@@ -414,8 +538,8 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2019.11.09-2019.12.21"
+                "frequency": "every",
+                "date": "2020.04.04-2020.04.18"
             }
         ]
     }

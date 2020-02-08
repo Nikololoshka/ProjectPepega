@@ -1,570 +1,118 @@
 [
     {
-        "title": "Электрофизические и электрохимические методы обработки",
-        "lecturer": "Мельник Ю.А",
+        "title": "Инструментальное обеспечение машиностроительных производств",
+        "lecturer": "Кокарев В.И",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0402",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Электрофизические и электрохимические методы обработки",
-        "lecturer": "Мельник Ю.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0402",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Введение в нанотехнологии машиностроения",
-        "lecturer": "Солис П",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(а)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.30-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Введение в нанотехнологии машиностроения",
-        "lecturer": "Солис П",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(а)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.23-2019.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Основы вакуумной технологии",
-        "lecturer": "Федоров С.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 9",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.23-2019.10.21"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2019.11.11-2019.12.09"
-            }
-        ]
-    },
-    {
-        "title": "Основы вакуумной технологии",
-        "lecturer": "Федоров С.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 9",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.09"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2019.09.30-2019.10.28"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2019.11.18-2019.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Электрофизические и электрохимические методы обработки",
-        "lecturer": "Мельник Ю.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "240(в)",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Основы вакуумной технологии",
-        "lecturer": "Федоров С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "ТехП 9",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.10"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.09.24-2019.12.10"
-            }
-        ]
-    },
-    {
-        "title": "Введение в нанотехнологии машиностроения",
-        "lecturer": "Солис П",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0207",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Основы вакуумной технологии",
-        "lecturer": "Федоров С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "ТехП 9",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Основы вакуумной технологии",
-        "lecturer": "Федоров С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "ТехП 9",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.04"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.11"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.09.25-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Основы вакуумной технологии",
-        "lecturer": "Федоров С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "ТехП 9",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.04"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.11"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.09.25-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Вибродиагностика и мониторинг технического состояния оборудования",
-        "lecturer": "Козочкин М.П",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0207",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Вибродиагностика и мониторинг технического состояния оборудования",
-        "lecturer": "Козочкин М.П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0303",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.11-2019.10.02"
-            }
-        ]
-    },
-    {
-        "title": "Трение и изнашивание в машинах",
-        "lecturer": "Самусенко В.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0207",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.12"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Трение и изнашивание в машинах",
-        "lecturer": "Самусенко В.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0207",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.11.14"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.12.05-2019.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Трение и изнашивание в машинах",
-        "lecturer": "Самусенко В.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0301",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.12-2019.10.17"
-            }
-        ]
-    },
-    {
-        "title": "Основы вакуумной технологии",
-        "lecturer": "Федоров С.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 9",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.12"
-            }
-        ]
-    },
-    {
-        "title": "Основы вакуумной технологии",
-        "lecturer": "Федоров С.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 9",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.05"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Трение и изнашивание в машинах",
-        "lecturer": "Самусенко В.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(а)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.31"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.12"
-            }
-        ]
-    },
-    {
-        "title": "Трение и изнашивание в машинах",
-        "lecturer": "Самусенко В.Д",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(а)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.07"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.05"
-            }
-        ]
-    },
-    {
-        "title": "Надежность и диагностирование технологических систем",
-        "lecturer": "Козочкин М.П",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0207",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.11.08"
-            }
-        ]
-    },
-    {
-        "title": "Надежность и диагностирование технологических систем",
-        "lecturer": "Козочкин М.П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0301",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.13"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.20"
-            }
-        ]
-    },
-    {
-        "title": "Надежность и диагностирование технологических систем",
-        "lecturer": "Козочкин М.П",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "247",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.27-2019.11.08"
-            }
-        ]
-    },
-    {
-        "title": "Электрофизические и электрохимические методы обработки",
-        "lecturer": "Мельник Ю.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 9",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.27-2019.11.08"
-            }
-        ]
-    },
-    {
-        "title": "Надежность и диагностирование технологических систем",
-        "lecturer": "Козочкин М.П",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "247",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.04-2019.11.15"
-            }
-        ]
-    },
-    {
-        "title": "Электрофизические и электрохимические методы обработки",
-        "lecturer": "Мельник Ю.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 9",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.04-2019.11.15"
-            }
-        ]
-    },
-    {
-        "title": "Чистовые и отделочные методы обработки",
-        "lecturer": "Кропоткина Е.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
+        "classroom": "306(а)",
         "time": {
             "start": "8:30",
             "end": "10:10"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.07-2019.11.09"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
     {
-        "title": "Чистовые и отделочные методы обработки",
-        "lecturer": "Кропоткина Е.Ю",
+        "title": "Инструментальное обеспечение машиностроительных производств",
+        "lecturer": "Кокарев В.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
+            }
+        ]
+    },
+    {
+        "title": "Трение и изнашивание в машинах",
+        "lecturer": "Самусенко В.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
+            }
+        ]
+    },
+    {
+        "title": "Трение и изнашивание в машинах",
+        "lecturer": "Самусенко В.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
+            }
+        ]
+    },
+    {
+        "title": "Трение и изнашивание в машинах",
+        "lecturer": "Самусенко В.Д",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0808",
+        "classroom": "0202",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -572,33 +120,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.07-2019.10.05"
+                "date": "2020.02.11-2020.03.31"
             }
         ]
     },
     {
-        "title": "Чистовые и отделочные методы обработки",
-        "lecturer": "Кропоткина Е.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "442",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.12-2019.11.09"
-            }
-        ]
-    },
-    {
-        "title": "Вибродиагностика и мониторинг технического состояния оборудования",
-        "lecturer": "Козочкин М.П",
+        "title": "Трение и изнашивание в машинах",
+        "lecturer": "Самусенко В.Д",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "235(и)",
+        "classroom": "235(а)",
         "time": {
             "start": "12:20",
             "end": "15:50"
@@ -606,24 +137,329 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.10.12-2019.11.09"
+                "date": "2020.02.25-2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Технология ионно-плазменного упрочнения инструмента и деталей машин",
+        "lecturer": "Мельник Ю.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 9",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Трение и изнашивание в машинах",
+        "lecturer": "Самусенко В.Д",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(а)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.03-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Технология ионно-плазменного упрочнения инструмента и деталей машин",
+        "lecturer": "Мельник Ю.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 9",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.18-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Технология ионно-плазменного упрочнения инструмента и деталей машин",
+        "lecturer": "Мельник Ю.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.03.25"
+            }
+        ]
+    },
+    {
+        "title": "Технология ионно-плазменного упрочнения инструмента и деталей машин",
+        "lecturer": "Мельник Ю.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.03.25"
+            }
+        ]
+    },
+    {
+        "title": "Трение и изнашивание в машинах",
+        "lecturer": "Самусенко В.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.19"
+            }
+        ]
+    },
+    {
+        "title": "Трение и изнашивание в машинах",
+        "lecturer": "Самусенко В.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.19"
+            }
+        ]
+    },
+    {
+        "title": "Инструментальное обеспечение машиностроительных производств",
+        "lecturer": "Кокарев В.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0202",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.26-2020.03.25"
+            }
+        ]
+    },
+    {
+        "title": "Инструментальное обеспечение машиностроительных производств",
+        "lecturer": "Кокарев В.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0202",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.26-2020.03.25"
+            }
+        ]
+    },
+    {
+        "title": "Технология ионно-плазменного упрочнения инструмента и деталей машин",
+        "lecturer": "Мельник Ю.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.03.19"
+            }
+        ]
+    },
+    {
+        "title": "Технология ионно-плазменного упрочнения инструмента и деталей машин",
+        "lecturer": "Мельник Ю.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 9",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.27-2020.03.26"
+            }
+        ]
+    },
+    {
+        "title": "Технология ионно-плазменного упрочнения инструмента и деталей машин",
+        "lecturer": "Мельник Ю.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 9",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.20-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Технология ионно-плазменного упрочнения инструмента и деталей машин",
+        "lecturer": "Мельник Ю.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.03.20"
+            }
+        ]
+    },
+    {
+        "title": "Технология ионно-плазменного упрочнения инструмента и деталей машин",
+        "lecturer": "Мельник Ю.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.03.20"
+            }
+        ]
+    },
+    {
+        "title": "Технология ионно-плазменного упрочнения инструмента и деталей машин",
+        "lecturer": "Мельник Ю.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.03.20"
             }
         ]
     },
     {
         "title": "Вибродиагностика и мониторинг технического состояния оборудования",
         "lecturer": "Козочкин М.П",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(и)",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0202",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.03.06"
+            }
+        ]
+    },
+    {
+        "title": "Вибродиагностика и мониторинг технического состояния оборудования",
+        "lecturer": "Козочкин М.П",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
         "time": {
             "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.04"
+            }
+        ]
+    },
+    {
+        "title": "Вибродиагностика и мониторинг технического состояния оборудования",
+        "lecturer": "Козочкин М.П",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.10.19-2019.11.16"
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.04"
             }
         ]
     }

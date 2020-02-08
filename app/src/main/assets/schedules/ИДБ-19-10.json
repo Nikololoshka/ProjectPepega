@@ -1,10 +1,10 @@
 [
     {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
+        "title": "Объектно-ориентированное программирование",
+        "lecturer": "Кузнецов И.А",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "С/3 Фрезер",
+        "classroom": "307",
         "time": {
             "start": "8:30",
             "end": "10:10"
@@ -12,11 +12,517 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
+                "date": "2020.04.13-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Инновационные технологии цифрового производства",
+        "lecturer": "Олейник А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
             },
             {
                 "frequency": "every",
-                "date": "2019.11.11-2019.12.16"
+                "date": "2020.03.23-2020.04.27"
+            }
+        ]
+    },
+    {
+        "title": "Математический анализ",
+        "lecturer": "Петросян Н.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "307",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            }
+        ]
+    },
+    {
+        "title": "История: история России",
+        "lecturer": "Свирина М.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "307",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.20"
+            }
+        ]
+    },
+    {
+        "title": "Инновационные технологии цифрового производства",
+        "lecturer": "Олейник А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "302",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.10-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Дискретная математика",
+        "lecturer": "Уварова Л.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "357(ж)",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.26"
+            }
+        ]
+    },
+    {
+        "title": "Дискретная математика",
+        "lecturer": "Уварова Л.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "357(ж)",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.25"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.10-2020.04.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.12-2020.05.26"
+            }
+        ]
+    },
+    {
+        "title": "Инновационные технологии цифрового производства",
+        "lecturer": "Олейник А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "216",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.19"
+            }
+        ]
+    },
+    {
+        "title": "Инновационные технологии цифрового производства",
+        "lecturer": "Олейник А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "216",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.07"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.12"
+            }
+        ]
+    },
+    {
+        "title": "Объектно-ориентированное программирование",
+        "lecturer": "Кузнецов И.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(д)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.04.21"
+            }
+        ]
+    },
+    {
+        "title": "Объектно-ориентированное программирование",
+        "lecturer": "Кузнецов И.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(д)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.03-2020.04.28"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Бутримова Е.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "0407",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.25"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.10"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Бутримова Е.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0407",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.03"
+            }
+        ]
+    },
+    {
+        "title": "История: история России",
+        "lecturer": "Свирина М.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "Фрезер 303",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Объектно-ориентированное программирование",
+        "lecturer": "Левченко А.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "Фрезер 303",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.08"
+            }
+        ]
+    },
+    {
+        "title": "Вычислительные системы, сети и телекоммуникации",
+        "lecturer": "Ибатулин М.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "Фрезер 206",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.04.08-2020.04.29"
+            }
+        ]
+    },
+    {
+        "title": "Технические средства информационных систем",
+        "lecturer": "Чеканин В.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "Фрезер 310",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.04.15-2020.05.06"
+            }
+        ]
+    },
+    {
+        "title": "Вычислительные системы, сети и телекоммуникации",
+        "lecturer": "Ибатулин М.Ю",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "Фрезер 203",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.26-2020.05.06"
+            }
+        ]
+    },
+    {
+        "title": "Технические средства информационных систем",
+        "lecturer": "Чеканин В.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "Фрезер 204",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.01-2020.05.13"
+            }
+        ]
+    },
+    {
+        "title": "Вычислительные системы, сети и телекоммуникации",
+        "lecturer": "Ибатулин М.Ю",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "Фрезер 203",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.04-2020.05.13"
+            }
+        ]
+    },
+    {
+        "title": "Технические средства информационных систем",
+        "lecturer": "Чеканин В.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "Фрезер 204",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.08-2020.05.20"
+            }
+        ]
+    },
+    {
+        "title": "Иностранный язык",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.05.28"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Гвоздкова С.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.04.30"
+            }
+        ]
+    },
+    {
+        "title": "Дискретная математика",
+        "lecturer": "Уварова Л.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "305",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.02.27"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.12-2020.05.21"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Бутримова Е.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "302",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.04.30-2020.05.21"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "С/З Фрезер",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.14"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "С/З Фрезер",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.14"
             }
         ]
     },
@@ -25,7 +531,28 @@
         "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "С/3 Фрезер",
+        "classroom": "С/З Фрезер",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.21-2020.04.24"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.08-2020.05.29"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "С/З Фрезер",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -33,16 +560,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
+                "date": "2020.02.21-2020.04.24"
             },
             {
                 "frequency": "every",
-                "date": "2019.11.11-2019.12.16"
+                "date": "2020.05.08-2020.05.29"
             }
         ]
     },
     {
-        "title": "Введение в специальность",
+        "title": "Вычислительные системы, сети и телекоммуникации",
         "lecturer": "Ибатулин М.Ю",
         "type": "Lecture",
         "subgroup": "Common",
@@ -54,37 +581,20 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.09-2019.10.14"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Ошурко В.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.10.15"
+                "date": "2020.02.14-2020.04.24"
             },
             {
                 "frequency": "every",
-                "date": "2019.10.29-2019.12.10"
+                "date": "2020.05.08-2020.05.22"
             }
         ]
     },
     {
-        "title": "Иностранный язык",
-        "lecturer": "Барышникова О.В",
-        "type": "Seminar",
+        "title": "Технические средства информационных систем",
+        "lecturer": "Чеканин В.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "343",
+        "classroom": "Фрезер 303",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -92,160 +602,11 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Введение в специальность",
-        "lecturer": "Ибатулин М.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "308",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.17-2019.10.08"
-            }
-        ]
-    },
-    {
-        "title": "Введение в специальность",
-        "lecturer": "Ибатулин М.Ю",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "210",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
+                "date": "2020.02.14-2020.04.24"
+            },
             {
                 "frequency": "once",
-                "date": "2019.10.15"
-            }
-        ]
-    },
-    {
-        "title": "Введение в специальность",
-        "lecturer": "Ибатулин М.Ю",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "210",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Информатика",
-        "lecturer": "Чеканин В.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "210",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.29-2019.12.10"
-            }
-        ]
-    },
-    {
-        "title": "Информатика",
-        "lecturer": "Чеканин В.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "210",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.05-2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "История: всеобщая история",
-        "lecturer": "Алешин В.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.10.23"
-            }
-        ]
-    },
-    {
-        "title": "История: всеобщая история",
-        "lecturer": "Алешин В.И",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "504",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.30-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Веселко С.Г",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "408",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.16-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Основы программирования",
-        "lecturer": "Лазаревский И.Е",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "310",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.30-2019.12.04"
+                "date": "2020.05.08"
             }
         ]
     },
@@ -254,202 +615,23 @@
         "lecturer": "Яновская Е.А",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Информатика",
-        "lecturer": "Чеканин В.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "442",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.11-2019.10.16"
-            }
-        ]
-    },
-    {
-        "title": "Основы программирования",
-        "lecturer": "Митропольский Н.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
+        "classroom": "240(б)",
         "time": {
             "start": "8:30",
             "end": "10:10"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.05-2019.11.21"
-            }
-        ]
-    },
-    {
-        "title": "Начертательная геометрия",
-        "lecturer": "Тюрина Л.Ф",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.11.21"
-            }
-        ]
-    },
-    {
-        "title": "Начертательная геометрия",
-        "lecturer": "Тюрина Л.Ф",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "ИГ-1",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.12-2019.11.28"
-            }
-        ]
-    },
-    {
-        "title": "Математический анализ",
-        "lecturer": "Петросян Н.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "309",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.12-2019.12.12"
-            }
-        ]
-    },
-    {
-        "title": "Русский язык и культура речи",
-        "lecturer": "Трофимова Г.К",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0411",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.11.08"
-            }
-        ]
-    },
-    {
-        "title": "Информатика",
-        "lecturer": "Чеканин В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0411",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.11.08"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Мандель А.М",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "419",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
                 "frequency": "throughout",
-                "date": "2019.09.13-2019.10.25"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Мандель А.М",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "419",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
+                "date": "2020.02.15-2020.03.14"
+            },
             {
-                "frequency": "throughout",
-                "date": "2019.09.20-2019.11.01"
-            }
-        ]
-    },
-    {
-        "title": "Основы программирования",
-        "lecturer": "Лазаревский И.Е",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "214",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.25"
+            },
             {
-                "frequency": "throughout",
-                "date": "2019.09.20-2019.11.15"
-            }
-        ]
-    },
-    {
-        "title": "Основы программирования",
-        "lecturer": "Лазаревский И.Е",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "214",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.27-2019.11.22"
+                "frequency": "once",
+                "date": "2020.05.16"
             }
         ]
     },
@@ -458,15 +640,23 @@
         "lecturer": "Яновская Е.А",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "240(б)",
         "time": {
             "start": "10:20",
             "end": "12:00"
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.07-2019.12.07"
+                "date": "2020.03.21-2020.04.25"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.16-2020.05.30"
             }
         ]
     },
@@ -475,32 +665,40 @@
         "lecturer": "Яновская Е.А",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "309",
+        "classroom": "307",
         "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2020.02.29"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.14-2019.12.14"
+                "date": "2020.03.14-2020.04.25"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.16-2020.05.30"
             }
         ]
     },
     {
-        "title": "Русский язык и культура речи",
-        "lecturer": "Волкова Е.П",
+        "title": "Алгебра и геометрия",
+        "lecturer": "Яновская Е.А",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0303",
+        "classroom": "307",
         "time": {
             "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.14-2019.11.16"
+                "frequency": "once",
+                "date": "2020.05.30"
             }
         ]
     }

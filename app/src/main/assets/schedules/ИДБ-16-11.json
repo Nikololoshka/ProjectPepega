@@ -1,22 +1,59 @@
 [
     {
-        "title": "Системы экологического управления предприятием",
-        "lecturer": "Букейханов Н.Р",
+        "title": "Компьютерная микроскопия",
+        "lecturer": "Шулепов А.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "342",
+        "classroom": "0308",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная микроскопия",
+        "lecturer": "Шулепов А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
         "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
+                "frequency": "once",
+                "date": "2020.02.10"
             },
             {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
@@ -25,69 +62,125 @@
         "lecturer": "Пимушкин Я.И",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0306",
+        "classroom": "410",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
+                "frequency": "once",
+                "date": "2020.04.13"
             }
         ]
     },
     {
         "title": "Компьютерные технологии в приборостроении",
         "lecturer": "Пимушкин Я.И",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "323",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "410",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.10.07"
+                "date": "2020.02.10"
             },
             {
-                "frequency": "once",
-                "date": "2019.10.21"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
             },
             {
-                "frequency": "once",
-                "date": "2019.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.25"
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.13"
             }
         ]
     },
     {
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "lecturer": "Глубокова С.В",
+        "title": "Компьютерные технологии в приборостроении",
+        "lecturer": "Пимушкин Я.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "410",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.16"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерные технологии в приборостроении",
+        "lecturer": "Пимушкин Я.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "310",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.13"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерные технологии в приборостроении",
+        "lecturer": "Пимушкин Я.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "410",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.11-2020.03.03"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная микроскопия",
+        "lecturer": "Шулепов А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "322",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.10-2020.04.14"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная микроскопия",
+        "lecturer": "Шулепов А.В",
         "type": "Laboratory",
         "subgroup": "B",
         "classroom": "322",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "12:20",
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.30-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
+                "date": "2020.03.10-2020.04.07"
             }
         ]
     },
@@ -98,217 +191,56 @@
         "subgroup": "A",
         "classroom": "323",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "12:20",
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.30-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
+                "date": "2020.02.11-2020.04.07"
             }
         ]
     },
     {
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "lecturer": "Глубокова С.В",
+        "title": "Компьютерная микроскопия",
+        "lecturer": "Шулепов А.В",
         "type": "Laboratory",
         "subgroup": "A",
         "classroom": "322",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.23-2019.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            }
-        ]
-    },
-    {
-        "title": "Теоретические основы ИИТ",
-        "lecturer": "Мастеренко Д.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "307",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.01-2019.11.05"
-            }
-        ]
-    },
-    {
-        "title": "Теоретические основы ИИТ",
-        "lecturer": "Мастеренко Д.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0306",
-        "time": {
             "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.11.19"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная метрология",
-        "lecturer": "Глубокова С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0306",
-        "time": {
-            "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.03-2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "lecturer": "Глубоков А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.02-2019.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Физическая и прикладная оптика",
-        "lecturer": "Штанько А.Е",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "408",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.13-2019.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная метрология",
-        "lecturer": "Педь С.Е",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "323",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
                 "frequency": "throughout",
-                "date": "2019.09.25-2019.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная метрология",
-        "lecturer": "Педь С.Е",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "323",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.02-2019.11.13"
-            }
-        ]
-    },
-    {
-        "title": "Технология разработки стандартов",
-        "lecturer": "Мороз А.Ю",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "324",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.02-2019.11.13"
-            }
-        ]
-    },
-    {
-        "title": "Технология разработки стандартов",
-        "lecturer": "Мороз А.Ю",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "324",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.09-2019.11.20"
+                "date": "2020.03.17-2020.04.14"
             }
         ]
     },
     {
         "title": "Компьютерные технологии в приборостроении",
         "lecturer": "Пимушкин Я.И",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "323",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "start": "12:20",
+            "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.10.17-2019.11.07"
+                "frequency": "throughout",
+                "date": "2020.02.18-2020.04.14"
             }
         ]
     },
     {
-        "title": "Правоведение",
-        "lecturer": "Куткин В.С",
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Певцов Б.Г",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0208",
+        "classroom": "409",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -316,16 +248,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.11.21"
+                "date": "2020.02.12-2020.03.04"
             }
         ]
     },
     {
-        "title": "Правоведение",
-        "lecturer": "Ливанова А.Н",
-        "type": "Seminar",
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Певцов Б.Г",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "504",
+        "classroom": "409",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -333,16 +265,58 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.12-2019.11.28"
+                "date": "2020.02.12-2020.03.18"
             }
         ]
     },
     {
-        "title": "Прикладная метрология",
-        "lecturer": "Глубокова С.В",
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.19"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.19"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Певцов Б.Г",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "306",
+        "classroom": "410",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -350,135 +324,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.03-2019.11.21"
+                "date": "2020.02.26-2020.03.18"
             }
         ]
     },
     {
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "lecturer": "Глубоков А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.12.06"
-            }
-        ]
-    },
-    {
-        "title": "Физическая и прикладная оптика",
-        "lecturer": "Штанько А.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.11.22"
-            }
-        ]
-    },
-    {
-        "title": "Физическая и прикладная оптика",
-        "lecturer": "Иванова С.Д",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 5А",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.13-2019.10.25"
-            }
-        ]
-    },
-    {
-        "title": "Теоретические основы ИИТ",
-        "lecturer": "Мастеренко Д.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "323",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.04-2019.11.01"
-            }
-        ]
-    },
-    {
-        "title": "Физическая и прикладная оптика",
-        "lecturer": "Иванова С.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 5А",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.20-2019.11.01"
-            }
-        ]
-    },
-    {
-        "title": "Теоретические основы ИИТ",
-        "lecturer": "Мастеренко Д.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "323",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.11-2019.11.08"
-            }
-        ]
-    },
-    {
-        "title": "Технология разработки стандартов",
-        "lecturer": "Мороз А.Ю",
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Певцов Б.Г",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "307",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.14-2019.11.02"
-            }
-        ]
-    },
-    {
-        "title": "Технология разработки стандартов",
-        "lecturer": "Мороз А.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0406",
+        "classroom": "410",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -486,16 +341,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.07-2019.12.21"
+                "date": "2020.03.25-2020.04.15"
             }
         ]
     },
     {
-        "title": "Системы экологического управления предприятием",
-        "lecturer": "Букейханов Н.Р",
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Певцов Б.Г",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "306",
+        "classroom": "410",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -503,7 +358,185 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.14-2019.11.30"
+                "date": "2020.03.25-2020.04.15"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.05"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.05"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.05"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Певцов Б.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.19"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.12-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.02.28"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.02.28"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.06"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.06"
+            }
+        ]
+    },
+    {
+        "title": "Экономические обоснования инженерных решений",
+        "lecturer": "Андреев В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.13-2020.04.03"
             }
         ]
     }

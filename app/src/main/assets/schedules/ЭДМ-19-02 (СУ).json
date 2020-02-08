@@ -1,7 +1,121 @@
 [
     {
-        "title": "Методы социологических и прикладных исследований",
-        "lecturer": "Алешин В.И",
+        "title": "Теория организации и организационное поведение",
+        "lecturer": "Ревина М.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "441",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.20"
+            }
+        ]
+    },
+    {
+        "title": "Теория организации и организационное поведение",
+        "lecturer": "Ревина М.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "342",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.13"
+            }
+        ]
+    },
+    {
+        "title": "Управление имуществом",
+        "lecturer": "Ковалев А.П",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.11-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Управление имуществом",
+        "lecturer": "Ковалев А.П",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0308",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.18-2020.04.07"
+            }
+        ]
+    },
+    {
+        "title": "Организационное развитие и управление изменениями",
+        "lecturer": "Коршунова Е.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.04-2020.04.22"
+            }
+        ]
+    },
+    {
+        "title": "Организационное развитие и управление изменениями",
+        "lecturer": "Коршунова Е.Д",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "447",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.11-2020.04.29"
+            }
+        ]
+    },
+    {
+        "title": "Педагогика и психология высшей школы",
+        "lecturer": "Кузнецов Б.М",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "342",
@@ -12,16 +126,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.21"
+                "date": "2020.02.27-2020.04.16"
             }
         ]
     },
     {
-        "title": "Корпоративные финансы",
-        "lecturer": "Андреев В.Н",
+        "title": "Педагогика и психология высшей школы",
+        "lecturer": "Кузнецов Б.М",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "445",
+        "classroom": "441",
         "time": {
             "start": "16:00",
             "end": "17:40"
@@ -29,41 +143,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
+                "date": "2020.03.05-2020.04.23"
             }
         ]
     },
     {
-        "title": "Методы социологических и прикладных исследований",
-        "lecturer": "Алешин В.И",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "505",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Маркетинговые исследования",
-        "lecturer": "Еленев К.С",
+        "title": "Управление государственным и муниципальным имуществом",
+        "lecturer": "Гринман И.Р",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0309",
+        "classroom": "508",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -71,240 +160,66 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.09.24"
+                "date": "2020.02.21-2020.04.10"
             }
         ]
     },
     {
-        "title": "Управленческая экономика",
-        "lecturer": "Бадалова А.Г",
+        "title": "Управление государственным и муниципальным имуществом",
+        "lecturer": "Гринман И.Р",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "508",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.01"
-            }
-        ]
-    },
-    {
-        "title": "Маркетинговые исследования",
-        "lecturer": "Еленев К.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.01"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.08"
-            }
-        ]
-    },
-    {
-        "title": "Маркетинговые исследования",
-        "lecturer": "Еленев К.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
             "start": "19:40",
             "end": "21:10"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.09.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.15"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.22"
+                "date": "2020.02.28-2020.04.17"
             }
         ]
     },
     {
-        "title": "Управленческая экономика",
-        "lecturer": "Бадалова А.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.11-2019.10.30"
-            }
-        ]
-    },
-    {
-        "title": "Организация исследовательской деятельности",
-        "lecturer": "Шитов С.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
-            }
-        ]
-    },
-    {
-        "title": "Управленческая экономика",
-        "lecturer": "Бадалова А.Г",
+        "title": "Коммуникации в профессиональной деятельности",
+        "lecturer": "Барышникова О.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "508",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.10-2019.11.21"
-            }
-        ]
-    },
-    {
-        "title": "Методы исследований в менеджменте",
-        "lecturer": "Лукина С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.31-2019.11.21"
-            }
-        ]
-    },
-    {
-        "title": "Методы исследований в менеджменте",
-        "lecturer": "Лукина С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.31-2019.11.21"
-            }
-        ]
-    },
-    {
-        "title": "Организация исследовательской деятельности",
-        "lecturer": "Шитов С.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "505",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.13-2019.10.18"
-            }
-        ]
-    },
-    {
-        "title": "Корпоративные финансы",
-        "lecturer": "Андреев В.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.11.08"
-            }
-        ]
-    },
-    {
-        "title": "Методы исследований в менеджменте",
-        "lecturer": "Лукина С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "443",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.25-2019.12.13"
-            }
-        ]
-    },
-    {
-        "title": "Экономика недвижимости",
-        "lecturer": "Крючкова Е.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.07-2019.10.26"
-            }
-        ]
-    },
-    {
-        "title": "Экономика недвижимости",
-        "lecturer": "Крючкова Е.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "443",
+        "classroom": "",
         "time": {
             "start": "10:20",
             "end": "12:00"
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.28-2019.11.16"
+                "date": "2020.03.21-2020.04.04"
+            }
+        ]
+    },
+    {
+        "title": "Коммуникации в профессиональной деятельности",
+        "lecturer": "Барышникова О.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.04"
             }
         ]
     }

@@ -1,27 +1,212 @@
 [
     {
-        "title": "Прикладная физическая культура",
+        "title": "Компьютерная графика",
+        "lecturer": "Локтев М.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "ИГ-4",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.06"
+            }
+        ]
+    },
+    {
+        "title": "Физическая культура и спорт",
         "lecturer": "",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "С/3 СТАНКИН",
+        "classroom": "C/З СТАНКИН",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.02"
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.17"
             }
         ]
     },
     {
         "title": "Сопротивление материалов",
         "lecturer": "Филитов С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0404",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.04.13-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Физическая культура и спорт",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "C/З СТАНКИН",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.02"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.16-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Основы конструирования машин",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "501",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.06"
+            }
+        ]
+    },
+    {
+        "title": "Основы конструирования машин",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "501",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.13"
+            }
+        ]
+    },
+    {
+        "title": "Теория резания",
+        "lecturer": "Остриков Е.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(а)",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.16-2020.04.13"
+            }
+        ]
+    },
+    {
+        "title": "Теория резания",
+        "lecturer": "Остриков Е.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(а)",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.23-2020.04.20"
+            }
+        ]
+    },
+    {
+        "title": "Механика жидкости и газа",
+        "lecturer": "Сазанов И.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 8",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.27"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование машиностроительных производств",
+        "lecturer": "Чурилин А.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0206",
+        "classroom": "0308",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.26"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование машиностроительных производств",
+        "lecturer": "Чурилин А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -29,7 +214,180 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.07"
+                "date": "2020.02.11-2020.04.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.12-2020.05.26"
+            }
+        ]
+    },
+    {
+        "title": "Основы конструирования машин",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "501",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.03"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.17"
+            }
+        ]
+    },
+    {
+        "title": "Сопротивление материалов",
+        "lecturer": "Филитов С.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "209",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.26"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование машиностроительных производств",
+        "lecturer": "Чурилин А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.26"
+            }
+        ]
+    },
+    {
+        "title": "Программирование на ЭВМ",
+        "lecturer": "Тимофеев А.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(и)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.07"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.12"
+            }
+        ]
+    },
+    {
+        "title": "Инструментальные системы",
+        "lecturer": "Минин И.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 7",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.04.21"
+            }
+        ]
+    },
+    {
+        "title": "Основы конструирования машин",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "501",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Инструментальные системы",
+        "lecturer": "Минин И.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 7",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.18-2020.04.14"
+            }
+        ]
+    },
+    {
+        "title": "Программирование на ЭВМ",
+        "lecturer": "Тимофеев А.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(и)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.31-2020.04.28"
+            }
+        ]
+    },
+    {
+        "title": "Теория резания",
+        "lecturer": "Гурин В.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.15"
             }
         ]
     },
@@ -38,49 +396,24 @@
         "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "C/3 СТАНКИН",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Сопротивление материалов",
-        "lecturer": "Чеканин А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
+        "classroom": "C/З СТАНКИН",
         "time": {
             "start": "10:20",
             "end": "12:00"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.10.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.21"
+                "frequency": "every",
+                "date": "2020.02.12-2020.05.27"
             }
         ]
     },
     {
-        "title": "Теоретическая механика",
-        "lecturer": "Огурцов А.И",
-        "type": "Lecture",
+        "title": "Программирование на ЭВМ",
+        "lecturer": "Тимофеев А.А",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0812",
+        "classroom": "312",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -88,83 +421,84 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
-            }
-        ]
-    },
-    {
-        "title": "Материаловедение",
-        "lecturer": "Климов В.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Веселко С.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.10"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.10"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная графика",
-        "lecturer": "Феофанов А.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.11.05"
+                "date": "2020.02.19-2020.03.25"
             }
         ]
     },
     {
         "title": "Математика",
-        "lecturer": "Козловская Т.Д",
+        "lecturer": "Коробов Н.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "311",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.19-2020.05.20"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование машиностроительных производств",
+        "lecturer": "Чурилин А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.27"
+            }
+        ]
+    },
+    {
+        "title": "Инструментальные системы",
+        "lecturer": "Романов В.Б",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0209",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.04.16"
+            }
+        ]
+    },
+    {
+        "title": "Математика",
+        "lecturer": "Назаренко К.М",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "342",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.05.14"
+            }
+        ]
+    },
+    {
+        "title": "Теория резания",
+        "lecturer": "Гурин В.Д",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0404",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -172,37 +506,37 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.12.03"
+                "date": "2020.02.20-2020.03.12"
             }
         ]
     },
     {
-        "title": "Теоретическая механика",
-        "lecturer": "Волкова Л.Б",
-        "type": "Seminar",
+        "title": "Компьютерная графика",
+        "lecturer": "Локтев М.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "341",
+        "classroom": "0206",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.10"
+                "date": "2020.05.21"
             },
             {
                 "frequency": "once",
-                "date": "2019.09.17"
+                "date": "2020.05.28"
             }
         ]
     },
     {
-        "title": "Физика",
-        "lecturer": "Веселко С.Г",
-        "type": "Lecture",
+        "title": "Сопротивление материалов",
+        "lecturer": "Филитов С.В",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0206",
+        "classroom": "0404",
         "time": {
             "start": "16:00",
             "end": "17:40"
@@ -210,20 +544,105 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.03"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.09.17-2019.12.03"
+                "date": "2020.05.28"
             }
         ]
     },
     {
         "title": "Сопротивление материалов",
         "lecturer": "Филитов С.В",
-        "type": "Seminar",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "209",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.21"
+            }
+        ]
+    },
+    {
+        "title": "Сопротивление материалов",
+        "lecturer": "Филитов С.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "209",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.28"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная графика",
+        "lecturer": "Локтев М.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "246",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.09-2020.05.21"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная графика",
+        "lecturer": "Локтев М.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "246",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.16-2020.05.28"
+            }
+        ]
+    },
+    {
+        "title": "Механика жидкости и газа",
+        "lecturer": "Сазанов И.И",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "341",
+        "classroom": "0206",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.10"
+            }
+        ]
+    },
+    {
+        "title": "Механика жидкости и газа",
+        "lecturer": "Сазанов И.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -231,575 +650,247 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.11.26-2019.12.17"
+                "date": "2020.02.14-2020.04.10"
             }
         ]
     },
     {
-        "title": "Физика",
-        "lecturer": "Веселко С.Г",
+        "title": "Основы конструирования машин",
+        "lecturer": "Некрасов А.Я",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0206",
+        "classroom": "431",
         "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.12.17"
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.03"
             }
         ]
     },
     {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
+        "title": "Основы конструирования машин",
+        "lecturer": "Некрасов А.Я",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "С/3 СТАНКИН",
+        "classroom": "431",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.04"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "C/3 СТАНКИН",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.11-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Теоретическая механика",
-        "lecturer": "Волкова Л.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "341",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.11-2019.10.16"
-            }
-        ]
-    },
-    {
-        "title": "Социология культуры и межкультурные коммуникации",
-        "lecturer": "Байкин И.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0811",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.13-2019.11.27"
-            }
-        ]
-    },
-    {
-        "title": "Теория механизмов и машин",
-        "lecturer": "Ривкин А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "501",
-        "time": {
-            "start": "12:20",
+            "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2019.09.25-2019.11.06"
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.03"
             }
         ]
     },
     {
-        "title": "Теория механизмов и машин",
-        "lecturer": "Ривкин А.В",
+        "title": "Механика жидкости и газа",
+        "lecturer": "Сазанов И.И",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "501",
+        "classroom": "ТехП 8",
         "time": {
             "start": "12:20",
             "end": "15:50"
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2020.04.17"
+            }
+        ]
+    },
+    {
+        "title": "Механика жидкости и газа",
+        "lecturer": "Сазанов И.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 8",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.24"
+            }
+        ]
+    },
+    {
+        "title": "Механика жидкости и газа",
+        "lecturer": "Сазанов И.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 8",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.08"
+            }
+        ]
+    },
+    {
+        "title": "Механика жидкости и газа",
+        "lecturer": "Сазанов И.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 8",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.15"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование машиностроительных производств",
+        "lecturer": "Чурилин А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
                 "frequency": "throughout",
-                "date": "2019.10.02-2019.11.13"
+                "date": "2020.04.24-2020.05.22"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование машиностроительных производств",
+        "lecturer": "Чурилин А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.17"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.15"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование машиностроительных производств",
+        "lecturer": "Чурилин А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "310",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.18"
             }
         ]
     },
     {
         "title": "Сопротивление материалов",
         "lecturer": "Филитов С.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "209",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.04"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Сопротивление материалов",
-        "lecturer": "Филитов С.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "209",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Материаловедение",
-        "lecturer": "Егоров С.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "201",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.13-2019.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Материаловедение",
-        "lecturer": "Егоров С.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "201",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.20-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Метрология, стандартизация и сертификация",
-        "lecturer": "Липатова А.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "322",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.12"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Соломахо К.Г",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "408",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.19-2019.10.17"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная графика",
-        "lecturer": "Голова Е.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "210",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.12-2019.11.07"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Соломахо К.Г",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "408",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.12-2019.10.10"
-            }
-        ]
-    },
-    {
-        "title": "Теоретическая механика",
-        "lecturer": "Волкова Л.Б",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "450(б)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.05"
-            }
-        ]
-    },
-    {
-        "title": "Теоретическая механика",
-        "lecturer": "Волкова Л.Б",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "450(б)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.28"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная графика",
-        "lecturer": "Голова Е.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "210",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.19-2019.11.14"
-            }
-        ]
-    },
-    {
-        "title": "Метрология, стандартизация и сертификация",
-        "lecturer": "Липатова М.Д",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "333",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.14-2019.12.12"
-            }
-        ]
-    },
-    {
-        "title": "Метрология, стандартизация и сертификация",
-        "lecturer": "Липатова М.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "333",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.21-2019.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Метрология, стандартизация и сертификация",
-        "lecturer": "Липатова А.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.06"
-            }
-        ]
-    },
-    {
-        "title": "Теоретическая механика",
-        "lecturer": "Огурцов А.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0812",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.06"
-            }
-        ]
-    },
-    {
-        "title": "Метрология, стандартизация и сертификация",
-        "lecturer": "Липатова А.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "322",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.15-2019.12.06"
-            }
-        ]
-    },
-    {
-        "title": "Теория механизмов и машин",
-        "lecturer": "Соболев А.Н",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0408",
         "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.25"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.16"
+            }
+        ]
+    },
+    {
+        "title": "Программирование на ЭВМ",
+        "lecturer": "Исаев А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
+        "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.06-2019.12.06"
+                "date": "2020.03.21-2020.04.25"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.16-2020.05.30"
             }
         ]
     },
     {
-        "title": "Метрология, стандартизация и сертификация",
-        "lecturer": "Липатова А.Б",
+        "title": "Компьютерная графика",
+        "lecturer": "Локтев М.А",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0206",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.13-2019.12.20"
-            }
-        ]
-    },
-    {
-        "title": "Математика",
-        "lecturer": "Козловская Т.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "357(ж)",
-        "time": {
             "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.13-2019.10.25"
-            }
-        ]
-    },
-    {
-        "title": "Теория механизмов и машин",
-        "lecturer": "Соболев А.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "235(е)",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.13"
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
             },
             {
-                "frequency": "once",
-                "date": "2019.12.20"
-            }
-        ]
-    },
-    {
-        "title": "Математика",
-        "lecturer": "Козловская Т.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "235(е)",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.25"
+            },
             {
                 "frequency": "every",
-                "date": "2019.11.01-2019.12.13"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Кречет В.Г",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "417",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.26-2019.11.30"
-            }
-        ]
-    },
-    {
-        "title": "Иностранный язык",
-        "lecturer": "Барыбин А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.07-2019.12.21"
-            }
-        ]
-    },
-    {
-        "title": "Иностранный язык",
-        "lecturer": "Барыбин А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.07-2019.10.26"
-            }
-        ]
-    },
-    {
-        "title": "Теория механизмов и машин",
-        "lecturer": "Соболев А.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "235(е)",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.16-2019.12.07"
+                "date": "2020.05.16-2020.05.30"
             }
         ]
     }

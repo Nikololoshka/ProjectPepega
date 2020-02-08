@@ -1,7 +1,137 @@
 [
     {
-        "title": "Администрирование в информационных системах",
-        "lecturer": "Бумарин Д.П",
+        "title": "Обеспечение качества информационных систем",
+        "lecturer": "Поляков С.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.13"
+            }
+        ]
+    },
+    {
+        "title": "Обеспечение качества информационных систем",
+        "lecturer": "Поляков С.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.13"
+            }
+        ]
+    },
+    {
+        "title": "Менеджмент информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "246",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            }
+        ]
+    },
+    {
+        "title": "Системы управления жизненным циклом изделий",
+        "lecturer": "Шароватов В.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "210",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            }
+        ]
+    },
+    {
+        "title": "Системы управления жизненным циклом изделий",
+        "lecturer": "Шароватов В.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "210",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.30"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.06"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.13"
+            }
+        ]
+    },
+    {
+        "title": "Менеджмент информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "246",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.30"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.06"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование информационных систем",
+        "lecturer": "Овчинников П.Е",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0208",
@@ -12,20 +142,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
+                "date": "2020.02.11-2020.04.07"
             }
         ]
     },
     {
-        "title": "Экология",
-        "lecturer": "Пустошная Л.С",
+        "title": "Проектирование информационных систем",
+        "lecturer": "Овчинников П.Е",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0209",
+        "classroom": "0208",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -33,20 +159,88 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.12.09"
+                "date": "2020.02.11-2020.04.07"
             }
         ]
     },
     {
-        "title": "Управление информационной средой предприятия",
-        "lecturer": "Бабенко Е.В",
-        "type": "Seminar",
+        "title": "Системы управления жизненным циклом изделий",
+        "lecturer": "Шароватов В.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "210",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Менеджмент информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "246",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Системы управления жизненным циклом изделий",
+        "lecturer": "Шароватов В.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "210",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.18-2020.03.17"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Менеджмент информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "246",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.18-2020.03.17"
+            }
+        ]
+    },
+    {
+        "title": "Системы управления жизненным циклом изделий",
+        "lecturer": "Поляков С.Д",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "302",
+        "classroom": "0208",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -54,7 +248,109 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.09-2019.09.30"
+                "date": "2020.02.12-2020.04.08"
+            }
+        ]
+    },
+    {
+        "title": "Системы управления жизненным циклом изделий",
+        "lecturer": "Поляков С.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.08"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование информационных систем",
+        "lecturer": "Варварюк А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "247",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.19-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Менеджмент информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Менеджмент информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование информационных систем",
+        "lecturer": "Варварюк А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "247",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.20-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Обеспечение качества информационных систем",
+        "lecturer": "Поляков С.Д",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "442",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.21-2020.04.10"
             }
         ]
     },
@@ -71,202 +367,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.09-2019.09.30"
+                "date": "2020.02.21-2020.03.13"
             }
         ]
     },
     {
-        "title": "Корпоративные информационные системы",
-        "lecturer": "Иванова Т.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "249(б)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.21"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2019.11.11-2019.12.09"
-            }
-        ]
-    },
-    {
-        "title": "Корпоративные информационные системы",
-        "lecturer": "Иванова Т.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "249(б)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Мультимедиа технологии",
-        "lecturer": "Тихомирова В.Д",
+        "title": "Системы управления жизненным циклом изделий",
+        "lecturer": "Шароватов В.И",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.24-2019.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Корпоративные информационные системы",
-        "lecturer": "Иванова Т.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.08-2019.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Корпоративные информационные системы",
-        "lecturer": "Иванова Т.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.08-2019.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Экология",
-        "lecturer": "Пустошная Л.С",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "0407",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.10"
-            }
-        ]
-    },
-    {
-        "title": "Экология",
-        "lecturer": "Пустошная Л.С",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "0407",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.17"
-            }
-        ]
-    },
-    {
-        "title": "Управление рисками и надежностью информационных систем",
-        "lecturer": "Климанов В.П",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Стандартизация и сертификация информационно-программных средств",
-        "lecturer": "Позднеев Б.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Проектный менеджмент информационных систем",
-        "lecturer": "Поляков С.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование информационных систем",
-        "lecturer": "Овчинников П.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
+        "classroom": "306",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -274,336 +384,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.14"
-            }
-        ]
-    },
-    {
-        "title": "Управление информационной средой предприятия",
-        "lecturer": "Солдатов А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.10.17"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.31"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.07"
+                "date": "2020.02.29"
             },
             {
                 "frequency": "every",
-                "date": "2019.11.21-2019.12.05"
-            }
-        ]
-    },
-    {
-        "title": "Управление информационной средой предприятия",
-        "lecturer": "Солдатов А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.14"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование информационных систем",
-        "lecturer": "Овчинников П.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.10.17"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.31"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.07"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.21-2019.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Администрирование в информационных системах",
-        "lecturer": "Бумарин Д.П",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "216",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.19-2019.11.14"
-            }
-        ]
-    },
-    {
-        "title": "Администрирование в информационных системах",
-        "lecturer": "Бумарин Д.П",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "216",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.26-2019.11.21"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование информационных систем",
-        "lecturer": "Бабенко Е.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "249(б)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.26-2019.12.05"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование информационных систем",
-        "lecturer": "Бабенко Е.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "249(б)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.03-2019.12.12"
-            }
-        ]
-    },
-    {
-        "title": "Стандартизация и сертификация информационно-программных средств",
-        "lecturer": "Куприяненко И.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.27-2019.11.15"
-            }
-        ]
-    },
-    {
-        "title": "Экология",
-        "lecturer": "Пустошная Л.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.27-2019.11.15"
-            }
-        ]
-    },
-    {
-        "title": "Проектный менеджмент информационных систем",
-        "lecturer": "Поляков С.Д",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(д)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.13-2019.10.25"
-            }
-        ]
-    },
-    {
-        "title": "Проектный менеджмент информационных систем",
-        "lecturer": "Поляков С.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(д)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.20-2019.11.01"
-            }
-        ]
-    },
-    {
-        "title": "Мультимедиа технологии",
-        "lecturer": "Тихомирова В.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(д)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.15"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.29"
-            }
-        ]
-    },
-    {
-        "title": "Мультимедиа технологии",
-        "lecturer": "Тихомирова В.Д",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(д)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.08"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.22"
-            }
-        ]
-    },
-    {
-        "title": "Управление информационной средой предприятия",
-        "lecturer": "Бабенко Е.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "249(б)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.18-2019.12.13"
-            }
-        ]
-    },
-    {
-        "title": "Управление информационной средой предприятия",
-        "lecturer": "Бабенко Е.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "249(б)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.25-2019.12.20"
-            }
-        ]
-    },
-    {
-        "title": "Мультимедиа технологии",
-        "lecturer": "Тихомирова В.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.21-2019.12.21"
-            }
-        ]
-    },
-    {
-        "title": "Управление рисками и надежностью информационных систем",
-        "lecturer": "Климанов В.П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0809",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.12-2019.11.30"
+                "date": "2020.03.14-2020.03.28"
             }
         ]
     }

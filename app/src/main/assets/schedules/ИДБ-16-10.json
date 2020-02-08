@@ -1,52 +1,10 @@
 [
     {
-        "title": "Программная инженерия",
-        "lecturer": "Рыбаков А.В",
+        "title": "Параллельные вычисления",
+        "lecturer": "Назаренко К.М",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0207",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            }
-        ]
-    },
-    {
-        "title": "Информационные системы и технологии",
-        "lecturer": "Кузнецова Л.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.12.09"
-            }
-        ]
-    },
-    {
-        "title": "Теория разностных уравнений",
-        "lecturer": "Елисеева Ю.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "306",
+        "classroom": "0301",
         "time": {
             "start": "8:30",
             "end": "10:10"
@@ -54,37 +12,28 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.03"
+                "date": "2020.02.10"
             },
             {
-                "frequency": "every",
-                "date": "2019.09.17-2019.10.01"
-            }
-        ]
-    },
-    {
-        "title": "Теория разностных уравнений",
-        "lecturer": "Елисеева Ю.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "306",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
             {
-                "frequency": "every",
-                "date": "2019.10.08-2019.11.12"
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
     {
-        "title": "Теория разностных уравнений",
-        "lecturer": "Елисеева Ю.В",
+        "title": "Параллельные вычисления",
+        "lecturer": "Назаренко К.М",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "306",
+        "classroom": "0301",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -92,51 +41,25 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.03"
+                "date": "2020.02.10"
             },
             {
-                "frequency": "every",
-                "date": "2019.09.17-2019.11.12"
-            }
-        ]
-    },
-    {
-        "title": "Математическое моделирование",
-        "lecturer": "Уварова Л.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
             {
-                "frequency": "every",
-                "date": "2019.11.12-2019.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Моделирование наносистем",
-        "lecturer": "Уварова Л.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.03.23"
+            },
             {
-                "frequency": "every",
-                "date": "2019.11.12-2019.12.03"
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
     {
-        "title": "Моделирование наносистем",
-        "lecturer": "Уварова Л.А",
+        "title": "Теория приближений и специальные системы функций",
+        "lecturer": "Холщевникова Н.Н",
         "type": "Laboratory",
         "subgroup": "Common",
         "classroom": "357(з)",
@@ -147,41 +70,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.17-2019.10.15"
-            }
-        ]
-    },
-    {
-        "title": "Теория разностных уравнений",
-        "lecturer": "Елисеева Ю.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "357(з)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.24-2019.11.05"
-            }
-        ]
-    },
-    {
-        "title": "Геометрическое моделирование и компьютерная графика",
-        "lecturer": "Толок А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "ИГ-4",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.11-2019.10.16"
+                "date": "2020.02.17-2020.03.30"
             }
         ]
     },
@@ -197,102 +86,34 @@
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.10.23-2019.11.27"
-            }
-        ]
-    },
-    {
-        "title": "Правоведение",
-        "lecturer": "Ливанова А.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "502",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.11-2019.11.27"
-            }
-        ]
-    },
-    {
-        "title": "Информационные системы и технологии",
-        "lecturer": "Кузнецова Л.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "209",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.18-2019.11.13"
-            }
-        ]
-    },
-    {
-        "title": "Защита информации",
-        "lecturer": "Симонов М.Ф",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "209",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.11-2019.11.20"
-            }
-        ]
-    },
-    {
-        "title": "Правоведение",
-        "lecturer": "Куткин В.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.11.21"
-            }
-        ]
-    },
-    {
-        "title": "Информационные системы и технологии",
-        "lecturer": "Кузнецова Л.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0306",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
                 "frequency": "once",
-                "date": "2019.09.26"
+                "date": "2020.02.18"
             }
         ]
     },
     {
-        "title": "Математическое моделирование",
-        "lecturer": "Уварова Л.А",
+        "title": "Программная инженерия",
+        "lecturer": "Евдокимов С.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "442",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.18-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Теория приближений и специальные системы функций",
+        "lecturer": "Холщевникова Н.Н",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "308",
+        "classroom": "0301",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -300,20 +121,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.09.19"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.10.03-2019.11.28"
+                "date": "2020.02.11-2020.03.31"
             }
         ]
     },
     {
-        "title": "Моделирование наносистем",
-        "lecturer": "Уварова Л.А",
+        "title": "Теория приближений и специальные системы функций",
+        "lecturer": "Холщевникова Н.Н",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "308",
+        "classroom": "0301",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -321,45 +138,101 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.09.19"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.10.03-2019.11.14"
+                "date": "2020.02.11-2020.03.03"
             }
         ]
     },
     {
-        "title": "Информационные системы и технологии",
+        "title": "Теория приближений и специальные системы функций",
+        "lecturer": "Холщевникова Н.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0301",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.10-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Реинжиниринг и управление бизнес-процессами",
         "lecturer": "Кузнецова Л.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0306",
+        "classroom": "306",
         "time": {
             "start": "16:00",
             "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.09.12"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.03"
+                "frequency": "every",
+                "date": "2020.03.10-2020.03.31"
             }
         ]
     },
     {
-        "title": "Геометрическое моделирование и компьютерная графика",
-        "lecturer": "Толок А.В",
+        "title": "Программное обеспечение для организации взаимодействия",
+        "lecturer": "Мешков В.Г",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0207",
+        "classroom": "0409",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Реинжиниринг и управление бизнес-процессами",
+        "lecturer": "Кузнецова Л.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Параллельные вычисления",
+        "lecturer": "Назаренко К.М",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "357(з)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.19-2020.03.25"
+            }
+        ]
+    },
+    {
+        "title": "Программная инженерия",
+        "lecturer": "Рыбаков А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -367,16 +240,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.06-2019.12.06"
+                "date": "2020.02.13-2020.04.02"
             }
         ]
     },
     {
-        "title": "Защита информации",
-        "lecturer": "Симонов М.Ф",
+        "title": "Программная инженерия",
+        "lecturer": "Рыбаков А.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0208",
+        "classroom": "0410",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -384,41 +257,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.06-2019.12.20"
-            }
-        ]
-    },
-    {
-        "title": "Геометрическое моделирование и компьютерная графика",
-        "lecturer": "Толок А.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "209",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.13-2019.10.25"
-            }
-        ]
-    },
-    {
-        "title": "Математическое моделирование",
-        "lecturer": "Уварова Л.А",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "357(з)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.20-2019.11.01"
+                "date": "2020.02.13-2020.04.02"
             }
         ]
     },
@@ -427,28 +266,66 @@
         "lecturer": "Евдокимов С.А",
         "type": "Laboratory",
         "subgroup": "Common",
-        "classroom": "209",
+        "classroom": "235(и)",
         "time": {
             "start": "8:30",
             "end": "12:00"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.11.08"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.22"
+                "frequency": "every",
+                "date": "2020.02.27-2020.03.26"
             }
         ]
     },
     {
-        "title": "Моделирование и анализ бизнес-процессов",
-        "lecturer": "Кузнецова Н.М",
+        "title": "Реинжиниринг и управление бизнес-процессами",
+        "lecturer": "Кузнецова Л.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0306",
+        "classroom": "0409",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.21"
+            }
+        ]
+    },
+    {
+        "title": "Программное обеспечение для организации взаимодействия",
+        "lecturer": "Мешков В.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.06"
+            }
+        ]
+    },
+    {
+        "title": "Программное обеспечение для организации взаимодействия",
+        "lecturer": "Мешков В.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "308",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -456,45 +333,75 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.07-2019.11.09"
+                "date": "2020.02.21-2020.03.13"
             }
         ]
     },
     {
-        "title": "Моделирование и анализ бизнес-процессов",
-        "lecturer": "Кузнецова Н.М",
-        "type": "Seminar",
+        "title": "Программная инженерия",
+        "lecturer": "Рыбаков А.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "302",
+        "classroom": "0410",
         "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.14-2019.10.19"
+                "frequency": "once",
+                "date": "2020.04.03"
             }
         ]
     },
     {
-        "title": "Моделирование и анализ бизнес-процессов",
-        "lecturer": "Кузнецова Н.М",
+        "title": "Программная инженерия",
+        "lecturer": "Рыбаков А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.03"
+            }
+        ]
+    },
+    {
+        "title": "Программное обеспечение для организации взаимодействия",
+        "lecturer": "Мешков В.Г",
         "type": "Laboratory",
         "subgroup": "Common",
-        "classroom": "357(в)",
+        "classroom": "210",
         "time": {
             "start": "12:20",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.11.23"
-            },
+                "frequency": "throughout",
+                "date": "2020.02.21-2020.03.20"
+            }
+        ]
+    },
+    {
+        "title": "Реинжиниринг и управление бизнес-процессами",
+        "lecturer": "Кузнецова Л.В",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "210",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
             {
-                "frequency": "once",
-                "date": "2019.12.07"
+                "frequency": "throughout",
+                "date": "2020.02.28-2020.03.27"
             }
         ]
     }

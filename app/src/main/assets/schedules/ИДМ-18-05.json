@@ -1,7 +1,219 @@
 [
     {
-        "title": "Бизнес-архитектура предприятия",
-        "lecturer": "Мешков В.Г",
+        "title": "Управление активами предприятия",
+        "lecturer": "Червенкова С.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "302",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
+            }
+        ]
+    },
+    {
+        "title": "Управление активами предприятия",
+        "lecturer": "Пополитова С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.11"
+            }
+        ]
+    },
+    {
+        "title": "Управление активами предприятия",
+        "lecturer": "Пополитова С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.11"
+            }
+        ]
+    },
+    {
+        "title": "Системы управления инженерными данными",
+        "lecturer": "Шароватов В.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "209",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.18-2020.03.17"
+            }
+        ]
+    },
+    {
+        "title": "Системы управления инженерными данными",
+        "lecturer": "Шароватов В.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "209",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.25-2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Системы управления инженерными данными",
+        "lecturer": "Поляков С.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Системы управления инженерными данными",
+        "lecturer": "Поляков С.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.25"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Управление активами предприятия",
+        "lecturer": "Чаруйская М.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0205",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.20-2020.03.19"
+            }
+        ]
+    },
+    {
+        "title": "Системы менеджмента информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "246",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.27-2020.03.26"
+            }
+        ]
+    },
+    {
+        "title": "Управление активами предприятия",
+        "lecturer": "Чаруйская М.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "0205",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.27-2020.03.26"
+            }
+        ]
+    },
+    {
+        "title": "Системы менеджмента информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "246",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.05-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Системы менеджмента информационной безопасности",
+        "lecturer": "Симонов М.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.03"
+            }
+        ]
+    },
+    {
+        "title": "Системы менеджмента информационной безопасности",
+        "lecturer": "Симонов М.Ф",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0206",
@@ -12,168 +224,74 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.02"
-            }
-        ]
-    },
-    {
-        "title": "Интегрированные системы управления ресурсами предприятия",
-        "lecturer": "Бильчук М.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0207",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.07-2019.10.28"
+                "date": "2020.03.27"
             },
             {
-                "frequency": "every",
-                "date": "2019.11.11-2019.12.16"
+                "frequency": "once",
+                "date": "2020.04.03"
             }
         ]
     },
     {
-        "title": "Системы оперативного управления цифровым производством",
-        "lecturer": "Саркисова И.О",
+        "title": "Системы менеджмента информационной безопасности",
+        "lecturer": "Симонов М.Ф",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "311",
+        "classroom": "302",
         "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.10-2019.10.01"
-            }
-        ]
-    },
-    {
-        "title": "Суперкомпьютерные вычисления",
-        "lecturer": "Стихова О.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.10.08"
-            }
-        ]
-    },
-    {
-        "title": "Системы оперативного управления цифровым производством",
-        "lecturer": "Саркисова И.О",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0411",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.10.15"
+                "date": "2020.02.29"
             },
             {
-                "frequency": "once",
-                "date": "2019.10.22"
+                "frequency": "every",
+                "date": "2020.03.14-2020.03.28"
             }
         ]
     },
     {
-        "title": "Системы оперативного управления цифровым производством",
-        "lecturer": "Саркисова И.О",
+        "title": "Управление активами предприятия",
+        "lecturer": "Пополитова С.В",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0411",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.29"
+            },
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.10.22"
+                "date": "2020.03.14-2020.03.28"
             }
         ]
     },
     {
-        "title": "Системы оперативного управления цифровым производством",
-        "lecturer": "Саркисова И.О",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(з)",
+        "title": "Управление активами предприятия",
+        "lecturer": "Пополитова С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2019.10.29-2019.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Системы оперативного управления цифровым производством",
-        "lecturer": "Саркисова И.О",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(з)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.02.29"
+            },
             {
-                "frequency": "throughout",
-                "date": "2019.11.05-2019.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Суперкомпьютерные вычисления",
-        "lecturer": "Коробов Н.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "357(з)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.12-2019.10.10"
-            }
-        ]
-    },
-    {
-        "title": "Суперкомпьютерные вычисления",
-        "lecturer": "Коробов Н.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "357(з)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.19-2019.10.17"
+                "frequency": "every",
+                "date": "2020.03.14-2020.03.28"
             }
         ]
     }

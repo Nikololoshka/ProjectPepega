@@ -1,336 +1,175 @@
 [
     {
-        "title": "Операционные системы реального времени",
-        "lecturer": "Мартинов Г.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Программируемые логические контроллеры в системах автоматизированного управления",
-        "lecturer": "Нежметдинов Р.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
-            }
-        ]
-    },
-    {
-        "title": "Интеллектуальные системы",
-        "lecturer": "Никич А.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.17-2019.10.08"
-            }
-        ]
-    },
-    {
-        "title": "Программируемые логические контроллеры в системах автоматизированного управления",
-        "lecturer": "Нежметдинов Р.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "350",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Программируемые логические контроллеры в системах автоматизированного управления",
-        "lecturer": "Нежметдинов Р.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "350",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.10-2019.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Разработка и интегрирование прикладных компонентов систем управления",
-        "lecturer": "Ковалев И.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "355",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.17-2019.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Программируемые логические контроллеры в системах автоматизированного управления",
-        "lecturer": "Нежметдинов Р.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "350",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.17-2019.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Разработка и интегрирование прикладных компонентов систем управления",
-        "lecturer": "Ковалев И.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "355",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.24-2019.11.05"
-            }
-        ]
-    },
-    {
-        "title": "Хранение и защита компьютерной информации",
-        "lecturer": "Ковалев И.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.10.09"
-            }
-        ]
-    },
-    {
-        "title": "Мультипротокольные распределенные системы управления в машиностроительном производстве",
-        "lecturer": "Ковалев И.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Мультипротокольные распределенные системы управления в машиностроительном производстве",
-        "lecturer": "Ковалев И.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.30"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Операционные системы реального времени",
-        "lecturer": "Бабин М.С",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "355",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.11-2019.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Операционные системы реального времени",
-        "lecturer": "Бабин М.С",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "355",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.09.18-2019.10.30"
-            }
-        ]
-    },
-    {
-        "title": "Разработка и интегрирование прикладных компонентов систем управления",
-        "lecturer": "Козак Н.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.26"
-            }
-        ]
-    },
-    {
-        "title": "Гетерогенные распределенные компьютерные управляющие системы и сети",
+        "title": "Интегрированная логистическая поддержка производственных систем",
         "lecturer": "Червоннова Н.Ю",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
-            }
-        ]
-    },
-    {
-        "title": "Операционные системы реального времени",
-        "lecturer": "Мартинов Г.М",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "355",
+        "classroom": "0207",
         "time": {
             "start": "16:00",
             "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.10.17-2019.11.07"
-            }
-        ]
-    },
-    {
-        "title": "Гетерогенные распределенные компьютерные управляющие системы и сети",
-        "lecturer": "Червоннова Н.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "350",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
             {
                 "frequency": "every",
-                "date": "2019.10.17-2019.11.21"
+                "date": "2020.03.23-2020.04.13"
             }
         ]
     },
     {
-        "title": "Интеллектуальные системы",
-        "lecturer": "Никич А.Н",
-        "type": "Laboratory",
-        "subgroup": "A",
+        "title": "Проблема безопасности в компьютерных сетях",
+        "lecturer": "Соколов С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "351",
         "time": {
-            "start": "19:40",
-            "end": "22:50"
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.12-2019.10.10"
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.23"
             }
         ]
     },
     {
-        "title": "Интеллектуальные системы",
+        "title": "Распределенный мониторинг в корпоративных системах",
+        "lecturer": "Никич А.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.30-2020.04.13"
+            }
+        ]
+    },
+    {
+        "title": "Управление цикловой автоматикой",
+        "lecturer": "Червоннова Н.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.11-2020.04.14"
+            }
+        ]
+    },
+    {
+        "title": "Проблема безопасности в компьютерных сетях",
+        "lecturer": "Соколов С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.11-2020.04.14"
+            }
+        ]
+    },
+    {
+        "title": "Распределенный мониторинг в корпоративных системах",
+        "lecturer": "Никич А.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Организационно-экономическое проектирование инновационных процессов",
+        "lecturer": "Дорожкин И.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.03.18"
+            }
+        ]
+    },
+    {
+        "title": "Проблема безопасности в компьютерных сетях",
+        "lecturer": "Соколов С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.08"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.15"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование единого информационного пространства виртуальных предприятий",
+        "lecturer": "Мартинов Г.М",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "355",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.19-2020.04.08"
+            }
+        ]
+    },
+    {
+        "title": "Распределенный мониторинг в корпоративных системах",
         "lecturer": "Никич А.Н",
         "type": "Laboratory",
         "subgroup": "B",
@@ -342,16 +181,67 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.19-2019.10.17"
+                "date": "2020.02.19-2020.04.01"
             }
         ]
     },
     {
-        "title": "Разработка и интегрирование прикладных компонентов систем управления",
-        "lecturer": "Козак Н.В",
+        "title": "Проблема безопасности в компьютерных сетях",
+        "lecturer": "Соколов С.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "350",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.19-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Проблема безопасности в компьютерных сетях",
+        "lecturer": "Соколов С.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "350",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.26-2020.04.08"
+            }
+        ]
+    },
+    {
+        "title": "Распределенный мониторинг в корпоративных системах",
+        "lecturer": "Никич А.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "351",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.26-2020.04.08"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование единого информационного пространства виртуальных предприятий",
+        "lecturer": "Мартинов Г.М",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0208",
+        "classroom": "0207",
         "time": {
             "start": "16:00",
             "end": "17:40"
@@ -359,16 +249,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.06-2019.11.08"
+                "date": "2020.02.13-2020.04.02"
             }
         ]
     },
     {
-        "title": "Интеллектуальные системы",
-        "lecturer": "Никич А.Н",
-        "type": "Lecture",
+        "title": "Интегрированная логистическая поддержка производственных систем",
+        "lecturer": "Червоннова Н.Ю",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "240(б)",
+        "classroom": "350",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -376,41 +266,117 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.06-2019.11.08"
+                "date": "2020.02.20-2020.04.09"
             }
         ]
     },
     {
-        "title": "Мультипротокольные распределенные системы управления в машиностроительном производстве",
-        "lecturer": "Ковалев И.А",
+        "title": "Управление цикловой автоматикой",
+        "lecturer": "Червоннова Н.Ю",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "350",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.20-2020.03.19"
+            }
+        ]
+    },
+    {
+        "title": "Управление цикловой автоматикой",
+        "lecturer": "Червоннова Н.Ю",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "350",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.27-2020.03.26"
+            }
+        ]
+    },
+    {
+        "title": "Организационно-экономическое проектирование инновационных процессов",
+        "lecturer": "Дорожкин И.Н",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "355",
+        "classroom": "0207",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "16:00",
+            "end": "17:40"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.21-2019.11.23"
+                "date": "2020.02.14-2020.03.20"
             }
         ]
     },
     {
-        "title": "Хранение и защита компьютерной информации",
-        "lecturer": "Ковалев И.А",
+        "title": "Распределенный мониторинг в корпоративных системах",
+        "lecturer": "Никич А.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.17"
+            }
+        ]
+    },
+    {
+        "title": "Распределенный мониторинг в корпоративных системах",
+        "lecturer": "Никич А.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.17"
+            }
+        ]
+    },
+    {
+        "title": "Управление цикловой автоматикой",
+        "lecturer": "Червоннова Н.Ю",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "350",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.21-2019.10.26"
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.21"
             }
         ]
     }

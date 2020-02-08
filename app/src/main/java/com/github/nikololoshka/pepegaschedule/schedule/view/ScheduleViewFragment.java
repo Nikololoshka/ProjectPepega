@@ -242,6 +242,9 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
                     return;
                 }
 
+                // TODO: 04/02/20 Баг, когда в paging library вызывается несколько раз один и тот же метод.
+                //                После чего в RecyclerView отображается не тот элемент.
+
                 scheduleDayItems.addWeakCallback(scheduleDayItems.snapshot(), new PagedList.Callback() {
                     @Override
                     public void onChanged(int position, int count) {
@@ -254,18 +257,22 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
                         }
 
                         if (mScrollDate != null) {
-                            PagedList<ScheduleDayItem> items = mScheduleDayItemAdapter.getCurrentList();
-                            if (items != null) {
-                                ScheduleDayItem itemFirst = items.get(0);
-                                if (itemFirst != null && itemFirst.day().equals(mScrollDate)) {
-                                    mRecyclerSchedule.scrollToPosition(0);
-                                }
-                                ScheduleDayItem itemSecond = items.get(ScheduleDayItemStorage.PAGE_SIZE);
+                            ScheduleDayItem itemFirst = scheduleDayItems.get(0);
+                            if (itemFirst != null && itemFirst.day().equals(mScrollDate)) {
+                                mRecyclerSchedule.scrollToPosition(0);
+                            } else {
+                                ScheduleDayItem itemSecond = scheduleDayItems.get(ScheduleDayItemStorage.PAGE_SIZE);
                                 if (itemSecond != null && itemSecond.day().equals(mScrollDate)) {
                                     mRecyclerSchedule.scrollToPosition(ScheduleDayItemStorage.PAGE_SIZE);
+                                } else {
+                                    if (position == 0) {
+                                        mRecyclerSchedule.scrollToPosition(ScheduleDayItemStorage.PAGE_SIZE);
+                                    } else {
+                                        mRecyclerSchedule.scrollToPosition(0);
+                                    }
                                 }
-                                mScrollDate = null;
                             }
+                            mScrollDate = null;
                         }
                     }
 
@@ -294,8 +301,6 @@ public class ScheduleViewFragment extends Fragment implements OnPairCardListener
                 mScheduleDayItemAdapter.submitList(scheduleDayItems, new Runnable() {
                     @Override
                     public void run() {
-                        // TODO: 04/02/20 Баг, когда в paging library вызывается несколько раз один и тот же метод.
-                        //                После чего в RecyclerView отображается не тот элемент.
 
 //                        if (item != null) {
 //                            mRecyclerSchedule.postDelayed(new Runnable() {

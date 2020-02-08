@@ -1,10 +1,10 @@
 [
     {
-        "title": "Методология научного творчества",
-        "lecturer": "Павельева Т.Ю",
+        "title": "Компьютерные технологии в управлении человеческими ресурсами",
+        "lecturer": "Кузнецов Б.М",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "441",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -12,16 +12,41 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.02"
+                "date": "2020.03.02"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.16-2020.04.27"
             }
         ]
     },
     {
-        "title": "Современный стратегический анализ",
-        "lecturer": "Бадалова А.Г",
+        "title": "Компьютерные технологии в управлении человеческими ресурсами",
+        "lecturer": "Кузнецов Б.М",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "441",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.02"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.16-2020.04.27"
+            }
+        ]
+    },
+    {
+        "title": "Социология и психология управления",
+        "lecturer": "Ревина М.А",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "502",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -29,16 +54,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.09-2019.10.14"
+                "date": "2020.02.11-2020.03.17"
             }
         ]
     },
     {
-        "title": "Современный стратегический анализ",
-        "lecturer": "Бадалова А.Г",
+        "title": "Социология и психология управления",
+        "lecturer": "Ревина М.А",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "508",
+        "classroom": "502",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -46,17 +71,30 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.30-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
+                "date": "2020.02.18-2020.03.24"
             }
         ]
     },
     {
-        "title": "Методология научного творчества",
-        "lecturer": "Павельева Т.Ю",
+        "title": "Социология профессиональной деятельности",
+        "lecturer": "Кузнецов Б.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "441",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.26-2020.04.15"
+            }
+        ]
+    },
+    {
+        "title": "Социология профессиональной деятельности",
+        "lecturer": "Кузнецов Б.М",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "441",
@@ -67,11 +105,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.10-2019.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.05"
+                "date": "2020.02.26-2020.04.15"
             }
         ]
     },
@@ -80,7 +114,7 @@
         "lecturer": "Петрова И.К",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "239",
+        "classroom": "",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -88,16 +122,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.04-2019.10.23"
+                "date": "2020.02.13-2020.03.19"
             }
         ]
     },
     {
-        "title": "Социология труда и профессии",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Lecture",
+        "title": "Коммуникации в профессиональной деятельности",
+        "lecturer": "Петрова И.К",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "441",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -105,16 +139,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.04-2019.10.09"
+                "date": "2020.02.13-2020.03.19"
             }
         ]
     },
     {
-        "title": "Математические модели в теории управления и исследовании операций",
-        "lecturer": "Пополитов В.Н",
+        "title": "Управление стоимостью предприятия",
+        "lecturer": "Червенкова С.Г",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "0209",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -122,16 +156,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
+                "date": "2020.02.28-2020.04.17"
             }
         ]
     },
     {
-        "title": "Математические модели в теории управления и исследовании операций",
-        "lecturer": "Пополитов В.Н",
+        "title": "Управление стоимостью предприятия",
+        "lecturer": "Червенкова С.Г",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "0209",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -139,75 +173,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.12-2019.10.17"
-            }
-        ]
-    },
-    {
-        "title": "Информационные ресурсы и технологии в менеджменте",
-        "lecturer": "Морозова И.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "443",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.31-2019.12.05"
-            }
-        ]
-    },
-    {
-        "title": "Методология научного творчества",
-        "lecturer": "Павельева Т.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.10.18"
-            }
-        ]
-    },
-    {
-        "title": "Информационные ресурсы и технологии в менеджменте",
-        "lecturer": "Лукина С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.25-2019.11.29"
-            }
-        ]
-    },
-    {
-        "title": "Социология труда и профессии",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "502",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.19-2019.11.23"
+                "date": "2020.03.06-2020.04.24"
             }
         ]
     }

@@ -62,31 +62,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDarkModeButton.setOnClickListener(this);
         updateDarkModeButton();
 
-        // настройка уведомлений приложения
         if (ApplicationPreference.firstRun(this)) {
-                // android 8.0+
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                NotificationChannel channelCommon = new NotificationChannel(
-                        NotificationDispatcher.CHANNEL_COMMON,
-                        getString(R.string.notification_common),
-                        NotificationManager.IMPORTANCE_DEFAULT);
+            ApplicationPreference.setFirstRun(this, false);
+        }
 
-                channelCommon.setDescription(getString(R.string.notification_common_description));
-                channelCommon.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
-                channelCommon.enableVibration(true);
-                channelCommon.enableLights(true);
+        // настройка уведомлений приложения
+        // android 8.0+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channelCommon = new NotificationChannel(
+                    NotificationDispatcher.CHANNEL_COMMON,
+                    getString(R.string.notification_common),
+                    NotificationManager.IMPORTANCE_DEFAULT);
 
-                NotificationManager notificationManager =
-                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            channelCommon.setDescription(getString(R.string.notification_common_description));
+            channelCommon.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+            channelCommon.enableVibration(true);
+            channelCommon.enableLights(true);
 
-                if (notificationManager == null) {
-                    return;
-                }
+            NotificationManager notificationManager =
+                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-                notificationManager.createNotificationChannel(channelCommon);
+            if (notificationManager == null) {
+                return;
             }
 
-            ApplicationPreference.setFirstRun(this, false);
+            notificationManager.createNotificationChannel(channelCommon);
         }
     }
 

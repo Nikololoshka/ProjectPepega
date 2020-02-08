@@ -1,7 +1,7 @@
 [
     {
-        "title": "Методы социологических и прикладных исследований",
-        "lecturer": "Алешин В.И",
+        "title": "Теория организации и организационное поведение",
+        "lecturer": "Ревина М.А",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "342",
@@ -11,17 +11,50 @@
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.21"
+                "date": "2020.03.23-2020.04.13"
             }
         ]
     },
     {
-        "title": "Производственный инжиниринг",
-        "lecturer": "Рязанов Д.Ю",
+        "title": "Теория организации и организационное поведение",
+        "lecturer": "Ревина М.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.13"
+            }
+        ]
+    },
+    {
+        "title": "Управление имуществом",
+        "lecturer": "Ковалев А.П",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0408",
+        "classroom": "0410",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -29,16 +62,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.11.11-2019.12.16"
+                "date": "2020.02.11-2020.03.31"
             }
         ]
     },
     {
-        "title": "Методы социологических и прикладных исследований",
-        "lecturer": "Байкин И.А",
+        "title": "Управление имуществом",
+        "lecturer": "Ковалев А.П",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "441",
+        "classroom": "0206",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -46,24 +79,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.23-2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
+                "date": "2020.02.18-2020.04.07"
             }
         ]
     },
     {
-        "title": "Менеджмент высокотехнологичного бизнеса",
+        "title": "Организационное развитие и управление изменениями",
         "lecturer": "Коршунова Е.Д",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0306",
+        "classroom": "0208",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -71,16 +96,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.10.22"
+                "date": "2020.03.04-2020.04.22"
             }
         ]
     },
     {
-        "title": "Менеджмент высокотехнологичного бизнеса",
+        "title": "Организационное развитие и управление изменениями",
         "lecturer": "Коршунова Е.Д",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "443",
+        "classroom": "0208",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -88,30 +113,13 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.01-2019.11.19"
+                "date": "2020.03.11-2020.04.29"
             }
         ]
     },
     {
-        "title": "Методы исследований в менеджменте",
-        "lecturer": "Лукина С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "443",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.29-2019.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Управленческая экономика",
-        "lecturer": "Бадалова А.Г",
+        "title": "Педагогика и психология высшей школы",
+        "lecturer": "Кузнецов Б.М",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "342",
@@ -122,16 +130,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.11-2019.10.30"
+                "date": "2020.02.27-2020.04.16"
             }
         ]
     },
     {
-        "title": "Управленческая экономика",
-        "lecturer": "Бадалова А.Г",
+        "title": "Педагогика и психология высшей школы",
+        "lecturer": "Кузнецов Б.М",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "508",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -139,33 +147,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.02-2019.11.20"
+                "date": "2020.03.05-2020.04.23"
             }
         ]
     },
     {
-        "title": "Производственный инжиниринг",
-        "lecturer": "Рязанов Д.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "415",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.20-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Организация исследовательской деятельности",
-        "lecturer": "Шитов С.Б",
+        "title": "Управление знаниями",
+        "lecturer": "Коршунова Е.Д",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0208",
+        "classroom": "447",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -173,16 +164,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.10.10"
+                "date": "2020.02.21-2020.04.10"
             }
         ]
     },
     {
-        "title": "Организация исследовательской деятельности",
-        "lecturer": "Шитов С.Б",
+        "title": "Управление знаниями",
+        "lecturer": "Коршунова Е.Д",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "441",
+        "classroom": "447",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -190,113 +181,53 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.12-2019.10.03"
+                "date": "2020.02.28-2020.04.17"
             }
         ]
     },
     {
-        "title": "Организация исследовательской деятельности",
-        "lecturer": "Шитов С.Б",
+        "title": "Коммуникации в профессиональной деятельности",
+        "lecturer": "Петрова И.К",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "441",
+        "classroom": "",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.10.17"
+                "date": "2020.02.29"
             },
             {
                 "frequency": "once",
-                "date": "2019.10.24"
-            }
-        ]
-    },
-    {
-        "title": "Методы исследований в менеджменте",
-        "lecturer": "Лукина С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
+                "date": "2020.03.14"
+            },
             {
-                "frequency": "every",
-                "date": "2019.10.31-2019.11.21"
+                "frequency": "once",
+                "date": "2020.03.21"
             }
         ]
     },
     {
-        "title": "Методы исследований в менеджменте",
-        "lecturer": "Лукина С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.31-2019.11.21"
-            }
-        ]
-    },
-    {
-        "title": "Корпоративные финансы",
-        "lecturer": "Андреев В.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.11.08"
-            }
-        ]
-    },
-    {
-        "title": "Корпоративные финансы",
-        "lecturer": "Андреев В.Н",
+        "title": "Коммуникации в профессиональной деятельности",
+        "lecturer": "Петрова И.К",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "308",
+        "classroom": "",
         "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.13-2019.11.15"
-            }
-        ]
-    },
-    {
-        "title": "Производственный инжиниринг",
-        "lecturer": "Рязанов Д.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "415",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.12.20"
+                "date": "2020.02.29"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.14-2020.04.18"
             }
         ]
     }

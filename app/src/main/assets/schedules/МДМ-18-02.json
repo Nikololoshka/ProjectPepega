@@ -1,10 +1,10 @@
 [
     {
-        "title": "Новые конструкционные материалы в машиностроении",
-        "lecturer": "Красновский А.Н",
+        "title": "Инженерное обеспечение безопасности технологических процессов",
+        "lecturer": "Шварцбург Л.Э",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0411",
+        "classroom": "431",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -12,20 +12,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.02-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
+                "date": "2020.02.11-2020.04.28"
             }
         ]
     },
     {
-        "title": "Перспективные технологии и процессы заготовительного производства",
-        "lecturer": "Сосенушкин Е.Н",
+        "title": "Инструментальное обеспечение машиностроительных производств",
+        "lecturer": "Селезнев А.Е",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "455",
+        "classroom": "302",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -33,13 +29,98 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.16-2019.10.07"
+                "date": "2020.02.18-2020.03.10"
             }
         ]
     },
     {
-        "title": "Нанотехнологии самоорганизации и самосборки",
-        "lecturer": "Пристинский Ю.О",
+        "title": "Инженерное обеспечение безопасности технологических процессов",
+        "lecturer": "Шварцбург Л.Э",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "302",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.31-2020.04.21"
+            }
+        ]
+    },
+    {
+        "title": "Инструментальное обеспечение машиностроительных производств",
+        "lecturer": "Селезнев А.Е",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "442",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.29"
+            }
+        ]
+    },
+    {
+        "title": "Инженерное обеспечение безопасности технологических процессов",
+        "lecturer": "Бутримова Е.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0407",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.19-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Инструментальное обеспечение машиностроительных производств",
+        "lecturer": "Селезнев А.Е",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(а)",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.26-2020.04.08"
+            }
+        ]
+    },
+    {
+        "title": "Инженерное обеспечение безопасности технологических процессов",
+        "lecturer": "Бутримова Е.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "0407",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.26-2020.04.08"
+            }
+        ]
+    },
+    {
+        "title": "Инструментальное обеспечение машиностроительных производств",
+        "lecturer": "Селезнев А.Е",
         "type": "Laboratory",
         "subgroup": "B",
         "classroom": "235(а)",
@@ -49,305 +130,14 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.10.21"
-            },
-            {
                 "frequency": "throughout",
-                "date": "2019.11.11-2019.12.09"
+                "date": "2020.03.04-2020.04.15"
             }
         ]
     },
     {
-        "title": "Технологические основы высокоскоростной обработки материалов",
-        "lecturer": "Алешин С.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 6",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.21"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2019.11.11-2019.12.09"
-            }
-        ]
-    },
-    {
-        "title": "Нанотехнологии самоорганизации и самосборки",
-        "lecturer": "Пристинский Ю.О",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(а)",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Технологические основы высокоскоростной обработки материалов",
-        "lecturer": "Алешин С.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 6",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Технологические основы высокоскоростной обработки материалов",
-        "lecturer": "Алешин С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.11.19"
-            }
-        ]
-    },
-    {
-        "title": "Новые конструкционные материалы в машиностроении",
-        "lecturer": "Красновский А.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "201",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.10-2019.10.01"
-            }
-        ]
-    },
-    {
-        "title": "Новые конструкционные материалы в машиностроении",
-        "lecturer": "Красновский А.Н",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "201",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.08-2019.11.19"
-            }
-        ]
-    },
-    {
-        "title": "Новые конструкционные материалы в машиностроении",
-        "lecturer": "Красновский А.Н",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "201",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.15-2019.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Перспективные технологии и процессы заготовительного производства",
-        "lecturer": "Сосенушкин Е.Н",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "457",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.15-2019.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Перспективные технологии и процессы заготовительного производства",
-        "lecturer": "Сосенушкин Е.Н",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "457",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.22-2019.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Производственный инжиниринг",
-        "lecturer": "Кутин А.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.04"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.09.18-2019.11.27"
-            }
-        ]
-    },
-    {
-        "title": "Философские проблемы науки и техники",
-        "lecturer": "Шитов С.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "505",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.11-2019.10.02"
-            }
-        ]
-    },
-    {
-        "title": "Производственный инжиниринг",
-        "lecturer": "Шашин А.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "415",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.13-2019.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Производственный инжиниринг",
-        "lecturer": "Шашин А.Д",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "415",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.06-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Перспективные технологии и процессы заготовительного производства",
-        "lecturer": "Коробова Н.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.12-2019.11.28"
-            }
-        ]
-    },
-    {
-        "title": "Производственный инжиниринг",
-        "lecturer": "Шашин А.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.12-2019.10.03"
-            }
-        ]
-    },
-    {
-        "title": "Философские проблемы науки и техники",
-        "lecturer": "Шитов С.Б",
+        "title": "Управление проектом",
+        "lecturer": "Дорожкин И.Н",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0206",
@@ -358,33 +148,50 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.06-2019.09.27"
+                "date": "2020.02.13-2020.04.30"
             }
         ]
     },
     {
-        "title": "Технологические основы высокоскоростной обработки материалов",
-        "lecturer": "Алешин С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0301",
+        "title": "Управление проектом",
+        "lecturer": "Дорожкин И.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "209",
         "time": {
             "start": "19:40",
-            "end": "21:10"
+            "end": "22:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.06-2019.09.27"
+                "frequency": "throughout",
+                "date": "2020.02.27-2020.04.09"
             }
         ]
     },
     {
-        "title": "Нанотехнологии самоорганизации и самосборки",
-        "lecturer": "Солис П",
-        "type": "Lecture",
+        "title": "Управление проектом",
+        "lecturer": "Дорожкин И.Н",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "209",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.05-2020.04.16"
+            }
+        ]
+    },
+    {
+        "title": "Управление проектом",
+        "lecturer": "Дорожкин И.Н",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0206",
+        "classroom": "449",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -392,41 +199,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.04-2019.12.20"
-            }
-        ]
-    },
-    {
-        "title": "Нанотехнологии самоорганизации и самосборки",
-        "lecturer": "Солис П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0301",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.10.04-2019.10.25"
-            }
-        ]
-    },
-    {
-        "title": "Производственный инжиниринг",
-        "lecturer": "Шашин А.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "415",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.20"
+                "date": "2020.04.03-2020.04.24"
             }
         ]
     }

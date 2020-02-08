@@ -1,31 +1,43 @@
 [
     {
-        "title": "Автоматизация измерений, испытаний и контроля",
-        "lecturer": "Педь С.Е",
+        "title": "Информационные технологии в приборостроении",
+        "lecturer": "Соколов В.А",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0204",
+        "classroom": "0408",
         "time": {
             "start": "18:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.28"
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
             },
             {
                 "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
+                "date": "2020.03.23-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
             }
         ]
     },
     {
-        "title": "Автоматизация измерений, испытаний и контроля",
-        "lecturer": "Педь С.Е",
-        "type": "Seminar",
+        "title": "Автоматизация проектирования и дизайн приборов и систем",
+        "lecturer": "Соколов В.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "324",
+        "classroom": "0408",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -33,66 +45,41 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.10.21"
+                "date": "2020.02.10"
             },
             {
-                "frequency": "once",
-                "date": "2019.10.28"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
             },
             {
                 "frequency": "every",
-                "date": "2019.11.11-2019.12.02"
+                "date": "2020.03.23-2020.04.13"
             }
         ]
     },
     {
-        "title": "Методы обработки измерительной информации",
+        "title": "Метрологическая экспертиза технической документации",
         "lecturer": "Дружинин П.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0204",
+        "classroom": "342",
         "time": {
             "start": "18:00",
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.17"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.24"
-            }
-        ]
-    },
-    {
-        "title": "Измерительные информационные системы",
-        "lecturer": "Телешевский В.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.03"
-            },
             {
                 "frequency": "every",
-                "date": "2019.10.01-2019.11.19"
+                "date": "2020.02.11-2020.03.31"
             }
         ]
     },
     {
-        "title": "Автоматизация измерений, испытаний и контроля",
-        "lecturer": "Педь С.Е",
+        "title": "Пространственная метрология",
+        "lecturer": "Бушуев С.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0204",
+        "classroom": "0408",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -100,30 +87,34 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.03"
+                "date": "2020.02.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.18"
             }
         ]
     },
     {
-        "title": "Иностранный язык",
-        "lecturer": "Стихова О.В",
+        "title": "Пространственная метрология",
+        "lecturer": "Бушуев С.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "238",
+        "classroom": "322",
         "time": {
-            "start": "19:40",
-            "end": "21:10"
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.10-2019.09.24"
+                "date": "2020.04.07-2020.04.28"
             }
         ]
     },
     {
-        "title": "Измерительные информационные системы",
-        "lecturer": "Телешевский В.И",
+        "title": "Метрологическая экспертиза технической документации",
+        "lecturer": "Дружинин П.В",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "324",
@@ -134,7 +125,24 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.01-2019.11.05"
+                "date": "2020.03.10-2020.04.28"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация измерений, испытаний и контроля",
+        "lecturer": "Педь С.Е",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.15"
             }
         ]
     },
@@ -143,24 +151,7 @@
         "lecturer": "Телешевский В.И",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0204",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.11-2019.09.25"
-            }
-        ]
-    },
-    {
-        "title": "Иностранный язык",
-        "lecturer": "Стихова О.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "238",
+        "classroom": "240(б)",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -168,54 +159,16 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.04"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.10.02-2019.10.23"
+                "date": "2020.02.12"
             }
         ]
     },
     {
-        "title": "История науки и техники",
-        "lecturer": "Павельева Т.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.06-2019.11.20"
-            }
-        ]
-    },
-    {
-        "title": "История науки и техники",
-        "lecturer": "Павельева Т.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.06-2019.11.20"
-            }
-        ]
-    },
-    {
-        "title": "История науки и техники",
-        "lecturer": "Павельева Т.Ю",
+        "title": "Автоматизация измерений, испытаний и контроля",
+        "lecturer": "Педь С.Е",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "502",
+        "classroom": "322",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -223,62 +176,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.11.27-2019.12.11"
-            }
-        ]
-    },
-    {
-        "title": "История науки и техники",
-        "lecturer": "Павельева Т.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "502",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.11.27-2019.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Методология научных исследований",
-        "lecturer": "Колесниченко И.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.10.24"
-            }
-        ]
-    },
-    {
-        "title": "Методы обработки измерительной информации",
-        "lecturer": "Дружинин П.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.09.05"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.09.12"
+                "date": "2020.04.22-2020.05.13"
             }
         ]
     },
@@ -295,7 +193,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.19-2019.10.17"
+                "date": "2020.03.11-2020.04.08"
             }
         ]
     },
@@ -312,34 +210,13 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.26-2019.10.24"
+                "date": "2020.03.18-2020.04.15"
             }
         ]
     },
     {
-        "title": "Методология научных исследований",
-        "lecturer": "Колесниченко И.И",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "323",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.07"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.21"
-            }
-        ]
-    },
-    {
-        "title": "Методология научных исследований",
-        "lecturer": "Колесниченко И.И",
+        "title": "Автоматизация проектирования и дизайн приборов и систем",
+        "lecturer": "Соколов В.А",
         "type": "Laboratory",
         "subgroup": "B",
         "classroom": "323",
@@ -349,21 +226,34 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.10.31"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.14"
+                "frequency": "throughout",
+                "date": "2020.03.11-2020.04.22"
             }
         ]
     },
     {
-        "title": "Методы обработки измерительной информации",
-        "lecturer": "Дружинин П.В",
+        "title": "Автоматизация проектирования и дизайн приборов и систем",
+        "lecturer": "Соколов В.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "323",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.18-2020.04.29"
+            }
+        ]
+    },
+    {
+        "title": "Измерительные информационные системы",
+        "lecturer": "Телешевский В.И",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0204",
+        "classroom": "240(б)",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -371,16 +261,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.04-2019.11.22"
+                "date": "2020.02.20-2020.04.16"
             }
         ]
     },
     {
-        "title": "Методы обработки измерительной информации",
-        "lecturer": "Дружинин П.В",
+        "title": "Измерительные информационные системы",
+        "lecturer": "Телешевский В.И",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "324",
+        "classroom": "322",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -388,92 +278,147 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.04-2019.10.25"
+                "date": "2020.03.12-2020.04.02"
             }
         ]
     },
     {
-        "title": "Методология научных исследований",
-        "lecturer": "Колесниченко И.И",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "324",
+        "title": "Измерительные информационные системы",
+        "lecturer": "Соколов В.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "322",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.09-2020.05.07"
+            }
+        ]
+    },
+    {
+        "title": "Измерительные информационные системы",
+        "lecturer": "Соколов В.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "322",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.16-2020.05.14"
+            }
+        ]
+    },
+    {
+        "title": "Пространственная метрология",
+        "lecturer": "Бушуев С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0408",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.10.05-2019.10.26"
+                "date": "2020.02.28-2020.04.03"
             }
         ]
     },
     {
-        "title": "Измерительные информационные системы",
+        "title": "Пространственная метрология",
         "lecturer": "Бушуев С.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 20",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2019.10.05-2019.11.02"
+                "frequency": "once",
+                "date": "2020.04.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.17"
             }
         ]
     },
     {
-        "title": "Методы обработки измерительной информации",
-        "lecturer": "Дружинин П.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "333",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.12-2019.11.23"
-            }
-        ]
-    },
-    {
-        "title": "Измерительные информационные системы",
+        "title": "Пространственная метрология",
         "lecturer": "Бушуев С.В",
         "type": "Laboratory",
         "subgroup": "A",
         "classroom": "ТехП 20",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "start": "19:40",
+            "end": "22:50"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.10.12-2019.11.09"
+                "date": "2020.02.28-2020.03.27"
             }
         ]
     },
     {
-        "title": "Методы обработки измерительной информации",
-        "lecturer": "Дружинин П.В",
+        "title": "Пространственная метрология",
+        "lecturer": "Бушуев С.В",
         "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "333",
+        "subgroup": "B",
+        "classroom": "ТехП 20",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "start": "19:40",
+            "end": "22:50"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.10.05-2019.11.16"
+                "date": "2020.03.06-2020.04.03"
+            }
+        ]
+    },
+    {
+        "title": "Информационные технологии в приборостроении",
+        "lecturer": "Соколов В.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "323",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.28-2020.04.10"
+            }
+        ]
+    },
+    {
+        "title": "Информационные технологии в приборостроении",
+        "lecturer": "Соколов В.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "323",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.06-2020.04.17"
             }
         ]
     }

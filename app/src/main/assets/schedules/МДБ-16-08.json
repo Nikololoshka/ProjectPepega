@@ -4,70 +4,27 @@
         "lecturer": "Пустошная Л.С",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0812",
+        "classroom": "307",
         "time": {
             "start": "8:30",
             "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.02-2019.09.16"
-            }
-        ]
-    },
-    {
-        "title": "Экологические информационные системы",
-        "lecturer": "Фокин М.Г",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0301",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.23-2019.10.14"
-            }
-        ]
-    },
-    {
-        "title": "Процессы, аппараты защиты окружающей среды",
-        "lecturer": "Гвоздкова С.И",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0303",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.09-2019.10.14"
-            }
-        ]
-    },
-    {
-        "title": "Экологические информационные системы",
-        "lecturer": "Фокин М.Г",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0301",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.09.09"
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
             },
             {
                 "frequency": "once",
-                "date": "2019.09.16"
+                "date": "2020.03.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
@@ -76,82 +33,27 @@
         "lecturer": "Пустошная Л.С",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
+        "classroom": "307",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.23-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Промышленная экология",
-        "lecturer": "Пустошная Л.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.23-2019.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2019.11.11-2019.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Процессы, аппараты защиты окружающей среды",
-        "lecturer": "Гвоздкова С.И",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "0407",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.10.28"
+                "date": "2020.02.10"
             },
             {
                 "frequency": "throughout",
-                "date": "2019.11.18-2019.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Процессы, аппараты защиты окружающей среды",
-        "lecturer": "Гвоздкова С.И",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "0407",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
+                "date": "2020.02.17-2020.03.16"
+            },
             {
                 "frequency": "once",
-                "date": "2019.10.21"
+                "date": "2020.03.23"
             },
             {
-                "frequency": "throughout",
-                "date": "2019.11.11-2019.12.09"
+                "frequency": "once",
+                "date": "2020.03.30"
             }
         ]
     },
@@ -160,257 +62,24 @@
         "lecturer": "Рябов С.А",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0808",
+        "classroom": "306(а)",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.03-2019.11.05"
+                "date": "2020.02.11-2020.03.17"
             }
         ]
     },
     {
         "title": "Инженерные технологии в управлении отходами",
         "lecturer": "Рябов С.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0808",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.03-2019.11.05"
-            }
-        ]
-    },
-    {
-        "title": "Экологические информационные системы",
-        "lecturer": "Фокин М.Г",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0303",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Экологическая экспертиза, ОВОС и сертификация",
-        "lecturer": "Артемьева М.С",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "247",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Экологическая экспертиза, ОВОС и сертификация",
-        "lecturer": "Артемьева М.С",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "247",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.05"
-            }
-        ]
-    },
-    {
-        "title": "Экологические информационные системы",
-        "lecturer": "Фокин М.Г",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "0407",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.05"
-            }
-        ]
-    },
-    {
-        "title": "Экологические информационные системы",
-        "lecturer": "Фокин М.Г",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "0407",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.10.15-2019.11.12"
-            }
-        ]
-    },
-    {
-        "title": "Экологические информационные системы",
-        "lecturer": "Фокин М.Г",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "0407",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Экологические информационные системы",
-        "lecturer": "Фокин М.Г",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "0407",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2019.11.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Науки о Земле",
-        "lecturer": "Ягольницер О.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Науки о Земле",
-        "lecturer": "Ягольницер О.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.04-2019.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Экологическая экспертиза, ОВОС и сертификация",
-        "lecturer": "Артемьева М.С",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "247",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.13-2019.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Экологическая экспертиза, ОВОС и сертификация",
-        "lecturer": "Артемьева М.С",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "247",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2019.11.20-2019.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Экологическая экспертиза, ОВОС и сертификация",
-        "lecturer": "Михайлов И.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0809",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.12.12"
-            }
-        ]
-    },
-    {
-        "title": "Экологическая экспертиза, ОВОС и сертификация",
-        "lecturer": "Михайлов И.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0809",
+        "classroom": "306(а)",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -418,24 +87,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.10.03"
-            }
-        ]
-    },
-    {
-        "title": "Процессы, аппараты защиты окружающей среды",
-        "lecturer": "Гвоздкова С.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0404",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.05-2019.12.05"
+                "date": "2020.02.11-2020.03.31"
             }
         ]
     },
@@ -444,7 +96,24 @@
         "lecturer": "Фокин М.Г",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0303",
+        "classroom": "307",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.11-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Экологические информационные системы",
+        "lecturer": "Фокин М.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "307",
         "time": {
             "start": "16:00",
             "end": "17:40"
@@ -452,101 +121,50 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.05-2019.11.28"
+                "date": "2020.02.11-2020.03.17"
             }
         ]
     },
     {
-        "title": "Экологическая экспертиза, ОВОС и сертификация",
-        "lecturer": "Михайлов И.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0809",
+        "title": "Экологические информационные системы",
+        "lecturer": "Фокин М.Г",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0407",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "16:00",
+            "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2019.10.10-2019.12.12"
+                "frequency": "once",
+                "date": "2020.03.24"
             }
         ]
     },
     {
-        "title": "Управление техносферной безопасностью",
-        "lecturer": "Бутримова Е.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0809",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.10.25"
-            }
-        ]
-    },
-    {
-        "title": "Управление техносферной безопасностью",
-        "lecturer": "Бутримова Е.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0809",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.06-2019.10.25"
-            }
-        ]
-    },
-    {
-        "title": "Экологическая экспертиза, ОВОС и сертификация",
-        "lecturer": "Артемьева М.С",
+        "title": "Экологические информационные системы",
+        "lecturer": "Фокин М.Г",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "247",
+        "classroom": "0407",
         "time": {
-            "start": "12:20",
-            "end": "15:50"
+            "start": "16:00",
+            "end": "19:30"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2019.12.20"
+                "date": "2020.03.31"
             }
         ]
     },
     {
-        "title": "Промышленная экология",
-        "lecturer": "Пустошная Л.С",
+        "title": "Специальная оценка условий труда в машиностроении",
+        "lecturer": "Еременко О.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2019.09.07-2019.09.21"
-            }
-        ]
-    },
-    {
-        "title": "Промышленная экология",
-        "lecturer": "Пустошная Л.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0809",
+        "classroom": "308",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -554,49 +172,109 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2019.09.07-2019.12.21"
+                "date": "2020.02.12-2020.03.11"
             }
         ]
     },
     {
-        "title": "Инженерные технологии в управлении отходами",
-        "lecturer": "Рябов С.А",
+        "title": "Специальная оценка условий труда в машиностроении",
+        "lecturer": "Еременко О.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0808",
+        "classroom": "308",
         "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.11.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2019.11.23"
+                "frequency": "every",
+                "date": "2020.02.12-2020.03.11"
             }
         ]
     },
     {
-        "title": "Инженерные технологии в управлении отходами",
-        "lecturer": "Рябов С.А",
-        "type": "Seminar",
+        "title": "Процессы, аппараты защиты окружающей среды",
+        "lecturer": "Гвоздкова С.И",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0808",
+        "classroom": "0402",
         "time": {
             "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2019.11.16"
-            },
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Процессы, аппараты защиты окружающей среды",
+        "lecturer": "Гвоздкова С.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0402",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.03.18"
+            }
+        ]
+    },
+    {
+        "title": "Процессы, аппараты защиты окружающей среды",
+        "lecturer": "Гвоздкова С.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0407",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
             {
                 "frequency": "once",
-                "date": "2019.11.23"
+                "date": "2020.03.25"
+            }
+        ]
+    },
+    {
+        "title": "Процессы, аппараты защиты окружающей среды",
+        "lecturer": "Гвоздкова С.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "0407",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Промышленная экология",
+        "lecturer": "Пустошная Л.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0402",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.20-2020.03.26"
             }
         ]
     },
@@ -613,7 +291,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.14-2019.10.26"
+                "date": "2020.02.20-2020.03.19"
             }
         ]
     },
@@ -630,7 +308,75 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2019.09.21-2019.11.02"
+                "date": "2020.02.27-2020.03.26"
+            }
+        ]
+    },
+    {
+        "title": "Инженерные технологии в управлении отходами",
+        "lecturer": "Рябов С.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0303",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.03.27"
+            }
+        ]
+    },
+    {
+        "title": "Инженерные технологии в управлении отходами",
+        "lecturer": "Рябов С.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0303",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.03.27"
+            }
+        ]
+    },
+    {
+        "title": "Специальная оценка условий труда в машиностроении",
+        "lecturer": "Еременко О.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0303",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.03.13"
+            }
+        ]
+    },
+    {
+        "title": "Специальная оценка условий труда в машиностроении",
+        "lecturer": "Еременко О.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0303",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.03.13"
             }
         ]
     }

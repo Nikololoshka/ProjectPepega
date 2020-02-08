@@ -41,6 +41,14 @@
                     android:layout_gravity="bottom" >
 
                     <TextView
+                        style="@style/Text.Head"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/default_layout_padding"
+                        android:text="@string/repository_title"
+                        android:textColor="@color/colorTextLight" />
+
+                    <TextView
                         android:id="@+id/repository_version"
                         style="@style/Text.Subhead"
                         android:layout_width="match_parent"
