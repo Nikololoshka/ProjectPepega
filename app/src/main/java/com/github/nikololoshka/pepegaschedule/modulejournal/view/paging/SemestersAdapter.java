@@ -15,7 +15,6 @@ import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
-import com.github.nikololoshka.pepegaschedule.utils.StretchTable;
 
 import java.lang.ref.WeakReference;
 
@@ -69,7 +68,7 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
 
         private StatefulLayout mStatefulLayout;
 
-        private MarksTableAdapter mAdapter;
+        private MarksTable mMarksTable;
 
         private TextView mErrorTitleView;
         private TextView mErrorDescriptionView;
@@ -82,9 +81,7 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
             mStatefulLayout.setAnimation(false);
             mStatefulLayout.setLoadState();
 
-            StretchTable stretchTable= itemView.findViewById(R.id.mj_marks_table);
-            mAdapter = new MarksTableAdapter();
-            stretchTable.setAdapter(mAdapter);
+            mMarksTable = itemView.findViewById(R.id.mj_marks_table);
 
             mErrorTitleView = itemView.findViewById(R.id.mj_error_title);
             mErrorDescriptionView = itemView.findViewById(R.id.mj_error_description);
@@ -125,7 +122,7 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
             }
 
             // отображаем таблицу
-            mAdapter.addItems(marks.createColumnsData(), marks.createRowsData(), marks.createCellsData());
+            mMarksTable.submitLists(marks.createColumnsData(), marks.createRowsData(), marks.createCellsData());
             mStatefulLayout.setState(R.id.mj_semester_table);
         }
 

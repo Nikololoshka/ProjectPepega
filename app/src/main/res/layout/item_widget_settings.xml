@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/CardStyle"
     android:id="@+id/widget_item"
     android:layout_width="match_parent"
@@ -17,12 +17,12 @@
         <TextView
             style="@style/Text.Body2"
             android:id="@+id/widget_schedule_name"
-            android:text="@string/debug_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/widgetColorTitleText"
             android:padding="@dimen/default_layout_padding"
-            android:background="@color/widgetColorTitleBackground" />
+            android:background="@color/widgetColorTitleBackground"
+            tools:text="My schedules #1" />
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:layout_width="match_parent"

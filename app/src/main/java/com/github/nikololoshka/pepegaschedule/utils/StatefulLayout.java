@@ -101,9 +101,7 @@ public class StatefulLayout extends FrameLayout {
         final View oldView = mStateViews.get(mCurrentState);
         final View newView = mStateViews.get(state);
 
-        mCurrentState = state;
-
-        if (!mIsAnimated) {
+        if (!mIsAnimated || mCurrentState.isEmpty()) {
             if (newView != null) {
                 newView.setVisibility(VISIBLE);
             }
@@ -112,8 +110,11 @@ public class StatefulLayout extends FrameLayout {
                 oldView.setVisibility(GONE);
             }
 
+            mCurrentState = state;
             return;
         }
+
+        mCurrentState = state;
 
         if (newView != null) {
             newView.setAlpha(0f);

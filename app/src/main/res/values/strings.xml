@@ -3,9 +3,6 @@
     <string name="app_name" translatable="false">PROJECT PEPEGA</string>
     <string name="app_icon">Application icon</string>
 
-    <!-- debug -->
-    <string name="debug_text" translatable="false">Some text</string>
-
     <!-- activities -->
     <string name="pair_editor">Pair editor</string>
     <string name="date_editor">Date editor</string>
@@ -137,11 +134,17 @@
     <string name="about_changelog">ChangeLog</string>
     <string name="about_description">Description</string>
     <string name="about_description_text">
-        Powered by PEPEGA INC. NORTH.   \n\n
-        Thanks for the closed beta:     \n
-        - Bogodayko S.Y.                \n
-        - Binnyatov R.A.                \n
-        - Odintsova E.A.
+        \t<b>ProjectPepega</b> (aka Stankin Schedule) - an application developed
+        for students of MSTU "STANKIN" for convenient and comfortable schedule
+        management, viewing a modular journal.\n\n
+
+        \tPowered by PEPEGA INC. NORTH. \n
+        \tNikolay Vereshchagin \n\n
+
+        \tThanks for the closed beta: \n
+        \t\t - Bogodayko S.Y.         \n
+        \t\t - Binnyatov R.A.         \n
+        \t\t - Odintsova E.A.
     </string>
 
     <!-- notification -->

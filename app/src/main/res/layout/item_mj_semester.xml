@@ -12,7 +12,7 @@
         android:fillViewport="true"
         android:clipToPadding="false" >
 
-        <com.github.nikololoshka.pepegaschedule.utils.StretchTable
+        <com.github.nikololoshka.pepegaschedule.modulejournal.view.paging.MarksTable
             android:id="@+id/mj_marks_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

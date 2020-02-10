@@ -43,7 +43,6 @@ import com.github.nikololoshka.pepegaschedule.schedule.editor.pair.PairEditorAct
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
 import com.github.nikololoshka.pepegaschedule.schedule.view.paging.ScheduleDayItem;
 import com.github.nikololoshka.pepegaschedule.schedule.view.paging.ScheduleDayItemAdapter;
-import com.github.nikololoshka.pepegaschedule.schedule.view.paging.ScheduleDayItemStorage;
 import com.github.nikololoshka.pepegaschedule.schedule.view.paging.ScheduleViewSpaceItemDecoration;
 import com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
@@ -261,12 +260,12 @@ public class ScheduleViewFragment extends Fragment
                             if (itemFirst != null && itemFirst.day().equals(mScrollDate)) {
                                 mRecyclerSchedule.scrollToPosition(0);
                             } else {
-                                ScheduleDayItem itemSecond = scheduleDayItems.get(ScheduleDayItemStorage.PAGE_SIZE);
+                                ScheduleDayItem itemSecond = scheduleDayItems.get(count);
                                 if (itemSecond != null && itemSecond.day().equals(mScrollDate)) {
-                                    mRecyclerSchedule.scrollToPosition(ScheduleDayItemStorage.PAGE_SIZE);
+                                    mRecyclerSchedule.scrollToPosition(count);
                                 } else {
                                     if (position == 0) {
-                                        mRecyclerSchedule.scrollToPosition(ScheduleDayItemStorage.PAGE_SIZE);
+                                        mRecyclerSchedule.scrollToPosition(count);
                                     } else {
                                         mRecyclerSchedule.scrollToPosition(0);
                                     }

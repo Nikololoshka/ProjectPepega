@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorCardViewBackground"
     android:padding="@dimen/pair_card_padding"
     android:orientation="horizontal">
@@ -17,19 +17,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="3dp"
-            android:text="@string/debug_text"
             android:textSize="18sp"
             android:textColor="?android:attr/textColorPrimary"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="10:20" />
 
         <TextView
             android:id="@+id/pair_card_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/debug_text"
             android:textSize="18sp"
             android:textColor="?android:attr/textColorPrimary"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="12:00" />
 
     </LinearLayout>
 
@@ -47,9 +47,9 @@
             android:paddingBottom="5dp"
             android:paddingStart="3dp"
             android:paddingEnd="3dp"
-            android:text="@string/debug_text"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:text="Информатика" />
 
         <TextView
             android:id="@+id/pair_card_lecturer"
@@ -63,9 +63,9 @@
             android:paddingStart="3dp"
             android:paddingEnd="3dp"
             android:layout_marginBottom="5dp"
-            android:text="@string/debug_text"
             android:textColor="?android:attr/textColorSecondary"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:text="Чеканин В.А." />
 
         <TextView
             android:id="@+id/pair_card_classroom"
@@ -77,9 +77,9 @@
             android:paddingBottom="3dp"
             android:paddingStart="3dp"
             android:paddingEnd="3dp"
-            android:text="@string/debug_text"
             android:textColor="?android:attr/textColorSecondary"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:text="0404" />
 
         <TextView
             android:id="@+id/pair_card_type"
@@ -89,9 +89,9 @@
             android:layout_alignStart="@id/pair_card_title"
             android:includeFontPadding="false"
             android:padding="3dp"
-            android:text="@string/debug_text"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:text="Лабораторная работа" />
 
         <TextView
             android:id="@+id/pair_card_subgroup"
@@ -102,9 +102,9 @@
             android:layout_toEndOf="@id/pair_card_type"
             android:includeFontPadding="false"
             android:padding="3dp"
-            android:text="@string/debug_text"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:text="(А)" />
 
     </RelativeLayout>
 
