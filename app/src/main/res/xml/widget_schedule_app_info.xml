@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:configure="com.github.nikololoshka.pepegaschedule.widget.ScheduleAppWidgetConfigureActivity"
-    android:initialKeyguardLayout="@layout/widget_schedule_app"
-    android:initialLayout="@layout/widget_schedule_app"
+    android:configure="com.github.nikololoshka.pepegaschedule.widget.ScheduleWidgetConfigureActivity"
+    android:initialKeyguardLayout="@layout/widget_schedule"
+    android:initialLayout="@layout/widget_schedule"
     android:previewImage="@drawable/widget_schedule_preview"
     android:minWidth="110dp"
     android:minHeight="110dp"

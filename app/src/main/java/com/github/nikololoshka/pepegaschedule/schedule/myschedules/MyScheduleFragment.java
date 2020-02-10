@@ -33,6 +33,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.name.ScheduleNameEditorActivity;
 import com.github.nikololoshka.pepegaschedule.schedule.model.Schedule;
+import com.github.nikololoshka.pepegaschedule.schedule.myschedules.list.DragToMoveCallback;
+import com.github.nikololoshka.pepegaschedule.schedule.myschedules.list.MySchedulesAdapter;
 import com.github.nikololoshka.pepegaschedule.schedule.repository.ScheduleDownloaderService;
 import com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
@@ -403,8 +405,10 @@ public class MyScheduleFragment extends Fragment
         List<String> schedules = SchedulePreference.schedules(context);
         String favorite = SchedulePreference.favorite(context);
 
-        mSchedulesAdapter.submitList(schedules, favorite);
-        schedulesCountChanged();
+        if (mSchedulesAdapter != null) {
+            mSchedulesAdapter.submitList(schedules, favorite);
+            schedulesCountChanged();
+        }
     }
 
     /**

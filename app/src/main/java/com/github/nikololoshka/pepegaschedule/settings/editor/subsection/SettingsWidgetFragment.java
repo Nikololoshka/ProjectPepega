@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.settings.subsection;
+package com.github.nikololoshka.pepegaschedule.settings.editor.subsection;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
-import com.github.nikololoshka.pepegaschedule.widget.ScheduleAppWidgetConfigureActivity;
+import com.github.nikololoshka.pepegaschedule.widget.ScheduleWidgetConfigureActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,8 +77,10 @@ public class SettingsWidgetFragment extends Fragment
                 int[] ids = widgetManager.getAppWidgetIds(info.provider);
 
                 for (int id : ids) {
-                    String scheduleName = ScheduleAppWidgetConfigureActivity.loadPref(getContext(), id);
+                    ScheduleWidgetConfigureActivity.WidgetData data =
+                            ScheduleWidgetConfigureActivity.loadPref(getContext(), id);
 
+                    String scheduleName = data.scheduleName();
                     if (scheduleName != null) {
                         scheduleNames.add(scheduleName);
                         scheduleIDs.add(id);
@@ -101,10 +103,10 @@ public class SettingsWidgetFragment extends Fragment
     @Override
     public void OnWidgetClicked(int widgetID) {
         // вызываем конфигурационное окно для виджета
-        Intent configIntent = new Intent(getContext(), ScheduleAppWidgetConfigureActivity.class);
+        Intent configIntent = new Intent(getContext(), ScheduleWidgetConfigureActivity.class);
         configIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_CONFIGURE);
         configIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetID);
-        configIntent.putExtra(ScheduleAppWidgetConfigureActivity.CONFIGURE_BUTTON_TEXT_EXTRA,
+        configIntent.putExtra(ScheduleWidgetConfigureActivity.CONFIGURE_BUTTON_TEXT_EXTRA,
                 getString(R.string.widget_schedule_update));
 
         PendingIntent configurationPendingIntent = PendingIntent.getActivity(getContext(),

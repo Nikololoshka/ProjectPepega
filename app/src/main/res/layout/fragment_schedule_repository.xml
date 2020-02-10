@@ -6,7 +6,6 @@
     android:id="@+id/stateful_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     tools:context=".schedule.repository.ScheduleRepositoryFragment">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -38,13 +37,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_gravity="bottom" >
+                    android:layout_gravity="bottom"
+                    android:padding="@dimen/default_layout_padding">
 
                     <TextView
-                        style="@style/Text.Head"
+                        style="@style/Text.Medium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/default_layout_padding"
+                        android:paddingBottom="@dimen/default_layout_padding"
                         android:text="@string/repository_title"
                         android:textColor="@color/colorTextLight" />
 
@@ -53,18 +53,16 @@
                         style="@style/Text.Subhead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/default_layout_padding"
-                        android:text="@string/debug_text"
-                        android:textColor="@color/colorTextLight" />
+                        android:textColor="@color/colorTextLight"
+                        tools:text="Repository version: Spring-2020" />
 
                     <TextView
                         android:id="@+id/repository_last_update"
                         style="@style/Text.Subhead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/default_layout_padding"
-                        android:text="@string/debug_text"
-                        android:textColor="@color/colorTextLight" />
+                        android:textColor="@color/colorTextLight"
+                        tools:text="Last update: 07.02.20" />
 
                 </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.schedule.repository;
+package com.github.nikololoshka.pepegaschedule.schedule.repository.list;
 
 import androidx.annotation.NonNull;
 

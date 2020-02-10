@@ -41,7 +41,6 @@ import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.name.ScheduleNameEditorActivity;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.pair.PairEditorActivity;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.Pair;
-import com.github.nikololoshka.pepegaschedule.schedule.view.paging.OnPairCardListener;
 import com.github.nikololoshka.pepegaschedule.schedule.view.paging.ScheduleDayItem;
 import com.github.nikololoshka.pepegaschedule.schedule.view.paging.ScheduleDayItemAdapter;
 import com.github.nikololoshka.pepegaschedule.schedule.view.paging.ScheduleDayItemStorage;
@@ -67,7 +66,8 @@ import static com.github.nikololoshka.pepegaschedule.schedule.editor.name.Schedu
 /**
  * Фрагмент просмотра расписания.
  */
-public class ScheduleViewFragment extends Fragment implements OnPairCardListener {
+public class ScheduleViewFragment extends Fragment
+        implements ScheduleDayItemAdapter.OnPairCardListener {
 
     private static final String TAG = "ScheduleViewFragmentLog";
 

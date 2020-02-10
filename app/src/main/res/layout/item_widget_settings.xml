@@ -31,7 +31,7 @@
             app:shimmer_repeat_delay="2000" >
 
             <include
-                layout="@layout/widget_item_schedule_app_pair_shimmer"
+                layout="@layout/widget_item_schedule_pair_shimmer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

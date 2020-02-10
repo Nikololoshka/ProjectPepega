@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.settings;
+package com.github.nikololoshka.pepegaschedule.settings.editor;
 
 
 import android.content.Intent;
@@ -27,6 +27,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
     private static final String SETTINGS_NOTIFICATION_FRAGMENT = "settings_notification_fragment";
 
     public SettingsFragment() {
+        super();
     }
 
     @Override

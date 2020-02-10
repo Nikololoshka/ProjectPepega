@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.schedule.repository;
+package com.github.nikololoshka.pepegaschedule.schedule.repository.list;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +22,6 @@ public class ScheduleRepositoryAdapter
         extends RecyclerView.Adapter<ScheduleRepositoryAdapter.ScheduleRepositoryHolder> {
 
     private AsyncListDiffer<RepositoryItem> mDiffer;
-
     final private OnRepositoryClickListener mListener;
 
     /**
@@ -36,7 +35,7 @@ public class ScheduleRepositoryAdapter
         void onRepositoryItemClicked(@NonNull RepositoryItem item);
     }
 
-    ScheduleRepositoryAdapter(@NonNull OnRepositoryClickListener listener) {
+    public ScheduleRepositoryAdapter(@NonNull OnRepositoryClickListener listener) {
         mDiffer = new AsyncListDiffer<>(this, new DiffUtil.ItemCallback<RepositoryItem>() {
             @Override
             public boolean areItemsTheSame(@NonNull RepositoryItem oldItem, @NonNull RepositoryItem newItem) {
@@ -56,7 +55,7 @@ public class ScheduleRepositoryAdapter
      * Обновляе данные в адапторе.
      * @param data данные.
      */
-    void submitList(@Nullable List<RepositoryItem> data) {
+    public void submitList(@Nullable List<RepositoryItem> data) {
         mDiffer.submitList(data);
     }
 

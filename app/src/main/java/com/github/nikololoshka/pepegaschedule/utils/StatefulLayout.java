@@ -1,74 +1,73 @@
 package com.github.nikololoshka.pepegaschedule.utils;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.FrameLayout;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.transition.Fade;
-import androidx.transition.TransitionManager;
-import androidx.transition.TransitionSet;
 
 import com.github.nikololoshka.pepegaschedule.R;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 
 /**
  * Компонент, который в себе содержит отображает одну view с возможностью переключения.
  */
-public class StatefulLayout extends LinearLayout {
+public class StatefulLayout extends FrameLayout {
 
     private static final String LOAD_STATE = "load_state";
-    private static final String ERROR_STATE = "error_state";
+
+    private static final int DEFAULT_DURATION = 300;
 
     /**
      * Список всех view.
      */
-    private HashMap<String, View> mStateViews = new HashMap<>();
+    private LinkedHashMap<String, View> mStateViews = new LinkedHashMap<>();
 
     /**
      * Текущая view.
      */
-    private String mCurrentState = "";
+    private String mCurrentState;
 
     /**
      * Будет ли анимирован переход между состояниями.
      */
-    private boolean mIsAnimated = true;
+    private boolean mIsAnimated;
 
     public StatefulLayout(@NonNull Context context) {
         super(context);
-        initialization(context);
+        initialization();
     }
 
     public StatefulLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        initialization(context);
+        initialization();
     }
 
     public StatefulLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initialization(context);
+        initialization();
     }
 
     public StatefulLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        initialization(context);
+        initialization();
     }
 
     /**
      * Инициализуриет view.
-     * @param context - контекст приложения.
      */
-    private void initialization(@NonNull Context context) {
-        setOrientation(VERTICAL);
+    private void initialization() {
+        mCurrentState = "";
+        mIsAnimated = true;
     }
 
     /**
@@ -76,7 +75,7 @@ public class StatefulLayout extends LinearLayout {
      * @param state - название view.
      * @param view - сама view.
      */
-    public void addState(String state, View view) {
+    public void addState(@NonNull String state, @NonNull View view) {
         // если такое состояние уже было, то удалить
         mStateViews.remove(state);
 
@@ -99,23 +98,43 @@ public class StatefulLayout extends LinearLayout {
             return;
         }
 
-        if (!mCurrentState.isEmpty() && mIsAnimated) {
-            TransitionSet transition = new TransitionSet();
-            transition.addTransition(new Fade());
-            transition.setDuration(300);
-            TransitionManager.beginDelayedTransition(this, transition);
-        }
-
-        View oldView = mStateViews.get(mCurrentState);
-        if (oldView != null) {
-            oldView.setVisibility(GONE);
-        }
+        final View oldView = mStateViews.get(mCurrentState);
+        final View newView = mStateViews.get(state);
 
         mCurrentState = state;
 
-        View newView = mStateViews.get(mCurrentState);
+        if (!mIsAnimated) {
+            if (newView != null) {
+                newView.setVisibility(VISIBLE);
+            }
+
+            if (oldView != null) {
+                oldView.setVisibility(GONE);
+            }
+
+            return;
+        }
+
         if (newView != null) {
+            newView.setAlpha(0f);
             newView.setVisibility(VISIBLE);
+
+            newView.animate()
+                    .alpha(1f)
+                    .setDuration(DEFAULT_DURATION)
+                    .setListener(null);
+        }
+
+        if (oldView != null) {
+            oldView.animate()
+                    .alpha(0f)
+                    .setDuration(DEFAULT_DURATION)
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            oldView.setVisibility(GONE);
+                        }
+                    });
         }
     }
 
@@ -132,7 +151,7 @@ public class StatefulLayout extends LinearLayout {
      * Установить отображаемую view из XML разметки.
      * @param id - id view, которую необходимо отобразить.
      */
-    public void setState(int id) {
+    public void setState(@IdRes int id) {
         String stringID = String.valueOf(id);
         setState(stringID);
     }
@@ -146,57 +165,6 @@ public class StatefulLayout extends LinearLayout {
             addState(LOAD_STATE, LayoutInflater.from(getContext()).inflate(R.layout.view_loading, null));
         }
         setState(LOAD_STATE);
-    }
-
-    /**
-     * Устанавливает текст ошибки на стандартное view.
-     * @param errorMessage - текст ошибки.
-     */
-    public void setErrorText(@NonNull String errorMessage) {
-        setErrorText(errorMessage, null);
-    }
-
-    /**
-     * Устанавливает текст ошибки на стандартное view.
-     * @param errorMessage - текст ошибки.
-     * @param errorDescription - описание ошибки.
-     */
-    public void setErrorText(@NonNull String errorMessage, @Nullable String errorDescription) {
-        View view = mStateViews.get(ERROR_STATE);
-        if (view == null) {
-            return;
-        }
-
-        TextView title = view.findViewById(R.id.error_title);
-        title.setText(errorMessage);
-
-        TextView description = view.findViewById(R.id.error_description);
-        description.setText(errorDescription != null ? errorDescription : "");
-    }
-
-    /**
-     * Отображает стандартное view "ошибки" с текстом.
-     * @param errorMessage - текст ошибки.
-     *
-     */
-    public void setErrorStateWithMessage(@NonNull String errorMessage) {
-        setErrorStateWithMessage(errorMessage, null);
-    }
-
-    /**
-     * Отображает стандартное view "ошибки" с текстом.
-     * @param errorMessage - текст ошибки.
-     * @param errorDescription - описание ошибки.
-     */
-    @SuppressLint("InflateParams")
-    public void setErrorStateWithMessage(@NonNull String errorMessage, @Nullable String errorDescription) {
-        setErrorText(errorMessage, errorDescription);
-
-        if (!mStateViews.containsKey(ERROR_STATE)) {
-            addState(ERROR_STATE, LayoutInflater.from(getContext()).inflate(R.layout.view_error, null));
-        }
-
-        setState(ERROR_STATE);
     }
 
     /**
@@ -217,29 +185,11 @@ public class StatefulLayout extends LinearLayout {
     }
 
     /**
-     * Скрывает все view с layout'а.
-     */
-    public void hideAll() {
-        for (View view : mStateViews.values()) {
-            view.setVisibility(GONE);
-        }
-
-        mCurrentState = "";
-    }
-
-    /**
      * Проверяет, является ли переданный id слоя текущим.
      * @param id слой.
      * @return true если да, иначе false.
      */
     public boolean isCurrentState(@IdRes int id) {
         return mCurrentState.equals(String.valueOf(id));
-    }
-
-    /**
-     * @return - количество состояний.
-     */
-    public int stateCount() {
-        return mStateViews.size();
     }
 }

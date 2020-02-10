@@ -1,53 +1,73 @@
 package com.github.nikololoshka.pepegaschedule.modulejournal.login;
 
+import android.animation.ValueAnimator;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.Loader;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import com.github.nikololoshka.pepegaschedule.R;
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalService;
+import com.github.nikololoshka.pepegaschedule.utils.TextWatcherWrapper;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.lang.ref.WeakReference;
-import java.util.Objects;
 
 /**
  * Фрагмент авторизации в модульный журнал.
  */
 public class ModuleJournalLoginFragment extends Fragment
-        implements View.OnClickListener,
-        LoaderManager.LoaderCallbacks<ModuleJournalLoginLoader.LoadData> {
+        implements View.OnClickListener {
 
-    private static final int MODULE_JOURNAL_LOGIN_LOADER = 0;
-
+    private TextInputLayout mLoginFieldLayout;
     private TextInputEditText mLoginFieldEditText;
+
+    private TextInputLayout mPasswordFieldLayout;
     private TextInputEditText mPasswordFieldEditText;
+
     private Button mSignInButton;
     private Button mForgotPasswordButton;
 
-    private ModuleJournalLoginLoader mLoginLoader;
+    private ProgressBar mLoginLoading;
+    private ValueAnimator mLoginLoadingAnimator;
+    private int mLoginLoadingHeight;
+
+    /**
+     * ViewModel для авторизации.
+     */
+    private ModuleJournalLoginModel mModuleJournalLoginModel;
 
     public ModuleJournalLoginFragment() {
         super();
+
+        mLoginLoadingAnimator = new ValueAnimator();
+        mLoginLoadingAnimator.setDuration(300);
+        mLoginLoadingAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                mLoginLoading.getLayoutParams().height = (int) animation.getAnimatedValue();
+                mLoginLoading.requestLayout();
+            }
+        });
     }
 
     @Override
@@ -55,13 +75,16 @@ public class ModuleJournalLoginFragment extends Fragment
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_module_journal_login, container, false);
 
+        mLoginFieldLayout = view.findViewById(R.id.mj_login_layout);
         mLoginFieldEditText = view.findViewById(R.id.mj_login);
+
+        mPasswordFieldLayout = view.findViewById(R.id.mj_password_layout);
         mPasswordFieldEditText = view.findViewById(R.id.mj_password);
 
-        DataTextWatcher loginWatcher = new DataTextWatcher(mLoginFieldEditText);
+        DataTextWatcher loginWatcher = new DataTextWatcher(mLoginFieldLayout);
         mLoginFieldEditText.addTextChangedListener(loginWatcher);
 
-        DataTextWatcher passwordWatcher = new DataTextWatcher(mPasswordFieldEditText);
+        DataTextWatcher passwordWatcher = new DataTextWatcher(mPasswordFieldLayout);
         mPasswordFieldEditText.addTextChangedListener(passwordWatcher);
 
         mSignInButton = view.findViewById(R.id.mj_sign_in);
@@ -70,8 +93,19 @@ public class ModuleJournalLoginFragment extends Fragment
         mForgotPasswordButton = view.findViewById(R.id.mj_forgot_password);
         mForgotPasswordButton.setOnClickListener(this);
 
-        mLoginLoader = (ModuleJournalLoginLoader) LoaderManager.getInstance(this)
-                .initLoader(MODULE_JOURNAL_LOGIN_LOADER, null, this);
+        mLoginLoading = view.findViewById(R.id.mj_login_loading);
+        mLoginLoadingHeight = getResources().getDimensionPixelOffset(R.dimen.horizontal_loading_height);
+
+        mModuleJournalLoginModel = new ViewModelProvider(this,
+                new ModuleJournalLoginModel.Factory(getActivity().getApplication()))
+                .get(ModuleJournalLoginModel.class);
+
+        mModuleJournalLoginModel.stateData().observe(getViewLifecycleOwner(), new Observer<ModuleJournalLoginModel.State>() {
+            @Override
+            public void onChanged(ModuleJournalLoginModel.State state) {
+                stateChanged(state);
+            }
+        });
 
         return view;
     }
@@ -101,7 +135,7 @@ public class ModuleJournalLoginFragment extends Fragment
                     return;
                 }
 
-                setEnabledView(false);
+                setLoading(true);
 
                 mLoginFieldEditText.clearFocus();
                 mPasswordFieldEditText.clearFocus();
@@ -109,8 +143,8 @@ public class ModuleJournalLoginFragment extends Fragment
                 Editable login = mLoginFieldEditText.getText();
                 Editable password = mPasswordFieldEditText.getText();
 
-                mLoginLoader.signIn(login != null ? login.toString() : null,
-                        password != null ? password.toString() : null);
+                mModuleJournalLoginModel.singIn(login == null ? "" : login.toString(),
+                        password == null ? "" : password.toString());
 
                 break;
             }
@@ -143,15 +177,19 @@ public class ModuleJournalLoginFragment extends Fragment
     }
 
     /**
-     * Устанавливает доступность по нажатию view элементом.
-     * @param enabledView true - включить, false - выключить view.
+     * Устанавливает загрузку в фрагмент, пока происходит авторизация.
+     * @param isLoading true - включить, false - выключить.
      */
-    private void setEnabledView(boolean enabledView) {
-        mLoginFieldEditText.setEnabled(enabledView);
-        mPasswordFieldEditText.setEnabled(enabledView);
+    private void setLoading(boolean isLoading) {
+        mLoginFieldEditText.setEnabled(!isLoading);
+        mPasswordFieldEditText.setEnabled(!isLoading);
 
-        mSignInButton.setEnabled(enabledView);
-        mForgotPasswordButton.setEnabled(enabledView);
+        mSignInButton.setEnabled(!isLoading);
+        mForgotPasswordButton.setEnabled(!isLoading);
+
+        int target = isLoading ? mLoginLoadingHeight : 0;
+        mLoginLoadingAnimator.setIntValues(mLoginLoading.getMeasuredHeight(), target);
+        mLoginLoadingAnimator.start();
     }
 
     /**
@@ -170,100 +208,99 @@ public class ModuleJournalLoginFragment extends Fragment
         }
 
         if (loginText.isEmpty()) {
-            mLoginFieldEditText.setError(getString(R.string.mj_empty_filed));
+            mLoginFieldLayout.setErrorEnabled(true);
+            mLoginFieldLayout.setError(getString(R.string.mj_empty_filed));
             return false;
         }
 
         if (passwordText.isEmpty()) {
-            mPasswordFieldEditText.setError(getString(R.string.mj_empty_filed));
+            mPasswordFieldLayout.setEnabled(true);
+            mPasswordFieldLayout.setError(getString(R.string.mj_empty_filed));
             return false;
         }
 
         return true;
     }
 
-    @NonNull
-    @Override
-    public Loader<ModuleJournalLoginLoader.LoadData> onCreateLoader(int id, @Nullable Bundle args) {
-        return new ModuleJournalLoginLoader(Objects.requireNonNull(getContext()));
-    }
-
-    @Override
-    public void onLoadFinished(@NonNull Loader<ModuleJournalLoginLoader.LoadData> loader,
-                               ModuleJournalLoginLoader.LoadData data) {
-        if (data.signIn) {
-            // если авторизовалить то к модульному журналу
-            popToModuleJournal();
-
-        } else {
-            setEnabledView(true);
-
-            if (data.error == null) {
-                return;
+    /**
+     * Вызывается, когда поменялось состояние авторизации.
+     * @param state состояние.
+     */
+    private void stateChanged(@NonNull ModuleJournalLoginModel.State state) {
+        switch (state) {
+            case AUTHORIZED: {
+                popToModuleJournal();
+                break;
             }
-
-            String title = data.error.errorTitle();
-            if (title == null) {
-                    title = getString(data.error.errorTitleRes());
+            case LOADING: {
+                setLoading(true);
+                break;
             }
+            case ERROR: {
+                setLoading(false);
 
-            String description = data.error.errorDescription();
-            if (description == null) {
-                description = getString(data.error.errorDescriptionRes());
+                ModuleJournalError error = mModuleJournalLoginModel.error();
+
+                if (error == null) {
+                    return;
+                }
+
+                String title = error.errorTitle();
+                if (title == null) {
+                    title = getString(error.errorTitleRes());
+                }
+
+                String description = error.errorDescription();
+                if (description == null) {
+                    description = getString(error.errorDescriptionRes());
+                }
+
+                new AlertDialog.Builder(getContext())
+                        .setTitle(title)
+                        .setMessage(description)
+                        .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .create()
+                        .show();
+                break;
             }
-
-            new AlertDialog.Builder(getContext())
-                    .setTitle(title)
-                    .setMessage(description)
-                    .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
-                    .create()
-                    .show();
-
+            case WAIT: {
+                setLoading(false);
+                break;
+            }
         }
     }
 
-    @Override
-    public void onLoaderReset(@NonNull Loader<ModuleJournalLoginLoader.LoadData> loader) {
-
-    }
 
     /**
      * Watcher для проверки полей ввода данных.
      */
-    private class DataTextWatcher implements TextWatcher {
+    private class DataTextWatcher extends TextWatcherWrapper {
 
-        private WeakReference<TextInputEditText> mFiled;
+        private WeakReference<TextInputLayout> mFieldLayout;
 
-        DataTextWatcher(@NonNull TextInputEditText filed) {
-            mFiled = new WeakReference<>(filed);
+        DataTextWatcher(@NonNull TextInputLayout fieldLayout) {
+            mFieldLayout = new WeakReference<>(fieldLayout);
         }
 
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            TextInputEditText field = mFiled.get();
-            if (field == null) {
+        public void onTextChanged(@NonNull String s) {
+            TextInputLayout fieldLayout = mFieldLayout.get();
+            if (fieldLayout  == null) {
                 return;
             }
 
             if (s.length() == 0) {
-                field.setError(getString(R.string.mj_empty_filed));
+                fieldLayout.setErrorEnabled(true);
+                fieldLayout.setError(getString(R.string.mj_empty_filed));
             } else {
-                field.setError(null);
+                fieldLayout.setErrorEnabled(false);
+                fieldLayout .setError(null);
             }
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
         }
     }
 }

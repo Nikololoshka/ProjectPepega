@@ -22,4 +22,7 @@
     <color name="colorDrawableLight">#FF000000</color>
     <color name="colorDrawableDark">#FFFFFFFF</color>
 
+    <!-- Цвета виджета расписания -->
+    <color name="widgetColorBodyBackground">?android:attr/colorBackground</color>
+
 </resources>

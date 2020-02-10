@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.settings.subsection;
+package com.github.nikololoshka.pepegaschedule.settings.editor.subsection;
 
 import android.content.Context;
 import android.content.res.TypedArray;

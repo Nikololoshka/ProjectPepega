@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.schedule.editor.pair;
+package com.github.nikololoshka.pepegaschedule.schedule.editor.pair.list;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -25,7 +25,7 @@ public abstract class SwipeToDeleteCallback extends ItemTouchHelper.Callback {
     private ColorDrawable mBackground;
     private Drawable deleteDrawable;
 
-    SwipeToDeleteCallback(@NonNull Context context) {
+    public SwipeToDeleteCallback(@NonNull Context context) {
         int backgroundColor = Color.parseColor("#b80f0a");
         mBackground = new ColorDrawable(backgroundColor);
 

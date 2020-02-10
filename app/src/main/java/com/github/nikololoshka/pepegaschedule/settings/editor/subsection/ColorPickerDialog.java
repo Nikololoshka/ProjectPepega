@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.settings.subsection;
+package com.github.nikololoshka.pepegaschedule.settings.editor.subsection;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;

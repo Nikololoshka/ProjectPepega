@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.schedule.myschedules;
+package com.github.nikololoshka.pepegaschedule.schedule.myschedules.list;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -30,7 +30,7 @@ public abstract class DragToMoveCallback extends ItemTouchHelper.Callback {
         void onStartDrag(RecyclerView.ViewHolder viewHolder);
     }
 
-    DragToMoveCallback() {
+    public DragToMoveCallback() {
         super();
     }
 
@@ -53,7 +53,7 @@ public abstract class DragToMoveCallback extends ItemTouchHelper.Callback {
         private RecyclerView mRecyclerView;
         private Paint mPaint;
 
-        RecyclerViewBackground(@NonNull Context context) {
+        public RecyclerViewBackground(@NonNull Context context) {
             super();
             mPaint = new Paint();
             mPaint.setColor(ContextCompat.getColor(context, R.color.colorCardViewBackground));

@@ -24,7 +24,7 @@
 
         <!--   Widgets   -->
         <receiver
-            android:name=".widget.ScheduleAppWidget"
+            android:name=".widget.ScheduleWidget"
             android:label="@string/widget_schedule_name" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -35,7 +35,7 @@
         </receiver>
 
         <activity
-            android:name=".widget.ScheduleAppWidgetConfigureActivity"
+            android:name=".widget.ScheduleWidgetConfigureActivity"
             android:label="@string/widget_configurator"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -49,7 +49,7 @@
             android:exported="false" />
 
         <service
-            android:name=".widget.ScheduleAppWidgetRemoteService"
+            android:name=".widget.ScheduleWidgetRemoteFactory$Service"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <!--  Activities   -->

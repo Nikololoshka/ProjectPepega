@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.schedule.myschedules;
+package com.github.nikololoshka.pepegaschedule.schedule.myschedules.list;
 
 import android.annotation.SuppressLint;
 import android.util.Log;
@@ -52,7 +52,7 @@ public class MySchedulesAdapter extends RecyclerView.Adapter<MySchedulesAdapter.
 
     private boolean mIsAnimate;
 
-    MySchedulesAdapter(@NonNull OnItemClickListener clickListener, @NonNull DragToMoveCallback.OnStartDragListener dragStartListener) {
+    public MySchedulesAdapter(@NonNull OnItemClickListener clickListener, @NonNull DragToMoveCallback.OnStartDragListener dragStartListener) {
         mClickListener = clickListener;
         mDragStartListener = dragStartListener;
 
@@ -65,7 +65,7 @@ public class MySchedulesAdapter extends RecyclerView.Adapter<MySchedulesAdapter.
      * @param schedules расписания.
      * @param favoriteSchedule избранное расписание.
      */
-    void submitList(@NonNull List<String> schedules, @NonNull String favoriteSchedule) {
+    public void submitList(@NonNull List<String> schedules, @NonNull String favoriteSchedule) {
         mSchedules = schedules;
         mFavoriteSchedule = favoriteSchedule;
 
@@ -102,7 +102,7 @@ public class MySchedulesAdapter extends RecyclerView.Adapter<MySchedulesAdapter.
      * @param fromPosition начальная позиция.
      * @param toPosition конечная позиция.
      */
-    void moveItem(int fromPosition, int toPosition) {
+    public void moveItem(int fromPosition, int toPosition) {
         Collections.swap(mSchedules, fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
     }

@@ -2,6 +2,7 @@ package com.github.nikololoshka.pepegaschedule.schedule.repository;
 
 import android.animation.ValueAnimator;
 import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,15 +18,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.Loader;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.BuildConfig;
 import com.github.nikololoshka.pepegaschedule.R;
+import com.github.nikololoshka.pepegaschedule.schedule.repository.list.RepositoryItem;
+import com.github.nikololoshka.pepegaschedule.schedule.repository.list.ScheduleRepositoryAdapter;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
 import com.google.android.material.appbar.AppBarLayout;
@@ -33,29 +35,27 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 /**
  * Фрагмент репозитория с расписаниями.
  */
 public class ScheduleRepositoryFragment extends Fragment
-        implements ScheduleRepositoryAdapter.OnRepositoryClickListener, LoaderManager.LoaderCallbacks<List<RepositoryItem>> {
-
-    private static final int SCHEDULE_REPOSITORY_LOADER = 0;
+        implements ScheduleRepositoryAdapter.OnRepositoryClickListener {
 
     private static final String ARG_FILTER_QUERY = "filter_query";
 
     private static final String TAG = "ScheduleRepositoryLog";
 
-    /**
-     * Загрузчик расписаний.
-     */
-    private Loader<List<RepositoryItem>> mRepositoryLoader;
-    @Nullable
-    private List<RepositoryItem> mRepositoryItems;
-
     private StatefulLayout mStatefulLayout;
+
+    /**
+     * ViewModel репозитория.
+     */
+    private ScheduleRepositoryModel mScheduleRepositoryModel;
+    /**
+     * Адаптер для списка расписаний.
+     */
     private ScheduleRepositoryAdapter mRepositoryAdapter;
 
     private AppBarLayout mAppBarRepository;
@@ -97,9 +97,7 @@ public class ScheduleRepositoryFragment extends Fragment
         super.onDetach();
         // скрыть клавиатуру при выходе
         if (getActivity() != null) {
-            InputMethodManager manager = ContextCompat.getSystemService(getActivity(),
-                    InputMethodManager.class);
-
+            InputMethodManager manager = getActivity().getSystemService(InputMethodManager.class);
             View currentFocusedView = getActivity().getCurrentFocus();
             if (currentFocusedView != null && manager != null) {
                 manager.hideSoftInputFromWindow(currentFocusedView.getWindowToken(),
@@ -132,8 +130,23 @@ public class ScheduleRepositoryFragment extends Fragment
         mRepositoryAdapter = new ScheduleRepositoryAdapter(this);
         recyclerView.setAdapter(mRepositoryAdapter);
 
-        mRepositoryLoader = LoaderManager.getInstance(this)
-                .initLoader(SCHEDULE_REPOSITORY_LOADER, null, this);
+        mScheduleRepositoryModel = new ViewModelProvider(this,
+                new ScheduleRepositoryModel.Factory(getActivity().getApplication()))
+                .get(ScheduleRepositoryModel.class);
+
+        mScheduleRepositoryModel.state().observe(getViewLifecycleOwner(), new Observer<ScheduleRepositoryModel.State>() {
+            @Override
+            public void onChanged(ScheduleRepositoryModel.State state) {
+                stateChanged(state);
+            }
+        });
+
+        mScheduleRepositoryModel.schedules().observe(getViewLifecycleOwner(), new Observer<List<RepositoryItem>>() {
+            @Override
+            public void onChanged(List<RepositoryItem> repositoryItems) {
+                mRepositoryAdapter.submitList(repositoryItems);
+            }
+        });
 
         return view;
     }
@@ -207,7 +220,7 @@ public class ScheduleRepositoryFragment extends Fragment
      */
     private void reloadData() {
         mStatefulLayout.setLoadState();
-        mRepositoryLoader.forceLoad();
+        mScheduleRepositoryModel.loadSchedules();
     }
 
     /**
@@ -218,7 +231,9 @@ public class ScheduleRepositoryFragment extends Fragment
         changeAppBarHeight(query.isEmpty() ? getResources()
                 .getDimensionPixelSize(R.dimen.appbar_repository_height) : 0);
 
-        if (mRepositoryItems == null) {
+        List<RepositoryItem> repositoryItems = mScheduleRepositoryModel.schedules().getValue();
+
+        if (repositoryItems == null) {
             return;
         }
 
@@ -226,16 +241,16 @@ public class ScheduleRepositoryFragment extends Fragment
 
         List<RepositoryItem> items;
         if (query.isEmpty()) {
-            items = mRepositoryItems;
+            items = repositoryItems;
         } else {
             items = new ArrayList<>();
             // поиск
             String right = query.toLowerCase();
-            for (int i = 0; i < mRepositoryItems.size(); i++) {
-                String left = mRepositoryItems.get(i).name().toLowerCase();
+            for (int i = 0; i < repositoryItems.size(); i++) {
+                String left = repositoryItems.get(i).name().toLowerCase();
 
                 if (left.contains(right)) {
-                    items.add(mRepositoryItems.get(i));
+                    items.add(repositoryItems.get(i));
                 }
             }
         }
@@ -267,17 +282,18 @@ public class ScheduleRepositoryFragment extends Fragment
 
     @Override
     public void onRepositoryItemClicked(@NonNull RepositoryItem item) {
-        if (getContext() == null) {
+        Context context = getContext();
+        if (context == null) {
             return;
         }
 
-        if (SchedulePreference.schedules(getContext()).contains(item.name())){
+        if (SchedulePreference.schedules(context).contains(item.name())){
             showMessage(getString(R.string.schedule_editor_exists));
             return;
         }
 
         // создаем Service для скачивания расписания
-        ScheduleDownloaderService.createTask(getContext(), item.name(), item.path());
+        ScheduleDownloaderService.createTask(context, item.name(), item.path());
 
         showMessage(String.format("%s: %s ", getString(R.string.repository_loading_schedule), item.name()));
     }
@@ -294,29 +310,25 @@ public class ScheduleRepositoryFragment extends Fragment
         }
     }
 
-    @NonNull
-    @Override
-    public Loader<List<RepositoryItem>> onCreateLoader(int id, @Nullable Bundle args) {
-        mRepositoryLoader = new ScheduleRepositoryLoader(Objects.requireNonNull(getActivity()));
-        reloadData();
-        return mRepositoryLoader;
-    }
-
-    @Override
-    public void onLoadFinished(@NonNull Loader<List<RepositoryItem>> loader, List<RepositoryItem> data) {
-        if (data == null) {
-            // TODO: 28/01/20 обработка ошибки загрузки
-            Toast.makeText(getContext(), "Error loading data", Toast.LENGTH_SHORT).show();
-            return;
+    /**
+     * Вызывается, когда поменялось состояние загрузки расписаний.
+     * @param state сотсояние.
+     */
+    private void stateChanged(@NonNull ScheduleRepositoryModel.State state) {
+        switch (state) {
+            case OK: {
+                mStatefulLayout.setState(R.id.repository_container);
+                break;
+            }
+            case LOADING: {
+                mStatefulLayout.setLoadState();
+                break;
+            }
+            case ERROR: {
+                // TODO: 28/01/20 обработка ошибки загрузки
+                Toast.makeText(getContext(), "Error loading data", Toast.LENGTH_SHORT).show();
+                break;
+            }
         }
-
-        mRepositoryItems = data;
-
-        mRepositoryAdapter.submitList(data);
-        mStatefulLayout.setState(R.id.repository_container);
-    }
-
-    @Override
-    public void onLoaderReset(@NonNull Loader<List<RepositoryItem>> loader) {
     }
 }

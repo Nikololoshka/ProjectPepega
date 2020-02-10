@@ -4,7 +4,7 @@
 
     <PreferenceCategory
         android:title="@string/notification_common"
-        app:iconSpaceReserved="false" >
+        app:layout="@layout/preference_custom_category" >
 
         <SwitchPreferenceCompat
             android:defaultValue="true"
@@ -18,7 +18,7 @@
     <PreferenceCategory
         android:title="@string/news_deanery"
         app:enabled="false"
-        app:iconSpaceReserved="false" >
+        app:layout="@layout/preference_custom_category" >
 
         <SwitchPreferenceCompat
             android:key="deanery_news_turn"
@@ -30,7 +30,7 @@
     <PreferenceCategory
         android:title="@string/news_university"
         app:enabled="false"
-        app:iconSpaceReserved="false" >
+        app:layout="@layout/preference_custom_category" >
 
         <SwitchPreferenceCompat
             android:key="university_news_turn"

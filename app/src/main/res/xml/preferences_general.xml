@@ -5,7 +5,7 @@
 
     <PreferenceCategory
         android:title="@string/pref_dark_mode"
-        app:iconSpaceReserved="false" >
+        app:layout="@layout/preference_custom_category" >
 
         <ListPreference
             android:key="dark_mode"

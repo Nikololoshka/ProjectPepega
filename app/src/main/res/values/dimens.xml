@@ -25,6 +25,10 @@
     <dimen name="mj_min_column_header_size">25dp</dimen>
     <dimen name="mj_student_data_margin">2dp</dimen>
 
+    <!-- Горизонтальный ProgressBar  -->
+    <dimen name="horizontal_loading_height">16dp</dimen>
+    <dimen name="horizontal_loading_vertical_margin">-6dp</dimen>
+
     <!-- Растояние между карточками при вертикальном отображении -->
     <dimen name="vertical_view_space">10dp</dimen>
 

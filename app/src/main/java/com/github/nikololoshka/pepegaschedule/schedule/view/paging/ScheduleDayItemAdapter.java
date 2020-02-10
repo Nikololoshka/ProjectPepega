@@ -25,6 +25,17 @@ import java.util.ArrayList;
 public class ScheduleDayItemAdapter extends PagedListAdapter<ScheduleDayItem, ScheduleDayItemAdapter.DayHolder> {
 
     /**
+     * Интерфейс callback'а для обработки нажатия на пару.
+     */
+    public interface OnPairCardListener {
+        /**
+         * Вызывается, если была нажата пара.
+         * @param pair нажатая пара.
+         */
+        void onPairClicked(@Nullable Pair pair);
+    }
+
+    /**
      * Listener для нажатия на пару.
      */
     private OnPairCardListener mListener;

@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.schedule.editor.pair;
+package com.github.nikololoshka.pepegaschedule.schedule.editor.pair.list;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,8 +46,8 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
     private String mThroughWeekSuffix;
 
 
-    PairDatesAdaptor(@NonNull OnDateItemClickListener listener,
-                     @NonNull String everyWeekSuffix, @NonNull String throughWeekSuffix) {
+    public PairDatesAdaptor(@NonNull OnDateItemClickListener listener,
+                            @NonNull String everyWeekSuffix, @NonNull String throughWeekSuffix) {
         mListener = listener;
         mEveryWeekSuffix = everyWeekSuffix;
         mThroughWeekSuffix = throughWeekSuffix;
@@ -69,7 +69,7 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
      * Обновляет данные в адапторе.
      * @param data новые данные.
      */
-    void submitList(@NonNull List<DateItem> data) {
+    public void submitList(@NonNull List<DateItem> data) {
         mDiffer.submitList(data);
     }
 
@@ -78,7 +78,7 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
      * @param data новые данные.
      * @param refreshPosition элемент, необходимый перерисовать.
      */
-    void submitList(@NonNull List<DateItem> data, final int refreshPosition) {
+    public void submitList(@NonNull List<DateItem> data, final int refreshPosition) {
         mDiffer.submitList(data, new Runnable() {
             @Override
             public void run() {

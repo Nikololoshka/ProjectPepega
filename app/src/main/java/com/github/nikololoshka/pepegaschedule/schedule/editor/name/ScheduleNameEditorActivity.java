@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,10 @@ public class ScheduleNameEditorActivity extends AppCompatActivity {
      */
     private TextInputLayout mScheduleNameLayout;
 
+    public ScheduleNameEditorActivity() {
+        super();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,35 +55,22 @@ public class ScheduleNameEditorActivity extends AppCompatActivity {
 
         mScheduleNameEdit = findViewById(R.id.schedule_name);
         mScheduleNameEdit.setText(scheduleName);
+
+        if (scheduleName == null || scheduleName.isEmpty()) {
+            if (mScheduleNameEdit.requestFocus()) {
+                InputMethodManager manager = getSystemService(InputMethodManager.class);
+                if (manager != null) {
+                    manager.showSoftInput(mScheduleNameEdit, InputMethodManager.SHOW_IMPLICIT);
+                }
+            }
+        }
+
         mScheduleNameEdit.addTextChangedListener(new TextWatcherWrapper() {
             @Override
             public void onTextChanged(@NonNull String s) {
                 checkNameField();
             }
         });
-    }
-
-    /**
-     * Проверяет поле на правильность. Не пусто ли и не содержит не допустимых символов.
-     * @return true если правильно заполнено, иначе false.
-     */
-    private boolean checkNameField() {
-        String name = mScheduleNameEdit.getText().toString();
-        if (name.isEmpty()) {
-            mScheduleNameLayout.setError(getString(R.string.schedule_editor_empty_name));
-            return false;
-        }
-
-        for (String character : BAN_CHARACTERS) {
-            if (name.contains(character)) {
-                mScheduleNameLayout.setError(getString(R.string.schedule_editor_not_allowed_character) +
-                        ": " + character);
-                return false;
-            }
-        }
-
-        mScheduleNameLayout.setError(null);
-        return true;
     }
 
     @Override
@@ -128,5 +120,28 @@ public class ScheduleNameEditorActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Проверяет поле на правильность. Не пусто ли и не содержит не допустимых символов.
+     * @return true если правильно заполнено, иначе false.
+     */
+    private boolean checkNameField() {
+        String name = mScheduleNameEdit.getText().toString();
+        if (name.isEmpty()) {
+            mScheduleNameLayout.setError(getString(R.string.schedule_editor_empty_name));
+            return false;
+        }
+
+        for (String character : BAN_CHARACTERS) {
+            if (name.contains(character)) {
+                mScheduleNameLayout.setError(getString(R.string.schedule_editor_not_allowed_character) +
+                        ": \"" + character + "\"");
+                return false;
+            }
+        }
+
+        mScheduleNameLayout.setError(null);
+        return true;
     }
 }

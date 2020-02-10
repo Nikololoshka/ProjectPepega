@@ -27,6 +27,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.date.DateEditorActivity;
+import com.github.nikololoshka.pepegaschedule.schedule.editor.pair.list.PairDatesAdaptor;
+import com.github.nikololoshka.pepegaschedule.schedule.editor.pair.list.SwipeToDeleteCallback;
 import com.github.nikololoshka.pepegaschedule.schedule.model.Schedule;
 import com.github.nikololoshka.pepegaschedule.schedule.model.exceptions.InvalidChangePairException;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.ClassroomPair;

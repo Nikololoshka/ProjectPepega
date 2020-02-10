@@ -23,9 +23,14 @@
         <item name="android:windowBackground">@drawable/background_splash_dark</item>
     </style>
 
-    <style name="WindowAnimationTransition">
-        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
-        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    <!--  Стиль PreferenceCategory  -->
+    <style name="Preference.CustomCategory" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:attr/colorAccent</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:paddingTop">25dp</item>
+        <item name="android:paddingBottom">5dp</item>
     </style>
 
     <!-- Тема для карточек -->
@@ -46,27 +51,18 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.DayNight" />
 
-    <!-- Текст с тенью для карточки с парой -->
-    <style name="Text.Pair">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-    </style>
-    <!--  Просто текст  -->
+    <!--  Для текста  -->
     <style name="Text" parent="TextAppearance.AppCompat" />
-    <!--  Подпись к элементу -->
     <style name="Text.Caption" parent="TextAppearance.AppCompat.Caption" />
-    <!--  Маленький текст  -->
     <style name="Text.Small" parent="TextAppearance.AppCompat.Small" />
-    <!--  Средний текст  -->
     <style name="Text.Medium" parent="TextAppearance.AppCompat.Medium" />
-    <!--  Большой текст  -->
     <style name="Text.Large" parent="TextAppearance.AppCompat.Large" />
-    <!--  Заголовок  -->
     <style name="Text.Title" parent="TextAppearance.AppCompat.Title" />
     <style name="Text.Head" parent="TextAppearance.AppCompat.Headline" />
-    <!--  Подзаголовок  -->
     <style name="Text.Subhead" parent="TextAppearance.AppCompat.Subhead" />
     <style name="Text.Body1" parent="TextAppearance.AppCompat.Body1" />
     <style name="Text.Body2" parent="TextAppearance.AppCompat.Body2" />
+
     <!--  Текст-подсказка  -->
     <style name="Text.Hint" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textColor">@color/colorTextHint</item>

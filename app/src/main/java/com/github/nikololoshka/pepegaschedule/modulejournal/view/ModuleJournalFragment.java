@@ -110,7 +110,6 @@ public class ModuleJournalFragment extends Fragment
 
         mStatefulLayoutPager = view.findViewById(R.id.stateful_layout_pager);
         mStatefulLayoutPager.addXMLViews();
-        mStatefulLayoutPager.setAnimation(false);
 
         mErrorTitleView = view.findViewById(R.id.mj_error_title);
         mErrorDescriptionView = view.findViewById(R.id.mj_error_description);
