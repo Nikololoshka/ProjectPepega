@@ -27,6 +27,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@drawable/divider"
-        tools:listitem="@layout/widget_item_schedule_app_pair"/>
+        tools:listitem="@layout/widget_item_schedule"/>
 
 </LinearLayout>

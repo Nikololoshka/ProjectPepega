@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".widget.ScheduleAppWidgetConfigureActivity" >
+    tools:context=".widget.ScheduleWidgetConfigureActivity" >
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -53,6 +53,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/input_label_vertical_spacing" />
+
+        <TextView
+            style="@style/Text.Hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/widget_subgroup"/>
+
+        <Spinner
+            android:id="@+id/widget_subgroup_selector"
+            android:entries="@array/subgroup_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/input_label_vertical_spacing" />
 
 
         <androidx.cardview.widget.CardView

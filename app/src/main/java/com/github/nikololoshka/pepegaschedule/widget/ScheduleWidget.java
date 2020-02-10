@@ -21,7 +21,7 @@ import java.util.Calendar;
 /**
  * Виджет с расписанием.
  */
-public class ScheduleAppWidget extends AppWidgetProvider {
+public class ScheduleWidget extends AppWidgetProvider {
 
     public static final String SCHEDULE_DAY_TIME = "widget_schedule_day_time";
     public static final String SCHEDULE_NAME = "widget_schedule_name";
@@ -37,12 +37,15 @@ public class ScheduleAppWidget extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
-        String scheduleName = ScheduleAppWidgetConfigureActivity.loadPref(context, appWidgetId);
+        ScheduleWidgetConfigureActivity.WidgetData widgetData =
+                ScheduleWidgetConfigureActivity.loadPref(context, appWidgetId);
+
+        String scheduleName = widgetData.scheduleName();
         if (scheduleName == null) {
             scheduleName = context.getString(R.string.widget_schedule_name);
         }
 
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_schedule_app);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_schedule);
 
         // для открытия приложения на распиании
         Bundle scheduleBundle = ScheduleViewFragment.createBundle(scheduleName,
@@ -58,8 +61,8 @@ public class ScheduleAppWidget extends AppWidgetProvider {
         views.setTextViewText(R.id.widget_schedule_name, scheduleName);
         views.setOnClickPendingIntent(R.id.widget_schedule_name, schedulePendingIntent);
 
-        // для открытия приложения на распиании на определенном дне
-        Intent scheduleDayIntent = new Intent(context, ScheduleAppWidget.class);
+        // для открытия приложения на расписании на определенном дне
+        Intent scheduleDayIntent = new Intent(context, ScheduleWidget.class);
         scheduleDayIntent.setAction(ACTION_SCHEDULE_DAY_CLICKED);
         PendingIntent scheduleDayPendingIntent = PendingIntent
                 .getBroadcast(context, appWidgetId, scheduleDayIntent, 0);
@@ -67,7 +70,7 @@ public class ScheduleAppWidget extends AppWidgetProvider {
         views.setPendingIntentTemplate(R.id.widget_schedule_list, scheduleDayPendingIntent);
 
         // установка адаптера
-        Intent dataIntent = new Intent(context, ScheduleAppWidgetRemoteService.class);
+        Intent dataIntent = new Intent(context, ScheduleWidgetRemoteFactory.Service.class);
         dataIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
         // уникальный адаптер для каждого виджета
         Uri data = Uri.parse(dataIntent.toUri(Intent.URI_INTENT_SCHEME));
@@ -125,7 +128,7 @@ public class ScheduleAppWidget extends AppWidgetProvider {
     public void onDeleted(Context context, int[] appWidgetIds) {
         // Удалить настройки , связанные с этими виджетами
         for (int appWidgetId : appWidgetIds) {
-            ScheduleAppWidgetConfigureActivity.deletePref(context, appWidgetId);
+            ScheduleWidgetConfigureActivity.deletePref(context, appWidgetId);
         }
     }
 
