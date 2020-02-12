@@ -1,7 +1,5 @@
 package com.github.nikololoshka.pepegaschedule.utils;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -12,6 +10,8 @@ import android.widget.FrameLayout;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.transition.Fade;
+import androidx.transition.TransitionManager;
 
 import com.github.nikololoshka.pepegaschedule.R;
 
@@ -23,9 +23,11 @@ import java.util.LinkedHashMap;
  */
 public class StatefulLayout extends FrameLayout {
 
+    private static final String TAG = "StatefulLayoutLog";
+
     private static final String LOAD_STATE = "load_state";
 
-    private static final int DEFAULT_DURATION = 300;
+    private static int DEFAULT_DURATION = 300;
 
     /**
      * Список всех view.
@@ -68,6 +70,7 @@ public class StatefulLayout extends FrameLayout {
     private void initialization() {
         mCurrentState = "";
         mIsAnimated = true;
+        DEFAULT_DURATION = getResources().getInteger(android.R.integer.config_shortAnimTime);
     }
 
     /**
@@ -116,27 +119,42 @@ public class StatefulLayout extends FrameLayout {
 
         mCurrentState = state;
 
+        TransitionManager.beginDelayedTransition(this, new Fade());
         if (newView != null) {
-            newView.setAlpha(0f);
             newView.setVisibility(VISIBLE);
-
-            newView.animate()
-                    .alpha(1f)
-                    .setDuration(DEFAULT_DURATION)
-                    .setListener(null);
         }
 
+        TransitionManager.beginDelayedTransition(this, new Fade());
         if (oldView != null) {
-            oldView.animate()
-                    .alpha(0f)
-                    .setDuration(DEFAULT_DURATION)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            oldView.setVisibility(GONE);
-                        }
-                    });
+            oldView.setVisibility(GONE);
         }
+
+//        if (newView != null) {
+//            newView.setAlpha(0f);
+//            newView.setVisibility(VISIBLE);
+//
+//            newView.animate()
+//                    .alpha(1f)
+//                    .setDuration(DEFAULT_DURATION)
+//                    .setListener(new AnimatorListenerAdapter() {
+//                        @Override
+//                        public void onAnimationEnd(Animator animation) {
+//                            newView.setVisibility(VISIBLE);
+//                        }
+//                    });
+//        }
+//
+//        if (oldView != null) {
+//            oldView.animate()
+//                    .alpha(0f)
+//                    .setDuration(DEFAULT_DURATION)
+//                    .setListener(new AnimatorListenerAdapter() {
+//                        @Override
+//                        public void onAnimationEnd(Animator animation) {
+//                            oldView.setVisibility(GONE);
+//                        }
+//                    });
+//        }
     }
 
     /**

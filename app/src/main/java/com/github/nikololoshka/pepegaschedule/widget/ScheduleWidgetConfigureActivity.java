@@ -99,14 +99,17 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
         CardView viewAdd = findViewById(R.id.widget_schedule_add);
         viewAdd.setOnClickListener(this);
 
-        if (schedules.isEmpty()) {
-            viewAdd.setEnabled(false);
-            mSchedulesSpinner.setEnabled(false);
-        }
-
+        TextView viewAddText = findViewById(R.id.widget_schedule_add_text);
         String text = getIntent().getStringExtra(CONFIGURE_BUTTON_TEXT_EXTRA);
         if (text != null) {
-            ((TextView) findViewById(R.id.widget_schedule_add_text)).setText(text);
+            viewAddText.setText(text);
+        }
+
+        if (schedules.isEmpty()) {
+            viewAdd.setEnabled(false);
+            viewAddText.setEnabled(false);
+            mSchedulesSpinner.setEnabled(false);
+            mSubgroupSpinner.setEnabled(false);
         }
 
         // загрузка данных

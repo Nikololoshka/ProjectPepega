@@ -73,11 +73,13 @@
             style="@style/CardStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground" >
 
             <TextView
-                style="@style/Text.Medium"
                 android:id="@+id/widget_schedule_add_text"
+                style="@style/Text.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

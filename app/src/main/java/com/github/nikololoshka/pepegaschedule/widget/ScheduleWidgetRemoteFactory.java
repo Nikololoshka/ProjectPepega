@@ -56,6 +56,11 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
      * Контекст.
      */
     private WeakReference<Context> mContext;
+    /**
+     * Локаль.
+     */
+    @NonNull
+    private Locale mLocale;
 
     /**
      * Список дней.
@@ -90,6 +95,7 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
     private ScheduleWidgetRemoteFactory(@NonNull Context context, @NonNull Intent intent) {
         mContext = new WeakReference<>(context);
         mPackageName = context.getPackageName();
+        mLocale = CommonUtils.locale(context);
 
         mScheduleAppWidgetId = intent.getIntExtra(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
@@ -146,8 +152,7 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
             return;
         }
 
-        Locale locale = CommonUtils.locale(context);
-        SimpleDateFormat formatter = new SimpleDateFormat("EE, dd MMMM", locale);
+        SimpleDateFormat formatter = new SimpleDateFormat("EE, dd MMMM", mLocale);
 
         Calendar iterator = CommonUtils.normalizeDate(new GregorianCalendar());
         for (int i = 0; i < 7; i++) {

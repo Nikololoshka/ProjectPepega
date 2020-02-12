@@ -27,7 +27,7 @@ import java.util.TreeSet;
  */
 public class ScheduleDayItemStorage {
 
-    public static final int PAGE_SIZE = 40;
+    public static final int PAGE_SIZE = 20;
 
     public interface OnStorageListener {
         void onError();
@@ -72,6 +72,10 @@ public class ScheduleDayItemStorage {
      */
     @NonNull
     private OnStorageListener mListener;
+    /**
+     * Было ли перезагруженно расписание.
+     */
+    private boolean mIsReset = false;
 
 
     public ScheduleDayItemStorage(@NonNull String schedulePath, @NonNull OnStorageListener listener) {
@@ -168,6 +172,18 @@ public class ScheduleDayItemStorage {
         mSchedule = null;
         mFirstDate = null;
         mLastDate = null;
+        mIsReset = true;
+    }
+
+    void isThreadReset() {
+        if (mIsReset) {
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException ignored) {
+
+            }
+            mIsReset = false;
+        }
     }
 
     /**

@@ -34,8 +34,9 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
 
     @Override
     public void invalidate() {
-        super.invalidate();
         mDayItemStorage.reset();
+
+        super.invalidate();
     }
 
     @Override
@@ -125,6 +126,8 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
         // список с днями
         List<ScheduleDayItem> data = createData(key, loadSize);
 
+        mDayItemStorage.isThreadReset();
+
         callback.onResult(data, adjacentDay);
     }
 
@@ -137,6 +140,8 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
 
         // список с днями
         List<ScheduleDayItem> data = createData(params.key, params.requestedLoadSize);
+
+        mDayItemStorage.isThreadReset();
 
         callback.onResult(data, adjacentDay);
     }

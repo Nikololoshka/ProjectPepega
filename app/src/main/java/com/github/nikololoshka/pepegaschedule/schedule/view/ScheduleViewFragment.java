@@ -36,7 +36,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.github.nikololoshka.pepegaschedule.BuildConfig;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.name.ScheduleNameEditorActivity;
 import com.github.nikololoshka.pepegaschedule.schedule.editor.pair.PairEditorActivity;
@@ -113,6 +112,8 @@ public class ScheduleViewFragment extends Fragment
     private RecyclerView mRecyclerSchedule;
     private ScheduleDayItemAdapter mScheduleDayItemAdapter;
     private ScheduleViewModel mScheduleViewModel;
+
+    private Observer<PagedList<ScheduleDayItem>> mObserver;
 
     public ScheduleViewFragment() {
         super();
@@ -206,12 +207,6 @@ public class ScheduleViewFragment extends Fragment
         }
 
         mScheduleDayItemAdapter = new ScheduleDayItemAdapter(this);
-        mScheduleDayItemAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-            @Override
-            public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
-                Log.d(TAG, "onItemRangeMoved: " + fromPosition + " " + toPosition + " " + itemCount);
-            }
-        });
         mRecyclerSchedule.setAdapter(mScheduleDayItemAdapter);
 
         // установка ViewModel
@@ -233,9 +228,9 @@ public class ScheduleViewFragment extends Fragment
 
         mRecyclerSchedule.setItemAnimator(null);
 
-        mScheduleViewModel.scheduleData().observe(getViewLifecycleOwner(), new Observer<PagedList<ScheduleDayItem>>() {
+        mObserver = new Observer<PagedList<ScheduleDayItem>>() {
             @Override
-            public void onChanged(final PagedList<ScheduleDayItem> scheduleDayItems) {
+            synchronized public void onChanged(final PagedList<ScheduleDayItem> scheduleDayItems) {
                 if (scheduleDayItems.isEmpty()) {
                     stateChanged(ScheduleViewModel.States.ZERO_ITEMS);
                     return;
@@ -244,42 +239,42 @@ public class ScheduleViewFragment extends Fragment
                 // TODO: 04/02/20 Баг, когда в paging library вызывается несколько раз один и тот же метод.
                 //                После чего в RecyclerView отображается не тот элемент.
 
-                scheduleDayItems.addWeakCallback(scheduleDayItems.snapshot(), new PagedList.Callback() {
-                    @Override
-                    public void onChanged(int position, int count) {
-                    }
-
-                    @Override
-                    public void onInserted(int position, int count) {
-                        if (BuildConfig.DEBUG) {
-                            Log.d(TAG, "onInserted: " + position + ", count: " + count);
-                        }
-
-                        if (mScrollDate != null) {
-                            ScheduleDayItem itemFirst = scheduleDayItems.get(0);
-                            if (itemFirst != null && itemFirst.day().equals(mScrollDate)) {
-                                mRecyclerSchedule.scrollToPosition(0);
-                            } else {
-                                ScheduleDayItem itemSecond = scheduleDayItems.get(count);
-                                if (itemSecond != null && itemSecond.day().equals(mScrollDate)) {
-                                    mRecyclerSchedule.scrollToPosition(count);
-                                } else {
-                                    if (position == 0) {
-                                        mRecyclerSchedule.scrollToPosition(count);
-                                    } else {
-                                        mRecyclerSchedule.scrollToPosition(0);
-                                    }
-                                }
-                            }
-                            mScrollDate = null;
-                        }
-                    }
-
-                    @Override
-                    public void onRemoved(int position, int count) {
-
-                    }
-                });
+//                scheduleDayItems.addWeakCallback(scheduleDayItems.snapshot(), new PagedList.Callback() {
+//                    @Override
+//                    public void onChanged(int position, int count) {
+//                    }
+//
+//                    @Override
+//                    public void onInserted(int position, int count) {
+//                        if (BuildConfig.DEBUG) {
+//                            Log.d(TAG, "onInserted: " + position + ", count: " + count);
+//                        }
+//
+//                        if (mScrollDate != null) {
+//                            ScheduleDayItem itemFirst = scheduleDayItems.get(0);
+//                            if (itemFirst != null && itemFirst.day().equals(mScrollDate)) {
+//                                mRecyclerSchedule.scrollToPosition(0);
+//                            } else {
+//                                ScheduleDayItem itemSecond = scheduleDayItems.get(count);
+//                                if (itemSecond != null && itemSecond.day().equals(mScrollDate)) {
+//                                    mRecyclerSchedule.scrollToPosition(count);
+//                                } else {
+//                                    if (position == 0) {
+//                                        mRecyclerSchedule.scrollToPosition(count);
+//                                    } else {
+//                                        mRecyclerSchedule.scrollToPosition(0);
+//                                    }
+//                                }
+//                            }
+//                            mScrollDate = null;
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onRemoved(int position, int count) {
+//
+//                    }
+//                });
 
 //                final ScheduleDayItem item;
 //                if (mScrollDate != null) {
@@ -320,11 +315,16 @@ public class ScheduleViewFragment extends Fragment
 //                        } else {
 
 //                        }
+
                         stateChanged(ScheduleViewModel.States.SUCCESS);
+                        Log.d(TAG, "run: submitList");
                     }
                 });
             }
-        });
+        };
+
+        mScheduleViewModel.scheduleData().observe(getViewLifecycleOwner(), mObserver);
+
 
         return view;
     }
