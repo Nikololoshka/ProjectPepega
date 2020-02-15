@@ -3,9 +3,9 @@ package com.github.nikololoshka.pepegaschedule.modulejournal.view.paging;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.github.nikololoshka.pepegaschedule.modulejournal.network.MarkResponse;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalErrorUtils;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalService;
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.response.MarkResponse;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
 
 import java.io.File;
@@ -25,15 +25,30 @@ public class SemestersStorage {
 
     private static final String TAG = "SemestersStorageLog";
 
+    /**
+     * Список семестров.
+     */
     @Nullable
-    private ArrayList<String> mSemesters;;
+    private List<String> mSemesters;
+    /**
+     * Логин для входа.
+     */
     @Nullable
     private String mLogin;
+    /**
+     * Пароль для входа.
+     */
     @Nullable
     private String mPassword;
+    /**
+     * Директория с кэшом.
+     */
     @Nullable
     private File mCacheDirectory;
 
+    /**
+     * Использовать ли кэш при загрузке данных.
+     */
     @NonNull
     private ArrayList<Boolean> mUseCache;
 
@@ -48,7 +63,7 @@ public class SemestersStorage {
     /** Устанавливает семестры студента.
      * @param semesters список семестров.
      */
-    public void setSemesters(@Nullable ArrayList<String> semesters) {
+    public void setSemesters(@Nullable List<String> semesters) {
         mSemesters = semesters;
 
         if (mSemesters != null) {
@@ -63,7 +78,7 @@ public class SemestersStorage {
     }
 
     /**
-     * Устанавливает логин для доступа к загрузки данных с сервера.
+     * Устанавливает логин для доступа к загрузке данных с сервера.
      * @param login логин.
      */
     public void setLogin(@Nullable String login) {
@@ -71,7 +86,7 @@ public class SemestersStorage {
     }
 
     /**
-     * Устанавливает пароль для доступа к загрузки данных с сервера.
+     * Устанавливает пароль для доступа к загрузке данных с сервера.
      * @param password пароль.
      */
     public void setPassword(@Nullable String password) {
@@ -79,7 +94,7 @@ public class SemestersStorage {
     }
 
     /**
-     * Устанавливет директорию с кэшом приложения.
+     * Устанавливает директорию с кэшом приложения.
      * @param cacheDirectory директория кэша.
      */
     public void setCacheDirectory(@Nullable File cacheDirectory) {
@@ -87,7 +102,7 @@ public class SemestersStorage {
     }
 
     /**
-     * Возвращает количетво семестров.
+     * Возвращает количество семестров.
      * @return количетво семестров.
      */
     int semestersCount() {
@@ -131,7 +146,7 @@ public class SemestersStorage {
         mUseCache.set(loadPosition, true);
 
         // загружены из кэша и менее чем 10 минут назад
-        if (marks != null && isOverData(marks.time(), 1000 * 60 * 10)) {
+        if (marks != null && isOverData(marks.time())) {
             // кэшируем данные для отображения
             marks.createCellsData();
             marks.createColumnsData();
@@ -186,12 +201,12 @@ public class SemestersStorage {
 
     /**
      * Проверяет, истек ли срок хранения кэша.
-     * @param calendar время загрузки даных в кэше.
-     * @param delta времяхранения.
+     * @param calendar время загрузки данных в кэше.
      * @return true - время истекло, иначе false.
      */
-    private boolean isOverData(@NonNull Calendar calendar, long delta) {
+    private boolean isOverData(@NonNull Calendar calendar) {
         Calendar today = new GregorianCalendar();
-        return (today.getTimeInMillis() - calendar.getTimeInMillis()) < delta;
+        // 600000L - 10 минут
+        return (today.getTimeInMillis() - calendar.getTimeInMillis()) < 600000L;
     }
 }

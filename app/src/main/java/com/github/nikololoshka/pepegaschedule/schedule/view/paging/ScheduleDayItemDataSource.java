@@ -141,8 +141,6 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
         // список с днями
         List<ScheduleDayItem> data = createData(params.key, params.requestedLoadSize);
 
-        mDayItemStorage.isThreadReset();
-
         callback.onResult(data, adjacentDay);
     }
 

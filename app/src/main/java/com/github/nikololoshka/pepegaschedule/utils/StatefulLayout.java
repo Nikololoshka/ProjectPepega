@@ -1,5 +1,7 @@
 package com.github.nikololoshka.pepegaschedule.utils;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -19,9 +21,13 @@ import java.util.LinkedHashMap;
 
 
 /**
- * Компонент, который в себе содержит отображает одну view с возможностью переключения.
+ * Компонент, который в себе содержит и отображает одну view с возможностью переключения.
  */
 public class StatefulLayout extends FrameLayout {
+
+    public static final int NO_ANIMATION = 0;
+    public static final int TRANSITION_ANIMATION = 1;
+    public static final int PROPERTY_ANIMATION  = 2;
 
     private static final String TAG = "StatefulLayoutLog";
 
@@ -40,9 +46,9 @@ public class StatefulLayout extends FrameLayout {
     private String mCurrentState;
 
     /**
-     * Будет ли анимирован переход между состояниями.
+     * Способ анимации переходов.
      */
-    private boolean mIsAnimated;
+    private int mAnimationMode;
 
     public StatefulLayout(@NonNull Context context) {
         super(context);
@@ -69,7 +75,7 @@ public class StatefulLayout extends FrameLayout {
      */
     private void initialization() {
         mCurrentState = "";
-        mIsAnimated = true;
+        mAnimationMode = TRANSITION_ANIMATION;
         DEFAULT_DURATION = getResources().getInteger(android.R.integer.config_shortAnimTime);
     }
 
@@ -104,7 +110,8 @@ public class StatefulLayout extends FrameLayout {
         final View oldView = mStateViews.get(mCurrentState);
         final View newView = mStateViews.get(state);
 
-        if (!mIsAnimated || mCurrentState.isEmpty()) {
+        if (mAnimationMode == NO_ANIMATION || mCurrentState.isEmpty()) {
+
             if (newView != null) {
                 newView.setVisibility(VISIBLE);
             }
@@ -119,51 +126,57 @@ public class StatefulLayout extends FrameLayout {
 
         mCurrentState = state;
 
-        TransitionManager.beginDelayedTransition(this, new Fade());
-        if (newView != null) {
-            newView.setVisibility(VISIBLE);
+        if (mAnimationMode == TRANSITION_ANIMATION) {
+
+            TransitionManager.beginDelayedTransition(this, new Fade());
+            if (newView != null) {
+                newView.setVisibility(VISIBLE);
+            }
+
+            TransitionManager.beginDelayedTransition(this, new Fade());
+            if (oldView != null) {
+                oldView.setVisibility(GONE);
+            }
         }
 
-        TransitionManager.beginDelayedTransition(this, new Fade());
-        if (oldView != null) {
-            oldView.setVisibility(GONE);
-        }
+        if (mAnimationMode == PROPERTY_ANIMATION) {
 
-//        if (newView != null) {
-//            newView.setAlpha(0f);
-//            newView.setVisibility(VISIBLE);
-//
-//            newView.animate()
-//                    .alpha(1f)
-//                    .setDuration(DEFAULT_DURATION)
-//                    .setListener(new AnimatorListenerAdapter() {
-//                        @Override
-//                        public void onAnimationEnd(Animator animation) {
-//                            newView.setVisibility(VISIBLE);
-//                        }
-//                    });
-//        }
-//
-//        if (oldView != null) {
-//            oldView.animate()
-//                    .alpha(0f)
-//                    .setDuration(DEFAULT_DURATION)
-//                    .setListener(new AnimatorListenerAdapter() {
-//                        @Override
-//                        public void onAnimationEnd(Animator animation) {
-//                            oldView.setVisibility(GONE);
-//                        }
-//                    });
-//        }
+            if (newView != null) {
+                newView.setAlpha(0f);
+                newView.setVisibility(VISIBLE);
+
+                newView.animate()
+                        .alpha(1f)
+                        .setDuration(DEFAULT_DURATION)
+                        .setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                newView.setVisibility(VISIBLE);
+                            }
+                        });
+            }
+
+            if (oldView != null) {
+                oldView.animate()
+                        .alpha(0f)
+                        .setDuration(DEFAULT_DURATION)
+                        .setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                oldView.setVisibility(GONE);
+                            }
+                        });
+            }
+        }
     }
 
     /**
      * Отвечает за анимацию переходов между состояниями.
-     * По умолчанию: true.
-     * @param animate true - плавный перехож, false - резкий.
+     * По умолчанию: {@link #TRANSITION_ANIMATION}.
+     * @param animationMode способ анимации.
      */
-    public void setAnimation(boolean animate) {
-        mIsAnimated = animate;
+    public void setAnimation(int animationMode) {
+        mAnimationMode = animationMode;
     }
 
     /**

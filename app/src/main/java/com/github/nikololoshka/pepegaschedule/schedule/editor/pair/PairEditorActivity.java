@@ -133,7 +133,6 @@ public class PairEditorActivity extends AppCompatActivity
 
         mStatefulLayoutMain = findViewById(R.id.stateful_layout);
         mStatefulLayoutMain.addXMLViews();
-        mStatefulLayoutMain.setAnimation(false);
 
         mStatefulLayoutDates = findViewById(R.id.stateful_layout_dates);
         mStatefulLayoutDates.addXMLViews();

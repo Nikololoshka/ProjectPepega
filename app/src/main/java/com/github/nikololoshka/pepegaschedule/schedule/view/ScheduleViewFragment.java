@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -112,8 +111,6 @@ public class ScheduleViewFragment extends Fragment
     private RecyclerView mRecyclerSchedule;
     private ScheduleDayItemAdapter mScheduleDayItemAdapter;
     private ScheduleViewModel mScheduleViewModel;
-
-    private Observer<PagedList<ScheduleDayItem>> mObserver;
 
     public ScheduleViewFragment() {
         super();
@@ -226,11 +223,78 @@ public class ScheduleViewFragment extends Fragment
             }
         });
 
-        mRecyclerSchedule.setItemAnimator(null);
+        //                scheduleDayItems.addWeakCallback(scheduleDayItems.snapshot(), new PagedList.Callback() {
+        //                    @Override
+        //                    public void onChanged(int position, int count) {
+        //                    }
+        //
+        //                    @Override
+        //                    public void onInserted(int position, int count) {
+        //                        if (BuildConfig.DEBUG) {
+        //                            Log.d(TAG, "onInserted: " + position + ", count: " + count);
+        //                        }
+        //
+        //                        if (mScrollDate != null) {
+        //                            ScheduleDayItem itemFirst = scheduleDayItems.get(0);
+        //                            if (itemFirst != null && itemFirst.day().equals(mScrollDate)) {
+        //                                mRecyclerSchedule.scrollToPosition(0);
+        //                            } else {
+        //                                ScheduleDayItem itemSecond = scheduleDayItems.get(count);
+        //                                if (itemSecond != null && itemSecond.day().equals(mScrollDate)) {
+        //                                    mRecyclerSchedule.scrollToPosition(count);
+        //                                } else {
+        //                                    if (position == 0) {
+        //                                        mRecyclerSchedule.scrollToPosition(count);
+        //                                    } else {
+        //                                        mRecyclerSchedule.scrollToPosition(0);
+        //                                    }
+        //                                }
+        //                            }
+        //                            mScrollDate = null;
+        //                        }
+        //                    }
+        //
+        //                    @Override
+        //                    public void onRemoved(int position, int count) {
+        //
+        //                    }
+        //                });
+        //                final ScheduleDayItem item;
+        //                if (mScrollDate != null) {
+        //                    item = scheduleDayItems.get(0);
+        //                    mScrollDate = null;
+        //                } else {
+        //                    item = null;
+        //                }
+        //                mScheduleDayItemAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+        //                    @Override
+        //                    public void onChanged() {
+        //                        super.onChanged();
+        //                        Log.d(TAG, "onChangedAdapter: ");
+        //                    }
+        //                });
+        //                        if (item != null) {
+        //                            mRecyclerSchedule.postDelayed(new Runnable() {
+        //                                @Override
+        //                                public void run() {
+        //                                    int pos = scheduleDayItems.indexOf(item);
+        //                                    if (pos != -1) {
+        //                                        mRecyclerSchedule.scrollToPosition(pos);
+        //                                    }
+        //
+        //                                    if (BuildConfig.DEBUG) {
+        //                                        Log.d(TAG, "run: " + pos);
+        //                                    }
+        //
+        //                                    stateChanged(ScheduleViewModel.States.SUCCESS);
+        //                                }
+        //                            }, 400);
+        //                        } else {
+        //                        }
 
-        mObserver = new Observer<PagedList<ScheduleDayItem>>() {
+        mScheduleViewModel.scheduleData().observe(getViewLifecycleOwner(), new Observer<PagedList<ScheduleDayItem>>() {
             @Override
-            synchronized public void onChanged(final PagedList<ScheduleDayItem> scheduleDayItems) {
+            public void onChanged(final PagedList<ScheduleDayItem> scheduleDayItems) {
                 if (scheduleDayItems.isEmpty()) {
                     stateChanged(ScheduleViewModel.States.ZERO_ITEMS);
                     return;
@@ -238,6 +302,37 @@ public class ScheduleViewFragment extends Fragment
 
                 // TODO: 04/02/20 Баг, когда в paging library вызывается несколько раз один и тот же метод.
                 //                После чего в RecyclerView отображается не тот элемент.
+
+                scheduleDayItems.addWeakCallback(scheduleDayItems.snapshot(), new PagedList.Callback() {
+                    @Override
+                    public void onChanged(int position, int count) {
+
+                    }
+
+                    @Override
+                    public void onInserted(int position, int count) {
+                        if (mScrollDate != null) {
+
+                            ScheduleDayItem itemFirst = scheduleDayItems.get(0);
+                            if (itemFirst != null && itemFirst.day().equals(mScrollDate)) {
+                                mRecyclerSchedule.scrollToPosition(0);
+                            }
+
+                            ScheduleDayItem itemSecond = scheduleDayItems.get(count);
+                            if (itemSecond != null && itemSecond.day().equals(mScrollDate)) {
+                                mRecyclerSchedule.scrollToPosition(count);
+                            }
+
+                            mScrollDate = null;
+                            scheduleDayItems.removeWeakCallback(this);
+                        }
+                    }
+
+                    @Override
+                    public void onRemoved(int position, int count) {
+
+                    }
+                });
 
 //                scheduleDayItems.addWeakCallback(scheduleDayItems.snapshot(), new PagedList.Callback() {
 //                    @Override
@@ -317,14 +412,11 @@ public class ScheduleViewFragment extends Fragment
 //                        }
 
                         stateChanged(ScheduleViewModel.States.SUCCESS);
-                        Log.d(TAG, "run: submitList");
+//                        Log.d(TAG, "run: submitList");
                     }
                 });
             }
-        };
-
-        mScheduleViewModel.scheduleData().observe(getViewLifecycleOwner(), mObserver);
-
+        });
 
         return view;
     }
@@ -718,6 +810,19 @@ public class ScheduleViewFragment extends Fragment
 
             ScheduleDayItem item = items.get(pos);
             if (item != null) {
+
+                boolean limit = mScheduleViewModel.storage().limit();
+                if (limit) {
+                    Calendar first = mScheduleViewModel.storage().firstDate();
+                    if (first != null && targetDay.before(first)) {
+                        targetDay = first;
+                    }
+
+                    Calendar last = mScheduleViewModel.storage().lastDate();
+                    if (last != null && targetDay.after(last)) {
+                        targetDay = last;
+                    }
+                }
 
                 Calendar currentDay = item.day();
                 int dayDiff = (int) CommonUtils.calendarDiff(targetDay, currentDay);

@@ -1,4 +1,4 @@
-package com.github.nikololoshka.pepegaschedule.modulejournal.network;
+package com.github.nikololoshka.pepegaschedule.modulejournal.network.response;
 
 import androidx.annotation.NonNull;
 
@@ -6,8 +6,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * POJO-класс "semesters" ответа от сервара.
@@ -30,17 +28,6 @@ public class SemestersResponse {
     @Expose
     private ArrayList<String> mSemesters;
 
-    /**
-     * Время, получения информации.
-     */
-    @SerializedName("time")
-    @Expose
-    private Calendar mTime;
-
-    public SemestersResponse() {
-        mTime = new GregorianCalendar();
-    }
-
     @NonNull
     public String studentName() {
         return mSurname + " " + mInitials;
@@ -54,10 +41,6 @@ public class SemestersResponse {
     @NonNull
     public ArrayList<String> semesters() {
         return mSemesters;
-    }
-
-    public Calendar time() {
-        return mTime;
     }
 
     @NonNull

@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment
 
         mStatefulLayout = view.findViewById(R.id.stateful_layout);
         mStatefulLayout.addXMLViews();
-        mStatefulLayout.setAnimation(false);
+        mStatefulLayout.setAnimation(StatefulLayout.NO_ANIMATION);
         mStatefulLayout.setLoadState();
 
         mHomePager = view.findViewById(R.id.home_pager);

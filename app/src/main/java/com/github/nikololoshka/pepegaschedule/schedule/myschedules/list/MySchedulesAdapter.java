@@ -1,7 +1,6 @@
 package com.github.nikololoshka.pepegaschedule.schedule.myschedules.list;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.github.nikololoshka.pepegaschedule.BuildConfig;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.utils.FavoriteButton;
 
@@ -82,11 +80,11 @@ public class MySchedulesAdapter extends RecyclerView.Adapter<MySchedulesAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull final MySchedulesViewHolder holder, int position) {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "onBindViewHolder: " + mSchedules.get(position));
-            Log.d(TAG, "onBindViewHolder: " + mFavoriteSchedule);
-            Log.d(TAG, "onBindViewHolder: " + mSchedules.get(position));
-        }
+//        if (BuildConfig.DEBUG) {
+//            Log.d(TAG, "onBindViewHolder: " + mSchedules.get(position));
+//            Log.d(TAG, "onBindViewHolder: " + mFavoriteSchedule);
+//            Log.d(TAG, "onBindViewHolder: " + mSchedules.get(position));
+//        }
 
         holder.bind(mSchedules.get(position), mFavoriteSchedule.equals(mSchedules.get(position)));
         holder.setOnTouchListener(holder);

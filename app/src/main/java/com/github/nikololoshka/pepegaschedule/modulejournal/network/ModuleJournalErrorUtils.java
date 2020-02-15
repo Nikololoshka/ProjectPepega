@@ -49,7 +49,7 @@ public class ModuleJournalErrorUtils {
         ModuleJournalError data = new ModuleJournalError();
         data.setErrorCode(-1);
 
-        // не удалось подключится к "lk.stankin.ru"
+        // не удалось подключиться к "lk.stankin.ru"
         if (e instanceof UnknownHostException) {
             data.setErrorTitleRes(R.string.mj_unknown_host);
             data.setErrorDescriptionRes(R.string.mj_unknown_host_description);
@@ -64,7 +64,7 @@ public class ModuleJournalErrorUtils {
 
         data.setErrorTitleRes(R.string.mj_data_problem);
 
-        String description = e.getLocalizedMessage();
+        String description = e.getMessage();
         data.setErrorDescription(description == null ? e.toString() : description);
 
         e.printStackTrace();

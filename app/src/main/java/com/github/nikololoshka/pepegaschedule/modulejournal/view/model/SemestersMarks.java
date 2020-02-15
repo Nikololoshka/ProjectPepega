@@ -3,8 +3,8 @@ package com.github.nikololoshka.pepegaschedule.modulejournal.view.model;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.github.nikololoshka.pepegaschedule.modulejournal.network.MarkResponse;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.response.MarkResponse;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.Expose;
@@ -37,6 +37,7 @@ public class SemestersMarks {
     /**
      * Дисциплины с оценками.
      */
+    @NonNull
     @SerializedName("disciplines")
     @Expose
     private ArrayList<Discipline> mDisciplines;
@@ -60,6 +61,7 @@ public class SemestersMarks {
     /**
      * Время получения оценок.
      */
+    @NonNull
     @SerializedName("time")
     @Expose
     private Calendar mTime;
@@ -103,6 +105,7 @@ public class SemestersMarks {
      * @param marksResponse ответ о сервера.
      * @return объект с оценками за семестр.
      */
+    @NonNull
     public static SemestersMarks fromResponse(@Nullable List<MarkResponse> marksResponse) {
         SemestersMarks semestersMarks = new SemestersMarks();
 
@@ -123,7 +126,7 @@ public class SemestersMarks {
      * @param value значение оценки.
      * @param factor коэффициент предмета.
      */
-    public void addDisciplineMark(@NonNull String disciplineTitle, @NonNull String type, int value, double factor) {
+    private void addDisciplineMark(@NonNull String disciplineTitle, @NonNull String type, int value, double factor) {
         mRowsData = null;
         mCellsData = null;
 
@@ -187,6 +190,7 @@ public class SemestersMarks {
      * Создает список с заголовками столбцов таблицы.
      * @return список заголовков столбцов.
      */
+    @NonNull
     public List<String> createColumnsData() {
         return Arrays.asList("М1", "М2", "К", "З", "Э", "К");
     }
@@ -195,6 +199,7 @@ public class SemestersMarks {
      * Создает список списков ячеек с оценками.
      * @return список списков оценок.
      */
+    @NonNull
     public List<List<String>> createCellsData() {
         if (mCellsData != null) {
             return mCellsData;
@@ -241,29 +246,8 @@ public class SemestersMarks {
     }
 
     /**
-     * Возвращает значение рейтинга. Если {@code null} значит не удалось
-     * получить рейтинг. Если рейтинга нет (не проставлен) то 0.
-     * @return рейтинг.
-     */
-    @Nullable
-    public Integer rating() {
-        return mRating;
-    }
-
-    /**
-     * Возвращает значение накопленного рейтинга. Если {@code null} значит не удалось
-     * получить накопленный рейтинг. Если накопленного рейтинга нет
-     * (не проставлен) то возвращается 0.
-     * @return накопленный рейтинг.
-     */
-    @Nullable
-    public Integer accumulatedRating() {
-        return mAccumulatedRating;
-    }
-
-    /**
      * Загружает оценки из кэша.
-     * @param semester название семестра, которые необхожимо загрузить.
+     * @param semester название семестра, которые необходимо загрузить.
      * @param cacheDirectory директория с кэшом приложения.
      * @return оценки за семестр из кэша.
      */
@@ -317,7 +301,7 @@ public class SemestersMarks {
     }
 
     /**
-     * Удаляет закэшированные данные.
+     * Удаляет за кэшированные данные.
      * @param cacheDirectory директория с кэшом приложения.
      */
     public static void clearCacheData(@Nullable File cacheDirectory) {

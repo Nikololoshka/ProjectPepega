@@ -62,7 +62,7 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
     }
 
     /**
-     * Holder семетра с оценками. Представляет из себя таблицу.
+     * Holder семестра с оценками. Представляет собой таблицу.
      */
     class SemestersHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -78,7 +78,7 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
 
             mStatefulLayout = itemView.findViewById(R.id.stateful_layout);
             mStatefulLayout.addXMLViews();
-            mStatefulLayout.setAnimation(false);
+            mStatefulLayout.setAnimation(StatefulLayout.NO_ANIMATION);
             mStatefulLayout.setLoadState();
 
             mMarksTable = itemView.findViewById(R.id.mj_marks_table);

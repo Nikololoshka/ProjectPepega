@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalErrorUtils;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalService;
-import com.github.nikololoshka.pepegaschedule.modulejournal.network.SemestersResponse;
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.response.SemestersResponse;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.StudentData;
 import com.github.nikololoshka.pepegaschedule.settings.ModuleJournalPreference;
 
@@ -55,15 +55,14 @@ public class ModuleJournalLoginModel extends AndroidViewModel{
     @Nullable
     private ModuleJournalError mModuleJournalError;
 
-    public ModuleJournalLoginModel(@NonNull Application application) {
+    private ModuleJournalLoginModel(@NonNull Application application) {
         super(application);
 
         mExecutor = Executors.newSingleThreadExecutor();
-
         mStateData = new MutableLiveData<>(State.WAIT);
     }
 
-    public void singIn(@NonNull final String login, @NonNull final String password) {
+    void singIn(@NonNull final String login, @NonNull final String password) {
         mStateData.setValue(State.LOADING);
         mExecutor.execute(new Runnable() {
             @Override
@@ -79,7 +78,8 @@ public class ModuleJournalLoginModel extends AndroidViewModel{
                         ModuleJournalPreference.setSignIn(getApplication(), true);
 
                         if (response.body() != null) {
-                            StudentData.saveCacheData(response.body(), getApplication().getCacheDir());
+                            StudentData.saveCacheData(StudentData.fromResponse(response.body()),
+                                    getApplication().getCacheDir());
                         }
 
                         mStateData.postValue(State.AUTHORIZED);
@@ -104,12 +104,12 @@ public class ModuleJournalLoginModel extends AndroidViewModel{
     }
 
     @NonNull
-    public MutableLiveData<State> stateData() {
+    MutableLiveData<State> stateData() {
         return mStateData;
     }
 
     @Nullable
-    public ModuleJournalError error() {
+    ModuleJournalError error() {
         return mModuleJournalError;
     }
 

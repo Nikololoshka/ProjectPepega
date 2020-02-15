@@ -2,6 +2,9 @@ package com.github.nikololoshka.pepegaschedule.modulejournal.network;
 
 import androidx.annotation.NonNull;
 
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.response.MarkResponse;
+import com.github.nikololoshka.pepegaschedule.modulejournal.network.response.SemestersResponse;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -11,7 +14,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
- * Интерфейс для общения с HttpApi2 модуьного журнала.
+ * Интерфейс для общения с HttpApi2 модульного журнала.
  *
  * Справка по запросам:
  * https://github.com/stankin/mj/blob/master/src/main/java/ru/stankin/mj/http/HttpApi2.java

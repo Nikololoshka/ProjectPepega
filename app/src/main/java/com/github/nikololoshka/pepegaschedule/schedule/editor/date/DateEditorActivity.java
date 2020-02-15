@@ -90,7 +90,7 @@ public class DateEditorActivity extends AppCompatActivity
         setContentView(R.layout.activity_date_editor);
 
         mStatefulLayout = findViewById(R.id.stateful_layout);
-        mStatefulLayout.setAnimation(false);
+        mStatefulLayout.setAnimation(StatefulLayout.PROPERTY_ANIMATION);
         mStatefulLayout.addXMLViews();
 
         mSingleDateEdit = findViewById(R.id.single_date_edit);

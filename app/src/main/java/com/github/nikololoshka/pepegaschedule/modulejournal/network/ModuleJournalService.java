@@ -6,7 +6,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Retrofit клиент-сервис для рвботы с модульным журналом.
+ * Retrofit клиент-сервис для работы с модульным журналом.
  */
 public class ModuleJournalService {
 

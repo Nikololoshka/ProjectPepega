@@ -15,7 +15,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.schedule.model.pair.SubgroupEnum;
@@ -96,18 +95,16 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
                 android.R.layout.simple_spinner_dropdown_item, schedules);
         mSchedulesSpinner.setAdapter(adapter);
 
-        CardView viewAdd = findViewById(R.id.widget_schedule_add);
+        TextView viewAdd = findViewById(R.id.widget_schedule_add);
         viewAdd.setOnClickListener(this);
 
-        TextView viewAddText = findViewById(R.id.widget_schedule_add_text);
         String text = getIntent().getStringExtra(CONFIGURE_BUTTON_TEXT_EXTRA);
         if (text != null) {
-            viewAddText.setText(text);
+            viewAdd.setText(text);
         }
 
         if (schedules.isEmpty()) {
             viewAdd.setEnabled(false);
-            viewAddText.setEnabled(false);
             mSchedulesSpinner.setEnabled(false);
             mSubgroupSpinner.setEnabled(false);
         }

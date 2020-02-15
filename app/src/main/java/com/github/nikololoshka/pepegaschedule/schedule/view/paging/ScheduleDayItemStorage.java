@@ -130,6 +130,10 @@ public class ScheduleDayItemStorage {
      * Загружает расписание.
      */
     void loadSchedule() {
+        if (mSchedule != null) {
+            return;
+        }
+
         try {
             File scheduleFile = new File(mSchedulePath);
             String json = FileUtils.readFileToString(scheduleFile, StandardCharsets.UTF_8);
@@ -204,16 +208,16 @@ public class ScheduleDayItemStorage {
     }
 
     @Nullable
-    Calendar firstDate() {
+    public Calendar firstDate() {
         return mFirstDate;
     }
 
     @Nullable
-    Calendar lastDate() {
+    public Calendar lastDate() {
         return mLastDate;
     }
 
-    boolean limit() {
+    public boolean limit() {
         return mIsLimit;
     }
 
