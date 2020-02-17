@@ -1,25 +1,34 @@
 package com.github.nikololoshka.pepegaschedule.schedule.editor.pair;
 
+import android.app.Application;
+import android.appwidget.AppWidgetManager;
+
 import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.github.nikololoshka.pepegaschedule.schedule.model.Schedule;
+import com.github.nikololoshka.pepegaschedule.utils.WidgetUtils;
+import com.github.nikololoshka.pepegaschedule.widget.ScheduleWidget;
+import com.github.nikololoshka.pepegaschedule.widget.ScheduleWidgetConfigureActivity;
 import com.google.gson.JsonParseException;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
  * ViewModel для редактора пары.
  */
-public class PairEditorModel extends ViewModel {
+public class PairEditorModel extends AndroidViewModel {
 
     /**
      * Состояние ViewModel.
@@ -49,8 +58,8 @@ public class PairEditorModel extends ViewModel {
      */
     private MutableLiveData<States> mState;
 
-    private PairEditorModel(@NonNull String schedulePath) {
-        super();
+    private PairEditorModel(@NonNull Application application, @NonNull String schedulePath) {
+        super(application);
 
         mExecutor = Executors.newSingleThreadExecutor();
 
@@ -106,6 +115,21 @@ public class PairEditorModel extends ViewModel {
                     File scheduleFile = new File(mSchedulePath);
                     FileUtils.writeStringToFile(scheduleFile, json, StandardCharsets.UTF_8);
 
+                    // обновить виджет расписания, если есть
+                    String scheduleName = FilenameUtils.getBaseName(mSchedulePath);
+                    List<Integer> ids = WidgetUtils.scheduleWidgets(getApplication());
+                    for (int id : ids) {
+                        ScheduleWidgetConfigureActivity.WidgetData widgetData =
+                                ScheduleWidgetConfigureActivity.loadPref(getApplication(), id);
+
+                        String name = widgetData.scheduleName();
+                        if (name != null && name.equals(scheduleName)) {
+                            ScheduleWidget.updateAppWidget(getApplication(),
+                                    AppWidgetManager.getInstance(getApplication()), id);
+                            break;
+                        }
+                    }
+
                     mState.postValue(States.SUCCESSFULLY_SAVED);
                     return;
 
@@ -143,15 +167,19 @@ public class PairEditorModel extends ViewModel {
     /**
      * Фабрика для создания ViewModel.
      */
-    public static class Factory extends ViewModelProvider.NewInstanceFactory {
+    public static class Factory extends ViewModelProvider.AndroidViewModelFactory {
 
         /**
          * Путь к расписанию.
          */
         private final String mSchedulePath;
 
-        Factory(@NonNull String schedulePath) {
-            super();
+        private final Application mApplication;
+
+
+        Factory(@NonNull Application application, @NonNull String schedulePath) {
+            super(application);
+            mApplication = application;
             mSchedulePath = schedulePath;
         }
 
@@ -159,7 +187,7 @@ public class PairEditorModel extends ViewModel {
         @NonNull
         @Override
         public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-            return (T) new PairEditorModel(mSchedulePath);
+            return (T) new PairEditorModel(mApplication, mSchedulePath);
         }
     }
 }

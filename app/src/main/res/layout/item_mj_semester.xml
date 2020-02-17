@@ -9,6 +9,7 @@
         android:id="@+id/mj_semester_table"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="none"
         android:fillViewport="true"
         android:clipToPadding="false" >
 

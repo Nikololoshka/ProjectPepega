@@ -27,7 +27,7 @@ import java.util.Objects;
 /**
  * Оценки студента за семестр.
  */
-public class SemestersMarks {
+public class SemesterMarks {
 
     public static final String RATING = "Рейтинг";
     public static final String ACCUMULATED_RATING = "Накопленный Рейтинг";
@@ -93,7 +93,7 @@ public class SemestersMarks {
     private boolean mIsCache;
 
 
-    public SemestersMarks() {
+    public SemesterMarks() {
         mDisciplines = new ArrayList<>(10);
         mTime = new GregorianCalendar();
         mError = null;
@@ -106,17 +106,17 @@ public class SemestersMarks {
      * @return объект с оценками за семестр.
      */
     @NonNull
-    public static SemestersMarks fromResponse(@Nullable List<MarkResponse> marksResponse) {
-        SemestersMarks semestersMarks = new SemestersMarks();
+    public static SemesterMarks fromResponse(@Nullable List<MarkResponse> marksResponse) {
+        SemesterMarks semesterMarks = new SemesterMarks();
 
         if (marksResponse != null) {
             for (MarkResponse markResponse : marksResponse) {
-                semestersMarks.addDisciplineMark(markResponse.discipline(),
+                semesterMarks.addDisciplineMark(markResponse.discipline(),
                         markResponse.type(), markResponse.value(), markResponse.factor());
             }
         }
 
-        return semestersMarks;
+        return semesterMarks;
     }
 
     /**
@@ -159,6 +159,14 @@ public class SemestersMarks {
                 return o1.discipline().compareTo(o2.discipline());
             }
         });
+    }
+
+    /**
+     * @return список дисциплин с оценками.
+     */
+    @NonNull
+    public ArrayList<Discipline> disciplines() {
+        return mDisciplines;
     }
 
     /**
@@ -252,7 +260,7 @@ public class SemestersMarks {
      * @return оценки за семестр из кэша.
      */
     @Nullable
-    public static SemestersMarks loadCacheData(@NonNull String semester, @Nullable File cacheDirectory) {
+    public static SemesterMarks loadCacheData(@NonNull String semester, @Nullable File cacheDirectory) {
         if (cacheDirectory == null) {
             return null;
         }
@@ -267,7 +275,7 @@ public class SemestersMarks {
             return new GsonBuilder()
                     .registerTypeAdapter(MarkType.class, new MarkType.MarkDeserialize())
                     .create()
-                    .fromJson(json, SemestersMarks.class);
+                    .fromJson(json, SemesterMarks.class);
 
         } catch (IOException | JsonSyntaxException ignored) {
 
@@ -282,7 +290,7 @@ public class SemestersMarks {
      * @param semester название семестра.
      * @param cacheDirectory директория с кэшом приложения.
      */
-    public static void saveCacheData(@NonNull SemestersMarks marks, @NonNull String semester, @Nullable File cacheDirectory) {
+    public static void saveCacheData(@NonNull SemesterMarks marks, @NonNull String semester, @Nullable File cacheDirectory) {
         if (cacheDirectory == null) {
             return;
         }
@@ -357,7 +365,7 @@ public class SemestersMarks {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SemestersMarks marks = (SemestersMarks) o;
+        SemesterMarks marks = (SemesterMarks) o;
         return Objects.equals(mDisciplines, marks.mDisciplines) &&
                 Objects.equals(mRating, marks.mRating) &&
                 Objects.equals(mAccumulatedRating, marks.mAccumulatedRating);

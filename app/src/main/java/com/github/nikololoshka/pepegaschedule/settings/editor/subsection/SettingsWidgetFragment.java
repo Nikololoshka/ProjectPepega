@@ -2,10 +2,9 @@ package com.github.nikololoshka.pepegaschedule.settings.editor.subsection;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
-import android.appwidget.AppWidgetProviderInfo;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
+import com.github.nikololoshka.pepegaschedule.utils.WidgetUtils;
 import com.github.nikololoshka.pepegaschedule.widget.ScheduleWidgetConfigureActivity;
 
 import java.util.ArrayList;
@@ -26,8 +26,7 @@ import java.util.List;
 /**
  * Категория настроек виджетов приложения.
  */
-public class SettingsWidgetFragment extends Fragment
-        implements SettingsWidgetAdapter.OnWidgetClickListener {
+public class SettingsWidgetFragment extends Fragment implements SettingsWidgetAdapter.OnWidgetClickListener {
 
     private static final String TAG = "SettingsWgtFragmentTag";
 
@@ -50,6 +49,7 @@ public class SettingsWidgetFragment extends Fragment
 
         RecyclerView widgetsRecyclerView = view.findViewById(R.id.recycler_widgets);
         widgetsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         mWidgetAdapter = new SettingsWidgetAdapter(this);
         widgetsRecyclerView.setAdapter(mWidgetAdapter);
 
@@ -60,49 +60,37 @@ public class SettingsWidgetFragment extends Fragment
     public void onStart() {
         super.onStart();
 
-        if (getContext() == null) {
+        // обновляем список текущих виджетов с расписаниями
+        Context context = getContext();
+        if (context == null) {
             mStatefulLayout.setLoadState();
             return;
         }
 
-        AppWidgetManager widgetManager = AppWidgetManager.getInstance(getContext());
-        List<AppWidgetProviderInfo> infoList = widgetManager.getInstalledProviders();
+        List<Integer> ids = WidgetUtils.scheduleWidgets(context);
+        List<String> names = new ArrayList<>(ids.size());
 
-        ArrayList<Integer> scheduleIDs = new ArrayList<>();
-        ArrayList<String> scheduleNames = new ArrayList<>();
-        for (AppWidgetProviderInfo info : infoList) {
-            if (info.provider.getPackageName().equals(getContext().getPackageName())) {
-                Log.d(TAG, info.provider.toString());
+        for (Integer id : ids) {
+            ScheduleWidgetConfigureActivity.WidgetData data = ScheduleWidgetConfigureActivity.loadPref(context, id);
 
-                int[] ids = widgetManager.getAppWidgetIds(info.provider);
-
-                for (int id : ids) {
-                    ScheduleWidgetConfigureActivity.WidgetData data =
-                            ScheduleWidgetConfigureActivity.loadPref(getContext(), id);
-
-                    String scheduleName = data.scheduleName();
-                    if (scheduleName != null) {
-                        scheduleNames.add(scheduleName);
-                        scheduleIDs.add(id);
-                    }
-                }
-
-                if (scheduleNames.isEmpty()) {
-                    mStatefulLayout.setState(R.id.not_widgets);
-                    return;
-                }
-
-                break;
+            String scheduleName = data.scheduleName();
+            if (scheduleName != null) {
+                names.add(scheduleName);
             }
         }
 
-        mWidgetAdapter.update(scheduleNames, scheduleIDs);
+        if (names.isEmpty()) {
+            mStatefulLayout.setState(R.id.not_widgets);
+            return;
+        }
+
+        mWidgetAdapter.submitList(names, ids);
         mStatefulLayout.setState(R.id.schedule_widgets);
     }
 
     @Override
     public void OnWidgetClicked(int widgetID) {
-        // вызываем конфигурационное окно для виджета
+        // вызываем конфигурационное окно виджета
         Intent configIntent = new Intent(getContext(), ScheduleWidgetConfigureActivity.class);
         configIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_CONFIGURE);
         configIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetID);

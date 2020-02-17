@@ -39,8 +39,9 @@
     <dimen name="pair_card_padding">5dp</dimen>
 
     <!-- Виджет с расписанием -->
-    <dimen name="widget_schedule_padding">4dp</dimen>
-    <dimen name="widget_schedule_content">12sp</dimen>
+    <dimen name="widget_sch_padding">4dp</dimen>
+    <dimen name="widget_sch_content">12sp</dimen>
+    <dimen name="widget_sch_type_width">20dp</dimen>
 
     <!--  Для размещения текста-подсказки  -->
     <dimen name="input_label_vertical_spacing">8dp</dimen>

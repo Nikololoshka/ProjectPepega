@@ -210,7 +210,7 @@ public class ScheduleViewFragment extends Fragment
         mScheduleViewModel = new ViewModelProvider(this,
                 new ScheduleViewModel.Factory(mSchedulePath)).get(ScheduleViewModel.class);
 
-        // установка отображаемого дня, если было указано в bundle
+        // установка отображаемого дня, если был указан
         if (savedInstanceState == null && getArguments() != null) {
             Calendar date = (Calendar) getArguments().getSerializable(ARG_SCHEDULE_DAY);
             mScheduleViewModel.storage().setInitialKey(date);
@@ -450,7 +450,7 @@ public class ScheduleViewFragment extends Fragment
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            // если нужно переименновать расписание
+            // если нужно переименовать расписание
             case R.id.rename_schedule: {
                 Intent intent = new Intent(getActivity(), ScheduleNameEditorActivity.class);
                 intent.putExtra(EXTRA_SCHEDULE_NAME, mScheduleName);
@@ -458,7 +458,7 @@ public class ScheduleViewFragment extends Fragment
 
                 return true;
             }
-            // к выбраному дню
+            // к выбранному дню
             case R.id.go_to_day: {
                 Context context = getContext();
                 if (context != null) {
@@ -619,7 +619,7 @@ public class ScheduleViewFragment extends Fragment
                 File newFile = new File(SchedulePreference.createPath(context, newScheduleName));
 
                 try {
-                    // пытаемся переименновать расписание
+                    // пытаемся переименовать расписание
                     FileUtils.moveFile(oldFile, newFile);
 
                 } catch (IOException e) {
@@ -629,7 +629,7 @@ public class ScheduleViewFragment extends Fragment
                     return;
                 }
 
-                // если удалось переименновать расписание
+                // если удалось переименовать расписание
                 SchedulePreference.remove(context, mScheduleName);
                 SchedulePreference.add(context, newScheduleName);
 
@@ -796,7 +796,7 @@ public class ScheduleViewFragment extends Fragment
     }
 
     /**
-     * Отображает в расписаний необходимый день.
+     * Отображает в расписании необходимый день.
      * @param targetDay необходимый день.
      */
     private void scrollScheduleTo(@NonNull Calendar targetDay) {

@@ -58,7 +58,7 @@ import static com.github.nikololoshka.pepegaschedule.schedule.editor.date.DateEd
 import static com.github.nikololoshka.pepegaschedule.schedule.editor.date.DateEditorActivity.RESULT_DATE_REMOVE;
 
 /**
- * Activity для редактирование пары.
+ * Activity для редактирования пары.
  */
 public class PairEditorActivity extends AppCompatActivity
         implements View.OnClickListener, PairDatesAdaptor.OnDateItemClickListener {
@@ -87,7 +87,7 @@ public class PairEditorActivity extends AppCompatActivity
     private AppCompatSpinner mTimeEndSpinner;
 
     /**
-     * ViewModel с расписаниемю
+     * ViewModel с расписанием.
      */
     private PairEditorModel mPairEditorViewModel;
     /**
@@ -99,7 +99,7 @@ public class PairEditorActivity extends AppCompatActivity
      */
     private ArrayList<DateItem> mDateItems;
     /**
-     * Адаптор для дат.
+     * Адаптер для дат.
      */
     private PairDatesAdaptor mPairDatesAdaptor;
     /**
@@ -202,7 +202,7 @@ public class PairEditorActivity extends AppCompatActivity
             mNewPair = savedInstanceState.getParcelable(NEW_PAIR);
 
         } else {
-            // инициализая с начала
+            // инициализация с начала
             Pair pair = getIntent().getParcelableExtra(EXTRA_PAIR);
             mOldPair = pair;
 
@@ -221,7 +221,7 @@ public class PairEditorActivity extends AppCompatActivity
             }
         }
 
-        // адаптор с датами
+        // адаптер с датами
         String[] frequencies = getResources().getStringArray(R.array.frequency_simple_list);
         String everyWeek = frequencies[0];
         String throughWeek = frequencies[1];
@@ -268,7 +268,8 @@ public class PairEditorActivity extends AppCompatActivity
         }
         // получение ViewModel
         mPairEditorViewModel = new ViewModelProvider(this,
-                new PairEditorModel.Factory(schedulePath)).get(PairEditorModel.class);
+                new PairEditorModel.Factory(getApplication(), schedulePath))
+                .get(PairEditorModel.class);
 
         mPairEditorViewModel.state().observe(this, new Observer<PairEditorModel.States>() {
             @Override
@@ -279,9 +280,9 @@ public class PairEditorActivity extends AppCompatActivity
     }
 
     /**
-     * Создает списки с автодополнением.
-     * @param id ID ресурса с списком автодополнения.
-     * @return список автодополнения.
+     * Создает списки с авто дополнением.
+     * @param id ID ресурса со списком авто дополнения.
+     * @return список авто дополнения.
      */
     @NonNull
     private ArrayList<String> readAutoCompleteStrings(@RawRes int id) {
@@ -313,7 +314,7 @@ public class PairEditorActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // удалить текущию пару
+            // удалить текущую пару
             case R.id.remove_pair: {
                 Schedule schedule = mPairEditorViewModel.schedule().getValue();
                 if (schedule != null) {
@@ -324,48 +325,7 @@ public class PairEditorActivity extends AppCompatActivity
             }
             // завершить редактирование пары
             case R.id.apply_pair: {
-                String errorMessage;
-
-                try {
-                    // если выполнены минимальные требования
-                    if (!checkTitleField() || !checkDatesList()) {
-                        return true;
-                    }
-
-                    TitlePair title = new TitlePair(mTitleEdit.getText().toString());
-                    LecturerPair lecturer = new LecturerPair(mLecturerEdit.getText().toString());
-                    ClassroomPair classroom = new ClassroomPair(mClassroomEdit.getText().toString());
-                    TypePair type = new TypePair(typeSpinner());
-                    SubgroupPair subgroup = new SubgroupPair(subgroupSpinner());
-                    TimePair time = new TimePair(mTimeStartSpinner.getSelectedItem().toString(),
-                            mTimeEndSpinner.getSelectedItem().toString());
-                    DatePair date = new DatePair(mDateItems);
-
-                    mNewPair = new Pair(title, lecturer, type, subgroup, classroom, time, date);
-
-                    Schedule schedule = mPairEditorViewModel.schedule().getValue();
-                    if (schedule != null) {
-                        schedule.removePair(mOldPair);
-                        schedule.addPair(mNewPair);
-                        mPairEditorViewModel.saveSchedule();
-                    }
-                    return true;
-
-                } catch (InvalidChangePairException e) {
-                    errorMessage = getString(R.string.pair_editor_conflict_pair, e.conflictPair());
-                }
-
-                // есль проблема с добавлением пары
-                new AlertDialog.Builder(this)
-                        .setTitle(R.string.error)
-                        .setMessage(errorMessage)
-                        .setNeutralButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        }).show();
-
+                savePair();
                 return true;
             }
         }
@@ -373,7 +333,7 @@ public class PairEditorActivity extends AppCompatActivity
     }
 
     /**
-     * Проверяет, пусто ли в поле с название предмета.
+     * Проверяет, пусто ли в поле названия предмета.
      * @return true если не пусто, иначе false.
      */
     private boolean checkTitleField() {
@@ -406,6 +366,55 @@ public class PairEditorActivity extends AppCompatActivity
         return true;
     }
 
+    /**
+     * Сохраняет пару в расписание.
+     * @return true если удалось сохранить, иначе false.
+     */
+    private boolean savePair() {
+        String errorMessage;
+
+        try {
+            // если выполнены минимальные требования
+            if (!checkTitleField() || !checkDatesList()) {
+                return false;
+            }
+
+            TitlePair title = new TitlePair(mTitleEdit.getText().toString());
+            LecturerPair lecturer = new LecturerPair(mLecturerEdit.getText().toString());
+            ClassroomPair classroom = new ClassroomPair(mClassroomEdit.getText().toString());
+            TypePair type = new TypePair(typeSpinner());
+            SubgroupPair subgroup = new SubgroupPair(subgroupSpinner());
+            TimePair time = new TimePair(mTimeStartSpinner.getSelectedItem().toString(), mTimeEndSpinner.getSelectedItem().toString());
+            DatePair date = new DatePair(mDateItems);
+
+            mNewPair = new Pair(title, lecturer, type, subgroup, classroom, time, date);
+
+            Schedule schedule = mPairEditorViewModel.schedule().getValue();
+            if (schedule != null) {
+                schedule.removePair(mOldPair);
+                schedule.addPair(mNewPair);
+                mPairEditorViewModel.saveSchedule();
+            }
+            return true;
+
+        } catch (InvalidChangePairException e) {
+            errorMessage = getString(R.string.pair_editor_conflict_pair, e.conflictPair());
+        }
+
+        // если проблема с добавлением пары
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.error)
+                .setMessage(errorMessage)
+                .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).show();
+
+        return false;
+    }
+
     @Override
     public void onClick(View v) {
         // добавить дату
@@ -420,6 +429,69 @@ public class PairEditorActivity extends AppCompatActivity
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        String title = mTitleEdit.getText().toString();
+        String lecturer = mLecturerEdit.getText().toString();
+        String classroom = mClassroomEdit.getText().toString();
+
+        TypePair type = new TypePair(typeSpinner());
+        SubgroupPair subgroup = new SubgroupPair(subgroupSpinner());
+        TimePair time = new TimePair(mTimeStartSpinner.getSelectedItem().toString(), mTimeEndSpinner.getSelectedItem().toString());
+
+        if (mOldPair == null) {
+            // если новая пара и не было каких-либо изменений
+            if (title.isEmpty() && lecturer.isEmpty() && classroom.isEmpty() && mDateItems.isEmpty()) {
+                super.onBackPressed();
+                return;
+            }
+
+        } else {
+            // если редактируемая пара и нет изменений
+            if (mOldPair.title().title().equals(title)
+                    && mOldPair.lecturer().lecturer().equals(lecturer)
+                    && mOldPair.classroom().classroom().equals(title)
+                    && mOldPair.type().equals(type)
+                    && mOldPair.subgroup().equals(subgroup)
+                    && mOldPair.time().equals(time)) {
+                // есть даты
+                if (!mDateItems.isEmpty()) {
+                    DatePair date = new DatePair(mDateItems);
+                    if (mOldPair.date().equals(date)) {
+                        super.onBackPressed();
+                        return;
+                    }
+                }
+            }
+        }
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.pair_editor_pair_changed_title)
+                .setMessage(R.string.pair_editor_pair_changed_message)
+                .setNegativeButton(R.string.exit, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        PairEditorActivity.super.onBackPressed();
+                        dialog.dismiss();
+                    }
+                })
+                .setPositiveButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setNeutralButton(R.string.pair_editor_save, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (savePair()) {
+                            dialog.dismiss();
+                        }
+                    }
+                })
+                .show();
     }
 
     @Override
@@ -491,7 +563,7 @@ public class PairEditorActivity extends AppCompatActivity
     }
 
     /**
-     * Устанавлтвает поле с подгруппой пары.
+     * Устанавливает поле с подгруппой пары.
      * @param subgroup подгруппа пары.
      */
     private void setSubgroupSpinner(@NonNull SubgroupEnum subgroup) {
@@ -563,7 +635,7 @@ public class PairEditorActivity extends AppCompatActivity
 
     /**
      * Изменяет способ отображения дат в редакторе. Если дат нет, то будет показано
-     * соотвествующие сообщение об этом, иначе отображается список с датами.
+     * соответствующие сообщение об этом, иначе отображается список с датами.
      */
     private void updateDatesCountView() {
         if (mDateItems.isEmpty()) {

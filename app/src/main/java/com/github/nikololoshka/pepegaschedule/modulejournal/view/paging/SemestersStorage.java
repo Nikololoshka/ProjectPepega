@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalErrorUtils;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalService;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.response.MarkResponse;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemesterMarks;
 
 import java.io.File;
 import java.io.IOException;
@@ -132,17 +132,17 @@ public class SemestersStorage {
      * @return данные с оценками.
      */
     @NonNull
-    List<SemestersMarks> loadData(int loadPosition) {
+    List<SemesterMarks> loadData(int loadPosition) {
         if (mSemesters == null || mLogin == null || mPassword == null
                 || loadPosition < 0 || loadPosition >= mSemesters.size()) {
-            return Collections.singletonList(new SemestersMarks());
+            return Collections.singletonList(new SemesterMarks());
         }
 
         String semester = mSemesters.get(loadPosition);
         Boolean useCache = mUseCache.get(loadPosition);
 
         @Nullable
-        SemestersMarks marks = useCache ? SemestersMarks.loadCacheData(semester, mCacheDirectory) : null;
+        SemesterMarks marks = useCache ? SemesterMarks.loadCacheData(semester, mCacheDirectory) : null;
         mUseCache.set(loadPosition, true);
 
         // загружены из кэша и менее чем 10 минут назад
@@ -169,11 +169,11 @@ public class SemestersStorage {
                     .execute();
 
             if (response.isSuccessful()) {
-                marks = SemestersMarks.fromResponse(response.body());
-                SemestersMarks.saveCacheData(marks, semester, mCacheDirectory);
+                marks = SemesterMarks.fromResponse(response.body());
+                SemesterMarks.saveCacheData(marks, semester, mCacheDirectory);
             } else {
                 if (marks == null) {
-                    marks = new SemestersMarks();
+                    marks = new SemesterMarks();
                     marks.setError(ModuleJournalErrorUtils.responseError(response));
 
                     return Collections.singletonList(marks);
@@ -189,7 +189,7 @@ public class SemestersStorage {
 
         } catch (IOException e) {
             if (marks == null) {
-                marks = new SemestersMarks();
+                marks = new SemesterMarks();
                 marks.setError(ModuleJournalErrorUtils.exceptionError(e));
             } else {
                 marks.setCache(true);

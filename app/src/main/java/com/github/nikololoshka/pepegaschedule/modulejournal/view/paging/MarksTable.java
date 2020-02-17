@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.github.nikololoshka.pepegaschedule.R;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemesterMarks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -351,7 +351,7 @@ public class MarksTable extends TableLayout {
         void bind(@NonNull String text) {
             mTextView.setText(text);
 
-            if (text.equals(SemestersMarks.ACCUMULATED_RATING) || text.equals(SemestersMarks.RATING)) {
+            if (text.equals(SemesterMarks.ACCUMULATED_RATING) || text.equals(SemesterMarks.RATING)) {
                 mTextView.setTypeface(null, Typeface.BOLD);
             } else {
                 mTextView.setTypeface(null, Typeface.NORMAL);

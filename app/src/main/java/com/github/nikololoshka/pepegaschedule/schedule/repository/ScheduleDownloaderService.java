@@ -17,7 +17,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.github.nikololoshka.pepegaschedule.BuildConfig;
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.settings.SchedulePreference;
-import com.github.nikololoshka.pepegaschedule.utils.NotificationDispatcher;
+import com.github.nikololoshka.pepegaschedule.utils.NotificationUtils;
 
 import org.apache.commons.io.output.FileWriterWithEncoding;
 
@@ -54,7 +54,6 @@ public class ScheduleDownloaderService extends IntentService {
     NotificationCompat.Builder mNotificationBuilder;
     NotificationManager mNotificationManager;
 
-
     /**
      * Создает задачу на скачивание расписания с уведомлением.
      * @param context - контекст приложения.
@@ -66,15 +65,14 @@ public class ScheduleDownloaderService extends IntentService {
         intent.putExtra(ScheduleDownloaderService.EXTRA_SCHEDULE_NAME, name);
         intent.putExtra(ScheduleDownloaderService.EXTRA_SCHEDULE_URL,  url);
 
-        NotificationCompat.Builder builder = NotificationDispatcher.createCommonNotification(context)
+        NotificationCompat.Builder builder = NotificationUtils.createCommonNotification(context)
                 .setContentTitle(name)
                 .setContentText(context.getString(R.string.notification_awaiting_download))
                 .setWhen(System.currentTimeMillis())
                 .setGroup(DOWNLOADER_NOTIFICATION_GROUP)
                 .setSmallIcon(R.drawable.ic_notification_file_download);
 
-        NotificationDispatcher.notify(context,
-                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE),
+        NotificationUtils.notifyCommon(context, context.getSystemService(NotificationManager.class),
                 DOWNLOAD_NOTIFICATION_ID, builder.build());
 
         if (BuildConfig.DEBUG) {
@@ -95,7 +93,7 @@ public class ScheduleDownloaderService extends IntentService {
         super.onCreate();
 
         // общие уведомление сервера
-        mNotificationBuilder = NotificationDispatcher.createCommonNotification(this)
+        mNotificationBuilder = NotificationUtils.createCommonNotification(this)
                 .setContentText(getString(R.string.repository_loading_schedule))
                 .setWhen(System.currentTimeMillis())
                 .setGroup(DOWNLOADER_NOTIFICATION_GROUP)
@@ -140,7 +138,7 @@ public class ScheduleDownloaderService extends IntentService {
             mNotificationBuilder.setContentTitle(scheduleName)
                     .setContentTitle(scheduleName)
                     .setWhen(System.currentTimeMillis());
-            NotificationDispatcher.notify(this, mNotificationManager,
+            NotificationUtils.notifyCommon(this, mNotificationManager,
                     SERVICE_NOTIFICATION_ID, mNotificationBuilder.build());
 
             // загрузка (чтение)
@@ -168,7 +166,7 @@ public class ScheduleDownloaderService extends IntentService {
             }
 
             // окончательное уведомление
-            NotificationCompat.Builder builder = NotificationDispatcher.createCommonNotification(this)
+            NotificationCompat.Builder builder = NotificationUtils.createCommonNotification(this)
                     .setContentText(getString(R.string.notification_schedule_downloaded))
                     .setContentTitle(scheduleName)
                     .setContentIntent(PendingIntent.getActivity(getApplicationContext(), 0, new Intent(), 0))
@@ -177,7 +175,7 @@ public class ScheduleDownloaderService extends IntentService {
                     .setAutoCancel(true)
                     .setGroup(DOWNLOADER_NOTIFICATION_GROUP);
 
-            NotificationDispatcher.notify(this, mNotificationManager,
+            NotificationUtils.notifyCommon(this, mNotificationManager,
                     notificationId, builder.build());
         }
     }
@@ -187,14 +185,14 @@ public class ScheduleDownloaderService extends IntentService {
      * @param notificationManager - менеджер уведомлений.
      */
     private void createNotificationGroup(NotificationManager notificationManager) {
-        NotificationCompat.Builder builder = NotificationDispatcher.createCommonNotification(this)
+        NotificationCompat.Builder builder = NotificationUtils.createCommonNotification(this)
                 .setSmallIcon(R.drawable.ic_notification_file_download)
                 .setAutoCancel(true)
                 .setGroup(DOWNLOADER_NOTIFICATION_GROUP)
                 .setGroupSummary(true)
                 .setStyle(new NotificationCompat.BigTextStyle());
 
-        NotificationDispatcher.notify(this, notificationManager,
+        NotificationUtils.notifyCommon(this, notificationManager,
                 DOWNLOAD_GROUP_NOTIFICATION_ID, builder.build());
     }
 

@@ -74,11 +74,11 @@
     <string name="sch_view_remove_pair">Удалить пару</string>
     <string name="sch_view_save_schedule">Сохранить расписание</string>
     <string name="sch_view_saved">Расписание сохранено</string>
-    <string name="sch_view_error_loading">Ошибка при загрузки расписания</string>
+    <string name="sch_view_error_loading">Ошибка при загрузке расписания</string>
     <string name="sch_view_rename">Переименновать расписание</string>
     <string name="sch_view_renamed">Расписание переименованно</string>
-    <string name="sch_view_unable_rename">Не удалось переименновать расписание</string>
-    <string name="sch_view_will_be_deleted">Внимание, расписание будет удалено безвозратно!</string>
+    <string name="sch_view_unable_rename">Не удалось переименовать расписание</string>
+    <string name="sch_view_will_be_deleted">Внимание, расписание будет удалено безвозвратно!</string>
     <string name="sch_view_today">Сегодня</string>
     <string name="sch_view_empty">Расписание пустое</string>
 
@@ -97,6 +97,9 @@
     <string name="pair_editor_empty_title">У пары нет названия</string>
     <string name="pair_editor_conflict_pair">YНевозможно добавить пару. Конфликтует с \"%1$s\".</string>
     <string name="pair_editor_loading_schedule_error">Не удалось загрузить расписание для редактирования</string>
+    <string name="pair_editor_pair_changed_title">Пара была изменена</string>
+    <string name="pair_editor_pair_changed_message">Некоторые параметры пары были изменены. Ваши изменения будут потеряны, если вы не сохраните их.</string>
+    <string name="pair_editor_save">Сохранить</string>
 
     <!-- date editor -->
     <string name="date_editor_enter_valid_date">Введите правильно дату: DD.MM.YYYY</string>
@@ -142,6 +145,10 @@
     <string name="notification">Уведомления</string>
     <string name="notification_common">Общие</string>
     <string name="notification_common_description">Загрузка расписания, важная информация</string>
+    <string name="notification_mj">Модульный журнал</string>
+    <string name="notification_mj_description">Изменения в модульном журнале</string>
+    <string name="notification_mj_new_semester">Добавлен новый семестр: \"%1$s\"</string>
+    <string name="notification_mj_new_marks">Обновлены оценки:</string>
     <string name="notification_schedule_downloaded">Расписание загружено</string>
     <string name="notification_awaiting_download">Ожидание загрузки</string>
 
@@ -200,5 +207,6 @@
     <string name="moving_handler">Контроллер передвижения</string>
     <string name="retry">Повторить</string>
     <string name="undo">Отмена</string>
+    <string name="exit">Выйти</string>
 
 </resources>

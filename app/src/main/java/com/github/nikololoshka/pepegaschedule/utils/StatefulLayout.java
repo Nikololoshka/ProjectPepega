@@ -71,7 +71,7 @@ public class StatefulLayout extends FrameLayout {
     }
 
     /**
-     * Инициализуриет view.
+     * Инициализирует view.
      */
     private void initialization() {
         mCurrentState = "";
@@ -128,12 +128,18 @@ public class StatefulLayout extends FrameLayout {
 
         if (mAnimationMode == TRANSITION_ANIMATION) {
 
-            TransitionManager.beginDelayedTransition(this, new Fade());
+            Fade in = new Fade();
+            in.setDuration(DEFAULT_DURATION);
+
+            TransitionManager.beginDelayedTransition(this, in);
             if (newView != null) {
                 newView.setVisibility(VISIBLE);
             }
 
-            TransitionManager.beginDelayedTransition(this, new Fade());
+            Fade out = new Fade();
+            out.setDuration(DEFAULT_DURATION);
+
+            TransitionManager.beginDelayedTransition(this, out);
             if (oldView != null) {
                 oldView.setVisibility(GONE);
             }

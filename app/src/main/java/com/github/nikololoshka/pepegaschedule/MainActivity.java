@@ -19,7 +19,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.github.nikololoshka.pepegaschedule.settings.ApplicationPreference;
-import com.github.nikololoshka.pepegaschedule.utils.NotificationDispatcher;
+import com.github.nikololoshka.pepegaschedule.utils.NotificationUtils;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -69,8 +69,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // настройка уведомлений приложения
         // android 8.0+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // общего назначения
             NotificationChannel channelCommon = new NotificationChannel(
-                    NotificationDispatcher.CHANNEL_COMMON,
+                    NotificationUtils.CHANNEL_COMMON,
                     getString(R.string.notification_common),
                     NotificationManager.IMPORTANCE_DEFAULT);
 
@@ -79,14 +80,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             channelCommon.enableVibration(true);
             channelCommon.enableLights(true);
 
-            NotificationManager notificationManager =
-                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            // модульного журнала
+            NotificationChannel channelModuleJournal = new NotificationChannel(
+                    NotificationUtils.CHANNEL_MODULE_JOURNAL,
+                    getString(R.string.notification_mj),
+                    NotificationManager.IMPORTANCE_DEFAULT);
 
+            channelModuleJournal.setDescription(getString(R.string.notification_mj_description));
+            channelModuleJournal.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+            channelModuleJournal.enableVibration(true);
+            channelModuleJournal.enableLights(true);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
             if (notificationManager == null) {
                 return;
             }
 
             notificationManager.createNotificationChannel(channelCommon);
+            notificationManager.createNotificationChannel(channelModuleJournal);
         }
     }
 
@@ -149,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     * Обновляет отображение конопки ручного переключение
+     * Обновляет отображение кнопки ручного переключение
      * темной темы исходя из текущих настроек.
      */
     public void updateDarkModeButton() {

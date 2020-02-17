@@ -27,11 +27,11 @@
         <com.facebook.shimmer.ShimmerFrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:shimmer_duration="3000"
-            app:shimmer_repeat_delay="2000" >
+            app:shimmer_duration="2000"
+            app:shimmer_repeat_delay="1000" >
 
             <include
-                layout="@layout/widget_item_schedule_pair_shimmer"
+                layout="@layout/widget_item_schedule_shimmer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

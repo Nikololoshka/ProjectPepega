@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:divider="@drawable/divider"
+    android:showDividers="middle">
+
+    <TextView
+        style="@style/Text.Body2"
+        android:background="@color/colorBackgroundShimmer"
+        android:text="@string/widget_shimmer_day"
+        android:textColor="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/widget_sch_padding" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/widget_pair_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@id/widget_schedule_type"
+            android:padding="@dimen/widget_sch_padding" >
+
+            <TextView
+                style="@style/Text"
+                android:id="@+id/widget_schedule_title"
+                android:background="@color/colorBackgroundShimmer"
+                android:text="@string/widget_shimmer_title"
+                android:textColor="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="@dimen/widget_sch_padding" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/widget_schedule_time"
+                android:text="@string/widget_shimmer_time"
+                android:textSize="@dimen/widget_sch_content"
+                android:textColor="@android:color/transparent"
+                android:background="@color/colorBackgroundShimmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/widget_schedule_title" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/widget_schedule_classroom"
+                android:text="@string/widget_shimmer_classroom"
+                android:textSize="@dimen/widget_sch_content"
+                android:textColor="@android:color/transparent"
+                android:background="@color/colorBackgroundShimmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/widget_schedule_title"
+                android:layout_alignParentEnd="true"
+                android:paddingStart="@dimen/widget_sch_padding"
+                android:paddingEnd="0dp" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/widget_schedule_type"
+            android:layout_width="@dimen/widget_sch_type_width"
+            android:layout_height="wrap_content"
+            android:src="@color/colorBackgroundShimmer"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/widget_pair_content"
+            android:contentDescription="@string/widget_schedule_type_marker" />
+
+    </RelativeLayout>
+
+</LinearLayout>

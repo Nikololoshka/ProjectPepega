@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="@dimen/widget_schedule_padding"
-    android:paddingEnd="@dimen/widget_schedule_padding"
+    android:paddingStart="@dimen/widget_sch_padding"
+    android:paddingEnd="@dimen/widget_sch_padding"
     android:paddingTop="@dimen/default_layout_padding"
     android:paddingBottom="@dimen/default_layout_padding">
 

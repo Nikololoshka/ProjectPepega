@@ -7,14 +7,14 @@ import androidx.paging.DataSource;
 import androidx.paging.PositionalDataSource;
 
 import com.github.nikololoshka.pepegaschedule.BuildConfig;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemesterMarks;
 
 import java.util.List;
 
 /**
  * Загружает данные для адаптера.
  */
-public class SemestersDataSources extends PositionalDataSource<SemestersMarks> {
+public class SemestersDataSources extends PositionalDataSource<SemesterMarks> {
 
     private static final String TAG = "SemestersDSLog";
 
@@ -28,14 +28,14 @@ public class SemestersDataSources extends PositionalDataSource<SemestersMarks> {
     }
 
     @Override
-    public void loadInitial(@NonNull LoadInitialParams params, @NonNull LoadInitialCallback<SemestersMarks> callback) {
+    public void loadInitial(@NonNull LoadInitialParams params, @NonNull LoadInitialCallback<SemesterMarks> callback) {
         if (BuildConfig.DEBUG) {
             Log.d(TAG, String.format("loadInitial, requestedStartPosition = %d, requestedLoadSize = %d",
                     params.requestedStartPosition, params.requestedLoadSize));
         }
 
         int pos = mSemestersStorage.semestersCount() - 1;
-        List<SemestersMarks> marks = mSemestersStorage.loadData(pos);
+        List<SemesterMarks> marks = mSemestersStorage.loadData(pos);
         if (params.placeholdersEnabled) {
             callback.onResult(marks, pos, mSemestersStorage.semestersCount());
         } else {
@@ -44,20 +44,20 @@ public class SemestersDataSources extends PositionalDataSource<SemestersMarks> {
     }
 
     @Override
-    public void loadRange(@NonNull LoadRangeParams params, @NonNull LoadRangeCallback<SemestersMarks> callback) {
+    public void loadRange(@NonNull LoadRangeParams params, @NonNull LoadRangeCallback<SemesterMarks> callback) {
         if (BuildConfig.DEBUG) {
             Log.d(TAG, String.format("loadRange, startPosition = %d, loadSize = %d",
                     params.startPosition, params.loadSize));
         }
 
-        List<SemestersMarks> marks = mSemestersStorage.loadData(params.startPosition);
+        List<SemesterMarks> marks = mSemestersStorage.loadData(params.startPosition);
         callback.onResult(marks);
     }
 
     /**
      * Фабрика для создания источника данных семестров с оценками.
      */
-    public static class Factory extends DataSource.Factory<Integer, SemestersMarks> {
+    public static class Factory extends DataSource.Factory<Integer, SemesterMarks> {
 
         private final SemestersStorage mStorage;
 
@@ -67,7 +67,7 @@ public class SemestersDataSources extends PositionalDataSource<SemestersMarks> {
 
         @NonNull
         @Override
-        public DataSource<Integer, SemestersMarks> create() {
+        public DataSource<Integer, SemesterMarks> create() {
             return new SemestersDataSources(mStorage);
         }
     }

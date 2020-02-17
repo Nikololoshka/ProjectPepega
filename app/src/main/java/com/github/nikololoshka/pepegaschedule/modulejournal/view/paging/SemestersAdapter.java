@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemesterMarks;
 import com.github.nikololoshka.pepegaschedule.utils.StatefulLayout;
 
 import java.lang.ref.WeakReference;
@@ -21,7 +21,7 @@ import java.lang.ref.WeakReference;
 /**
  * Адаптер для модульного журнала с семестрами с оценками.
  */
-public class SemestersAdapter extends PagedListAdapter<SemestersMarks, SemestersAdapter.SemestersHolder> {
+public class SemestersAdapter extends PagedListAdapter<SemesterMarks, SemestersAdapter.SemestersHolder> {
 
     public interface OnSemestersListener {
         void onUpdateSemesters();
@@ -31,14 +31,14 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
     private WeakReference<OnSemestersListener> mListener;
 
     public SemestersAdapter() {
-        super(new DiffUtil.ItemCallback<SemestersMarks>() {
+        super(new DiffUtil.ItemCallback<SemesterMarks>() {
             @Override
-            public boolean areItemsTheSame(@NonNull SemestersMarks oldItem, @NonNull SemestersMarks newItem) {
-                return oldItem.time().equals(newItem.time());
+            public boolean areItemsTheSame(@NonNull SemesterMarks oldItem, @NonNull SemesterMarks newItem) {
+                return oldItem.equals(newItem);
             }
 
             @Override
-            public boolean areContentsTheSame(@NonNull SemestersMarks oldItem, @NonNull SemestersMarks newItem) {
+            public boolean areContentsTheSame(@NonNull SemesterMarks oldItem, @NonNull SemesterMarks newItem) {
                 return oldItem.equals(newItem);
             }
         });
@@ -78,7 +78,7 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
 
             mStatefulLayout = itemView.findViewById(R.id.stateful_layout);
             mStatefulLayout.addXMLViews();
-            mStatefulLayout.setAnimation(StatefulLayout.NO_ANIMATION);
+            mStatefulLayout.setAnimation(StatefulLayout.PROPERTY_ANIMATION);
             mStatefulLayout.setLoadState();
 
             mMarksTable = itemView.findViewById(R.id.mj_marks_table);
@@ -93,7 +93,7 @@ public class SemestersAdapter extends PagedListAdapter<SemestersMarks, Semesters
          * Обновляет данные в таблице.
          * @param marks семестр с оценками.
          */
-        void bind(@Nullable SemestersMarks marks) {
+        void bind(@Nullable SemesterMarks marks) {
             // нет оценок
             if (marks == null) {
                 mStatefulLayout.setLoadState();

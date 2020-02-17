@@ -11,7 +11,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@id/widget_schedule_type"
-        android:padding="@dimen/widget_schedule_padding" >
+        android:padding="@dimen/widget_sch_padding" >
 
         <TextView
             style="@style/Text"
@@ -31,7 +31,7 @@
             style="@style/Text.Small"
             android:id="@+id/widget_schedule_time"
             android:textColor="@color/colorTextSecondary"
-            android:textSize="@dimen/widget_schedule_content"
+            android:textSize="@dimen/widget_sch_content"
             android:ellipsize="end"
             android:minLines="1"
             android:maxLines="1"
@@ -49,13 +49,13 @@
             android:ellipsize="end"
             android:minLines="1"
             android:maxLines="1"
-            android:textSize="@dimen/widget_schedule_content"
+            android:textSize="@dimen/widget_sch_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/widget_schedule_title"
             android:layout_toEndOf="@id/widget_schedule_time"
             android:layout_alignParentEnd="true"
-            android:paddingStart="@dimen/widget_schedule_padding"
+            android:paddingStart="@dimen/widget_sch_padding"
             android:paddingEnd="0dp"
             tools:text="0412" />
 

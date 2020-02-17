@@ -69,7 +69,7 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
                     AppWidgetManager.INVALID_APPWIDGET_ID);
         }
 
-        // если не корректное ID у виджета
+        // если не корректное ID виджета
         if (mScheduleAppWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
             finish();
             return;

@@ -14,7 +14,7 @@
         android:textColor="@color/colorTextPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/widget_schedule_padding"
+        android:padding="@dimen/widget_sch_padding"
         tools:text="Пн, 10 февраля" />
 
     <LinearLayout

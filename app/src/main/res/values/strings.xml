@@ -45,6 +45,7 @@
     <string name="mj_group">Group: %1$s</string>
     <string name="mj_last_update">\"%1$s\" data from the cache from: %2$s</string>
     <string name="mj_update_marks">Update marks</string>
+
     <string name="mj_shimmer_student_name" translatable="false">Student: StudentName</string>
     <string name="mj_shimmer_group" translatable="false">Group: Group</string>
 
@@ -106,6 +107,9 @@
     <string name="pair_editor_empty_title">The field cannot be empty</string>
     <string name="pair_editor_conflict_pair">You cannot add a pair. Conflicts with \"%1$s\".</string>
     <string name="pair_editor_loading_schedule_error">Unable to load the schedule for editing</string>
+    <string name="pair_editor_pair_changed_title">The pair has been changed</string>
+    <string name="pair_editor_pair_changed_message">Some parameters of the pair have been changed. Your changes will be lost if you do not save them.</string>
+    <string name="pair_editor_save">Save</string>
 
     <!-- date editor -->
     <string name="date_editor_enter_valid_date">Enter a valid date: DD.MM.YYYY</string>
@@ -151,6 +155,10 @@
     <string name="notification">Notification</string>
     <string name="notification_common">Common</string>
     <string name="notification_common_description">Download schedule, important information</string>
+    <string name="notification_mj">Module journal</string>
+    <string name="notification_mj_description">Changes in the module journal</string>
+    <string name="notification_mj_new_semester">Added a new semester: \"%1$s\"</string>
+    <string name="notification_mj_new_marks">Updated marks:</string>
     <string name="notification_schedule_downloaded">Schedule downloaded</string>
     <string name="notification_awaiting_download">Awaiting download</string>
 
@@ -195,6 +203,10 @@
     <string name="widget_schedule_update">Update the schedule widget</string>
     <string name="widget_schedule_type_marker">Pair type marker</string>
     <string name="widget_schedule_error">An error occurred when the widget was running</string>
+    <string name="widget_shimmer_day" translatable="false">Monday, 24 February</string>
+    <string name="widget_shimmer_title" translatable="false">Name of the pair discipline</string>
+    <string name="widget_shimmer_classroom" translatable="false">Classroom</string>
+    <string name="widget_shimmer_time" translatable="false">Time pair</string>
 
     <!-- news -->
     <string name="news_university">University News</string>
@@ -211,5 +223,6 @@
     <string name="moving_handler">Moving handler</string>
     <string name="retry">Retry</string>
     <string name="undo">Undo</string>
+    <string name="exit">Exit</string>
 
 </resources>

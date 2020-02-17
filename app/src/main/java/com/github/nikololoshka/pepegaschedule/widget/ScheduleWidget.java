@@ -34,7 +34,7 @@ public class ScheduleWidget extends AppWidgetProvider {
      * @param appWidgetManager менеджер виджетов.
      * @param appWidgetId ID виджета.
      */
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
+    public static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
         ScheduleWidgetConfigureActivity.WidgetData widgetData =

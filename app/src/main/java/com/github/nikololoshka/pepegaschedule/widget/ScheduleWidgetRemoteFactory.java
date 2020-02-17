@@ -122,7 +122,7 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
 
         if (mScheduleName == null || mSchedulePath == null || mSubgroup == null) {
             if (context == null) {
-                // не было контекта и данные о расписании не загружены.
+                // не было контекста и данные о расписании не загружены.
                 mErrorMessage = mContext.get().getString(R.string.widget_schedule_error);
                 mLoadingError = true;
                 return;
@@ -248,7 +248,7 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
 
     @Override
     public RemoteViews getLoadingView() {
-        return new RemoteViews(mPackageName, R.layout.widget_item_schedule_pair_shimmer);
+        return new RemoteViews(mPackageName, R.layout.widget_item_schedule_shimmer);
     }
 
     @Override
@@ -267,7 +267,7 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
     }
 
     /**
-     * Сервис, который создает адаптер по оновлению данных в виджете.
+     * Сервис, который создает адаптер по обновлению данных в виджете.
      */
     public static class Service extends RemoteViewsService {
         @Override

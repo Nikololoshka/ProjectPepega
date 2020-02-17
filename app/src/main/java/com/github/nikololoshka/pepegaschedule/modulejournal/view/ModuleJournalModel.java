@@ -18,7 +18,7 @@ import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJourna
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalErrorUtils;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalService;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.response.SemestersResponse;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemesterMarks;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.StudentData;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.paging.SemestersDataSources;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.paging.SemestersStorage;
@@ -38,6 +38,9 @@ import retrofit2.Response;
  */
 public class ModuleJournalModel extends AndroidViewModel {
 
+    /**
+     * Состояние загрузки основной информации о студенте.
+     */
     enum StudentState {
         OK,
         LOADING,
@@ -48,7 +51,7 @@ public class ModuleJournalModel extends AndroidViewModel {
      * Список с семестрами.
      */
     @NonNull
-    private LiveData<PagedList<SemestersMarks>> mSemestersData;
+    private LiveData<PagedList<SemesterMarks>> mSemestersData;
     /**
      * Хранилище семестров.
      */
@@ -85,7 +88,7 @@ public class ModuleJournalModel extends AndroidViewModel {
     /**
      * Выполнен ли вход в модульный журнал.
      */
-    boolean mIsSingIn;
+    private boolean mIsSingIn;
 
 
     private ModuleJournalModel(@NonNull Application application) {
@@ -129,7 +132,7 @@ public class ModuleJournalModel extends AndroidViewModel {
 
         loadStudentData();
 
-        PagedList<SemestersMarks> data = mSemestersData.getValue();
+        PagedList<SemesterMarks> data = mSemestersData.getValue();
         if (data != null) {
             data.getDataSource().invalidate();
         }
@@ -223,7 +226,7 @@ public class ModuleJournalModel extends AndroidViewModel {
      * @return список семестров.
      */
     @NonNull
-    LiveData<PagedList<SemestersMarks>> semesters() {
+    LiveData<PagedList<SemesterMarks>> semesters() {
         return mSemestersData;
     }
 

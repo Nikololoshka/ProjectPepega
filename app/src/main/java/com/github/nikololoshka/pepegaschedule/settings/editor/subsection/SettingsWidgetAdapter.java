@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.github.nikololoshka.pepegaschedule.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Адаптер для RecyclerView для отображения виджетов.
@@ -23,8 +24,8 @@ public class SettingsWidgetAdapter
     }
 
     private OnWidgetClickListener mWidgetClickListener;
-    private ArrayList<String> mScheduleNames;
-    private ArrayList<Integer> mScheduleWidgetIDs;
+    private List<String> mScheduleNames;
+    private List<Integer> mScheduleWidgetIDs;
 
     public SettingsWidgetAdapter(OnWidgetClickListener listener) {
         super();
@@ -57,7 +58,7 @@ public class SettingsWidgetAdapter
      * @param scheduleNames список названий расписаний.
      * @param scheduleWidgetsIDs список ID виджетов расписаний.
      */
-    public void update(ArrayList<String> scheduleNames, ArrayList<Integer> scheduleWidgetsIDs) {
+    public void submitList(@NonNull List<String> scheduleNames, @NonNull List<Integer> scheduleWidgetsIDs) {
         mScheduleNames = scheduleNames;
         mScheduleWidgetIDs = scheduleWidgetsIDs;
 
@@ -79,7 +80,12 @@ public class SettingsWidgetAdapter
             itemView.findViewById(R.id.widget_item).setOnClickListener(this);
         }
 
-        void bind(String scheduleName, int widgetID) {
+        /**
+         * Обновляет анные в holder.
+         * @param scheduleName название расписания.
+         * @param widgetID ID виджета расписания.
+         */
+        void bind(@NonNull String scheduleName, int widgetID) {
             mScheduleTitle.setText(scheduleName);
             mWidgetID = widgetID;
         }

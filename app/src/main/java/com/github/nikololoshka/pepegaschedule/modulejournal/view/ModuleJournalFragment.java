@@ -1,5 +1,6 @@
 package com.github.nikololoshka.pepegaschedule.modulejournal.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,10 +21,14 @@ import androidx.paging.PagedList;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager2.widget.ViewPager2;
+import androidx.work.Constraints;
+import androidx.work.NetworkType;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkManager;
 
 import com.github.nikololoshka.pepegaschedule.R;
 import com.github.nikololoshka.pepegaschedule.modulejournal.network.ModuleJournalError;
-import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemestersMarks;
+import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.SemesterMarks;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.model.StudentData;
 import com.github.nikololoshka.pepegaschedule.modulejournal.view.paging.SemestersAdapter;
 import com.github.nikololoshka.pepegaschedule.settings.ModuleJournalPreference;
@@ -33,6 +38,8 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Фрагмент модульного журнала.
@@ -165,13 +172,13 @@ public class ModuleJournalFragment extends Fragment implements SemestersAdapter.
             }
         });
 
-        mModuleJournalModel.semesters().observe(getViewLifecycleOwner(), new Observer<PagedList<SemestersMarks>>() {
+        mModuleJournalModel.semesters().observe(getViewLifecycleOwner(), new Observer<PagedList<SemesterMarks>>() {
             @Override
-            public void onChanged(final PagedList<SemestersMarks> semestersMarks) {
-                mSemestersAdapter.submitList(semestersMarks, new Runnable() {
+            public void onChanged(final PagedList<SemesterMarks> semesterMarks) {
+                mSemestersAdapter.submitList(semesterMarks, new Runnable() {
                     @Override
                     public void run() {
-                        int pos = mCurrentPage == RecyclerView.NO_POSITION ? semestersMarks.size() - 1 : mCurrentPage;
+                        int pos = mCurrentPage == RecyclerView.NO_POSITION ? semesterMarks.size() - 1 : mCurrentPage;
                         mPagerSemesters.setCurrentItem(pos, false);
                         setSemestersLoading(false);
                     }
@@ -193,17 +200,21 @@ public class ModuleJournalFragment extends Fragment implements SemestersAdapter.
         switch (item.getItemId()) {
             // выход из модульного журнала
             case R.id.mj_sign_out: {
-                if (getContext() != null) {
-                    ModuleJournalPreference.setSignIn(getContext(), false);
-                    StudentData.clearCacheData(getContext().getCacheDir());
-                    SemestersMarks.clearCacheData(getContext().getCacheDir());
+                Context context = getContext();
+                if (context != null) {
+                    ModuleJournalPreference.setSignIn(context, false);
+                    StudentData.clearCacheData(context.getCacheDir());
+                    SemesterMarks.clearCacheData(context.getCacheDir());
+
+                    WorkManager.getInstance(context)
+                            .cancelAllWorkByTag(ModuleJournalWorker.WORK_TAG);
 
                     navigateToLoginScreen();
                 }
             }
             // обновить данные
             case R.id.mj_update_marks: {
-                if (mModuleJournalModel.studentState().getValue() == ModuleJournalModel.StudentState.OK) {
+                if (mModuleJournalModel.studentState().getValue() != ModuleJournalModel.StudentState.LOADING) {
                     refreshAll();
                 }
             }
@@ -218,6 +229,23 @@ public class ModuleJournalFragment extends Fragment implements SemestersAdapter.
 
         if (!mModuleJournalModel.isSingIn()) {
             navigateToLoginScreen();
+        } else {
+            Context context = getContext();
+            if (context != null) {
+                Constraints constraints = new Constraints.Builder()
+                        .setRequiredNetworkType(NetworkType.CONNECTED)
+                        .build();
+
+                PeriodicWorkRequest request =
+                        new PeriodicWorkRequest.Builder(ModuleJournalWorker.class, 1, TimeUnit.HOURS)
+                        .addTag(ModuleJournalWorker.WORK_TAG)
+                        .setInitialDelay(1,TimeUnit.HOURS)
+                        .setConstraints(constraints)
+                        .build();
+
+                WorkManager.getInstance(context)
+                        .enqueue(request);
+            }
         }
     }
 
@@ -254,12 +282,12 @@ public class ModuleJournalFragment extends Fragment implements SemestersAdapter.
      * @param position текущая отображаемая страница pager'а.
      */
     private void showCacheMessage(int position) {
-        PagedList<SemestersMarks> list = mSemestersAdapter.getCurrentList();
+        PagedList<SemesterMarks> list = mSemestersAdapter.getCurrentList();
         if (list == null) {
             return;
         }
 
-        SemestersMarks marks = list.get(position);
+        SemesterMarks marks = list.get(position);
         if (marks == null) {
             return;
         }
