@@ -32,7 +32,7 @@
 
     </LinearLayout>
 
-    <com.github.nikololoshka.pepegaschedule.utils.StatefulLoadErrorLayout
+    <com.vereshchagin.nikolay.stankinschedule.utils.StatefulLoadErrorLayout
         android:id="@+id/stateful"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

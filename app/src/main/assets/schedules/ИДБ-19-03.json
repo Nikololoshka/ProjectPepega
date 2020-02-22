@@ -1,67 +1,22 @@
 [
     {
-        "title": "Иностранный язык",
-        "lecturer": "",
+        "title": "Дискретная математика",
+        "lecturer": "Салиева О.А",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
+        "classroom": "306(а)",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
             {
                 "frequency": "throughout",
                 "date": "2020.02.17-2020.03.16"
             },
             {
                 "frequency": "every",
-                "date": "2020.03.23-2020.04.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.25"
-            }
-        ]
-    },
-    {
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "lecturer": "Яковлев М.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.25"
+                "date": "2020.03.23-2020.04.13"
             }
         ]
     },
@@ -99,92 +54,65 @@
         ]
     },
     {
-        "title": "Дискретная математика",
-        "lecturer": "Салиева О.А",
-        "type": "Seminar",
+        "title": "Высокоэффективные технологии и оборудование современных производств",
+        "lecturer": "Яковлев М.Г",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "306(а)",
+        "classroom": "0408",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
             {
                 "frequency": "throughout",
                 "date": "2020.02.17-2020.03.16"
             },
             {
                 "frequency": "every",
-                "date": "2020.03.23-2020.04.13"
-            }
-        ]
-    },
-    {
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "lecturer": "Яковлев М.Г",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(а)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.27"
-            }
-        ]
-    },
-    {
-        "title": "Программирование на языке высокого уровня",
-        "lecturer": "Шибаева А.Н",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(и)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            }
-        ]
-    },
-    {
-        "title": "Безопасность жизнедеятельности",
-        "lecturer": "Рябов С.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "0407",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.27"
+                "date": "2020.03.23-2020.04.27"
             },
             {
                 "frequency": "once",
                 "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
             }
         ]
     },
     {
-        "title": "Программирование на языке высокого уровня",
-        "lecturer": "Шибаева А.Н",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(и)",
+        "title": "Иностранный язык",
+        "lecturer": "Осина Г.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "238",
         "time": {
-            "start": "12:20",
-            "end": "15:50"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
             {
                 "frequency": "once",
                 "date": "2020.05.25"
@@ -213,19 +141,74 @@
         ]
     },
     {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "С/З Фрезер",
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Рябов С.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0407",
         "time": {
             "start": "12:20",
-            "end": "14:00"
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.02.18"
+                "date": "2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            }
+        ]
+    },
+    {
+        "title": "Высокоэффективные технологии и оборудование современных производств",
+        "lecturer": "Яковлев М.Г",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(а)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.27"
+            }
+        ]
+    },
+    {
+        "title": "Программирование на языке высокого уровня",
+        "lecturer": "Шибаева А.Н",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(и)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            }
+        ]
+    },
+    {
+        "title": "Программирование на языке высокого уровня",
+        "lecturer": "Шибаева А.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(и)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
             }
         ]
     },
@@ -247,6 +230,23 @@
         ]
     },
     {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "С/З Фрезер",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.18"
+            }
+        ]
+    },
+    {
         "title": "Физическая культура и спорт",
         "lecturer": "",
         "type": "Seminar",
@@ -264,6 +264,40 @@
             {
                 "frequency": "every",
                 "date": "2020.05.12-2020.05.26"
+            }
+        ]
+    },
+    {
+        "title": "Иностранный язык",
+        "lecturer": "Осина Г.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "238",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.19-2020.03.11"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Иванова Н.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "Фрезер 303",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.29"
             }
         ]
     },
@@ -291,34 +325,17 @@
     {
         "title": "Безопасность жизнедеятельности",
         "lecturer": "Иванова Н.А",
-        "type": "Lecture",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "Фрезер 303",
+        "classroom": "Фрезер 311",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "16:00",
+            "end": "17:40"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.12-2020.04.29"
-            }
-        ]
-    },
-    {
-        "title": "Математический анализ",
-        "lecturer": "Петросян Н.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "Фрезер 303",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.04.15-2020.05.27"
+                "date": "2020.04.15-2020.05.06"
             }
         ]
     },
@@ -340,11 +357,113 @@
         ]
     },
     {
-        "title": "Безопасность жизнедеятельности",
-        "lecturer": "Иванова Н.А",
+        "title": "Математический анализ",
+        "lecturer": "Петросян Н.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "Фрезер 303",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.04.15-2020.05.27"
+            }
+        ]
+    },
+    {
+        "title": "История: история России",
+        "lecturer": "Павельева Т.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.13"
+            }
+        ]
+    },
+    {
+        "title": "Программирование на языке высокого уровня",
+        "lecturer": "Шибаева А.Н",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "Фрезер 311",
+        "classroom": "235(е)",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.05"
+            }
+        ]
+    },
+    {
+        "title": "История: всеобщая история",
+        "lecturer": "Васехина Н.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "450(в)",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.20-2020.03.12"
+            }
+        ]
+    },
+    {
+        "title": "История: всеобщая история",
+        "lecturer": "Васехина Н.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.20-2020.03.12"
+            }
+        ]
+    },
+    {
+        "title": "Программирование на языке высокого уровня",
+        "lecturer": "Шибаева А.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "235(е)",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.19-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Математический анализ",
+        "lecturer": "Яновская Е.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "357(ж)",
         "time": {
             "start": "16:00",
             "end": "17:40"
@@ -352,7 +471,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.04.15-2020.05.06"
+                "date": "2020.02.13-2020.05.28"
             }
         ]
     },
@@ -378,108 +497,6 @@
         ]
     },
     {
-        "title": "Математический анализ",
-        "lecturer": "Яновская Е.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "357(ж)",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.13-2020.05.28"
-            }
-        ]
-    },
-    {
-        "title": "История: история России",
-        "lecturer": "Павельева Т.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "409",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.13"
-            }
-        ]
-    },
-    {
-        "title": "История: всеобщая история",
-        "lecturer": "Васехина Н.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "306(а)",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.20-2020.03.12"
-            }
-        ]
-    },
-    {
-        "title": "История: всеобщая история",
-        "lecturer": "Васехина Н.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "450(в)",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.20-2020.03.12"
-            }
-        ]
-    },
-    {
-        "title": "Программирование на языке высокого уровня",
-        "lecturer": "Шибаева А.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "307",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.03.05-2020.03.26"
-            }
-        ]
-    },
-    {
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "lecturer": "Яковлев М.Г",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(а)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.05.21"
-            }
-        ]
-    },
-    {
         "title": "Программирование на языке высокого уровня",
         "lecturer": "Шибаева А.Н",
         "type": "Laboratory",
@@ -493,23 +510,6 @@
             {
                 "frequency": "throughout",
                 "date": "2020.04.09-2020.05.21"
-            }
-        ]
-    },
-    {
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "lecturer": "Яковлев М.Г",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(а)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.05.28"
             }
         ]
     },
@@ -531,40 +531,53 @@
         ]
     },
     {
-        "title": "Физика",
-        "lecturer": "Веселко С.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
+        "title": "Высокоэффективные технологии и оборудование современных производств",
+        "lecturer": "Яковлев М.Г",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(а)",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "12:20",
+            "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.02.14-2020.04.24"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.05.08-2020.05.22"
+                "frequency": "once",
+                "date": "2020.05.21"
             }
         ]
     },
     {
-        "title": "История: история России",
-        "lecturer": "Павельева Т.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "504",
+        "title": "Высокоэффективные технологии и оборудование современных производств",
+        "lecturer": "Яковлев М.Г",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(а)",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.28"
+            }
+        ]
+    },
+    {
+        "title": "ЭВМ и периферийные устройства",
+        "lecturer": "Тарасов А.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "342",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.21-2020.03.27"
+                "date": "2020.02.14-2020.04.17"
             }
         ]
     },
@@ -586,19 +599,36 @@
         ]
     },
     {
-        "title": "ЭВМ и периферийные устройства",
-        "lecturer": "Тарасов А.Г",
-        "type": "Lecture",
+        "title": "История: история России",
+        "lecturer": "Павельева Т.Ю",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "342",
+        "classroom": "504",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "16:00",
+            "end": "17:40"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.14-2020.04.17"
+                "date": "2020.02.21-2020.03.27"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Карпова Е.Е",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "417",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.29"
             }
         ]
     },
@@ -625,18 +655,22 @@
     },
     {
         "title": "Физика",
-        "lecturer": "Карпова Е.Е",
-        "type": "Seminar",
+        "lecturer": "Веселко С.Г",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "417",
+        "classroom": "0408",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.05.29"
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.24"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.08-2020.05.22"
             }
         ]
     },
@@ -678,7 +712,7 @@
         "title": "Физика",
         "lecturer": "Штанько А.Е",
         "type": "Laboratory",
-        "subgroup": "B",
+        "subgroup": "A",
         "classroom": "420",
         "time": {
             "start": "12:20",
@@ -686,12 +720,25 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.05.15"
-            },
+                "frequency": "throughout",
+                "date": "2020.04.24-2020.05.22"
+            }
+        ]
+    },
+    {
+        "title": "ЭВМ и периферийные устройства",
+        "lecturer": "Тарасов А.Г",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "214",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
             {
-                "frequency": "once",
-                "date": "2020.05.29"
+                "frequency": "throughout",
+                "date": "2020.04.24-2020.05.22"
             }
         ]
     },
@@ -713,23 +760,6 @@
             {
                 "frequency": "once",
                 "date": "2020.05.29"
-            }
-        ]
-    },
-    {
-        "title": "ЭВМ и периферийные устройства",
-        "lecturer": "Тарасов А.Г",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "214",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.04.24-2020.05.22"
             }
         ]
     },
@@ -737,7 +767,7 @@
         "title": "Физика",
         "lecturer": "Штанько А.Е",
         "type": "Laboratory",
-        "subgroup": "A",
+        "subgroup": "B",
         "classroom": "420",
         "time": {
             "start": "12:20",
@@ -745,8 +775,54 @@
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2020.05.15"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.29"
+            }
+        ]
+    },
+    {
+        "title": "ЭВМ и периферийные устройства",
+        "lecturer": "Тарасов А.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "341",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.11"
+            }
+        ]
+    },
+    {
+        "title": "Дискретная математика",
+        "lecturer": "Салиева О.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "342",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
                 "frequency": "throughout",
-                "date": "2020.04.24-2020.05.22"
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.25"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.16"
             }
         ]
     },
@@ -789,44 +865,23 @@
         ]
     },
     {
-        "title": "Дискретная математика",
-        "lecturer": "Салиева О.А",
+        "title": "Высокоэффективные технологии и оборудование современных производств",
+        "lecturer": "Яковлев М.Г",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "342",
+        "classroom": "0408",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.21-2020.04.25"
+                "frequency": "once",
+                "date": "2020.05.23"
             },
             {
                 "frequency": "once",
-                "date": "2020.05.16"
-            }
-        ]
-    },
-    {
-        "title": "ЭВМ и периферийные устройства",
-        "lecturer": "Тарасов А.Г",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "341",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.03.21-2020.04.11"
+                "date": "2020.05.30"
             }
         ]
     },
@@ -852,23 +907,19 @@
         ]
     },
     {
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "lecturer": "Яковлев М.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
+        "title": "ЭВМ и периферийные устройства",
+        "lecturer": "Тарасов А.Г",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "214",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "16:00",
+            "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.05.23"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.30"
+                "frequency": "throughout",
+                "date": "2020.03.21-2020.04.18"
             }
         ]
     },
@@ -890,23 +941,6 @@
             {
                 "frequency": "once",
                 "date": "2020.04.11"
-            }
-        ]
-    },
-    {
-        "title": "ЭВМ и периферийные устройства",
-        "lecturer": "Тарасов А.Г",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "214",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.03.21-2020.04.18"
             }
         ]
     },

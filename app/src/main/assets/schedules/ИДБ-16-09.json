@@ -1,18 +1,43 @@
 [
     {
-        "title": "Программное обеспечение для организации взаимодействия",
-        "lecturer": "Мешков В.Г",
-        "type": "Seminar",
+        "title": "Разработка приложений для встраиваемых и мобильных устройств",
+        "lecturer": "Олейник А.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "244",
+        "classroom": "442",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.02.17"
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            }
+        ]
+    },
+    {
+        "title": "Разработка приложений для встраиваемых и мобильных устройств",
+        "lecturer": "Олейник А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "442",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
             }
         ]
     },
@@ -38,44 +63,19 @@
         ]
     },
     {
-        "title": "Разработка приложений для встраиваемых и мобильных устройств",
-        "lecturer": "Олейник А.В",
-        "type": "Lecture",
+        "title": "Программное обеспечение для организации взаимодействия",
+        "lecturer": "Мешков В.Г",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "442",
+        "classroom": "244",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            }
-        ]
-    },
-    {
-        "title": "Разработка приложений для встраиваемых и мобильных устройств",
-        "lecturer": "Олейник А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "442",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
+                "date": "2020.02.17"
             }
         ]
     },
@@ -101,14 +101,31 @@
         ]
     },
     {
+        "title": "Системы интеллектуального анализа данных",
+        "lecturer": "Петров В.Е",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.10-2020.03.31"
+            }
+        ]
+    },
+    {
         "title": "Разработка приложений для встраиваемых и мобильных устройств",
         "lecturer": "Олейник А.В",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "442",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
@@ -124,8 +141,8 @@
         "subgroup": "Common",
         "classroom": "442",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
@@ -169,6 +186,23 @@
         ]
     },
     {
+        "title": "Реинжиниринг и управление бизнес-процессами",
+        "lecturer": "Кузнецова Л.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
+            }
+        ]
+    },
+    {
         "title": "Программное обеспечение для организации взаимодействия",
         "lecturer": "Мешков В.Г",
         "type": "Lecture",
@@ -186,19 +220,53 @@
         ]
     },
     {
-        "title": "Реинжиниринг и управление бизнес-процессами",
-        "lecturer": "Кузнецова Л.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0409",
+        "title": "Разработка приложений для встраиваемых и мобильных устройств",
+        "lecturer": "Олейник А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(и)",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "12:20",
+            "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.02.12-2020.04.01"
+                "frequency": "throughout",
+                "date": "2020.02.19-2020.03.18"
+            }
+        ]
+    },
+    {
+        "title": "Программная инженерия",
+        "lecturer": "Евдокимов С.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(д)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.26-2020.03.25"
+            }
+        ]
+    },
+    {
+        "title": "Разработка приложений для встраиваемых и мобильных устройств",
+        "lecturer": "Олейник А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(и)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.26-2020.03.25"
             }
         ]
     },
@@ -224,53 +292,19 @@
         ]
     },
     {
-        "title": "Разработка приложений для встраиваемых и мобильных устройств",
-        "lecturer": "Олейник А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(и)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.19-2020.03.18"
-            }
-        ]
-    },
-    {
-        "title": "Разработка приложений для встраиваемых и мобильных устройств",
-        "lecturer": "Олейник А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(и)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.26-2020.03.25"
-            }
-        ]
-    },
-    {
         "title": "Программная инженерия",
-        "lecturer": "Евдокимов С.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(д)",
+        "lecturer": "Рыбаков А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
         "time": {
-            "start": "12:20",
+            "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.26-2020.03.25"
+                "frequency": "every",
+                "date": "2020.02.13-2020.04.02"
             }
         ]
     },
@@ -292,44 +326,10 @@
         ]
     },
     {
-        "title": "Программная инженерия",
-        "lecturer": "Рыбаков А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.13-2020.04.02"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение для организации взаимодействия",
-        "lecturer": "Мешков В.Г",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "214",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.27-2020.03.26"
-            }
-        ]
-    },
-    {
         "title": "Системы интеллектуального анализа данных",
         "lecturer": "Петров В.Е",
         "type": "Laboratory",
-        "subgroup": "A",
+        "subgroup": "B",
         "classroom": "247",
         "time": {
             "start": "16:00",
@@ -338,7 +338,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.02.20-2020.04.02"
+                "date": "2020.02.13-2020.03.26"
             }
         ]
     },
@@ -363,7 +363,7 @@
         "title": "Системы интеллектуального анализа данных",
         "lecturer": "Петров В.Е",
         "type": "Laboratory",
-        "subgroup": "B",
+        "subgroup": "A",
         "classroom": "247",
         "time": {
             "start": "16:00",
@@ -372,7 +372,109 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.02.13-2020.03.26"
+                "date": "2020.02.20-2020.04.02"
+            }
+        ]
+    },
+    {
+        "title": "Программное обеспечение для организации взаимодействия",
+        "lecturer": "Мешков В.Г",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "214",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.27-2020.03.26"
+            }
+        ]
+    },
+    {
+        "title": "Программное обеспечение для организации взаимодействия",
+        "lecturer": "Мешков В.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "244",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.14"
+            }
+        ]
+    },
+    {
+        "title": "Программная инженерия",
+        "lecturer": "Рыбаков А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.03"
+            }
+        ]
+    },
+    {
+        "title": "Программная инженерия",
+        "lecturer": "Рыбаков А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.03"
+            }
+        ]
+    },
+    {
+        "title": "Реинжиниринг и управление бизнес-процессами",
+        "lecturer": "Кузнецова Л.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.13-2020.04.03"
+            }
+        ]
+    },
+    {
+        "title": "Программная инженерия",
+        "lecturer": "Евдокимов С.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0309",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.03"
             }
         ]
     },
@@ -419,87 +521,53 @@
         ]
     },
     {
-        "title": "Программная инженерия",
-        "lecturer": "Евдокимов С.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.14-2020.04.03"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение для организации взаимодействия",
-        "lecturer": "Мешков В.Г",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "244",
+        "title": "Разработка приложений для встраиваемых и мобильных устройств",
+        "lecturer": "Олейник А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(и)",
         "time": {
             "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.14"
-            }
-        ]
-    },
-    {
-        "title": "Реинжиниринг и управление бизнес-процессами",
-        "lecturer": "Кузнецова Л.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "306",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.03.13-2020.04.03"
-            }
-        ]
-    },
-    {
-        "title": "Программная инженерия",
-        "lecturer": "Рыбаков А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.03"
-            }
-        ]
-    },
-    {
-        "title": "Программная инженерия",
-        "lecturer": "Рыбаков А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.04.03"
+                "frequency": "throughout",
+                "date": "2020.02.21-2020.03.20"
+            }
+        ]
+    },
+    {
+        "title": "Программная инженерия",
+        "lecturer": "Евдокимов С.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "235(д)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.28-2020.03.27"
+            }
+        ]
+    },
+    {
+        "title": "Разработка приложений для встраиваемых и мобильных устройств",
+        "lecturer": "Олейник А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "235(и)",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.28-2020.03.27"
             }
         ]
     },
@@ -525,70 +593,27 @@
         ]
     },
     {
-        "title": "Разработка приложений для встраиваемых и мобильных устройств",
-        "lecturer": "Олейник А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(и)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.21-2020.03.20"
-            }
-        ]
-    },
-    {
-        "title": "Разработка приложений для встраиваемых и мобильных устройств",
-        "lecturer": "Олейник А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(и)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.28-2020.03.27"
-            }
-        ]
-    },
-    {
-        "title": "Программная инженерия",
-        "lecturer": "Евдокимов С.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(д)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.28-2020.03.27"
-            }
-        ]
-    },
-    {
         "title": "Системы интеллектуального анализа данных",
         "lecturer": "Петров В.Е",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "442",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "16:00",
+            "end": "17:40"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.03.14"
+                "date": "2020.02.15"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.29"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.04"
             }
         ]
     },
@@ -620,21 +645,13 @@
         "subgroup": "Common",
         "classroom": "442",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.02.15"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.02.29"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.21-2020.04.04"
+                "date": "2020.03.14"
             }
         ]
     }

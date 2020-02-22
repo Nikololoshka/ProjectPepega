@@ -7,7 +7,7 @@
     tools:context=".schedule.view.ScheduleViewFragment">
     <!--  Padding находится внутри schedule_card чтобы анимация была красивая -->
 
-    <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+    <com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout
         android:id="@+id/stateful_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -53,7 +53,7 @@
 
         </FrameLayout>
 
-    </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
+    </com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout>
 
 </RelativeLayout>
 

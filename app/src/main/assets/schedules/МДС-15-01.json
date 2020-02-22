@@ -1,5 +1,26 @@
 [
     {
+        "title": "Автоматизация производственных процессов в машиностроении",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0303",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.06"
+            }
+        ]
+    },
+    {
         "title": "Технико-экономический анализ технологических процессов",
         "lecturer": "Луцюк С.В",
         "type": "Lecture",
@@ -29,44 +50,6 @@
         ]
     },
     {
-        "title": "Автоматизация производственных процессов в машиностроении",
-        "lecturer": "Рязанов Д.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0303",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.06"
-            }
-        ]
-    },
-    {
-        "title": "Основы бережливого производства",
-        "lecturer": "Седых М.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "442",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.04.06-2020.04.27"
-            }
-        ]
-    },
-    {
         "title": "Интегрированная логистическая поддержка производственных систем",
         "lecturer": "Хайбуллов К.А",
         "type": "Lecture",
@@ -88,6 +71,23 @@
             {
                 "frequency": "once",
                 "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Основы бережливого производства",
+        "lecturer": "Седых М.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "442",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.04.06-2020.04.27"
             }
         ]
     },
@@ -126,14 +126,14 @@
         ]
     },
     {
-        "title": "Проектирование машиностроительного производства",
-        "lecturer": "Вороненко В.П",
+        "title": "Программирование станков с ЧПУ",
+        "lecturer": "Мартинова Л.И",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "240(г)",
+        "classroom": "0208",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "16:00",
+            "end": "17:40"
         },
         "dates": [
             {
@@ -160,28 +160,11 @@
         ]
     },
     {
-        "title": "Программирование станков с ЧПУ",
-        "lecturer": "Мартинова Л.И",
+        "title": "Проектирование машиностроительного производства",
+        "lecturer": "Вороненко В.П",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.11-2020.03.31"
-            }
-        ]
-    },
-    {
-        "title": "Технико-экономический анализ технологических процессов",
-        "lecturer": "Луцюк С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0411",
+        "classroom": "240(г)",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -189,15 +172,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.04.07-2020.04.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.12"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.19"
+                "date": "2020.02.11-2020.03.31"
             }
         ]
     },
@@ -233,13 +208,21 @@
         "subgroup": "Common",
         "classroom": "0411",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
+                "frequency": "every",
+                "date": "2020.04.07-2020.04.28"
+            },
+            {
                 "frequency": "once",
-                "date": "2020.05.26"
+                "date": "2020.05.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.19"
             }
         ]
     },
@@ -261,23 +244,19 @@
         ]
     },
     {
-        "title": "Интегрированная логистическая поддержка производственных систем",
-        "lecturer": "Хайбуллов К.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "415",
+        "title": "Технико-экономический анализ технологических процессов",
+        "lecturer": "Луцюк С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.04.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.28"
+                "date": "2020.05.26"
             }
         ]
     },
@@ -313,6 +292,27 @@
         "subgroup": "B",
         "classroom": "415",
         "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.28"
+            }
+        ]
+    },
+    {
+        "title": "Интегрированная логистическая поддержка производственных систем",
+        "lecturer": "Хайбуллов К.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "415",
+        "time": {
             "start": "12:20",
             "end": "15:50"
         },
@@ -324,19 +324,19 @@
         ]
     },
     {
-        "title": "Основы бережливого производства",
-        "lecturer": "Седых М.И",
-        "type": "Lecture",
+        "title": "Системы управления производством",
+        "lecturer": "Фролов Е.Б",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "442",
+        "classroom": "0306",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.12-2020.04.01"
+                "date": "2020.02.12-2020.04.15"
             }
         ]
     },
@@ -358,11 +358,45 @@
         ]
     },
     {
-        "title": "Системы управления производством",
-        "lecturer": "Фролов Е.Б",
+        "title": "Основы бережливого производства",
+        "lecturer": "Седых М.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "442",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.01"
+            }
+        ]
+    },
+    {
+        "title": "Интегрированная логистическая поддержка производственных систем",
+        "lecturer": "Хайбуллов К.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0208",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.04.09"
+            }
+        ]
+    },
+    {
+        "title": "Технологические методы обеспечения качества поверхностного слоя деталей",
+        "lecturer": "Рязанов Д.Ю",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0306",
+        "classroom": "0406",
         "time": {
             "start": "14:10",
             "end": "15:50"
@@ -370,7 +404,24 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.12-2020.04.15"
+                "date": "2020.02.20-2020.03.26"
+            }
+        ]
+    },
+    {
+        "title": "Технико-экономический анализ технологических процессов",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "308",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.20-2020.03.05"
             }
         ]
     },
@@ -396,23 +447,6 @@
         "lecturer": "Рязанов Д.Ю",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "308",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.20-2020.03.05"
-            }
-        ]
-    },
-    {
-        "title": "Технико-экономический анализ технологических процессов",
-        "lecturer": "Рязанов Д.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
         "classroom": "450(в)",
         "time": {
             "start": "12:20",
@@ -422,91 +456,6 @@
             {
                 "frequency": "every",
                 "date": "2020.03.12-2020.03.26"
-            }
-        ]
-    },
-    {
-        "title": "Технологические методы обеспечения качества поверхностного слоя деталей",
-        "lecturer": "Рязанов Д.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0406",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.20-2020.03.26"
-            }
-        ]
-    },
-    {
-        "title": "Интегрированная логистическая поддержка производственных систем",
-        "lecturer": "Хайбуллов К.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.13-2020.04.09"
-            }
-        ]
-    },
-    {
-        "title": "Технико-экономический анализ технологических процессов",
-        "lecturer": "Рязанов Д.Ю",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "415",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.04.09-2020.05.21"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование машиностроительного производства",
-        "lecturer": "Вороненко В.П",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "416",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.09"
-            }
-        ]
-    },
-    {
-        "title": "Технико-экономический анализ технологических процессов",
-        "lecturer": "Рязанов Д.Ю",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "415",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.04.02-2020.05.14"
             }
         ]
     },
@@ -545,6 +494,40 @@
         ]
     },
     {
+        "title": "Технико-экономический анализ технологических процессов",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "415",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.02-2020.05.14"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование машиностроительного производства",
+        "lecturer": "Вороненко В.П",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.09"
+            }
+        ]
+    },
+    {
         "title": "Проектирование машиностроительного производства",
         "lecturer": "Вороненко В.П",
         "type": "Laboratory",
@@ -558,6 +541,57 @@
             {
                 "frequency": "throughout",
                 "date": "2020.04.23-2020.05.21"
+            }
+        ]
+    },
+    {
+        "title": "Технико-экономический анализ технологических процессов",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "415",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.09-2020.05.21"
+            }
+        ]
+    },
+    {
+        "title": "Технологические методы обеспечения качества поверхностного слоя деталей",
+        "lecturer": "Кириллов А.К",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "416",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.10"
+            }
+        ]
+    },
+    {
+        "title": "Технологические методы обеспечения качества поверхностного слоя деталей",
+        "lecturer": "Кириллов А.К",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "416",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.17"
             }
         ]
     },
@@ -583,23 +617,23 @@
         ]
     },
     {
-        "title": "Программирование станков с ЧПУ",
-        "lecturer": "Мартинова Л.И",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "415",
+        "title": "Основы бережливого производства",
+        "lecturer": "Седых М.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "341",
         "time": {
-            "start": "12:20",
-            "end": "15:50"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.03.27"
+                "date": "2020.05.22"
             },
             {
                 "frequency": "once",
-                "date": "2020.04.10"
+                "date": "2020.05.29"
             }
         ]
     },
@@ -625,8 +659,8 @@
         ]
     },
     {
-        "title": "Автоматизация производственных процессов в машиностроении",
-        "lecturer": "Рязанов Д.Ю",
+        "title": "Программирование станков с ЧПУ",
+        "lecturer": "Мартинова Л.И",
         "type": "Laboratory",
         "subgroup": "B",
         "classroom": "415",
@@ -637,11 +671,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.04.24"
+                "date": "2020.03.27"
             },
             {
                 "frequency": "once",
-                "date": "2020.05.15"
+                "date": "2020.04.10"
             }
         ]
     },
@@ -667,27 +701,74 @@
         ]
     },
     {
-        "title": "Автоматизация производственных процессов в машиностроении",
-        "lecturer": "Луцюк С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
+        "title": "Технологические методы обеспечения качества поверхностного слоя деталей",
+        "lecturer": "Кириллов А.К",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "416",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "start": "16:00",
+            "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
-            },
+                "frequency": "once",
+                "date": "2020.05.15"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация производственных процессов в машиностроении",
+        "lecturer": "Рязанов Д.Ю",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "415",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
             {
-                "frequency": "every",
-                "date": "2020.03.21-2020.04.25"
+                "frequency": "once",
+                "date": "2020.04.24"
             },
             {
                 "frequency": "once",
-                "date": "2020.05.16"
+                "date": "2020.05.15"
+            }
+        ]
+    },
+    {
+        "title": "Технологические методы обеспечения качества поверхностного слоя деталей",
+        "lecturer": "Кириллов А.К",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.22"
+            }
+        ]
+    },
+    {
+        "title": "Технологические методы обеспечения качества поверхностного слоя деталей",
+        "lecturer": "Кириллов А.К",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "416",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.29"
             }
         ]
     },
@@ -711,8 +792,8 @@
                 "date": "2020.03.21-2020.04.25"
             },
             {
-                "frequency": "every",
-                "date": "2020.05.16-2020.05.30"
+                "frequency": "once",
+                "date": "2020.05.16"
             }
         ]
     },
@@ -738,52 +819,27 @@
         ]
     },
     {
-        "title": "Технологические методы обеспечения качества поверхностного слоя деталей",
-        "lecturer": "Кириллов А.К",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "416",
+        "title": "Автоматизация производственных процессов в машиностроении",
+        "lecturer": "Луцюк С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
         "time": {
-            "start": "12:20",
-            "end": "15:50"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.04.18"
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.25"
             },
             {
                 "frequency": "once",
                 "date": "2020.05.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.30"
-            }
-        ]
-    },
-    {
-        "title": "Технологические методы обеспечения качества поверхностного слоя деталей",
-        "lecturer": "Кириллов А.К",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "416",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.25"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.23"
             }
         ]
     }

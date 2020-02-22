@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.github.nikololoshka.pepegaschedule">
+    package="com.vereshchagin.nikolay.stankinschedule">
 
     <dist:module dist:instant="true" />
 
@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name=".MainApplication"
+        android:name="com.vereshchagin.nikolay.stankinschedule.MainApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:hardwareAccelerated="true"
@@ -24,7 +24,7 @@
 
         <!--   Widgets   -->
         <receiver
-            android:name=".widget.ScheduleWidget"
+            android:name="com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidget"
             android:label="@string/widget_schedule_name" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -35,7 +35,7 @@
         </receiver>
 
         <activity
-            android:name=".widget.ScheduleWidgetConfigureActivity"
+            android:name="com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidgetConfigureActivity"
             android:label="@string/widget_configurator"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -45,16 +45,16 @@
 
         <!--  Services   -->
         <service
-            android:name=".schedule.repository.ScheduleDownloaderService"
+            android:name="com.vereshchagin.nikolay.stankinschedule.schedule.repository.ScheduleDownloaderService"
             android:exported="false" />
 
         <service
-            android:name=".widget.ScheduleWidgetRemoteFactory$Service"
+            android:name="com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidgetRemoteFactory$Service"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <!--  Activities   -->
         <activity
-            android:name=".SplashActivity"
+            android:name="com.vereshchagin.nikolay.stankinschedule.SplashActivity"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,23 +63,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.vereshchagin.nikolay.stankinschedule.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".schedule.editor.pair.PairEditorActivity"
+            android:name="com.vereshchagin.nikolay.stankinschedule.schedule.editor.pair.PairEditorActivity"
             android:label="@string/pair_editor"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.vereshchagin.nikolay.stankinschedule.MainActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".schedule.editor.date.DateEditorActivity"
+            android:name="com.vereshchagin.nikolay.stankinschedule.schedule.editor.date.DateEditorActivity"
             android:label="@string/date_editor"
-            android:parentActivityName=".schedule.editor.pair.PairEditorActivity"
+            android:parentActivityName="com.vereshchagin.nikolay.stankinschedule.schedule.editor.pair.PairEditorActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".schedule.editor.name.ScheduleNameEditorActivity"
+            android:name="com.vereshchagin.nikolay.stankinschedule.schedule.editor.name.ScheduleNameEditorActivity"
             android:label="@string/schedule_editor"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.vereshchagin.nikolay.stankinschedule.MainActivity"
             android:theme="@style/AppTheme" />
     </application>
 

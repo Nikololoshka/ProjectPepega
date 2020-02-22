@@ -95,27 +95,6 @@
         "title": "Инструментальные системы интегрированного машиностроительного производства",
         "lecturer": "Домнин П.В",
         "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.03.31-2020.04.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.19"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальные системы интегрированного машиностроительного производства",
-        "lecturer": "Домнин П.В",
-        "type": "Laboratory",
         "subgroup": "A",
         "classroom": "ТехП 7",
         "time": {
@@ -134,6 +113,27 @@
         ]
     },
     {
+        "title": "Инструментальные системы интегрированного машиностроительного производства",
+        "lecturer": "Домнин П.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 7",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.31-2020.04.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.19"
+            }
+        ]
+    },
+    {
         "title": "Организация инновационного производства",
         "lecturer": "Лукина С.В",
         "type": "Lecture",
@@ -146,7 +146,28 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.12-2020.04.01"
+                "date": "2020.02.12-2020.03.18"
+            }
+        ]
+    },
+    {
+        "title": "Организация инновационного производства",
+        "lecturer": "Лукина С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0409",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.02.26"
             }
         ]
     },
@@ -174,8 +195,8 @@
         "subgroup": "Common",
         "classroom": "ТехП 7",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "19:40",
+            "end": "21:10"
         },
         "dates": [
             {
@@ -191,8 +212,8 @@
         "subgroup": "Common",
         "classroom": "ТехП 7",
         "time": {
-            "start": "19:40",
-            "end": "21:10"
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
@@ -240,23 +261,6 @@
         ]
     },
     {
-        "title": "Управление имуществом",
-        "lecturer": "Ковалев А.П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0207",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.27-2020.04.16"
-            }
-        ]
-    },
-    {
         "title": "Организационное развитие и управление изменениями",
         "lecturer": "Коршунова Е.Д",
         "type": "Seminar",
@@ -274,14 +278,31 @@
         ]
     },
     {
+        "title": "Управление имуществом",
+        "lecturer": "Ковалев А.П",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.27-2020.04.16"
+            }
+        ]
+    },
+    {
         "title": "Инструментальные системы интегрированного машиностроительного производства",
         "lecturer": "Петухов Ю.Е",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "ТехП 7",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "19:40",
+            "end": "21:10"
         },
         "dates": [
             {
@@ -297,8 +318,8 @@
         "subgroup": "Common",
         "classroom": "ТехП 7",
         "time": {
-            "start": "19:40",
-            "end": "21:10"
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
@@ -325,23 +346,6 @@
         ]
     },
     {
-        "title": "Информационная поддержка моделирования жизненного цикла продукции",
-        "lecturer": "Коган Ю.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "240(б)",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.14-2020.04.17"
-            }
-        ]
-    },
-    {
         "title": "Инструментальные системы интегрированного машиностроительного производства",
         "lecturer": "Петухов Ю.Е",
         "type": "Lecture",
@@ -355,6 +359,23 @@
             {
                 "frequency": "once",
                 "date": "2020.02.14"
+            }
+        ]
+    },
+    {
+        "title": "Информационная поддержка моделирования жизненного цикла продукции",
+        "lecturer": "Коган Ю.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.17"
             }
         ]
     },
@@ -393,6 +414,48 @@
         ]
     },
     {
+        "title": "Организация инновационного производства",
+        "lecturer": "Лукина С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "443",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.04"
+            }
+        ]
+    },
+    {
+        "title": "Организация инновационного производства",
+        "lecturer": "Лукина С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "449",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.02.15-2020.03.14"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.21-2020.04.18"
+            }
+        ]
+    },
+    {
         "title": "Инструментальные системы интегрированного машиностроительного производства",
         "lecturer": "Петухов Ю.Е",
         "type": "Lecture",
@@ -418,27 +481,6 @@
             {
                 "frequency": "once",
                 "date": "2020.05.23"
-            }
-        ]
-    },
-    {
-        "title": "Организация инновационного производства",
-        "lecturer": "Лукина С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "449",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.21-2020.04.18"
             }
         ]
     }

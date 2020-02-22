@@ -39,7 +39,7 @@
     </androidx.cardview.widget.CardView>
 
 
-    <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+    <com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout
         android:id="@+id/stateful_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -170,6 +170,6 @@
 
         </LinearLayout>
 
-    </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
+    </com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout>
 
 </LinearLayout>

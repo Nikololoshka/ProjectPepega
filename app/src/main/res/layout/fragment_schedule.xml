@@ -51,7 +51,7 @@
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="20sp" />
 
-            <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+            <com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout
                 android:id="@+id/stateful_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -74,7 +74,7 @@
                     android:padding="@dimen/default_information_padding"
                     android:text="@string/sch_no_available" />
 
-            </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
+            </com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout>
 
         </LinearLayout>
 

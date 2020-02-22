@@ -100,6 +100,44 @@
         ]
     },
     {
+        "title": "Инженерная и компьютерная графика",
+        "lecturer": "Лыткин И.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ИГ-4",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.20"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            }
+        ]
+    },
+    {
+        "title": "Инженерная и компьютерная графика",
+        "lecturer": "Лыткин И.Н",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ИГ-4",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.27"
+            }
+        ]
+    },
+    {
         "title": "Физическая культура и спорт",
         "lecturer": "",
         "type": "Lecture",
@@ -243,6 +281,40 @@
         "lecturer": "Лыткин И.Н",
         "type": "Laboratory",
         "subgroup": "B",
+        "classroom": "ИГ-4",
+        "time": {
+            "start": "14:10",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.18"
+            }
+        ]
+    },
+    {
+        "title": "Инженерная и компьютерная графика",
+        "lecturer": "Лыткин И.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ИГ-4",
+        "time": {
+            "start": "14:10",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.03.25"
+            }
+        ]
+    },
+    {
+        "title": "Инженерная и компьютерная графика",
+        "lecturer": "Лыткин И.Н",
+        "type": "Laboratory",
+        "subgroup": "B",
         "classroom": "216",
         "time": {
             "start": "8:30",
@@ -250,8 +322,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.19-2020.04.01"
+                "frequency": "once",
+                "date": "2020.04.01"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.15"
             }
         ]
     },
@@ -301,8 +377,8 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.26-2020.04.08"
+                "frequency": "once",
+                "date": "2020.04.08"
             }
         ]
     },
@@ -350,10 +426,10 @@
     },
     {
         "title": "Иностранный язык",
-        "lecturer": "",
+        "lecturer": "Воронова М.Н.",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
+        "classroom": "239",
         "time": {
             "start": "12:20",
             "end": "14:00"

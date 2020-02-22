@@ -1,34 +1,13 @@
 [
     {
-        "title": "Политология",
-        "lecturer": "Куткин В.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "502",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.20"
-            }
-        ]
-    },
-    {
-        "title": "Математика",
-        "lecturer": "Иванова О.К",
+        "title": "Микроэкономика",
+        "lecturer": "Шинкевич И.А",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "240(б)",
+        "classroom": "0308",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "16:00",
+            "end": "17:40"
         },
         "dates": [
             {
@@ -36,12 +15,20 @@
                 "date": "2020.02.10"
             },
             {
-                "frequency": "throughout",
+                "frequency": "every",
                 "date": "2020.02.17-2020.03.16"
             },
             {
                 "frequency": "every",
                 "date": "2020.03.23-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
             }
         ]
     },
@@ -96,14 +83,14 @@
         ]
     },
     {
-        "title": "Микроэкономика",
-        "lecturer": "Шинкевич И.А",
+        "title": "Математика",
+        "lecturer": "Иванова О.К",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0308",
+        "classroom": "240(б)",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
@@ -117,48 +104,27 @@
             {
                 "frequency": "every",
                 "date": "2020.03.23-2020.04.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.25"
             }
         ]
     },
     {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
+        "title": "Политология",
+        "lecturer": "Куткин В.С",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "С/З Фрезер",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.11"
-            }
-        ]
-    },
-    {
-        "title": "Физическая культура и спорт",
-        "lecturer": "",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "С/З Фрезер",
+        "classroom": "502",
         "time": {
             "start": "10:20",
             "end": "12:00"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.02.11"
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.20"
             }
         ]
     },
@@ -182,6 +148,23 @@
     {
         "title": "Физическая культура и спорт",
         "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "С/З Фрезер",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.11"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "С/З Фрезер",
@@ -191,12 +174,8 @@
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.02.18-2020.04.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.05.12-2020.05.26"
+                "frequency": "once",
+                "date": "2020.02.11"
             }
         ]
     },
@@ -222,11 +201,32 @@
         ]
     },
     {
-        "title": "Иностранный язык",
+        "title": "Физическая культура и спорт",
         "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
+        "classroom": "С/З Фрезер",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.18-2020.04.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.05.12-2020.05.26"
+            }
+        ]
+    },
+    {
+        "title": "Иностранный язык",
+        "lecturer": "Карелина Е.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "405",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -256,23 +256,6 @@
         ]
     },
     {
-        "title": "Русский язык и культура речи",
-        "lecturer": "Трофимова Г.К",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "309",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.19-2020.05.06"
-            }
-        ]
-    },
-    {
         "title": "Экономика предприятия",
         "lecturer": "Тохунц Н.Б",
         "type": "Seminar",
@@ -290,53 +273,36 @@
         ]
     },
     {
-        "title": "Иностранный язык",
-        "lecturer": "",
+        "title": "Русский язык и культура речи",
+        "lecturer": "Трофимова Г.К",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
+        "classroom": "309",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.19-2020.05.06"
+            }
+        ]
+    },
+    {
+        "title": "Иностранный язык",
+        "lecturer": "Карелина Е.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "405",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
                 "frequency": "every",
                 "date": "2020.05.06-2020.05.27"
-            }
-        ]
-    },
-    {
-        "title": "Политология",
-        "lecturer": "Куткин В.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "409",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.13-2020.04.02"
-            }
-        ]
-    },
-    {
-        "title": "Культурология",
-        "lecturer": "Логина Н.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "506",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.20-2020.04.09"
             }
         ]
     },
@@ -354,6 +320,23 @@
             {
                 "frequency": "every",
                 "date": "2020.02.13-2020.04.30"
+            }
+        ]
+    },
+    {
+        "title": "Политология",
+        "lecturer": "Куткин В.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "409",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.13-2020.04.02"
             }
         ]
     },
@@ -377,23 +360,6 @@
     {
         "title": "Теория менеджмента",
         "lecturer": "Можаровская А.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0205",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.14-2020.04.17"
-            }
-        ]
-    },
-    {
-        "title": "Теория менеджмента",
-        "lecturer": "Можаровская А.А",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "0205",
@@ -409,14 +375,48 @@
         ]
     },
     {
+        "title": "Культурология",
+        "lecturer": "Нелюбова С.М",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "506",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.21-2020.04.10"
+            }
+        ]
+    },
+    {
+        "title": "Теория менеджмента",
+        "lecturer": "Можаровская А.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0205",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.14-2020.04.17"
+            }
+        ]
+    },
+    {
         "title": "Материалы и высокоэффективные технологии современного производства",
         "lecturer": "Гурин В.Д",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "409",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
@@ -431,7 +431,7 @@
     },
     {
         "title": "Культурология",
-        "lecturer": "Логина Н.В",
+        "lecturer": "Нелюбова С.М",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "409",
@@ -457,8 +457,8 @@
         "subgroup": "Common",
         "classroom": "409",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
@@ -489,31 +489,6 @@
             {
                 "frequency": "once",
                 "date": "2020.05.16"
-            }
-        ]
-    },
-    {
-        "title": "Материалы и высокоэффективные технологии современного производства",
-        "lecturer": "Гурин В.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 6",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.30"
             }
         ]
     },
@@ -570,6 +545,31 @@
             "end": "15:50"
         },
         "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.30"
+            }
+        ]
+    },
+    {
+        "title": "Материалы и высокоэффективные технологии современного производства",
+        "lecturer": "Гурин В.Д",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 6",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.16"
+            },
             {
                 "frequency": "once",
                 "date": "2020.05.30"

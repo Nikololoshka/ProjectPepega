@@ -121,15 +121,15 @@
         "lecturer": "Крюков В.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "244",
+        "classroom": "0410",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "start": "16:00",
+            "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.02.12-2020.04.22"
+                "frequency": "once",
+                "date": "2020.04.21"
             }
         ]
     },
@@ -138,10 +138,27 @@
         "lecturer": "Крюков В.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "244",
+        "classroom": "0206",
         "time": {
             "start": "14:10",
             "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.03.04"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация конструкторского и технологического проектирования",
+        "lecturer": "Крюков В.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0206",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
@@ -172,10 +189,27 @@
         "lecturer": "Крюков В.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "244",
+        "classroom": "0410",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.03.11-2020.04.15"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация конструкторского и технологического проектирования",
+        "lecturer": "Крюков В.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0410",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
@@ -185,31 +219,14 @@
         ]
     },
     {
-        "title": "Технология разработки программного обеспечения",
-        "lecturer": "Новоселова О.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "306",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.03.18-2020.04.15"
-            }
-        ]
-    },
-    {
         "title": "Автоматизация конструкторского и технологического проектирования",
         "lecturer": "Крюков В.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
+        "classroom": "0410",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {

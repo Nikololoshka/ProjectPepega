@@ -1,22 +1,5 @@
 [
     {
-        "title": "Управление конфигурацией изделий",
-        "lecturer": "Капитанов А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "409",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.11-2020.03.31"
-            }
-        ]
-    },
-    {
         "title": "Всеобщее управление качеством в обеспечении конкурентоспособности машиностроительных производств",
         "lecturer": "Карлова Т.В",
         "type": "Lecture",
@@ -36,9 +19,9 @@
     {
         "title": "Управление конфигурацией изделий",
         "lecturer": "Капитанов А.В",
-        "type": "Seminar",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "357(в)",
+        "classroom": "409",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -46,7 +29,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.13-2020.04.02"
+                "date": "2020.02.11-2020.03.31"
             }
         ]
     },
@@ -68,36 +51,19 @@
         ]
     },
     {
-        "title": "Компьютерные технологии в управлении качеством",
-        "lecturer": "Балаболин В.Н",
-        "type": "Laboratory",
-        "subgroup": "A",
+        "title": "Управление конфигурацией изделий",
+        "lecturer": "Капитанов А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "357(в)",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.03.12-2020.04.09"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерные технологии в управлении качеством",
-        "lecturer": "Балаболин В.Н",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "357(в)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.03.19-2020.04.16"
+                "frequency": "every",
+                "date": "2020.02.13-2020.04.02"
             }
         ]
     },
@@ -125,6 +91,23 @@
         "subgroup": "A",
         "classroom": "357(в)",
         "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.12-2020.04.09"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерные технологии в управлении качеством",
+        "lecturer": "Балаболин В.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "357(в)",
+        "time": {
             "start": "12:20",
             "end": "15:50"
         },
@@ -138,12 +121,29 @@
     {
         "title": "Компьютерные технологии в управлении качеством",
         "lecturer": "Балаболин В.Н",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "357(в)",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.19-2020.04.16"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерные технологии в управлении качеством",
+        "lecturer": "Балаболин В.Н",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "305",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {

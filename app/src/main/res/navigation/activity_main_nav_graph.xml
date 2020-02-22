@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/nav_home_fragment"
-        android:name="com.github.nikololoshka.pepegaschedule.home.HomeFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.home.HomeFragment"
         android:label="@string/nav_home"
         tools:layout="@layout/fragment_home" >
 
@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/nav_schedule_fragment"
-        android:name="com.github.nikololoshka.pepegaschedule.schedule.myschedules.MyScheduleFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.schedule.myschedules.MyScheduleFragment"
         android:label="@string/nav_schedule"
         tools:layout="@layout/fragment_schedule" >
 
@@ -68,7 +68,7 @@
 
     <fragment
         android:id="@+id/nav_module_journal_fragment"
-        android:name="com.github.nikololoshka.pepegaschedule.modulejournal.view.ModuleJournalFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.modulejournal.view.ModuleJournalFragment"
         android:label="@string/nav_module_journal" >
         <action
             android:id="@+id/toModuleJournalLoginFragment"
@@ -83,22 +83,22 @@
 
     <fragment
         android:id="@+id/nav_module_journal_login_fragment"
-        android:name="com.github.nikololoshka.pepegaschedule.modulejournal.login.ModuleJournalLoginFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.modulejournal.login.ModuleJournalLoginFragment"
         android:label="@string/nav_module_journal" />
 
     <fragment
         android:id="@+id/nav_schedule_repository_fragment"
-        android:name="com.github.nikololoshka.pepegaschedule.schedule.repository.ScheduleRepositoryFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.schedule.repository.ScheduleRepositoryFragment"
         android:label="@string/repository" />
 
     <fragment
         android:id="@+id/nav_schedule_view_fragment"
-        android:name="com.github.nikololoshka.pepegaschedule.schedule.view.ScheduleViewFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.schedule.view.ScheduleViewFragment"
         android:label="@string/sch_view" />
 
     <fragment
         android:id="@+id/nav_about_fragment"
-        android:name="com.github.nikololoshka.pepegaschedule.about.AboutFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.about.AboutFragment"
         android:label="@string/nav_about_application"
         tools:layout="@layout/fragment_about" />
 
@@ -109,7 +109,7 @@
 
         <fragment
             android:id="@+id/nav_settings_fragment"
-            android:name="com.github.nikololoshka.pepegaschedule.settings.editor.SettingsFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.settings.editor.SettingsFragment"
             android:label="@string/nav_settings" >
             <action
                 android:id="@+id/toSettingsScheduleFragment"
@@ -144,21 +144,21 @@
 
         <fragment
             android:id="@+id/nav_settings_notification_fragment"
-            android:name="com.github.nikololoshka.pepegaschedule.settings.editor.subsection.SettingsNotificationFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.settings.editor.subsection.SettingsNotificationFragment"
             android:label="@string/notification" />
 
         <fragment
             android:id="@+id/nav_settings_widget_fragment"
-            android:name="com.github.nikololoshka.pepegaschedule.settings.editor.subsection.SettingsWidgetFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.settings.editor.subsection.SettingsWidgetFragment"
             android:label="@string/widget" />
 
         <fragment
             android:id="@+id/nav_settings_schedule_fragment"
-            android:name="com.github.nikololoshka.pepegaschedule.settings.editor.subsection.SettingsScheduleFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.settings.editor.subsection.SettingsScheduleFragment"
             android:label="@string/sch_name" />
         <fragment
             android:id="@+id/nav_settings_general_fragment"
-            android:name="com.github.nikololoshka.pepegaschedule.settings.editor.subsection.SettingsGeneralFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.settings.editor.subsection.SettingsGeneralFragment"
             android:label="@string/pref_general" />
 
     </navigation>

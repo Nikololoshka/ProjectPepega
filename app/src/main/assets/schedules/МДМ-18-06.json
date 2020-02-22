@@ -2,41 +2,12 @@
     {
         "title": "Экономика высокотехнологического бизнеса",
         "lecturer": "Зимовец О.Е",
-        "type": "Lecture",
+        "type": "Seminar",
         "subgroup": "Common",
         "classroom": "0202",
         "time": {
             "start": "18:00",
             "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.23"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.30"
-            }
-        ]
-    },
-    {
-        "title": "Экономика высокотехнологического бизнеса",
-        "lecturer": "Зимовец О.Е",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0202",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
         },
         "dates": [
             {
@@ -46,6 +17,23 @@
             {
                 "frequency": "every",
                 "date": "2020.03.23-2020.04.06"
+            }
+        ]
+    },
+    {
+        "title": "Экономика высокотехнологического бизнеса",
+        "lecturer": "Зимовец О.Е",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0306",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.03.18"
             }
         ]
     },

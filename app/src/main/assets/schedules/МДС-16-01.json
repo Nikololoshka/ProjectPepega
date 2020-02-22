@@ -1,105 +1,5 @@
 [
     {
-        "title": "Инструментальное обеспечение технологических систем",
-        "lecturer": "Кокарев В.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.25"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальное обеспечение технологических систем",
-        "lecturer": "Кокарев В.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.25"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование технологической оснастки",
-        "lecturer": "Хайбуллов К.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.27"
-            }
-        ]
-    },
-    {
-        "title": "Экономика и управление машиностроительным производством",
-        "lecturer": "Зимовец О.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0306",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.25"
-            }
-        ]
-    },
-    {
         "title": "Экономика и управление машиностроительным производством",
         "lecturer": "Зимовец О.Е",
         "type": "Lecture",
@@ -133,25 +33,87 @@
         ]
     },
     {
-        "title": "Базы данных и СУБД",
-        "lecturer": "Лычкин Е.Н",
+        "title": "Проектирование технологической оснастки",
+        "lecturer": "Хайбуллов К.А",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0309",
+        "classroom": "0209",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
                 "frequency": "every",
-                "date": "2020.02.11-2020.04.14"
+                "date": "2020.03.23-2020.04.27"
             }
         ]
     },
     {
-        "title": "Управление данными об изделии",
-        "lecturer": "Вороненко В.П",
+        "title": "Экономика и управление машиностроительным производством",
+        "lecturer": "Зимовец О.Е",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0306",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Инструментальное обеспечение технологических систем",
+        "lecturer": "Кокарев В.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0204",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.02.10"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.02.17-2020.03.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.03.23-2020.04.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.25"
+            }
+        ]
+    },
+    {
+        "title": "Инструментальное обеспечение технологических систем",
+        "lecturer": "Кокарев В.И",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "0204",
@@ -161,25 +123,12 @@
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.02.11-2020.03.31"
-            }
-        ]
-    },
-    {
-        "title": "Системы автоматизации инженерных расчётов",
-        "lecturer": "Чеканин А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.05.18"
+            },
             {
-                "frequency": "every",
-                "date": "2020.02.11-2020.03.24"
+                "frequency": "once",
+                "date": "2020.05.25"
             }
         ]
     },
@@ -201,23 +150,53 @@
         ]
     },
     {
-        "title": "Проектирование технологической оснастки",
-        "lecturer": "Хайбуллов К.А",
+        "title": "Системы автоматизации инженерных расчётов",
+        "lecturer": "Чеканин А.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0209",
+        "classroom": "0409",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.11-2020.03.24"
+            }
+        ]
+    },
+    {
+        "title": "Управление данными об изделии",
+        "lecturer": "Вороненко В.П",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0204",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.11-2020.03.31"
+            }
+        ]
+    },
+    {
+        "title": "Базы данных и СУБД",
+        "lecturer": "Лычкин Е.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0309",
         "time": {
             "start": "8:30",
             "end": "10:10"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.05.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.26"
+                "frequency": "every",
+                "date": "2020.02.11-2020.04.14"
             }
         ]
     },
@@ -243,77 +222,23 @@
         ]
     },
     {
-        "title": "Безопасность жизнедеятельности",
-        "lecturer": "Гвоздкова С.И",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "0407",
+        "title": "Проектирование технологической оснастки",
+        "lecturer": "Хайбуллов К.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0209",
         "time": {
-            "start": "12:20",
-            "end": "15:50"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.04.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.12"
+                "date": "2020.05.19"
             },
             {
                 "frequency": "once",
                 "date": "2020.05.26"
-            }
-        ]
-    },
-    {
-        "title": "Системы автоматизации инженерных расчётов",
-        "lecturer": "Чеканин А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "209",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.19"
-            }
-        ]
-    },
-    {
-        "title": "Безопасность жизнедеятельности",
-        "lecturer": "Гвоздкова С.И",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "0407",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.19"
             }
         ]
     },
@@ -343,53 +268,77 @@
         ]
     },
     {
-        "title": "Транспортные системы и манипуляторы",
-        "lecturer": "Ривкин А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Гвоздкова С.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0407",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "12:20",
+            "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.02.12-2020.04.15"
+                "frequency": "once",
+                "date": "2020.04.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.19"
+            }
+        ]
+    },
+    {
+        "title": "Системы автоматизации инженерных расчётов",
+        "lecturer": "Чеканин А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "209",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.19"
             }
         ]
     },
     {
         "title": "Безопасность жизнедеятельности",
         "lecturer": "Гвоздкова С.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "0407",
         "time": {
             "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.12-2020.05.13"
-            }
-        ]
-    },
-    {
-        "title": "Проектирование технологической оснастки",
-        "lecturer": "Хайбуллов К.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0301",
-        "time": {
-            "start": "14:10",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.02.19-2020.04.08"
+                "frequency": "once",
+                "date": "2020.04.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.05.26"
             }
         ]
     },
@@ -411,19 +360,53 @@
         ]
     },
     {
-        "title": "Безопасность жизнедеятельности",
-        "lecturer": "Гвоздкова С.И",
+        "title": "Проектирование технологической оснастки",
+        "lecturer": "Хайбуллов К.А",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0202",
+        "classroom": "0301",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.20-2020.04.09"
+                "date": "2020.02.19-2020.04.08"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Гвоздкова С.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0204",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.05.13"
+            }
+        ]
+    },
+    {
+        "title": "Транспортные системы и манипуляторы",
+        "lecturer": "Ривкин А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0204",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.12-2020.04.15"
             }
         ]
     },
@@ -432,7 +415,7 @@
         "lecturer": "Левчук В.И",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0202",
+        "classroom": "415",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -458,6 +441,99 @@
             {
                 "frequency": "every",
                 "date": "2020.02.27-2020.03.19"
+            }
+        ]
+    },
+    {
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Гвоздкова С.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0202",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.20-2020.04.09"
+            }
+        ]
+    },
+    {
+        "title": "Базы данных и СУБД",
+        "lecturer": "Матвеенков Д.С",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "216",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.02-2020.04.30"
+            }
+        ]
+    },
+    {
+        "title": "Транспортные системы и манипуляторы",
+        "lecturer": "Ривкин А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "501",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.02"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.16"
+            }
+        ]
+    },
+    {
+        "title": "Базы данных и СУБД",
+        "lecturer": "Матвеенков Д.С",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "216",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.04.09-2020.05.07"
+            }
+        ]
+    },
+    {
+        "title": "Транспортные системы и манипуляторы",
+        "lecturer": "Ривкин А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "501",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.04.09"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.04.23"
             }
         ]
     },
@@ -498,76 +574,17 @@
     {
         "title": "Транспортные системы и манипуляторы",
         "lecturer": "Ривкин А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "501",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "0202",
         "time": {
             "start": "12:20",
-            "end": "15:50"
+            "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.04.09"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.23"
-            }
-        ]
-    },
-    {
-        "title": "Базы данных и СУБД",
-        "lecturer": "Матвеенков Д.С",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "216",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.04.09-2020.05.07"
-            }
-        ]
-    },
-    {
-        "title": "Транспортные системы и манипуляторы",
-        "lecturer": "Ривкин А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "501",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.02"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.16"
-            }
-        ]
-    },
-    {
-        "title": "Базы данных и СУБД",
-        "lecturer": "Матвеенков Д.С",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "216",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.04.02-2020.04.30"
+                "frequency": "every",
+                "date": "2020.02.21-2020.03.27"
             }
         ]
     },
@@ -585,23 +602,6 @@
             {
                 "frequency": "every",
                 "date": "2020.02.14-2020.04.03"
-            }
-        ]
-    },
-    {
-        "title": "Транспортные системы и манипуляторы",
-        "lecturer": "Ривкин А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0202",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.21-2020.03.27"
             }
         ]
     },
@@ -630,23 +630,6 @@
         "title": "Инструментальное обеспечение технологических систем",
         "lecturer": "Кокарев В.И",
         "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "234(а)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.03.14-2020.04.11"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальное обеспечение технологических систем",
-        "lecturer": "Кокарев В.И",
-        "type": "Laboratory",
         "subgroup": "A",
         "classroom": "234(а)",
         "time": {
@@ -665,6 +648,23 @@
             {
                 "frequency": "once",
                 "date": "2020.04.04"
+            }
+        ]
+    },
+    {
+        "title": "Инструментальное обеспечение технологических систем",
+        "lecturer": "Кокарев В.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "234(а)",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.03.14-2020.04.11"
             }
         ]
     }

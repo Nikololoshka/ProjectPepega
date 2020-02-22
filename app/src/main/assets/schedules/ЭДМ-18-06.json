@@ -1,22 +1,5 @@
 [
     {
-        "title": "Управление конфигурацией изделий",
-        "lecturer": "Капитанов А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "409",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.11-2020.03.31"
-            }
-        ]
-    },
-    {
         "title": "Всеобщее управление качеством в обеспечении конкурентоспособности машиностроительных производств",
         "lecturer": "Карлова Т.В",
         "type": "Lecture",
@@ -36,17 +19,17 @@
     {
         "title": "Управление конфигурацией изделий",
         "lecturer": "Капитанов А.В",
-        "type": "Seminar",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "240(г)",
+        "classroom": "409",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.20-2020.03.12"
+                "date": "2020.02.11-2020.03.31"
             }
         ]
     },
@@ -64,6 +47,23 @@
             {
                 "frequency": "every",
                 "date": "2020.02.20-2020.03.26"
+            }
+        ]
+    },
+    {
+        "title": "Управление конфигурацией изделий",
+        "lecturer": "Капитанов А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "240(г)",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.02.20-2020.03.12"
             }
         ]
     },
@@ -91,8 +91,8 @@
         "subgroup": "Common",
         "classroom": "305",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
@@ -108,13 +108,13 @@
         "subgroup": "A",
         "classroom": "357(в)",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "10:20",
+            "end": "14:00"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.02.28-2020.04.10"
+                "date": "2020.02.14-2020.03.27"
             }
         ]
     },
@@ -125,13 +125,13 @@
         "subgroup": "B",
         "classroom": "357(в)",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "10:20",
+            "end": "14:00"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.03.06-2020.04.17"
+                "date": "2020.02.21-2020.04.03"
             }
         ]
     }

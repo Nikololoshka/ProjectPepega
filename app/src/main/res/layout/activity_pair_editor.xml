@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+<com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -145,7 +145,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical" >
 
-                    <com.github.nikololoshka.pepegaschedule.utils.StatefulLayout
+                    <com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout
                         android:id="@+id/stateful_layout_dates"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
                             android:textAlignment="center"
                             android:padding="@dimen/default_information_padding"/>
 
-                    </com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
+                    </com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout>
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/add_date"
@@ -200,4 +200,4 @@
 
     </ScrollView>
 
-</com.github.nikololoshka.pepegaschedule.utils.StatefulLayout>
+</com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout>
