@@ -87,7 +87,7 @@ public class ApplicationPreference {
      */
     public static String scheduleViewMethod(@NonNull Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return preferences.getString(SCHEDULE_VIEW_METHOD, SCHEDULE_VIEW_VERTICAL);
+        return preferences.getString(SCHEDULE_VIEW_METHOD, SCHEDULE_VIEW_HORIZONTAL);
     }
 
     /**
