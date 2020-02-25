@@ -39,13 +39,11 @@ public class ScheduleDownloaderService extends IntentService {
     private static final String EXTRA_NOTIFICATION_ID = "notification_id";
 
     private static final int SERVICE_NOTIFICATION_ID = 1;
-    private static final int DOWNLOAD_GROUP_NOTIFICATION_ID = 2;
-    private static final String DOWNLOADER_NOTIFICATION_GROUP = "downloader_notification_group";
 
     /**
      * Пул ID для уведомлений.
      */
-    private static int DOWNLOAD_NOTIFICATION_ID = 3;
+    private static int DOWNLOAD_NOTIFICATION_ID = 100;
 
     private static final String TAG = "MyLog";
 
@@ -69,7 +67,6 @@ public class ScheduleDownloaderService extends IntentService {
                 .setContentTitle(name)
                 .setContentText(context.getString(R.string.notification_awaiting_download))
                 .setWhen(System.currentTimeMillis())
-                .setGroup(DOWNLOADER_NOTIFICATION_GROUP)
                 .setSmallIcon(R.drawable.ic_notification_file_download);
 
         NotificationUtils.notifyCommon(context, context.getSystemService(NotificationManager.class),
@@ -96,19 +93,14 @@ public class ScheduleDownloaderService extends IntentService {
         mNotificationBuilder = NotificationUtils.createCommonNotification(this)
                 .setContentText(getString(R.string.repository_loading_schedule))
                 .setWhen(System.currentTimeMillis())
-                .setGroup(DOWNLOADER_NOTIFICATION_GROUP)
                 .setOngoing(true)
                 .setSmallIcon(R.drawable.ic_notification_file_download)
                 .setProgress(MAX_PROGRESS, 0, true);
 
-        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager = getSystemService(NotificationManager.class);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForeground(SERVICE_NOTIFICATION_ID, mNotificationBuilder.build());
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            createNotificationGroup(mNotificationManager);
         }
     }
 
@@ -138,13 +130,13 @@ public class ScheduleDownloaderService extends IntentService {
             mNotificationBuilder.setContentTitle(scheduleName)
                     .setContentTitle(scheduleName)
                     .setWhen(System.currentTimeMillis());
+
             NotificationUtils.notifyCommon(this, mNotificationManager,
                     SERVICE_NOTIFICATION_ID, mNotificationBuilder.build());
 
             // загрузка (чтение)
             String resultPath = SchedulePreference.createPath(this, scheduleName);
-            try (FileWriterWithEncoding fileWriter =
-                         new FileWriterWithEncoding(resultPath, StandardCharsets.UTF_8)) {
+            try (FileWriterWithEncoding fileWriter = new FileWriterWithEncoding(resultPath, StandardCharsets.UTF_8)) {
 
                 AssetManager manager = getAssets();
                 Scanner scanner = new Scanner(manager.open(schedulePath));
@@ -172,28 +164,11 @@ public class ScheduleDownloaderService extends IntentService {
                     .setContentIntent(PendingIntent.getActivity(getApplicationContext(), 0, new Intent(), 0))
                     .setWhen(System.currentTimeMillis())
                     .setSmallIcon(R.drawable.ic_notification_file_download)
-                    .setAutoCancel(true)
-                    .setGroup(DOWNLOADER_NOTIFICATION_GROUP);
+                    .setAutoCancel(true);
 
             NotificationUtils.notifyCommon(this, mNotificationManager,
                     notificationId, builder.build());
         }
-    }
-
-    /**
-     * Создает группу для уведомлений.
-     * @param notificationManager - менеджер уведомлений.
-     */
-    private void createNotificationGroup(NotificationManager notificationManager) {
-        NotificationCompat.Builder builder = NotificationUtils.createCommonNotification(this)
-                .setSmallIcon(R.drawable.ic_notification_file_download)
-                .setAutoCancel(true)
-                .setGroup(DOWNLOADER_NOTIFICATION_GROUP)
-                .setGroupSummary(true)
-                .setStyle(new NotificationCompat.BigTextStyle());
-
-        NotificationUtils.notifyCommon(this, notificationManager,
-                DOWNLOAD_GROUP_NOTIFICATION_ID, builder.build());
     }
 
     @Override

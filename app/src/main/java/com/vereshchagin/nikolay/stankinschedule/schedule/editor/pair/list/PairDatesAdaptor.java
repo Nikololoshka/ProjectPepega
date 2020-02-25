@@ -6,13 +6,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.AsyncListDiffer;
 import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.DiffUtil.Callback;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.schedule.model.pair.DateItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.PairEditorHolder> {
@@ -35,7 +36,7 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
     /**
      * Список.
      */
-    private AsyncListDiffer<DateItem> mDiffer;
+    private List<DateItem> mDataList;
     /**
      * Окончание даты "к.н."
      */
@@ -48,43 +49,65 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
 
     public PairDatesAdaptor(@NonNull OnDateItemClickListener listener,
                             @NonNull String everyWeekSuffix, @NonNull String throughWeekSuffix) {
+        mDataList = new ArrayList<>();
         mListener = listener;
         mEveryWeekSuffix = everyWeekSuffix;
         mThroughWeekSuffix = throughWeekSuffix;
 
-        mDiffer = new AsyncListDiffer<>(this, new DiffUtil.ItemCallback<DateItem>() {
+        new DiffUtil.Callback() {
             @Override
-            public boolean areItemsTheSame(@NonNull DateItem oldItem, @NonNull DateItem newItem) {
-                return oldItem.equals(newItem);
+            public int getOldListSize() {
+                return 0;
             }
 
             @Override
-            public boolean areContentsTheSame(@NonNull DateItem oldItem, @NonNull DateItem newItem) {
-                return oldItem.equals(newItem);
+            public int getNewListSize() {
+                return 0;
             }
-        });
+
+            @Override
+            public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+                return false;
+            }
+
+            @Override
+            public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+                return false;
+            }
+        };
     }
 
     /**
-     * Обновляет данные в адапторе.
+     * Обновляет данные в адаптере.
      * @param data новые данные.
      */
-    public void submitList(@NonNull List<DateItem> data) {
-        mDiffer.submitList(data);
-    }
-
-    /**
-     * Обновляет данные в адапторе.
-     * @param data новые данные.
-     * @param refreshPosition элемент, необходимый перерисовать.
-     */
-    public void submitList(@NonNull List<DateItem> data, final int refreshPosition) {
-        mDiffer.submitList(data, new Runnable() {
+    public void submitList(@NonNull final List<DateItem> data) {
+        DiffUtil.Callback diffUtil = new Callback() {
             @Override
-            public void run() {
-                notifyItemChanged(refreshPosition);
+            public int getOldListSize() {
+                return mDataList.size();
             }
-        });
+
+            @Override
+            public int getNewListSize() {
+                return data.size();
+            }
+
+            @Override
+            public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+                return mDataList.get(oldItemPosition).equals(data.get(newItemPosition));
+            }
+
+            @Override
+            public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+                return mDataList.get(oldItemPosition).equals(data.get(newItemPosition));
+            }
+        };
+
+        DiffUtil.DiffResult result = DiffUtil.calculateDiff(diffUtil);
+        result.dispatchUpdatesTo(this);
+
+        mDataList = new ArrayList<>(data);
     }
 
 
@@ -98,12 +121,12 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
 
     @Override
     public void onBindViewHolder(@NonNull PairEditorHolder holder, int position) {
-        holder.bind(mDiffer.getCurrentList().get(position));
+        holder.bind(mDataList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return mDiffer.getCurrentList().size();
+        return mDataList.size();
     }
 
     /**
@@ -121,7 +144,7 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
         }
 
         /**
-         * Обновялет данные в элементе.
+         * Обновляет данные в элементе.
          * @param item дата.
          */
         void bind(@NonNull DateItem item) {

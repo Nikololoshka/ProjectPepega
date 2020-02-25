@@ -136,7 +136,7 @@ public class PairEditorActivity extends AppCompatActivity
         mStatefulLayoutMain.addXMLViews();
 
         mStatefulLayoutDates = findViewById(R.id.stateful_layout_dates);
-        mStatefulLayoutDates.setAnimation(StatefulLayout.PROPERTY_ANIMATION);
+        mStatefulLayoutDates.setAnimation(StatefulLayout.TRANSITION_ANIMATION);
         mStatefulLayoutDates.addXMLViews();
 
         // установка auto complete в поля
@@ -247,7 +247,7 @@ public class PairEditorActivity extends AppCompatActivity
                             @Override
                             public void onClick(View view) {
                                 mDateItems.add(position, item);
-                                mPairDatesAdaptor.submitList(mDateItems, position);
+                                mPairDatesAdaptor.submitList(mDateItems);
                                 updateDatesCountView();
                             }
                         })
@@ -393,6 +393,8 @@ public class PairEditorActivity extends AppCompatActivity
 
             Schedule schedule = mPairEditorViewModel.schedule().getValue();
             if (schedule != null) {
+                Schedule.possibleChangePair(schedule, mOldPair, mNewPair);
+
                 schedule.removePair(mOldPair);
                 schedule.addPair(mNewPair);
                 mPairEditorViewModel.saveSchedule();
@@ -657,7 +659,7 @@ public class PairEditorActivity extends AppCompatActivity
                 Intent intent = new Intent();
                 intent.putExtra(EXTRA_PAIR, mNewPair);
                 setResult(RESULT_OK, intent);
-                onBackPressed();
+                super.onBackPressed();
                 break;
             }
             case SUCCESSFULLY_LOADED: {

@@ -1,5 +1,9 @@
 # ProjectPepega
 
+<div align="center">
+    <img src="./screenshots/logo.jpg" >
+</div>
+
 #### Содержание
 
 - [Описание](#Описание)

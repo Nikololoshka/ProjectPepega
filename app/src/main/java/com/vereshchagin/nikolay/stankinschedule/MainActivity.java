@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,8 @@ import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    public static final String MODULE_JOURNAL_EXTRA = "module_journal_extra";
 
     private static final String TAG = "MainActivityLog";
 
@@ -98,6 +101,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             notificationManager.createNotificationChannel(channelCommon);
             notificationManager.createNotificationChannel(channelModuleJournal);
+        }
+
+        if (savedInstanceState == null) {
+            final Intent intent = getIntent();
+            if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+                final String data = intent.getStringExtra(MODULE_JOURNAL_EXTRA);
+                if (data != null) {
+                    navController.navigate(R.id.toModuleJournalFragment);
+                }
+            }
         }
     }
 

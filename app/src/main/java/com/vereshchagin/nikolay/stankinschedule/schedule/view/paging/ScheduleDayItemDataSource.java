@@ -42,8 +42,8 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
     @Override
     public void loadInitial(@NonNull LoadInitialParams<Calendar> params,
                             @NonNull LoadInitialCallback<Calendar, ScheduleDayItem> callback) {
-        mDayItemStorage.loadSchedule();
 
+        mDayItemStorage.loadSchedule();
         Calendar currentDay = mDayItemStorage.initialKey();
 
         // предыдущий день

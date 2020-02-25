@@ -168,6 +168,8 @@ public class PairCardView extends CardView {
         // time
         mTimeStartView.setText(mPair.time().start());
         mTimeEndView.setText(mPair.time().end());
+
+        // Log.d("MyLog", "updatePair: " + pair);
     }
 
     private void setupDrawableBackground(@NonNull TextView view, int color) {

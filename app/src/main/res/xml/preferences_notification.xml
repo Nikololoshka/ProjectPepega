@@ -10,6 +10,7 @@
             android:defaultValue="true"
             android:key="common_notification_turn"
             android:title="@string/pref_notification_turn"
+            android:summary="@string/notification_common_description"
             app:defaultValue="true"
             app:iconSpaceReserved="false" />
 
@@ -23,6 +24,7 @@
             android:defaultValue="true"
             android:key="mj_notification_turn"
             android:title="@string/pref_notification_turn"
+            android:summary="@string/notification_mj_description"
             app:defaultValue="true"
             app:iconSpaceReserved="false" />
 

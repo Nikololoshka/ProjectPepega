@@ -130,10 +130,6 @@ public class ScheduleDayItemStorage {
      * Загружает расписание.
      */
     void loadSchedule() {
-        if (mSchedule != null) {
-            return;
-        }
-
         try {
             File scheduleFile = new File(mSchedulePath);
             String json = FileUtils.readFileToString(scheduleFile, StandardCharsets.UTF_8);

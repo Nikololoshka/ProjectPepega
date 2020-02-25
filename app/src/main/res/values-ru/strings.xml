@@ -50,8 +50,8 @@
     <string name="sch_from_repository">Из репозитория</string>
     <string name="sch_create_new">Создать новое расписание</string>
     <string name="sch_load">Загрузить расписание</string>
-    <string name="sch_successfully_added">успешно добавлено</string>
-    <string name="sch_failed_add">не удалось добавить</string>
+    <string name="sch_successfully_added">Расписание: \"%1$s\" успешно добавлено</string>
+    <string name="sch_failed_add">Расписание: \"%1$s\" не удалось добавить</string>
 
     <!-- repository -->
     <string name="repository">Репозиторий</string>
@@ -95,7 +95,7 @@
     <string name="pair_editor_date_removed">Дата была удалена</string>
     <string name="pair_editor_empty_dates_list">Необходимо добавить хотя бы одну дату.</string>
     <string name="pair_editor_empty_title">У пары нет названия</string>
-    <string name="pair_editor_conflict_pair">YНевозможно добавить пару. Конфликтует с \"%1$s\".</string>
+    <string name="pair_editor_conflict_pair">Невозможно добавить пару. Конфликтует с \"%1$s\".</string>
     <string name="pair_editor_loading_schedule_error">Не удалось загрузить расписание для редактирования</string>
     <string name="pair_editor_pair_changed_title">Пара была изменена</string>
     <string name="pair_editor_pair_changed_message">Некоторые параметры пары были изменены. Ваши изменения будут потеряны, если вы не сохраните их.</string>

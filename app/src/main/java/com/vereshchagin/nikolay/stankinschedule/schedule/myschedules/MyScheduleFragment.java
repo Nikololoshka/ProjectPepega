@@ -272,10 +272,7 @@ public class MyScheduleFragment extends Fragment
                 } catch (IOException e) {
                     e.printStackTrace();
 
-                    showMessage(String.format("%s: %s %s",
-                            getString(R.string.sch_name),
-                            scheduleName,
-                            getString(R.string.sch_failed_add)));
+                    showMessage(getString(R.string.sch_failed_add, scheduleName));
 
                     return;
                 }
@@ -283,10 +280,7 @@ public class MyScheduleFragment extends Fragment
                 SchedulePreference.add(getActivity(), scheduleName);
                 updateSchedules();
 
-                showMessage(String.format("%s: %s %s",
-                        getString(R.string.sch_name),
-                        scheduleName,
-                        getString(R.string.sch_successfully_added)));
+                showMessage(getString(R.string.sch_successfully_added, scheduleName));
 
                 break;
             }
@@ -371,7 +365,7 @@ public class MyScheduleFragment extends Fragment
     }
 
     /**
-     * Расписание перемещенно.
+     * Расписание перемещено.
      * @param fromPosition старая позиция.
      * @param toPosition новая позиция.
      */

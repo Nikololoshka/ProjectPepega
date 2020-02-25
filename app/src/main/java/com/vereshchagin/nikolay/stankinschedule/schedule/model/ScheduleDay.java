@@ -69,8 +69,8 @@ public class ScheduleDay implements Parcelable {
                     if (addedPair.date().intersect(pair.date())) {
                         if (!addedPair.subgroup().isConcurrently(pair.subgroup())) {
                             throw new InvalidChangePairException(
-                                    String.format("No change pair. Conflict: '%s' and '%s'",
-                                            String.valueOf(addedPair), String.valueOf(removedPair)),
+                                    String.format("No change pairs. Conflict: '%s' and '%s'",
+                                            String.valueOf(addedPair), String.valueOf(pair)),
                                     pair.toString());
                         }
                     }

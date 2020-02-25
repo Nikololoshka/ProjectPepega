@@ -87,7 +87,6 @@ public class MySchedulesAdapter extends RecyclerView.Adapter<MySchedulesAdapter.
 //        }
 
         holder.bind(mSchedules.get(position), mFavoriteSchedule.equals(mSchedules.get(position)));
-        holder.setOnTouchListener(holder);
     }
 
     @Override
@@ -124,6 +123,9 @@ public class MySchedulesAdapter extends RecyclerView.Adapter<MySchedulesAdapter.
 
             itemView.setOnClickListener(this);
             itemView.findViewById(R.id.favorite_schedule).setOnClickListener(this);
+
+            setOnTouchListener(this);
+            // itemView.setOnLongClickListener(this);
         }
 
         /**

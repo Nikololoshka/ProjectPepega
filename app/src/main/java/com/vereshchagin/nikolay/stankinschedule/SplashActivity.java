@@ -18,8 +18,18 @@ public class SplashActivity extends AppCompatActivity {
 //        }
         super.onCreate(savedInstanceState);
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        Intent mainIntent = new Intent(this, MainActivity.class);
+
+        final Intent intent = getIntent();
+        final String action = intent.getAction();
+        final String data = intent.getDataString();
+
+        if (Intent.ACTION_VIEW.equals(action) && data != null) {
+            mainIntent.setAction(Intent.ACTION_VIEW);
+            mainIntent.putExtra(MainActivity.MODULE_JOURNAL_EXTRA, data);
+        }
+
+        startActivity(mainIntent);
         finish();
     }
 }

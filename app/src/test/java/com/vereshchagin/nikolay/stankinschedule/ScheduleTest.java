@@ -13,6 +13,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Collection;
 
 import static org.junit.Assert.assertTrue;
 
@@ -50,6 +51,29 @@ public class ScheduleTest {
         schedule.addPair(loadPair("pair_4.json"));
         schedule.addPair(loadPair("pair_5.json"));
         schedule.addPair(loadPair("pair_6.json"));
+    }
+
+    @Test
+    public void commonLoading() {
+        String PATH_SCHEDULES = "src/main/assets/schedules/";
+
+        Collection<File> schedules = FileUtils.listFiles(new File(PATH_SCHEDULES), null, false);
+
+        for (File schedule : schedules) {
+            System.out.println(schedule.getName());
+
+            if (schedule.getName().equals("МДС-18-02.json"))  {
+                continue;
+            }
+
+            try {
+                String json = FileUtils.readFileToString(schedule, StandardCharsets.UTF_8);
+                Schedule.fromJson(json);
+
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     /**

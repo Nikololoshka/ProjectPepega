@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 
 import com.vereshchagin.nikolay.stankinschedule.schedule.model.pair.Pair;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Objects;
 import java.util.TreeSet;
 
@@ -17,7 +19,7 @@ public class ScheduleDayItem {
      * Пары в дне.
      */
     @NonNull
-    private TreeSet<Pair> mPairs;
+    private List<Pair> mPairs;
     /**
      * День.
      */
@@ -26,12 +28,12 @@ public class ScheduleDayItem {
 
 
     ScheduleDayItem(@NonNull TreeSet<Pair> pairs, @NonNull Calendar day) {
-        mPairs = pairs;
+        mPairs = new ArrayList<>(pairs);
         mDay = day;
     }
 
     @NonNull
-    public TreeSet<Pair> pairs() {
+    public List<Pair> pairs() {
         return mPairs;
     }
 

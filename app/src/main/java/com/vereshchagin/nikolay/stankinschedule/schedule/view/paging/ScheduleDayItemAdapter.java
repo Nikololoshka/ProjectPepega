@@ -44,7 +44,7 @@ public class ScheduleDayItemAdapter extends PagedListAdapter<ScheduleDayItem, Sc
         super(new DiffUtil.ItemCallback<ScheduleDayItem>() {
             @Override
             public boolean areItemsTheSame(@NonNull ScheduleDayItem oldItem, @NonNull ScheduleDayItem newItem) {
-                return oldItem.day().equals(newItem.day());
+                return oldItem.equals(newItem);
             }
 
             @Override
