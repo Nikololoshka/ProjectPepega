@@ -58,15 +58,15 @@
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.DEFAULT" />
-
-                <data android:scheme="https"
-                    android:host="lk.stankin.ru" />
-
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+                <data android:host="lk.stankin.ru" />
             </intent-filter>
         </activity>
         <activity
