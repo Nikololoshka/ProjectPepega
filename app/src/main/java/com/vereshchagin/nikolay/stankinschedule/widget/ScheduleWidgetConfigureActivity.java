@@ -112,6 +112,7 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
         // загрузка данных
         WidgetData data = loadPref(this, mScheduleAppWidgetId);
         String schedule = data.scheduleName();
+        SubgroupEnum subgroup = data.subgroup();
 
         if (schedule != null) {
             int position = schedules.indexOf(schedule);
@@ -119,6 +120,7 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
                 mSchedulesSpinner.setSelection(position);
             }
         }
+        setSubgroupSpinner(subgroup);
     }
 
     @Override
@@ -145,6 +147,9 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
         finish();
     }
 
+    /**
+     * @return выбранная подгруппа.
+     */
     @NonNull
     private SubgroupEnum currentSubgroup() {
         int pos = mSubgroupSpinner.getSelectedItemPosition();
@@ -157,6 +162,24 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
                 return SubgroupEnum.B;
         }
         throw new RuntimeException("Don't select subgroup pair. Position: " + pos);
+    }
+
+    /**
+     * Устанавливает поле с подгруппой пары.
+     * @param subgroup подгруппа пары.
+     */
+    private void setSubgroupSpinner(@NonNull SubgroupEnum subgroup) {
+        switch (subgroup) {
+            case COMMON:
+                mSubgroupSpinner.setSelection(0);
+                break;
+            case A:
+                mSubgroupSpinner.setSelection(1);
+                break;
+            case B:
+                mSubgroupSpinner.setSelection(2);
+                break;
+        }
     }
 
     /**

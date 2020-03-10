@@ -202,7 +202,7 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
         for (Pair pair : item.pairs) {
             // если не подходит по подгруппе
             SubgroupEnum subgroup = pair.subgroup().subgroup();
-            if (subgroup != SubgroupEnum.COMMON && subgroup != mSubgroup) {
+            if (subgroup != SubgroupEnum.COMMON && mSubgroup != SubgroupEnum.COMMON && subgroup != mSubgroup) {
                 continue;
             }
 
