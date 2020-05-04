@@ -108,7 +108,8 @@ public class Discipline {
                 row.add(String.valueOf(mark));
             }
         }
-        row.add(String.valueOf(mFactor));
+
+        row.add(Math.abs(mFactor) < 2 * Double.MIN_VALUE ? "" : String.valueOf(mFactor));
 
         return row;
     }

@@ -14,7 +14,7 @@
         <TextView
             style="@style/Text.Subhead"
             android:id="@+id/widget_schedule_name"
-            android:text="@string/widget_schedule"
+            android:text="@string/widget_schedule_title"
             android:textColor="@color/widgetColorTitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

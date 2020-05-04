@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
+import androidx.core.app.NotificationCompat;
 import androidx.core.util.Pair;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
@@ -129,6 +130,7 @@ public class ModuleJournalWorker extends Worker {
                                 .setContentText(changes)
                                 .setWhen(System.currentTimeMillis())
                                 .setSmallIcon(R.drawable.ic_nav_module_journal)
+                                .setStyle(new NotificationCompat.BigTextStyle().bigText(changes))
                                 .build();
 
                         NotificationUtils.notifyModuleJournal(getApplicationContext(),
@@ -185,7 +187,7 @@ public class ModuleJournalWorker extends Worker {
 
                         if (newMark != null && oldMark != null) {
                             if (!newMark.equals(oldMark)) {
-                                changes.add(MessageFormat.format("{0}: {1}({2})",
+                                changes.add(MessageFormat.format("{0}: {1} ({2})",
                                         newDiscipline.discipline(), newMark, type.toString()));
                             }
                         }
@@ -195,7 +197,7 @@ public class ModuleJournalWorker extends Worker {
             }
         }
 
-        return TextUtils.join("\n", changes);
+        return TextUtils.join(";\n", changes);
     }
 
     @NonNull
