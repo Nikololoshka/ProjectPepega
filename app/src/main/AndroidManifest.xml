@@ -54,8 +54,9 @@
 
         <!--  Activities   -->
         <activity
-            android:name="com.vereshchagin.nikolay.stankinschedule.SplashActivity"
-            android:theme="@style/AppTheme.Splash">
+            android:name="com.vereshchagin.nikolay.stankinschedule.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -69,10 +70,6 @@
                 <data android:host="lk.stankin.ru" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.vereshchagin.nikolay.stankinschedule.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.vereshchagin.nikolay.stankinschedule.schedule.editor.pair.PairEditorActivity"
             android:label="@string/pair_editor"

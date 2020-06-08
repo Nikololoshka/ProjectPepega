@@ -8,6 +8,7 @@ import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.preference.PreferenceManager;
 
 
@@ -42,7 +43,26 @@ public class NotificationUtils {
      * @param id ID уведомления.
      * @param notification уведомление.
      */
+    @Deprecated
     public static void notifyCommon(@NonNull Context context, NotificationManager manager,
+                                    int id, @NonNull Notification notification) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            if (!preferences.getBoolean(COMMON_PREFERENCE_TURN, true)) {
+                return;
+            }
+        }
+        manager.notify(id, notification);
+    }
+
+    /**
+     * Отправляет уведомление общего назначения в соответствии с настройками.
+     * @param context контекст приложения.
+     * @param manager менеджер уведомлений.
+     * @param id ID уведомления.
+     * @param notification уведомление.
+     */
+    public static void notifyCommon(@NonNull Context context, NotificationManagerCompat manager,
                                     int id, @NonNull Notification notification) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -73,7 +93,26 @@ public class NotificationUtils {
      * @param id ID уведомления.
      * @param notification уведомление.
      */
+    @Deprecated
     public static void notifyModuleJournal(@NonNull Context context, NotificationManager manager,
+                                           int id, @NonNull Notification notification) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            if (!preferences.getBoolean(MODULE_JOURNAL_PREFERENCE_TURN, true)) {
+                return;
+            }
+        }
+        manager.notify(id, notification);
+    }
+
+    /**
+     * Отправляет уведомление модульного журнала в соответствии с настройками.
+     * @param context контекст приложения.
+     * @param manager менеджер уведомлений.
+     * @param id ID уведомления.
+     * @param notification уведомление.
+     */
+    public static void notifyModuleJournal(@NonNull Context context, NotificationManagerCompat manager,
                                            int id, @NonNull Notification notification) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);

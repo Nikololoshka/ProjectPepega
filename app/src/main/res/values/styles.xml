@@ -15,12 +15,9 @@
     </style>
 
     <!-- Тема для загрузочного экрана -->
-    <style name="AppTheme.Splash" parent="AppTheme">
+    <style name="AppTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@drawable/background_splash_light</item>
-    </style>
-
-    <style name="AppTheme.Splash.Dark" parent="AppTheme">
-        <item name="android:windowBackground">@drawable/background_splash_dark</item>
     </style>
 
     <!--  Стиль PreferenceCategory  -->

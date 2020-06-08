@@ -6,10 +6,13 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -20,13 +23,22 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.vereshchagin.nikolay.stankinschedule.schedule.view.ScheduleViewFragment;
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
+import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference;
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils;
+
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String MODULE_JOURNAL_EXTRA = "module_journal_extra";
+    public static final String MODULE_JOURNAL_VIEW = "module_journal_view";
+
+    public static final String SCHEDULE_VIEW = "schedule_view";
+    public static final String EXTRA_SCHEDULE_NAME = "extra_schedule_name";
+
+    public static final String VIEW_ACTION = "view_action";
 
     private static final String TAG = "MainActivityLog";
 
@@ -37,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -103,15 +116,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             notificationManager.createNotificationChannel(channelModuleJournal);
         }
 
-        if (savedInstanceState == null) {
-            final Intent intent = getIntent();
-            if (Intent.ACTION_VIEW.equals(intent.getAction())) {
-                final String data = intent.getStringExtra(MODULE_JOURNAL_EXTRA);
-                if (data != null) {
-                    navController.navigate(R.id.toModuleJournalFragment);
-                }
-            }
-        }
+        newActionView(getIntent());
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        newActionView(intent);
     }
 
     @Override
@@ -180,5 +191,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String darkMode = ApplicationPreference.currentDarkMode(this);
         mDarkModeButton.setVisibility(darkMode.equals(ApplicationPreference.DARK_MODE_MANUAL) ?
                 View.VISIBLE : View.GONE);
+    }
+
+    /**
+     * Исходя из intent осуществляет переход в нужное место в приложении.
+     * @param intent intent запуска приложения.
+     */
+    private void newActionView(@Nullable Intent intent) {
+        if (intent != null) {
+            @Nullable String action = intent.getStringExtra(VIEW_ACTION);
+
+
+            if (action != null) {
+                NavController navController = Navigation.findNavController(this, R.id.nav_host);
+
+                switch (action) {
+                    // к модульному журналу
+                    case MODULE_JOURNAL_VIEW: {
+                        navController.navigate(R.id.toModuleJournalFragment);
+                        return;
+                    }
+                    // к расписанию
+                    case SCHEDULE_VIEW: {
+                        String scheduleName = intent.getStringExtra(EXTRA_SCHEDULE_NAME);
+                        Log.d(TAG, "newActionView: " + scheduleName);
+                        if (scheduleName != null) {
+                            String schedulePath = SchedulePreference.createPath(this, scheduleName);
+
+                            Bundle args = ScheduleViewFragment.createBundle(scheduleName, schedulePath);
+                            navController.navigate(R.id.fromHomeFragmentToScheduleViewFragment, args);
+                            return;
+                        }
+                        break;
+                    }
+                }
+            }
+
+            // если deep link
+            if (Intent.ACTION_VIEW.equals(intent.getAction()) && (intent.getData() != null)) {
+                NavController navController = Navigation.findNavController(this, R.id.nav_host);
+                navController.navigate(R.id.toModuleJournalFragment);
+            }
+        }
     }
 }

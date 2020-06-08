@@ -10,11 +10,15 @@ import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.JobIntentService;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.app.TaskStackBuilder;
 import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig;
+import com.vereshchagin.nikolay.stankinschedule.MainActivity;
 import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference;
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils;
@@ -38,19 +42,22 @@ public class ScheduleDownloaderService extends IntentService {
     private static final String EXTRA_SCHEDULE_NAME = "schedule_name";
     private static final String EXTRA_NOTIFICATION_ID = "notification_id";
 
-    private static final int SERVICE_NOTIFICATION_ID = 1;
+    /**
+     * ID сервеса скачивания.
+     */
+    private static final int SERVICE_NOTIFICATION_ID = 999;
 
     /**
      * Пул ID для уведомлений.
      */
-    private static int DOWNLOAD_NOTIFICATION_ID = 100;
+    private static int DOWNLOAD_NOTIFICATION_ID = 1000;
 
     private static final String TAG = "MyLog";
 
     private static final int MAX_PROGRESS = 100;
 
     NotificationCompat.Builder mNotificationBuilder;
-    NotificationManager mNotificationManager;
+    NotificationManagerCompat mNotificationManager;
 
     /**
      * Создает задачу на скачивание расписания с уведомлением.
@@ -69,7 +76,7 @@ public class ScheduleDownloaderService extends IntentService {
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.drawable.ic_notification_file_download);
 
-        NotificationUtils.notifyCommon(context, context.getSystemService(NotificationManager.class),
+        NotificationUtils.notifyCommon(context, NotificationManagerCompat.from(context),
                 DOWNLOAD_NOTIFICATION_ID, builder.build());
 
         if (BuildConfig.DEBUG) {
@@ -97,7 +104,7 @@ public class ScheduleDownloaderService extends IntentService {
                 .setSmallIcon(R.drawable.ic_notification_file_download)
                 .setProgress(MAX_PROGRESS, 0, true);
 
-        mNotificationManager = getSystemService(NotificationManager.class);
+        mNotificationManager = NotificationManagerCompat.from(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForeground(SERVICE_NOTIFICATION_ID, mNotificationBuilder.build());
@@ -110,7 +117,7 @@ public class ScheduleDownloaderService extends IntentService {
             // реализация для расписаний поставляющихся вместе с приложением!!!
             String schedulePath = intent.getStringExtra(EXTRA_SCHEDULE_URL);
             String scheduleName = intent.getStringExtra(EXTRA_SCHEDULE_NAME);
-            int notificationId = intent.getIntExtra(EXTRA_NOTIFICATION_ID, SERVICE_NOTIFICATION_ID);
+            int notificationId = intent.getIntExtra(EXTRA_NOTIFICATION_ID, SERVICE_NOTIFICATION_ID - 1);
 
             mNotificationManager.cancel(notificationId);
 
@@ -128,7 +135,7 @@ public class ScheduleDownloaderService extends IntentService {
 
             // уведомляет пользователя, что сейчас делаем
             mNotificationBuilder.setContentTitle(scheduleName)
-                    .setContentTitle(scheduleName)
+                    .setContentText(getString(R.string.repository_loading_schedule))
                     .setWhen(System.currentTimeMillis());
 
             NotificationUtils.notifyCommon(this, mNotificationManager,
@@ -158,16 +165,36 @@ public class ScheduleDownloaderService extends IntentService {
             }
 
             // окончательное уведомление
+            Context context = getApplicationContext();
+            Intent scheduleIntent = new Intent(context, MainActivity.class);
+            scheduleIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            scheduleIntent.putExtra(MainActivity.VIEW_ACTION, MainActivity.SCHEDULE_VIEW);
+            scheduleIntent.putExtra(MainActivity.EXTRA_SCHEDULE_NAME, scheduleName);
+
+            TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+            stackBuilder.addNextIntentWithParentStack(scheduleIntent);
+
+            PendingIntent schedulePendingIntent =
+                    stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
             NotificationCompat.Builder builder = NotificationUtils.createCommonNotification(this)
                     .setContentText(getString(R.string.notification_schedule_downloaded))
                     .setContentTitle(scheduleName)
-                    .setContentIntent(PendingIntent.getActivity(getApplicationContext(), 0, new Intent(), 0))
                     .setWhen(System.currentTimeMillis())
                     .setSmallIcon(R.drawable.ic_notification_file_download)
-                    .setAutoCancel(true);
+                    .setAutoCancel(true)
+                    .setContentIntent(schedulePendingIntent);
 
             NotificationUtils.notifyCommon(this, mNotificationManager,
                     notificationId, builder.build());
+
+            // окончательное уведомление сервиса
+            mNotificationBuilder.setContentTitle(getString(R.string.repository_checking_schedule))
+                    .setContentText("")
+                    .setWhen(System.currentTimeMillis());
+
+            NotificationUtils.notifyCommon(this, mNotificationManager,
+                    SERVICE_NOTIFICATION_ID, mNotificationBuilder.build());
         }
     }
 

@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.home;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

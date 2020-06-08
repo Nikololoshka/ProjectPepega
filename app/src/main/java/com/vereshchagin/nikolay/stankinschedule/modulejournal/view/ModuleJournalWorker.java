@@ -2,16 +2,21 @@ package com.vereshchagin.nikolay.stankinschedule.modulejournal.view;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.app.TaskStackBuilder;
 import androidx.core.util.Pair;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import com.vereshchagin.nikolay.stankinschedule.MainActivity;
 import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.network.ModuleJournalService;
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.network.response.MarkResponse;
@@ -124,17 +129,33 @@ public class ModuleJournalWorker extends Worker {
                     if (!changes.isEmpty()) {
                         changes = getString(R.string.notification_mj_new_marks) + "\n" + changes;
 
+                        // intent на модульный журнал
+                        Context context = getApplicationContext();
+                        Intent mjIntent = new Intent(context, MainActivity.class);
+                        mjIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        mjIntent.putExtra(MainActivity.VIEW_ACTION, MainActivity.MODULE_JOURNAL_VIEW);
+
+                        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+                        stackBuilder.addNextIntentWithParentStack(mjIntent);
+
+                        PendingIntent mjPendingIntent =
+                                stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
                         Notification notification = NotificationUtils
-                                .createModuleJournalNotification(getApplicationContext())
+                                .createModuleJournalNotification(context)
                                 .setContentTitle(getString(R.string.notification_mj))
                                 .setContentText(changes)
                                 .setWhen(System.currentTimeMillis())
                                 .setSmallIcon(R.drawable.ic_nav_module_journal)
-                                .setStyle(new NotificationCompat.BigTextStyle().bigText(changes))
+                                .setStyle(new NotificationCompat.BigTextStyle()
+                                        .bigText(changes)
+                                        .setBigContentTitle(getString(R.string.notification_mj)))
+                                .setAutoCancel(true)
+                                .setContentIntent(mjPendingIntent)
                                 .build();
 
-                        NotificationUtils.notifyModuleJournal(getApplicationContext(),
-                                getApplicationContext().getSystemService(NotificationManager.class),
+                        NotificationUtils.notifyModuleJournal(context,
+                                NotificationManagerCompat.from(context),
                                 NOTIFICATION_ID++, notification);
                     }
                 }
@@ -145,6 +166,37 @@ public class ModuleJournalWorker extends Worker {
         } catch (IOException e) {
             return Result.failure();
         }
+
+        // test
+        String changes = getString(R.string.notification_mj_new_marks) + "\n" + "testtest";
+
+        Context context = getApplicationContext();
+        Intent mjIntent = new Intent(context, MainActivity.class);
+        mjIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        mjIntent.putExtra(MainActivity.VIEW_ACTION, MainActivity.MODULE_JOURNAL_VIEW);
+
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+        stackBuilder.addNextIntentWithParentStack(mjIntent);
+
+        PendingIntent mjPendingIntent =
+                stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Notification notification = NotificationUtils
+                .createModuleJournalNotification(context)
+                .setContentTitle(getString(R.string.notification_mj))
+                .setContentText(changes)
+                .setWhen(System.currentTimeMillis())
+                .setSmallIcon(R.drawable.ic_nav_module_journal)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(changes)
+                        .setBigContentTitle(getString(R.string.notification_mj)))
+                .setAutoCancel(true)
+                .setContentIntent(mjPendingIntent)
+                .build();
+
+        NotificationUtils.notifyModuleJournal(context,
+                NotificationManagerCompat.from(context),
+                NOTIFICATION_ID++, notification);
 
         return Result.success();
     }
