@@ -135,6 +135,11 @@
     <string name="schedule_editor_exists">A schedule with this name exists.</string>
     <string name="schedule_editor_empty_name">The field cannot be empty</string>
 
+    <!-- news -->
+    <string name="news">News</string>
+    <string name="news_university">University News</string>
+    <string name="news_deanery">Deanery News</string>
+
     <!-- about application -->
     <string name="about_changelog">ChangeLog</string>
     <string name="about_description">Description</string>
@@ -209,10 +214,6 @@
     <string name="widget_shimmer_title" translatable="false">Name of the pair discipline</string>
     <string name="widget_shimmer_classroom" translatable="false">Classroom</string>
     <string name="widget_shimmer_time" translatable="false">Time pair</string>
-
-    <!-- news -->
-    <string name="news_university">University News</string>
-    <string name="news_deanery">Deanery News</string>
 
     <!-- other -->
     <string name="error">Error</string>

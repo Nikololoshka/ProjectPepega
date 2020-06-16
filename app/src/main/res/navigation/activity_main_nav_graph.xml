@@ -40,6 +40,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+        <action
+            android:id="@+id/toNewsFragment"
+            app:destination="@id/nav_news_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -85,6 +92,11 @@
         android:id="@+id/nav_module_journal_login_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.modulejournal.login.ModuleJournalLoginFragment"
         android:label="@string/nav_module_journal" />
+
+    <fragment
+        android:id="@+id/nav_news_fragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.news.NewsFragment"
+        android:label="@string/news" />
 
     <fragment
         android:id="@+id/nav_schedule_repository_fragment"

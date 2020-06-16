@@ -167,37 +167,6 @@ public class ModuleJournalWorker extends Worker {
             return Result.failure();
         }
 
-        // test
-        String changes = getString(R.string.notification_mj_new_marks) + "\n" + "testtest";
-
-        Context context = getApplicationContext();
-        Intent mjIntent = new Intent(context, MainActivity.class);
-        mjIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        mjIntent.putExtra(MainActivity.VIEW_ACTION, MainActivity.MODULE_JOURNAL_VIEW);
-
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-        stackBuilder.addNextIntentWithParentStack(mjIntent);
-
-        PendingIntent mjPendingIntent =
-                stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Notification notification = NotificationUtils
-                .createModuleJournalNotification(context)
-                .setContentTitle(getString(R.string.notification_mj))
-                .setContentText(changes)
-                .setWhen(System.currentTimeMillis())
-                .setSmallIcon(R.drawable.ic_nav_module_journal)
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(changes)
-                        .setBigContentTitle(getString(R.string.notification_mj)))
-                .setAutoCancel(true)
-                .setContentIntent(mjPendingIntent)
-                .build();
-
-        NotificationUtils.notifyModuleJournal(context,
-                NotificationManagerCompat.from(context),
-                NOTIFICATION_ID++, notification);
-
         return Result.success();
     }
 
