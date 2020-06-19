@@ -28,7 +28,7 @@ class StankinNewsService {
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
 
-        // включение
+        // включение лога
         if (BuildConfig.DEBUG) {
             val logger = HttpLoggingInterceptor()
             logger.level = HttpLoggingInterceptor.Level.BODY

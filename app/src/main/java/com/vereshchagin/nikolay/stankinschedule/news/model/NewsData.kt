@@ -6,6 +6,6 @@ package com.vereshchagin.nikolay.stankinschedule.news.model
  * @param count количество полученных новостей.
  */
 class NewsData(
-        val news: ArrayList<NewsPost>,
+        val news: List<NewsPost>,
         val count: Int
 )

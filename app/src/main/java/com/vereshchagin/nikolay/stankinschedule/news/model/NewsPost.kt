@@ -1,5 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.news.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.vereshchagin.nikolay.stankinschedule.news.network.StankinNewsService
 
@@ -12,7 +14,9 @@ import com.vereshchagin.nikolay.stankinschedule.news.network.StankinNewsService
  * @param shortText короткий текст новости.
  * @param author номер автора новости.
  */
-class NewsPost(
+@Entity(tableName = "posts")
+data class NewsPost(
+    @PrimaryKey
     val id: Int,
     val title: String,
     val date: String,
@@ -26,30 +30,4 @@ class NewsPost(
      * Возвращает url к картинке новости.
      */
     fun logoUrl() = StankinNewsService.BASE_URL + logo
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as NewsPost
-
-        if (id != other.id) return false
-        if (title != other.title) return false
-        if (date != other.date) return false
-        if (logo != other.logo) return false
-        if (shortText != other.shortText) return false
-        if (author != other.author) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = id
-        result = 31 * result + title.hashCode()
-        result = 31 * result + date.hashCode()
-        result = 31 * result + logo.hashCode()
-        result = 31 * result + shortText.hashCode()
-        result = 31 * result + author
-        return result
-    }
 }

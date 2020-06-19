@@ -1,19 +1,13 @@
 package com.vereshchagin.nikolay.stankinschedule.news
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentNewsBinding
-import com.vereshchagin.nikolay.stankinschedule.news.model.NewsResponse
-import com.vereshchagin.nikolay.stankinschedule.news.network.StankinNewsService
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 /**
  * Фрагмент для новостей университета и деканата.
@@ -22,11 +16,6 @@ class NewsFragment : Fragment() {
 
     private var _binding: FragmentNewsBinding? = null
     private val binding get() = _binding!!
-
-    /**
-     * ViewModel фрагмента.
-     */
-    private lateinit var viewModel: NewsViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -52,27 +41,6 @@ class NewsFragment : Fragment() {
                     else -> tab.text = ""
                 }
         }.attach()
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        viewModel = ViewModelProviders.of(this).get(NewsViewModel::class.java)
-
-        StankinNewsService.instance.getUniversityNews(20, 1).enqueue(object : Callback<NewsResponse> {
-            override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
-                println(t)
-            }
-
-            override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
-                val newsArray = response.body()?.data?.news!!
-
-                for (news in newsArray) {
-                    println(news)
-                    println("-------")
-                }
-            }
-        })
     }
 
     override fun onDestroyView() {
