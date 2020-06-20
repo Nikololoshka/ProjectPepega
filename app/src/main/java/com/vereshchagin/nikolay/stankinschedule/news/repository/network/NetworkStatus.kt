@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.network
+package com.vereshchagin.nikolay.stankinschedule.news.repository.network
 
 enum class Status {
     RUNNING,

@@ -1,8 +1,8 @@
-package com.vereshchagin.nikolay.stankinschedule.news.post.paging
+package com.vereshchagin.nikolay.stankinschedule.news.posts.paging
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
-import com.vereshchagin.nikolay.stankinschedule.news.network.NetworkState
+import com.vereshchagin.nikolay.stankinschedule.news.repository.network.NetworkState
 
 /**
  * Вспомогательный класс для отображения данных.

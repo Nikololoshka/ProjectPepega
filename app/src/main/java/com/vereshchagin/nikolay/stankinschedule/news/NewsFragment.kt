@@ -31,6 +31,7 @@ class NewsFragment : Fragment() {
 
         // установка адаптора
         binding.newsPager.adapter = NewsAdapter(this)
+        binding.newsPager.offscreenPageLimit = 2
 
         // создание tabLayout для pager'а
         TabLayoutMediator(binding.newsTabPager, binding.newsPager, true) {

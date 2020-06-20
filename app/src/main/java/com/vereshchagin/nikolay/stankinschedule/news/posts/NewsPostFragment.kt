@@ -1,21 +1,26 @@
-package com.vereshchagin.nikolay.stankinschedule.news.post
+package com.vereshchagin.nikolay.stankinschedule.news.posts
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsBinding
-import com.vereshchagin.nikolay.stankinschedule.news.post.paging.NewsPostAdapter
+import com.vereshchagin.nikolay.stankinschedule.news.NewsAdapter.Companion.DEANERY_NEWS
+import com.vereshchagin.nikolay.stankinschedule.news.NewsAdapter.Companion.NEWS_TYPE
+import com.vereshchagin.nikolay.stankinschedule.news.NewsAdapter.Companion.UNIVERSITY_NEWS
+import com.vereshchagin.nikolay.stankinschedule.news.posts.paging.NewsPostAdapter
+import com.vereshchagin.nikolay.stankinschedule.news.repository.network.NetworkState
 
 /**
  * Фрагмент для отображения списка новостей.
  */
-class NewsPostFragment  : Fragment() {
+class NewsPostFragment  : Fragment(), NewsPostAdapter.OnNewsClickListener {
 
     private var _binding: ItemNewsBinding? = null
     private val binding get() = _binding!!
@@ -34,22 +39,22 @@ class NewsPostFragment  : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // тип новостей
-        arguments?.let {
-            println(it.getInt("type"))
-        }
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this, NewsPostViewModel.Factory(context!!))
+        val type = arguments?.getInt(NEWS_TYPE)
+        var newsSubdivision = 125
+        type?.let {
+            when (it) {
+                UNIVERSITY_NEWS -> newsSubdivision = 0
+                DEANERY_NEWS -> newsSubdivision = 125
+            }
+        }
+
+        viewModel = ViewModelProviders.of(this, NewsPostViewModel.Factory(newsSubdivision, context!!))
             .get(NewsPostViewModel::class.java)
 
-        val adapter = NewsPostAdapter {
+        val adapter = NewsPostAdapter(this) {
             viewModel.retry()
         }
 
@@ -64,10 +69,23 @@ class NewsPostFragment  : Fragment() {
 
         val itemDecoration = DividerItemDecoration(context, RecyclerView.VERTICAL)
         binding.newsRecycler.addItemDecoration(itemDecoration)
+
+
+        viewModel.refreshState.observe(viewLifecycleOwner, Observer {
+            binding.newsRefresh.isRefreshing = it == NetworkState.LOADING
+        })
+
+        binding.newsRefresh.setOnRefreshListener {
+            viewModel.refresh()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onNewsClick(newsId: Int) {
+        Toast.makeText(context, "News: $newsId clicked", Toast.LENGTH_SHORT).show()
     }
 }

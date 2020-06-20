@@ -1,9 +1,9 @@
-package com.vereshchagin.nikolay.stankinschedule.news.model
+package com.vereshchagin.nikolay.stankinschedule.news.repository.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.vereshchagin.nikolay.stankinschedule.news.network.StankinNewsService
+import com.vereshchagin.nikolay.stankinschedule.news.repository.StankinNewsRepository
 
 /**
  * Данные о новости.
@@ -29,5 +29,5 @@ data class NewsPost(
     /**
      * Возвращает url к картинке новости.
      */
-    fun logoUrl() = StankinNewsService.BASE_URL + logo
+    fun logoUrl() = StankinNewsRepository.BASE_URL + logo
 }

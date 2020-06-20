@@ -1,6 +1,7 @@
-package com.vereshchagin.nikolay.stankinschedule.news.network
+package com.vereshchagin.nikolay.stankinschedule.news.repository
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,11 +9,13 @@ import androidx.lifecycle.Transformations
 import androidx.paging.LivePagedListBuilder
 import androidx.room.Room
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.news.db.NewsDao
-import com.vereshchagin.nikolay.stankinschedule.news.db.NewsDb
-import com.vereshchagin.nikolay.stankinschedule.news.model.NewsPost
-import com.vereshchagin.nikolay.stankinschedule.news.model.NewsResponse
-import com.vereshchagin.nikolay.stankinschedule.news.post.paging.Listing
+import com.vereshchagin.nikolay.stankinschedule.news.posts.paging.Listing
+import com.vereshchagin.nikolay.stankinschedule.news.repository.db.NewsDao
+import com.vereshchagin.nikolay.stankinschedule.news.repository.db.NewsDb
+import com.vereshchagin.nikolay.stankinschedule.news.repository.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.repository.model.NewsResponse
+import com.vereshchagin.nikolay.stankinschedule.news.repository.network.NetworkState
+import com.vereshchagin.nikolay.stankinschedule.news.repository.network.StankinNewsApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -22,13 +25,16 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.Executors
 
-
-class StankinNewsRepository(context: Context) : NewsPostRepository {
+/**
+ * Репозиторий с новостями.
+ */
+class StankinNewsRepository(private val newsSubdivision: Int, context: Context) {
 
     private var retrofit: Retrofit
     private var api: StankinNewsApi
 
-    private var db = Room.databaseBuilder(context, NewsDb::class.java, "database").build()
+    private var db = Room.databaseBuilder(context, NewsDb::class.java,
+        "database_$newsSubdivision").build()
     private var dao: NewsDao
 
     val ioExecutor = Executors.newSingleThreadExecutor()
@@ -66,7 +72,7 @@ class StankinNewsRepository(context: Context) : NewsPostRepository {
     @MainThread
     private fun refresh() : LiveData<NetworkState> {
         val networkState = MutableLiveData(NetworkState.LOADING)
-        StankinNewsApi.getUniversityNews(api,1).enqueue(
+        StankinNewsApi.getNews(api, newsSubdivision, 1).enqueue(
             object : Callback<NewsResponse> {
                 override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
                     networkState.value = NetworkState.error(t.message)
@@ -77,6 +83,7 @@ class StankinNewsRepository(context: Context) : NewsPostRepository {
                         db.runInTransaction {
                             // удаление старых постов
                             db.news().clear()
+                            Log.d("MyLog", db.news().count().toString())
                             addPostsIntoDb(response.body())
                         }
                         networkState.postValue(NetworkState.LOADED)
@@ -87,11 +94,9 @@ class StankinNewsRepository(context: Context) : NewsPostRepository {
         return networkState
     }
 
-    override fun posts(page: Int, size: Int): Listing<NewsPost> {
-        println("posts method")
-
+    fun posts(size: Int = 20): Listing<NewsPost> {
         val boundaryCallback = NewsBoundaryCallback(
-            api, ioExecutor, this::addPostsIntoDb
+            api, dao, newsSubdivision, ioExecutor, this::addPostsIntoDb
         )
 
         val refreshTrigger = MutableLiveData<Unit>()

@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.post.paging.viewholder
+package com.vereshchagin.nikolay.stankinschedule.news.posts.paging.viewholder
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNetworkStateBinding
-import com.vereshchagin.nikolay.stankinschedule.news.network.NetworkState
-import com.vereshchagin.nikolay.stankinschedule.news.network.Status
+import com.vereshchagin.nikolay.stankinschedule.news.repository.network.NetworkState
+import com.vereshchagin.nikolay.stankinschedule.news.repository.network.Status
 
 /**
  * Элемент, отображающий загрузку данных, ошибку и кнопку "повторить попытку".

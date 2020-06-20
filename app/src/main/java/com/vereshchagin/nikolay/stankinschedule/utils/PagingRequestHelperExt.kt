@@ -2,7 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.utils
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.vereshchagin.nikolay.stankinschedule.news.network.NetworkState
+import com.vereshchagin.nikolay.stankinschedule.news.repository.network.NetworkState
 
 private fun getErrorMessage(report: PagingRequestHelper.StatusReport): String {
     return PagingRequestHelper.RequestType.values().mapNotNull {

@@ -1,8 +1,11 @@
-package com.vereshchagin.nikolay.stankinschedule.news.network
+package com.vereshchagin.nikolay.stankinschedule.news.repository
 
+import android.util.Log
 import androidx.paging.PagedList
-import com.vereshchagin.nikolay.stankinschedule.news.model.NewsPost
-import com.vereshchagin.nikolay.stankinschedule.news.model.NewsResponse
+import com.vereshchagin.nikolay.stankinschedule.news.repository.db.NewsDao
+import com.vereshchagin.nikolay.stankinschedule.news.repository.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.repository.model.NewsResponse
+import com.vereshchagin.nikolay.stankinschedule.news.repository.network.StankinNewsApi
 import com.vereshchagin.nikolay.stankinschedule.utils.PagingRequestHelper
 import com.vereshchagin.nikolay.stankinschedule.utils.createStatusLiveData
 import retrofit2.Call
@@ -15,6 +18,8 @@ import java.util.concurrent.Executor
  */
 class NewsBoundaryCallback(
     private val api: StankinNewsApi,
+    private val dao: NewsDao,
+    private val newsSubdivision: Int,
     private val ioExecutor: Executor,
     private val handelResponse: (NewsResponse?) -> Unit
 ) : PagedList.BoundaryCallback<NewsPost>() {
@@ -23,15 +28,17 @@ class NewsBoundaryCallback(
     val networkState = helper.createStatusLiveData()
 
     override fun onZeroItemsLoaded() {
-        println("onZeroItemsLoaded")
         helper.runIfNotRunning(PagingRequestHelper.RequestType.INITIAL) {
-            StankinNewsApi.getUniversityNews(api,1).enqueue(apiCallback(it))
+            StankinNewsApi.getNews(api, newsSubdivision, 1).enqueue(apiCallback(it))
         }
     }
 
     override fun onItemAtEndLoaded(itemAtEnd: NewsPost) {
-        helper.runIfNotRunning(PagingRequestHelper.RequestType.AFTER) {
-            StankinNewsApi.getUniversityNews(api,2).enqueue(apiCallback(it))
+        ioExecutor.execute {
+            helper.runIfNotRunning(PagingRequestHelper.RequestType.AFTER) {
+                Log.d("MyLog", dao.count().toString())
+                StankinNewsApi.getNews(api, newsSubdivision, dao.count() / 40 + 1).enqueue(apiCallback(it))
+            }
         }
     }
 

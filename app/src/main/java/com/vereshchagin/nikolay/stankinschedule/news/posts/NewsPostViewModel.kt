@@ -1,21 +1,21 @@
-package com.vereshchagin.nikolay.stankinschedule.news.post
+package com.vereshchagin.nikolay.stankinschedule.news.posts
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.vereshchagin.nikolay.stankinschedule.news.network.NewsPostRepository
-import com.vereshchagin.nikolay.stankinschedule.news.network.StankinNewsRepository
+import com.vereshchagin.nikolay.stankinschedule.news.repository.StankinNewsRepository
 
 
-class NewsPostViewModel(private val repository: NewsPostRepository) : ViewModel() {
+class NewsPostViewModel(private val repository: StankinNewsRepository) : ViewModel() {
 
     private val testVar = MutableLiveData<Int>()
     private val repoResult = Transformations.map(testVar) {
         // it???????????
-        repository.posts(it, 20)
+        repository.posts()
     }
+
     val posts = Transformations.switchMap(repoResult) { it.pagedList }!!
     val networkState = Transformations.switchMap(repoResult) { it.networkState }!!
     val refreshState = Transformations.switchMap(repoResult) { it.refreshState }!!
@@ -33,11 +33,13 @@ class NewsPostViewModel(private val repository: NewsPostRepository) : ViewModel(
         listing?.retry?.invoke()
     }
 
-    class Factory(private val context: Context) : ViewModelProvider.Factory {
+    class Factory(
+        private val newsSubdivision: Int, private val context: Context
+    ) : ViewModelProvider.Factory {
 
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return NewsPostViewModel(StankinNewsRepository(context)) as T
+            return NewsPostViewModel(StankinNewsRepository(newsSubdivision, context)) as T
         }
     }
 }

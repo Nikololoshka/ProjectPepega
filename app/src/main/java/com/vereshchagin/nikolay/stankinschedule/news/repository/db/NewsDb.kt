@@ -1,8 +1,8 @@
-package com.vereshchagin.nikolay.stankinschedule.news.db
+package com.vereshchagin.nikolay.stankinschedule.news.repository.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.vereshchagin.nikolay.stankinschedule.news.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.repository.model.NewsPost
 
 /**
  * Схема БД используемая для хранения новостей.

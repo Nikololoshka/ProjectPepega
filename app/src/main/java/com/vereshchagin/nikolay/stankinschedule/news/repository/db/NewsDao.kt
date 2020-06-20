@@ -1,11 +1,11 @@
-package com.vereshchagin.nikolay.stankinschedule.news.db
+package com.vereshchagin.nikolay.stankinschedule.news.repository.db
 
 import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.vereshchagin.nikolay.stankinschedule.news.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.repository.model.NewsPost
 
 /**
  * Интерфейс для работы с БД новостей.
@@ -25,4 +25,7 @@ interface NewsDao {
 
     @Query("DELETE FROM posts")
     fun clear()
+
+    @Query("SELECT COUNT(*) FROM posts")
+    fun count() : Int
 }
