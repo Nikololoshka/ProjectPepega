@@ -4,6 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
+        android:title="@string/pref_links"
+        app:layout="@layout/preference_custom_category">
+
+        <SwitchPreferenceCompat
+            android:key="app_browser"
+            android:title="@string/pref_app_browser"
+            android:summary="@string/pref_app_browser_summary"
+            android:defaultValue="true"
+            app:defaultValue="true"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/pref_dark_mode"
         app:layout="@layout/preference_custom_category" >
 

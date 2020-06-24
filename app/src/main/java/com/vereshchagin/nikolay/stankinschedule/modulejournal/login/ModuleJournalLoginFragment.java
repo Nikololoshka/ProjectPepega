@@ -2,9 +2,8 @@ package com.vereshchagin.nikolay.stankinschedule.modulejournal.login;
 
 import android.animation.ValueAnimator;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.LayoutInflater;
@@ -28,6 +27,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.network.ModuleJournalError;
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.network.ModuleJournalService;
+import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils;
 import com.vereshchagin.nikolay.stankinschedule.utils.TextWatcherWrapper;
 
 import java.lang.ref.WeakReference;
@@ -150,8 +150,10 @@ public class ModuleJournalLoginFragment extends Fragment
             }
             // забыт пароль
             case R.id.mj_forgot_password: {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ModuleJournalService.URL));
-                startActivity(intent);
+                Context context = getContext();
+                if (context != null) {
+                    CommonUtils.openBrowser(context, ModuleJournalService.URL);
+                }
                 break;
             }
         }

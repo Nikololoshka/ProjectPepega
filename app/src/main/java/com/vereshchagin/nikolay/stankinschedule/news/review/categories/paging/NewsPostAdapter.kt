@@ -1,20 +1,23 @@
-package com.vereshchagin.nikolay.stankinschedule.news.posts.paging
+package com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.RequestManager
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.news.posts.paging.viewholder.NetworkStateItemHolder
-import com.vereshchagin.nikolay.stankinschedule.news.posts.paging.viewholder.NewsPostItemHolder
-import com.vereshchagin.nikolay.stankinschedule.news.repository.model.NewsPost
-import com.vereshchagin.nikolay.stankinschedule.news.repository.network.NetworkState
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.viewholder.NetworkStateItemHolder
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.viewholder.NewsPostItemHolder
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.NetworkState
 
 /**
  * Адаптер для списка новостей.
  */
 class NewsPostAdapter(
-    private val clickListener: OnNewsClickListener, private val retryCallback: () -> Unit
+    private val clickListener: OnNewsClickListener,
+    private val glide: RequestManager,
+    private val retryCallback: () -> Unit
 ) : PagedListAdapter<NewsPost, RecyclerView.ViewHolder>(POST_COMPARATOR) {
 
     public interface OnNewsClickListener {
@@ -25,7 +28,7 @@ class NewsPostAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            R.layout.item_news_post -> NewsPostItemHolder.create(parent, clickListener)
+            R.layout.item_news_post -> NewsPostItemHolder.create(parent, clickListener, glide)
             R.layout.item_network_state -> NetworkStateItemHolder.create(parent, retryCallback)
             else -> throw IllegalStateException("Unknown view type $viewType")
         }

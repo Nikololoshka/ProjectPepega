@@ -1,17 +1,17 @@
-package com.vereshchagin.nikolay.stankinschedule.news.posts.paging.viewholder
+package com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.viewholder
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostBinding
-import com.vereshchagin.nikolay.stankinschedule.news.posts.paging.NewsPostAdapter
-import com.vereshchagin.nikolay.stankinschedule.news.repository.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.NewsPostAdapter
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.utils.formatDate
 import com.vereshchagin.nikolay.stankinschedule.utils.parseDate
 
@@ -19,7 +19,9 @@ import com.vereshchagin.nikolay.stankinschedule.utils.parseDate
  * Элемент новости в списке (т.е. сама новость).
  */
 class NewsPostItemHolder(
-    private val clickListener: NewsPostAdapter.OnNewsClickListener, itemView: View
+    private val clickListener: NewsPostAdapter.OnNewsClickListener,
+    private val glide: RequestManager,
+    itemView: View
 ) : RecyclerView.ViewHolder(itemView) {
 
     private val binding = ItemNewsPostBinding.bind(itemView)
@@ -48,11 +50,9 @@ class NewsPostItemHolder(
                 .build())
         }
 
-        Glide.with(itemView)
-            .load(post?.logoUrl())
+       glide.load(post?.logoUrl())
             .placeholder(shimmerDrawable)
             .transition(withCrossFade())
-            .centerCrop()
             .into(binding.newsPreview)
 
         post?.let {
@@ -63,9 +63,13 @@ class NewsPostItemHolder(
     }
 
     companion object {
-        fun create(parent: ViewGroup, clickListener: NewsPostAdapter.OnNewsClickListener): NewsPostItemHolder {
+        fun create(
+            parent: ViewGroup,
+            clickListener: NewsPostAdapter.OnNewsClickListener,
+            glide: RequestManager
+        ): NewsPostItemHolder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.item_news_post, parent, false)
-            return NewsPostItemHolder(clickListener, view)
+            return NewsPostItemHolder(clickListener, glide, view)
         }
     }
 }

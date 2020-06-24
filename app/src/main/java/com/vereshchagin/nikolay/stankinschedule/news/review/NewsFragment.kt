@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news
+package com.vereshchagin.nikolay.stankinschedule.news.review
 
 import android.os.Bundle
 import android.view.LayoutInflater

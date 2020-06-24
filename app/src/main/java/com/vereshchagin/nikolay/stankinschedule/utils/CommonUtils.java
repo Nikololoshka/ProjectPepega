@@ -1,10 +1,17 @@
 package com.vereshchagin.nikolay.stankinschedule.utils;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.content.ContextCompat;
+
+import com.vereshchagin.nikolay.stankinschedule.R;
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -89,5 +96,21 @@ public class CommonUtils {
     public static long calendarDiff(@NonNull Calendar first, @NonNull Calendar second) {
         long diff = first.getTimeInMillis() - second.getTimeInMillis();
         return (diff / (1000 * 60 * 60 * 24));
+    }
+
+    public static void openBrowser(@NonNull Context context, @NonNull String url) {
+        if(ApplicationPreference.useAppBrowser(context)) {
+            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+            builder.setToolbarColor(ContextCompat.getColor(context, R.color.colorPrimary));
+            builder.setSecondaryToolbarColor(ContextCompat.getColor(context, R.color.colorAccent));
+            builder.addDefaultShareMenuItem();
+
+            CustomTabsIntent customTabsIntent = builder.build();
+            customTabsIntent.launchUrl(context, Uri.parse(url));
+        } else {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            ContextCompat.startActivity(context, intent, null);
+        }
     }
 }

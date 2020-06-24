@@ -26,6 +26,8 @@ public class ApplicationPreference {
     public static final String DARK_MODE_BATTERY_SAVER = "pref_battery_saver";
     public static final String DARK_MODE_MANUAL = "pref_manual_mode";
 
+    public static final String APP_BROWSER = "app_browser";
+
     public static final String SCHEDULE_VIEW_VERTICAL = "pref_vertical";
     public static final String SCHEDULE_VIEW_HORIZONTAL = "pref_horizontal";
 
@@ -78,6 +80,16 @@ public class ApplicationPreference {
         preferences.edit()
                 .putBoolean(MANUAL_MODE, isDarkModeEnabled)
                 .apply();
+    }
+
+    /**
+     * Возвращает значение, должен ли использоваться встроенный браузер.
+     * @param context контекст приложения.
+     * @return использовать ли встроенный браузер.
+     */
+    public static boolean useAppBrowser(@NonNull Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean(APP_BROWSER, true);
     }
 
     /**

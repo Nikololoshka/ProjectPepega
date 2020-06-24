@@ -1,21 +1,20 @@
-package com.vereshchagin.nikolay.stankinschedule.news.repository
+package com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository
 
 import android.content.Context
-import android.util.Log
 import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.paging.LivePagedListBuilder
-import androidx.room.Room
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.news.posts.paging.Listing
-import com.vereshchagin.nikolay.stankinschedule.news.repository.db.NewsDao
-import com.vereshchagin.nikolay.stankinschedule.news.repository.db.NewsDb
-import com.vereshchagin.nikolay.stankinschedule.news.repository.model.NewsPost
-import com.vereshchagin.nikolay.stankinschedule.news.repository.model.NewsResponse
-import com.vereshchagin.nikolay.stankinschedule.news.repository.network.NetworkState
-import com.vereshchagin.nikolay.stankinschedule.news.repository.network.StankinNewsApi
+import com.vereshchagin.nikolay.stankinschedule.MainApplicationDatabase
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.Listing
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.db.NewsDao
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsResponse
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.NetworkState
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.StankinNewsApi
+import com.vereshchagin.nikolay.stankinschedule.settings.NewsPreference
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -23,21 +22,21 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 /**
  * Репозиторий с новостями.
  */
-class StankinNewsRepository(private val newsSubdivision: Int, context: Context) {
+class NewsRepository(private val newsSubdivision: Int, context: Context) {
 
     private var retrofit: Retrofit
     private var api: StankinNewsApi
 
-    private var db = Room.databaseBuilder(context, NewsDb::class.java,
-        "database_$newsSubdivision").build()
+    private var db = MainApplicationDatabase.database(context)
     private var dao: NewsDao
 
-    val ioExecutor = Executors.newSingleThreadExecutor()
+    val ioExecutor: ExecutorService = Executors.newSingleThreadExecutor()
 
     init {
         val builder = Retrofit.Builder()
@@ -59,31 +58,49 @@ class StankinNewsRepository(private val newsSubdivision: Int, context: Context) 
         retrofit = builder.build()
         api = retrofit.create(StankinNewsApi::class.java)
         dao = db.news()
+
+        val date = NewsPreference.lastNewsUpdate(context, newsSubdivision)
+
+
     }
 
+    /**
+     * Добавляет новости из API запроса в БД.
+     * @param body результат запроса к API.
+     */
     private fun addPostsIntoDb(body: NewsResponse?) {
         body!!.data.news.let { posts ->
             db.runInTransaction {
-                db.news().insert(posts)
+                // индекс по порядку
+                val start = db.news().nextIndexInResponse(newsSubdivision)
+                // добавление индекса и номера отдела
+                val items = posts.mapIndexed { index, newsPost ->
+                    newsPost.indexInResponse = start + index
+                    newsPost.newsSubdivision = newsSubdivision
+                    newsPost
+                }
+                db.news().insert(items)
             }
         }
     }
 
+    /**
+     * Обновляет новости в БД.
+     */
     @MainThread
     private fun refresh() : LiveData<NetworkState> {
         val networkState = MutableLiveData(NetworkState.LOADING)
+
         StankinNewsApi.getNews(api, newsSubdivision, 1).enqueue(
             object : Callback<NewsResponse> {
                 override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
                     networkState.value = NetworkState.error(t.message)
                 }
-
                 override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
                     ioExecutor.execute {
                         db.runInTransaction {
-                            // удаление старых постов
-                            db.news().clear()
-                            Log.d("MyLog", db.news().count().toString())
+                            // удаление старых постов и добавление новых
+                            db.news().clear(newsSubdivision)
                             addPostsIntoDb(response.body())
                         }
                         networkState.postValue(NetworkState.LOADED)
@@ -94,6 +111,10 @@ class StankinNewsRepository(private val newsSubdivision: Int, context: Context) 
         return networkState
     }
 
+    /**
+     * Возвращает объект Listing для отображения.
+     * @param size размер пачки загружаемых новостей.
+     */
     fun posts(size: Int = 20): Listing<NewsPost> {
         val boundaryCallback = NewsBoundaryCallback(
             api, dao, newsSubdivision, ioExecutor, this::addPostsIntoDb
@@ -104,7 +125,7 @@ class StankinNewsRepository(private val newsSubdivision: Int, context: Context) 
             refresh()
         }
 
-        val pagedList = LivePagedListBuilder(db.news().all(), size)
+        val pagedList = LivePagedListBuilder(db.news().all(newsSubdivision), size)
             .setBoundaryCallback(boundaryCallback)
             .build()
 

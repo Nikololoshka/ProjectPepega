@@ -1,9 +1,9 @@
-package com.vereshchagin.nikolay.stankinschedule.news.repository.model
+package com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.vereshchagin.nikolay.stankinschedule.news.repository.StankinNewsRepository
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.NewsRepository
 
 /**
  * Данные о новости.
@@ -27,7 +27,17 @@ data class NewsPost(
     val author: Int
 ) {
     /**
+     * Индекс (номер) новости по порядку.
+     */
+    var indexInResponse: Int = -1
+
+    /**
+     * Номер отдела, кому принадлежит новость.
+     */
+    var newsSubdivision: Int = -1
+
+    /**
      * Возвращает url к картинке новости.
      */
-    fun logoUrl() = StankinNewsRepository.BASE_URL + logo
+    fun logoUrl() = NewsRepository.BASE_URL + logo
 }
