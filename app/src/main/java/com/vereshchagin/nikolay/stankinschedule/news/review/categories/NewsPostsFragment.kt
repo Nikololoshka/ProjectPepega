@@ -1,7 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.news.review.categories
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +12,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.snackbar.Snackbar
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostsBinding
 import com.vereshchagin.nikolay.stankinschedule.news.review.NewsAdapter.Companion.DEANERY_NEWS
 import com.vereshchagin.nikolay.stankinschedule.news.review.NewsAdapter.Companion.NEWS_TYPE
 import com.vereshchagin.nikolay.stankinschedule.news.review.NewsAdapter.Companion.UNIVERSITY_NEWS
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.NewsPostAdapter
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.NetworkState
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.Status
 import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils
 
 /**
@@ -56,7 +57,7 @@ class NewsPostsFragment  : Fragment(), NewsPostAdapter.OnNewsClickListener {
             }
         }
 
-        viewModel = ViewModelProviders.of(this, NewsPostsViewModel.Factory(newsSubdivision, context!!))
+        viewModel = ViewModelProviders.of(this, NewsPostsViewModel.Factory(newsSubdivision, activity?.application!!))
             .get(NewsPostsViewModel::class.java)
 
         val glide = Glide.with(this)
@@ -83,11 +84,18 @@ class NewsPostsFragment  : Fragment(), NewsPostAdapter.OnNewsClickListener {
         binding.newsRecycler.addItemDecoration(itemDecoration)
 
         viewModel.refreshState.observe(viewLifecycleOwner, Observer {
-            if (binding.newsRefresh.isRefreshing && it == NetworkState.LOADED) {
-                Log.d("MyLog", "refresh scroll")
-                binding.newsRecycler.scrollToPosition(0)
+            if (it.status == Status.FAILED) {
+                val message = it.msg ?: "Unknown error"
+                Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG)
+                    .show()
+            } else {
+                //
+                if (it == NetworkState.LOADED && viewModel.startRefreshing) {
+                    viewModel.newsUpdated()
+                    binding.newsRecycler.scrollToPosition(0)
+                }
+                binding.newsRefresh.isRefreshing = it == NetworkState.LOADING
             }
-            binding.newsRefresh.isRefreshing = it == NetworkState.LOADING
         })
 
         binding.newsRefresh.setOnRefreshListener {
@@ -103,9 +111,5 @@ class NewsPostsFragment  : Fragment(), NewsPostAdapter.OnNewsClickListener {
     override fun onNewsClick(newsId: Int) {
         val url = "https://stankin.ru/news/item_$newsId"
         context?.let { CommonUtils.openBrowser(it, url) }
-
-        // val intent = Intent(Intent.ACTION_VIEW)
-        // intent.data = Uri.parse(url)
-        // startActivity(intent)
     }
 }

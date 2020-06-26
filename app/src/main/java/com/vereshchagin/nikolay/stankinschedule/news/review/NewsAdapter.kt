@@ -1,6 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.news.review
 
-import androidx.core.os.bundleOf
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.NewsPostsFragment
@@ -13,11 +13,12 @@ class NewsAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int = 2
 
     override fun createFragment(position: Int): Fragment = NewsPostsFragment().apply {
-        arguments = when (position) {
-            UNIVERSITY_NEWS -> bundleOf(NEWS_TYPE to UNIVERSITY_NEWS)
-            DEANERY_NEWS -> bundleOf(NEWS_TYPE to DEANERY_NEWS)
-            else -> null
+        val bundle = Bundle()
+        when (position) {
+            UNIVERSITY_NEWS -> bundle.putInt(NEWS_TYPE, UNIVERSITY_NEWS)
+            DEANERY_NEWS -> bundle.putInt(NEWS_TYPE, DEANERY_NEWS)
         }
+        arguments = bundle
     }
 
     companion object {

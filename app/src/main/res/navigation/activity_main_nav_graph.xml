@@ -95,7 +95,7 @@
 
     <fragment
         android:id="@+id/nav_news_fragment"
-        android:name="com.vereshchagin.nikolay.stankinschedule.news.NewsFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.news.review.NewsFragment"
         android:label="@string/news" />
 
     <fragment

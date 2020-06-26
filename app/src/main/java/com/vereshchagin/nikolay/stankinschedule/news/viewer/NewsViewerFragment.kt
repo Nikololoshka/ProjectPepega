@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentNewsViewerBinding
@@ -50,7 +49,9 @@ class NewsViewerFragment : Fragment() {
         const val NEWS_ID = "news_id"
 
         fun createBundle(newsId: Int): Bundle {
-            return bundleOf(NEWS_ID to newsId)
+            val bundle = Bundle()
+            bundle.putInt(NEWS_ID, newsId)
+            return bundle
         }
     }
 }

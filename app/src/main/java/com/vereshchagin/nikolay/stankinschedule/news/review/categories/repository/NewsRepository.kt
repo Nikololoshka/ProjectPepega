@@ -14,7 +14,6 @@ import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repositor
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsResponse
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.NetworkState
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.StankinNewsApi
-import com.vereshchagin.nikolay.stankinschedule.settings.NewsPreference
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -58,10 +57,6 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
         retrofit = builder.build()
         api = retrofit.create(StankinNewsApi::class.java)
         dao = db.news()
-
-        val date = NewsPreference.lastNewsUpdate(context, newsSubdivision)
-
-
     }
 
     /**
