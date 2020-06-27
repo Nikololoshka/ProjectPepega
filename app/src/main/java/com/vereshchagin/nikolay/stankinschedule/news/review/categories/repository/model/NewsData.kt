@@ -6,6 +6,6 @@ package com.vereshchagin.nikolay.stankinschedule.news.review.categories.reposito
  * @param count количество полученных новостей.
  */
 class NewsData(
-        val news: List<NewsPost>,
-        val count: Int
+    val news: List<NewsItem>,
+    val count: Int
 )

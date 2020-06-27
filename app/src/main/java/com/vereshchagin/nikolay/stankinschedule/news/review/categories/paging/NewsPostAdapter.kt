@@ -8,7 +8,7 @@ import com.bumptech.glide.RequestManager
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.viewholder.NetworkStateItemHolder
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.viewholder.NewsPostItemHolder
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.NetworkState
 
 /**
@@ -18,7 +18,7 @@ class NewsPostAdapter(
     private val clickListener: OnNewsClickListener,
     private val glide: RequestManager,
     private val retryCallback: () -> Unit
-) : PagedListAdapter<NewsPost, RecyclerView.ViewHolder>(POST_COMPARATOR) {
+) : PagedListAdapter<NewsItem, RecyclerView.ViewHolder>(POST_COMPARATOR) {
 
     public interface OnNewsClickListener {
         fun onNewsClick(newsId: Int)
@@ -82,12 +82,12 @@ class NewsPostAdapter(
         /**
          * Компаратор для сравнения новостей.
          */
-        val POST_COMPARATOR = object : DiffUtil.ItemCallback<NewsPost>() {
+        val POST_COMPARATOR = object : DiffUtil.ItemCallback<NewsItem>() {
 
-            override fun areItemsTheSame(oldItem: NewsPost, newItem: NewsPost): Boolean =
+            override fun areItemsTheSame(oldItem: NewsItem, newItem: NewsItem): Boolean =
                     oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: NewsPost, newItem: NewsPost): Boolean =
+            override fun areContentsTheSame(oldItem: NewsItem, newItem: NewsItem): Boolean =
                     oldItem == newItem
         }
     }

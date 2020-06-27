@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.news.review.categories.reposito
 import android.util.Log
 import androidx.paging.PagedList
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.db.NewsDao
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsResponse
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.StankinNewsApi
 import com.vereshchagin.nikolay.stankinschedule.utils.PagingRequestHelper
@@ -28,7 +28,7 @@ class NewsBoundaryCallback(
     private val newsSubdivision: Int,
     private val ioExecutor: Executor,
     private val handelResponse: (NewsResponse?) -> Unit
-) : PagedList.BoundaryCallback<NewsPost>() {
+) : PagedList.BoundaryCallback<NewsItem>() {
 
     val helper = PagingRequestHelper(ioExecutor)
     val networkState = helper.createStatusLiveData()
@@ -40,7 +40,7 @@ class NewsBoundaryCallback(
         }
     }
 
-    override fun onItemAtEndLoaded(itemAtEnd: NewsPost) {
+    override fun onItemAtEndLoaded(itemAtEnd: NewsItem) {
         ioExecutor.execute {
             val count = dao.count(newsSubdivision)
             Log.d("MyLog", count.toString())

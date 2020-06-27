@@ -100,10 +100,11 @@ public class CommonUtils {
 
     public static void openBrowser(@NonNull Context context, @NonNull String url) {
         if(ApplicationPreference.useAppBrowser(context)) {
-            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-            builder.setToolbarColor(ContextCompat.getColor(context, R.color.colorPrimary));
-            builder.setSecondaryToolbarColor(ContextCompat.getColor(context, R.color.colorAccent));
-            builder.addDefaultShareMenuItem();
+            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder()
+                    .setToolbarColor(ContextCompat.getColor(context, R.color.colorPrimary))
+                    .setShowTitle(true)
+                    .setSecondaryToolbarColor(ContextCompat.getColor(context, R.color.colorAccent))
+                    .addDefaultShareMenuItem();
 
             CustomTabsIntent customTabsIntent = builder.build();
             customTabsIntent.launchUrl(context, Uri.parse(url));

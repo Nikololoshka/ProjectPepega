@@ -10,7 +10,7 @@ import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.Listing
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.db.NewsDao
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsResponse
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.NetworkState
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.StankinNewsApi
@@ -110,7 +110,7 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
      * Возвращает объект Listing для отображения.
      * @param size размер пачки загружаемых новостей.
      */
-    fun posts(size: Int = 20): Listing<NewsPost> {
+    fun posts(size: Int = 20): Listing<NewsItem> {
         val boundaryCallback = NewsBoundaryCallback(
             api, dao, newsSubdivision, ioExecutor, this::addPostsIntoDb
         )

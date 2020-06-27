@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsItem
 
 /**
  * Интерфейс для работы с БД новостей.
@@ -15,17 +15,17 @@ interface NewsDao {
 
     /**
      * Вставка (обновление) новостей в БД.
-     * @param posts список новостей.
+     * @param items список новостей.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(posts: List<NewsPost>)
+    fun insert(items: List<NewsItem>)
 
     /**
      * Возвращает список (DataSource) закэшированных новостей.
      * @param newsSubdivision номер отдела новостей.
      */
     @Query("SELECT * FROM posts WHERE newsSubdivision = :newsSubdivision ORDER BY indexInResponse ASC")
-    fun all(newsSubdivision: Int) : DataSource.Factory<Int, NewsPost>
+    fun all(newsSubdivision: Int) : DataSource.Factory<Int, NewsItem>
 
     /**
      * Очищает закэшированные новости.

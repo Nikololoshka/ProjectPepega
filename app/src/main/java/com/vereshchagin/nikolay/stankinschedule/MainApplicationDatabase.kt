@@ -5,13 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.db.NewsDao
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsItem
 
 /**
  * Главная БД приложения.
  */
 @Database(
-    entities = [NewsPost::class],
+    entities = [NewsItem::class],
     version = 1,
     exportSchema = false
 )

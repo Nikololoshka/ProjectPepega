@@ -80,20 +80,29 @@ class NewsPostsFragment  : Fragment(), NewsPostAdapter.OnNewsClickListener {
 
         binding.newsRecycler.adapter = adapter
 
+        // добавление новостей в начало из-за обновления
+        adapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                super.onItemRangeInserted(positionStart, itemCount)
+
+                if (viewModel.startRefreshing) {
+                    viewModel.newsUpdated()
+                    binding.newsRecycler.scrollToPosition(0)
+                }
+            }
+        })
+
+        // разделитель элементов
         val itemDecoration = DividerItemDecoration(context, RecyclerView.VERTICAL)
         binding.newsRecycler.addItemDecoration(itemDecoration)
 
+        // состояние обновления
         viewModel.refreshState.observe(viewLifecycleOwner, Observer {
             if (it.status == Status.FAILED) {
                 val message = it.msg ?: "Unknown error"
                 Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG)
                     .show()
             } else {
-                //
-                if (it == NetworkState.LOADED && viewModel.startRefreshing) {
-                    viewModel.newsUpdated()
-                    binding.newsRecycler.scrollToPosition(0)
-                }
                 binding.newsRefresh.isRefreshing = it == NetworkState.LOADING
             }
         })

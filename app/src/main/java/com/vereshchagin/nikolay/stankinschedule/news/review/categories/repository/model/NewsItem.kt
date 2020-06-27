@@ -15,7 +15,7 @@ import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repositor
  * @param author номер автора новости.
  */
 @Entity(tableName = "posts")
-data class NewsPost(
+data class NewsItem(
     @PrimaryKey
     val id: Int,
     val title: String,

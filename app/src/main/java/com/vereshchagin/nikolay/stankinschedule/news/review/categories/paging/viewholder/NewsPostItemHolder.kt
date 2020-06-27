@@ -11,7 +11,7 @@ import com.facebook.shimmer.ShimmerDrawable
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostBinding
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.NewsPostAdapter
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.utils.formatDate
 import com.vereshchagin.nikolay.stankinschedule.utils.parseDate
 
@@ -37,9 +37,9 @@ class NewsPostItemHolder(
 
     /**
      * Связывает данные с элементом.
-     * @param post данные о новости.
+     * @param item данные о новости.
      */
-    fun bind(post: NewsPost?) {
+    fun bind(item: NewsItem?) {
         val shimmerDrawable = ShimmerDrawable().apply {
             setShimmer(Shimmer.AlphaHighlightBuilder()
                 .setDuration(1000)
@@ -50,15 +50,15 @@ class NewsPostItemHolder(
                 .build())
         }
 
-       glide.load(post?.logoUrl())
+       glide.load(item?.logoUrl())
             .placeholder(shimmerDrawable)
             .transition(withCrossFade())
             .into(binding.newsPreview)
 
-        post?.let {
-            binding.newsTitle.text = post.title
-            binding.newsDate.text = formatDate(parseDate(post.date))
-            newsId = post.id
+        item?.let {
+            binding.newsTitle.text = item.title
+            binding.newsDate.text = formatDate(parseDate(item.date))
+            newsId = item.id
         }
     }
 
