@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.snackbar.Snackbar
+import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostsBinding
 import com.vereshchagin.nikolay.stankinschedule.news.review.NewsAdapter.Companion.DEANERY_NEWS
 import com.vereshchagin.nikolay.stankinschedule.news.review.NewsAdapter.Companion.NEWS_TYPE
@@ -20,7 +22,7 @@ import com.vereshchagin.nikolay.stankinschedule.news.review.NewsAdapter.Companio
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.NewsPostAdapter
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.NetworkState
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.Status
-import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils
+import com.vereshchagin.nikolay.stankinschedule.news.viewer.NewsViewerFragment
 
 /**
  * Фрагмент для отображения списка новостей.
@@ -57,7 +59,8 @@ class NewsPostsFragment  : Fragment(), NewsPostAdapter.OnNewsClickListener {
             }
         }
 
-        viewModel = ViewModelProviders.of(this, NewsPostsViewModel.Factory(newsSubdivision, activity?.application!!))
+        viewModel = ViewModelProviders.of(this,
+            NewsPostsViewModel.Factory(newsSubdivision, activity?.application!!))
             .get(NewsPostsViewModel::class.java)
 
         val glide = Glide.with(this)
@@ -118,7 +121,7 @@ class NewsPostsFragment  : Fragment(), NewsPostAdapter.OnNewsClickListener {
     }
 
     override fun onNewsClick(newsId: Int) {
-        val url = "https://stankin.ru/news/item_$newsId"
-        context?.let { CommonUtils.openBrowser(it, url) }
+        val controller = Navigation.findNavController(requireActivity(), R.id.nav_host)
+        controller.navigate(R.id.toNewsViewerFragment, NewsViewerFragment.createBundle(newsId))
     }
 }

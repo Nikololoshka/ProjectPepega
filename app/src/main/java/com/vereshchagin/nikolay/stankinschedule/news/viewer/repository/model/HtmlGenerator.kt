@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.viewer.repository
+package com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.model
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
@@ -48,10 +48,10 @@ class HtmlGenerator {
          * Атрибуты, уоторые просто добавляютя в тэг.
          */
         private val ATTRIBUTES_TAG_SET = setOf(
-            "height",
+            // "height",
             "direction",
             "alt",
-            "width",
+            // "width",
             "align"
         )
 
@@ -87,7 +87,7 @@ class HtmlGenerator {
                 val insert = content.get(INSERT)
 
                 val tag = tagGenerator(attributes, insert)
-                html += tag.toString() + "\n"
+                html += tag.toString()
             }
 
             return html
@@ -126,7 +126,7 @@ class HtmlGenerator {
 
             // просто параграф с текстом
             if (tag == null) {
-                tag = CommonTag("p", if (insert.isJsonPrimitive) insert.asString else "")
+                tag = CommonTag("div", if (insert.isJsonPrimitive) insert.asString else "")
             }
 
             tag.attributes = attributesGenerator(attributes)

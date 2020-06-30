@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.viewer.repository
+package com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.api
 
 import com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.model.NewsPostResponse
 import retrofit2.Call
@@ -17,7 +17,7 @@ interface StankinNewsPostsApi {
      * @param data данные запроса.
      */
     @POST("/api_entry.php")
-    fun getData(@Body data: Map<String, Any>): Call<NewsPostResponse>
+    fun getData(@Body data: PostData): Call<NewsPostResponse>
 
     companion object {
 
@@ -30,7 +30,12 @@ interface StankinNewsPostsApi {
             val data = mapOf(
                 "id" to newsId
             )
-            return api.getData(mapOf("action" to "getNewsItem", "data" to data))
+            return api.getData(PostData("getNewsItem", data))
         }
+
+        /**
+         * Объект для POST запроса.
+         */
+        class PostData(val action: String, val data: Map<String, Any>)
     }
 }

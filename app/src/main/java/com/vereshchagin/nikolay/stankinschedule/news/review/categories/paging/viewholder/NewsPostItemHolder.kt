@@ -12,8 +12,8 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostBinding
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.NewsPostAdapter
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsItem
-import com.vereshchagin.nikolay.stankinschedule.utils.formatDate
-import com.vereshchagin.nikolay.stankinschedule.utils.parseDate
+import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils.Companion.formatDate
+import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils.Companion.parseDate
 
 /**
  * Элемент новости в списке (т.е. сама новость).
@@ -57,7 +57,7 @@ class NewsPostItemHolder(
 
         item?.let {
             binding.newsTitle.text = item.title
-            binding.newsDate.text = formatDate(parseDate(item.date))
+            binding.newsDate.text = formatDate(parseDate(item.onlyDate()))
             newsId = item.id
         }
     }

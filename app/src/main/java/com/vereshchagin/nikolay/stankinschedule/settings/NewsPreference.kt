@@ -2,8 +2,8 @@ package com.vereshchagin.nikolay.stankinschedule.settings
 
 import android.content.Context
 import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils
-import com.vereshchagin.nikolay.stankinschedule.utils.formatDate
-import com.vereshchagin.nikolay.stankinschedule.utils.parseDate
+import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils.Companion.formatDate
+import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils.Companion.parseDate
 import java.util.*
 
 /**

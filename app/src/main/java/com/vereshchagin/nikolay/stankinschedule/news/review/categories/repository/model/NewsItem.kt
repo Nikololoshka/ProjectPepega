@@ -40,4 +40,9 @@ data class NewsItem(
      * Возвращает url к картинке новости.
      */
     fun logoUrl() = NewsRepository.BASE_URL + logo
+
+    /**
+     * Возвращает только дату из публикации.
+     */
+    fun onlyDate() = date.split(" ").first()
 }

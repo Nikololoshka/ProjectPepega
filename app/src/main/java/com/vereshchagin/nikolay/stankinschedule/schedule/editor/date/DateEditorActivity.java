@@ -273,7 +273,8 @@ public class DateEditorActivity extends AppCompatActivity
             // удалить дату
             case R.id.remove_date: {
                 Intent intent = new Intent();
-                intent.putExtra(EXTRA_DATE, getIntent().getParcelableExtra(EXTRA_DATE));
+                DateItem removeDate = getIntent().getParcelableExtra(EXTRA_DATE);
+                intent.putExtra(EXTRA_DATE, removeDate);
                 setResult(RESULT_DATE_REMOVE, intent);
 
                 onBackPressed();

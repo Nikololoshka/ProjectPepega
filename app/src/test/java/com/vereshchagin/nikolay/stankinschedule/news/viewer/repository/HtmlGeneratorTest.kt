@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.news.viewer.repository
 
 import com.google.gson.JsonParser
+import com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.model.HtmlGenerator
 import org.junit.Test
 import java.io.File
 
