@@ -9,18 +9,35 @@ import com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.NewsPostR
 import com.vereshchagin.nikolay.stankinschedule.utils.LoadState
 import java.io.File
 
+
+/**
+ * ViewModel для фрагмента с новостью.
+ * @param repository репозиторий, откуда будет загружаться новость.
+ * @param application объект приложение для доступа к контексту.
+ */
 class NewsViewerViewModel(
-    private val repository: NewsPostRepository, application: Application
+    private val repository: NewsPostRepository,
+    val newsId: Int,
+    application: Application
 ) : AndroidViewModel(application) {
 
+    /**
+     * Состояние загрузки.
+     */
     val state = MutableLiveData(LoadState.LOADING)
 
     init {
         repository.loadPost(state)
     }
 
+    /**
+     * Текущий пост.
+     */
     fun post() = repository.newsPost
 
+    /**
+     * Factory для создания ViewModel.
+     */
     class Factory(
         private val newsId: Int,
         private val application: Application
@@ -29,7 +46,7 @@ class NewsViewerViewModel(
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return NewsViewerViewModel(
-                NewsPostRepository(newsId, cacheDir()), application
+                NewsPostRepository(newsId, cacheDir()), newsId, application
             ) as T
         }
 

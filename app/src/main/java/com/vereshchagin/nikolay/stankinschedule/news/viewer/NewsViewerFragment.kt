@@ -1,12 +1,11 @@
 package com.vereshchagin.nikolay.stankinschedule.news.viewer
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -34,7 +33,6 @@ import com.vereshchagin.nikolay.stankinschedule.utils.LoadState
  */
 class NewsViewerFragment : Fragment() {
 
-
     private var _binding: FragmentNewsViewerBinding? = null
     private val binding get() = _binding!!
 
@@ -43,7 +41,15 @@ class NewsViewerFragment : Fragment() {
      */
     private lateinit var viewModel: NewsViewerViewModel
 
+    /**
+     * Glide для загрузки фото новости.
+     */
     private lateinit var glide: RequestManager
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -93,7 +99,7 @@ class NewsViewerFragment : Fragment() {
                 return false
             }
             // страница загружена
-            override fun onPageFinished(view: WebView?, url: String?) {
+            override fun onPageCommitVisible(view: WebView?, url: String?) {
                 val loadState = viewModel.state.value
                 showView(loadState)
             }
@@ -105,6 +111,35 @@ class NewsViewerFragment : Fragment() {
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .centerCrop()
             )
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_news_viewer, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            // открыть новость в браузере
+            R.id.open_in_browser -> {
+                val url = "https://stankin.ru/news/item_${viewModel.newsId}"
+                context?.let { CommonUtils.openBrowser(it, url) }
+                return true
+            }
+            // подельться новостью
+            R.id.news_share -> {
+                val url = "https://stankin.ru/news/item_${viewModel.newsId}"
+                val sendIntent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, url)
+                    type = "text/plain"
+                }
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                startActivity(shareIntent)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -134,6 +169,8 @@ class NewsViewerFragment : Fragment() {
 
                     binding.newsTitle.text = post.title
                     binding.newsDate.text = formatDate(parseDate(post.onlyDate()))
+                } else {
+                    TODO("Error. Post is empty")
                 }
             }
             showView(loadState)

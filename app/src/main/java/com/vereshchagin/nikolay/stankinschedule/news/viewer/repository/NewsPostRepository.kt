@@ -56,6 +56,10 @@ class NewsPostRepository(private val newsId: Int, private val cacheDir: File) {
         api = retrofit.create(StankinNewsPostsApi::class.java)
     }
 
+    /**
+     * Загружает пост либо из кэша, либо из интернета.
+     * @param state LiveData для уведомления статуса загрузки.
+     */
     fun loadPost(state: MutableLiveData<LoadState>) {
         state.value = LoadState.LOADING
         ioExecutor.execute {
@@ -69,6 +73,21 @@ class NewsPostRepository(private val newsId: Int, private val cacheDir: File) {
         }
     }
 
+    /**
+     * Обновляет пост.
+     * @param state LiveData для уведомления статуса загрузки.
+     */
+    fun refresh(state: MutableLiveData<LoadState>) {
+        state.value = LoadState.LOADING
+        ioExecutor.execute {
+            loadFromNetwork(state)
+        }
+    }
+
+    /**
+     * Загружает пост из интернета.
+     * @param state LiveData для уведомления статуса загрузки.
+     */
     private fun loadFromNetwork(state: MutableLiveData<LoadState>) {
         StankinNewsPostsApi.getNewsPost(api, newsId)
             .enqueue(object : Callback<NewsPostResponse> {
@@ -91,6 +110,9 @@ class NewsPostRepository(private val newsId: Int, private val cacheDir: File) {
             })
     }
 
+    /**
+     * Загружает пост из кэша. Если не удалось, то null.
+     */
     private fun loadFromCache(): NewsPost? {
         try {
             val file = File(cacheDir, "$newsId.json")
@@ -105,6 +127,9 @@ class NewsPostRepository(private val newsId: Int, private val cacheDir: File) {
         return null
     }
 
+    /**
+     * Сохраняет пост в кэш.
+     */
     private fun saveToCache(post: NewsPost) {
         try {
             val file = File(cacheDir, "$newsId.json")
