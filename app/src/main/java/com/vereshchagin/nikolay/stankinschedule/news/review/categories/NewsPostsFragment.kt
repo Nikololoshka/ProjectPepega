@@ -105,9 +105,8 @@ class NewsPostsFragment  : Fragment(), NewsPostAdapter.OnNewsClickListener {
                 val message = it.msg ?: "Unknown error"
                 Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG)
                     .show()
-            } else {
-                binding.newsRefresh.isRefreshing = it == NetworkState.LOADING
             }
+            binding.newsRefresh.isRefreshing = it == NetworkState.LOADING
         })
 
         binding.newsRefresh.setOnRefreshListener {

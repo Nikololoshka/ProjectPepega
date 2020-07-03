@@ -57,7 +57,7 @@ class NewsPostItemHolder(
 
         item?.let {
             binding.newsTitle.text = item.title
-            binding.newsDate.text = formatDate(parseDate(item.onlyDate()))
+            binding.newsDate.text = parseDate(item.onlyDate())?.let { formatDate(it) }
             newsId = item.id
         }
     }

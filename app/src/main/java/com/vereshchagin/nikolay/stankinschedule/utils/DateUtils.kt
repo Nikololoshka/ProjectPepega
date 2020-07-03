@@ -25,7 +25,7 @@ class DateUtils {
             return abs(diff / (1000 * 60))
         }
 
-        fun parseDate(inputDate: String, pattern: String = SHORT_DATE_FORMAT): Calendar {
+        fun parseDate(inputDate: String, pattern: String = SHORT_DATE_FORMAT): Calendar? {
             val date = Calendar.getInstance()
             try {
                 date.time = SimpleDateFormat(pattern, Locale.ROOT).parse(inputDate)!!
@@ -33,7 +33,7 @@ class DateUtils {
             } catch (ignored: ParseException) {
 
             }
-            return TODO()
+            return null
         }
 
         fun formatDate(inputDate: Calendar, pattern: String = "dd.MM.yyyy") : String {

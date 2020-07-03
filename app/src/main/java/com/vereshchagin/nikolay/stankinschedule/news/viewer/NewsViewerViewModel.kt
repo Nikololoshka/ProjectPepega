@@ -36,6 +36,15 @@ class NewsViewerViewModel(
     fun post() = repository.newsPost
 
     /**
+     * Обновляет новость.
+     */
+    fun refresh() {
+        if (state.value != LoadState.LOADING) {
+            repository.refresh(state)
+        }
+    }
+
+    /**
      * Factory для создания ViewModel.
      */
     class Factory(

@@ -15,4 +15,8 @@
         android:icon="@drawable/ic_menu_share"
         app:showAsAction="ifRoom|withText" />
 
+    <item
+        android:id="@+id/news_update"
+        android:title="@string/news_update" />
+
 </menu>

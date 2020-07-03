@@ -13,20 +13,22 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.transition.Fade
-import androidx.transition.TransitionManager
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerDrawable
+import com.google.android.material.appbar.AppBarLayout
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentNewsViewerBinding
 import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils.Companion.formatDate
 import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils.Companion.parseDate
 import com.vereshchagin.nikolay.stankinschedule.utils.LoadState
+import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 
 /**
  * Фрагмент для просмотра новости.
@@ -46,6 +48,12 @@ class NewsViewerFragment : Fragment() {
      */
     private lateinit var glide: RequestManager
 
+    /**
+     * StatefulLayout для отображения разных View
+     */
+    private var _stateful: StatefulLayout2? = null
+    private val stateful get() = _stateful!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -57,12 +65,16 @@ class NewsViewerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentNewsViewerBinding.inflate(inflater, container, false)
+        _stateful = StatefulLayout2(binding.root, StatefulLayout2.LOADING, binding.newsLoading.loadingFragment)
         return binding.root
     }
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        stateful.addView(StatefulLayout2.ERROR, binding.newsError.errorButtonFragment)
+        stateful.addView(StatefulLayout2.CONTENT, binding.newsRefresh)
 
         // поддержка темной темы
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -105,6 +117,12 @@ class NewsViewerFragment : Fragment() {
             }
         }
 
+        binding.appBarPost.addOnOffsetChangedListener(
+            AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
+                binding.newsRefresh.isEnabled = verticalOffset == 0
+            }
+        )
+
         glide = Glide.with(this)
             .setDefaultRequestOptions(
             RequestOptions()
@@ -138,6 +156,10 @@ class NewsViewerFragment : Fragment() {
                 startActivity(shareIntent)
                 return true
             }
+            // обновить новость ->
+            R.id.news_update -> {
+                viewModel.refresh()
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -151,27 +173,50 @@ class NewsViewerFragment : Fragment() {
             NewsViewerViewModel.Factory(newsId!!, activity?.application!!))
             .get(NewsViewerViewModel::class.java)
 
+        // обновление по свайпу
+        binding.newsRefresh.setOnRefreshListener {
+            viewModel.refresh()
+        }
+
+        // обновление после ошибки
+        binding.newsError.errorAction.setOnClickListener {
+            viewModel.refresh()
+        }
+
         viewModel.state.observe(viewLifecycleOwner, Observer { loadState ->
             if (loadState.state == LoadState.State.SUCCESS) {
                 val post = viewModel.post()
-                if (post != null) {
-                    glide.load(post.logoUrl())
-                        .centerCrop()
-                        .into(binding.newsPreview)
 
-                    binding.newsView.loadDataWithBaseURL(
-                        null,
-                        post.quillPage(),
-                        "text/html; charset=UTF-8",
-                        "UTF-8",
-                        null
-                    )
-
-                    binding.newsTitle.text = post.title
-                    binding.newsDate.text = formatDate(parseDate(post.onlyDate()))
-                } else {
-                    TODO("Error. Post is empty")
+                if (post == null) {
+                    showView(LoadState.error(getString(R.string.news_unknown_error)))
+                    return@Observer
                 }
+
+                val shimmerDrawable = ShimmerDrawable().apply {
+                    setShimmer(Shimmer.AlphaHighlightBuilder()
+                        .setDuration(2000)
+                        .setBaseAlpha(0.7f)
+                        .setHighlightAlpha(0.6f)
+                        .setDirection(Shimmer.Direction.LEFT_TO_RIGHT)
+                        .setAutoStart(true)
+                        .build())
+                }
+
+                glide.load(post.logoUrl())
+                    .placeholder(shimmerDrawable)
+                    .centerCrop()
+                    .into(binding.newsPreview)
+
+                binding.newsView.loadDataWithBaseURL(
+                    null,
+                    post.quillPage(),
+                    "text/html; charset=UTF-8",
+                    "UTF-8",
+                    null
+                )
+
+                binding.newsTitle.text = post.title
+                binding.newsDate.text = parseDate(post.onlyDate())?.let { formatDate(it) }
             }
             showView(loadState)
         })
@@ -180,6 +225,7 @@ class NewsViewerFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        _stateful = null
     }
 
     /**
@@ -187,18 +233,18 @@ class NewsViewerFragment : Fragment() {
      * @param loadState статус загрузки.
      */
     private fun showView(loadState: LoadState?) {
-        if (loadState == null) {
-            return
+        if (loadState?.state != LoadState.State.RUNNING) {
+            binding.newsRefresh.isRefreshing = false
         }
 
-        val fade = Fade()
-        fade.duration = 300
-        TransitionManager.beginDelayedTransition(binding.root, fade)
-
-        binding.newsLoading.loadingFragment.visibility = if (loadState.state == LoadState.State.RUNNING)
-            View.VISIBLE else View.GONE
-        binding.newsContainer.visibility = if (loadState.state == LoadState.State.SUCCESS)
-            View.VISIBLE else View.GONE
+        when (loadState?.state) {
+            LoadState.State.RUNNING -> stateful.setState(StatefulLayout2.LOADING)
+            LoadState.State.SUCCESS -> stateful.setState(StatefulLayout2.CONTENT)
+            else -> {
+                binding.newsError.errorTitle.text = loadState?.msg
+                stateful.setState(StatefulLayout2.ERROR)
+            }
+        }
     }
 
     companion object {

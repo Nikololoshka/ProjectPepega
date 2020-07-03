@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.v
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNetworkStateBinding
@@ -27,8 +28,18 @@ class NetworkStateItemHolder(
     /**
      * Связывает данные с элементом.
      * @param networkState информация о загрузке данных.
+     * @param position позиция элемента.
      */
-    fun bind(networkState: NetworkState?) {
+    fun bind(networkState: NetworkState?, position: Int) {
+        binding.root.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            if (position == 0) {
+                LinearLayout.LayoutParams.MATCH_PARENT
+            } else {
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            }
+        )
+
         binding.progressBar.visibility = toVisibility(networkState?.status == Status.RUNNING)
         binding.retryButton.visibility = toVisibility(networkState?.status == Status.FAILED)
         binding.errorMsg.visibility = toVisibility(networkState?.msg != null)

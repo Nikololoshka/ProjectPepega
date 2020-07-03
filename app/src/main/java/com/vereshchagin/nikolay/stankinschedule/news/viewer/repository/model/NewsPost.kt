@@ -36,14 +36,12 @@ class NewsPost(
             "        <script src=\"file:///android_asset/news/quill.min.js\" type=\"text/javascript\"></script>\n" +
             "    </head>\n" +
             "    <body>\n" +
-            "        <div id=\"editor\" style=\"display: none;\" hidden=\"true\"></div>\n" +
             "        <div id=\"raw-text\">$text</div>\n" +
-            "        <div id=\"viewer\"></div>\n" +
+            "        <div id=\"editor\"></div>\n" +
             "        <script>\n" +
             "            var delta = $delta\n" +
-            "            var quill = new Quill('#editor', {});\n" +
+            "            var quill = new Quill('#editor', { readOnly: true });\n" +
             "            quill.setContents(delta);\n" +
-            "            document.getElementById(\"viewer\").innerHTML = quill.root.innerHTML;\n" +
             "        </script>\n" +
             "    </body>\n" +
             "</html>"
@@ -88,7 +86,11 @@ class NewsPost(
                 throw JsonParseException("JSON object has empty attributes")
             }
 
-            val delta = find(rootObject, "ops")?.toString() ?: ""
+            val delta = (find(rootObject, "ops")?.toString() ?: "")
+                // замена относительных путей файлов на абсолютные
+                .replace(Regex("(/uploads.+?)\"")) { result: MatchResult ->
+                    NewsPostRepository.BASE_URL + result.value
+                }
 
             return NewsPost(id, date, title, logo, text, delta)
         }

@@ -39,7 +39,7 @@ class NewsFragment : Fragment() {
                 when (position) {
                     NewsAdapter.UNIVERSITY_NEWS -> tab.setText(R.string.news_university)
                     NewsAdapter.DEANERY_NEWS -> tab.setText(R.string.news_deanery)
-                    else -> tab.text = ""
+                    else -> throw IndexOutOfBoundsException("Unknown news index: $position")
                 }
         }.attach()
     }

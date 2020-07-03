@@ -37,7 +37,7 @@ class NewsPostAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)) {
             R.layout.item_news_post -> (holder as NewsPostItemHolder).bind(getItem(position))
-            R.layout.item_network_state -> (holder as NetworkStateItemHolder).bind(networkState)
+            R.layout.item_network_state -> (holder as NetworkStateItemHolder).bind(networkState, position)
         }
     }
 
