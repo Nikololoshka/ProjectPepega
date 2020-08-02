@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,8 +26,6 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.view.ScheduleViewFragme
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
 import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference;
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils;
-
-import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
