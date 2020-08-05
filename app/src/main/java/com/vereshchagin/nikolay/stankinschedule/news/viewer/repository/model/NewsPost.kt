@@ -42,6 +42,7 @@ class NewsPost(
             "            var delta = $delta\n" +
             "            var quill = new Quill('#editor', { readOnly: true });\n" +
             "            quill.setContents(delta);\n" +
+            "            Android.onNewsLoaded();  " +
             "        </script>\n" +
             "    </body>\n" +
             "</html>"

@@ -6,9 +6,11 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.*
+import android.webkit.JavascriptInterface
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -98,6 +100,10 @@ class NewsViewerFragment : Fragment() {
             javaScriptEnabled = true
         }
 
+        binding.newsView.addJavascriptInterface(NewsViewInterface {
+            Toast.makeText(requireContext(), "Loaded", Toast.LENGTH_SHORT).show()
+        }, "Android")
+
         binding.newsView.isVerticalScrollBarEnabled = false
 
         binding.newsView.webViewClient = object : WebViewClient() {
@@ -144,7 +150,7 @@ class NewsViewerFragment : Fragment() {
                 context?.let { CommonUtils.openBrowser(it, url) }
                 return true
             }
-            // подельться новостью
+            // поделиться новостью
             R.id.news_share -> {
                 val url = "https://stankin.ru/news/item_${viewModel.newsId}"
                 val sendIntent = Intent().apply {
@@ -244,6 +250,13 @@ class NewsViewerFragment : Fragment() {
                 binding.newsError.errorTitle.text = loadState?.msg
                 stateful.setState(StatefulLayout2.ERROR)
             }
+        }
+    }
+
+    class NewsViewInterface(private val loaded: () -> Unit) {
+        @JavascriptInterface
+        fun onNewsLoaded() {
+            loaded.invoke()
         }
     }
 

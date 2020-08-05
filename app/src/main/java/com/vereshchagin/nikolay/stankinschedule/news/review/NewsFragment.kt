@@ -2,33 +2,26 @@ package com.vereshchagin.nikolay.stankinschedule.news.review
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentNewsBinding
+import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 
 /**
  * Фрагмент для новостей университета и деканата.
  */
-class NewsFragment : Fragment() {
+class NewsFragment : BaseFragment<FragmentNewsBinding>() {
 
-    private var _binding: FragmentNewsBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentNewsBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun onInflateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): FragmentNewsBinding {
+        return FragmentNewsBinding.inflate(inflater, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun onPostCreateView(savedInstanceState: Bundle?) {
         // установка адаптора
         binding.newsPager.adapter = NewsAdapter(this)
         binding.newsPager.offscreenPageLimit = 2
@@ -42,10 +35,5 @@ class NewsFragment : Fragment() {
                     else -> throw IndexOutOfBoundsException("Unknown news index: $position")
                 }
         }.attach()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

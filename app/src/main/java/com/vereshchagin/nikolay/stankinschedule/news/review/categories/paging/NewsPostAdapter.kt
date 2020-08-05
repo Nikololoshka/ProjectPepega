@@ -20,7 +20,14 @@ class NewsPostAdapter(
     private val retryCallback: () -> Unit
 ) : PagedListAdapter<NewsItem, RecyclerView.ViewHolder>(POST_COMPARATOR) {
 
-    public interface OnNewsClickListener {
+    /**
+     * Callback для нажатия по новости.
+     */
+    interface OnNewsClickListener {
+        /**
+         * Вызывается, когда нажата новость.
+         * @param newsId ID новости.
+         */
         fun onNewsClick(newsId: Int)
     }
 

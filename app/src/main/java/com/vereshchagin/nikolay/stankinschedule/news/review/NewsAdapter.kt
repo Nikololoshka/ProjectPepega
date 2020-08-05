@@ -1,6 +1,5 @@
 package com.vereshchagin.nikolay.stankinschedule.news.review
 
-import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.vereshchagin.nikolay.stankinschedule.news.review.categories.NewsPostsFragment
@@ -12,19 +11,17 @@ class NewsAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = 2
 
-    override fun createFragment(position: Int): Fragment = NewsPostsFragment().apply {
-        val bundle = Bundle()
-        when (position) {
-            UNIVERSITY_NEWS -> bundle.putInt(NEWS_TYPE, UNIVERSITY_NEWS)
-            DEANERY_NEWS -> bundle.putInt(NEWS_TYPE, DEANERY_NEWS)
+    override fun createFragment(position: Int): Fragment {
+        val newsSubdivision: Int = when (position) {
+            UNIVERSITY_NEWS -> 0
+            DEANERY_NEWS -> 125
+            else -> throw RuntimeException("Unknown news type index: $position")
         }
-        arguments = bundle
+        return NewsPostsFragment(newsSubdivision)
     }
 
     companion object {
-        const val NEWS_TYPE = "type"
-
-        const val UNIVERSITY_NEWS = 0;
-        const val DEANERY_NEWS = 1;
+        const val UNIVERSITY_NEWS = 0
+        const val DEANERY_NEWS = 1
     }
 }
