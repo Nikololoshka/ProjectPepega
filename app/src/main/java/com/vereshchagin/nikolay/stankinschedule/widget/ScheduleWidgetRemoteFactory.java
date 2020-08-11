@@ -11,11 +11,11 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.JsonParseException;
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.schedule.model.Schedule;
-import com.vereshchagin.nikolay.stankinschedule.schedule.model.pair.Pair;
-import com.vereshchagin.nikolay.stankinschedule.schedule.model.pair.SubgroupEnum;
-import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference;
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.Schedule;
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.Pair;
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.SubgroupEnum;
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference;
 import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils;
 
 import org.apache.commons.io.FileUtils;
@@ -31,9 +31,9 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TreeSet;
 
-import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LABORATORY_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LECTURE_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SEMINAR_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.LABORATORY_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.LECTURE_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.SEMINAR_COLOR;
 
 /**
  * Адаптер для виджета с расписанием.

@@ -22,9 +22,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
-import com.vereshchagin.nikolay.stankinschedule.schedule.view.ScheduleViewFragment;
-import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference;
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment;
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference;
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils;
 
 

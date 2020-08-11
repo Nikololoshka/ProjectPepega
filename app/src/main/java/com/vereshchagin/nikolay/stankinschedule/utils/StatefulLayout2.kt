@@ -2,8 +2,6 @@ package com.vereshchagin.nikolay.stankinschedule.utils
 
 import android.view.View
 import android.view.ViewGroup
-import androidx.transition.Fade
-import androidx.transition.TransitionManager
 
 
 class StatefulLayout2(
@@ -28,12 +26,9 @@ class StatefulLayout2(
             return
         }
 
-        val fade = Fade()
-        fade.duration = 300
-        TransitionManager.beginDelayedTransition(root, fade)
+        AnimationUtils.fade(states[currentState]!!, false)
+        AnimationUtils.fade(states[key]!!, true)
 
-        states[currentState]?.visibility = View.GONE
-        states[key]?.visibility = View.VISIBLE
         currentState = key
     }
 
@@ -41,6 +36,6 @@ class StatefulLayout2(
         const val LOADING = -1
         const val ERROR = -2
         const val CONTENT = -3
-
+        const val EMPTY = -4
     }
 }

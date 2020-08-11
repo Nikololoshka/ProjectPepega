@@ -9,10 +9,10 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.vereshchagin.nikolay.stankinschedule.MainApplication"
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:hardwareAccelerated="true"
@@ -24,8 +24,8 @@
 
         <!--   Widgets   -->
         <receiver
-            android:name="com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidget"
-            android:label="@string/widget_schedule_name" >
+            android:name=".widget.ScheduleWidget"
+            android:label="@string/widget_schedule_name">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -35,55 +35,53 @@
         </receiver>
 
         <activity
-            android:name="com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidgetConfigureActivity"
+            android:name=".widget.ScheduleWidgetConfigureActivity"
             android:label="@string/widget_configurator"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
-        </activity>
-
-        <!--  Services   -->
+        </activity> <!-- Services -->
         <service
-            android:name="com.vereshchagin.nikolay.stankinschedule.schedule.repository.ScheduleDownloaderService"
+            android:name=".ui.schedule.repository.ScheduleDownloaderService"
             android:exported="false" />
-
         <service
-            android:name="com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidgetRemoteFactory$Service"
-            android:permission="android.permission.BIND_REMOTEVIEWS" />
-
-        <!--  Activities   -->
+            android:name=".widget.ScheduleWidgetRemoteFactory$Service"
+            android:permission="android.permission.BIND_REMOTEVIEWS" /> <!-- Activities -->
         <activity
-            android:name="com.vereshchagin.nikolay.stankinschedule.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.Splash" >
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="https"/>
-                <data android:scheme="http"/>
+
+                <data android:scheme="https" />
+                <data android:scheme="http" />
                 <data android:host="lk.stankin.ru" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.vereshchagin.nikolay.stankinschedule.schedule.editor.pair.PairEditorActivity"
+            android:name=".ui.schedule.editor.pair.PairEditorActivity"
             android:label="@string/pair_editor"
-            android:parentActivityName="com.vereshchagin.nikolay.stankinschedule.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.vereshchagin.nikolay.stankinschedule.schedule.editor.date.DateEditorActivity"
+            android:name=".ui.schedule.editor.date.DateEditorActivity"
             android:label="@string/date_editor"
-            android:parentActivityName="com.vereshchagin.nikolay.stankinschedule.schedule.editor.pair.PairEditorActivity"
+            android:parentActivityName=".ui.schedule.editor.pair.PairEditorActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.vereshchagin.nikolay.stankinschedule.schedule.editor.name.ScheduleNameEditorActivity"
+            android:name=".ui.schedule.editor.name.ScheduleNameEditorActivity"
             android:label="@string/schedule_editor"
-            android:parentActivityName="com.vereshchagin.nikolay.stankinschedule.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme" />
     </application>
 

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/default_layout_padding"
-    tools:context=".schedule.editor.name.ScheduleNameEditorActivity">
+    tools:context=".ui.schedule.editor.name.ScheduleNameEditorActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/schedule_name_layout"

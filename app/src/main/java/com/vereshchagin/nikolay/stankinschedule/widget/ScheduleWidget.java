@@ -13,8 +13,8 @@ import androidx.navigation.NavDeepLinkBuilder;
 
 import com.vereshchagin.nikolay.stankinschedule.MainActivity;
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.schedule.view.ScheduleViewFragment;
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference;
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment;
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference;
 
 import java.util.Calendar;
 

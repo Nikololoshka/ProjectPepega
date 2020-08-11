@@ -2,6 +2,11 @@
 <resources>
     <!-- Цвета приложения -->
     <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryVariant">#303F9F</color>
+    <color name="colorSecondary">#FF9800</color>
+    <color name="colorSecondaryVariant">#cf7b00</color>
+
+    <!-- AppCompat -->
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorPrimaryLight">#C5CAE9</color>
     <color name="colorAccent">#FF9800</color>

@@ -41,18 +41,21 @@
                 android:orientation="horizontal">
 
                 <Button
-                    style="@style/Button.Borderless"
                     android:id="@+id/settings"
+                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableStart="@drawable/ic_nav_settings"
-                    android:drawablePadding="@dimen/drawer_icon_padding"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
                     android:paddingStart="@dimen/drawer_horizontal_padding"
                     android:paddingEnd="@dimen/drawer_horizontal_padding"
-                    android:textSize="16sp"
                     android:text="@string/nav_settings"
-                    android:textAllCaps="false"/>
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/Text"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:cornerRadius="@null"
+                    app:icon="@drawable/ic_nav_settings"
+                    app:iconTint="?android:attr/textColorPrimary" />
 
                 <Space
                     android:layout_width="0dp"

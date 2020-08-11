@@ -17,8 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.schedule.model.pair.SubgroupEnum;
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference;
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.SubgroupEnum;
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference;
 
 import java.util.List;
 

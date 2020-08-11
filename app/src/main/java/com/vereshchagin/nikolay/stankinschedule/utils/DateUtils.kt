@@ -11,9 +11,10 @@ import kotlin.math.abs
 class DateUtils {
 
     companion object {
+        const val PRETTY_FORMAT = "dd.MM.yyyy"
+
         const val SHORT_DATE_FORMAT = "yyyy-MM-dd"
         const val FULL_DATE_FORMAT = "yyyy-MM-dd HH:mm:ssX"
-
 
         fun minutesBetween(first: Calendar, second: Calendar): Long {
 

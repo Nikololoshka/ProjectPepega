@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".news.review.NewsFragment">
+    tools:context="com.vereshchagin.nikolay.stankinschedule.ui.news.review.NewsFragment">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/news_tab_pager"

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".schedule.view.ScheduleViewFragment">
+    tools:context=".ui.schedule.view.ScheduleViewFragment">
     <!--  Padding находится внутри schedule_card чтобы анимация была красивая -->
 
     <com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout

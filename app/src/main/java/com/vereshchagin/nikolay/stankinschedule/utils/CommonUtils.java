@@ -11,7 +11,7 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.core.content.ContextCompat;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

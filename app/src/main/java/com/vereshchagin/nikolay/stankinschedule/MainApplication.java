@@ -4,7 +4,7 @@ import android.app.Application;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
 
 /**
  * Singleton класс приложения.

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modulejournal.view.ModuleJournalFragment" >
+    tools:context=".ui.modulejournal.view.ModuleJournalFragment" >
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/mj_content"

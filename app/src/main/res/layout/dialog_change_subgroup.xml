@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/subgroup_selector"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:checkedButton="@id/subgroup_common"
+    android:orientation="vertical"
+    android:padding="@dimen/default_layout_padding">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_layout_padding"
+        android:text="Selected subgroup:"
+        android:textColor="?android:attr/textColorPrimary" />
+
+    <RadioButton
+        android:id="@+id/subgroup_common"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Common" />
+
+    <RadioButton
+        android:id="@+id/subgroup_a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subgroup A" />
+
+    <RadioButton
+        android:id="@+id/subgroup_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subgroup B" />
+
+</RadioGroup>
