@@ -1,12 +1,12 @@
-package com.vereshchagin.nikolay.stankinschedule.news.viewer.repository
+package com.vereshchagin.nikolay.stankinschedule.repository
 
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.api.StankinNewsPostsApi
-import com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.model.NewsPost
-import com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.model.NewsPostResponse
+import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsPostsApi
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPostResponse
 import com.vereshchagin.nikolay.stankinschedule.utils.LoadState
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

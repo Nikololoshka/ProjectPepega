@@ -1,9 +1,9 @@
-package com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model
+package com.vereshchagin.nikolay.stankinschedule.model.news
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.NewsRepository
+import com.vereshchagin.nikolay.stankinschedule.repository.NewsRepository
 
 /**
  * Данные о новости.

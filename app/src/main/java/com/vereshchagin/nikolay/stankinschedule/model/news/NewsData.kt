@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model
+package com.vereshchagin.nikolay.stankinschedule.model.news
 
 /**
  * Данные новостей запроса.

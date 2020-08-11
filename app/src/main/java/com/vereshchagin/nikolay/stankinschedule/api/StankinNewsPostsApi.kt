@@ -1,6 +1,6 @@
-package com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.api
+package com.vereshchagin.nikolay.stankinschedule.api
 
-import com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.model.NewsPostResponse
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPostResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -30,7 +30,12 @@ interface StankinNewsPostsApi {
             val data = mapOf(
                 "id" to newsId
             )
-            return api.getData(PostData("getNewsItem", data))
+            return api.getData(
+                PostData(
+                    "getNewsItem",
+                    data
+                )
+            )
         }
 
         /**

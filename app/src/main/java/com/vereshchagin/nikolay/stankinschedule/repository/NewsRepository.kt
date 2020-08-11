@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository
+package com.vereshchagin.nikolay.stankinschedule.repository
 
 import android.content.Context
 import androidx.annotation.MainThread
@@ -7,13 +7,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.paging.LivePagedListBuilder
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.MainApplicationDatabase
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.paging.Listing
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.db.NewsDao
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsItem
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsResponse
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.NetworkState
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.StankinNewsApi
+import com.vereshchagin.nikolay.stankinschedule.api.NetworkState
+import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsApi
+import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
+import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsResponse
+import com.vereshchagin.nikolay.stankinschedule.repository.boundary.NewsBoundaryCallback
+import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.Listing
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -111,9 +112,10 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
      * @param size размер пачки загружаемых новостей.
      */
     fun posts(size: Int = 20): Listing<NewsItem> {
-        val boundaryCallback = NewsBoundaryCallback(
-            api, dao, newsSubdivision, ioExecutor, this::addPostsIntoDb
-        )
+        val boundaryCallback =
+            NewsBoundaryCallback(
+                api, dao, newsSubdivision, ioExecutor, this::addPostsIntoDb
+            )
 
         val refreshTrigger = MutableLiveData<Unit>()
         val refreshState = Transformations.switchMap(refreshTrigger) {

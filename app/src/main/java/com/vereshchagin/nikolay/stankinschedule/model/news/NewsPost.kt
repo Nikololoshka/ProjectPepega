@@ -1,7 +1,7 @@
-package com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.model
+package com.vereshchagin.nikolay.stankinschedule.model.news
 
 import com.google.gson.*
-import com.vereshchagin.nikolay.stankinschedule.news.viewer.repository.NewsPostRepository
+import com.vereshchagin.nikolay.stankinschedule.repository.NewsPostRepository
 import java.lang.reflect.Type
 
 
@@ -93,7 +93,14 @@ class NewsPost(
                     NewsPostRepository.BASE_URL + result.value
                 }
 
-            return NewsPost(id, date, title, logo, text, delta)
+            return NewsPost(
+                id,
+                date,
+                title,
+                logo,
+                text,
+                delta
+            )
         }
 
         /**

@@ -1,6 +1,6 @@
-package com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network
+package com.vereshchagin.nikolay.stankinschedule.api
 
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsResponse
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -41,7 +41,12 @@ interface StankinNewsApi {
                 "tag" to tag,
                 "query_search" to query
             )
-            return api.getData(PostData("getNews", data))
+            return api.getData(
+                PostData(
+                    "getNews",
+                    data
+                )
+            )
         }
 
         /**

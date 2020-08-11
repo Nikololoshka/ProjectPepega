@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.utils;
+package androidx.paging;
 
 /*
 * Copyright 2017 The Android Open Source Project
@@ -21,7 +21,6 @@ import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import androidx.paging.DataSource;
 
 import java.util.Arrays;
 import java.util.concurrent.CopyOnWriteArrayList;

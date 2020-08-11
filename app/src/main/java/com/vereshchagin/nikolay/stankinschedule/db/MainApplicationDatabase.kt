@@ -1,11 +1,11 @@
-package com.vereshchagin.nikolay.stankinschedule
+package com.vereshchagin.nikolay.stankinschedule.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.db.NewsDao
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsItem
+import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 
 /**
  * Главная БД приложения.
@@ -35,7 +35,8 @@ abstract class MainApplicationDatabase : RoomDatabase() {
          * @param context контекст для создания БД.
          */
         fun database(context: Context): MainApplicationDatabase {
-            val tempInstance = INSTANCE
+            val tempInstance =
+                INSTANCE
             if (tempInstance != null) {
                 return tempInstance
             }

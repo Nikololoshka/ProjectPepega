@@ -1,11 +1,11 @@
-package com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.db
+package com.vereshchagin.nikolay.stankinschedule.db.dao
 
 import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsItem
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 
 /**
  * Интерфейс для работы с БД новостей.

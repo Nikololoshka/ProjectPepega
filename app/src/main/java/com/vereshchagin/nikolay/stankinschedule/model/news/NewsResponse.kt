@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model
+package com.vereshchagin.nikolay.stankinschedule.model.news
 
 /**
  * Ответ с новостями от сервера.
@@ -7,9 +7,9 @@ package com.vereshchagin.nikolay.stankinschedule.news.review.categories.reposito
  * @param error сообщение с ошибкой от сервера.
  */
 class NewsResponse(
-        val success: Boolean,
-        val data: NewsData,
-        val error: String
+    val success: Boolean,
+    val data: NewsData,
+    val error: String
 )
 
 

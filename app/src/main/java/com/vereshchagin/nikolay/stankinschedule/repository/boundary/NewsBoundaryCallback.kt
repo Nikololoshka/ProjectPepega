@@ -1,13 +1,13 @@
-package com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository
+package com.vereshchagin.nikolay.stankinschedule.repository.boundary
 
 import android.util.Log
 import androidx.paging.PagedList
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.db.NewsDao
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsItem
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.model.NewsResponse
-import com.vereshchagin.nikolay.stankinschedule.news.review.categories.repository.network.StankinNewsApi
-import com.vereshchagin.nikolay.stankinschedule.utils.PagingRequestHelper
-import com.vereshchagin.nikolay.stankinschedule.utils.createStatusLiveData
+import androidx.paging.PagingRequestHelper
+import androidx.paging.createStatusLiveData
+import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsApi
+import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
