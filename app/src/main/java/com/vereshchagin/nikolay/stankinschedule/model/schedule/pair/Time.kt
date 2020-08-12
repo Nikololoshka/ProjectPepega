@@ -51,6 +51,10 @@ class Time : Parcelable {
         }
     }
 
+    fun number(): Int {
+        return STARTS.indexOf(start.toString(TIME_PATTERN))
+    }
+
     override fun toString(): String {
         return "${start.toString(TIME_PATTERN)}-${end.toString(TIME_PATTERN)}"
     }
@@ -64,8 +68,6 @@ class Time : Parcelable {
     override fun describeContents(): Int {
         return 0
     }
-
-
 
     companion object {
         @JvmField

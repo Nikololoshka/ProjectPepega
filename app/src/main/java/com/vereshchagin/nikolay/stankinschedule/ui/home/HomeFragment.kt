@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity2
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
@@ -70,7 +71,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         })
 
         binding.testButton.setOnClickListener {
-
+            startActivity(
+                PairEditorActivity2.newPairIntent(requireContext(), "")
+            )
         }
     }
 

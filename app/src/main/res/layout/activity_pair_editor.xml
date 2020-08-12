@@ -23,53 +23,53 @@
             android:padding="@dimen/default_layout_padding" >
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true">
 
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_text_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/pair_editor_title"
                     android:imeOptions="actionNext"
-                    android:inputType="textPersonName|textMultiLine" />
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true">
 
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_text_lecturer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/pair_editor_lecturer"
                     android:imeOptions="actionNext"
-                    android:inputType="textPersonName|textMultiLine" />
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true" >
 
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_text_classroom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/pair_editor_classroom"
                     android:imeOptions="actionDone"
-                    android:inputType="textPersonName|textMultiLine" />
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

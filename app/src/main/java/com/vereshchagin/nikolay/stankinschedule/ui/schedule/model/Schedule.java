@@ -29,6 +29,7 @@ import java.util.TreeSet;
 /**
  * Расписание занятий.
  */
+@Deprecated
 public class Schedule implements Parcelable {
 
     /**
