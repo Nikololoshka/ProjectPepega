@@ -28,6 +28,13 @@ interface NewsDao {
     fun all(newsSubdivision: Int) : DataSource.Factory<Int, NewsItem>
 
     /**
+     * Возвращает список (DataSource) из последних нескольких элемнтов.
+     * @param max максимальное количество элементов.
+     */
+    @Query("SELECT * FROM POSTS ORDER BY date ASC LIMIT :max")
+    fun latest(max: Int = 5) : DataSource.Factory<Int, NewsItem>
+
+    /**
      * Очищает закэшированные новости.
      * @param newsSubdivision номер отдела новостей.
      */
