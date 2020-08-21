@@ -70,7 +70,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         })
 
         binding.testButton.setOnClickListener {
-
+            navigateTo(R.id.toScheduleFragment)
         }
     }
 

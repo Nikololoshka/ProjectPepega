@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.model.home
 
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+
 
 class HomeScheduleData (
     val titles: ArrayList<String>,

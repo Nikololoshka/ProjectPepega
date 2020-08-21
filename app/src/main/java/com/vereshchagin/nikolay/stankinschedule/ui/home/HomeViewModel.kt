@@ -4,15 +4,13 @@ import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.*
 import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleData
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.Schedule
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.apache.commons.io.FileUtils
 import org.joda.time.DateTime
-import java.io.File
-import java.nio.charset.StandardCharsets
 
 /**
  * ViewModel для фрагмента главной страницы.
@@ -20,6 +18,7 @@ import java.nio.charset.StandardCharsets
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     val scheduleData = MutableLiveData<HomeScheduleData>(null)
+    val repository = ScheduleRepository()
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
@@ -38,10 +37,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         val path = SchedulePreference.createPath(getApplication(), favorite)
         val schedule: Schedule
         try {
-            val file = File(path)
-            val json = FileUtils.readFileToString(file, StandardCharsets.UTF_8)
-            schedule = Schedule.fromJson(json)
-
+            schedule = repository.load(path)
         } catch (ignored: Exception) {
             scheduleData.postValue(HomeScheduleData.empty())
             return
@@ -54,7 +50,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
         for (i in 0..4) {
             val list = ArrayList<Pair>()
-            schedule.pairsByDate(start.toGregorianCalendar()).toCollection(list)
+            schedule.pairsByDate(start).toCollection(list)
             pairs.add(list)
             titles.add(start.toString("EEEE, dd MMMM").capitalize())
 

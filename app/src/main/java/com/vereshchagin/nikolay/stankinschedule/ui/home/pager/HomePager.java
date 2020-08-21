@@ -13,7 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.Pair;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
 
 import java.util.ArrayList;
 
