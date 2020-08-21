@@ -19,6 +19,7 @@ import java.util.Objects;
 /**
  * POJO класс пары в расписании.
  */
+@Deprecated
 public class Pair implements Parcelable {
 
     @NonNull

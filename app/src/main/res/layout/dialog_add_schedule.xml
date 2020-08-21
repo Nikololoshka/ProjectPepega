@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Добавление расписания"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textAlignment="center"
+        android:padding="@dimen/default_layout_padding"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/default_layout_padding">
+
+        <TextView
+            android:id="@+id/create_schedule"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:drawableTop="@drawable/ic_button_add"
+            android:text="Создать"
+            android:textAlignment="center"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/from_repository"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_button_add"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:text="Из репозитория"
+            android:textAlignment="center"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/load_schedule"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_button_add"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:text="Загрузить"
+            android:textAlignment="center"
+            android:clickable="true"
+            android:focusable="true"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

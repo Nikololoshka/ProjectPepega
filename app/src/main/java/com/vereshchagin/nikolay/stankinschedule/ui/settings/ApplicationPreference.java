@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup;
 
 
 /**
@@ -32,6 +33,7 @@ public class ApplicationPreference {
     public static final String SCHEDULE_VIEW_HORIZONTAL = "pref_horizontal";
 
     private static final String FIRST_RUN = "first_run";
+    private static final String SCHEDULE_SUBGROUP = "schedule_subgroup";
     private static final String SCHEDULE_VIEW_METHOD = "schedule_view_method";
     private static final String SCHEDULE_LIMIT = "schedule_view_limit";
     private static final String DARK_MODE = "dark_mode";
@@ -131,6 +133,28 @@ public class ApplicationPreference {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         preferences.edit()
                 .putBoolean(FIRST_RUN, run)
+                .apply();
+    }
+
+    /**
+     * Возвращает подгруппу.
+     * @param context контекст приложения.
+     */
+    @NonNull
+    public static Subgroup subgroup(@NonNull Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return Subgroup.of(preferences.getString(SCHEDULE_SUBGROUP, Subgroup.COMMON.getTag()));
+    }
+
+    /**
+     * Устанавливает подгруппу.
+     * @param context контест приложения.
+     * @param subgroup подгруппа.
+     */
+    public static void setSubgroup(@NonNull Context context, @NonNull Subgroup subgroup) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit()
+                .putString(SCHEDULE_SUBGROUP, subgroup.getTag())
                 .apply();
     }
 

@@ -91,6 +91,7 @@ public class ModuleJournalPreference {
      * @throws GeneralSecurityException ошибка доступа.
      * @throws IOException невозможно записать/прочесть файл.
      */
+    @NonNull
     public static Pair< String, String> loadSignData(@NonNull Context context)
             throws GeneralSecurityException, IOException {
 

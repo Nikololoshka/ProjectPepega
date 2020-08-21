@@ -1,176 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/default_layout_padding"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    <androidx.cardview.widget.CardView
-        style="@style/CardStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                style="@style/Text.Hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/date_editor_type" />
-
-            <Spinner
-                android:id="@+id/spinner_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/date_type_list"/>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/input_label_vertical_spacing" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-
-    <com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout
-        android:id="@+id/stateful_layout"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/input_label_vertical_spacing" >
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/single_date_mode"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:focusable="true"
-            android:focusableInTouchMode="true" >
+            android:layout_marginBottom="@dimen/default_layout_padding"
+            app:cardCornerRadius="0dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_layout_padding">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/date_mode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/date_editor_type"
+                        android:inputType="none"
+                        android:imeOptions="actionNone"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_layout_padding">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:id="@+id/single_date_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" >
+                app:errorEnabled="true"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_button_calendar"
+                tools:visibility="gone">
 
-                <EditText
-                    android:id="@+id/single_date_edit"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/single_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/pair_editor_date"
                     android:inputType="date"
                     android:singleLine="true"
-                    tools:ignore="Autofill" />
+                    android:imeOptions="actionGo"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageButton
-                style="@style/Button.Borderless"
-                android:id="@+id/single_date_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/ic_button_calendar"
-                android:contentDescription="@string/date_editor_calendar_picker"
-                android:layout_gravity="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/range_date_mode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:focusable="true"
-            android:focusableInTouchMode="true" >
-
             <LinearLayout
+                android:id="@+id/range_date_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible" >
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="0dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:id="@+id/date_start_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    app:errorEnabled="true"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/ic_button_calendar">
 
-                    <EditText
-                        android:id="@+id/range_date_edit_start"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/date_start"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="@string/date_editor_start_date"
                         android:inputType="date"
                         android:singleLine="true"
-                        tools:ignore="Autofill" />
+                        android:imeOptions="actionNext"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <ImageButton
-                    style="@style/Button.Borderless"
-                    android:id="@+id/range_date_start_picker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/ic_button_calendar"
-                    android:contentDescription="@string/date_editor_calendar_picker"
-                    android:layout_gravity="center" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="0dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:id="@+id/date_end_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    app:errorEnabled="true"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/ic_button_calendar">
 
-                    <EditText
-                        android:id="@+id/range_date_edit_end"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/date_end"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="@string/date_editor_end_date"
                         android:inputType="date"
                         android:singleLine="true"
-                        tools:ignore="Autofill" />
+                        android:imeOptions="actionDone"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <ImageButton
-                    style="@style/Button.Borderless"
-                    android:id="@+id/range_date_end_picker"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:id="@+id/date_frequency_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/ic_button_calendar"
-                    android:contentDescription="@string/date_editor_calendar_picker"
-                    android:layout_gravity="center"/>
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/date_frequency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/date_editor_frequency"
+                        android:inputType="none"
+                        android:imeOptions="actionNone" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
-            <TextView
-                style="@style/Text.Hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/date_editor_frequency" />
+        </FrameLayout>
 
-            <Spinner
-                android:id="@+id/spinner_frequency"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/frequency_list" />
+    </LinearLayout>
 
-        </LinearLayout>
-
-    </com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout>
-
-</LinearLayout>
+</ScrollView>

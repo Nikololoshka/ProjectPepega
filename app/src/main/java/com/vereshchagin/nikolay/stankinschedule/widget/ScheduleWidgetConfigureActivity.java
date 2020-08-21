@@ -12,9 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.SubgroupEnum;
@@ -77,15 +75,6 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
 
         // настройка layout'а
         setContentView(R.layout.widget_schedule_configure);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setDisplayShowHomeEnabled(true);
-        }
 
         mSchedulesSpinner = findViewById(R.id.widget_schedule_selector);
         mSubgroupSpinner = findViewById(R.id.widget_subgroup_selector);

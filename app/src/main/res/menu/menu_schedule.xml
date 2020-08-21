@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/add_schedule"
-        android:icon="@drawable/ic_menu_add_button"
-        android:title="@string/sch_add"
-        app:showAsAction="ifRoom|withText" >
-        <menu>
-            <item
-                android:id="@+id/from_repository"
-                android:title="@string/sch_from_repository" />
-            <item
-                android:id="@+id/create_schedule"
-                android:title="@string/sch_create_new" />
-            <item
-                android:id="@+id/load_schedule"
-                android:title="@string/sch_load" />
-        </menu>
-    </item>
+        android:id="@+id/edit_schedules"
+        android:icon="@drawable/ic_menu_edit_button"
+        android:title="Edit schedules" />
 </menu>

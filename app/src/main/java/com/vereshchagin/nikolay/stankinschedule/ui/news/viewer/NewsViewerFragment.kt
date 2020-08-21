@@ -13,7 +13,7 @@ import android.webkit.WebViewClient
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
 import com.bumptech.glide.Glide
@@ -170,7 +170,7 @@ class NewsViewerFragment : Fragment() {
 
         // номер новости
         val newsId = arguments?.getInt(NEWS_ID)
-        viewModel = ViewModelProviders.of(this,
+        viewModel = ViewModelProvider(this,
             NewsViewerViewModel.Factory(newsId!!, activity?.application!!))
             .get(NewsViewerViewModel::class.java)
 

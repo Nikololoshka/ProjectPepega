@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.snackbar.Snackbar
 import com.vereshchagin.nikolay.stankinschedule.R
 
 /**
@@ -50,6 +52,26 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     protected fun navigateTo(@IdRes destination: Int, args: Bundle? = null)  {
         val navController = Navigation.findNavController(requireActivity(), R.id.nav_host)
         navController.navigate(destination, args)
+    }
+
+    /**
+     * Показывает SnackBar для корневого View.
+     * @param id ID сообщения.
+     * @param duration продолжительность показа.
+     */
+    protected fun showSnack(@StringRes id: Int, duration: Int = Snackbar.LENGTH_SHORT) {
+        Snackbar.make(binding.root, id, duration)
+            .show()
+    }
+
+    /**
+     * Показывает SnackBar для корневого View.
+     * @param message сообщение.
+     * @param duration продолжительность показа.
+     */
+    protected fun showSnack(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
+        Snackbar.make(binding.root, message, duration)
+            .show()
     }
 
     override fun onDestroyView() {

@@ -32,6 +32,33 @@ class StatefulLayout2(
         currentState = key
     }
 
+    class Builder(private val root: ViewGroup) {
+
+        private var initKey: Int? = null
+        private var initView: View? = null
+
+        private val states = HashMap<Int, View>()
+
+        fun init(key: Int, view: View): Builder {
+            initKey = key
+            initView = view
+            return this
+        }
+
+        fun addView(key: Int, view: View): Builder {
+            states[key] = view
+            return this
+        }
+
+        fun create(): StatefulLayout2 {
+            val stateful = StatefulLayout2(root, initKey!!, initView!!)
+            for ((key, view) in states) {
+                stateful.addView(key, view)
+            }
+            return stateful
+        }
+    }
+
     companion object {
         const val LOADING = -1
         const val ERROR = -2

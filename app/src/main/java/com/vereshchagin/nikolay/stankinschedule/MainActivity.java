@@ -15,12 +15,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment;
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         // toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.nav_home);
         setSupportActionBar(toolbar);
 
@@ -65,8 +67,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // navigation
         NavigationView navigationView = findViewById(R.id.nav_view);
         NavController navController = Navigation.findNavController(this, R.id.nav_host);
-        NavigationUI.setupWithNavController(toolbar, navController, mDrawer);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        AppBarConfiguration configuration = new AppBarConfiguration.Builder(
+            R.id.nav_home_fragment, R.id.nav_schedule_fragment,
+            R.id.nav_module_journal_fragment, R.id.nav_news_fragment, R.id.nav_module_journal_login_fragment
+        ).setOpenableLayout(mDrawer).build();
+
+        NavigationUI.setupWithNavController(toolbar, navController, configuration);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
 
         Button settingButton = mDrawer.findViewById(R.id.settings);
         settingButton.setOnClickListener(this);
