@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.list;
+package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging;
 
 import android.content.Context;
 import android.graphics.Canvas;
