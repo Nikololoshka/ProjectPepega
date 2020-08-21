@@ -4,6 +4,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
+import org.joda.time.LocalDate
 
 /**
  * Дни недели даты в расписании.
@@ -59,6 +60,10 @@ enum class DayOfWeek : Parcelable {
                     throw IllegalArgumentException( "Invalid day of week: $date")
                 }
             }
+        }
+
+        fun of(date: LocalDate): DayOfWeek {
+            return of(date.toDateTimeAtStartOfDay())
         }
     }
 }

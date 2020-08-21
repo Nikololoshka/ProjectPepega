@@ -1,11 +1,14 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
+import android.content.Context
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.JsonObject
+import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils
 import org.joda.time.DateTime
 import org.joda.time.Days
+import org.joda.time.LocalDate
 import org.joda.time.format.DateTimeFormat
 
 class DateRange : DateItem {
@@ -23,23 +26,47 @@ class DateRange : DateItem {
         init()
     }
 
-    constructor(text: String, frequencyDate: Frequency) {
-        val dates = text.split('-')
-        if (dates.size != 2) {
-            throw IllegalArgumentException("Invalid date text: $text, $dates, frequency: $frequencyDate")
-        }
-
-        val firstText = dates[0]
-        val secondText = dates[1]
-
+    constructor(firstText: String, secondText: String, frequencyDate: Frequency,
+                pattern: String = JSON_DATE_PATTERN) {
         try {
-            val formatter = DateTimeFormat.forPattern(JSON_DATE_PATTERN)
+            val formatter = DateTimeFormat.forPattern(pattern)
             start = formatter.parseDateTime(firstText)
             end = formatter.parseDateTime(secondText)
             frequency = frequencyDate
 
         } catch (e: Exception) {
-            throw IllegalArgumentException("Invalid parse date: $firstText and $secondText", e)
+            throw DateParseException(
+                "Invalid parse date: $firstText and $secondText",
+                "$firstText - $secondText",
+                e
+            )
+        }
+
+        init()
+    }
+
+    constructor(text: String, frequencyDate: Frequency, pattern: String = JSON_DATE_PATTERN) {
+        val dates = text.split('-')
+        if (dates.size != 2) {
+            throw DateParseException(
+                "Invalid date text: $text, $dates, frequency: $frequencyDate",
+                text
+            )
+        }
+
+        val (firstText, secondText) = dates
+        try {
+            val formatter = DateTimeFormat.forPattern(pattern)
+            start = formatter.parseDateTime(firstText)
+            end = formatter.parseDateTime(secondText)
+            frequency = frequencyDate
+
+        } catch (e: Exception) {
+            throw DateParseException(
+                "Invalid parse date: $firstText and $secondText",
+                "$firstText - $secondText",
+                e
+            )
         }
 
         init()
@@ -60,13 +87,18 @@ class DateRange : DateItem {
 
     private fun init() {
         if (DayOfWeek.of(start) != DayOfWeek.of(end)) {
-            throw IllegalArgumentException("Invalid day of week: $start - $end")
+            throw DateDayOfWeekException(
+                "Invalid day of week: $start - $end"
+            )
         }
         dayOfWeek = DayOfWeek.of(start)
 
         val days = Days.daysBetween(start, end).days
         if (days == 0 || days % frequency.period != 0) {
-            throw IllegalArgumentException("Invalid frequency: $start - $end, ${frequency.tag}")
+            throw DateFrequencyException(
+                "Invalid frequency: $start - $end, ${frequency.tag}",
+                this.toString(), frequency
+            )
         }
     }
 
@@ -87,7 +119,7 @@ class DateRange : DateItem {
     override fun intersect(item: DateItem): Boolean {
         if (item is DateSingle) {
             var it = start
-            while (it.isBefore(end)) {
+            while (it.isBefore(end) || it == end) {
                 if (it == item.date) {
                     return true
                 }
@@ -100,8 +132,8 @@ class DateRange : DateItem {
             var firstIt = start
             var secondIt = item.start
 
-            while (firstIt.isBefore(end)) {
-                while (secondIt.isBefore(item.end)) {
+            while (firstIt.isBefore(end) || firstIt == end) {
+                while (secondIt.isBefore(item.end) || secondIt == item.end) {
                     if (firstIt == secondIt) {
                         return true
                     }
@@ -128,9 +160,51 @@ class DateRange : DateItem {
         throw IllegalArgumentException("Invalid compare object: $item")
     }
 
+    override fun startDate(): LocalDate {
+        return start.toLocalDate()
+    }
+
+    override fun endDate(): LocalDate {
+        return end.toLocalDate()
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as DateRange
+
+        if (start != other.start) return false
+        if (end != other.end) return false
+        if (frequency != other.frequency) return false
+        if (dayOfWeek != other.dayOfWeek) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = start.hashCode()
+        result = 31 * result + end.hashCode()
+        result = 31 * result + frequency.hashCode()
+        result = 31 * result + dayOfWeek.hashCode()
+        return result
+    }
+
     override fun toString(): String {
         return start.toString(DateUtils.PRETTY_FORMAT) +
-            "-" +  end.toString(DateUtils.PRETTY_FORMAT) + " " + frequency.tag
+            "-" +  end.toString(DateUtils.PRETTY_FORMAT)
+    }
+
+    override fun toString(context: Context): String {
+        return this.toString() + context.resources.getStringArray(
+                R.array.frequency_simple_list
+            )[
+            when(frequency) {
+                Frequency.EVERY -> 0
+                Frequency.THROUGHOUT -> 1
+                else -> throw RuntimeException("Unknown frequency: $frequency")
+            }
+        ]
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {

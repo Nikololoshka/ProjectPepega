@@ -32,6 +32,7 @@ enum class Subgroup(val tag: String) : Parcelable {
         /**
          * Возвращает значение подгруппы соотвествующие значению в строке.
          */
+        @JvmStatic
         fun of(value: String): Subgroup {
             for (subgroup in values()) {
                 if (subgroup.tag == value) {

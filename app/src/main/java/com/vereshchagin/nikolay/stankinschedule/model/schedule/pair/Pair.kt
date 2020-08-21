@@ -26,6 +26,59 @@ class Pair(
         return time.intersect(other.time) && date.intersect(other.date)
     }
 
+    fun elementEqua1s(
+        title: String,
+        lecturer: String,
+        classroom: String,
+        type: Type,
+        subgroup: Subgroup,
+        time: Time,
+        date: Date
+    ): Boolean {
+        return title == this.title &&
+            lecturer == this.lecturer &&
+            classroom == this.classroom &&
+            type == this.type &&
+            subgroup == this.subgroup &&
+            time == this.time &&
+            date == this.date
+    }
+
+    override fun compareTo(other: Pair): Int {
+        if (time.start == other.time.start) {
+            return subgroup.compareTo(other.subgroup)
+        }
+        return time.start.compareTo(other.time.start)
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Pair
+
+        if (title != other.title) return false
+        if (lecturer != other.lecturer) return false
+        if (classroom != other.classroom) return false
+        if (type != other.type) return false
+        if (subgroup != other.subgroup) return false
+        if (time != other.time) return false
+        if (date != other.date) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = title.hashCode()
+        result = 31 * result + lecturer.hashCode()
+        result = 31 * result + classroom.hashCode()
+        result = 31 * result + type.hashCode()
+        result = 31 * result + subgroup.hashCode()
+        result = 31 * result + time.hashCode()
+        result = 31 * result + date.hashCode()
+        return result
+    }
+
     override fun toString(): String {
         return "$title. $lecturer. $classroom. $type. $subgroup. $time. $date"
     }
@@ -79,13 +132,6 @@ class Pair(
                 Date(obj[JSON_DATE])
             )
         }
-    }
-
-    override fun compareTo(other: Pair): Int {
-        if (time.start == other.time.start) {
-            return subgroup.compareTo(other.subgroup)
-        }
-        return time.start.compareTo(other.time.start)
     }
 
     companion object {

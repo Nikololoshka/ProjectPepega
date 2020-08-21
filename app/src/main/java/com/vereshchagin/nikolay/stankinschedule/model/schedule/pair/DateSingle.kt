@@ -1,10 +1,12 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
+import android.content.Context
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.JsonObject
 import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils
 import org.joda.time.DateTime
+import org.joda.time.LocalDate
 import org.joda.time.format.DateTimeFormat
 
 /**
@@ -17,24 +19,32 @@ class DateSingle : DateItem {
 
     constructor(parcel: Parcel) : this(parcel.readSerializable() as DateTime)
 
-    constructor(text: String) {
+    constructor(text: String, pattern: String = JSON_DATE_PATTERN) {
         try {
-            date = DateTimeFormat.forPattern(JSON_DATE_PATTERN).parseDateTime(text)
+            date = DateTimeFormat.forPattern(pattern).parseDateTime(text)
             dayOfWeek = DayOfWeek.of(date)
         } catch (e: Exception) {
-            throw IllegalArgumentException("Invalid parse date: $text", e)
+            throw DateParseException("Invalid parse date: $text", text, e)
         }
     }
 
-    constructor(datetime: DateTime) {
-        date = datetime
+    constructor(dateTime: DateTime) {
+        date = dateTime
+        dayOfWeek = DayOfWeek.of(date)
+    }
+
+    constructor(dateTime: LocalDate) {
+        date = dateTime.toDateTimeAtStartOfDay()
         dayOfWeek = DayOfWeek.of(date)
     }
 
     constructor(obj: JsonObject) : this(obj[JSON_DATE].asString) {
         val frequency = obj[JSON_FREQUENCY].asString
         if (Frequency.of(frequency) != Frequency.ONCE) {
-            throw IllegalArgumentException("Invalid parse json: $obj")
+            throw DateFrequencyException(
+                "Invalid parse json: $obj",
+                this.toString(), Frequency.of(frequency)
+            )
         }
     }
 
@@ -73,8 +83,38 @@ class DateSingle : DateItem {
         throw IllegalArgumentException("Invalid compare object: $item")
     }
 
+    override fun startDate(): LocalDate {
+        return date.toLocalDate()
+    }
+
+    override fun endDate(): LocalDate {
+        return date.toLocalDate()
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as DateSingle
+
+        if (date != other.date) return false
+        if (dayOfWeek != other.dayOfWeek) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = date.hashCode()
+        result = 31 * result + dayOfWeek.hashCode()
+        return result
+    }
+
     override fun toString(): String {
         return date.toString(DateUtils.PRETTY_FORMAT)
+    }
+
+    override fun toString(context: Context): String {
+        return this.toString()
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
