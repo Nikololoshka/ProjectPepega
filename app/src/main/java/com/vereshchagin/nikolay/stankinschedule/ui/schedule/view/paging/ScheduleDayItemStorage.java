@@ -3,22 +3,17 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.JsonParseException;
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.Schedule;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.Pair;
-import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository;
 import com.vereshchagin.nikolay.stankinschedule.utils.StorageErrorData;
 
-import org.apache.commons.io.FileUtils;
+import org.joda.time.LocalDate;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -42,12 +37,12 @@ public class ScheduleDayItemStorage {
      * Первая дата в расписании.
      */
     @Nullable
-    private Calendar mFirstDate;
+    private LocalDate mFirstDate;
     /**
      * Последняя дата в расписании.
      */
     @Nullable
-    private Calendar mLastDate;
+    private LocalDate mLastDate;
     /**
      * Ограничивать ли расписание.
      */
@@ -61,7 +56,7 @@ public class ScheduleDayItemStorage {
      * Иннициализирующий ключ.
      */
     @Nullable
-    private Calendar mInitialKey;
+    private LocalDate mInitialKey;
     /**
      * Ошибка при работе хранилища.
      */
@@ -91,7 +86,7 @@ public class ScheduleDayItemStorage {
      * @return список с днями с парами.
      */
     @NonNull
-    List<ScheduleDayItem> dayItems(@NonNull Calendar key, int requestedLoadSize) {
+    List<ScheduleDayItem> dayItems(@NonNull LocalDate key, int requestedLoadSize) {
         if (mSchedule == null) {
             loadSchedule();
         }
@@ -105,22 +100,22 @@ public class ScheduleDayItemStorage {
                 return Collections.emptyList();
             }
 
-            if (key.after(mLastDate) || key.before(mFirstDate)) {
+            if (key.isBefore(mLastDate) || key.isBefore(mFirstDate)) {
                 return Collections.emptyList();
             }
         }
 
         List<ScheduleDayItem> dayItems = new ArrayList<>();
 
-        Calendar iterator = (Calendar) key.clone();
+        LocalDate iterator = new LocalDate(key);
         for (int i = 0; i < requestedLoadSize; i++) {
-            if (mIsLimit && iterator.after(mLastDate)) {
+            if (mIsLimit && iterator.isAfter(mLastDate)) {
                 break;
             }
 
-            TreeSet<Pair> pairs = mSchedule.pairsByDate(iterator);
-            dayItems.add(new ScheduleDayItem(pairs, (Calendar) iterator.clone()));
-            iterator.add(Calendar.DAY_OF_MONTH, 1);
+            TreeSet<Pair> pairs = new TreeSet<>(mSchedule.pairsByDate(iterator));
+            dayItems.add(new ScheduleDayItem(pairs, new LocalDate(iterator)));
+            iterator = iterator.plusDays(1);
         }
 
         return dayItems;
@@ -132,26 +127,19 @@ public class ScheduleDayItemStorage {
     void loadSchedule() {
         try {
             File scheduleFile = new File(mSchedulePath);
-            String json = FileUtils.readFileToString(scheduleFile, StandardCharsets.UTF_8);
 
-            mSchedule = Schedule.fromJson(json);
-            mFirstDate = mSchedule.firstDate();
-            mLastDate = mSchedule.lastDate();
+            ScheduleRepository repository = new ScheduleRepository();
+            mSchedule = repository.load(scheduleFile.getAbsolutePath());
+            mFirstDate = mSchedule.startDate();
+            mLastDate = mSchedule.endDate();
             mErrorData = null;
 
             return;
 
-        } catch (JsonParseException e) {
-            mErrorData = new StorageErrorData(R.string.sch_view_error_loading,
-                    e.getLocalizedMessage());
-
-        } catch (IOException e) {
-            mErrorData = new StorageErrorData(R.string.sch_view_error_loading,
-                    e.getLocalizedMessage());
-
         } catch (Exception e) {
             mErrorData = new StorageErrorData(R.string.sch_view_error_loading,
                     e.getLocalizedMessage());
+
         }
 
         mListener.onError();
@@ -199,17 +187,17 @@ public class ScheduleDayItemStorage {
      * Устанавливает инициализирующую дату.
      * @param key инициализирующая дата.
      */
-    public void setInitialKey(@Nullable Calendar key) {
+    public void setInitialKey(@Nullable LocalDate key) {
         mInitialKey = key;
     }
 
     @Nullable
-    public Calendar firstDate() {
+    public LocalDate firstDate() {
         return mFirstDate;
     }
 
     @Nullable
-    public Calendar lastDate() {
+    public LocalDate lastDate() {
         return mLastDate;
     }
 
@@ -234,7 +222,7 @@ public class ScheduleDayItemStorage {
      * @return инициализирующая дата.
      */
     @NonNull
-    Calendar initialKey() {
-        return mInitialKey == null ? CommonUtils.normalizeDate(new GregorianCalendar()) : mInitialKey;
+    LocalDate initialKey() {
+        return mInitialKey == null ? LocalDate.now() : mInitialKey;
     }
 }

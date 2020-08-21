@@ -18,9 +18,9 @@ import androidx.cardview.widget.CardView;
 import androidx.core.graphics.ColorUtils;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.Pair;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.SubgroupEnum;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.TypeEnum;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type;
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
 
 import java.util.Arrays;
@@ -115,19 +115,19 @@ public class PairCardView extends CardView {
         mPair = pair;
 
         // title
-        mTitleView.setText(mPair.title().title());
+        mTitleView.setText(mPair.getTitle());
 
         // lecturer
-        if (mPair.lecturer().lecturer().isEmpty()) {
+        if (mPair.getLecturer().isEmpty()) {
             mLecturerView.setVisibility(GONE);
         } else {
-            mLecturerView.setText(mPair.lecturer().lecturer());
+            mLecturerView.setText(mPair.getLecturer());
             mLecturerView.setVisibility(VISIBLE);
         }
 
         // type
-        mTypeView.setText(typeForPair(mPair.type().type()));
-        switch (mPair.type().type()) {
+        mTypeView.setText(typeForPair(mPair.getType()));
+        switch (mPair.getType()) {
             case LECTURE:
                 setupDrawableBackground(mTypeView, mLectureColor);
                 break;
@@ -140,20 +140,20 @@ public class PairCardView extends CardView {
         }
 
         // classroom
-        if (mPair.classroom().classroom().isEmpty()) {
+        if (mPair.getClassroom().isEmpty()) {
             mClassroomView.setVisibility(GONE);
         } else {
-            mClassroomView.setText(mPair.classroom().classroom());
+            mClassroomView.setText(mPair.getClassroom());
             mClassroomView.setVisibility(VISIBLE);
         }
 
         // subgroup
-        if (mPair.subgroup().subgroup() == SubgroupEnum.COMMON) {
+        if (mPair.getSubgroup() == Subgroup.COMMON) {
             mSubgroupView.setVisibility(GONE);
         } else {
-            mSubgroupView.setText(subgroupForPair(mPair.subgroup().subgroup()));
+            mSubgroupView.setText(subgroupForPair(mPair.getSubgroup()));
 
-            switch (mPair.subgroup().subgroup()) {
+            switch (mPair.getSubgroup()) {
                 case A:
                     setupDrawableBackground(mSubgroupView, mSubgroupAColor);
                     break;
@@ -166,8 +166,8 @@ public class PairCardView extends CardView {
         }
 
         // time
-        mTimeStartView.setText(mPair.time().start());
-        mTimeEndView.setText(mPair.time().end());
+        mTimeStartView.setText(mPair.getTime().startString());
+        mTimeEndView.setText(mPair.getTime().endString());
 
         // Log.d("MyLog", "updatePair: " + pair);
     }
@@ -194,7 +194,7 @@ public class PairCardView extends CardView {
      * @return строка типа пары.
      */
     @NonNull
-    private String typeForPair(@NonNull TypeEnum type) {
+    private String typeForPair(@NonNull Type type) {
         switch (type) {
             case LECTURE:
                 return mTypes.get(0);
@@ -212,7 +212,7 @@ public class PairCardView extends CardView {
      * @return строка подгруппы пары.
      */
     @NonNull
-    private String subgroupForPair(@NonNull SubgroupEnum subgroup) {
+    private String subgroupForPair(@NonNull Subgroup subgroup) {
         switch (subgroup) {
             case COMMON:
                 return "";

@@ -7,9 +7,10 @@ import androidx.paging.DataSource;
 import androidx.paging.PageKeyedDataSource;
 
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig;
-import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils;
 
-import java.util.Calendar;
+import org.joda.time.Days;
+import org.joda.time.LocalDate;
+
 import java.util.List;
 
 import static com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleDayItemStorage.PAGE_SIZE;
@@ -17,7 +18,7 @@ import static com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.S
 /**
  * Загружает данные для адаптера с расписанием.
  */
-public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, ScheduleDayItem> {
+public class ScheduleDayItemDataSource extends PageKeyedDataSource<LocalDate, ScheduleDayItem> {
 
     private static final String TAG = "ScheduleDayItemDSLog";
 
@@ -40,47 +41,47 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
     }
 
     @Override
-    public void loadInitial(@NonNull LoadInitialParams<Calendar> params,
-                            @NonNull LoadInitialCallback<Calendar, ScheduleDayItem> callback) {
+    public void loadInitial(@NonNull LoadInitialParams<LocalDate> params,
+                            @NonNull LoadInitialCallback<LocalDate, ScheduleDayItem> callback) {
 
         mDayItemStorage.loadSchedule();
-        Calendar currentDay = mDayItemStorage.initialKey();
+        LocalDate currentDay = mDayItemStorage.initialKey();
 
         // предыдущий день
-        Calendar previousDay = (Calendar) currentDay.clone();
-        previousDay.add(Calendar.DAY_OF_MONTH, -PAGE_SIZE);
+        LocalDate previousDay = new LocalDate(currentDay);
+        previousDay = previousDay.minusDays(PAGE_SIZE);
 
         // следующий день
-        Calendar nextDay = (Calendar) currentDay.clone();
-        nextDay.add(Calendar.DAY_OF_MONTH, params.requestedLoadSize);
+        LocalDate nextDay = new LocalDate(currentDay);
+        nextDay = nextDay.plusDays(params.requestedLoadSize);
 
         int loadSize = params.requestedLoadSize;
 
         if (mDayItemStorage.limit()) {
-            Calendar firstDate = mDayItemStorage.firstDate();
-            Calendar lastDate = mDayItemStorage.lastDate();
+            LocalDate firstDate = mDayItemStorage.firstDate();
+            LocalDate lastDate = mDayItemStorage.lastDate();
 
             if (firstDate != null && lastDate != null) {
                 // после последнего дня в расписании
-                if (currentDay.after(lastDate)) {
+                if (currentDay.isAfter(lastDate)) {
                     // текущий день
-                    currentDay = (Calendar) lastDate.clone();
+                    currentDay = new LocalDate(lastDate);
                     loadSize = 1;
 
                     // предыдущий день
                     if (firstDate.equals(lastDate)) {
                         previousDay = null;
                     } else {
-                        previousDay = (Calendar) currentDay.clone();
-                        previousDay.add(Calendar.DAY_OF_MONTH, -PAGE_SIZE);
+                        previousDay = new LocalDate(currentDay);
+                        previousDay = previousDay.minusDays(PAGE_SIZE);
                     }
 
                     // следующий день
                     nextDay = null;
 
-                } else if (currentDay.before(firstDate)) {
+                } else if (currentDay.isBefore(firstDate)) {
                     // текущий день
-                    currentDay = (Calendar) firstDate.clone();
+                    currentDay = new LocalDate(firstDate);
 
                     // предыдущий день
                     previousDay = null;
@@ -89,8 +90,8 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
                     if (firstDate.equals(lastDate)) {
                         nextDay = null;
                     } else  {
-                        nextDay = (Calendar) currentDay.clone();
-                        nextDay.add(Calendar.DAY_OF_MONTH, loadSize);
+                        nextDay = new LocalDate(currentDay);
+                        nextDay = nextDay.plusDays(loadSize);
                     }
                 }
             }
@@ -103,22 +104,22 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
     }
 
     @Override
-    public void loadBefore(@NonNull LoadParams<Calendar> params,
-                           @NonNull LoadCallback<Calendar, ScheduleDayItem> callback) {
+    public void loadBefore(@NonNull LoadParams<LocalDate> params,
+                           @NonNull LoadCallback<LocalDate, ScheduleDayItem> callback) {
 
         // предыдущая дата
-        Calendar adjacentDay = (Calendar) params.key.clone();
-        adjacentDay.add(Calendar.DAY_OF_MONTH, -params.requestedLoadSize);
+        LocalDate adjacentDay = new LocalDate(params.key);
+        adjacentDay = adjacentDay.minusDays(params.requestedLoadSize);
 
-        Calendar key = params.key;
+        LocalDate key = params.key;
         int loadSize = params.requestedLoadSize;
 
         if (mDayItemStorage.limit()) {
-            Calendar firstDate = mDayItemStorage.firstDate();
+            LocalDate firstDate = mDayItemStorage.firstDate();
 
-            if (firstDate != null && params.key.before(firstDate)) {
+            if (firstDate != null && params.key.isBefore(firstDate)) {
                 key = firstDate;
-                loadSize = params.requestedLoadSize - (int) CommonUtils.calendarDiff(firstDate, params.key);
+                loadSize = params.requestedLoadSize - Days.daysBetween(firstDate, params.key).getDays();
                 adjacentDay = null;
             }
         }
@@ -132,11 +133,11 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
     }
 
     @Override
-    public void loadAfter(@NonNull LoadParams<Calendar> params,
-                          @NonNull LoadCallback<Calendar, ScheduleDayItem> callback) {
+    public void loadAfter(@NonNull LoadParams<LocalDate> params,
+                          @NonNull LoadCallback<LocalDate, ScheduleDayItem> callback) {
         // следующий день
-        Calendar adjacentDay = (Calendar) params.key.clone();
-        adjacentDay.add(Calendar.DAY_OF_MONTH, params.requestedLoadSize);
+        LocalDate adjacentDay = new LocalDate(params.key);
+        adjacentDay = adjacentDay.plusDays(params.requestedLoadSize);
 
         // список с днями
         List<ScheduleDayItem> data = createData(params.key, params.requestedLoadSize);
@@ -145,10 +146,10 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
     }
 
     @NonNull
-    private List<ScheduleDayItem> createData(@NonNull Calendar key, int requestedLoadSize) {
+    private List<ScheduleDayItem> createData(@NonNull LocalDate key, int requestedLoadSize) {
         if (BuildConfig.DEBUG) {
             Log.d(TAG, String.format("From %s: size %d",
-                    CommonUtils.dateToString(key, "dd.MM.yyy"),
+                    key.toString("dd.MM.yyy"),
                     requestedLoadSize));
         }
 
@@ -158,7 +159,7 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
     /**
      * Фабрика для создания источника данных дней расписания.
      */
-    public static class Factory extends DataSource.Factory<Calendar, ScheduleDayItem> {
+    public static class Factory extends DataSource.Factory<LocalDate, ScheduleDayItem> {
 
         @NonNull
         private ScheduleDayItemStorage mDayItemStorage;
@@ -169,7 +170,7 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<Calendar, Sch
 
         @NonNull
         @Override
-        public DataSource<Calendar, ScheduleDayItem> create() {
+        public DataSource<LocalDate, ScheduleDayItem> create() {
             return new ScheduleDayItemDataSource(mDayItemStorage);
         }
     }

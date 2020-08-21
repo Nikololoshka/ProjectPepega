@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.Pair;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.PairCardView;
 import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils;
 
@@ -97,7 +97,7 @@ public class ScheduleDayItemAdapter extends PagedListAdapter<ScheduleDayItem, Sc
                 return;
             }
 
-            String title = CommonUtils.dateToString(dayItem.day(),
+            String title = dayItem.day().toString(
                     "EEEE, dd MMMM", CommonUtils.locale(mTitleView.getContext()));
             mTitleView.setText(CommonUtils.toTitleCase(title));
 

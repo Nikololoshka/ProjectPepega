@@ -37,25 +37,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.vereshchagin.nikolay.stankinschedule.R;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorActivity;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.Pair;
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity2;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleDayItem;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleDayItemAdapter;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewSpaceItemDecoration;
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference;
-import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils;
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout;
 import com.vereshchagin.nikolay.stankinschedule.utils.StorageErrorData;
 
 import org.apache.commons.io.FileUtils;
+import org.joda.time.Days;
+import org.joda.time.LocalDate;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorActivity.EXTRA_SCHEDULE_NAME;
@@ -101,7 +101,7 @@ public class ScheduleViewFragment extends Fragment
     /**
      * Дата, которую необходимо показать.
      */
-    private Calendar mScrollDate;
+    private LocalDate mScrollDate;
 
     private StatefulLayout mStatefulLayout;
 
@@ -152,7 +152,7 @@ public class ScheduleViewFragment extends Fragment
             mSchedulePath = savedInstanceState.getString(ARG_SCHEDULE_PATH);
             mScheduleName = savedInstanceState.getString(ARG_SCHEDULE_NAME);
             mPairCache = savedInstanceState.getParcelable(PAIR_CACHE);
-            mScrollDate = (Calendar) savedInstanceState.getSerializable(SCROLL_DATE);
+            mScrollDate = (LocalDate) savedInstanceState.getSerializable(SCROLL_DATE);
 
         } else if (getArguments() != null) {
             // если создаемся первый раз
@@ -213,7 +213,7 @@ public class ScheduleViewFragment extends Fragment
         // установка отображаемого дня, если был указан
         if (savedInstanceState == null && getArguments() != null) {
             Calendar date = (Calendar) getArguments().getSerializable(ARG_SCHEDULE_DAY);
-            mScheduleViewModel.storage().setInitialKey(date);
+            mScheduleViewModel.storage().setInitialKey(new LocalDate(date));
         }
 
         mScheduleViewModel.statesData().observe(getViewLifecycleOwner(), new Observer<ScheduleViewModel.States>() {
@@ -463,7 +463,7 @@ public class ScheduleViewFragment extends Fragment
                 Context context = getContext();
                 if (context != null) {
 
-                    Calendar initialDate = null;
+                    LocalDate initialDate = null;
 
                     // текущий отображаемый день
                     int pos = currentPosition();
@@ -479,26 +479,26 @@ public class ScheduleViewFragment extends Fragment
 
                     // если не получилось то текущая дата.
                     if (initialDate == null) {
-                        initialDate = new GregorianCalendar();
+                        initialDate = LocalDate.now();
                     }
 
-                    int year = initialDate.get(Calendar.YEAR);
-                    int month = initialDate.get(Calendar.MONTH);
-                    int dayOfMonth = initialDate.get(Calendar.DAY_OF_MONTH);
+                    int year = initialDate.getYear();
+                    int month = initialDate.getMonthOfYear();
+                    int dayOfMonth = initialDate.getDayOfMonth();
 
                     // picker даты
                     DatePickerDialog dialog = new DatePickerDialog(context,
                             new DatePickerDialog.OnDateSetListener() {
                                 @Override
                                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                    scrollScheduleTo(new GregorianCalendar(year, month, dayOfMonth));
+                                    scrollScheduleTo(new LocalDate(year, month, dayOfMonth));
                                 }
                     }, year, month, dayOfMonth);
                     dialog.setButton(DialogInterface.BUTTON_NEUTRAL, getString(R.string.sch_view_today),
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    scrollScheduleTo(CommonUtils.normalizeDate(new GregorianCalendar()));
+                                    scrollScheduleTo(LocalDate.now());
                                 }
                             });
                     dialog.show();
@@ -548,7 +548,7 @@ public class ScheduleViewFragment extends Fragment
             case R.id.add_pair: {
                 Context context = getContext();
                 if (context != null) {
-                    Intent intent = PairEditorActivity.newIntent(context, mSchedulePath, null);
+                    Intent intent = PairEditorActivity2.Companion.newPairIntent(context, mScheduleName);
                     startActivityForResult(intent, REQUEST_PAIR);
                 }
                 return true;
@@ -577,7 +577,7 @@ public class ScheduleViewFragment extends Fragment
 
         Context context = getContext();
         if (context != null) {
-            Intent intent = PairEditorActivity.newIntent(context, mSchedulePath, pair);
+            Intent intent = PairEditorActivity2.Companion.editPairIntent(context, mScheduleName, pair);
             startActivityForResult(intent, REQUEST_PAIR);
         }
     }
@@ -799,7 +799,7 @@ public class ScheduleViewFragment extends Fragment
      * Отображает в расписании необходимый день.
      * @param targetDay необходимый день.
      */
-    private void scrollScheduleTo(@NonNull Calendar targetDay) {
+    private void scrollScheduleTo(@NonNull LocalDate targetDay) {
         PagedList<ScheduleDayItem> items = mScheduleDayItemAdapter.getCurrentList();
         if (items == null) {
             return;
@@ -813,19 +813,19 @@ public class ScheduleViewFragment extends Fragment
 
                 boolean limit = mScheduleViewModel.storage().limit();
                 if (limit) {
-                    Calendar first = mScheduleViewModel.storage().firstDate();
-                    if (first != null && targetDay.before(first)) {
+                    LocalDate first = mScheduleViewModel.storage().firstDate();
+                    if (first != null && targetDay.isBefore(first)) {
                         targetDay = first;
                     }
 
-                    Calendar last = mScheduleViewModel.storage().lastDate();
-                    if (last != null && targetDay.after(last)) {
+                    LocalDate last = mScheduleViewModel.storage().lastDate();
+                    if (last != null && targetDay.isAfter(last)) {
                         targetDay = last;
                     }
                 }
 
-                Calendar currentDay = item.day();
-                int dayDiff = (int) CommonUtils.calendarDiff(targetDay, currentDay);
+                LocalDate currentDay = item.day();
+                int dayDiff = Days.daysBetween(targetDay, currentDay).getDays();
                 int scrollItemPos = pos + dayDiff;
 
                 if (scrollItemPos >= 0 && scrollItemPos < items.size()) {

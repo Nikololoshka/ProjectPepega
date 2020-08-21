@@ -2,10 +2,11 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging;
 
 import androidx.annotation.NonNull;
 
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.Pair;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
+
+import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.TreeSet;
@@ -24,10 +25,10 @@ public class ScheduleDayItem {
      * День.
      */
     @NonNull
-    private Calendar mDay;
+    private LocalDate mDay;
 
 
-    ScheduleDayItem(@NonNull TreeSet<Pair> pairs, @NonNull Calendar day) {
+    ScheduleDayItem(@NonNull TreeSet<Pair> pairs, @NonNull LocalDate day) {
         mPairs = new ArrayList<>(pairs);
         mDay = day;
     }
@@ -38,7 +39,7 @@ public class ScheduleDayItem {
     }
 
     @NonNull
-    public Calendar day() {
+    public LocalDate day() {
         return mDay;
     }
 

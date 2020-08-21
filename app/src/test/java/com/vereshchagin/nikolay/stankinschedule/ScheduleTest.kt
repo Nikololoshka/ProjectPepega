@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import org.apache.commons.io.FileUtils
 import org.junit.Assert
 import org.junit.Test
@@ -53,17 +54,28 @@ class ScheduleTest {
                 continue
             }
 
-            try {
-                val json = FileUtils.readFileToString(schedule, StandardCharsets.UTF_8)
-                GsonBuilder()
-                    .registerTypeAdapter(Schedule::class.java, Schedule.Deserializer())
-                    .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
-                    .create()
-                    .fromJson(json, Schedule::class.java)
+            val json = FileUtils.readFileToString(schedule, StandardCharsets.UTF_8)
+            GsonBuilder()
+                .registerTypeAdapter(Schedule::class.java, Schedule.Deserializer())
+                .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
+                .create()
+                .fromJson(json, Schedule::class.java)
+        }
+    }
 
-            } catch (e: IOException) {
-                println(e.message)
+    @Test
+    fun repositoryLoading() {
+        val schedules = FileUtils.listFiles(File(PATH_SCHEDULES), null, false)
+
+        val repository = ScheduleRepository()
+        for (schedule in schedules) {
+            println(schedule)
+
+            if (schedule.name == "МДС-18-02.json") {
+                continue
             }
+
+            repository.load(schedule.absolutePath)
         }
     }
 
