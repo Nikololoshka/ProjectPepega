@@ -12,7 +12,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -43,6 +42,7 @@ import java.util.Locale;
 /**
  * Активность для редактирование даты пары.
  */
+@Deprecated
 public class DateEditorActivity extends AppCompatActivity
     implements View.OnClickListener {
 
@@ -93,24 +93,18 @@ public class DateEditorActivity extends AppCompatActivity
         mStatefulLayout.setAnimation(StatefulLayout.PROPERTY_ANIMATION);
         mStatefulLayout.addXMLViews();
 
-        mSingleDateEdit = findViewById(R.id.single_date_edit);
         mSingleDateEdit.addTextChangedListener(new DateWatcher(mSingleDateEdit));
 
-        mRangeDateEditStart = findViewById(R.id.range_date_edit_start);
         mRangeDateEditStart.addTextChangedListener(new DateWatcher(mRangeDateEditStart));
-        mRangeDateEditEnd = findViewById(R.id.range_date_edit_end);
         mRangeDateEditEnd.addTextChangedListener(new DateWatcher(mRangeDateEditEnd));
 
-        mSpinnerDate = findViewById(R.id.spinner_date);
         mSpinnerDate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case SINGLE_MODE:
-                        mStatefulLayout.setState(R.id.single_date_mode);
                         break;
                     case RANGE_MODE:
-                        mStatefulLayout.setState(R.id.range_date_mode);
                         break;
                 }
             }
@@ -121,7 +115,6 @@ public class DateEditorActivity extends AppCompatActivity
             }
         });
 
-        mSpinnerFrequency = findViewById(R.id.spinner_frequency);
         mSpinnerFrequency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -142,9 +135,6 @@ public class DateEditorActivity extends AppCompatActivity
             }
         });
 
-        findViewById(R.id.single_date_picker).setOnClickListener(this);
-        findViewById(R.id.range_date_start_picker).setOnClickListener(this);
-        findViewById(R.id.range_date_end_picker).setOnClickListener(this);
 
         // инициализация полей
         if (savedInstanceState != null) {
@@ -288,38 +278,6 @@ public class DateEditorActivity extends AppCompatActivity
     public void onClick(View v) {
         // picker'ы дат
         switch (v.getId()) {
-            case R.id.single_date_picker:
-                createDatePickerDialog(mSingleDateEdit.getText().toString(),
-                        new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        mSingleDateEdit.setText(CommonUtils.dateToString(
-                                new GregorianCalendar(year, month, dayOfMonth), "dd.MM.yyyy"));
-                    }
-                });
-                break;
-            case R.id.range_date_start_picker:
-                createDatePickerDialog(mRangeDateEditStart.getText().toString(),
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                mRangeDateEditStart.setText(CommonUtils.dateToString(
-                                        new GregorianCalendar(year, month, dayOfMonth), "dd.MM.yyyy"));
-                                checkRangeDates();
-                            }
-                        });
-                break;
-            case R.id.range_date_end_picker:
-                createDatePickerDialog(mRangeDateEditEnd.getText().toString(),
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                mRangeDateEditEnd.setText(CommonUtils.dateToString(
-                                        new GregorianCalendar(year, month, dayOfMonth), "dd.MM.yyyy"));
-                                checkRangeDates();
-                            }
-                        });
-                break;
         }
     }
 

@@ -61,6 +61,7 @@ import static com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.date.D
 /**
  * Activity для редактирования пары.
  */
+@Deprecated
 public class PairEditorActivity extends AppCompatActivity
         implements View.OnClickListener, PairDatesAdaptor.OnDateItemClickListener {
 
@@ -136,7 +137,6 @@ public class PairEditorActivity extends AppCompatActivity
         mStatefulLayoutMain.setAnimation(StatefulLayout.PROPERTY_ANIMATION);
         mStatefulLayoutMain.addXMLViews();
 
-        mStatefulLayoutDates = findViewById(R.id.stateful_layout_dates);
         mStatefulLayoutDates.setAnimation(StatefulLayout.TRANSITION_ANIMATION);
         mStatefulLayoutDates.addXMLViews();
 
@@ -157,10 +157,6 @@ public class PairEditorActivity extends AppCompatActivity
         test.setAdapter(new ArrayAdapter<>(this, R.layout.dropdown_item_multiline,
                 R.id.dropdown_item, Arrays.asList("Лекция", "Семинар", "Лабораторная")));
 
-        mTypeSpinner = findViewById(R.id.spinner_type);
-        mSubgroupSpinner = findViewById(R.id.spinner_subgroup);
-        mTimeStartSpinner = findViewById(R.id.spinner_time_start);
-        mTimeEndSpinner = findViewById(R.id.spinner_time_end);
 
         findViewById(R.id.add_date).setOnClickListener(this);
 
@@ -668,7 +664,7 @@ public class PairEditorActivity extends AppCompatActivity
                 break;
             }
             case SUCCESSFULLY_LOADED: {
-                mStatefulLayoutMain.setState(R.id.pair_editor_content);
+
                 break;
             }
             case LOADING: {

@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.DiffUtil.Callback;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.DateItem;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Date;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.DateItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,11 +78,17 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
         };
     }
 
+    @Deprecated
+    public void submitList(@NonNull final List<com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.DateItem> data) {
+
+    }
+
     /**
      * Обновляет данные в адаптере.
-     * @param data новые данные.
+     * @param date новые данные.
      */
-    public void submitList(@NonNull final List<DateItem> data) {
+    public void submitList(@NonNull final Date date) {
+        final List<DateItem> data = new ArrayList<>(date.toList());
         DiffUtil.Callback diffUtil = new Callback() {
             @Override
             public int getOldListSize() {
@@ -107,7 +114,7 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
         DiffUtil.DiffResult result = DiffUtil.calculateDiff(diffUtil);
         result.dispatchUpdatesTo(this);
 
-        mDataList = new ArrayList<>(data);
+        mDataList = data;
     }
 
 
