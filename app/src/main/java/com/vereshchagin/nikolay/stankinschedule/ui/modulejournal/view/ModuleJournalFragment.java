@@ -191,6 +191,13 @@ public class ModuleJournalFragment extends Fragment implements SemestersAdapter.
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mStatefulLayoutMain.clear();
+        mStatefulLayoutPager.clear();
+    }
+
+    @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_module_journal, menu);

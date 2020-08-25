@@ -91,6 +91,10 @@ class DateSingle : DateItem {
         return date.toLocalDate()
     }
 
+    override fun clone(): DateItem {
+        return DateSingle(date)
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

@@ -131,6 +131,14 @@ class Date(
 
     fun toList(): MutableList<DateItem> = dates.toMutableList()
 
+    fun clone() : Date {
+        val date = Date()
+        for (d in this) {
+            date.add(d.clone())
+        }
+        return date
+    }
+
     /**
      * Проверяет, можно ли заменить дату в датах.
      * @param oldDate старая дата.

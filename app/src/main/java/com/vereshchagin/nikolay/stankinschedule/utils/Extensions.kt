@@ -3,7 +3,6 @@ package com.vereshchagin.nikolay.stankinschedule.utils
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.DateItem
 import java.util.*
 
 /**
@@ -42,7 +41,7 @@ fun MaterialAlertDialogBuilder.setOkButton(): MaterialAlertDialogBuilder {
  * Реализация removeIf для Java 7.
  * Аналогично {@link TreeSet#removeIf}.
  */
-fun TreeSet<DateItem>.removeIfJava7(filter: (item: DateItem) -> Boolean): Boolean {
+fun <T> AbstractSet<T>.removeIfJava7(filter: (item: T) -> Boolean): Boolean {
     var removed = false
     val each = iterator()
     while (each.hasNext()) {

@@ -304,7 +304,7 @@ class DateEditorActivity2 : AppCompatActivity() {
         }
 
         DatePickerDialog(
-            this, listener, showDate.year, showDate.monthOfYear, showDate.dayOfMonth
+            this, listener, showDate.year, showDate.monthOfYear - 1, showDate.dayOfMonth
         ).show()
     }
 
@@ -318,7 +318,7 @@ class DateEditorActivity2 : AppCompatActivity() {
                 showDataPicker(
                     binding.singleDate.text.toString()
                 ) { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
-                    val singleDate = LocalDate(year, month, dayOfMonth)
+                    val singleDate = LocalDate(year, month + 1, dayOfMonth)
                     binding.singleDate.setText(singleDate.toString(DATE_PATTERN))
                 }
             }
@@ -327,7 +327,7 @@ class DateEditorActivity2 : AppCompatActivity() {
                 showDataPicker(
                     binding.dateStart.text.toString()
                 ) { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
-                    val startDate = LocalDate(year, month, dayOfMonth)
+                    val startDate = LocalDate(year, month + 1, dayOfMonth)
                     binding.dateStart.setText(startDate.toString(DATE_PATTERN))
                 }
             }
@@ -336,7 +336,7 @@ class DateEditorActivity2 : AppCompatActivity() {
                 showDataPicker(
                     binding.dateEnd.text.toString()
                 ) { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
-                    val startDate = LocalDate(year, month, dayOfMonth)
+                    val startDate = LocalDate(year, month + 1, dayOfMonth)
                     binding.dateEnd.setText(startDate.toString(DATE_PATTERN))
                 }
             }

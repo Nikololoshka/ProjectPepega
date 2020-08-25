@@ -81,7 +81,7 @@
         <activity
             android:name=".ui.schedule.editor.date.DateEditorActivity2"
             android:label="@string/date_editor"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".ui.schedule.editor.pair.PairEditorActivity2"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.schedule.editor.date.DateEditorActivity"

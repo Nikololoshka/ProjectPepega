@@ -483,7 +483,7 @@ public class ScheduleViewFragment extends Fragment
                     }
 
                     int year = initialDate.getYear();
-                    int month = initialDate.getMonthOfYear();
+                    int month = initialDate.getMonthOfYear() - 1;
                     int dayOfMonth = initialDate.getDayOfMonth();
 
                     // picker даты
@@ -491,7 +491,7 @@ public class ScheduleViewFragment extends Fragment
                             new DatePickerDialog.OnDateSetListener() {
                                 @Override
                                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                    scrollScheduleTo(new LocalDate(year, month, dayOfMonth));
+                                    scrollScheduleTo(new LocalDate(year, month + 1, dayOfMonth));
                                 }
                     }, year, month, dayOfMonth);
                     dialog.setButton(DialogInterface.BUTTON_NEUTRAL, getString(R.string.sch_view_today),

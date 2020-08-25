@@ -69,7 +69,7 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
         scheduleName = intent.getStringExtra(EXTRA_SCHEDULE_NAME)!!
         editablePair = intent.getParcelableExtra(EXTRA_PAIR)
 
-        Log.d(TAG, "onCreate: $scheduleName")
+        // Log.d(TAG, "onCreate: $scheduleName")
 
         if (savedInstanceState != null) {
             date = savedInstanceState.getParcelable(DATE_PAIR)!!
@@ -77,7 +77,7 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
         } else {
             if (request == Request.EDIT_PAIR) {
                 editablePair!!.let {
-                    date = it.date
+                    date = it.date.clone()
                     bind(it)
                 }
             } else {
@@ -219,11 +219,13 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             // завершить редактирование пары
-            R.id.add_pair -> {
+            R.id.apply_pair -> {
+                savePair()
                 return true
             }
             // удалить текущую пару
             R.id.remove_pair -> {
+                removePair()
                 return true
             }
         }
@@ -367,6 +369,16 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
         }
 
         return true
+    }
+
+    /**
+     * Удаляет пару из расписания.
+     */
+    private fun removePair() {
+        viewModel.schedule?.let {
+            it.remove(editablePair)
+            viewModel.saveSchedule()
+        }
     }
 
     /**

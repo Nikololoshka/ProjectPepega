@@ -222,6 +222,10 @@ public class StatefulLayout extends FrameLayout {
         }
     }
 
+    public void clear() {
+        mStateViews.clear();
+    }
+
     /**
      * Проверяет, является ли переданный id слоя текущим.
      * @param id слой.

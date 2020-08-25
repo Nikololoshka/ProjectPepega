@@ -51,6 +51,27 @@ class PairTest {
         }
     }
 
+    fun takePair(num: Int) : Pair {
+        val file = FileUtils.getFile(PATH, String.format("pair_%d.json", num))
+        val json = FileUtils.readFileToString(file, StandardCharsets.UTF_8)
+
+        return GsonBuilder().registerTypeAdapter(
+            Pair::class.java,
+            Pair.Deserializer()
+        ).create().fromJson(
+            json,
+            Pair::class.java
+        )
+    }
+
+    @Test
+    fun compare() {
+        val pair1 = takePair(1)
+        val pair2 = takePair(1)
+
+        Assert.assertTrue(pair1 == pair2)
+    }
+
     companion object {
         private const val PATH = "src/test/resources/"
     }

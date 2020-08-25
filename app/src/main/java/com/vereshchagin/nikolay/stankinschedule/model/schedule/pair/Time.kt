@@ -105,7 +105,7 @@ class Time : Parcelable {
             }
         }
 
-        const val TIME_PATTERN = "HH:mm"
+        const val TIME_PATTERN = "H:mm"
         const val JSON_START = "start"
         const val JSON_END = "end"
 

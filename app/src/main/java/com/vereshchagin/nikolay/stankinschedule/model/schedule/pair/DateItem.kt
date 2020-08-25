@@ -51,7 +51,15 @@ abstract class DateItem : Comparable<DateItem>, Parcelable {
      */
     abstract fun endDate() : LocalDate
 
+    /**
+     * Возвращает копию объекта.
+     */
+    abstract fun clone() : DateItem
+
     override fun compareTo(other: DateItem): Int {
+        if (this == other) {
+            return 0
+        }
         return if (isBefore(other)) -1 else 1
     }
 

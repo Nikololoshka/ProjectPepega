@@ -168,6 +168,10 @@ class DateRange : DateItem {
         return end.toLocalDate()
     }
 
+    override fun clone(): DateItem {
+        return DateRange(start, end, frequency)
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

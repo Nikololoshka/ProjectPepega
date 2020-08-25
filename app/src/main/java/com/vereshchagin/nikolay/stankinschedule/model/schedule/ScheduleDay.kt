@@ -1,13 +1,15 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule
 
+import android.util.Log
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.PairIntersectException
+import com.vereshchagin.nikolay.stankinschedule.utils.removeIfJava7
 import org.joda.time.LocalDate
 
 
 class ScheduleDay {
 
-    val pairs = linkedSetOf<Pair>()
+    val pairs = hashSetOf<Pair>()
 
     fun add(pair: Pair) {
         isAddCheck(pair)
@@ -15,7 +17,11 @@ class ScheduleDay {
     }
 
     fun remove(pair: Pair) {
-        pairs.remove(pair)
+        val removed = pairs.removeIfJava7 {
+            Log.d("MyLog", "remove: $it, $pair -> " + (it == pair))
+            it == pair
+        }
+        Log.d("MyLog", "remove: $removed")
     }
 
     fun startDate(): LocalDate? {
@@ -72,14 +78,12 @@ class ScheduleDay {
 
     fun possibleChangePair(old: Pair?, new: Pair) {
         for (pair in pairs) {
-            if (pair != old) {
-                if (new.intersect(pair) && !new.separate(pair)) {
-                    throw PairIntersectException(
-                        "There can't be two pairs at the same time: '$pair' and '$new'",
-                        pair,
-                        new
-                    )
-                }
+            if (pair != old && new.intersect(pair) && !new.separate(pair)) {
+                throw PairIntersectException(
+                    "There can't be two pairs at the same time: '$pair' and '$new'",
+                    pair,
+                    new
+                )
             }
         }
     }

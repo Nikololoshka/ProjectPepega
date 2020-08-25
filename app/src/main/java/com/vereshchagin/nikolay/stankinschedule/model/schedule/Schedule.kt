@@ -23,7 +23,11 @@ class Schedule {
         weeks[pair.date.dayOfWeek()]!!.add(pair)
     }
 
-    fun remove(pair: Pair) {
+    fun remove(pair: Pair?) {
+        if (pair == null) {
+            return
+        }
+
         weeks[pair.date.dayOfWeek()]!!.remove(pair)
     }
 
@@ -87,7 +91,7 @@ class Schedule {
     fun changePair(old: Pair?, new: Pair) {
         possibleChangePair(old, new)
 
-        if (old != null) { remove(old) }
+        remove(old)
         add(new)
     }
 

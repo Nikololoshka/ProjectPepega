@@ -68,10 +68,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
                 scheduleStateful.setState(StatefulLayout2.CONTENT)
             }
         })
-
-        binding.testButton.setOnClickListener {
-            navigateTo(R.id.toScheduleFragment)
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
