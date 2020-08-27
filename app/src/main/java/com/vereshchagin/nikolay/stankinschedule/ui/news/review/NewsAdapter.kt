@@ -17,7 +17,7 @@ class NewsAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
             DEANERY_NEWS -> 125
             else -> throw RuntimeException("Unknown news type index: $position")
         }
-        return NewsPostsFragment(newsSubdivision)
+        return NewsPostsFragment.newInstance(newsSubdivision)
     }
 
     companion object {

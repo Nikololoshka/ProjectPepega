@@ -8,7 +8,7 @@
         style="@style/TextAppearance.MaterialComponents.Subtitle1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Добавление расписания"
+        android:text="@string/sch_adding_schedule"
         android:textColor="?android:attr/textColorPrimary"
         android:textAlignment="center"
         android:padding="@dimen/default_layout_padding"/>
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:drawableTop="@drawable/ic_common_schedule_new"
-            android:text="Создать"
+            android:text="@string/sch_create_new"
             android:textAlignment="center"
             android:clickable="true"
             android:focusable="true"/>
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:drawableTop="@drawable/ic_common_schedule_from_repo"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:text="Из репозитория"
+            android:text="@string/sch_from_repository"
             android:textAlignment="center"
             android:clickable="true"
             android:focusable="true"/>
@@ -50,13 +50,11 @@
             android:layout_height="wrap_content"
             android:drawableTop="@drawable/ic_common_schedule_from_device"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:text="Загрузить"
+            android:text="@string/sch_load"
             android:textAlignment="center"
             android:clickable="true"
             android:focusable="true"/>
 
     </LinearLayout>
-
-
 
 </LinearLayout>

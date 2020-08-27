@@ -22,11 +22,8 @@ import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerFragmen
 
 /**
  * Фрагмент для отображения списка новостей.
- * @param newsSubdivision ID отдела, чьи новости необходимо отображать.
  */
-class NewsPostsFragment(
-    private val newsSubdivision: Int
-) : BaseFragment<ItemNewsPostsBinding>(), NewsPostAdapter.OnNewsClickListener {
+class NewsPostsFragment: BaseFragment<ItemNewsPostsBinding>(), NewsPostAdapter.OnNewsClickListener {
 
     /**
      * ViewModel фрагмента.
@@ -34,6 +31,11 @@ class NewsPostsFragment(
     private val viewModel by viewModels<NewsPostsViewModel> {
         NewsPostsViewModel.Factory(newsSubdivision, activity?.application!!)
     }
+
+    /**
+     * ID отдела, чьи новости необходимо отображать.
+     */
+    private var newsSubdivision: Int = 0
 
     override fun onInflateView(
         inflater: LayoutInflater,
@@ -51,6 +53,8 @@ class NewsPostsFragment(
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .centerCrop()
             )
+
+        newsSubdivision = arguments?.getInt(NEWS_SUBDIVISION)!!
 
         // адаптер
         val adapter = NewsPostAdapter(this, glide) {
@@ -92,5 +96,16 @@ class NewsPostsFragment(
     override fun onNewsClick(newsId: Int) {
         val controller = Navigation.findNavController(requireActivity(), R.id.nav_host)
         controller.navigate(R.id.toNewsViewerFragment, NewsViewerFragment.createBundle(newsId))
+    }
+
+    companion object {
+
+        private const val NEWS_SUBDIVISION = "news_subdivision"
+
+        fun newInstance(newsSubdivision: Int) = NewsPostsFragment().also {
+            val args = Bundle()
+            args.putInt(NEWS_SUBDIVISION, newsSubdivision)
+            it.arguments = args
+        }
     }
 }

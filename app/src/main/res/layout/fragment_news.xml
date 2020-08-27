@@ -10,12 +10,24 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/news_tab_pager"
-        android:layout_height="?android:attr/actionBarSize"
         android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
         android:background="@color/colorPrimary"
-        app:tabTextColor="@color/colorTextLight"
+        app:tabGravity="fill"
         app:tabMode="fixed"
-        app:tabGravity="fill" />
+        app:tabTextColor="@color/colorTextLight" >
+
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/news_university"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/news_deanery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/news_pager"

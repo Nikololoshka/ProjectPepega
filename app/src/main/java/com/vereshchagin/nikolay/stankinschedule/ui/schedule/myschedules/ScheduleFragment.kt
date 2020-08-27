@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
@@ -122,6 +123,8 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
 
         itemTouchHelper = ItemTouchHelper(dragToMoveCallback)
         itemTouchHelper.attachToRecyclerView(binding.schedules)
+
+        binding.schedules.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.HORIZONTAL))
 
         // расписания
         viewModel.adapterData.observe(viewLifecycleOwner, Observer {
