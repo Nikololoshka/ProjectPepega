@@ -58,10 +58,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_common_schedule_add"
-            app:tint="@android:color/white"
-            app:backgroundTint="?android:attr/colorPrimary"
+            app:backgroundTint="@color/colorToolbar"
             app:layout_anchor="@id/schedules"
             app:layout_anchorGravity="bottom|end"
+            app:tint="@android:color/white"
             app:useCompatPadding="true" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

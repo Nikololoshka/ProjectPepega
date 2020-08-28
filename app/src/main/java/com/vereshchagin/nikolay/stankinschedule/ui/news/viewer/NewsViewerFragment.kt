@@ -6,10 +6,8 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.*
-import android.webkit.JavascriptInterface
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -106,6 +104,14 @@ class NewsViewerFragment : Fragment() {
 
         binding.newsView.isVerticalScrollBarEnabled = false
 
+        binding.newsView.webChromeClient = object  : WebChromeClient() {
+            override fun onConsoleMessage(consoleMessage: ConsoleMessage?): Boolean {
+                consoleMessage?.apply {
+                    Toast.makeText(requireContext(), message(), Toast.LENGTH_LONG).show()
+                }
+                return true
+            }
+        }
         binding.newsView.webViewClient = object : WebViewClient() {
             // переадресация ссылок
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
@@ -116,6 +122,7 @@ class NewsViewerFragment : Fragment() {
                 }
                 return false
             }
+
         }
 
         binding.appBarPost.addOnOffsetChangedListener(

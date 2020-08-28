@@ -21,8 +21,8 @@ import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityPairEditorBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.*
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.date.DateEditorActivity2
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditor2ViewModel.State.*
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.date.DateEditorActivity
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorViewModel.State.*
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.list.PairDatesAdaptor
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.list.SwipeToDeleteCallback
 import com.vereshchagin.nikolay.stankinschedule.utils.*
@@ -30,11 +30,11 @@ import com.vereshchagin.nikolay.stankinschedule.utils.*
 /**
  * Активность редактирования пары.
  */
-class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClickListener {
+class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClickListener {
 
     private lateinit var binding: ActivityPairEditorBinding
-    private val viewModel by viewModels<PairEditor2ViewModel> {
-        PairEditor2ViewModel.Factory(application, scheduleName)
+    private val viewModel by viewModels<PairEditorViewModel> {
+        PairEditorViewModel.Factory(application, scheduleName)
     }
 
     private lateinit var statefulEditor: StatefulLayout2
@@ -51,7 +51,7 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
 
         binding = ActivityPairEditorBinding.inflate(layoutInflater)
 
-        statefulEditor = StatefulLayout2.Builder(binding.root)
+        statefulEditor = StatefulLayout2.Builder(binding.statefulLayout)
             .init(StatefulLayout2.LOADING, binding.editorLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.editorContent)
             .create()
@@ -62,6 +62,8 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
             .create()
 
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         initFields()
 
@@ -94,7 +96,7 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
         updateDatesCountView()
 
         binding.addDate.setOnClickListener {
-            val intent = DateEditorActivity2.newDateIntent(this, date)
+            val intent = DateEditorActivity.newDateIntent(this, date)
             startActivityForResult(intent, REQUEST_DATE_EDITOR)
         }
 
@@ -106,7 +108,11 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
 
                 adapter.submitList(date)
 
-                Snackbar.make(binding.root, R.string.pair_editor_date_removed, Snackbar.LENGTH_SHORT)
+                Snackbar.make(
+                    binding.root,
+                    R.string.pair_editor_date_removed,
+                    Snackbar.LENGTH_SHORT
+                )
                     .setAction(R.string.undo) {
                         date.add(item)
                         adapter.submitList(date)
@@ -130,7 +136,7 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
         viewModel.scheduleState.observe(this, Observer {
             val state = it ?: return@Observer
 
-            when(state) {
+            when (state) {
                 SUCCESSFULLY_SAVED -> {
                     val intent = Intent()
                     setResult(Activity.RESULT_OK, intent)
@@ -143,7 +149,8 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
                     statefulEditor.setState(StatefulLayout2.LOADING)
                 }
                 ERROR -> {
-                    Toast.makeText(applicationContext,
+                    Toast.makeText(
+                        applicationContext,
                         R.string.pair_editor_loading_schedule_error, Toast.LENGTH_LONG
                     ).show()
                     super.onBackPressed()
@@ -188,7 +195,7 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
                     binding.editTextClassroom.text.toString(),
                     currentType(),
                     currentSubgroup(),
-                    Time(currentStartTime(),currentEndTime()),
+                    Time(currentStartTime(), currentEndTime()),
                     date
                 )
 
@@ -240,19 +247,19 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
             return
         }
 
-        val oldDate = data.getParcelableExtra<DateItem>(DateEditorActivity2.EXTRA_DATE_OLD)
-        val newDate = data.getParcelableExtra<DateItem>(DateEditorActivity2.EXTRA_DATE_NEW)
+        val oldDate = data.getParcelableExtra<DateItem>(DateEditorActivity.EXTRA_DATE_OLD)
+        val newDate = data.getParcelableExtra<DateItem>(DateEditorActivity.EXTRA_DATE_NEW)
 
         Log.d(TAG, "onActivityResult: $oldDate and $newDate")
 
         when (resultCode) {
-            DateEditorActivity2.RESULT_DATE_REMOVE -> {
+            DateEditorActivity.RESULT_DATE_REMOVE -> {
                 date.remove(oldDate)
             }
-            DateEditorActivity2.RESULT_DATE_NEW -> {
+            DateEditorActivity.RESULT_DATE_NEW -> {
                 date.add(newDate!!)
             }
-            DateEditorActivity2.RESULT_DATE_EDIT -> {
+            DateEditorActivity.RESULT_DATE_EDIT -> {
                 date.remove(oldDate)
                 date.add(newDate!!)
             }
@@ -263,7 +270,7 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
     }
 
     override fun onDateItemClicked(position: Int) {
-        val intent = DateEditorActivity2.editDateIntent(this, date, date.get(position))
+        val intent = DateEditorActivity.editDateIntent(this, date, date.get(position))
         startActivityForResult(intent, REQUEST_DATE_EDITOR)
     }
 
@@ -359,7 +366,7 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
 
         } catch (e: PairIntersectException) {
             val message = getString(R.string.pair_editor_conflict_pair, e.first)
-            MaterialAlertDialogBuilder(this)
+            MaterialAlertDialogBuilder(this, R.style.AppAlertDialog)
                 .setTitle(R.string.error)
                 .setMessage(message)
                 .setOkButton()
@@ -462,7 +469,7 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
      */
     private fun isCorrectDateField(): Boolean {
         if (date.isEmpty()) {
-            MaterialAlertDialogBuilder(this)
+            MaterialAlertDialogBuilder(this, R.style.AppAlertDialog)
                 .setTitle(R.string.error)
                 .setMessage(R.string.pair_editor_empty_dates_list)
                 .setOkButton()
@@ -506,7 +513,7 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
          * Intent на создание новой пары.
          */
         fun newPairIntent(context: Context, scheduleName: String): Intent {
-            val intent = Intent(context, PairEditorActivity2::class.java)
+            val intent = Intent(context, PairEditorActivity::class.java)
             intent.putExtra(EXTRA_SCHEDULE_NAME, scheduleName)
             intent.putExtra(EXTRA_REQUEST, Request.NEW_PAIR)
             return intent
@@ -516,7 +523,7 @@ class PairEditorActivity2 : AppCompatActivity(), PairDatesAdaptor.OnDateItemClic
          * Intent на редактирование пары.
          */
         fun editPairIntent(context: Context, scheduleName: String, pair: Pair) : Intent {
-            val intent = Intent(context, PairEditorActivity2::class.java)
+            val intent = Intent(context, PairEditorActivity::class.java)
             intent.putExtra(EXTRA_SCHEDULE_NAME, scheduleName)
             intent.putExtra(EXTRA_PAIR, pair)
             intent.putExtra(EXTRA_REQUEST, Request.EDIT_PAIR)

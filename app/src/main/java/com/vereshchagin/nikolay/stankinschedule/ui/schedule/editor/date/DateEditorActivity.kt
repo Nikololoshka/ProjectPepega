@@ -28,7 +28,7 @@ import org.joda.time.format.DateTimeFormat
 /**
  * Автивность редактора дат.
  */
-class DateEditorActivity2 : AppCompatActivity() {
+class DateEditorActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDateEditorBinding
     private lateinit var statefulMode: StatefulLayout2
@@ -91,6 +91,9 @@ class DateEditorActivity2 : AppCompatActivity() {
             .create()
 
         setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         date = intent.getParcelableExtra(EXTRA_DATE)!!
         dateItem = intent.getParcelableExtra(EXTRA_DATE_ITEM)
@@ -177,7 +180,7 @@ class DateEditorActivity2 : AppCompatActivity() {
                         }
                     }
 
-                    MaterialAlertDialogBuilder(this)
+                    MaterialAlertDialogBuilder(this, R.style.AppAlertDialog)
                         .setTitle(R.string.error)
                         .setMessage(message)
                         .setOkButton()
@@ -443,7 +446,7 @@ class DateEditorActivity2 : AppCompatActivity() {
 
     companion object {
 
-        private val TAG = DateEditorActivity2::getComponentName.name
+        private val TAG = DateEditorActivity::getComponentName.name
 
         const val EXTRA_DATE_NEW = "extra_new_date"
         const val EXTRA_DATE_OLD = "extra_old_date"
@@ -463,7 +466,7 @@ class DateEditorActivity2 : AppCompatActivity() {
          * Intent на создание новой даты.
          */
         fun newDateIntent(context: Context, date: Date): Intent {
-            val intent = Intent(context, DateEditorActivity2::class.java)
+            val intent = Intent(context, DateEditorActivity::class.java)
             intent.putExtra(EXTRA_DATE, date)
             intent.putExtra(EXTRA_REQUEST, Request.NEW_DATE)
             return intent
@@ -473,7 +476,7 @@ class DateEditorActivity2 : AppCompatActivity() {
          * Intent на редактиование даты.
          */
         fun editDateIntent(context: Context, date: Date, dateItem: DateItem): Intent {
-            val intent = Intent(context, DateEditorActivity2::class.java)
+            val intent = Intent(context, DateEditorActivity::class.java)
             intent.putExtra(EXTRA_DATE, date)
             intent.putExtra(EXTRA_DATE_ITEM, dateItem)
             intent.putExtra(EXTRA_REQUEST, Request.EDIT_DATE)

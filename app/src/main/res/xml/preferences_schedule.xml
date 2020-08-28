@@ -8,7 +8,7 @@
         android:title="@string/pref_schedule_view"
         app:layout="@layout/preference_custom_category" >
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="schedule_view_limit"
             android:title="@string/pref_schedule_view_limit"
             android:summary="@string/pref_schedule_view_limit_summary"

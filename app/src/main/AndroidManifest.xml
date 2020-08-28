@@ -41,20 +41,24 @@
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
-        </activity> <!-- Services -->
+        </activity>
+
+        <!-- Services -->
         <service
             android:name=".ui.schedule.repository.ScheduleDownloaderService"
             android:exported="false" />
         <service
             android:name=".widget.ScheduleWidgetRemoteFactory$Service"
-            android:permission="android.permission.BIND_REMOTEVIEWS" /> <!-- Activities -->
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <!-- Activities -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.Splash">
+            android:theme="@style/AppTheme.Splash"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter android:autoVerify="true">
@@ -72,22 +76,12 @@
             android:name=".ui.schedule.editor.pair.PairEditorActivity"
             android:label="@string/pair_editor"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ui.schedule.editor.pair.PairEditorActivity2"
-            android:label="@string/pair_editor"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ui.schedule.editor.date.DateEditorActivity2"
-            android:label="@string/date_editor"
-            android:parentActivityName=".ui.schedule.editor.pair.PairEditorActivity2"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.schedule.editor.date.DateEditorActivity"
             android:label="@string/date_editor"
             android:parentActivityName=".ui.schedule.editor.pair.PairEditorActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.schedule.editor.name.ScheduleNameEditorActivity"
             android:label="@string/schedule_editor"

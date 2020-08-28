@@ -12,7 +12,7 @@
         android:id="@+id/news_tab_pager"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorToolbar"
         app:tabGravity="fill"
         app:tabMode="fixed"
         app:tabTextColor="@color/colorTextLight" >

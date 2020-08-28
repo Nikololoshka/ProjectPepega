@@ -48,12 +48,10 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<LocalDate, Sc
         LocalDate currentDay = mDayItemStorage.initialKey();
 
         // предыдущий день
-        LocalDate previousDay = new LocalDate(currentDay);
-        previousDay = previousDay.minusDays(PAGE_SIZE);
+        LocalDate previousDay = currentDay.minusDays(PAGE_SIZE);
 
         // следующий день
-        LocalDate nextDay = new LocalDate(currentDay);
-        nextDay = nextDay.plusDays(params.requestedLoadSize);
+        LocalDate nextDay = currentDay.plusDays(params.requestedLoadSize);
 
         int loadSize = params.requestedLoadSize;
 
@@ -72,8 +70,7 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<LocalDate, Sc
                     if (firstDate.equals(lastDate)) {
                         previousDay = null;
                     } else {
-                        previousDay = new LocalDate(currentDay);
-                        previousDay = previousDay.minusDays(PAGE_SIZE);
+                        previousDay = currentDay.minusDays(PAGE_SIZE);
                     }
 
                     // следующий день
@@ -90,8 +87,7 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<LocalDate, Sc
                     if (firstDate.equals(lastDate)) {
                         nextDay = null;
                     } else  {
-                        nextDay = new LocalDate(currentDay);
-                        nextDay = nextDay.plusDays(loadSize);
+                        nextDay = currentDay.plusDays(loadSize);
                     }
                 }
             }
@@ -108,8 +104,7 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<LocalDate, Sc
                            @NonNull LoadCallback<LocalDate, ScheduleDayItem> callback) {
 
         // предыдущая дата
-        LocalDate adjacentDay = new LocalDate(params.key);
-        adjacentDay = adjacentDay.minusDays(params.requestedLoadSize);
+        LocalDate adjacentDay = params.key.minusDays(params.requestedLoadSize);
 
         LocalDate key = params.key;
         int loadSize = params.requestedLoadSize;
@@ -119,13 +114,14 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<LocalDate, Sc
 
             if (firstDate != null && params.key.isBefore(firstDate)) {
                 key = firstDate;
-                loadSize = params.requestedLoadSize - Days.daysBetween(firstDate, params.key).getDays();
+                loadSize = params.requestedLoadSize + Days.daysBetween(firstDate, params.key).getDays();
                 adjacentDay = null;
             }
         }
 
         // список с днями
         List<ScheduleDayItem> data = createData(key, loadSize);
+        Log.d(TAG, "loadBefore: " + data.size());
 
         mDayItemStorage.isThreadReset();
 
@@ -136,12 +132,11 @@ public class ScheduleDayItemDataSource extends PageKeyedDataSource<LocalDate, Sc
     public void loadAfter(@NonNull LoadParams<LocalDate> params,
                           @NonNull LoadCallback<LocalDate, ScheduleDayItem> callback) {
         // следующий день
-        LocalDate adjacentDay = new LocalDate(params.key);
-        adjacentDay = adjacentDay.plusDays(params.requestedLoadSize);
+        LocalDate adjacentDay = params.key.plusDays(params.requestedLoadSize);
 
         // список с днями
         List<ScheduleDayItem> data = createData(params.key, params.requestedLoadSize);
-
+        Log.d(TAG, "loadAfter: " + data.size());
         callback.onResult(data, adjacentDay);
     }
 

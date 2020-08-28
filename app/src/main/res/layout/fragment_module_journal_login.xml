@@ -20,8 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
-            style="@style/CardStyle"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
@@ -35,8 +34,10 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/mj_login_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/mj_login"
@@ -52,8 +53,10 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/mj_password_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:errorEnabled="true"
                     app:passwordToggleEnabled="true" >
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -75,8 +78,8 @@
                     android:orientation="horizontal" >
 
                     <Button
-                        style="@style/Button.Colored"
                         android:id="@+id/mj_forgot_password"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/mj_forgot_password"
@@ -89,8 +92,8 @@
                         android:layout_weight="1" />
 
                     <Button
-                        style="@style/Button.Colored"
                         android:id="@+id/mj_sign_in"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/mj_sign_in"/>
@@ -99,7 +102,7 @@
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </FrameLayout>
 

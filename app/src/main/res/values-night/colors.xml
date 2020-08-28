@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Цвета приложения -->
-    <color name="colorPrimary">#424242</color>
-    <color name="colorPrimaryDark">#6d6d6d</color>
-    <color name="colorPrimaryLight">#1b1b1b</color>
+    <color name="colorPrimary">#90A1FF</color>
+    <color name="colorOnPrimary">#000000</color>
+    <color name="colorPrimaryVariant">#303F9F</color>
+
+    <color name="colorSecondary">#FF9800</color>
+    <color name="colorOnSecondary">#000000</color>
+    <color name="colorSecondaryVariant">#FB9F17</color>
+
+    <color name="colorSurface">#121212</color>
+    <color name="colorOnSurface">#FFFFFF</color>
+
+    <color name="colorToolbar">@color/colorSurface</color>
 
     <!-- Цвет текста, если ссылки на тему не поддерживаются -->
     <color name="colorTextPrimary">#FFFFFF</color>

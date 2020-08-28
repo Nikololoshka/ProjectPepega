@@ -35,43 +35,12 @@
             app:cardElevation="8dp"
             app:cardMaxElevation="12dp" >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/settings"
-                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:paddingStart="@dimen/drawer_horizontal_padding"
-                    android:paddingEnd="@dimen/drawer_horizontal_padding"
-                    android:text="@string/nav_settings"
-                    android:textAllCaps="false"
-                    android:textAppearance="@style/Text"
-                    android:textColor="?android:attr/textColorPrimary"
-                    app:cornerRadius="@null"
-                    app:icon="@drawable/ic_nav_settings"
-                    app:iconTint="?android:attr/textColorPrimary" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <ImageButton
-                    style="?android:attr/actionButtonStyle"
+                <Switch
                     android:id="@+id/dark_mode_button"
-                    android:src="@drawable/ic_button_dark_mode"
-                    android:adjustViewBounds="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/nav_dark_mode" />
-
-            </LinearLayout>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_dark_mode"
+                    android:padding="@dimen/drawer_horizontal_padding"/>
 
         </androidx.cardview.widget.CardView>
 

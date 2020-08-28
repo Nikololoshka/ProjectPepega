@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 /**
  * ViewModel для редактирование пар.
  */
-class PairEditor2ViewModel(
+class PairEditorViewModel(
     application: Application, private val scheduleName: String
 ) : AndroidViewModel(application) {
 
@@ -91,7 +91,7 @@ class PairEditor2ViewModel(
     ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return PairEditor2ViewModel(application, scheduleName) as T
+            return PairEditorViewModel(application, scheduleName) as T
         }
     }
 }

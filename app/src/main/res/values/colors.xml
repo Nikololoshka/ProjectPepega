@@ -2,16 +2,20 @@
 <resources>
     <!-- Цвета приложения -->
     <color name="colorPrimary">#3F51B5</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
     <color name="colorPrimaryVariant">#303F9F</color>
+
     <color name="colorSecondary">#FF9800</color>
+    <color name="colorOnSecondary">#000000</color>
     <color name="colorSecondaryVariant">#cf7b00</color>
 
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnSurface">#000000</color>
+
+    <color name="colorToolbar">@color/colorPrimary</color>
+
     <!-- AppCompat -->
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorPrimaryLight">#C5CAE9</color>
     <color name="colorAccent">#FF9800</color>
-    <color name="colorAccentDark">#cf7b00</color>
-    <color name="colorAccentLight">#feba56</color>
 
     <!-- Цвет текста, если ссылки на тему не поддерживаются -->
     <color name="colorTextPrimary">#000000</color>

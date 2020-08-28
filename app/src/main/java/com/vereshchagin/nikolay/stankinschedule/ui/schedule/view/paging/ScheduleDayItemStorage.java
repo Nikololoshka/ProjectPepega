@@ -100,7 +100,7 @@ public class ScheduleDayItemStorage {
                 return Collections.emptyList();
             }
 
-            if (key.isBefore(mLastDate) || key.isBefore(mFirstDate)) {
+            if (key.isAfter(mLastDate) || key.isBefore(mFirstDate)) {
                 return Collections.emptyList();
             }
         }

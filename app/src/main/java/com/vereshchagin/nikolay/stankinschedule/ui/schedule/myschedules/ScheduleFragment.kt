@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorActivity
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
@@ -124,7 +124,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         itemTouchHelper = ItemTouchHelper(dragToMoveCallback)
         itemTouchHelper.attachToRecyclerView(binding.schedules)
 
-        binding.schedules.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.HORIZONTAL))
+        binding.schedules.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
 
         // расписания
         viewModel.adapterData.observe(viewLifecycleOwner, Observer {
@@ -182,8 +182,8 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
             REQUEST_ADD_SCHEDULE -> {
                 when (data.getIntExtra(AddScheduleBottomSheet.SCHEDULE_ACTION, -1)) {
                     R.id.create_schedule -> {
-                        val intent = Intent(activity, ScheduleNameEditorActivity::class.java)
-                        startActivityForResult(intent, REQUEST_NEW_SCHEDULE)
+                        val dialog = ScheduleNameEditorDialog.newInstance("")
+                        dialog.show(parentFragmentManager, dialog.tag)
                     }
                     R.id.from_repository -> {
                         navigateTo(R.id.toScheduleRepositoryFragment)

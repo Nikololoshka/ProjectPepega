@@ -39,7 +39,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorActivity;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity2;
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleDayItem;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleDayItemAdapter;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewSpaceItemDecoration;
@@ -522,7 +522,7 @@ public class ScheduleViewFragment extends Fragment
             }
             // если удалить расписание
             case R.id.remove_schedule: {
-                new AlertDialog.Builder(getContext())
+                new AlertDialog.Builder(getContext(), R.style.AppAlertDialog)
                         .setTitle(R.string.warning)
                         .setMessage(getString(R.string.sch_view_will_be_deleted))
                         .setNeutralButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -548,7 +548,7 @@ public class ScheduleViewFragment extends Fragment
             case R.id.add_pair: {
                 Context context = getContext();
                 if (context != null) {
-                    Intent intent = PairEditorActivity2.Companion.newPairIntent(context, mScheduleName);
+                    Intent intent = PairEditorActivity.Companion.newPairIntent(context, mScheduleName);
                     startActivityForResult(intent, REQUEST_PAIR);
                 }
                 return true;
@@ -577,7 +577,7 @@ public class ScheduleViewFragment extends Fragment
 
         Context context = getContext();
         if (context != null) {
-            Intent intent = PairEditorActivity2.Companion.editPairIntent(context, mScheduleName, pair);
+            Intent intent = PairEditorActivity.Companion.editPairIntent(context, mScheduleName, pair);
             startActivityForResult(intent, REQUEST_PAIR);
         }
     }

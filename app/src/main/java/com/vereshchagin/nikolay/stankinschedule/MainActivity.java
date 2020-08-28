@@ -8,8 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MainActivityLog";
 
     private DrawerLayout mDrawer;
-    private ImageButton mDarkModeButton;
+    private Switch mDarkModeButton;
 
     // private ImageView mImageView;
 
@@ -97,10 +96,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        Button settingButton = mDrawer.findViewById(R.id.settings);
-        settingButton.setOnClickListener(this);
-
         mDarkModeButton = mDrawer.findViewById(R.id.dark_mode_button);
+        boolean isDark = ApplicationPreference.currentManualMode(this);
+        mDarkModeButton.setChecked(isDark);
+
         mDarkModeButton.setOnClickListener(this);
         updateDarkModeButton();
 
@@ -153,27 +152,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.settings: {
-                NavController navController = Navigation.findNavController(this, R.id.nav_host);
-                navController.navigate(R.id.toSettings);
-                mDrawer.closeDrawers();
-                break;
+        if (v.getId() == R.id.dark_mode_button) {
+            // если кнопка все равно осталась
+            String darkMode = ApplicationPreference.currentDarkMode(this);
+            if (!darkMode.equals(ApplicationPreference.DARK_MODE_MANUAL)) {
+                mDarkModeButton.setVisibility(View.GONE);
+                return;
             }
-            case R.id.dark_mode_button: {
-                // если кнопка все равно осталась
-                String darkMode = ApplicationPreference.currentDarkMode(this);
-                if (!darkMode.equals(ApplicationPreference.DARK_MODE_MANUAL)) {
-                    mDarkModeButton.setVisibility(View.GONE);
-                    return;
-                }
 
-                boolean isDark = ApplicationPreference.currentManualMode(this);
-                isDark = !isDark;
+            boolean isDark = ApplicationPreference.currentManualMode(this);
+            isDark = !isDark;
 
-                AppCompatDelegate.setDefaultNightMode(isDark ?
-                        AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
-                ApplicationPreference.setManualMode(this, isDark);
+            AppCompatDelegate.setDefaultNightMode(isDark ?
+                    AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+            ApplicationPreference.setManualMode(this, isDark);
 
                 /*
                 getWindow().setWindowAnimations(R.style.WindowAnimationTransition);
@@ -203,9 +195,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 animator.start();
                 */
-
-                break;
-            }
         }
     }
 
