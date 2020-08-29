@@ -17,6 +17,7 @@ class SchedulesAdapter(
     private var schedules: List<String> = listOf()
     private var favorite: String = ""
     private var isAnimateFavoriteButton = false
+    private var isEditable = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleItemHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -29,7 +30,7 @@ class SchedulesAdapter(
     override fun onBindViewHolder(holder: ScheduleItemHolder, position: Int) {
         val name = schedules[position]
         holder.bind(name, name == favorite, isAnimateFavoriteButton,
-            selectedItems.get(position, false))
+            selectedItems.get(position, false), isEditable)
     }
 
     private fun animationController(animate: Boolean) {
@@ -52,6 +53,11 @@ class SchedulesAdapter(
 
     fun setSelectedItems(selectedItems: SparseBooleanArray) {
         this.selectedItems = selectedItems
+        notifyDataSetChanged()
+    }
+
+    fun setEditable(editable: Boolean) {
+        isEditable = editable
         notifyDataSetChanged()
     }
 

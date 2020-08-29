@@ -257,7 +257,7 @@ public class ModuleJournalLoginFragment extends Fragment
                     description = getString(error.errorDescriptionRes());
                 }
 
-                new AlertDialog.Builder(getContext(), R.style.AppAlertDialog)
+                new AlertDialog.Builder(getContext())
                         .setTitle(title)
                         .setMessage(description)
                         .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {

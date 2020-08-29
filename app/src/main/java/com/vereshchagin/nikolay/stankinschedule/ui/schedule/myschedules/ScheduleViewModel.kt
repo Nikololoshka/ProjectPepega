@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules
 
 import android.app.Application
 import android.util.SparseBooleanArray
+import androidx.core.util.forEach
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,10 +27,32 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
     /**
      * Обновляет список расписаний и избранное.
      */
-    private fun update() {
+    fun update() {
         val schedules = repository.schedules(getApplication())
         val favorite = SchedulePreference.favorite(getApplication())
         adapterData.value = schedules to favorite
+    }
+
+    /**
+     * Удаляет выбранные расписания.
+     */
+    fun removeSelected() {
+        val schedules = adapterData.value?.first
+        selectedItems.value?.forEach { key, value ->
+            if (schedules != null && value) {
+                val scheduleName = schedules[key]
+                repository.removeSchedule(getApplication(), scheduleName)
+            }
+        }
+        update()
+    }
+
+    /**
+     * Создает новое расписание.
+     */
+    fun createSchedule(scheduleName: String) {
+        repository.createSchedule(getApplication(), scheduleName)
+        update()
     }
 
     /**

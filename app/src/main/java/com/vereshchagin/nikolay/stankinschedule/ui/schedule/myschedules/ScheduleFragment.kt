@@ -2,13 +2,18 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules
 
 import android.Manifest
 import android.app.Activity
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +23,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleDownloaderService
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
@@ -42,6 +48,12 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
 
     private var actionMode: ActionMode? = null
 
+    private val receiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            viewModel.update()
+        }
+    }
+
     /**
      * Callback для ActionMode.
      */
@@ -49,7 +61,8 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
             when (item?.itemId) {
                 R.id.remove_schedule -> {
-
+                    viewModel.removeSelected()
+                    mode?.finish()
                 }
             }
             return true
@@ -69,17 +82,33 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         }
 
         override fun onDestroyActionMode(mode: ActionMode?) {
-            viewModel.clearSelection()
             binding.addSchedule.show()
-            adapter.notifyDataSetChanged()
+            adapter.setEditable(false)
 
             actionMode = null
         }
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        LocalBroadcastManager.getInstance(context)
+            .registerReceiver(receiver, IntentFilter(ScheduleDownloaderService.SCHEDULE_DOWNLOADED_EVENT))
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        LocalBroadcastManager.getInstance(requireContext())
+            .unregisterReceiver(receiver)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        actionMode?.finish()
     }
 
     override fun onInflateView(
@@ -124,7 +153,12 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         itemTouchHelper = ItemTouchHelper(dragToMoveCallback)
         itemTouchHelper.attachToRecyclerView(binding.schedules)
 
-        binding.schedules.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
+        binding.schedules.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(),
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
         // расписания
         viewModel.adapterData.observe(viewLifecycleOwner, Observer {
@@ -146,7 +180,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         // был активирован action mode
         savedInstanceState?.getBoolean(ACTION_MODE)?.let {
             if (it) {
-                startActionMode()
+                startActionMode(isRestore = true)
             }
         }
     }
@@ -183,6 +217,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                 when (data.getIntExtra(AddScheduleBottomSheet.SCHEDULE_ACTION, -1)) {
                     R.id.create_schedule -> {
                         val dialog = ScheduleNameEditorDialog.newInstance("")
+                        dialog.setTargetFragment(this, REQUEST_NEW_SCHEDULE)
                         dialog.show(parentFragmentManager, dialog.tag)
                     }
                     R.id.from_repository -> {
@@ -195,7 +230,11 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
             }
             // создано новое расписание
             REQUEST_NEW_SCHEDULE -> {
-                TODO("Unhandled result")
+                val scheduleName = data.getStringExtra(ScheduleNameEditorDialog.SCHEDULE_NAME)
+                if (!scheduleName.isNullOrEmpty()) {
+                    Log.d(TAG, "onActivityResult: ")
+                    viewModel.createSchedule(scheduleName)
+                }
             }
             // загрузка расписания с устройста
             REQUEST_LOAD_SCHEDULE -> {
@@ -235,8 +274,10 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
             return
         }
 
-        navigateTo(R.id.fromScheduleFragmentToScheduleViewFragment,
-            ScheduleViewFragment.createBundle(schedule,
+        navigateTo(
+            R.id.fromScheduleFragmentToScheduleViewFragment,
+            ScheduleViewFragment.createBundle(
+                schedule,
                 SchedulePreference.createPath(requireContext(), schedule)
             )
         )
@@ -259,13 +300,19 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     }
 
     /**
-     * Запускает режим ActionMode.
+     * Запускает режим редактирования.
      */
-    private fun startActionMode(position: Int = -1) {
+    private fun startActionMode(position: Int = -1, isRestore: Boolean = false) {
         if (actionMode == null) {
             actionMode = (activity as AppCompatActivity?)?.startSupportActionMode(actionCallback)
+
+            adapter.setEditable(true)
             binding.addSchedule.hide()
             updateActionModeTitle()
+
+            if (!isRestore) {
+                viewModel.clearSelection()
+            }
 
             if (position >= 0) {
                 selectItem(position)
@@ -274,7 +321,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     }
 
     /**
-     * "Выбирает" объект в режиме ActionMode.
+     * "Выбирает" объект в режиме редактирования.
      */
     private fun selectItem(position: Int) {
         val count = viewModel.selectItem(position)
@@ -288,7 +335,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     }
 
     /**
-     * Обновляет число выбранных элементов в ActionMode.
+     * Обновляет число выбранных элементов в режиме редактирования.
      */
     private fun updateActionModeTitle() {
         viewModel.selectedItems.value?.let {

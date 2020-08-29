@@ -38,6 +38,44 @@ class ScheduleRepository {
     }
 
     /**
+     * Создает расписание.
+     */
+    fun createSchedule(context: Context, scheduleName: String) {
+        val schedule = Schedule()
+        val path = SchedulePreference.createPath(context, scheduleName)
+        save(schedule, path)
+        SchedulePreference.add(context, scheduleName)
+    }
+
+    /**
+     * Переименновывает расписание.
+     */
+    fun renameSchedule(context: Context, oldName: String, newName: String) {
+        val oldFile = File(SchedulePreference.createPath(context, oldName))
+        val newFile = File(SchedulePreference.createPath(context, newName))
+
+        FileUtils.moveFile(oldFile, newFile)
+
+        // если удалось переименовать расписание
+        SchedulePreference.remove(context, oldName)
+        SchedulePreference.add(context, newName)
+
+        if (oldName == SchedulePreference.favorite(context)) {
+            SchedulePreference.setFavorite(context, newName)
+        }
+    }
+
+    /**
+     * Удаляет расписание.
+     */
+    fun removeSchedule(context: Context, scheduleName: String) {
+        val path = SchedulePreference.createPath(context, scheduleName)
+        if (FileUtils.deleteQuietly(File(path))) {
+            SchedulePreference.remove(context, scheduleName)
+        }
+    }
+
+    /**
      * Сохраняет расписание.
      */
     fun save(schedule: Schedule, path: String) {

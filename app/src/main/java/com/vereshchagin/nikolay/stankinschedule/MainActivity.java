@@ -241,12 +241,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             }
-
-            // если deep link
-            if (Intent.ACTION_VIEW.equals(intent.getAction()) && (intent.getData() != null)) {
-                NavController navController = Navigation.findNavController(this, R.id.nav_host);
-                navController.navigate(R.id.toModuleJournalFragment);
-            }
         }
     }
 }

@@ -38,7 +38,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.snackbar.Snackbar;
 import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorActivity;
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository;
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleDayItem;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleDayItemAdapter;
@@ -58,7 +59,6 @@ import java.io.OutputStream;
 import java.util.Calendar;
 
 import static android.app.Activity.RESULT_CANCELED;
-import static com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorActivity.EXTRA_SCHEDULE_NAME;
 
 /**
  * Фрагмент просмотра расписания.
@@ -452,10 +452,9 @@ public class ScheduleViewFragment extends Fragment
         switch (item.getItemId()) {
             // если нужно переименовать расписание
             case R.id.rename_schedule: {
-                Intent intent = new Intent(getActivity(), ScheduleNameEditorActivity.class);
-                intent.putExtra(EXTRA_SCHEDULE_NAME, mScheduleName);
-                startActivityForResult(intent, REQUEST_SCHEDULE_NAME);
-
+                ScheduleNameEditorDialog dialog = ScheduleNameEditorDialog.newInstance(mScheduleName);
+                dialog.setTargetFragment(this, REQUEST_SCHEDULE_NAME);
+                dialog.show(getParentFragmentManager(), dialog.getTag());
                 return true;
             }
             // к выбранному дню
@@ -522,7 +521,7 @@ public class ScheduleViewFragment extends Fragment
             }
             // если удалить расписание
             case R.id.remove_schedule: {
-                new AlertDialog.Builder(getContext(), R.style.AppAlertDialog)
+                new AlertDialog.Builder(getContext())
                         .setTitle(R.string.warning)
                         .setMessage(getString(R.string.sch_view_will_be_deleted))
                         .setNeutralButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -613,40 +612,21 @@ public class ScheduleViewFragment extends Fragment
                     return;
                 }
 
-                String newScheduleName = data.getStringExtra(EXTRA_SCHEDULE_NAME);
+                String newScheduleName = data.getStringExtra(ScheduleNameEditorDialog.SCHEDULE_NAME);
+                if (newScheduleName != null) {
+                    ScheduleRepository repository = new ScheduleRepository();
+                    repository.renameSchedule(context, mScheduleName, newScheduleName);
 
-                File oldFile = new File(SchedulePreference.createPath(context, mScheduleName));
-                File newFile = new File(SchedulePreference.createPath(context, newScheduleName));
+                    // новые значения расписания
+                    mScheduleName = newScheduleName;
+                    mSchedulePath = SchedulePreference.createPath(context, newScheduleName);
 
-                try {
-                    // пытаемся переименовать расписание
-                    FileUtils.moveFile(oldFile, newFile);
+                    mScheduleViewModel.storage().setSchedulePath(mSchedulePath);
+                    reloadSchedule();
+                    updateActionBar();
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    showMessage(getString(R.string.sch_view_unable_rename));
-
-                    return;
+                    showMessage(getString(R.string.sch_view_renamed));
                 }
-
-                // если удалось переименовать расписание
-                SchedulePreference.remove(context, mScheduleName);
-                SchedulePreference.add(context, newScheduleName);
-
-                if (mScheduleName.equals(SchedulePreference.favorite(context))) {
-                    SchedulePreference.setFavorite(context, newScheduleName);
-                }
-
-                // новые значения расписания
-                mScheduleName = newScheduleName;
-                mSchedulePath = newFile.getAbsolutePath();
-
-                mScheduleViewModel.storage().setSchedulePath(mSchedulePath);
-                reloadSchedule();
-                updateActionBar();
-
-                showMessage(getString(R.string.sch_view_renamed));
-
                 break;
             }
             // запрос на сохранения расписания

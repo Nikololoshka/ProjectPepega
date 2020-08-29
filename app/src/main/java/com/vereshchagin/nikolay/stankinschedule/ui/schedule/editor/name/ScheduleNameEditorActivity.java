@@ -98,7 +98,7 @@ public class ScheduleNameEditorActivity extends AppCompatActivity {
             // такое название уже есть
             String schedule = mScheduleNameEdit.getText().toString();
             if (SchedulePreference.contains(this, schedule)) {
-                new AlertDialog.Builder(this, R.style.AppAlertDialog)
+                new AlertDialog.Builder(this)
                         .setTitle(R.string.error)
                         .setMessage(getString(R.string.schedule_editor_exists))
                         .setNeutralButton(getString(R.string.ok), new DialogInterface.OnClickListener() {

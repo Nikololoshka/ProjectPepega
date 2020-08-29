@@ -92,7 +92,7 @@ public class ColorPickerDialog extends DialogFragment
             return super.onCreateDialog(savedInstanceState);
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.AppAlertDialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
         builder.setTitle(R.string.picker_color_choose_color);
         builder.setPositiveButton(R.string.ok, this);

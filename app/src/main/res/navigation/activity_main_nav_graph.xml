@@ -38,6 +38,9 @@
             app:destination="@id/nav_news_fragment"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+<!--        <action-->
+<!--            android:id="@+id/toNewsViewerDeepLink"-->
+<!--            app:destination="@id/nav_news_viewer_fragment" />-->
 
     </fragment>
 
@@ -68,7 +71,7 @@
     <fragment
         android:id="@+id/nav_module_journal_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.ModuleJournalFragment"
-        android:label="@string/nav_module_journal" >
+        android:label="@string/nav_module_journal">
         <action
             android:id="@+id/toModuleJournalLoginFragment"
             app:destination="@id/nav_module_journal_login_fragment"
@@ -77,6 +80,11 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/nav_home_fragment" />
+
+        <deepLink
+            android:id="@+id/module_journal_deep_link"
+            android:autoVerify="true"
+            app:uri="https://lk.stankin.ru/" />
 
     </fragment>
 
@@ -105,7 +113,17 @@
         android:id="@+id/nav_news_viewer_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerFragment"
         android:label="@string/news"
-        tools:layout="@layout/fragment_news_viewer" />
+        tools:layout="@layout/fragment_news_viewer">
+
+        <deepLink
+            android:id="@+id/news_deep_link"
+            android:autoVerify="true"
+            app:uri="https://stankin.ru/news/item_{news_id}" />
+        <argument
+            android:name="news_id"
+            app:argType="integer" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/nav_schedule_repository_fragment"

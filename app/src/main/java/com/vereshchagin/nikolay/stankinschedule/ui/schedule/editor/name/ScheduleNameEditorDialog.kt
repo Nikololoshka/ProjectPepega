@@ -1,5 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -63,6 +65,9 @@ class ScheduleNameEditorDialog : DialogFragment() {
                 return@setOnClickListener
             }
 
+            val intent = Intent()
+            intent.putExtra(SCHEDULE_NAME, name)
+            setResult(intent)
             dismiss()
         }
 
@@ -82,10 +87,15 @@ class ScheduleNameEditorDialog : DialogFragment() {
         _binding = null
     }
 
+    private fun setResult(intent: Intent) {
+        targetFragment?.onActivityResult(targetRequestCode, Activity.RESULT_OK, intent)
+    }
+
     companion object {
 
-        private const val SCHEDULE_NAME = "schedule_name"
+        const val SCHEDULE_NAME = "schedule_name"
 
+        @JvmStatic
         fun newInstance(scheduleName: String?) = ScheduleNameEditorDialog().apply {
             val args = Bundle()
             args.putString(SCHEDULE_NAME, scheduleName)

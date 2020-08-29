@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/default_information_padding"
+    android:paddingHorizontal="@dimen/default_layout_padding">
 
     <TextView
         style="@style/TextAppearance.MaterialComponents.Subtitle1"
@@ -11,7 +13,7 @@
         android:text="@string/sch_adding_schedule"
         android:textColor="?android:attr/textColorPrimary"
         android:textAlignment="center"
-        android:padding="@dimen/default_layout_padding"/>
+        android:layout_marginBottom="@dimen/default_information_padding"/>
 
     <LinearLayout
         android:layout_width="match_parent"

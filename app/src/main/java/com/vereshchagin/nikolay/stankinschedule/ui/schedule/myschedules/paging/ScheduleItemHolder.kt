@@ -32,9 +32,15 @@ class ScheduleItemHolder(
         setOnTouchListener(this)
     }
 
-    fun bind(name: String, isFavorite: Boolean, isAnimateFavoriteButton: Boolean, isActive: Boolean) {
+    fun bind(
+        name: String,
+        isFavorite: Boolean,
+        isAnimateFavoriteButton: Boolean,
+        isActive: Boolean,
+        isEditable: Boolean
+    ) {
         binding.scheduleInfo.text = name
-        setActiveState(isActive)
+        setActiveState(isActive, isEditable)
 
         val animate = isFavorite && isAnimateFavoriteButton
         binding.favoriteSchedule.setToggle(isFavorite, animate)
@@ -43,8 +49,8 @@ class ScheduleItemHolder(
         }
     }
 
-    private fun setActiveState(isActive: Boolean) {
-        binding.root.background = if(isActive) {
+    private fun setActiveState(isActive: Boolean, isEditable: Boolean) {
+        binding.root.background = if(isActive && isEditable) {
             ContextCompat.getDrawable(binding.root.context, R.drawable.selector_schedule_item)
         } else {
             defaultBackground
