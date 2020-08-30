@@ -24,7 +24,7 @@
         app:itemIconTint="?android:attr/textColorPrimary"
         app:itemIconPadding="@dimen/drawer_icon_padding"
         app:itemHorizontalPadding="@dimen/drawer_horizontal_padding"
-        app:headerLayout="@layout/nav_header_main"
+        app:headerLayout="@layout/drawer_header_main"
         app:menu="@menu/activity_main_drawer" >
 
         <androidx.cardview.widget.CardView

@@ -84,7 +84,7 @@
         <deepLink
             android:id="@+id/module_journal_deep_link"
             android:autoVerify="true"
-            app:uri="https://lk.stankin.ru/" />
+            app:uri="lk.stankin.ru/" />
 
     </fragment>
 
@@ -118,7 +118,7 @@
         <deepLink
             android:id="@+id/news_deep_link"
             android:autoVerify="true"
-            app:uri="https://stankin.ru/news/item_{news_id}" />
+            app:uri="stankin.ru/news/item_{news_id}" />
         <argument
             android:name="news_id"
             app:argType="integer" />
