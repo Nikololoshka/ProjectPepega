@@ -11,18 +11,10 @@ android {
         applicationId "com.vereshchagin.nikolay.stankinschedule"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 17
-        versionName "0.4.0"
+        versionCode 18
+        versionName "0.4.1"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += [
-                    "room.incremental":"true"
-                ]
-            }
-        }
     }
 
     compileOptions {
@@ -36,7 +28,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -59,11 +51,11 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.1'
 
     // AppCompat
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
 
     // Layouts
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-rc1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
 
     // Navigation
@@ -88,7 +80,7 @@ dependencies {
     implementation 'androidx.browser:browser:1.2.0'
 
     // WebView
-    implementation 'androidx.webkit:webkit:1.3.0-rc01'
+    implementation 'androidx.webkit:webkit:1.3.0'
 
     // Room DB
     def room_version = "2.2.5"

@@ -88,13 +88,13 @@ class ScheduleDay {
         }
     }
 
-    fun pairsByDate(date: LocalDate): ArrayList<Pair> {
+    fun pairsByDate(date: LocalDate): List<Pair> {
         val pairsDate = ArrayList<Pair>()
         for (pair in pairs) {
             if (pair.date.intersect(date)) {
                 pairsDate.add(pair)
             }
         }
-        return pairsDate
+        return pairsDate.sorted()
     }
 }

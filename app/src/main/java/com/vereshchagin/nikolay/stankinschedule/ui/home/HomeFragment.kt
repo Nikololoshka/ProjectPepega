@@ -1,5 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.home
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.viewModels
@@ -15,10 +17,6 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
  * Фрагмент главной страницы.
  */
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
-
-    companion object {
-        private const val TAG = "HomeFragmentLog"
-    }
 
     private var _scheduleStateful : StatefulLayout2? = null
     private val scheduleStateful get() = _scheduleStateful!!
@@ -60,7 +58,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         // установка данных в pager
         viewModel.scheduleData.observe(viewLifecycleOwner, Observer {
             val data = it ?: return@Observer
-
+            
             if (data.empty) {
                 scheduleStateful.setState(StatefulLayout2.EMPTY)
             } else {
@@ -78,11 +76,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.change_subgroup) {
             val dialog =  ChangeSubgroupBottomSheet()
-            dialog.show(childFragmentManager, dialog.tag)
+            dialog.setTargetFragment(this, REQUEST_SUBGROUP)
+            dialog.show(parentFragmentManager, dialog.tag)
             return true
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode != Activity.RESULT_OK || data == null) {
+            return
+        }
+
+        if (requestCode == REQUEST_SUBGROUP) {
+            viewModel.updateSchedule()
+        }
     }
 
     override fun onClick(v: View?) {
@@ -113,5 +124,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
     override fun onDestroyView() {
         super.onDestroyView()
         _scheduleStateful = null
+    }
+
+    companion object {
+        private const val TAG = "HomeFragmentLog"
+
+        private const val REQUEST_SUBGROUP = 1
     }
 }

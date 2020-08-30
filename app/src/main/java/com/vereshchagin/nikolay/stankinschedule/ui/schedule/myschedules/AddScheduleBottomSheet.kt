@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.DialogAddScheduleBinding
@@ -25,6 +27,14 @@ class AddScheduleBottomSheet : BottomSheetDialogFragment(), View.OnClickListener
         binding.createSchedule.setOnClickListener(this)
         binding.fromRepository.setOnClickListener(this)
         binding.loadSchedule.setOnClickListener(this)
+
+        binding.root.viewTreeObserver.addOnGlobalLayoutListener {
+            val bottomSheet = dialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+            bottomSheet?.let {
+                val behavior = BottomSheetBehavior.from(it)
+                behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
 
         return binding.root
     }

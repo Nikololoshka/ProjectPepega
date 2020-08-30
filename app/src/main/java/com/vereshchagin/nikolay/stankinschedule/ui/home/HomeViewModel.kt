@@ -7,10 +7,11 @@ import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleData
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.joda.time.DateTime
+import org.joda.time.LocalDate
 
 /**
  * ViewModel для фрагмента главной страницы.
@@ -43,14 +44,19 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             return
         }
 
-        var start = DateTime.now().withTimeAtStartOfDay().minusDays(2)
+
+        var start = LocalDate.now().minusDays(2)
 
         val titles = ArrayList<String>(5)
         val pairs = ArrayList<ArrayList<Pair>>(5)
+        val subgroup = ApplicationPreference.subgroup(getApplication())
 
         for (i in 0..4) {
             val list = ArrayList<Pair>()
-            schedule.pairsByDate(start).toCollection(list)
+            schedule.pairsByDate(start).filter {
+                it.isCurrently(subgroup)
+            }.toCollection(list)
+
             pairs.add(list)
             titles.add(start.toString("EEEE, dd MMMM").capitalize())
 
@@ -63,6 +69,15 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                 pairs
             )
         )
+    }
+
+    /**
+     * Обновляет расписание.
+     */
+    fun updateSchedule() {
+        viewModelScope.launch(Dispatchers.IO) {
+            loadSchedule()
+        }
     }
 
     /**

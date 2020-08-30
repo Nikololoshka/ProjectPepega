@@ -67,15 +67,15 @@ class Schedule {
         return last
     }
 
-    fun pairsByDate(date: Calendar): ArrayList<Pair> {
+    fun pairsByDate(date: Calendar): List<Pair> {
         return pairsByDate(LocalDate(date))
     }
 
-    fun pairsByDate(date: DateTime): ArrayList<Pair> {
+    fun pairsByDate(date: DateTime): List<Pair> {
         return pairsByDate(date.toLocalDate())
     }
 
-    fun pairsByDate(date: LocalDate): ArrayList<Pair> {
+    fun pairsByDate(date: LocalDate): List<Pair> {
         if (date.dayOfWeek == DateTimeConstants.SUNDAY) {
             return arrayListOf()
         }

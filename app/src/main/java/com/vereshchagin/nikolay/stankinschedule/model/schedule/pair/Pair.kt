@@ -44,6 +44,13 @@ class Pair(
             date == this.date
     }
 
+    /**
+     * Возвращает true, если пара может быть у этой подгруппы, иначе false.
+     */
+    fun isCurrently(subgroup: Subgroup): Boolean {
+        return this.subgroup == Subgroup.COMMON || subgroup == Subgroup.COMMON || this.subgroup == subgroup
+    }
+
     override fun compareTo(other: Pair): Int {
         if (time.start == other.time.start) {
             return subgroup.compareTo(other.subgroup)
