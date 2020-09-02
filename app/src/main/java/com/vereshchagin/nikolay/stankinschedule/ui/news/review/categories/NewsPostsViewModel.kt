@@ -35,8 +35,10 @@ class NewsPostsViewModel(
      * Вызывается, если новости были обновлены.
      */
     fun newsUpdated() {
-        startRefreshing = false
-        NewsPreference.setNewsUpdate(getApplication(), newsSubdivision, Calendar.getInstance())
+        if (startRefreshing) {
+            startRefreshing = false
+            NewsPreference.setNewsUpdate(getApplication(), newsSubdivision, Calendar.getInstance())
+        }
     }
 
     /**

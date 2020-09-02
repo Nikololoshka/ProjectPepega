@@ -17,6 +17,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
@@ -61,8 +62,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
             when (item?.itemId) {
                 R.id.remove_schedule -> {
-                    viewModel.removeSelected()
-                    mode?.finish()
+                    removeSchedules()
                 }
             }
             return true
@@ -104,6 +104,11 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.update()
     }
 
     override fun onStop() {
@@ -363,6 +368,30 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         intent.type = "*/*"
 
         startActivityForResult(intent, REQUEST_LOAD_SCHEDULE)
+    }
+
+    /**
+     * Удаляет выбранные расписании.
+     */
+    private fun removeSchedules() {
+        viewModel.selectedItems.value?.let {
+            val count = it.size()
+            if (count <= 0) {
+                return
+            }
+
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.warning)
+                .setMessage(getString(R.string.sch_remove_schedules, count.toString()))
+                .setNegativeButton(R.string.cancel) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .setPositiveButton(R.string.yes_continue) { dialog, _ ->
+                    viewModel.removeSelected()
+                    dialog.dismiss()
+                }
+                .show()
+        }
     }
 
     companion object {

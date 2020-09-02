@@ -524,7 +524,7 @@ public class ScheduleViewFragment extends Fragment
                 new AlertDialog.Builder(getContext())
                         .setTitle(R.string.warning)
                         .setMessage(getString(R.string.sch_view_will_be_deleted))
-                        .setNeutralButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
@@ -689,15 +689,8 @@ public class ScheduleViewFragment extends Fragment
             return;
         }
 
-        if (mSchedulePath != null) {
-            try {
-                FileUtils.forceDelete(new File(mSchedulePath));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        SchedulePreference.remove(context, mScheduleName);
+        new ScheduleRepository()
+                .removeSchedule(context, mScheduleName);
         showMessage(getString(R.string.sch_removed));
     }
 

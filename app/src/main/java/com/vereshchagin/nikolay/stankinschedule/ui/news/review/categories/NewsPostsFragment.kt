@@ -65,7 +65,10 @@ class NewsPostsFragment: BaseFragment<ItemNewsPostsBinding>(), NewsPostAdapter.O
         // посты
         viewModel.posts.observe(viewLifecycleOwner, Observer { posts ->
             adapter.submitList(posts) {
-                binding.newsRecycler.scrollToPosition(0)
+                if (viewModel.startRefreshing) {
+                    binding.newsRecycler.scrollToPosition(0)
+                    viewModel.newsUpdated()
+                }
             }
         })
 
