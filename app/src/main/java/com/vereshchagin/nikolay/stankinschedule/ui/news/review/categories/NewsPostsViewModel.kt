@@ -22,7 +22,8 @@ class NewsPostsViewModel(
     val posts = Transformations.switchMap(repositoryListing) { it.pagedList }
     val networkState = Transformations.switchMap(repositoryListing) { it.networkState }
     val refreshState = Transformations.switchMap(repositoryListing) { it.refreshState }
-    var startRefreshing = false
+    private var scrollToTop = false
+    private var startRefreshing = false
 
     init {
         val date = NewsPreference.lastNewsUpdate(application, newsSubdivision)
@@ -36,8 +37,9 @@ class NewsPostsViewModel(
      */
     fun newsUpdated() {
         if (startRefreshing) {
-            startRefreshing = false
+            scrollToTop = true
             NewsPreference.setNewsUpdate(getApplication(), newsSubdivision, Calendar.getInstance())
+            startRefreshing = false
         }
     }
 
@@ -55,6 +57,22 @@ class NewsPostsViewModel(
     fun retry() {
         repositoryListing.value?.retry?.invoke()
     }
+
+    /**
+     * Прокручивать ли список на верх.
+     */
+    fun isScrollToTop() : Boolean {
+        if (scrollToTop) {
+            scrollToTop = false
+            return true
+        }
+        return false
+    }
+
+    /**
+     * Начато ли обновление списка новостей.
+     */
+    fun isStartRefreshing() : Boolean = startRefreshing
 
     /**
      * Factory для создания ViewModel.

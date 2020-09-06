@@ -1,114 +1,43 @@
 [
     {
-        "title": "Философские проблемы науки и техники",
-        "lecturer": "Шитов С.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "506",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.03.02"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.16-2020.04.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.25"
-            }
-        ]
-    },
-    {
-        "title": "Формирование и оценка качества продукции и услуг машиностроительных производств",
-        "lecturer": "Балаболина Н.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "311",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            }
-        ]
-    },
-    {
-        "title": "Философские проблемы науки и техники",
-        "lecturer": "Шитов С.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "240(б)",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            }
-        ]
-    },
-    {
-        "title": "Формирование и оценка качества продукции и услуг машиностроительных производств",
-        "lecturer": "Балаболина Н.Н",
+        "title": "Управление проектами",
+        "lecturer": "Козлова А.В",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "216",
+        "classroom": "",
         "time": {
             "start": "16:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.18-2020.03.17"
+                "frequency": "once",
+                "date": "2020.10.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.27"
             }
         ]
     },
     {
-        "title": "Формирование и оценка качества продукции и услуг машиностроительных производств",
-        "lecturer": "Балаболина Н.Н",
+        "title": "Управление проектами",
+        "lecturer": "Козлова А.В",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "216",
+        "classroom": "",
         "time": {
             "start": "16:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.25-2020.03.24"
+                "frequency": "once",
+                "date": "2020.10.20"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.03"
             }
         ]
     },
@@ -117,7 +46,7 @@
         "lecturer": "Козлова А.В",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "240(б)",
+        "classroom": "",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -125,96 +54,7 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.12-2020.04.15"
-            }
-        ]
-    },
-    {
-        "title": "Управление качеством инновационных машиностроительных производств",
-        "lecturer": "Бекмешов А.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.12-2020.03.18"
-            }
-        ]
-    },
-    {
-        "title": "Формирование и оценка качества продукции и услуг машиностроительных производств",
-        "lecturer": "Капитанов А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.12-2020.04.01"
-            }
-        ]
-    },
-    {
-        "title": "Формирование и оценка качества продукции и услуг машиностроительных производств",
-        "lecturer": "Капитанов А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.12-2020.04.01"
-            }
-        ]
-    },
-    {
-        "title": "Управление качеством инновационных машиностроительных производств",
-        "lecturer": "Бекмешов А.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.04.01-2020.05.20"
-            }
-        ]
-    },
-    {
-        "title": "Управление качеством инновационных машиностроительных производств",
-        "lecturer": "Бекмешов А.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "309",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.21-2020.04.24"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.05.08-2020.05.29"
+                "date": "2020.09.08-2020.10.27"
             }
         ]
     },
@@ -223,158 +63,49 @@
         "lecturer": "Козлова А.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0301",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.21-2020.03.27"
-            }
-        ]
-    },
-    {
-        "title": "Управление проектами",
-        "lecturer": "Козлова А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "210",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.10"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.24"
-            }
-        ]
-    },
-    {
-        "title": "Управление проектами",
-        "lecturer": "Козлова А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "210",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.03"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.17"
-            }
-        ]
-    },
-    {
-        "title": "Аудит качества",
-        "lecturer": "Фомина О.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.28"
-            }
-        ]
-    },
-    {
-        "title": "Аудит качества",
-        "lecturer": "Фомина О.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.28"
-            }
-        ]
-    },
-    {
-        "title": "Моделирование систем управления",
-        "lecturer": "Симанженков К.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "",
         "time": {
             "start": "8:30",
             "end": "10:10"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.21"
+                "frequency": "every",
+                "date": "2020.09.15-2020.10.06"
             }
         ]
     },
     {
-        "title": "Моделирование систем управления",
-        "lecturer": "Симанженков К.А",
-        "type": "Lecture",
+        "title": "Управление технологическими рисками в производственной деятельности",
+        "lecturer": "Гришина Т.Г",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "305",
+        "classroom": "240(г)",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "14:10",
+            "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
+                "frequency": "once",
+                "date": "2020.09.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.09.30-2020.10.28"
             },
             {
                 "frequency": "once",
-                "date": "2020.03.21"
+                "date": "2020.11.11"
             }
         ]
     },
     {
-        "title": "Аудит качества",
-        "lecturer": "Фомина О.А",
-        "type": "Seminar",
+        "title": "Всеобщее управление качеством в обеспечении конкурентоспособности машиностроительных производств",
+        "lecturer": "Толкачева И.М",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "308",
+        "classroom": "305",
         "time": {
             "start": "12:20",
             "end": "14:00"
@@ -382,20 +113,101 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.04.04-2020.04.25"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.05.16-2020.05.30"
+                "date": "2020.09.16-2020.10.07"
             }
         ]
     },
     {
-        "title": "Аудит качества",
-        "lecturer": "Фомина О.А",
+        "title": "Управление технологическими рисками в производственной деятельности",
+        "lecturer": "Гришина Т.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.16-2020.10.21"
+            }
+        ]
+    },
+    {
+        "title": "Методы комплексной оценки систем управления качеством",
+        "lecturer": "Гришина Т.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.18-2020.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Всеобщее управление качеством в обеспечении конкурентоспособности машиностроительных производств",
+        "lecturer": "Шеховцова Ю.Н",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "308",
+        "classroom": "240(г)",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.18-2020.10.16"
+            }
+        ]
+    },
+    {
+        "title": "Методы комплексной оценки систем управления качеством",
+        "lecturer": "Гришина Т.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "240(г)",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.18-2020.10.30"
+            }
+        ]
+    },
+    {
+        "title": "Управление конфигурацией изделий",
+        "lecturer": "Симанженков К.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.17-2020.11.28"
+            }
+        ]
+    },
+    {
+        "title": "Управление конфигурацией изделий",
+        "lecturer": "Симанженков К.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "240(б)",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -403,57 +215,41 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.04.25"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.23"
+                "date": "2020.10.17"
             }
         ]
     },
     {
-        "title": "Моделирование систем управления",
+        "title": "Управление конфигурацией изделий",
         "lecturer": "Симанженков К.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "357(в)",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "240(б)",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.04.04"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.18"
+                "date": "2020.12.05"
             }
         ]
     },
     {
-        "title": "Моделирование систем управления",
+        "title": "Управление конфигурацией изделий",
         "lecturer": "Симанженков К.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "357(в)",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "240(б)",
         "time": {
-            "start": "8:30",
+            "start": "10:20",
             "end": "12:00"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.03.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.11"
+                "frequency": "every",
+                "date": "2020.10.24-2020.12.05"
             }
         ]
     }

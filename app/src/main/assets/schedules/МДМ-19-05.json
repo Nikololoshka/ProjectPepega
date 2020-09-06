@@ -1,43 +1,78 @@
 [
     {
-        "title": "Аддитивное производство",
-        "lecturer": "Тарасова Т.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
+        "title": "Производственный инжиниринг",
+        "lecturer": "Хайбуллов К.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "19:40",
+            "end": "22:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
             {
                 "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.25"
+                "date": "2020.10.06-2020.11.17"
             }
         ]
     },
     {
-        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "lecturer": "Соболев А.Н",
+        "title": "Перспективные технологии и процессы заготовительного производства",
+        "lecturer": "Вишенков М.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.06-2020.11.17"
+            }
+        ]
+    },
+    {
+        "title": "Производственный инжиниринг",
+        "lecturer": "Хайбуллов К.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.13-2020.11.24"
+            }
+        ]
+    },
+    {
+        "title": "Перспективные технологии и процессы заготовительного производства",
+        "lecturer": "Вишенков М.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.13-2020.11.24"
+            }
+        ]
+    },
+    {
+        "title": "Философские проблемы науки и техники",
+        "lecturer": "Шитов С.Б",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0209",
+        "classroom": "",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -45,16 +80,121 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.11-2020.04.28"
+                "date": "2020.09.08-2020.09.22"
             }
         ]
     },
     {
-        "title": "Компьютерные технологии в науке и производстве",
+        "title": "Перспективные технологии и процессы заготовительного производства",
         "lecturer": "Вишенков М.А",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0309",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.29-2020.10.20"
+            }
+        ]
+    },
+    {
+        "title": "Новые конструкционные материалы в машиностроении",
+        "lecturer": "Красновский А.Н",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.09.30-2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
+        "title": "Новые конструкционные материалы в машиностроении",
+        "lecturer": "Красновский А.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.07"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.25"
+            }
+        ]
+    },
+    {
+        "title": "Новые конструкционные материалы в машиностроении",
+        "lecturer": "Красновский А.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.09.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.09.30-2020.10.14"
+            }
+        ]
+    },
+    {
+        "title": "Производственный инжиниринг",
+        "lecturer": "Шашин А.Д",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "21:20",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.08-2020.10.29"
+            }
+        ]
+    },
+    {
+        "title": "Перспективные технологии и процессы заготовительного производства",
+        "lecturer": "Коробова Н.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -62,92 +202,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.25-2020.03.17"
+                "date": "2020.09.03-2020.11.19"
             }
         ]
     },
     {
-        "title": "Компьютерные технологии в науке и производстве",
-        "lecturer": "Вишенков М.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "216",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.03.31-2020.04.28"
-            }
-        ]
-    },
-    {
-        "title": "Спецкурс станков",
-        "lecturer": "Гиловой Л.Я",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.05.19"
-            }
-        ]
-    },
-    {
-        "title": "Спецкурс станков",
-        "lecturer": "Гиловой Л.Я",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.05.12"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.26"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерные технологии в науке и производстве",
-        "lecturer": "Вишенков М.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "216",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.03.24-2020.04.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.12"
-            }
-        ]
-    },
-    {
-        "title": "Интегрированные САSЕ системы в машиностроении",
-        "lecturer": "Гиловой Л.Я",
+        "title": "Новые конструкционные материалы в машиностроении",
+        "lecturer": "Красновский А.Н",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0206",
+        "classroom": "",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -155,173 +219,84 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.12-2020.03.18"
+                "date": "2020.09.03-2020.11.19"
             }
         ]
     },
     {
-        "title": "Спецкурс станков",
-        "lecturer": "Гиловой Л.Я",
+        "title": "Технологические основы высокоскоростной обработки материалов",
+        "lecturer": "Алешин С.В",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "ТехП 11",
+        "classroom": "ТехП 6",
         "time": {
             "start": "19:40",
             "end": "22:50"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.05.06"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.20"
+                "frequency": "throughout",
+                "date": "2020.10.16-2020.11.27"
             }
         ]
     },
     {
-        "title": "Спецкурс станков",
+        "title": "Методология конструирования",
         "lecturer": "Гиловой Л.Я",
         "type": "Laboratory",
         "subgroup": "A",
         "classroom": "ТехП 11",
         "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.04.29-2020.05.27"
-            }
-        ]
-    },
-    {
-        "title": "Спецкурс станков",
-        "lecturer": "Молодцов В.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "501-8",
-        "time": {
-            "start": "18:00",
+            "start": "16:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.04.30-2020.05.21"
+                "frequency": "throughout",
+                "date": "2020.10.16-2020.11.27"
             }
         ]
     },
     {
-        "title": "Спецкурс станков",
-        "lecturer": "Молодцов В.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0207",
+        "title": "Технологические основы высокоскоростной обработки материалов",
+        "lecturer": "Алешин С.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 6",
         "time": {
-            "start": "18:00",
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.23-2020.12.04"
+            }
+        ]
+    },
+    {
+        "title": "Методология конструирования",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "16:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.05.28"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерные технологии в науке и производстве",
-        "lecturer": "Вишенков М.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "216",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.05.21"
-            }
-        ]
-    },
-    {
-        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "lecturer": "Соболев А.Н",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
                 "frequency": "throughout",
-                "date": "2020.03.19-2020.05.28"
+                "date": "2020.10.23-2020.12.04"
             }
         ]
     },
     {
-        "title": "Инструментальные системы интегрированного машиностроительного производства",
-        "lecturer": "Домнин П.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.03.19-2020.04.30"
-            }
-        ]
-    },
-    {
-        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "lecturer": "Соболев А.Н",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.03.12-2020.05.21"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальные системы интегрированного машиностроительного производства",
-        "lecturer": "Домнин П.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.03.12-2020.04.23"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальные системы интегрированного машиностроительного производства",
-        "lecturer": "Петухов Ю.Е",
+        "title": "Философские проблемы науки и техники",
+        "lecturer": "Шитов С.Б",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0408",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -329,253 +304,109 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.02.14"
+                "date": "2020.09.04"
             }
         ]
     },
     {
-        "title": "Компьютерные технологии в науке и производстве",
-        "lecturer": "Сидоров А.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.21-2020.04.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.08"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.15"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальные системы интегрированного машиностроительного производства",
-        "lecturer": "Петухов Ю.Е",
+        "title": "Методология конструирования",
+        "lecturer": "Гиловой Л.Я",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.05.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.29"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальные системы интегрированного машиностроительного производства",
-        "lecturer": "Петухов Ю.Е",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.05.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.29"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальные системы интегрированного машиностроительного производства",
-        "lecturer": "Петухов Ю.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.21-2020.04.25"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.23"
-            }
-        ]
-    },
-    {
-        "title": "Спецкурс станков",
-        "lecturer": "Молодцов В.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0207",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.15"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.02.29"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.21-2020.04.25"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.05.16-2020.05.30"
-            }
-        ]
-    },
-    {
-        "title": "Аддитивное производство",
-        "lecturer": "Тарасова Т.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0202",
+        "classroom": "",
         "time": {
             "start": "16:00",
             "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.21"
+                "frequency": "every",
+                "date": "2020.09.11-2020.10.02"
             }
         ]
     },
     {
-        "title": "Интегрированные САSЕ системы в машиностроении",
-        "lecturer": "Гиловой Л.Я",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 11",
+        "title": "Философские проблемы науки и техники",
+        "lecturer": "Шитов С.Б",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "19:40",
+            "end": "21:10"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.04.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.30"
+                "frequency": "every",
+                "date": "2020.09.18-2020.10.09"
             }
         ]
     },
     {
-        "title": "Интегрированные САSЕ системы в машиностроении",
-        "lecturer": "Гиловой Л.Я",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 11",
+        "title": "Технологические основы высокоскоростной обработки материалов",
+        "lecturer": "Алешин С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "start": "16:00",
+            "start": "18:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.04.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.25"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.23"
+                "frequency": "every",
+                "date": "2020.09.18-2020.10.09"
             }
         ]
     },
     {
-        "title": "Аддитивное производство",
-        "lecturer": "Тарасова Т.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "235(а)",
+        "title": "Методология конструирования",
+        "lecturer": "Кузнецов А.П",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "12:20",
+            "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.04.04"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.30"
+                "frequency": "every",
+                "date": "2020.09.05-2020.11.21"
             }
         ]
     },
     {
-        "title": "Аддитивное производство",
-        "lecturer": "Тарасова Т.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "235(а)",
+        "title": "Технологические основы высокоскоростной обработки материалов",
+        "lecturer": "Алешин С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "8:30",
+            "end": "10:10"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.03.28-2020.04.25"
-            },
+                "frequency": "every",
+                "date": "2020.09.05-2020.11.21"
+            }
+        ]
+    },
+    {
+        "title": "Производственный инжиниринг",
+        "lecturer": "Кутин А.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
             {
-                "frequency": "once",
-                "date": "2020.05.23"
+                "frequency": "every",
+                "date": "2020.10.03-2020.12.19"
             }
         ]
     }

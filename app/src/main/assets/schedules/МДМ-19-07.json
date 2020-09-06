@@ -1,153 +1,65 @@
 [
     {
-        "title": "Аддитивное производство",
-        "lecturer": "Тарасова Т.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.25"
-            }
-        ]
-    },
-    {
-        "title": "Обеспечение энергетической безопасности машиностроительных производств",
-        "lecturer": "Кулизаде Д.И",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0301",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.03.30"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.06"
-            }
-        ]
-    },
-    {
-        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "lecturer": "Соболев А.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.11-2020.04.28"
-            }
-        ]
-    },
-    {
-        "title": "Причинность и условия возникновения производственных инцидентов",
-        "lecturer": "Артемьева М.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0301",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.03.10-2020.04.28"
-            }
-        ]
-    },
-    {
-        "title": "Причинность и условия возникновения производственных инцидентов",
-        "lecturer": "Артемьева М.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.26-2020.04.15"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерные технологии в науке и производстве",
-        "lecturer": "Вишенков М.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.03.04-2020.03.25"
-            }
-        ]
-    },
-    {
-        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "lecturer": "Соболев А.Н",
+        "title": "Инженерные технологии управления потреблением ресурсов и отходами",
+        "lecturer": "Букейханов Н.Р",
         "type": "Laboratory",
         "subgroup": "Common",
-        "classroom": "ТехП 11",
+        "classroom": "0407",
         "time": {
             "start": "19:40",
             "end": "22:50"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.04.01"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.04.15"
+                "frequency": "throughout",
+                "date": "2020.09.14-2020.10.26"
             }
         ]
     },
     {
-        "title": "Обеспечение энергетической безопасности машиностроительных производств",
+        "title": "Автоматизация обеспечения техносферной безопасности",
+        "lecturer": "Кулизаде Д.И",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "0407",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.09.21-2020.11.02"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация обеспечения техносферной безопасности",
+        "lecturer": "Кулизаде Д.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.06"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.13"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация обеспечения техносферной безопасности",
         "lecturer": "Шварцбург Л.Э",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0208",
+        "classroom": "",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -155,16 +67,117 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.13-2020.04.02"
+                "date": "2020.09.15-2020.11.17"
             }
         ]
     },
     {
-        "title": "Аддитивное производство",
-        "lecturer": "Тарасова Т.В",
+        "title": "Управление безопасностью и рациональным использованием природных ресурсов в сфере производства",
+        "lecturer": "Бутримова Е.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0202",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.09.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.09.30-2020.10.14"
+            }
+        ]
+    },
+    {
+        "title": "Производственный инжиниринг",
+        "lecturer": "Шашин А.Д",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
+        "title": "Производственный инжиниринг",
+        "lecturer": "Хайбуллов К.А",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.15-2020.11.26"
+            }
+        ]
+    },
+    {
+        "title": "Новые конструкционные материалы в машиностроении",
+        "lecturer": "Красновский А.Н",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.05-2020.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Инженерные технологии управления потреблением ресурсов и отходами",
+        "lecturer": "Букейханов Н.Р",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "21:20",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.10-2020.10.01"
+            }
+        ]
+    },
+    {
+        "title": "Новые конструкционные материалы в машиностроении",
+        "lecturer": "Красновский А.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -172,50 +185,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.03.12-2020.04.02"
+                "date": "2020.09.10-2020.10.01"
             }
         ]
     },
     {
-        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "lecturer": "Соболев А.Н",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.13-2020.03.05"
-            }
-        ]
-    },
-    {
-        "title": "Аддитивное производство",
-        "lecturer": "Тарасова Т.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "235(е)",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.04.16-2020.05.28"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерные технологии в науке и производстве",
-        "lecturer": "Сидоров А.А",
+        "title": "Новые конструкционные материалы в машиностроении",
+        "lecturer": "Красновский А.Н",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0308",
+        "classroom": "",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -223,175 +202,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.21-2020.04.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.08"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.15"
+                "date": "2020.09.03-2020.11.19"
             }
         ]
     },
     {
-        "title": "Компьютерные технологии в науке и производстве",
-        "lecturer": "Сосенушкин А.Е",
+        "title": "Технологические основы высокоскоростной обработки материалов",
+        "lecturer": "Алешин С.В",
         "type": "Laboratory",
         "subgroup": "Common",
-        "classroom": "210",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.21-2020.03.20"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерные технологии в науке и производстве",
-        "lecturer": "Сосенушкин А.Е",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "209",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.03"
-            }
-        ]
-    },
-    {
-        "title": "Экологические информационные системы",
-        "lecturer": "Фокин М.Г",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "0407",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.04.17"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.05.08-2020.05.29"
-            }
-        ]
-    },
-    {
-        "title": "Моделирование процессов и систем экологической безопасности",
-        "lecturer": "Шарипов О.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.21-2020.04.25"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.05.16-2020.05.30"
-            }
-        ]
-    },
-    {
-        "title": "Экологические информационные системы",
-        "lecturer": "Фокин М.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.21-2020.04.25"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.16"
-            }
-        ]
-    },
-    {
-        "title": "Моделирование процессов и систем экологической безопасности",
-        "lecturer": "Шарипов О.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0202",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.29"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.14"
-            }
-        ]
-    },
-    {
-        "title": "Моделирование процессов и систем экологической безопасности",
-        "lecturer": "Шарипов О.А",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "214",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.03.21-2020.04.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.30"
-            }
-        ]
-    },
-    {
-        "title": "Обеспечение энергетической безопасности машиностроительных производств",
-        "lecturer": "Кулизаде Д.И",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "0407",
+        "classroom": "ТехП 6",
         "time": {
             "start": "16:00",
             "end": "19:30"
@@ -399,7 +219,92 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.03.28-2020.04.25"
+                "date": "2020.10.23-2020.12.04"
+            }
+        ]
+    },
+    {
+        "title": "Технологические основы высокоскоростной обработки материалов",
+        "lecturer": "Алешин С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.11-2020.10.02"
+            }
+        ]
+    },
+    {
+        "title": "Инженерные технологии управления потреблением ресурсов и отходами",
+        "lecturer": "Букейханов Н.Р",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.05-2020.11.21"
+            }
+        ]
+    },
+    {
+        "title": "Управление безопасностью и рациональным использованием природных ресурсов в сфере производства",
+        "lecturer": "Бутримова Е.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.05-2020.09.26"
+            }
+        ]
+    },
+    {
+        "title": "Технологические основы высокоскоростной обработки материалов",
+        "lecturer": "Алешин С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.05-2020.11.21"
+            }
+        ]
+    },
+    {
+        "title": "Производственный инжиниринг",
+        "lecturer": "Кутин А.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.03-2020.12.19"
             }
         ]
     }

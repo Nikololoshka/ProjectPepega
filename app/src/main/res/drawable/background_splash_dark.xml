@@ -4,14 +4,11 @@
 
     <item>
         <color
-            android:color="#FF424242" />
+            android:color="#424242" />
     </item>
 
-    <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/logo_splash"
-            android:tileMode="disabled" />
-    </item>
+    <item
+        android:gravity="center"
+        android:drawable="@drawable/splash" />
 
 </layer-list>

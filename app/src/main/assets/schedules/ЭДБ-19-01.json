@@ -1,361 +1,7 @@
 [
     {
-        "title": "Линейная алгебра",
-        "lecturer": "Зарелуа А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "357(ж)",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.23"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.30"
-            }
-        ]
-    },
-    {
-        "title": "Линейная алгебра",
-        "lecturer": "Зарелуа А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "357(ж)",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.06"
-            }
-        ]
-    },
-    {
-        "title": "Микроэкономика",
-        "lecturer": "Шинкевич И.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.02.17"
-            }
-        ]
-    },
-    {
-        "title": "Материалы и высокоэффективные технологии современного производства",
-        "lecturer": "Гурин В.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "235(а)",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.03.02"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.16-2020.03.30"
-            }
-        ]
-    },
-    {
-        "title": "Микроэкономика",
-        "lecturer": "Шинкевич И.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.05.25"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "С/З Фрезер",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.11"
-            }
-        ]
-    },
-    {
-        "title": "Физическая культура и спорт",
-        "lecturer": "",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "С/З Фрезер",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.11"
-            }
-        ]
-    },
-    {
-        "title": "Физическая культура и спорт",
-        "lecturer": "",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "С/З Фрезер",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.11"
-            }
-        ]
-    },
-    {
-        "title": "История экономических учений",
-        "lecturer": "Свирина М.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "Фрезер 312",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.11"
-            }
-        ]
-    },
-    {
-        "title": "Физическая культура и спорт",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "С/З Фрезер",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.18-2020.04.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.05.12-2020.05.26"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "С/З Фрезер",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.18-2020.04.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.05.12-2020.05.26"
-            }
-        ]
-    },
-    {
-        "title": "История экономических учений",
-        "lecturer": "Свирина М.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "Фрезер 312",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.18-2020.04.28"
-            }
-        ]
-    },
-    {
-        "title": "История экономических учений",
-        "lecturer": "Свирина М.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "Фрезер 312",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.18-2020.04.28"
-            }
-        ]
-    },
-    {
-        "title": "История экономических учений",
-        "lecturer": "Свирина М.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "Фрезер 312",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.05.12"
-            }
-        ]
-    },
-    {
-        "title": "Иностранный язык",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.12-2020.05.27"
-            }
-        ]
-    },
-    {
-        "title": "Экономика предприятия",
-        "lecturer": "Тохунц Н.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.12-2020.04.29"
-            }
-        ]
-    },
-    {
-        "title": "Экономика предприятия",
-        "lecturer": "Тохунц Н.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "308",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.19-2020.05.06"
-            }
-        ]
-    },
-    {
-        "title": "Микроэкономика",
-        "lecturer": "Шинкевич И.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "508",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.19-2020.05.20"
-            }
-        ]
-    },
-    {
-        "title": "Иностранный язык",
-        "lecturer": "",
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Фокин М.Г",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "",
@@ -366,33 +12,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.05.06-2020.05.27"
+                "date": "2020.09.07-2020.11.23"
             }
         ]
     },
     {
-        "title": "Политология",
-        "lecturer": "Куткин В.С",
+        "title": "Безопасность жизнедеятельности",
+        "lecturer": "Фокин М.Г",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "409",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.13-2020.04.02"
-            }
-        ]
-    },
-    {
-        "title": "Политология",
-        "lecturer": "Куткин В.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "505",
+        "classroom": "",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -400,50 +29,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.20-2020.04.09"
+                "date": "2020.09.07-2020.11.23"
             }
         ]
     },
     {
-        "title": "Русский язык и культура речи",
-        "lecturer": "Трофимова Г.К",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.13-2020.04.30"
-            }
-        ]
-    },
-    {
-        "title": "Русский язык и культура речи",
-        "lecturer": "Трофимова Г.К",
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "308",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.27-2020.05.14"
-            }
-        ]
-    },
-    {
-        "title": "Математический анализ",
-        "lecturer": "Зарелуа А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "357(ж)",
+        "classroom": "",
         "time": {
             "start": "8:30",
             "end": "10:10"
@@ -451,16 +46,84 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.14-2020.04.17"
+                "date": "2020.09.07-2020.12.14"
             }
         ]
     },
     {
-        "title": "Математический анализ",
-        "lecturer": "Зарелуа А.В",
+        "title": "Управление человеческими ресурсами",
+        "lecturer": "Водолажский Е.Ф",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "357(ж)",
+        "classroom": "506",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.08-2020.10.13"
+            }
+        ]
+    },
+    {
+        "title": "Управление человеческими ресурсами",
+        "lecturer": "Водолажский Е.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.08-2020.11.03"
+            }
+        ]
+    },
+    {
+        "title": "Макроэкономика",
+        "lecturer": "Непринцева Е.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "449",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.09.08"
+            }
+        ]
+    },
+    {
+        "title": "Макроэкономика",
+        "lecturer": "Непринцева Е.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "449",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.15-2020.11.03"
+            }
+        ]
+    },
+    {
+        "title": "Макроэкономика",
+        "lecturer": "Непринцева Е.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "449",
         "time": {
             "start": "10:20",
             "end": "12:00"
@@ -468,108 +131,316 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.21-2020.04.24"
+                "date": "2020.09.22-2020.11.24"
             }
         ]
     },
     {
-        "title": "Материалы и высокоэффективные технологии современного производства",
-        "lecturer": "Гурин В.Д",
+        "title": "Управление человеческими ресурсами",
+        "lecturer": "Водолажский Е.Ф",
         "type": "Laboratory",
         "subgroup": "Common",
-        "classroom": "ТехП 6",
+        "classroom": "504",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "start": "14:10",
+            "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.05.08-2020.05.29"
-            }
-        ]
-    },
-    {
-        "title": "Материалы и высокоэффективные технологии современного производства",
-        "lecturer": "Гурин В.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "409",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
+                "frequency": "once",
+                "date": "2020.09.16"
             },
             {
-                "frequency": "every",
-                "date": "2020.03.21-2020.04.04"
+                "frequency": "once",
+                "date": "2020.09.30"
             }
         ]
     },
     {
-        "title": "Материалы и высокоэффективные технологии современного производства",
-        "lecturer": "Гурин В.Д",
-        "type": "Lecture",
+        "title": "Финансы",
+        "lecturer": "Тохунц Н.Б",
+        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "409",
+        "classroom": "445",
         "time": {
             "start": "12:20",
             "end": "14:00"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
+                "frequency": "every",
+                "date": "2020.09.09-2020.10.28"
             },
             {
                 "frequency": "every",
-                "date": "2020.03.21-2020.04.04"
+                "date": "2020.11.11-2020.11.25"
             }
         ]
     },
     {
-        "title": "Культурология",
-        "lecturer": "Логина Н.В",
+        "title": "Финансы",
+        "lecturer": "Тохунц Н.Б",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "409",
+        "classroom": "445",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "start": "10:20",
+            "end": "12:00"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.15-2020.03.14"
+                "frequency": "every",
+                "date": "2020.09.09-2020.10.28"
             },
             {
                 "frequency": "every",
-                "date": "2020.03.21-2020.04.18"
+                "date": "2020.11.11-2020.11.25"
             }
         ]
     },
     {
-        "title": "Культурология",
-        "lecturer": "Логина Н.В",
+        "title": "Иностранный язык",
+        "lecturer": "",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "502",
+        "classroom": "",
         "time": {
             "start": "16:00",
             "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.02.29"
-            },
+                "frequency": "every",
+                "date": "2020.09.10-2020.12.24"
+            }
+        ]
+    },
+    {
+        "title": "Деньги, кредит, банки",
+        "lecturer": "Тохунц Н.Б",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "311",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
             {
                 "frequency": "every",
-                "date": "2020.03.14-2020.04.25"
+                "date": "2020.09.10-2020.12.03"
+            }
+        ]
+    },
+    {
+        "title": "Деньги, кредит, банки",
+        "lecturer": "Тохунц Н.Б",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "445",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.10-2020.12.03"
+            }
+        ]
+    },
+    {
+        "title": "Математический анализ",
+        "lecturer": "Виноградова Ю.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.17-2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование современного производства",
+        "lecturer": "Оганян Г.В",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.09"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование современного производства",
+        "lecturer": "Оганян Г.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.11-2020.10.02"
+            }
+        ]
+    },
+    {
+        "title": "Оборудование современного производства",
+        "lecturer": "Оганян Г.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.04-2020.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Физическая культура и спорт",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.09.04"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.09.11"
+            }
+        ]
+    },
+    {
+        "title": "Физическая культура и спорт",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.18-2020.12.18"
+            }
+        ]
+    },
+    {
+        "title": "Философия",
+        "lecturer": "Шитов С.Б",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "506",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.12-2020.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Философия",
+        "lecturer": "Шитов С.Б",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0408",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.09.12-2020.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Математический анализ",
+        "lecturer": "Виноградова Ю.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "308",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.10-2020.12.12"
+            }
+        ]
+    },
+    {
+        "title": "Философия",
+        "lecturer": "Шитов С.Б",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0408",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.14-2020.12.05"
+            }
+        ]
+    },
+    {
+        "title": "Философия",
+        "lecturer": "Шитов С.Б",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "506",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.21-2020.12.19"
             }
         ]
     }

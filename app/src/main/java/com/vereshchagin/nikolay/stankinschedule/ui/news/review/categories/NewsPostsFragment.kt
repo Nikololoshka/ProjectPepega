@@ -62,13 +62,20 @@ class NewsPostsFragment: BaseFragment<ItemNewsPostsBinding>(), NewsPostAdapter.O
         }
         binding.newsRecycler.adapter = adapter
 
+        adapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                if (positionStart == 0 && viewModel.isScrollToTop()) {
+                    binding.newsRecycler.scrollToPosition(0)
+                }
+            }
+        })
+
         // посты
         viewModel.posts.observe(viewLifecycleOwner, Observer { posts ->
-            adapter.submitList(posts) {
-                if (viewModel.startRefreshing) {
-                    binding.newsRecycler.scrollToPosition(0)
-                    viewModel.newsUpdated()
-                }
+            adapter.submitList(posts)
+            if (viewModel.isStartRefreshing()) {
+                binding.newsRecycler.scrollToPosition(0)
+                viewModel.newsUpdated()
             }
         })
 

@@ -388,6 +388,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                 }
                 .setPositiveButton(R.string.yes_continue) { dialog, _ ->
                     viewModel.removeSelected()
+                    actionMode?.finish()
                     dialog.dismiss()
                 }
                 .show()

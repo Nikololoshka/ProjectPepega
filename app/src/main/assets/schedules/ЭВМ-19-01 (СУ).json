@@ -1,142 +1,7 @@
 [
     {
-        "title": "Теория организации и организационное поведение",
-        "lecturer": "Ревина М.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.13"
-            }
-        ]
-    },
-    {
-        "title": "Теория организации и организационное поведение",
-        "lecturer": "Ревина М.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.02.10"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.02.17-2020.03.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.23-2020.04.13"
-            }
-        ]
-    },
-    {
-        "title": "Управление имуществом",
-        "lecturer": "Ковалев А.П",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.11-2020.03.31"
-            }
-        ]
-    },
-    {
-        "title": "Управление имуществом",
-        "lecturer": "Ковалев А.П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0206",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.18-2020.04.07"
-            }
-        ]
-    },
-    {
-        "title": "Организационное развитие и управление изменениями",
-        "lecturer": "Коршунова Е.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.03.04-2020.04.22"
-            }
-        ]
-    },
-    {
-        "title": "Организационное развитие и управление изменениями",
-        "lecturer": "Коршунова Е.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0208",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.03.11-2020.04.29"
-            }
-        ]
-    },
-    {
-        "title": "Педагогика и психология высшей школы",
-        "lecturer": "Кузнецов Б.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.27-2020.04.16"
-            }
-        ]
-    },
-    {
-        "title": "Педагогика и психология высшей школы",
-        "lecturer": "Кузнецов Б.М",
+        "title": "Стратегический маркетинг",
+        "lecturer": "Еленев К.С",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "",
@@ -147,16 +12,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.03.05-2020.04.23"
+                "date": "2020.11.09-2020.12.14"
             }
         ]
     },
     {
-        "title": "Управление государственным и муниципальным имуществом",
-        "lecturer": "Гринман И.Р",
+        "title": "Стратегический маркетинг",
+        "lecturer": "Еленев К.С",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "508",
+        "classroom": "",
         "time": {
             "start": "18:00",
             "end": "19:30"
@@ -164,24 +29,58 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.21-2020.04.10"
+                "date": "2020.11.09-2020.12.14"
             }
         ]
     },
     {
-        "title": "Управление государственным и муниципальным имуществом",
-        "lecturer": "Гринман И.Р",
-        "type": "Seminar",
+        "title": "Современный стратегический анализ",
+        "lecturer": "Бадалова А.Г",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "508",
+        "classroom": "",
         "time": {
-            "start": "19:40",
-            "end": "21:10"
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.28-2020.04.17"
+                "date": "2020.09.15-2020.10.20"
+            }
+        ]
+    },
+    {
+        "title": "Информационные ресурсы и технологии в менеджменте",
+        "lecturer": "Лукина С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.27-2020.11.17"
+            }
+        ]
+    },
+    {
+        "title": "Методология научного творчества",
+        "lecturer": "Павельева Т.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.24-2020.12.15"
             }
         ]
     },
@@ -190,23 +89,19 @@
         "lecturer": "Петрова И.К",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
+        "classroom": "240(б)",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "start": "19:40",
+            "end": "21:10"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.02.29"
+                "date": "2020.09.16"
             },
             {
                 "frequency": "once",
-                "date": "2020.03.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.03.21"
+                "date": "2020.09.30"
             }
         ]
     },
@@ -215,19 +110,251 @@
         "lecturer": "Петрова И.К",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
+        "classroom": "240(б)",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.02.29"
+                "date": "2020.09.16"
             },
             {
+                "frequency": "once",
+                "date": "2020.09.30"
+            }
+        ]
+    },
+    {
+        "title": "Современный стратегический анализ",
+        "lecturer": "Бадалова А.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
                 "frequency": "every",
-                "date": "2020.03.14-2020.04.18"
+                "date": "2020.10.14-2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            }
+        ]
+    },
+    {
+        "title": "Информационные ресурсы и технологии в менеджменте",
+        "lecturer": "Лукина С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.07-2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
+        "title": "Информационные ресурсы и технологии в менеджменте",
+        "lecturer": "Лукина С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.25"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.12.02"
+            }
+        ]
+    },
+    {
+        "title": "Коммуникации в профессиональной деятельности",
+        "lecturer": "Петрова И.К",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.05"
+            }
+        ]
+    },
+    {
+        "title": "Методология научного творчества",
+        "lecturer": "Павельева Т.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.29-2020.12.10"
+            }
+        ]
+    },
+    {
+        "title": "Математические модели в теории управления и исследовании операций",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Современный стратегический анализ",
+        "lecturer": "Бадалова А.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.02"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.09"
+            }
+        ]
+    },
+    {
+        "title": "Методология научного творчества",
+        "lecturer": "Павельева Т.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0308",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Коммуникации в профессиональной деятельности",
+        "lecturer": "Петрова И.К",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.06"
+            }
+        ]
+    },
+    {
+        "title": "Математические модели в теории управления и исследовании операций",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "306(а)",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.13"
+            }
+        ]
+    },
+    {
+        "title": "Математические модели в теории управления и исследовании операций",
+        "lecturer": "",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "305",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.16-2020.11.20"
+            }
+        ]
+    },
+    {
+        "title": "Методология научного творчества",
+        "lecturer": "Павельева Т.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.27-2020.12.18"
             }
         ]
     }

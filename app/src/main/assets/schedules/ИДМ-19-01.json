@@ -1,52 +1,27 @@
 [
     {
-        "title": "Стандартизация ИТ продуктов и систем",
-        "lecturer": "Куприяненко И.А",
-        "type": "Seminar",
+        "title": "Теория управления",
+        "lecturer": "Ефромеева Е.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "309",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.03.02"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.03.16-2020.04.13"
-            }
-        ]
-    },
-    {
-        "title": "Методология концептуального проектирования техники и технологий",
-        "lecturer": "Волкова Г.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "309",
+        "classroom": "",
         "time": {
             "start": "18:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.03.02"
-            },
-            {
                 "frequency": "every",
-                "date": "2020.03.16-2020.04.13"
+                "date": "2020.09.07-2020.10.26"
             }
         ]
     },
     {
-        "title": "Стандартизация ИТ продуктов и систем",
-        "lecturer": "Позднеев Б.М",
+        "title": "Бизнес-архитектура предприятия",
+        "lecturer": "Мешков В.Г",
         "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0206",
+        "classroom": "",
         "time": {
             "start": "16:00",
             "end": "17:40"
@@ -54,84 +29,16 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.02.11-2020.03.17"
+                "date": "2020.09.07-2020.11.09"
             }
         ]
     },
     {
-        "title": "Методология концептуального проектирования техники и технологий",
-        "lecturer": "Волкова Г.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0306",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.11-2020.04.14"
-            }
-        ]
-    },
-    {
-        "title": "Вычислительные системы",
-        "lecturer": "Тарасов А.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0204",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.12-2020.04.01"
-            }
-        ]
-    },
-    {
-        "title": "Управление проектами в сфере информационных технологий",
-        "lecturer": "Стоякова К.Л",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.13-2020.04.16"
-            }
-        ]
-    },
-    {
-        "title": "Управление жизненным циклом изделий",
-        "lecturer": "Феофанов А.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.02.13-2020.04.16"
-            }
-        ]
-    },
-    {
-        "title": "Управление жизненным циклом изделий",
-        "lecturer": "Феофанов А.Н",
+        "title": "Социология культуры и межкультурные коммуникации",
+        "lecturer": "Михайлова М.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "ИГ-1",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "21:10"
@@ -139,168 +46,306 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.04.02-2020.04.23"
+                "date": "2020.09.08-2020.11.03"
             }
         ]
     },
     {
-        "title": "Управление жизненным циклом изделий",
-        "lecturer": "Феофанов А.Н",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "210",
+        "title": "Социология культуры и межкультурные коммуникации",
+        "lecturer": "Михайлова М.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "start": "19:40",
-            "end": "22:50"
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.20-2020.03.19"
+                "frequency": "every",
+                "date": "2020.09.08-2020.11.03"
             }
         ]
     },
     {
-        "title": "Управление проектами в сфере информационных технологий",
-        "lecturer": "Бердюгин А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "214",
+        "title": "Организация внедрения и сопровождения программного продукта",
+        "lecturer": "Коган Ю.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "start": "19:40",
-            "end": "22:50"
+            "start": "16:00",
+            "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.02.20-2020.03.19"
+                "frequency": "every",
+                "date": "2020.09.08-2020.10.27"
             }
         ]
     },
     {
-        "title": "Управление проектами в сфере информационных технологий",
-        "lecturer": "Бердюгин А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "214",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.27-2020.03.26"
-            }
-        ]
-    },
-    {
-        "title": "Управление жизненным циклом изделий",
-        "lecturer": "Феофанов А.Н",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "210",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.02.27-2020.03.26"
-            }
-        ]
-    },
-    {
-        "title": "Управление проектами в сфере информационных технологий",
-        "lecturer": "Бердюгин А.В",
+        "title": "Социология культуры и межкультурные коммуникации",
+        "lecturer": "Михайлова М.В",
         "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "302",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.10"
+            }
+        ]
+    },
+    {
+        "title": "Управление персоналом",
+        "lecturer": "Ревина М.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "21:10"
         },
         "dates": [
             {
+                "frequency": "once",
+                "date": "2020.09.09"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.09.16"
+            },
+            {
                 "frequency": "every",
-                "date": "2020.04.03-2020.04.24"
+                "date": "2020.09.30-2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
             }
         ]
     },
     {
-        "title": "Методология концептуального проектирования техники и технологий",
-        "lecturer": "Волкова Г.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "313",
+        "title": "Управление персоналом",
+        "lecturer": "Ревина М.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "start": "16:00",
+            "start": "18:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.03.13"
+                "frequency": "every",
+                "date": "2020.09.02-2020.09.16"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.09.30-2020.10.28"
             },
             {
                 "frequency": "once",
-                "date": "2020.03.27"
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
             }
         ]
     },
     {
-        "title": "Методология концептуального проектирования техники и технологий",
-        "lecturer": "Волкова Г.Д",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "313",
+        "title": "Суперкомпьютерные вычисления",
+        "lecturer": "Стихова О.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
             "start": "16:00",
-            "end": "19:30"
+            "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.03.06"
+                "frequency": "every",
+                "date": "2020.09.02-2020.09.16"
             },
             {
-                "frequency": "once",
-                "date": "2020.03.20"
+                "frequency": "every",
+                "date": "2020.09.30-2020.10.14"
             }
         ]
     },
     {
-        "title": "Вычислительные системы",
-        "lecturer": "Тарасов А.Г",
+        "title": "Бизнес-архитектура предприятия",
+        "lecturer": "Мешков В.Г",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "209",
+        "classroom": "",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "19:40",
+            "end": "22:50"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.02.28-2020.04.10"
+                "date": "2020.09.10-2020.10.08"
             }
         ]
     },
     {
-        "title": "Вычислительные системы",
-        "lecturer": "Тарасов А.Г",
+        "title": "Организация внедрения и сопровождения программного продукта",
+        "lecturer": "Коган Ю.Г",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.09.17"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.01"
+            }
+        ]
+    },
+    {
+        "title": "Бизнес-архитектура предприятия",
+        "lecturer": "Мешков В.Г",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "209",
+        "classroom": "",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "19:40",
+            "end": "22:50"
         },
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.03.06-2020.04.17"
+                "date": "2020.09.17-2020.10.15"
+            }
+        ]
+    },
+    {
+        "title": "Организация внедрения и сопровождения программного продукта",
+        "lecturer": "Коган Ю.Г",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.09.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.08"
+            }
+        ]
+    },
+    {
+        "title": "Суперкомпьютерные вычисления",
+        "lecturer": "Коробов Н.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.09.18-2020.10.16"
+            }
+        ]
+    },
+    {
+        "title": "Теория управления",
+        "lecturer": "Бердюгин А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.09.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.02"
+            }
+        ]
+    },
+    {
+        "title": "Теория управления",
+        "lecturer": "Бердюгин А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.09.25"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.09"
+            }
+        ]
+    },
+    {
+        "title": "Суперкомпьютерные вычисления",
+        "lecturer": "Коробов Н.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.09.25-2020.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Социология культуры и межкультурные коммуникации",
+        "lecturer": "Михайлова М.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.09.04"
             }
         ]
     }

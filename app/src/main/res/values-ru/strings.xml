@@ -67,8 +67,8 @@
     <string name="repository_search">Поиск</string>
     <string name="repository_search_hint">Расписание…</string>
     <string name="repository_title">Локальный репозиторий устройства</string>
-    <string name="repository_version">Текущая версия: Весна-2020</string>
-    <string name="repository_last_update">Последнее обновление: 18.02.20</string>
+    <string name="repository_version">Текущая версия: Осень-2020</string>
+    <string name="repository_last_update">Последнее обновление: 31.08.20</string>
     <string name="repository_loading_schedule">Загрузка расписания</string>
     <string name="repository_checking_schedule">Проверка загруженного расписания</string>
     <string name="repository_info_background">Фон информации репозитория</string>
@@ -147,17 +147,25 @@
     <string name="about_changelog">Список изменений</string>
     <string name="about_description">Описание</string>
     <string name="about_description_text">
-        \t<b>ProjectPepega</b> (aka Stankin Schedule) - приложение разработанное для
-        студентов МГТУ "СТАНКИН" для удобного и комфортного
-        ведения расписания, просмотра модульного журнала.\n\n
+        \t<b>Stankin Schedule</b> - это приложение для студентов МГТУ "СТАНКИН",
+        в котором можно: просматривать расписания,
+        смотреть оценки модульного журнала и читать новости университета.\n\n
 
-        \tPowered by PEPEGA INC. NORTH. \n
-        \tНиколай Верещагин \n\n
+        \tРазработчик: Верещагин Николай \n\n
 
         \tСпасибо за тестирование:  \n
-        \t\t - Богодайко С.Ю.       \n
-        \t\t - Биннятов Р.А.        \n
-        \t\t - Одинцова Э.А.
+        \t\t - Богодайко С.       \n
+        \t\t - Биннятов Р.        \n
+        \t\t - Одинцова Э.        \n
+        \t\t - Алексеев А.        \n
+        \t\t - Алтунин А.         \n
+        \t\t - Матвейчук П.       \n
+        \t\t - Лопатин Д.         \n
+        \t\t - Архипова Д.        \n
+        \t\t - Еловиков А.        \n
+        \t\t - Дума А.            \n
+        \t\t - Добровольский Д.   \n
+        \t\t - Белова Е.          \n
     </string>
 
     <!-- notification -->
