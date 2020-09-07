@@ -105,7 +105,7 @@ fun Uri.extractFilename(context: Context): String? {
         val cursor = context.contentResolver.query(this, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)
         cursor.use {
             if (it != null && it.moveToFirst()) {
-                result = it.getColumnName(it.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME))
+                result = it.getString(it.getColumnIndex(OpenableColumns.DISPLAY_NAME))
             }
         }
     }
@@ -116,6 +116,8 @@ fun Uri.extractFilename(context: Context): String? {
             result = result?.substring(cut + 1)
         }
     }
+
+    result = result?.substringBeforeLast('.')
 
     return result
 }
