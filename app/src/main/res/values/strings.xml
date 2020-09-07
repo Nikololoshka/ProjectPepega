@@ -67,8 +67,8 @@
     <string name="sch_create_new">Create new</string>
     <string name="sch_load">Load</string>
     <string name="sch_remove_schedules">The following number of schedules will be deleted: %1$s</string>
-    <string name="sch_successfully_added">Schedule: \"%1$s\" successfully added</string>
-    <string name="sch_failed_add">Schedule: \"%1$s\" failed to add</string>
+    <string name="sch_successfully_added">Schedule: \'%1$s\' successfully added</string>
+    <string name="sch_failed_add">Schedule: \'%1$s\' failed to add</string>
 
     <!-- repository -->
     <string name="repository">Repository</string>
@@ -138,7 +138,7 @@
 
     <!-- schedule editor -->
     <string name="schedule_editor_name">Schedule name</string>
-    <string name="schedule_editor_not_allowed_character">Not allowed character</string>
+    <string name="schedule_editor_not_allowed_character">Not allowed character: \'/\', \';\'</string>
     <string name="schedule_editor_exists">A schedule with this name exists.</string>
     <string name="schedule_editor_empty_name">The field cannot be empty</string>
 

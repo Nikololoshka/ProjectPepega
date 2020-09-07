@@ -29,7 +29,9 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFra
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import com.vereshchagin.nikolay.stankinschedule.utils.extractFilename
 import org.apache.commons.io.IOUtils
+import java.io.FileNotFoundException
 import java.nio.charset.StandardCharsets
 
 
@@ -243,6 +245,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
             }
             // загрузка расписания с устройста
             REQUEST_LOAD_SCHEDULE -> {
+                var scheduleName = ""
                 try {
                     val uri = data.data ?: throw RuntimeException("Invalid uri")
                     val resolver = requireContext().contentResolver
@@ -250,12 +253,14 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                         IOUtils.toString(stream, StandardCharsets.UTF_8)
                     } ?: throw RuntimeException("Cannot load json")
 
-                    viewModel.loadScheduleFromJson(json)
-                    showSnack("LOADED!!!")
+                    scheduleName = uri.extractFilename(requireContext()) ?: throw FileNotFoundException()
+                    
+                    viewModel.loadScheduleFromJson(json, scheduleName)
+                    showSnack(R.string.sch_successfully_added, args = arrayOf(scheduleName))
 
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    showSnack("Error :(")
+                    showSnack(R.string.sch_failed_add, args = arrayOf(scheduleName))
                 }
             }
         }

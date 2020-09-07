@@ -58,8 +58,8 @@
     <string name="sch_create_new">Создать новое</string>
     <string name="sch_load">Загрузить</string>
     <string name="sch_remove_schedules">Будет удалено следующие число расписаний: %1$s</string>
-    <string name="sch_successfully_added">Расписание: \"%1$s\" успешно добавлено</string>
-    <string name="sch_failed_add">Расписание: \"%1$s\" не удалось добавить</string>
+    <string name="sch_successfully_added">Расписание: \'%1$s\' успешно добавлено</string>
+    <string name="sch_failed_add">Расписание: \'%1$s\' не удалось добавить</string>
 
     <!-- repository -->
     <string name="repository">Репозиторий</string>
@@ -129,7 +129,7 @@
 
     <!-- schedule editor -->
     <string name="schedule_editor_name">Название расписания</string>
-    <string name="schedule_editor_not_allowed_character">Не разрешенный символ</string>
+    <string name="schedule_editor_not_allowed_character">Не разрешенный символ: \'/\', \';\'</string>
     <string name="schedule_editor_exists">Расписание с таким именем уже существует.</string>
     <string name="schedule_editor_empty_name">У расписания нет названия</string>
 

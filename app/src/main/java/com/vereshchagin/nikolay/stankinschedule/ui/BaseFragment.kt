@@ -59,8 +59,8 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
      * @param id ID сообщения.
      * @param duration продолжительность показа.
      */
-    protected fun showSnack(@StringRes id: Int, duration: Int = Snackbar.LENGTH_SHORT) {
-        Snackbar.make(binding.root, id, duration)
+    protected fun showSnack(@StringRes id: Int, duration: Int = Snackbar.LENGTH_SHORT, args: Array<String> = arrayOf()) {
+        Snackbar.make(binding.root, getString(id, *args), duration)
             .show()
     }
 

@@ -87,6 +87,10 @@ class ScheduleRepository {
      * Загружает и сохранаяет расписание с json.
      */
     fun loadAndSaveFromJson(context: Context, json: String, scheduleName: String) {
+        if (schedules(context).contains(scheduleName)) {
+            throw FileAlreadyExistsException(File(scheduleName))
+        }
+
         val schedule = gson.fromJson(json, Schedule::class.java)
         val path = SchedulePreference.createPath(context, scheduleName)
         save(schedule, path)

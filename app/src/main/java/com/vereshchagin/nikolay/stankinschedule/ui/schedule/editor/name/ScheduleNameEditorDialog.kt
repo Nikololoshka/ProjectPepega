@@ -8,12 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.DialogFragment
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.DialogScheduleNameEditorBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
-import com.vereshchagin.nikolay.stankinschedule.utils.focusAndShowKeyboard
 
 class ScheduleNameEditorDialog : DialogFragment() {
 
@@ -43,9 +41,18 @@ class ScheduleNameEditorDialog : DialogFragment() {
         binding.scheduleName.doAfterTextChanged { text ->
             if (text.isNullOrEmpty()) {
                 binding.scheduleNameLayout.error = getString(R.string.schedule_editor_empty_name)
+                return@doAfterTextChanged
             } else {
                 binding.scheduleNameLayout.error = null
             }
+
+            for (word in SchedulePreference.banCharacters()) {
+                if (text.contains(word)) {
+                    binding.scheduleNameLayout.error = getString(R.string.schedule_editor_not_allowed_character)
+                    return@doAfterTextChanged
+                }
+            }
+            binding.scheduleNameLayout.error = null
         }
 
         binding.cancelButton.setOnClickListener {
@@ -63,6 +70,13 @@ class ScheduleNameEditorDialog : DialogFragment() {
             if (isExist) {
                 binding.scheduleNameLayout.error = getString(R.string.schedule_editor_exists)
                 return@setOnClickListener
+            }
+
+            for (word in SchedulePreference.banCharacters()) {
+                if (name.contains(word)) {
+                    binding.scheduleNameLayout.error = getString(R.string.schedule_editor_not_allowed_character)
+                    return@setOnClickListener
+                }
             }
 
             val intent = Intent()

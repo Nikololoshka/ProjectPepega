@@ -1,5 +1,8 @@
 package com.vereshchagin.nikolay.stankinschedule.utils
 
+import android.content.Context
+import android.net.Uri
+import android.provider.OpenableColumns
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
@@ -94,4 +97,25 @@ fun View.focusAndShowKeyboard() {
                 }
             })
     }
+}
+
+fun Uri.extractFilename(context: Context): String? {
+    var result: String? = null
+    if (this.scheme == "content") {
+        val cursor = context.contentResolver.query(this, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)
+        cursor.use {
+            if (it != null && it.moveToFirst()) {
+                result = it.getColumnName(it.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME))
+            }
+        }
+    }
+    if (result == null) {
+        result = this.path
+        val cut = result?.lastIndexOf("/")
+        if (cut != null && cut != -1) {
+            result = result?.substring(cut + 1)
+        }
+    }
+
+    return result
 }

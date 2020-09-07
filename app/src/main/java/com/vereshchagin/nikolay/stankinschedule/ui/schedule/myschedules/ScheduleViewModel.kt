@@ -73,8 +73,8 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
     /**
      * Загружает расписание из json.
      */
-    fun loadScheduleFromJson(json: String) {
-        repository.loadAndSaveFromJson(getApplication(), json, "test")
+    fun loadScheduleFromJson(json: String, scheduleName: String) {
+        repository.loadAndSaveFromJson(getApplication(), json, scheduleName)
         update()
     }
 
