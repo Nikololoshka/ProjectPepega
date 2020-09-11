@@ -1,616 +1,570 @@
 [
     {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.07-2020.12.14"
+                "date": "2020.09.07-2020.12.14",
+                "frequency": "every"
             }
-        ]
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Seminar"
     },
     {
-        "title": "Объектно-ориентированное программирование на языке высокого уровня",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.21-2020.10.26",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Петухов П.А",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0402",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.21-2020.10.26"
-            }
-        ]
+        "title": "Объектно-ориентированное программирование на языке высокого уровня",
+        "type": "Seminar"
     },
     {
-        "title": "Политология",
-        "lecturer": "Куткин В.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.07-2020.11.23"
-            }
-        ]
-    },
-    {
-        "title": "Политология",
-        "lecturer": "Куткин В.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0402",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.14-2020.11.30"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Лоскутов А.И",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "408",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.02-2020.12.07"
-            }
-        ]
-    },
-    {
-        "title": "Математическая логика и теория алгоритмов",
-        "lecturer": "Елисеева Ю.В",
-        "type": "Lecture",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.08-2020.11.17"
+                "date": "2020.09.14-2020.11.30",
+                "frequency": "every"
             }
-        ]
-    },
-    {
-        "title": "Философия",
-        "lecturer": "Шитов С.Б",
-        "type": "Seminar",
+        ],
+        "lecturer": "Куткин В.С",
         "subgroup": "Common",
-        "classroom": "505",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.08-2020.12.01"
-            }
-        ]
+        "title": "Политология",
+        "type": "Seminar"
     },
     {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.02-2020.12.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Лоскутов А.И",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Физика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07-2020.12.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Саркисова И.О",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Архитектура ЭВМ и вычислительных систем",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.11.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Елисеева Ю.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
         "title": "Математическая логика и теория алгоритмов",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0207",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.12.01",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Шитов С.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Философия",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0207",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.11.24",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Лапушкина Л.И",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0404",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.08-2020.11.24"
-            }
-        ]
-    },
-    {
-        "title": "Философия",
-        "lecturer": "Шитов С.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "505",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.12.01"
-            }
-        ]
-    },
-    {
-        "title": "Объектно-ориентированное программирование на языке высокого уровня",
-        "lecturer": "Разумовский А.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.08-2020.12.15"
-            }
-        ]
-    },
-    {
-        "title": "Программирование специализированных вычислительных устройств",
-        "lecturer": "Волкова О.Р",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.15-2020.10.20"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная геометрия и графика",
-        "lecturer": "Разумовский А.И",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "246",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.09-2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.11"
-            }
-        ]
-    },
-    {
-        "title": "Архитектура ЭВМ и вычислительных систем",
-        "lecturer": "Саркисова И.О",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "249(б)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.09-2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.11"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная геометрия и графика",
-        "lecturer": "Разумовский А.И",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "246",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.16-2020.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.18"
-            }
-        ]
-    },
-    {
-        "title": "Архитектура ЭВМ и вычислительных систем",
-        "lecturer": "Саркисова И.О",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "249(б)",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.16-2020.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.18"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.02"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.02"
-            }
-        ]
-    },
-    {
-        "title": "Архитектура ЭВМ и вычислительных систем",
-        "lecturer": "Саркисова И.О",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.09"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.09.30-2020.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.11.11-2020.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Архитектура ЭВМ и вычислительных систем",
-        "lecturer": "Саркисова И.О",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0402",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.07-2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Лоскутов А.И",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "419",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.10-2020.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Лоскутов А.И",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "419",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.17-2020.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Объектно-ориентированное программирование на языке высокого уровня",
-        "lecturer": "Иванова Т.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "249(б)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.01-2020.12.10"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Объектно-ориентированное программирование на языке высокого уровня",
-        "lecturer": "Иванова Т.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "249(б)",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.08-2020.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Объектно-ориентированное программирование на языке высокого уровня",
-        "lecturer": "Иванова Т.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "249(б)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.12.10"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Архитектура ЭВМ и вычислительных систем",
-        "lecturer": "Саркисова И.О",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.03"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Лоскутов А.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "431",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.03-2020.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Иностранный язык",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.03-2020.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Программирование специализированных вычислительных устройств",
-        "lecturer": "Симонов М.Ф",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "210",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.11-2020.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Программирование специализированных вычислительных устройств",
-        "lecturer": "Симонов М.Ф",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "210",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.18-2020.10.30"
-            }
-        ]
-    },
-    {
-        "title": "Объектно-ориентированное программирование на языке высокого уровня",
-        "lecturer": "Разумовский А.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0408",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.04"
-            }
-        ]
-    },
-    {
-        "title": "Философия",
-        "lecturer": "Шитов С.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.04-2020.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная геометрия и графика",
-        "lecturer": "Толок А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.05-2020.11.07"
-            }
-        ]
-    },
-    {
         "title": "Математическая логика и теория алгоритмов",
-        "lecturer": "Елисеева Ю.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.05"
-            }
-        ]
+        "type": "Seminar"
     },
     {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
+        "classroom": "0411",
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.12-2020.12.19"
+                "date": "2020.09.15-2020.11.03",
+                "frequency": "every"
             }
-        ]
+        ],
+        "lecturer": "Волкова О.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Программирование специализированных вычислительных устройств",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0207",
+        "dates": [
+            {
+                "date": "2020.12.01",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Шитов С.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Философия",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "246",
+        "dates": [
+            {
+                "date": "2020.09.09-2020.10.21",
+                "frequency": "throughout"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Разумовский А.И",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Компьютерная геометрия и графика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "249(б)",
+        "dates": [
+            {
+                "date": "2020.09.09-2020.10.21",
+                "frequency": "throughout"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Саркисова И.О",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Архитектура ЭВМ и вычислительных систем",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "246",
+        "dates": [
+            {
+                "date": "2020.09.16-2020.10.28",
+                "frequency": "throughout"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Разумовский А.И",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Компьютерная геометрия и графика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "249(б)",
+        "dates": [
+            {
+                "date": "2020.09.16-2020.10.28",
+                "frequency": "throughout"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Саркисова И.О",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Архитектура ЭВМ и вычислительных систем",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.02",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.02",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.07-2020.10.28",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Саркисова И.О",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Архитектура ЭВМ и вычислительных систем",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "419",
+        "dates": [
+            {
+                "date": "2020.09.10-2020.10.22",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Лоскутов А.И",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Физика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "419",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.10.29",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Лоскутов А.И",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Физика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "249(б)",
+        "dates": [
+            {
+                "date": "2020.10.01-2020.12.10",
+                "frequency": "throughout"
+            },
+            {
+                "date": "2020.12.17",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Иванова Т.В",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Объектно-ориентированное программирование на языке высокого уровня",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "249(б)",
+        "dates": [
+            {
+                "date": "2020.10.08-2020.12.03",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Иванова Т.В",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Объектно-ориентированное программирование на языке высокого уровня",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "249(б)",
+        "dates": [
+            {
+                "date": "2020.12.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.17",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Иванова Т.В",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Объектно-ориентированное программирование на языке высокого уровня",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "431",
+        "dates": [
+            {
+                "date": "2020.09.03-2020.12.03",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Лоскутов А.И",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Физика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.03-2020.12.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "210",
+        "dates": [
+            {
+                "date": "2020.09.11-2020.10.23",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Симонов М.Ф",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Программирование специализированных вычислительных устройств",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "210",
+        "dates": [
+            {
+                "date": "2020.09.18-2020.10.30",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Симонов М.Ф",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Программирование специализированных вычислительных устройств",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "0209",
+        "dates": [
+            {
+                "date": "2020.09.04-2020.12.04",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Шитов С.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Философия",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05-2020.11.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Толок А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Компьютерная геометрия и графика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Елисеева Ю.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Математическая логика и теория алгоритмов",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.12-2020.12.19",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.12-2020.11.28",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Куткин В.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Политология",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05-2020.12.19",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Разумовский А.И",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Объектно-ориентированное программирование на языке высокого уровня",
+        "type": "Lecture"
     }
 ]

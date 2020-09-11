@@ -1,860 +1,868 @@
 [
     {
-        "title": "Электротехника и электроника",
-        "lecturer": "",
-        "type": "Laboratory",
-        "subgroup": "B",
         "classroom": "346/5",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.19-2020.11.16"
+                "date": "2020.10.19-2020.11.16",
+                "frequency": "throughout"
             }
-        ]
-    },
-    {
-        "title": "Нагрев и нагревательные устройства",
-        "lecturer": "Садеков Н.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 5",
+        ],
+        "lecturer": "Воронин В.В",
+        "subgroup": "B",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "end": "12:00",
+            "start": "8:30"
         },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.19-2020.11.16"
-            }
-        ]
-    },
-    {
         "title": "Электротехника и электроника",
-        "lecturer": "",
-        "type": "Laboratory",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 5",
+        "dates": [
+            {
+                "date": "2020.10.19-2020.11.16",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Садеков Н.А",
         "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Нагрев и нагревательные устройства",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "346/5",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.26-2020.11.23"
+                "date": "2020.10.26-2020.11.23",
+                "frequency": "throughout"
             }
-        ]
+        ],
+        "lecturer": "Воронин В.В",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Электротехника и электроника",
+        "type": "Laboratory"
     },
     {
-        "title": "Нагрев и нагревательные устройства",
+        "classroom": "ТехП 5",
+        "dates": [
+            {
+                "date": "2020.10.26-2020.11.23",
+                "frequency": "throughout"
+            }
+        ],
         "lecturer": "Садеков Н.А",
-        "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "ТехП 5",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "end": "12:00",
+            "start": "8:30"
         },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.26-2020.11.23"
-            }
-        ]
+        "title": "Нагрев и нагревательные устройства",
+        "type": "Laboratory"
     },
     {
-        "title": "Гидравлическое и пневматическое оборудование",
-        "lecturer": "Сазанов И.И",
-        "type": "Seminar",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.21-2020.10.12"
+                "date": "2020.09.21-2020.10.12",
+                "frequency": "every"
             }
-        ]
+        ],
+        "lecturer": "Сазанов И.И",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Гидравлическое и пневматическое оборудование",
+        "type": "Seminar"
     },
     {
+        "classroom": "0306",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.10.19",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Алепко А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
         "title": "Электротехника и электроника",
-        "lecturer": "",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "240(б)",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.07-2020.11.23"
-            }
-        ]
+        "type": "Lecture"
     },
     {
-        "title": "Основы научных исследований и техника эксперимента",
-        "lecturer": "Аноприенко А.К",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 5",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.20-2020.12.01"
-            }
-        ]
-    },
-    {
-        "title": "Гидравлическое и пневматическое оборудование",
-        "lecturer": "Сазанов И.И",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 8",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.20"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.17"
-            }
-        ]
-    },
-    {
-        "title": "Гидравлическое и пневматическое оборудование",
-        "lecturer": "Сазанов И.И",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 8",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.24"
-            }
-        ]
-    },
-    {
-        "title": "Основы научных исследований и техника эксперимента",
-        "lecturer": "Аноприенко А.К",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 5",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.27-2020.12.08"
-            }
-        ]
-    },
-    {
-        "title": "Теория обработки металлов давлением",
-        "lecturer": "Сосенушкин Е.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
         "classroom": "455",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.15-2020.10.06"
+                "date": "2020.10.26-2020.11.09",
+                "frequency": "every"
             }
-        ]
-    },
-    {
-        "title": "Теория обработки металлов давлением",
+        ],
         "lecturer": "Сосенушкин Е.Н",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "455",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.08-2020.10.13"
-            }
-        ]
+        "title": "Теория обработки металлов давлением",
+        "type": "Lecture"
     },
     {
+        "classroom": "0306",
+        "dates": [
+            {
+                "date": "2020.10.26-2020.11.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Алепко А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
         "title": "Электротехника и электроника",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "346/1",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.08-2020.10.13"
-            }
-        ]
+        "type": "Lecture"
     },
     {
-        "title": "Теория управления",
-        "lecturer": "Волкова О.Р",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0209",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
+        "classroom": "ТехП 5",
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.15-2020.11.03"
+                "date": "2020.10.20-2020.12.01",
+                "frequency": "throughout"
             }
-        ]
-    },
-    {
-        "title": "Теория обработки металлов давлением",
-        "lecturer": "Сосенушкин Е.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "455",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.20-2020.11.10"
-            }
-        ]
-    },
-    {
-        "title": "Организация и управление машиностроительным производством",
-        "lecturer": "Можаровская А.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.12.15"
-            }
-        ]
-    },
-    {
-        "title": "Теория управления",
-        "lecturer": "Волкова О.Р",
-        "type": "Laboratory",
+        ],
+        "lecturer": "Аноприенко А.К",
         "subgroup": "A",
-        "classroom": "",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "end": "15:50",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.07"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            }
-        ]
+        "title": "Основы научных исследований и техника эксперимента",
+        "type": "Laboratory"
     },
     {
-        "title": "Теория управления",
-        "lecturer": "Волкова О.Р",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
+        "classroom": "ТехП 8",
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.14"
+                "date": "2020.10.20",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.10.28"
+                "date": "2020.11.17",
+                "frequency": "once"
             }
-        ]
-    },
-    {
-        "title": "Основы конструирования машин",
-        "lecturer": "Некрасов А.Я",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Основы конструирования машин",
-        "lecturer": "Некрасов А.Я",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Основы технологии машиностроения",
-        "lecturer": "Кареев Ю.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.09-2020.09.30"
-            }
-        ]
-    },
-    {
-        "title": "Теория управления",
-        "lecturer": "Волкова О.Р",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "302",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.30"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.07"
-            }
-        ]
-    },
-    {
-        "title": "Организация и управление машиностроительным производством",
-        "lecturer": "Можаровская А.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.11.11-2020.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Организация и управление машиностроительным производством",
-        "lecturer": "Можаровская А.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.11.11-2020.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Экономика машиностроительного производства",
-        "lecturer": "Дорожкина О.К",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.03-2020.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.03"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.10"
-            }
-        ]
-    },
-    {
-        "title": "Основы технологии машиностроения",
-        "lecturer": "Тимирязев В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.03-2020.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.17-2020.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Гидравлическое и пневматическое оборудование",
+        ],
         "lecturer": "Сазанов И.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
+        "subgroup": "B",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "15:50",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.17-2020.10.29"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.12"
-            }
-        ]
+        "title": "Гидравлическое и пневматическое оборудование",
+        "type": "Laboratory"
     },
     {
-        "title": "Организация и управление машиностроительным производством",
-        "lecturer": "Можаровская А.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
+        "classroom": "ТехП 8",
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.12.10"
+                "date": "2020.10.27",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.12.17"
+                "date": "2020.11.24",
+                "frequency": "once"
             }
-        ]
-    },
-    {
-        "title": "Организация и управление машиностроительным производством",
-        "lecturer": "Можаровская А.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.12.10"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Теория управления",
-        "lecturer": "Волкова О.Р",
-        "type": "Laboratory",
+        ],
+        "lecturer": "Сазанов И.И",
         "subgroup": "A",
-        "classroom": "",
         "time": {
-            "start": "8:30",
-            "end": "12:00"
+            "end": "15:50",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.18"
-            }
-        ]
+        "title": "Гидравлическое и пневматическое оборудование",
+        "type": "Laboratory"
     },
     {
-        "title": "Теория управления",
-        "lecturer": "Волкова О.Р",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.02"
-            }
-        ]
-    },
-    {
-        "title": "Основы технологии машиностроения",
-        "lecturer": "Кареев Ю.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.09-2020.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Основы технологии машиностроения",
-        "lecturer": "Кареев Ю.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.16-2020.11.13"
-            }
-        ]
-    },
-    {
-        "title": "Теория обработки металлов давлением",
-        "lecturer": "Сосенушкин А.Е",
-        "type": "Laboratory",
-        "subgroup": "B",
         "classroom": "ТехП 5",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.23-2020.11.20"
+                "date": "2020.10.27-2020.12.08",
+                "frequency": "throughout"
             }
-        ]
+        ],
+        "lecturer": "Аноприенко А.К",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Основы научных исследований и техника эксперимента",
+        "type": "Laboratory"
     },
     {
+        "classroom": "455",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.10.06",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Сосенушкин Е.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
         "title": "Теория обработки металлов давлением",
-        "lecturer": "Сосенушкин А.Е",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 5",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.30-2020.11.27"
-            }
-        ]
+        "type": "Seminar"
     },
     {
-        "title": "Экономика машиностроительного производства",
+        "classroom": "305",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.10.13",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Будяков А.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Электротехника и электроника",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "455",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.10.20",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Сосенушкин Е.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Теория обработки металлов давлением",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0208",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.11.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Волкова О.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Теория управления",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.21",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.25",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Некрасов А.Я",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Основы конструирования машин",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.02",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Некрасов А.Я",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Основы конструирования машин",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Волкова О.Р",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Теория управления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.16-2020.10.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Волкова О.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Теория управления",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.30",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.07",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Кареев Ю.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Основы технологии машиностроения",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.16",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Можаровская А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Организация и управление машиностроительным производством",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.21",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.11-2020.12.16",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Можаровская А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Организация и управление машиностроительным производством",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.21",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.11-2020.12.16",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Можаровская А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Организация и управление машиностроительным производством",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.30-2020.10.28",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Астафьева А.А",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.25-2020.10.30"
-            }
-        ]
-    },
-    {
-        "title": "Организация и управление машиностроительным производством",
-        "lecturer": "Можаровская А.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.06-2020.12.18"
-            }
-        ]
-    },
-    {
         "title": "Экономика машиностроительного производства",
-        "lecturer": "Дорожкина О.К",
-        "type": "Lecture",
-        "subgroup": "Common",
+        "type": "Seminar"
+    },
+    {
         "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.12.11"
+                "date": "2020.11.11-2020.12.16",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Можаровская А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Организация и управление машиностроительным производством",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.03-2020.12.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Дорожкина О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Экономика машиностроительного производства",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.03",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.12.18"
+                "date": "2020.09.10",
+                "frequency": "once"
             }
-        ]
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Lecture"
     },
     {
-        "title": "Основы конструирования машин",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.03-2020.12.03",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Тимирязев В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Основы технологии машиностроения",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.12.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.10.29",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.12",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Сазанов И.И",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Гидравлическое и пневматическое оборудование",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.17",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Можаровская А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Организация и управление машиностроительным производством",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.17",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Можаровская А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Организация и управление машиностроительным производством",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.25-2020.10.23",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Волкова О.Р",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Теория управления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.02",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Волкова О.Р",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Теория управления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09-2020.11.06",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Кареев Ю.А",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Основы технологии машиностроения",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.16-2020.11.13",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Кареев Ю.А",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Основы технологии машиностроения",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 5",
+        "dates": [
+            {
+                "date": "2020.10.23-2020.11.20",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Сосенушкин А.Е",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Теория обработки металлов давлением",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 5",
+        "dates": [
+            {
+                "date": "2020.10.30-2020.11.27",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Сосенушкин А.Е",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Теория обработки металлов давлением",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.11",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Дорожкина О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Экономика машиностроительного производства",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05-2020.10.03",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Некрасов А.Я",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "12:00",
+            "start": "10:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.05-2020.10.03"
-            }
-        ]
-    },
-    {
         "title": "Основы конструирования машин",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05-2020.10.03",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Некрасов А.Я",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "end": "10:10",
+            "start": "8:30"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.05-2020.10.03"
-            }
-        ]
+        "title": "Основы конструирования машин",
+        "type": "Lecture"
     },
     {
-        "title": "Нагрев и нагревательные устройства",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.10-2020.10.31",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Садеков Н.А",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "end": "17:40",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.10-2020.10.31"
-            }
-        ]
-    },
-    {
         "title": "Нагрев и нагревательные устройства",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.12-2020.11.14",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Садеков Н.А",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.12-2020.11.14"
-            }
-        ]
+        "title": "Нагрев и нагревательные устройства",
+        "type": "Lecture"
     },
     {
-        "title": "Основы научных исследований и техника эксперимента",
-        "lecturer": "Аноприенко А.К",
-        "type": "Lecture",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.12-2020.11.28"
+                "date": "2020.09.12-2020.11.28",
+                "frequency": "every"
             }
-        ]
+        ],
+        "lecturer": "Аноприенко А.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Основы научных исследований и техника эксперимента",
+        "type": "Lecture"
     },
     {
-        "title": "Основы научных исследований и техника эксперимента",
-        "lecturer": "Аноприенко А.К",
-        "type": "Seminar",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.10.10-2020.10.31"
+                "date": "2020.10.10-2020.10.31",
+                "frequency": "every"
             }
-        ]
+        ],
+        "lecturer": "Аноприенко А.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Основы научных исследований и техника эксперимента",
+        "type": "Seminar"
     }
 ]

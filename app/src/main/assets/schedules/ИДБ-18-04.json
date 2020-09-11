@@ -1,548 +1,514 @@
 [
     {
-        "title": "Компьютерная графика",
-        "lecturer": "Болдарев А.С",
-        "type": "Laboratory",
-        "subgroup": "B",
         "classroom": "216",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.09.07-2020.11.02"
+                "date": "2020.09.07-2020.11.02",
+                "frequency": "throughout"
             }
-        ]
+        ],
+        "lecturer": "Болдарев А.С",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Компьютерная графика",
+        "type": "Laboratory"
     },
     {
-        "title": "Компьютерная графика",
-        "lecturer": "Болдарев А.С",
-        "type": "Laboratory",
-        "subgroup": "A",
         "classroom": "216",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.09.14-2020.11.09"
+                "date": "2020.09.14-2020.11.09",
+                "frequency": "throughout"
             }
-        ]
-    },
-    {
-        "title": "Базы данных",
-        "lecturer": "Рожкова О.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "214",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.14-2020.10.26"
-            }
-        ]
-    },
-    {
-        "title": "Базы данных",
-        "lecturer": "Рожкова О.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "214",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.21-2020.11.02"
-            }
-        ]
-    },
-    {
-        "title": "Экономико-правовые основы рынка интеллектуальных продуктов",
-        "lecturer": "Гринман И.Р",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "240(г)",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.14-2020.11.30"
-            }
-        ]
-    },
-    {
-        "title": "Базы данных",
-        "lecturer": "Тюрбеева Т.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "240(г)",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.14-2020.10.19"
-            }
-        ]
-    },
-    {
-        "title": "Теория конечных автоматов",
-        "lecturer": "Бекмурзаев В.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "240(г)",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.15-2020.11.17"
-            }
-        ]
-    },
-    {
-        "title": "Экономико-правовые основы рынка интеллектуальных продуктов",
-        "lecturer": "Гринман И.Р",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0811",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.15-2020.11.17"
-            }
-        ]
-    },
-    {
-        "title": "Базы данных",
-        "lecturer": "Тюрбеева Т.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0411",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.08-2020.12.01"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная графика",
+        ],
         "lecturer": "Болдарев А.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0411",
+        "subgroup": "A",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "end": "19:30",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.08-2020.12.01"
-            }
-        ]
+        "title": "Компьютерная графика",
+        "type": "Laboratory"
     },
     {
-        "title": "Теория конечных автоматов",
+        "classroom": "214",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.10.26",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Рожкова О.А",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Базы данных",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "214",
+        "dates": [
+            {
+                "date": "2020.09.21-2020.11.02",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Рожкова О.А",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Базы данных",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "0801",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гринман И.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Экономико-правовые основы рынка интеллектуальных продуктов",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0622",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.10.19",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Тюрбеева Т.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Базы данных",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.12.01",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Тюрбеева Т.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Базы данных",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.12.08",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Бекмурзаев В.А",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "240(г)",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.24-2020.12.08"
-            }
-        ]
+        "title": "Теория конечных автоматов",
+        "type": "Seminar"
     },
     {
-        "title": "Организация и управление предприятием",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.11.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гринман И.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Экономико-правовые основы рынка интеллектуальных продуктов",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.12.01",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Болдарев А.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Компьютерная графика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.30-2020.10.28",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Лукина С.В",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "end": "17:40",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.09.30-2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Модели и методы анализа проектных решений",
-        "lecturer": "Ефромеева Е.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.09"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.30"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.07"
-            }
-        ]
-    },
-    {
-        "title": "Электротехника, электроника и схемотехника",
-        "lecturer": "Сергеев Ю.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "346/1",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.07-2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Электротехника, электроника и схемотехника",
-        "lecturer": "Сергеев Ю.Д",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "346/4",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.17-2020.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Электротехника, электроника и схемотехника",
-        "lecturer": "Сергеев Ю.Д",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "346/4",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.24-2020.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Электротехника, электроника и схемотехника",
-        "lecturer": "Сергеев Ю.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0811",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.10-2020.11.19"
-            }
-        ]
-    },
-    {
-        "title": "Теория конечных автоматов",
-        "lecturer": "Бекмурзаев В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0811",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.17-2020.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Теория конечных автоматов",
-        "lecturer": "Бекмурзаев В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0811",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Модели и методы анализа проектных решений",
-        "lecturer": "Ефромеева Е.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.18"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.02"
-            }
-        ]
-    },
-    {
-        "title": "Модели и методы анализа проектных решений",
-        "lecturer": "Ефромеева Е.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.25"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.09"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная механика",
-        "lecturer": "Новиков В.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.11.20"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная механика",
-        "lecturer": "Новиков В.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.11.27"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Модели и методы анализа проектных решений",
-        "lecturer": "Ефромеева Е.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.04-2020.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная механика",
-        "lecturer": "Новиков В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.13-2020.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная механика",
-        "lecturer": "Новиков В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.04-2020.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.05"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.12"
-            }
-        ]
-    },
-    {
         "title": "Организация и управление предприятием",
-        "lecturer": "Лукина С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.05-2020.11.07"
-            }
-        ]
+        "type": "Seminar"
     },
     {
-        "title": "Прикладная механика",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.30",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.07",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Ефромеева Е.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Модели и методы анализа проектных решений",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.07-2020.10.28",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Сергеев Ю.Д",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Электротехника, электроника и схемотехника",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "346/4",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.11.26",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Сергеев Ю.Д",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Электротехника, электроника и схемотехника",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "346/4",
+        "dates": [
+            {
+                "date": "2020.09.24-2020.12.03",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Сергеев Ю.Д",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Электротехника, электроника и схемотехника",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "0206",
+        "dates": [
+            {
+                "date": "2020.09.10-2020.11.19",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Сергеев Ю.Д",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Электротехника, электроника и схемотехника",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0206",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.12.03",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Бекмурзаев В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Теория конечных автоматов",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.18",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.02",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Ефромеева Е.В",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Модели и методы анализа проектных решений",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.25",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.09",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Ефромеева Е.В",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Модели и методы анализа проектных решений",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.20",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.04",
+                "frequency": "once"
+            }
+        ],
         "lecturer": "Новиков В.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
+        "subgroup": "B",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "19:30",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.19-2020.11.21"
-            }
-        ]
+        "title": "Прикладная механика",
+        "type": "Laboratory"
     },
     {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.19-2020.12.19"
+                "date": "2020.11.27",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.11",
+                "frequency": "once"
             }
-        ]
+        ],
+        "lecturer": "Новиков В.А",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Прикладная механика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.04-2020.10.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ефромеева Е.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Модели и методы анализа проектных решений",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.13-2020.12.04",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Новиков В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Прикладная механика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.04-2020.12.04",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Новиков В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Прикладная механика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.12",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05-2020.11.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Лукина С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Организация и управление предприятием",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.11.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Новиков В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Прикладная механика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.12.19",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Seminar"
     }
 ]

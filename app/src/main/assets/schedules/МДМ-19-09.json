@@ -1,70 +1,70 @@
 [
     {
-        "title": "Управление рисками, системный анализ и моделирование",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07-2020.10.26",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Ягольницер О.В",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "end": "19:30",
+            "start": "18:00"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.07-2020.10.26"
-            }
-        ]
+        "title": "Управление рисками, системный анализ и моделирование",
+        "type": "Lecture"
     },
     {
-        "title": "Автоматизация обеспечения техносферной безопасности",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.11.17",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Шварцбург Л.Э",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "end": "19:30",
+            "start": "18:00"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.15-2020.11.17"
-            }
-        ]
+        "title": "Автоматизация обеспечения техносферной безопасности",
+        "type": "Lecture"
     },
     {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05-2020.11.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Букейханов Н.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
         "title": "Инженерные технологии управления потреблением ресурсов и отходами",
-        "lecturer": "Букейханов Н.Р",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.05-2020.11.21"
-            }
-        ]
+        "type": "Lecture"
     },
     {
-        "title": "Расчет и проектирование систем обеспечения безопасности",
-        "lecturer": "Букейханов Н.Р",
-        "type": "Lecture",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.05-2020.10.24"
+                "date": "2020.09.05-2020.10.24",
+                "frequency": "every"
             }
-        ]
+        ],
+        "lecturer": "Букейханов Н.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Расчет и проектирование систем обеспечения безопасности",
+        "type": "Lecture"
     }
 ]

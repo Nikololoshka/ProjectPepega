@@ -1,582 +1,607 @@
 [
     {
-        "title": "Методы и средства контроля качества изделий в машиностроении",
-        "lecturer": "Кириллов А.К",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "415",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
+        "classroom": "",
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.05-2020.11.02"
+                "date": "2020.10.05-2020.11.02",
+                "frequency": "throughout"
             }
-        ]
+        ],
+        "lecturer": "Кириллов А.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Методы и средства контроля качества изделий в машиностроении",
+        "type": "Laboratory"
     },
     {
-        "title": "Гидропневмоавтоматика",
-        "lecturer": "Сазанов И.И",
-        "type": "Laboratory",
-        "subgroup": "Common",
         "classroom": "ТехП 8",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.11.16-2020.12.14"
+                "date": "2020.11.16-2020.12.14",
+                "frequency": "throughout"
             }
-        ]
-    },
-    {
-        "title": "Основы технологии машиностроения",
-        "lecturer": "Луцюк С.В",
-        "type": "Seminar",
+        ],
+        "lecturer": "Сазанов И.И",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "15:50",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.07-2020.09.28"
-            }
-        ]
+        "title": "Гидропневмоавтоматика",
+        "type": "Laboratory"
     },
     {
-        "title": "Методы и средства контроля качества изделий в машиностроении",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07-2020.09.28",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Луцюк С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Основы технологии машиностроения",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07-2020.09.28",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Рязанов Д.Ю",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "end": "10:10",
+            "start": "8:30"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.07-2020.09.28"
-            }
-        ]
-    },
-    {
-        "title": "Металлорежущие станки",
-        "lecturer": "Чурилин А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "501-7",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.14-2020.11.02"
-            }
-        ]
-    },
-    {
-        "title": "Транспортные системы и манипуляторы",
-        "lecturer": "Ривкин А.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "501-8",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.11.03"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.17"
-            }
-        ]
-    },
-    {
-        "title": "Управление техническими системами",
-        "lecturer": "Чумаева М.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.08"
-            }
-        ]
-    },
-    {
-        "title": "Гидропневмоавтоматика",
-        "lecturer": "Сазанов И.И",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.22-2020.10.27"
-            }
-        ]
-    },
-    {
-        "title": "Управление техническими системами",
-        "lecturer": "Чумаева М.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "346/5",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.15-2020.11.03"
-            }
-        ]
-    },
-    {
-        "title": "Управление техническими системами",
-        "lecturer": "Чумаева М.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.08-2020.12.01"
-            }
-        ]
-    },
-    {
-        "title": "Управление техническими системами",
-        "lecturer": "Чумаева М.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "346/1",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.11.11-2020.12.09"
-            }
-        ]
-    },
-    {
-        "title": "Основы CALS-технологий",
-        "lecturer": "Краснов А.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.09-2020.10.21"
-            }
-        ]
-    },
-    {
-        "title": "Основы CALS-технологий",
-        "lecturer": "Краснов А.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.09-2020.10.21"
-            }
-        ]
-    },
-    {
-        "title": "Экономика и управление машиностроительным производством",
-        "lecturer": "Зимовец О.Е",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.09"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.09.30-2020.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.11.11-2020.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Основы технологии машиностроения",
-        "lecturer": "Луцюк С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.02-2020.09.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.09.30-2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Гидропневмоавтоматика",
-        "lecturer": "Сазанов И.И",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.18"
-            }
-        ]
-    },
-    {
-        "title": "Основы технологии машиностроения",
-        "lecturer": "Луцюк С.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.08"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Трехмерное моделирование",
-        "lecturer": "Бушуев В.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.15-2020.11.12"
-            }
-        ]
-    },
-    {
-        "title": "Металлорежущие станки",
-        "lecturer": "Еремьянц В.А",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.11.05"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.19"
-            }
-        ]
-    },
-    {
-        "title": "Трехмерное моделирование",
-        "lecturer": "Бушуев В.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.10-2020.10.01"
-            }
-        ]
-    },
-    {
-        "title": "Транспортные системы и манипуляторы",
-        "lecturer": "Ривкин А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0803",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.10-2020.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Трехмерное моделирование",
-        "lecturer": "Бушуев В.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.10-2020.11.12"
-            }
-        ]
-    },
-    {
-        "title": "Гидропневмоавтоматика",
-        "lecturer": "Сазанов И.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.18-2020.10.30"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.11.13-2020.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Экономика и управление машиностроительным производством",
-        "lecturer": "Зимовец О.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.04-2020.11.06"
-            }
-        ]
-    },
-    {
         "title": "Методы и средства контроля качества изделий в машиностроении",
-        "lecturer": "Кириллов А.К",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.04-2020.11.06"
-            }
-        ]
+        "type": "Seminar"
     },
     {
-        "title": "Металлорежущие станки",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.02",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Чурилин А.В",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.04-2020.11.20"
-            }
-        ]
+        "title": "Металлорежущие станки",
+        "type": "Seminar"
     },
     {
-        "title": "Гидропневмоавтоматика",
-        "lecturer": "Сазанов И.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
+        "classroom": "501-8",
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Основы CALS-технологий",
-        "lecturer": "Краснов А.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
+                "date": "2020.11.03",
+                "frequency": "once"
+            },
             {
-                "frequency": "every",
-                "date": "2020.09.12-2020.10.17"
+                "date": "2020.11.17",
+                "frequency": "once"
             }
-        ]
-    },
-    {
-        "title": "Основы CALS-технологий",
-        "lecturer": "Краснов А.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0409",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.12-2020.10.17"
-            }
-        ]
-    },
-    {
-        "title": "Управление персоналом",
-        "lecturer": "Кузнецов Б.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0410",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.12-2020.10.24"
-            }
-        ]
-    },
-    {
-        "title": "Управление персоналом",
-        "lecturer": "Кузнецов Б.М",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "504",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.12-2020.10.31"
-            }
-        ]
-    },
-    {
-        "title": "Транспортные системы и манипуляторы",
+        ],
         "lecturer": "Ривкин А.В",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "501-7",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "end": "12:00",
+            "start": "8:30"
         },
+        "title": "Транспортные системы и манипуляторы",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "0208",
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.11.07-2020.11.28"
+                "date": "2020.09.08",
+                "frequency": "once"
             }
-        ]
+        ],
+        "lecturer": "Чумаева М.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Управление техническими системами",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.22-2020.10.27",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Сазанов И.И",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Гидропневмоавтоматика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "305",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.11.03",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Чумаева М.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Управление техническими системами",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0208",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.12.01",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Чумаева М.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Управление техническими системами",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "346/1",
+        "dates": [
+            {
+                "date": "2020.11.11-2020.12.09",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Чумаева М.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Управление техническими системами",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.09-2020.10.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Краснов А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Основы CALS-технологий",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.09-2020.10.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Краснов А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Основы CALS-технологий",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.30-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11-2020.11.25",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Зимовец О.Е",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Экономика и управление машиностроительным производством",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.02-2020.09.16",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.09.30-2020.10.28",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Луцюк С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Основы технологии машиностроения",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Сазанов И.И",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Гидропневмоавтоматика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.22",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Луцюк С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "18:00"
+        },
+        "title": "Основы технологии машиностроения",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 11",
+        "dates": [
+            {
+                "date": "2020.10.15-2020.11.12",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бушуев В.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Трехмерное моделирование",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 11",
+        "dates": [
+            {
+                "date": "2020.11.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.19",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Еремьянц В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Металлорежущие станки",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.10-2020.10.01",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Бушуев В.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Трехмерное моделирование",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.10-2020.10.22",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ривкин А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Транспортные системы и манипуляторы",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.10-2020.10.22",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Бушуев В.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Трехмерное моделирование",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.29-2020.11.12",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Бушуев В.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Трехмерное моделирование",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.18-2020.10.30",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.13-2020.12.18",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Сазанов И.И",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Гидропневмоавтоматика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.04-2020.11.06",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Зимовец О.Е",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Экономика и управление машиностроительным производством",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.04-2020.11.06",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кириллов А.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Методы и средства контроля качества изделий в машиностроении",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.04-2020.11.20",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Чурилин А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Металлорежущие станки",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Сазанов И.И",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Гидропневмоавтоматика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.12-2020.10.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Краснов А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Основы CALS-технологий",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.12-2020.10.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Краснов А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Основы CALS-технологий",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.12",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.03-2020.10.24",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Управление персоналом",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.12",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.03-2020.10.31",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Управление персоналом",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.07-2020.11.28",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ривкин А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Транспортные системы и манипуляторы",
+        "type": "Seminar"
     }
 ]

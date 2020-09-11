@@ -1,860 +1,932 @@
 [
     {
-        "title": "Теория автоматического управления",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.09.28",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Чумаева М.В",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "346/1",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.14-2020.09.28"
-            }
-        ]
+        "title": "Теория автоматического управления",
+        "type": "Seminar"
     },
     {
-        "title": "Надежность и тестирование программного обеспечения",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.11.23",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Суханова Н.В",
-        "type": "Seminar",
         "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Надежность и тестирование программного обеспечения",
+        "type": "Seminar"
+    },
+    {
         "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.10.05-2020.11.23"
+                "date": "2020.11.02-2020.11.23",
+                "frequency": "every"
             }
-        ]
-    },
-    {
-        "title": "Технические измерения и приборы",
+        ],
         "lecturer": "Гусев В.Н",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "306",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.02-2020.11.23"
-            }
-        ]
+        "title": "Технические измерения и приборы",
+        "type": "Seminar"
     },
     {
-        "title": "Проектная деятельность",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07-2020.11.23",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Чаруйская М.А",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0205",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.07-2020.11.23"
-            }
-        ]
-    },
-    {
         "title": "Проектная деятельность",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07-2020.10.12",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Чаруйская М.А",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0411",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "12:00",
+            "start": "10:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.07-2020.10.12"
-            }
-        ]
+        "title": "Проектная деятельность",
+        "type": "Lecture"
     },
     {
-        "title": "Технические измерения и приборы",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07-2020.10.05",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Гусев В.Н",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0411",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "10:10",
+            "start": "8:30"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            }
-        ]
-    },
-    {
         "title": "Технические измерения и приборы",
-        "lecturer": "Гусев В.Н",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0411",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.07-2020.10.26"
-            }
-        ]
+        "type": "Lecture"
     },
     {
-        "title": "Высокоэффективные технологии и оборудование современных производств",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.10.06",
+                "frequency": "throughout"
+            }
+        ],
         "lecturer": "Кропоткина Е.Ю",
-        "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "",
         "time": {
-            "start": "12:20",
-            "end": "15:50"
+            "end": "15:50",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.08-2020.10.06"
-            }
-        ]
-    },
-    {
         "title": "Высокоэффективные технологии и оборудование современных производств",
-        "lecturer": "Кропоткина Е.Ю",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.09.15-2020.10.13"
-            }
-        ]
+        "type": "Laboratory"
     },
     {
-        "title": "Механика и управление",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.10.13",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Кропоткина Е.Ю",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Высокоэффективные технологии и оборудование современных производств",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.10.20",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Новиков В.А",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "end": "19:30",
+            "start": "18:00"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.15-2020.10.20"
-            }
-        ]
+        "title": "Механика и управление",
+        "type": "Seminar"
     },
     {
-        "title": "Экология",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.15",
+                "frequency": "once"
+            }
+        ],
         "lecturer": "Гвоздкова С.И",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "end": "17:40",
+            "start": "16:00"
         },
+        "title": "Экология",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.09.08"
+                "date": "2020.09.22-2020.10.13",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Никишечкин А.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Теория дискретных систем управления",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.03-2020.11.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гусев В.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Технические измерения и приборы",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.03",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Гусев В.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Технические измерения и приборы",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.10",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.09.15"
+                "date": "2020.11.17",
+                "frequency": "once"
             }
-        ]
+        ],
+        "lecturer": "Гусев В.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Технические измерения и приборы",
+        "type": "Lecture"
     },
     {
-        "title": "Теория дискретных систем управления",
-        "lecturer": "Никишечкин А.П",
-        "type": "Seminar",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.22-2020.10.13"
+                "date": "2020.09.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.30",
+                "frequency": "once"
             }
-        ]
-    },
-    {
-        "title": "Прикладная математика",
+        ],
         "lecturer": "Будный К.А",
-        "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "end": "19:30",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.30"
-            }
-        ]
-    },
-    {
-        "title": "Надежность и тестирование программного обеспечения",
-        "lecturer": "Суханова Н.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.30"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.14"
-            }
-        ]
-    },
-    {
         "title": "Прикладная математика",
-        "lecturer": "Будный К.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.07"
-            }
-        ]
+        "type": "Laboratory"
     },
     {
-        "title": "Надежность и тестирование программного обеспечения",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.30",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            }
+        ],
         "lecturer": "Суханова Н.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.07"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Теория дискретных систем управления",
-        "lecturer": "Никишечкин А.П",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.18"
-            }
-        ]
-    },
-    {
-        "title": "Теория дискретных систем управления",
-        "lecturer": "Никишечкин А.П",
-        "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "end": "19:30",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.11"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.25"
-            }
-        ]
+        "title": "Надежность и тестирование программного обеспечения",
+        "type": "Laboratory"
     },
     {
-        "title": "Прикладная физическая культура",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.07",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Будный К.А",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Прикладная математика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.21",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.25",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Суханова Н.В",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Надежность и тестирование программного обеспечения",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Никишечкин А.П",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Теория дискретных систем управления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.21",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.25",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Никишечкин А.П",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Теория дискретных систем управления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.02",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.09",
+                "frequency": "once"
+            }
+        ],
         "lecturer": "",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.02"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.09"
-            }
-        ]
-    },
-    {
         "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.09.30-2020.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.11.11-2020.12.23"
-            }
-        ]
+        "type": "Lecture"
     },
     {
-        "title": "Высокоэффективные технологии и оборудование современных производств",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.30-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11-2020.12.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.09-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
+            }
+        ],
         "lecturer": "Кропоткина Е.Ю",
-        "type": "Lecture",
         "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Высокоэффективные технологии и оборудование современных производств",
+        "type": "Lecture"
+    },
+    {
         "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.09-2020.10.28"
+                "date": "2020.09.17",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.11.11"
+                "date": "2020.10.01",
+                "frequency": "once"
             }
-        ]
-    },
-    {
-        "title": "Экология",
-        "lecturer": "Гвоздкова С.И",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "0407",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.17"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.01"
-            }
-        ]
-    },
-    {
-        "title": "Операционные системы и базы данных",
+        ],
         "lecturer": "Евстафиева С.В",
-        "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "247",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "end": "19:30",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.17"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.01"
-            }
-        ]
-    },
-    {
-        "title": "Экология",
-        "lecturer": "Гвоздкова С.И",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "0407",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.08"
-            }
-        ]
-    },
-    {
         "title": "Операционные системы и базы данных",
-        "lecturer": "Евстафиева С.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "247",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.09.24"
+                "date": "2020.09.17",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.10.08"
+                "date": "2020.10.01",
+                "frequency": "once"
             }
-        ]
+        ],
+        "lecturer": "Гвоздкова С.И",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Экология",
+        "type": "Laboratory"
     },
     {
-        "title": "Теория автоматического управления",
-        "lecturer": "Чумаева М.В",
-        "type": "Laboratory",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.24",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.08",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Гвоздкова С.И",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Экология",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.24",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.08",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Евстафиева С.В",
         "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Операционные системы и базы данных",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "346/1",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.15-2020.11.26"
+                "date": "2020.10.15-2020.11.26",
+                "frequency": "throughout"
             }
-        ]
-    },
-    {
-        "title": "Технические измерения и приборы",
-        "lecturer": "Бушуев С.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 20",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.15-2020.11.12"
-            }
-        ]
-    },
-    {
-        "title": "Теория автоматического управления",
+        ],
         "lecturer": "Чумаева М.В",
-        "type": "Laboratory",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Теория автоматического управления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 20",
+        "dates": [
+            {
+                "date": "2020.10.15-2020.11.12",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бушуев С.В",
         "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Технические измерения и приборы",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 20",
+        "dates": [
+            {
+                "date": "2020.10.22-2020.11.19",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бушуев С.В",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Технические измерения и приборы",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "346/1",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.22-2020.12.03"
+                "date": "2020.10.22-2020.12.03",
+                "frequency": "throughout"
             }
-        ]
-    },
-    {
-        "title": "Технические измерения и приборы",
-        "lecturer": "Бушуев С.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 20",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.22-2020.11.19"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная математика",
-        "lecturer": "Яремко О.Э",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.17-2020.11.05"
-            }
-        ]
-    },
-    {
-        "title": "Механика и управление",
-        "lecturer": "Ривкин А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.12-2020.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Механика и управление",
-        "lecturer": "Ривкин А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.17-2020.12.03"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение систем управления",
-        "lecturer": "Мартинов Г.М",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "355",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.23-2020.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Механика и управление",
-        "lecturer": "Ривкин А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "501",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.23-2020.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение систем управления",
-        "lecturer": "Мартинов Г.М",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "355",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.30-2020.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Механика и управление",
-        "lecturer": "Ривкин А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "501",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.30-2020.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение систем управления",
-        "lecturer": "Мартинов Г.М",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "355",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.18-2020.10.16"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение систем управления",
-        "lecturer": "Мартинов Г.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0411",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.11-2020.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Теория автоматического управления",
+        ],
         "lecturer": "Чумаева М.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
+        "subgroup": "B",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "19:30",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.11-2020.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная математика",
-        "lecturer": "Яремко О.Э",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "312",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.18-2020.10.16"
-            }
-        ]
-    },
-    {
         "title": "Теория автоматического управления",
-        "lecturer": "Чумаева М.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0411",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.13-2020.12.18"
-            }
-        ]
+        "type": "Laboratory"
     },
     {
-        "title": "Программное обеспечение систем управления",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.10.08",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Яремко О.Э",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Прикладная математика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.12.03",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ривкин А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Механика и управление",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.15-2020.11.05",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Яремко О.Э",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Прикладная математика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.12-2020.12.03",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ривкин А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Механика и управление",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "355",
+        "dates": [
+            {
+                "date": "2020.10.23-2020.12.04",
+                "frequency": "throughout"
+            }
+        ],
         "lecturer": "Мартинов Г.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
+        "subgroup": "B",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "19:30",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.13-2020.12.04"
-            }
-        ]
+        "title": "Программное обеспечение систем управления",
+        "type": "Laboratory"
     },
     {
-        "title": "Надежность и тестирование программного обеспечения",
+        "classroom": "501",
+        "dates": [
+            {
+                "date": "2020.10.23-2020.12.04",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Ривкин А.В",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Механика и управление",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "355",
+        "dates": [
+            {
+                "date": "2020.10.30-2020.12.11",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Мартинов Г.М",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Программное обеспечение систем управления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "501",
+        "dates": [
+            {
+                "date": "2020.10.30-2020.12.11",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Ривкин А.В",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Механика и управление",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.11-2020.10.09",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Мартинов Г.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Программное обеспечение систем управления",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.18-2020.10.16",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Мартинов Г.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Программное обеспечение систем управления",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.11-2020.12.18",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Чумаева М.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Теория автоматического управления",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.18-2020.10.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Яремко О.Э",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Прикладная математика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.16-2020.12.04",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Суханова Н.В",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "end": "10:10",
+            "start": "8:30"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.05-2020.12.19"
-            }
-        ]
+        "title": "Надежность и тестирование программного обеспечения",
+        "type": "Lecture"
     },
     {
-        "title": "Экология",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05-2020.10.10",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Суханова Н.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Надежность и тестирование программного обеспечения",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05-2020.11.07",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Гвоздкова С.И",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.05-2020.11.07"
-            }
-        ]
+        "title": "Экология",
+        "type": "Lecture"
     },
     {
-        "title": "Теория дискретных систем управления",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05-2020.11.07",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Никишечкин А.П",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "12:00",
+            "start": "10:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.05-2020.11.07"
-            }
-        ]
+        "title": "Теория дискретных систем управления",
+        "type": "Lecture"
     },
     {
-        "title": "Операционные системы и базы данных",
-        "lecturer": "Евстафиева С.В",
-        "type": "Lecture",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.05-2020.10.24"
+                "date": "2020.09.05-2020.10.24",
+                "frequency": "every"
             }
-        ]
+        ],
+        "lecturer": "Евстафиева С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Операционные системы и базы данных",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.17-2020.12.05",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Мартинов Г.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Программное обеспечение систем управления",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.12",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.19",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Суханова Н.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Надежность и тестирование программного обеспечения",
+        "type": "Lecture"
     }
 ]

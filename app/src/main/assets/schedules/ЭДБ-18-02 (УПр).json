@@ -1,582 +1,628 @@
 [
     {
-        "title": "Хозяйственное право",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07-2020.11.02",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Куткин В.С",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "506",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "end": "17:40",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.07-2020.11.02"
-            }
-        ]
+        "title": "Хозяйственное право",
+        "type": "Lecture"
     },
     {
-        "title": "Внешнеэкономическая деятельность в промышленности",
-        "lecturer": "Георгиев М.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "509",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.07-2020.11.09"
-            }
-        ]
-    },
-    {
-        "title": "Внешнеэкономическая деятельность в промышленности",
-        "lecturer": "Георгиев М.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "509",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.21-2020.11.23"
-            }
-        ]
-    },
-    {
-        "title": "Деловой иностранный язык",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.12.14"
+                "date": "2020.09.07-2020.11.09",
+                "frequency": "every"
             }
-        ]
+        ],
+        "lecturer": "Георгиев М.Д",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Внешнеэкономическая деятельность в промышленности",
+        "type": "Lecture"
     },
     {
-        "title": "Деловой иностранный язык",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.07-2020.12.14"
+                "date": "2020.09.21-2020.11.23",
+                "frequency": "every"
             }
-        ]
-    },
-    {
-        "title": "Бухгалтерский учет и анализ",
-        "lecturer": "Карплюк Ю.А",
-        "type": "Lecture",
+        ],
+        "lecturer": "Георгиев М.Д",
         "subgroup": "Common",
-        "classroom": "342",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.08"
-            }
-        ]
+        "title": "Внешнеэкономическая деятельность в промышленности",
+        "type": "Seminar"
     },
     {
-        "title": "Бухгалтерский учет и анализ",
-        "lecturer": "Карплюк Ю.А",
-        "type": "Seminar",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.14",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "",
         "subgroup": "Common",
-        "classroom": "445",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.15-2020.11.17"
-            }
-        ]
+        "title": "Деловой иностранный язык",
+        "type": "Seminar"
     },
     {
-        "title": "Бухгалтерский учет и анализ",
-        "lecturer": "Карплюк Ю.А",
-        "type": "Lecture",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07-2020.12.14",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "",
         "subgroup": "Common",
-        "classroom": "342",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "12:00",
+            "start": "10:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.08-2020.11.17"
-            }
-        ]
+        "title": "Деловой иностранный язык",
+        "type": "Seminar"
     },
     {
-        "title": "Маркетинг",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.11.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Карплюк Ю.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Бухгалтерский учет и анализ",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.08",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Карплюк Ю.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Бухгалтерский учет и анализ",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.12.15",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Попов Д.В",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0308",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.15-2020.12.15"
-            }
-        ]
-    },
-    {
         "title": "Маркетинг",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.11.17",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Гусева А.В",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
+            "end": "12:00",
+            "start": "10:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.15-2020.12.15"
-            }
-        ]
+        "title": "Маркетинг",
+        "type": "Seminar"
     },
     {
-        "title": "Психология",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.11.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Карплюк Ю.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Бухгалтерский учет и анализ",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.24-2020.12.15",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гусева А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Маркетинг",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.30-2020.10.21",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Михайлова М.В",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0206",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "end": "17:40",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.09"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.09.30-2020.10.21"
-            }
-        ]
-    },
-    {
-        "title": "Управление качеством на промышленном предприятии",
-        "lecturer": "Серко Н.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "312",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.09-2020.10.21"
-            }
-        ]
-    },
-    {
-        "title": "Социально-экономическая статистика",
-        "lecturer": "Гринман И.Р",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "509",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.12.09"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Социально-экономическая статистика",
-        "lecturer": "Гринман И.Р",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "509",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.07-2020.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.12.09"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Управление качеством на промышленном предприятии",
-        "lecturer": "Серко Н.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0803",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Управление качеством на промышленном предприятии",
-        "lecturer": "Серко Н.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0803",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.07-2020.10.21"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.11.11-2020.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Социально-экономическая статистика",
-        "lecturer": "Гринман И.Р",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "509",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.11-2020.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Организационное поведение",
-        "lecturer": "Ревина М.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "504",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.10-2020.11.12"
-            }
-        ]
-    },
-    {
-        "title": "Организационное поведение",
-        "lecturer": "Ревина М.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "409",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.10-2020.11.05"
-            }
-        ]
-    },
-    {
-        "title": "Хозяйственное право",
-        "lecturer": "Куткин В.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "506",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.10-2020.11.12"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.03"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.10"
-            }
-        ]
-    },
-    {
-        "title": "Экономическая эффективность экологических проектов",
-        "lecturer": "Александров С.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.19-2020.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Экономическая эффективность экологических проектов",
-        "lecturer": "Александров С.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.19-2020.12.17"
-            }
-        ]
-    },
-    {
-        "title": "Прикладная физическая культура",
-        "lecturer": "",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.17-2020.12.17"
-            }
-        ]
-    },
-    {
         "title": "Психология",
-        "lecturer": "Кузнецов Б.М",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "504",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.11-2020.10.30"
-            }
-        ]
+        "type": "Lecture"
     },
     {
-        "title": "История экономических учений",
-        "lecturer": "Свирина М.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "504",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.11-2020.10.30"
-            }
-        ]
-    },
-    {
-        "title": "История экономических учений",
-        "lecturer": "Свирина М.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.11-2020.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Экономическая эффективность экологических проектов",
-        "lecturer": "Александров С.А",
-        "type": "Seminar",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.11.20-2020.12.18"
+                "date": "2020.09.09-2020.10.21",
+                "frequency": "every"
             }
-        ]
-    },
-    {
-        "title": "Экономическая эффективность экологических проектов",
-        "lecturer": "Александров С.А",
-        "type": "Seminar",
+        ],
+        "lecturer": "Серко Н.Б",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.20-2020.12.18"
-            }
-        ]
+        "title": "Управление качеством на промышленном предприятии",
+        "type": "Lecture"
     },
     {
-        "title": "Бухгалтерский учет и анализ",
-        "lecturer": "Суюнов Б.Ш",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "443",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
+        "classroom": "",
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.17"
+                "date": "2020.12.09",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.10.31"
+                "date": "2020.12.16",
+                "frequency": "once"
             }
-        ]
-    },
-    {
-        "title": "Бухгалтерский учет и анализ",
-        "lecturer": "Суюнов Б.Ш",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "443",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.07"
-            }
-        ]
-    },
-    {
-        "title": "Социально-экономическая статистика",
+        ],
         "lecturer": "Гринман И.Р",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "342",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "17:40",
+            "start": "16:00"
         },
+        "title": "Социально-экономическая статистика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.19-2020.11.21"
+                "date": "2020.10.07-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.12.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.16",
+                "frequency": "once"
             }
-        ]
+        ],
+        "lecturer": "Гринман И.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Социально-экономическая статистика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Серко Н.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Управление качеством на промышленном предприятии",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.07-2020.10.21",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11-2020.12.02",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Серко Н.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Управление качеством на промышленном предприятии",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.11-2020.12.02",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гринман И.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Социально-экономическая статистика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.10-2020.11.12",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ревина М.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Организационное поведение",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.10-2020.11.05",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ревина М.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Организационное поведение",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.10-2020.11.12",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Куткин В.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Хозяйственное право",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.03",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.10",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.19-2020.12.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Александров С.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Экономическая эффективность экологических проектов",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.19-2020.12.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Александров С.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Экономическая эффективность экологических проектов",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.12.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.11",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.02-2020.10.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Психология",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.11-2020.10.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Свирина М.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "История экономических учений",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.11-2020.10.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Свирина М.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "История экономических учений",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.20-2020.12.18",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Александров С.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Экономическая эффективность экологических проектов",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.20-2020.12.18",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Александров С.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Экономическая эффективность экологических проектов",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "443",
+        "dates": [
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.31",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Суюнов Б.Ш",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Бухгалтерский учет и анализ",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "443",
+        "dates": [
+            {
+                "date": "2020.10.24",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.07",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Суюнов Б.Ш",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Бухгалтерский учет и анализ",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.10.10",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.21",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Гринман И.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Социально-экономическая статистика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.17-2020.11.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гринман И.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Социально-экономическая статистика",
+        "type": "Lecture"
     }
 ]

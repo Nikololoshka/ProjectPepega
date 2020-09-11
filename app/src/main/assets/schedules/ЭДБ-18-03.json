@@ -1,561 +1,620 @@
 [
     {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
         "title": "Мотивация и стимулирование трудовой деятельности",
-        "lecturer": "Кузнецов Б.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0207",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.07"
-            }
-        ]
+        "type": "Lecture"
     },
     {
-        "title": "Управление знаниями в организации",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07",
+                "frequency": "once"
+            }
+        ],
         "lecturer": "Михайлова М.В",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0309",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.07"
-            }
-        ]
-    },
-    {
         "title": "Управление знаниями в организации",
-        "lecturer": "Михайлова М.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0309",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.07-2020.10.19"
-            }
-        ]
+        "type": "Lecture"
     },
     {
-        "title": "Бухгалтерский учет и анализ",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07-2020.10.19",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Михайлова М.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Управление знаниями в организации",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.16",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Карплюк Ю.А",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "312",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "end": "17:40",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.14-2020.11.16"
-            }
-        ]
+        "title": "Бухгалтерский учет и анализ",
+        "type": "Seminar"
     },
     {
-        "title": "Управление знаниями в организации",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.02",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Михайлова М.В",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "0805",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.14-2020.11.02"
-            }
-        ]
+        "title": "Управление знаниями в организации",
+        "type": "Seminar"
     },
     {
-        "title": "Психология",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.23-2020.12.14",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Кузнецов Б.М",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "504",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "12:00",
+            "start": "10:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.23-2020.12.14"
-            }
-        ]
-    },
-    {
         "title": "Психология",
-        "lecturer": "Кузнецов Б.М",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "504",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.23-2020.12.14"
-            }
-        ]
+        "type": "Seminar"
     },
     {
-        "title": "Управление социальным развитием организации",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.23-2020.12.14",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Психология",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.11.03",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Водолажский Е.Ф",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "504",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "end": "17:40",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.08-2020.11.03"
-            }
-        ]
+        "title": "Управление социальным развитием организации",
+        "type": "Seminar"
     },
     {
-        "title": "Бухгалтерский учет и анализ",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.11.17",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Карплюк Ю.А",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "342",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.08-2020.11.17"
-            }
-        ]
-    },
-    {
         "title": "Бухгалтерский учет и анализ",
-        "lecturer": "Карплюк Ю.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "342",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.08"
-            }
-        ]
+        "type": "Lecture"
     },
     {
-        "title": "Социально-экономическая статистика",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.08",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Карплюк Ю.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Бухгалтерский учет и анализ",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.08",
+                "frequency": "once"
+            }
+        ],
         "lecturer": "Гринман И.Р",
-        "type": "Seminar",
         "subgroup": "Common",
-        "classroom": "450",
         "time": {
-            "start": "16:00",
-            "end": "17:40"
+            "end": "17:40",
+            "start": "16:00"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.12.08"
-            }
-        ]
+        "title": "Социально-экономическая статистика",
+        "type": "Seminar"
     },
     {
-        "title": "Маркетинг",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.12.15",
+                "frequency": "every"
+            }
+        ],
         "lecturer": "Попов Д.В",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "0308",
         "time": {
-            "start": "14:10",
-            "end": "15:50"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.15-2020.12.15"
-            }
-        ]
-    },
-    {
-        "title": "Социально-экономическая статистика",
-        "lecturer": "Гринман И.Р",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "450",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.13-2020.11.17"
-            }
-        ]
-    },
-    {
-        "title": "Бухгалтерский учет и анализ",
-        "lecturer": "Суюнов Б.Ш",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "443",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.12.02"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Организационное поведение",
-        "lecturer": "Ревина М.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "502",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.09"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.09.30-2020.10.28"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.11.11-2020.11.25"
-            }
-        ]
-    },
-    {
-        "title": "История экономических учений",
-        "lecturer": "Свирина М.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "502",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.09-2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Психология",
-        "lecturer": "Михайлова М.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0206",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.09"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.16"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.09.30-2020.10.21"
-            }
-        ]
-    },
-    {
-        "title": "Социально-экономическая статистика",
-        "lecturer": "Гринман И.Р",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "450",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.23-2020.10.07"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.25"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Организационное поведение",
-        "lecturer": "Ревина М.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "409",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.10-2020.11.05"
-            }
-        ]
-    },
-    {
         "title": "Маркетинг",
-        "lecturer": "Гусева А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
+        "type": "Lecture"
+    },
+    {
         "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.17-2020.12.17"
+                "date": "2020.10.13-2020.11.17",
+                "frequency": "every"
             }
-        ]
-    },
-    {
-        "title": "Управление социальным развитием организации",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.04-2020.11.06"
-            }
-        ]
-    },
-    {
-        "title": "История экономических учений",
-        "lecturer": "Свирина М.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "305",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.11-2020.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Мотивация и стимулирование трудовой деятельности",
-        "lecturer": "Кузнецов Б.М",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "506",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.11-2020.11.13"
-            }
-        ]
-    },
-    {
-        "title": "Экономика и социология труда",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "504",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.18-2020.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Управление социальным развитием организации",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "504",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.11.13"
-            }
-        ]
-    },
-    {
-        "title": "Экономика и социология труда",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "504",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.20-2020.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Экономика и социология труда",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "504",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.11.20-2020.12.18"
-            }
-        ]
-    },
-    {
-        "title": "Русский язык (как иностранный) - 3 курс",
-        "lecturer": "Слесаренко Т.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0806",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.12-2020.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Русский язык (как иностранный) - 3 курс",
-        "lecturer": "Слесаренко Т.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0806",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.12-2020.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Мотивация и стимулирование трудовой деятельности",
-        "lecturer": "Кузнецов Б.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "0308",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.12-2020.10.31"
-            }
-        ]
-    },
-    {
-        "title": "Социально-экономическая статистика",
+        ],
         "lecturer": "Гринман И.Р",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "342",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "12:00",
+            "start": "10:20"
         },
+        "title": "Социально-экономическая статистика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "443",
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.19-2020.11.21"
+                "date": "2020.12.02",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.16",
+                "frequency": "once"
             }
-        ]
+        ],
+        "lecturer": "Суюнов Б.Ш",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Бухгалтерский учет и анализ",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.30-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11-2020.11.25",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ревина М.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Организационное поведение",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.09-2020.10.28",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Свирина М.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "История экономических учений",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.30-2020.10.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Михайлова М.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Психология",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.23-2020.10.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гринман И.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Социально-экономическая статистика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.10-2020.11.05",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ревина М.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Организационное поведение",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.12.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гусева А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Маркетинг",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.04-2020.11.06",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Водолажский Е.Ф",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Управление социальным развитием организации",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.11-2020.10.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Свирина М.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "История экономических учений",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.11",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.02-2020.11.13",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Мотивация и стимулирование трудовой деятельности",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.18-2020.11.06",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Водолажский Е.Ф",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Экономика и социология труда",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.13",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Водолажский Е.Ф",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Управление социальным развитием организации",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.20-2020.12.18",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Водолажский Е.Ф",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Экономика и социология труда",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.20-2020.12.18",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Водолажский Е.Ф",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Экономика и социология труда",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.27",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Гринман И.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Социально-экономическая статистика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.12",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.03-2020.10.31",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Мотивация и стимулирование трудовой деятельности",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.17-2020.11.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гринман И.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Социально-экономическая статистика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.12-2020.12.19",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Слесаренко Т.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Русский язык (как иностранный) - 3 курс",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.12-2020.12.19",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Слесаренко Т.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Русский язык (как иностранный) - 3 курс",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.10.10",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.21",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Гринман И.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Социально-экономическая статистика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.05",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Гринман И.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Социально-экономическая статистика",
+        "type": "Seminar"
     }
 ]

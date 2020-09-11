@@ -1,537 +1,537 @@
 [
     {
-        "title": "Моделирование мехатронных и робототехнических систем",
-        "lecturer": "Порунов М.Ю",
-        "type": "Laboratory",
-        "subgroup": "A",
         "classroom": "209",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.09.21"
+                "date": "2020.09.21",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.10.05"
+                "date": "2020.10.05",
+                "frequency": "once"
             }
-        ]
-    },
-    {
-        "title": "Моделирование мехатронных и робототехнических систем",
+        ],
         "lecturer": "Порунов М.Ю",
-        "type": "Laboratory",
-        "subgroup": "B",
+        "subgroup": "A",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Моделирование мехатронных и робототехнических систем",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "209",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.09.28"
+                "date": "2020.09.28",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.10.12"
+                "date": "2020.10.12",
+                "frequency": "once"
             }
-        ]
+        ],
+        "lecturer": "Порунов М.Ю",
+        "subgroup": "B",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Моделирование мехатронных и робототехнических систем",
+        "type": "Laboratory"
     },
     {
-        "title": "Сенсорные и управляющие системы роботов",
-        "lecturer": "Андреев В.П",
-        "type": "Laboratory",
-        "subgroup": "A",
         "classroom": "0409",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.11.02"
+                "date": "2020.11.02",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.11.16"
+                "date": "2020.11.16",
+                "frequency": "once"
             }
-        ]
+        ],
+        "lecturer": "Андреев В.П",
+        "subgroup": "A",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Сенсорные и управляющие системы роботов",
+        "type": "Laboratory"
     },
     {
-        "title": "Сенсорные и управляющие системы роботов",
-        "lecturer": "Андреев В.П",
-        "type": "Laboratory",
-        "subgroup": "B",
         "classroom": "0409",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.11.09"
+                "date": "2020.11.09",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.11.23"
+                "date": "2020.11.23",
+                "frequency": "once"
             }
-        ]
-    },
-    {
-        "title": "Философские проблемы науки и техники",
-        "lecturer": "Шитов С.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.07"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.14"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            }
-        ]
-    },
-    {
-        "title": "Сенсорные и управляющие системы роботов",
+        ],
         "lecturer": "Андреев В.П",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.02"
-            }
-        ]
-    },
-    {
-        "title": "Сенсорные и управляющие системы роботов",
-        "lecturer": "Андреев В.П",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.08"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.15"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.20"
-            }
-        ]
-    },
-    {
-        "title": "Сенсорные и управляющие системы роботов",
-        "lecturer": "Андреев В.П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.08"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.09.15"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.09.29-2020.10.13"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение мехатронных систем",
-        "lecturer": "Поливанов А.Ю",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "210",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.16"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.07"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение мехатронных систем",
-        "lecturer": "Поливанов А.Ю",
-        "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "210",
         "time": {
-            "start": "19:40",
-            "end": "22:50"
+            "end": "22:50",
+            "start": "19:40"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.30"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.14"
-            }
-        ]
-    },
-    {
         "title": "Сенсорные и управляющие системы роботов",
-        "lecturer": "Андреев В.П",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.02"
-            }
-        ]
+        "type": "Laboratory"
     },
     {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.19",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.26",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Шитов С.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Философские проблемы науки и техники",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.26",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.02",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Андреев В.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
         "title": "Сенсорные и управляющие системы роботов",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.15",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.20",
+                "frequency": "once"
+            }
+        ],
         "lecturer": "Андреев В.П",
-        "type": "Lecture",
         "subgroup": "Common",
-        "classroom": "",
         "time": {
-            "start": "19:40",
-            "end": "21:10"
+            "end": "19:30",
+            "start": "18:00"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.24"
-            }
-        ]
+        "title": "Сенсорные и управляющие системы роботов",
+        "type": "Lecture"
     },
     {
-        "title": "Философские проблемы науки и техники",
-        "lecturer": "Шитов С.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.01"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение мехатронных систем",
-        "lecturer": "Поливанов А.Ю",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.08-2020.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Философские проблемы науки и техники",
-        "lecturer": "Шитов С.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.10-2020.09.24"
+                "date": "2020.09.08",
+                "frequency": "once"
             },
             {
-                "frequency": "every",
-                "date": "2020.10.08-2020.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Программное обеспечение мехатронных систем",
-        "lecturer": "Поливанов А.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.01"
-            }
-        ]
-    },
-    {
-        "title": "Философские проблемы науки и техники",
-        "lecturer": "Шитов С.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.24-2020.10.15"
-            }
-        ]
-    },
-    {
-        "title": "Промышленная и мобильная робототехника",
-        "lecturer": "Ермолов И.Л",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 16",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
+                "date": "2020.09.15",
+                "frequency": "once"
             },
             {
-                "frequency": "once",
-                "date": "2020.11.13"
+                "date": "2020.09.29-2020.10.13",
+                "frequency": "every"
             }
-        ]
+        ],
+        "lecturer": "Андреев В.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Сенсорные и управляющие системы роботов",
+        "type": "Seminar"
     },
     {
-        "title": "Промышленная и мобильная робототехника",
-        "lecturer": "Ермолов И.Л",
-        "type": "Laboratory",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.07",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Поливанов А.Ю",
         "subgroup": "A",
-        "classroom": "ТехП 16",
         "time": {
-            "start": "19:40",
-            "end": "22:50"
+            "end": "22:50",
+            "start": "19:40"
         },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.11.06"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.20"
-            }
-        ]
-    },
-    {
-        "title": "Сенсорные и управляющие системы роботов",
-        "lecturer": "Андреев В.П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.09.25"
-            }
-        ]
-    },
-    {
-        "title": "Промышленная и мобильная робототехника",
-        "lecturer": "Ермолов И.Л",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.04-2020.10.23"
-            }
-        ]
-    },
-    {
-        "title": "Моделирование мехатронных и робототехнических систем",
-        "lecturer": "Игнатьев В.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.09.25-2020.10.16"
-            }
-        ]
-    },
-    {
-        "title": "Сенсорные и управляющие системы роботов",
-        "lecturer": "Андреев В.П",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.03-2020.10.17"
-            }
-        ]
-    },
-    {
         "title": "Программное обеспечение мехатронных систем",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.30",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            }
+        ],
         "lecturer": "Поливанов А.Ю",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
+        "subgroup": "B",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "end": "22:50",
+            "start": "19:40"
         },
+        "title": "Программное обеспечение мехатронных систем",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.05-2020.09.19"
+                "date": "2020.09.02",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Андреев В.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Сенсорные и управляющие системы роботов",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.24",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Андреев В.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "19:40"
+        },
+        "title": "Сенсорные и управляющие системы роботов",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.01",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Шитов С.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "19:40"
+        },
+        "title": "Философские проблемы науки и техники",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08-2020.10.29",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Поливанов А.Ю",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "19:40"
+        },
+        "title": "Программное обеспечение мехатронных систем",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.10-2020.09.24",
+                "frequency": "every"
             },
             {
-                "frequency": "every",
-                "date": "2020.10.10-2020.10.31"
+                "date": "2020.10.08-2020.10.29",
+                "frequency": "every"
             }
-        ]
+        ],
+        "lecturer": "Шитов С.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Философские проблемы науки и техники",
+        "type": "Seminar"
     },
     {
-        "title": "Моделирование мехатронных и робототехнических систем",
-        "lecturer": "Игнатьев В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.03"
+                "date": "2020.10.01",
+                "frequency": "once"
             }
-        ]
+        ],
+        "lecturer": "Поливанов А.Ю",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Программное обеспечение мехатронных систем",
+        "type": "Lecture"
     },
     {
-        "title": "Моделирование мехатронных и робототехнических систем",
-        "lecturer": "Игнатьев В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
         "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.09.05-2020.09.19"
+                "date": "2020.09.24-2020.10.15",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Шитов С.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Философские проблемы науки и техники",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "ТехП 16",
+        "dates": [
+            {
+                "date": "2020.10.30",
+                "frequency": "once"
             },
             {
-                "frequency": "every",
-                "date": "2020.10.10-2020.10.31"
+                "date": "2020.11.13",
+                "frequency": "once"
             }
-        ]
-    },
-    {
-        "title": "Промышленная и мобильная робототехника",
+        ],
         "lecturer": "Ермолов И.Л",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
+        "subgroup": "B",
         "time": {
-            "start": "12:20",
-            "end": "14:00"
+            "end": "22:50",
+            "start": "19:40"
         },
+        "title": "Промышленная и мобильная робототехника",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 16",
         "dates": [
             {
-                "frequency": "every",
-                "date": "2020.10.31-2020.11.21"
+                "date": "2020.11.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.20",
+                "frequency": "once"
             }
-        ]
+        ],
+        "lecturer": "Ермолов И.Л",
+        "subgroup": "A",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Промышленная и мобильная робототехника",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.25",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Андреев В.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "19:40"
+        },
+        "title": "Сенсорные и управляющие системы роботов",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.04-2020.10.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ермолов И.Л",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Промышленная и мобильная робототехника",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.25-2020.10.16",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Игнатьев В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Моделирование мехатронных и робототехнических систем",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.03-2020.10.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Андреев В.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Сенсорные и управляющие системы роботов",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05-2020.09.19",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.10.10-2020.10.31",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Поливанов А.Ю",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Программное обеспечение мехатронных систем",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.03",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Игнатьев В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Моделирование мехатронных и робототехнических систем",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.05-2020.09.19",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.10.10-2020.10.31",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Игнатьев В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Моделирование мехатронных и робототехнических систем",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.31-2020.11.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ермолов И.Л",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Промышленная и мобильная робототехника",
+        "type": "Seminar"
     }
 ]

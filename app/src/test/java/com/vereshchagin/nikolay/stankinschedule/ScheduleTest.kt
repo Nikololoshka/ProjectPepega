@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.PairIntersectException
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import org.apache.commons.io.FileUtils
 import org.junit.Assert
@@ -22,7 +23,7 @@ class ScheduleTest {
         Assert.assertTrue(true)
     }
 
-    @Test(expected = IllegalArgumentException::class)
+    @Test(expected = PairIntersectException::class)
     fun impossiblePairs() {
         val schedule = Schedule()
         schedule.add(loadPair("pair_1.json"))
@@ -36,7 +37,7 @@ class ScheduleTest {
         schedule.add(loadPair("pair_3.json"))
     }
 
-    @Test(expected = IllegalArgumentException::class)
+    @Test(expected = PairIntersectException::class)
     fun impossibleIntersect() {
         val schedule = Schedule()
         schedule.add(loadPair("pair_4.json"))
@@ -50,9 +51,9 @@ class ScheduleTest {
         for (schedule in schedules) {
             println(schedule.name)
 
-            if (schedule.name == "МДС-18-02.json") {
-                continue
-            }
+//            if (schedule.name == "МДС-18-02.json") {
+//                continue
+//            }
 
             val json = FileUtils.readFileToString(schedule, StandardCharsets.UTF_8)
             GsonBuilder()
@@ -71,9 +72,9 @@ class ScheduleTest {
         for (schedule in schedules) {
             println(schedule)
 
-            if (schedule.name == "МДС-18-02.json") {
-                continue
-            }
+//            if (schedule.name == "МДС-18-02.json") {
+//                continue
+//            }
 
             repository.load(schedule.absolutePath)
         }

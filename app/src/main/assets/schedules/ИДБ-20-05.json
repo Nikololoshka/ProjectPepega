@@ -1,0 +1,531 @@
+[
+    {
+        "classroom": "249(б)",
+        "dates": [
+            {
+                "date": "2020.09.28-2020.12.07",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бабенко Е.В",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Информатика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "249(б)",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.12.14",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бабенко Е.В",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Информатика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "0209",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.02",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Тясто С.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Структурное программирование",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0308",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Васильева Т.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Русский язык и культура речи",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "С/З СТАНКИН",
+        "dates": [
+            {
+                "date": "2020.09.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.21",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Физическая культура и спорт",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "С/З СТАНКИН",
+        "dates": [
+            {
+                "date": "2020.09.28-2020.12.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Физическая культура и спорт",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0209",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.12.15",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Яновская Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Алгебра и геометрия",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0308",
+        "dates": [
+            {
+                "date": "2020.09.29-2020.11.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Психология и педагогика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0209",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.11.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Саркисова И.О",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Информатика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0209",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.11.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Саркисова И.О",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Информатика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "357(ж)",
+        "dates": [
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Яновская Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Алгебра и геометрия",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0308",
+        "dates": [
+            {
+                "date": "2020.09.16-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11-2020.12.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Дорожкина О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Цифровая экономика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0308",
+        "dates": [
+            {
+                "date": "2020.09.16-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11-2020.12.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Иванова О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Математический анализ",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "Фрезер 301",
+        "dates": [
+            {
+                "date": "2020.09.24-2020.12.24",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Елькин А.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Математический анализ",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "Фрезер 301",
+        "dates": [
+            {
+                "date": "2020.10.01-2020.12.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Бабенко Е.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Информатика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "357(ж)",
+        "dates": [
+            {
+                "date": "2020.10.16-2020.10.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Яновская Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Алгебра и геометрия",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.10.02-2020.10.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Психология и педагогика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.09.25-2020.10.09",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.13",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Дорожкина О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Цифровая экономика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.10.16-2020.10.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Волкова Е.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Русский язык и культура речи",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.09.18-2020.10.09",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.06-2020.12.04",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Волкова Е.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Русский язык и культура речи",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "С/З СТАНКИН",
+        "dates": [
+            {
+                "date": "2020.09.18-2020.12.25",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Прикладная физическая культура",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "214",
+        "dates": [
+            {
+                "date": "2020.10.17-2020.11.28",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Репин С.В",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Структурное программирование",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "214",
+        "dates": [
+            {
+                "date": "2020.10.24-2020.12.05",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Репин С.В",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Структурное программирование",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.10.10",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Репин С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Структурное программирование",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.10.10",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Репин С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Структурное программирование",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.09.19",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17-2020.11.07",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.21",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Дорожкина О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Цифровая экономика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "357(ж)",
+        "dates": [
+            {
+                "date": "2020.09.26-2020.10.10",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.28-2020.12.19",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Яновская Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Алгебра и геометрия",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "306(а)",
+        "dates": [
+            {
+                "date": "2020.12.26",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "306(а)",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.12.26",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    }
+]
