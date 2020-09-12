@@ -434,7 +434,10 @@ class DateEditorActivity : AppCompatActivity() {
                 try {
                     val formatter = DateTimeFormat.forPattern(DATE_PATTERN)
                     formatter.parseLocalDate(textDate)
+
                 } catch (e: UnsupportedOperationException) {
+                    isValid = false
+                } catch (e: IllegalArgumentException) {
                     isValid = false
                 }
             }

@@ -15,6 +15,7 @@ class DateUtils {
 
         const val SHORT_DATE_FORMAT = "yyyy-MM-dd"
         const val FULL_DATE_FORMAT = "yyyy-MM-dd HH:mm:ssX"
+        const val FULL_DATE_FORMAT_API_23 = "yyyy-MM-dd HH:mm:ss"
 
         fun minutesBetween(first: Calendar, second: Calendar): Long {
 

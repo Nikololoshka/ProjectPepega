@@ -234,6 +234,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             String schedulePath = SchedulePreference.createPath(this, scheduleName);
 
                             Bundle args = ScheduleViewFragment.createBundle(scheduleName, schedulePath);
+                            // TODO: 12.09.20 - переход к расписанию из не валидного места.
+                            /*
+                                throw new IllegalArgumentException("Navigation action/destination " + dest
+                                    + " cannot be found from the current destination " + currentNode);
+                             */
                             navController.navigate(R.id.fromHomeFragmentToScheduleViewFragment, args);
                             return;
                         }
