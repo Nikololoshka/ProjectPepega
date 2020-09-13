@@ -1,5 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -189,6 +191,7 @@ public class ScheduleDayItemStorage {
      */
     public void setInitialKey(@Nullable LocalDate key) {
         mInitialKey = key;
+        Log.d("MyLog", "setInitialKey: " + key);
     }
 
     @Nullable
