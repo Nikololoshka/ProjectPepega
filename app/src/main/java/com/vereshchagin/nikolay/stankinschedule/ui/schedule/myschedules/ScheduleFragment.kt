@@ -285,7 +285,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         }
 
         navigateTo(
-            R.id.fromScheduleFragmentToScheduleViewFragment,
+            R.id.to_schedule_view_fragment,
             ScheduleViewFragment.createBundle(
                 schedule,
                 SchedulePreference.createPath(requireContext(), schedule)

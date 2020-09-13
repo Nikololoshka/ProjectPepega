@@ -37,6 +37,7 @@
         <activity
             android:name=".widget.ScheduleWidgetConfigureActivity"
             android:label="@string/widget_configurator"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />

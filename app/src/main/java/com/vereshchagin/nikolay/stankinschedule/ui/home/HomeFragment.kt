@@ -102,7 +102,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
             R.id.schedule_name -> {
                 val favorite = SchedulePreference.favorite(requireContext())
                 if (favorite != null && favorite.isNotEmpty()) {
-                    navigateTo(R.id.fromHomeFragmentToScheduleViewFragment,
+                    navigateTo(R.id.to_schedule_view_fragment,
                         ScheduleViewFragment.createBundle(
                             favorite, SchedulePreference.createPath(requireContext(), favorite)
                         ))

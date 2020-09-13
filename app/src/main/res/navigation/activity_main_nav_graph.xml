@@ -27,11 +27,6 @@
             app:destination="@id/nav_about_fragment"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
-        <action
-            android:id="@+id/fromHomeFragmentToScheduleViewFragment"
-            app:destination="@id/nav_schedule_view_fragment"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
 
         <action
             android:id="@+id/toNewsFragment"
@@ -53,14 +48,6 @@
         <action
             android:id="@+id/toScheduleRepositoryFragment"
             app:destination="@id/nav_schedule_repository_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-
-        <action
-            android:id="@+id/fromScheduleFragmentToScheduleViewFragment"
-            app:destination="@id/nav_schedule_view_fragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -203,11 +190,19 @@
     </navigation>
 
     <action
-        android:id="@+id/toSettings"
+        android:id="@+id/to_settings_fragment"
         app:destination="@id/settings_nav_graph"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim"
         app:popEnterAnim="@anim/nav_default_pop_enter_anim"
         app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+
+    <action
+        android:id="@+id/to_schedule_view_fragment"
+        app:destination="@id/nav_schedule_view_fragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
 </navigation>

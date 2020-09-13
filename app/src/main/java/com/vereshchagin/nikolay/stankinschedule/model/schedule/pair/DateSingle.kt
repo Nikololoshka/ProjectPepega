@@ -61,7 +61,7 @@ class DateSingle : DateItem {
 
     override fun intersect(item: DateItem): Boolean {
         if (item is DateSingle) {
-           return date == item.date
+            return this.date == item.date
         }
 
         if (item is DateRange) {

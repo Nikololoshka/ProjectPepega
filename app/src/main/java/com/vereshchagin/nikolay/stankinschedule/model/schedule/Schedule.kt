@@ -79,7 +79,6 @@ class Schedule {
         if (date.dayOfWeek == DateTimeConstants.SUNDAY) {
             return arrayListOf()
         }
-
         val dayOfWeek = DayOfWeek.of(date)
         return weeks[dayOfWeek]!!.pairsByDate(date)
     }

@@ -52,6 +52,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StorageErrorData;
 import org.apache.commons.io.FileUtils;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
+import org.joda.time.chrono.ISOChronology;
 
 import java.io.File;
 import java.io.IOException;
@@ -213,7 +214,7 @@ public class ScheduleViewFragment extends Fragment
         // установка отображаемого дня, если был указан
         if (savedInstanceState == null && getArguments() != null) {
             Calendar date = (Calendar) getArguments().getSerializable(ARG_SCHEDULE_DAY);
-            mScheduleViewModel.storage().setInitialKey(new LocalDate(date));
+            mScheduleViewModel.storage().setInitialKey(new LocalDate(date, ISOChronology.getInstanceUTC()));
         }
 
         mScheduleViewModel.statesData().observe(getViewLifecycleOwner(), new Observer<ScheduleViewModel.States>() {

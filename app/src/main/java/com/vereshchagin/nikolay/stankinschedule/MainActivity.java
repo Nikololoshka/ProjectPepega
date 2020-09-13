@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 throw new IllegalArgumentException("Navigation action/destination " + dest
                                     + " cannot be found from the current destination " + currentNode);
                              */
-                            navController.navigate(R.id.fromHomeFragmentToScheduleViewFragment, args);
+                            navController.navigate(R.id.to_schedule_view_fragment, args);
                             return;
                         }
                         break;
