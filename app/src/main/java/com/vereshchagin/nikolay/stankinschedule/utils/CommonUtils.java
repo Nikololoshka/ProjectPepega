@@ -84,7 +84,7 @@ public class CommonUtils {
      */
     @NonNull
     public static String toTitleCase(@NonNull String s) {
-        return s.substring(0, 1).toUpperCase() + s.substring(1);
+        return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
     }
 
     /**

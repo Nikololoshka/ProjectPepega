@@ -2,11 +2,13 @@ package com.vereshchagin.nikolay.stankinschedule.repository
 
 import android.content.Context
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonSyntaxException
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import org.apache.commons.io.FileUtils
 import java.io.File
+import java.io.IOException
 import java.nio.charset.StandardCharsets
 
 
@@ -25,6 +27,7 @@ class ScheduleRepository {
     /**
      * Загружает расписание.
      */
+    @Throws(IOException::class, JsonSyntaxException::class)
     fun load(path: String): Schedule {
         val json = FileUtils.readFileToString(File(path), StandardCharsets.UTF_8)
         return gson.fromJson(json, Schedule::class.java)

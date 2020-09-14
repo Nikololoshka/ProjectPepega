@@ -15,8 +15,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.SubgroupEnum;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup;
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference;
+import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils;
 
 import java.util.List;
 
@@ -101,7 +102,7 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
         // загрузка данных
         WidgetData data = loadPref(this, mScheduleAppWidgetId);
         String schedule = data.scheduleName();
-        SubgroupEnum subgroup = data.subgroup();
+        Subgroup subgroup = data.subgroup();
 
         if (schedule != null) {
             int position = schedules.indexOf(schedule);
@@ -140,15 +141,15 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
      * @return выбранная подгруппа.
      */
     @NonNull
-    private SubgroupEnum currentSubgroup() {
+    private Subgroup currentSubgroup() {
         int pos = mSubgroupSpinner.getSelectedItemPosition();
         switch (pos) {
             case 0:
-                return SubgroupEnum.COMMON;
+                return Subgroup.COMMON;
             case 1:
-                return SubgroupEnum.A;
+                return Subgroup.A;
             case 2:
-                return SubgroupEnum.B;
+                return Subgroup.B;
         }
         throw new RuntimeException("Don't select subgroup pair. Position: " + pos);
     }
@@ -157,7 +158,7 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
      * Устанавливает поле с подгруппой пары.
      * @param subgroup подгруппа пары.
      */
-    private void setSubgroupSpinner(@NonNull SubgroupEnum subgroup) {
+    private void setSubgroupSpinner(@NonNull Subgroup subgroup) {
         switch (subgroup) {
             case COMMON:
                 mSubgroupSpinner.setSelection(0);
@@ -182,7 +183,7 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
 
         preferences.edit()
                 .putString(SCHEDULE_WIDGET + appWidgetId + NAME_SUFFIX, data.scheduleName())
-                .putString(SCHEDULE_WIDGET + appWidgetId + SUBGROUP_SUFFIX, data.subgroup().toString())
+                .putString(SCHEDULE_WIDGET + appWidgetId + SUBGROUP_SUFFIX, data.subgroup().getTag())
                 .apply();
     }
 
@@ -198,8 +199,8 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
 
         String name = preferences.getString(
                 SCHEDULE_WIDGET + appWidgetId + NAME_SUFFIX, null);
-        SubgroupEnum subgroup = SubgroupEnum.of(preferences.getString(
-                SCHEDULE_WIDGET + appWidgetId + SUBGROUP_SUFFIX, SubgroupEnum.COMMON.toString()));
+        Subgroup subgroup = Subgroup.of(CommonUtils.toTitleCase(preferences.getString(
+                SCHEDULE_WIDGET + appWidgetId + SUBGROUP_SUFFIX, Subgroup.COMMON.getTag())));
 
         return new WidgetData(name, subgroup);
     }
@@ -225,9 +226,9 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
         @Nullable
         private String mScheduleName;
         @NonNull
-        private SubgroupEnum mSubgroup;
+        private Subgroup mSubgroup;
 
-        WidgetData(@Nullable String scheduleName, @NonNull SubgroupEnum subgroup) {
+        WidgetData(@Nullable String scheduleName, @NonNull Subgroup subgroup) {
             mScheduleName = scheduleName;
             mSubgroup = subgroup;
         }
@@ -238,7 +239,7 @@ public class ScheduleWidgetConfigureActivity extends AppCompatActivity implement
         }
 
         @NonNull
-        public SubgroupEnum subgroup() {
+        public Subgroup subgroup() {
             return mSubgroup;
         }
     }

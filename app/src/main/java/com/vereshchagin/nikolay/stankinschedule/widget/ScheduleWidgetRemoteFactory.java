@@ -11,25 +11,20 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.JsonParseException;
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.Schedule;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.Pair;
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.SubgroupEnum;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup;
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository;
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference;
 import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils;
 
-import org.apache.commons.io.FileUtils;
+import org.joda.time.LocalDate;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-import java.util.TreeSet;
+import java.util.List;
 
 import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.LABORATORY_COLOR;
 import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.LECTURE_COLOR;
@@ -56,11 +51,6 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
      * Контекст.
      */
     private WeakReference<Context> mContext;
-    /**
-     * Локаль.
-     */
-    @NonNull
-    private Locale mLocale;
 
     /**
      * Список дней.
@@ -85,7 +75,7 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
      * Подгруппа в расписании.
      */
     @Nullable
-    private SubgroupEnum mSubgroup;
+    private Subgroup mSubgroup;
 
     // ошибка при загрузке
     private boolean mLoadingError;
@@ -95,7 +85,6 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
     private ScheduleWidgetRemoteFactory(@NonNull Context context, @NonNull Intent intent) {
         mContext = new WeakReference<>(context);
         mPackageName = context.getPackageName();
-        mLocale = CommonUtils.locale(context);
 
         mScheduleAppWidgetId = intent.getIntExtra(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
@@ -138,10 +127,8 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
 
         @NonNull Schedule schedule;
         try {
-            File file = new File(mSchedulePath);
-            String json = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
-            schedule = Schedule.fromJson(json);
-
+            ScheduleRepository repository = new ScheduleRepository();
+            schedule = repository.load(mSchedulePath);
             mLoadingError = false;
 
         } catch (JsonParseException | IOException e) {
@@ -152,20 +139,17 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
             return;
         }
 
-        SimpleDateFormat formatter = new SimpleDateFormat("EE, dd MMMM", mLocale);
-
-        Calendar iterator = CommonUtils.normalizeDate(new GregorianCalendar());
+        LocalDate iterator = LocalDate.now();
         for (int i = 0; i < 7; i++) {
             ScheduleWidgetDayItem item = new ScheduleWidgetDayItem();
-            item.pairs = schedule.pairsByDate(iterator);
 
-            String dayFormat = formatter.format(iterator.getTime());
+            String dayFormat = iterator.toString("EE, dd MMMM");
             item.dayTitle = CommonUtils.toTitleCase(dayFormat);
-
-            item.dayTime = (Calendar) iterator.clone();
-
+            item.dayTime = iterator;
+            item.pairs = schedule.pairsByDate(iterator);
             mDays.add(item);
-            iterator.add(Calendar.DAY_OF_MONTH, 1);
+
+            iterator = iterator.plusDays(1);
         }
     }
 
@@ -201,19 +185,18 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
         int addedPairs = 0;
         for (Pair pair : item.pairs) {
             // если не подходит по подгруппе
-            SubgroupEnum subgroup = pair.subgroup().subgroup();
-            if (subgroup != SubgroupEnum.COMMON && mSubgroup != SubgroupEnum.COMMON && subgroup != mSubgroup) {
+            if (!pair.isCurrently(mSubgroup)) {
                 continue;
             }
 
             RemoteViews pairView = new RemoteViews(mPackageName, R.layout.widget_item_schedule_pair);
 
-            pairView.setTextViewText(R.id.widget_schedule_title, pair.title().title());
-            pairView.setTextViewText(R.id.widget_schedule_time, pair.time().toString());
-            pairView.setTextViewText(R.id.widget_schedule_classroom, pair.classroom().classroom());
+            pairView.setTextViewText(R.id.widget_schedule_title, pair.getTitle());
+            pairView.setTextViewText(R.id.widget_schedule_time, pair.getTime().toString());
+            pairView.setTextViewText(R.id.widget_schedule_classroom, pair.getClassroom());
 
             int color = 0;
-            switch (pair.type().type()) {
+            switch (pair.getType()) {
                 case LECTURE:
                     color = mLectureColor;
                     break;
@@ -287,10 +270,10 @@ public class ScheduleWidgetRemoteFactory implements RemoteViewsService.RemoteVie
         /**
          * Пары дня.
          */
-        TreeSet<Pair> pairs;
+        List<Pair> pairs;
         /**
          * Время дня.
          */
-        Calendar dayTime;
+        LocalDate dayTime;
     }
 }

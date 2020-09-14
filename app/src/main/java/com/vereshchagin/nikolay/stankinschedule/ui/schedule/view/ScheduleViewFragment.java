@@ -52,12 +52,10 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StorageErrorData;
 import org.apache.commons.io.FileUtils;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
-import org.joda.time.chrono.ISOChronology;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Calendar;
 
 import static android.app.Activity.RESULT_CANCELED;
 
@@ -136,7 +134,7 @@ public class ScheduleViewFragment extends Fragment
      * @param date дата, которую необходимо показать.
      * @return bundle с данными.
      */
-    public static Bundle createBundle(@NonNull String name, @Nullable String path, @Nullable Calendar date) {
+    public static Bundle createBundle(@NonNull String name, @Nullable String path, @Nullable LocalDate date) {
         Bundle bundle = new Bundle();
         bundle.putString(ARG_SCHEDULE_NAME, name);
         bundle.putString(ARG_SCHEDULE_PATH, path);
@@ -213,8 +211,8 @@ public class ScheduleViewFragment extends Fragment
 
         // установка отображаемого дня, если был указан
         if (savedInstanceState == null && getArguments() != null) {
-            Calendar date = (Calendar) getArguments().getSerializable(ARG_SCHEDULE_DAY);
-            mScheduleViewModel.storage().setInitialKey(new LocalDate(date, ISOChronology.getInstanceUTC()));
+            LocalDate date = (LocalDate) getArguments().getSerializable(ARG_SCHEDULE_DAY);
+            mScheduleViewModel.storage().setInitialKey(date);
         }
 
         mScheduleViewModel.statesData().observe(getViewLifecycleOwner(), new Observer<ScheduleViewModel.States>() {

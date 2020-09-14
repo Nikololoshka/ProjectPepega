@@ -16,7 +16,7 @@ import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment;
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference;
 
-import java.util.Calendar;
+import org.joda.time.LocalDate;
 
 /**
  * Виджет с расписанием.
@@ -90,7 +90,7 @@ public class ScheduleWidget extends AppWidgetProvider {
         String action = intent.getAction();
         if (action != null && action.equalsIgnoreCase(ACTION_SCHEDULE_DAY_CLICKED)) {
 
-            Calendar date = (Calendar) intent.getSerializableExtra(SCHEDULE_DAY_TIME);
+            LocalDate date = (LocalDate) intent.getSerializableExtra(SCHEDULE_DAY_TIME);
             String scheduleName =  intent.getStringExtra(SCHEDULE_NAME);
 
             if (scheduleName == null) {
