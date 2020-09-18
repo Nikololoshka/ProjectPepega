@@ -107,16 +107,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
                             favorite, SchedulePreference.createPath(requireContext(), favorite)
                         ))
                 } else {
-                    navigateTo(R.id.toScheduleFragment)
+                    navigateTo(R.id.nav_schedule_fragment)
                 }
             }
             // модульный журнал
             R.id.mj_name -> {
-                navigateTo(R.id.toModuleJournalFragment)
+                navigateTo(R.id.nav_module_journal_fragment)
             }
             // новости
             R.id.news_name -> {
-                navigateTo(R.id.toNewsFragment)
+                navigateTo(R.id.nav_news_fragment)
             }
         }
     }

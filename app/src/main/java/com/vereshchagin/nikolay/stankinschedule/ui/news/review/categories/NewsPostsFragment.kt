@@ -105,7 +105,7 @@ class NewsPostsFragment: BaseFragment<ItemNewsPostsBinding>(), NewsPostAdapter.O
 
     override fun onNewsClick(newsId: Int) {
         val controller = Navigation.findNavController(requireActivity(), R.id.nav_host)
-        controller.navigate(R.id.toNewsViewerFragment, NewsViewerFragment.createBundle(newsId))
+        controller.navigate(R.id.to_news_viewer_fragment, NewsViewerFragment.createBundle(newsId))
     }
 
     companion object {

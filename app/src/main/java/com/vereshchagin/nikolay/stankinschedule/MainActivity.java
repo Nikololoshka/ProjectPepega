@@ -223,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 switch (action) {
                     // к модульному журналу
                     case MODULE_JOURNAL_VIEW: {
-                        navController.navigate(R.id.toModuleJournalFragment);
+                        navController.navigate(R.id.nav_module_journal_fragment);
                         return;
                     }
                     // к расписанию

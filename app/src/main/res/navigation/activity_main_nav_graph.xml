@@ -10,34 +10,7 @@
         android:id="@+id/nav_home_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.home.HomeFragment"
         android:label="@string/nav_home"
-        tools:layout="@layout/fragment_home" >
-
-        <action
-            android:id="@+id/toScheduleFragment"
-            app:destination="@id/nav_schedule_fragment"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-        <action
-            android:id="@+id/toModuleJournalFragment"
-            app:destination="@id/nav_module_journal_fragment"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
-        <action
-            android:id="@+id/toAboutFragment"
-            app:destination="@id/nav_about_fragment"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
-
-        <action
-            android:id="@+id/toNewsFragment"
-            app:destination="@id/nav_news_fragment"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-<!--        <action-->
-<!--            android:id="@+id/toNewsViewerDeepLink"-->
-<!--            app:destination="@id/nav_news_viewer_fragment" />-->
-
-    </fragment>
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_schedule_fragment"
@@ -59,6 +32,7 @@
         android:id="@+id/nav_module_journal_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.ModuleJournalFragment"
         android:label="@string/nav_module_journal">
+
         <action
             android:id="@+id/toModuleJournalLoginFragment"
             app:destination="@id/nav_module_journal_login_fragment"
@@ -84,17 +58,7 @@
         android:id="@+id/nav_news_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.news.review.NewsFragment"
         android:label="@string/news"
-        tools:layout="@layout/fragment_news" >
-
-        <action
-            android:id="@+id/toNewsViewerFragment"
-            app:destination="@id/nav_news_viewer_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-
-    </fragment>
+        tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/nav_news_viewer_fragment"
@@ -106,6 +70,7 @@
             android:id="@+id/news_deep_link"
             android:autoVerify="true"
             app:uri="stankin.ru/news/item_{news_id}" />
+
         <argument
             android:name="news_id"
             app:argType="integer" />
@@ -200,6 +165,22 @@
     <action
         android:id="@+id/to_schedule_view_fragment"
         app:destination="@id/nav_schedule_view_fragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+    <action
+        android:id="@+id/to_about_fragment"
+        app:destination="@id/nav_about_fragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+    <action
+        android:id="@+id/to_news_viewer_fragment"
+        app:destination="@id/nav_news_viewer_fragment"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim"
         app:popEnterAnim="@anim/nav_default_pop_enter_anim"
