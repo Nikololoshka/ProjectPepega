@@ -444,6 +444,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.10.23-2020.11.20",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Нежметдинов Р.А",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Автоматика и управление движением",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.10.23",
                 "frequency": "once"
             },
@@ -459,23 +476,6 @@
             "start": "12:20"
         },
         "title": "Искусственные нейронные сети",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.23-2020.11.20",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Нежметдинов Р.А",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Автоматика и управление движением",
         "type": "Laboratory"
     },
     {
@@ -575,13 +575,13 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Евстафиева С.В",
-        "subgroup": "A",
+        "lecturer": "Коган Ю.Г",
+        "subgroup": "B",
         "time": {
             "end": "12:00",
             "start": "8:30"
         },
-        "title": "Автоматизация технологических процессов и производств",
+        "title": "Автоматизация управления жизненным циклом продукции",
         "type": "Laboratory"
     },
     {
@@ -592,13 +592,13 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Коган Ю.Г",
-        "subgroup": "B",
+        "lecturer": "Евстафиева С.В",
+        "subgroup": "A",
         "time": {
             "end": "12:00",
             "start": "8:30"
         },
-        "title": "Автоматизация управления жизненным циклом продукции",
+        "title": "Автоматизация технологических процессов и производств",
         "type": "Laboratory"
     },
     {

@@ -71,7 +71,7 @@
         "classroom": "0408",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.09",
+                "date": "2020.09.14-2020.11.16",
                 "frequency": "every"
             }
         ],
@@ -88,24 +88,7 @@
         "classroom": "0803",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.09",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Иванова О.К",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Математика",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "0803",
-        "dates": [
-            {
-                "date": "2020.11.16-2020.12.21",
+                "date": "2020.11.23-2020.12.21",
                 "frequency": "every"
             }
         ],
@@ -119,10 +102,31 @@
         "type": "Seminar"
     },
     {
+        "classroom": "0803",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.16",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.12.21",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Иванова О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Математика",
+        "type": "Seminar"
+    },
+    {
         "classroom": "0309",
         "dates": [
             {
-                "date": "2020.09.15-2020.11.10",
+                "date": "2020.09.15-2020.11.17",
                 "frequency": "every"
             }
         ],
@@ -139,15 +143,15 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.20-2020.11.24",
+                "date": "2020.10.27-2020.12.01",
                 "frequency": "every"
             }
         ],
         "lecturer": "Некрасов А.Я",
         "subgroup": "Common",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "end": "19:30",
+            "start": "18:00"
         },
         "title": "Теория прочности",
         "type": "Seminar"
@@ -173,7 +177,7 @@
         "classroom": "0408",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.15",
+                "date": "2020.09.08-2020.12.22",
                 "frequency": "every"
             }
         ],
@@ -190,7 +194,7 @@
         "classroom": "0309",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.13",
+                "date": "2020.09.15-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -308,12 +312,8 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
+                "date": "2020.11.11-2020.11.25",
+                "frequency": "every"
             }
         ],
         "lecturer": "Меликова О.Н",
@@ -367,7 +367,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Петросян И.М",
         "subgroup": "Common",
         "time": {
             "end": "17:40",
@@ -380,7 +380,7 @@
         "classroom": "431",
         "dates": [
             {
-                "date": "2020.09.10-2020.12.03",
+                "date": "2020.09.10-2020.12.10",
                 "frequency": "every"
             }
         ],
@@ -397,7 +397,7 @@
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.05",
+                "date": "2020.09.17-2020.11.19",
                 "frequency": "every"
             }
         ],
@@ -414,7 +414,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11-2020.10.23",
+                "date": "2020.09.11-2020.11.13",
                 "frequency": "every"
             }
         ],
@@ -431,7 +431,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.23",
+                "date": "2020.09.18-2020.11.06",
                 "frequency": "every"
             }
         ],
@@ -448,28 +448,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.30",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Введение в специальность",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.18-2020.11.06",
+                "date": "2020.09.18-2020.11.20",
                 "frequency": "every"
             }
         ],
@@ -493,8 +472,8 @@
         "lecturer": "Лоскутов А.И",
         "subgroup": "Common",
         "time": {
-            "end": "12:00",
-            "start": "10:20"
+            "end": "14:00",
+            "start": "12:20"
         },
         "title": "Физика",
         "type": "Seminar"
@@ -503,11 +482,28 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.18",
+                "date": "2020.12.25",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Петросян И.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.18-2020.12.25",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Петросян И.М",
         "subgroup": "Common",
         "time": {
             "end": "10:10",
@@ -575,7 +571,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Петросян И.М",
         "subgroup": "Common",
         "time": {
             "end": "12:00",

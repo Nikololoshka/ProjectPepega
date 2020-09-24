@@ -472,6 +472,23 @@
         "classroom": "ТехП 7",
         "dates": [
             {
+                "date": "2020.10.16-2020.11.27",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Пивкин П.М",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "САПР и машинная графика в инструментальной технике",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 7",
+        "dates": [
+            {
                 "date": "2020.10.23-2020.12.04",
                 "frequency": "throughout"
             }
@@ -521,23 +538,6 @@
             "start": "12:20"
         },
         "title": "Эксплуатация инструментальных систем",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 7",
-        "dates": [
-            {
-                "date": "2020.10.16-2020.11.27",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Пивкин П.М",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "САПР и машинная графика в инструментальной технике",
         "type": "Laboratory"
     },
     {
@@ -617,23 +617,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 7",
-        "dates": [
-            {
-                "date": "2020.11.07-2020.12.19",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Домнин П.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Инструментальные системы интегрированных машиностроительных производств",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "234(а)",
         "dates": [
             {
@@ -652,6 +635,23 @@
             "start": "12:20"
         },
         "title": "Автоматизированное проектирование специальных режущих инструментов",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 7",
+        "dates": [
+            {
+                "date": "2020.11.07-2020.12.19",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Домнин П.В",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Инструментальные системы интегрированных машиностроительных производств",
         "type": "Laboratory"
     },
     {

@@ -92,7 +92,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.09-2020.11.23",
+                "date": "2020.11.09-2020.11.30",
                 "frequency": "every"
             }
         ],
@@ -372,23 +372,6 @@
         "type": "Lecture"
     },
     {
-        "classroom": "ТехП 7",
-        "dates": [
-            {
-                "date": "2020.12.03",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Пивкин П.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Диагностика инструментальных систем",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
         "dates": [
             {
@@ -426,12 +409,8 @@
         "classroom": "ТехП 7",
         "dates": [
             {
-                "date": "2020.11.13",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.27",
-                "frequency": "once"
+                "date": "2020.11.13-2020.12.11",
+                "frequency": "throughout"
             }
         ],
         "lecturer": "Пивкин П.М",

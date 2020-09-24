@@ -194,6 +194,27 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.10.20",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.27",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Сидоров А.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Современные технологии и средства разработки программного обеспечения",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.30",
                 "frequency": "once"
             }
@@ -494,7 +515,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "235(д)",
+        "classroom": "209",
         "dates": [
             {
                 "date": "2020.09.25-2020.11.20",
@@ -511,7 +532,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "235(д)",
+        "classroom": "209",
         "dates": [
             {
                 "date": "2020.10.02-2020.11.27",

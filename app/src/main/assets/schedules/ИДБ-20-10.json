@@ -130,7 +130,7 @@
                 "frequency": "once"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Зайдефтер М.Г",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
@@ -147,7 +147,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Зайдефтер М.Г",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -254,6 +254,23 @@
         "type": "Lecture"
     },
     {
+        "classroom": "357(ж)",
+        "dates": [
+            {
+                "date": "2020.11.25-2020.12.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Яновская Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Алгебра и геометрия",
+        "type": "Seminar"
+    },
+    {
         "classroom": "Фрезер 203",
         "dates": [
             {
@@ -354,23 +371,6 @@
         },
         "title": "Математический анализ",
         "type": "Lecture"
-    },
-    {
-        "classroom": "357(ж)",
-        "dates": [
-            {
-                "date": "2020.11.06-2020.12.25",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Яновская Е.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Алгебра и геометрия",
-        "type": "Seminar"
     },
     {
         "classroom": "С/З СТАНКИН",
@@ -516,7 +516,7 @@
         "classroom": "357(ж)",
         "dates": [
             {
-                "date": "2020.09.26-2020.10.31",
+                "date": "2020.09.26-2020.10.10",
                 "frequency": "every"
             }
         ],
@@ -525,6 +525,23 @@
         "time": {
             "end": "10:10",
             "start": "8:30"
+        },
+        "title": "Алгебра и геометрия",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "357(ж)",
+        "dates": [
+            {
+                "date": "2020.10.17-2020.11.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Яновская Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
         },
         "title": "Алгебра и геометрия",
         "type": "Seminar"

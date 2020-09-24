@@ -5,19 +5,15 @@
             {
                 "date": "2020.09.14",
                 "frequency": "once"
-            },
-            {
-                "date": "2020.09.28",
-                "frequency": "once"
             }
         ],
-        "lecturer": "Гвоздкова С.И",
-        "subgroup": "A",
+        "lecturer": "Евстафиева С.В",
+        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
         },
-        "title": "Экология",
+        "title": "Операционные системы и базы данных",
         "type": "Laboratory"
     },
     {
@@ -26,14 +22,31 @@
             {
                 "date": "2020.09.14",
                 "frequency": "once"
+            }
+        ],
+        "lecturer": "Гвоздкова С.И",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Экология",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.21",
+                "frequency": "once"
             },
             {
-                "date": "2020.09.28",
+                "date": "2020.10.05",
                 "frequency": "once"
             }
         ],
         "lecturer": "Евстафиева С.В",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -63,24 +76,20 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "",
+        "classroom": "ТехП 20",
         "dates": [
             {
-                "date": "2020.09.21",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
+                "date": "2020.10.12-2020.11.09",
+                "frequency": "throughout"
             }
         ],
-        "lecturer": "Евстафиева С.В",
-        "subgroup": "A",
+        "lecturer": "Бушуев С.В",
+        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
         },
-        "title": "Операционные системы и базы данных",
+        "title": "Технические измерения и приборы",
         "type": "Laboratory"
     },
     {
@@ -104,23 +113,6 @@
         "classroom": "ТехП 20",
         "dates": [
             {
-                "date": "2020.10.12-2020.11.09",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бушуев С.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Технические измерения и приборы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 20",
-        "dates": [
-            {
                 "date": "2020.10.19-2020.11.16",
                 "frequency": "throughout"
             }
@@ -132,6 +124,23 @@
             "start": "12:20"
         },
         "title": "Технические измерения и приборы",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "346/1",
+        "dates": [
+            {
+                "date": "2020.10.19-2020.11.30",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Чумаева М.В",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Теория автоматического управления",
         "type": "Laboratory"
     },
     {
@@ -155,7 +164,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.12",
+                "date": "2020.09.07-2020.10.05",
                 "frequency": "every"
             }
         ],
@@ -186,6 +195,23 @@
         "type": "Lecture"
     },
     {
+        "classroom": "0205",
+        "dates": [
+            {
+                "date": "2020.10.19-2020.11.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Чаруйская М.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Проектная деятельность",
+        "type": "Seminar"
+    },
+    {
         "classroom": "235(е)",
         "dates": [
             {
@@ -200,6 +226,48 @@
             "start": "10:20"
         },
         "title": "Технические измерения и приборы",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0205",
+        "dates": [
+            {
+                "date": "2020.12.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.14",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Чаруйская М.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Проектная деятельность",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0205",
+        "dates": [
+            {
+                "date": "2020.12.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.14",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Чаруйская М.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Проектная деятельность",
         "type": "Seminar"
     },
     {
@@ -354,17 +422,17 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.03",
+                "date": "2020.10.20",
                 "frequency": "once"
             }
         ],
-        "lecturer": "Гусев В.Н",
+        "lecturer": "Чаруйская М.А",
         "subgroup": "Common",
         "time": {
             "end": "17:40",
             "start": "16:00"
         },
-        "title": "Технические измерения и приборы",
+        "title": "Проектная деятельность",
         "type": "Lecture"
     },
     {
@@ -516,6 +584,10 @@
             {
                 "date": "2020.11.11",
                 "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
             }
         ],
         "lecturer": "Кропоткина Е.Ю",
@@ -599,7 +671,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.15",
+                "date": "2020.09.17-2020.10.08",
                 "frequency": "every"
             }
         ],
@@ -633,7 +705,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.03",
+                "date": "2020.09.17-2020.12.17",
                 "frequency": "every"
             }
         ],
@@ -667,7 +739,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.15-2020.11.05",
+                "date": "2020.10.15-2020.11.19",
                 "frequency": "every"
             }
         ],
@@ -684,7 +756,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.12-2020.12.03",
+                "date": "2020.11.26-2020.12.17",
                 "frequency": "every"
             }
         ],
@@ -698,11 +770,11 @@
         "type": "Lecture"
     },
     {
-        "classroom": "",
+        "classroom": "0205",
         "dates": [
             {
-                "date": "2020.09.11-2020.10.02",
-                "frequency": "every"
+                "date": "2020.09.11",
+                "frequency": "once"
             }
         ],
         "lecturer": "Чаруйская М.А",
@@ -735,6 +807,27 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.10.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.23",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Ривкин А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Механика и управление",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.11.13-2020.11.27",
                 "frequency": "every"
             }
@@ -752,7 +845,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11-2020.12.18",
+                "date": "2020.09.11-2020.12.25",
                 "frequency": "every"
             }
         ],
@@ -769,7 +862,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.02",
+                "date": "2020.09.18-2020.10.09",
                 "frequency": "every"
             }
         ],
@@ -780,23 +873,6 @@
             "start": "10:20"
         },
         "title": "Теория автоматического управления",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.11.27",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Чаруйская М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Проектная деятельность",
         "type": "Seminar"
     },
     {
@@ -905,7 +981,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.17-2020.12.05",
+                "date": "2020.10.17-2020.12.12",
                 "frequency": "every"
             }
         ],

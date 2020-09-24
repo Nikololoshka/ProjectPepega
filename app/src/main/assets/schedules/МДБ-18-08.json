@@ -299,8 +299,12 @@
                 "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.21",
+                "date": "2020.09.30-2020.10.28",
                 "frequency": "every"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
             }
         ],
         "lecturer": "Михайлова М.В",
@@ -326,6 +330,10 @@
             {
                 "date": "2020.09.30-2020.10.28",
                 "frequency": "every"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
             }
         ],
         "lecturer": "Нелюбова С.М",
@@ -335,6 +343,23 @@
             "start": "14:10"
         },
         "title": "Культурология",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.25",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Сергеев Ю.Д",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Электротехника и электроника",
         "type": "Lecture"
     },
     {

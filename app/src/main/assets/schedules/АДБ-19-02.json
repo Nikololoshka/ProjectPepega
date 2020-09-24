@@ -71,7 +71,7 @@
         "classroom": "0408",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.09",
+                "date": "2020.09.14-2020.11.16",
                 "frequency": "every"
             }
         ],
@@ -88,11 +88,7 @@
         "classroom": "235(е)",
         "dates": [
             {
-                "date": "2020.09.14",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.05-2020.11.09",
+                "date": "2020.10.05-2020.12.07",
                 "frequency": "every"
             }
         ],
@@ -109,7 +105,7 @@
         "classroom": "240(б)",
         "dates": [
             {
-                "date": "2020.11.16-2020.12.14",
+                "date": "2020.11.23-2020.12.21",
                 "frequency": "every"
             }
         ],
@@ -160,7 +156,7 @@
         "classroom": "0408",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.15",
+                "date": "2020.09.08-2020.12.22",
                 "frequency": "every"
             }
         ],
@@ -177,7 +173,7 @@
         "classroom": "0811",
         "dates": [
             {
-                "date": "2020.09.15-2020.11.10",
+                "date": "2020.09.15-2020.11.17",
                 "frequency": "every"
             }
         ],
@@ -194,7 +190,7 @@
         "classroom": "0811",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.13",
+                "date": "2020.09.15-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -287,7 +283,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11-2020.11.25",
+                "date": "2020.11.11-2020.12.02",
                 "frequency": "every"
             }
         ],
@@ -298,6 +294,27 @@
             "start": "14:10"
         },
         "title": "Введение в специальность",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0309",
+        "dates": [
+            {
+                "date": "2020.12.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.23",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Виноградова Ю.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Математика",
         "type": "Seminar"
     },
     {
@@ -329,7 +346,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Петросян И.М",
         "subgroup": "Common",
         "time": {
             "end": "17:40",
@@ -342,7 +359,7 @@
         "classroom": "431",
         "dates": [
             {
-                "date": "2020.09.10-2020.12.03",
+                "date": "2020.09.10-2020.12.10",
                 "frequency": "every"
             }
         ],
@@ -359,7 +376,7 @@
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.05",
+                "date": "2020.09.17-2020.11.19",
                 "frequency": "every"
             }
         ],
@@ -393,7 +410,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11-2020.10.23",
+                "date": "2020.12.24",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Рогинко Е.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.11-2020.11.13",
                 "frequency": "every"
             }
         ],
@@ -410,7 +444,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.23",
+                "date": "2020.09.18-2020.11.06",
                 "frequency": "every"
             }
         ],
@@ -427,28 +461,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.30",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Введение в специальность",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.18-2020.11.06",
+                "date": "2020.09.18-2020.11.20",
                 "frequency": "every"
             }
         ],
@@ -465,11 +478,11 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.18",
+                "date": "2020.09.18-2020.12.25",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Рогинко Е.В",
         "subgroup": "Common",
         "time": {
             "end": "10:10",
@@ -571,7 +584,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Петросян И.М",
         "subgroup": "Common",
         "time": {
             "end": "12:00",

@@ -68,6 +68,23 @@
         "type": "Laboratory"
     },
     {
+        "classroom": "210",
+        "dates": [
+            {
+                "date": "2020.11.02-2020.12.14",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Конюхова Г.П",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Информатика",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "0407",
         "dates": [
             {
@@ -89,40 +106,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "210",
-        "dates": [
-            {
-                "date": "2020.11.02-2020.12.14",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Конюхова Г.П",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Информатика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "210",
-        "dates": [
-            {
-                "date": "2020.11.09-2020.12.21",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Конюхова Г.П",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Информатика",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "0407",
         "dates": [
             {
@@ -141,6 +124,23 @@
             "start": "12:20"
         },
         "title": "Безопасность жизнедеятельности",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "210",
+        "dates": [
+            {
+                "date": "2020.11.09-2020.12.21",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Конюхова Г.П",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Информатика",
         "type": "Laboratory"
     },
     {
@@ -168,7 +168,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Барышникова О.В",
         "subgroup": "Common",
         "time": {
             "end": "10:10",
@@ -363,7 +363,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Барышникова О.В",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -431,13 +431,13 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "Козловская Т.Д",
+        "lecturer": "Конюхова Г.П",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
             "start": "10:20"
         },
-        "title": "Математика",
+        "title": "Информатика",
         "type": "Lecture"
     },
     {
@@ -499,13 +499,13 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "Конюхова Г.П",
+        "lecturer": "Козловская Т.Д",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
             "start": "12:20"
         },
-        "title": "Информатика",
+        "title": "Математика",
         "type": "Lecture"
     },
     {

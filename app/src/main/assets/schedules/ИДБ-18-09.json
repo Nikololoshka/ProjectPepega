@@ -139,7 +139,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.13",
+                "date": "2020.09.15-2020.10.27",
                 "frequency": "throughout"
             }
         ],
@@ -396,6 +396,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.09.24-2020.11.05",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Коробов Н.А",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Методы оптимизации",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.24",
                 "frequency": "once"
             },
@@ -411,23 +428,6 @@
             "start": "16:00"
         },
         "title": "Теория вероятностей и математическая статистика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.24-2020.11.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Коробов Н.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Методы оптимизации",
         "type": "Laboratory"
     },
     {

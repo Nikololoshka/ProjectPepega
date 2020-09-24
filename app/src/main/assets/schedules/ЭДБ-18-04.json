@@ -71,6 +71,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.11.02-2020.11.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Мотивация и стимулирование трудовой деятельности",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.11.16-2020.12.14",
                 "frequency": "every"
             }
@@ -105,23 +122,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.16",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Кузнецов Б.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Мотивация и стимулирование трудовой деятельности",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.12-2020.11.23",
                 "frequency": "every"
             },
@@ -147,28 +147,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.02",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.09",
+                "date": "2020.11.30",
                 "frequency": "once"
             }
         ],
-        "lecturer": "Кузнецов Б.М",
+        "lecturer": "АмерАбдаллах Д.А",
         "subgroup": "Common",
         "time": {
-            "end": "10:10",
-            "start": "8:30"
+            "end": "12:00",
+            "start": "10:20"
         },
-        "title": "Мотивация и стимулирование трудовой деятельности",
+        "title": "Социально-экономическая статистика",
         "type": "Seminar"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.17",
+                "date": "2020.09.08-2020.12.01",
                 "frequency": "every"
             }
         ],
@@ -202,7 +198,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.15",
+                "date": "2020.09.22-2020.12.22",
                 "frequency": "every"
             }
         ],
@@ -236,11 +232,15 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.12.01-2020.12.15",
-                "frequency": "every"
+                "date": "2020.12.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.15",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "АмерАбдаллах Д.А",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
@@ -253,11 +253,11 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.24-2020.12.15",
+                "date": "2020.12.01-2020.12.15",
                 "frequency": "every"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "АмерАбдаллах Д.А",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -308,23 +308,15 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.14",
-                "frequency": "once"
+                "date": "2020.10.14-2020.10.28",
+                "frequency": "every"
             },
             {
-                "date": "2020.10.21",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
+                "date": "2020.11.11-2020.11.25",
+                "frequency": "every"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "АмерАбдаллах Д.А",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -345,8 +337,12 @@
                 "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.21",
+                "date": "2020.09.30-2020.10.28",
                 "frequency": "every"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
             }
         ],
         "lecturer": "Михайлова М.В",
@@ -357,23 +353,6 @@
         },
         "title": "Психология",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.28",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гринман И.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Социально-экономическая статистика",
-        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -446,7 +425,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.11.05",
+                "date": "2020.09.10-2020.11.12",
                 "frequency": "every"
             }
         ],
@@ -496,6 +475,23 @@
         },
         "title": "Бухгалтерский учет и анализ",
         "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.26-2020.12.10",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Девятерикова Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Социально-экономическая статистика",
+        "type": "Lecture"
     },
     {
         "classroom": "",
@@ -552,7 +548,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11-2020.10.23",
+                "date": "2020.09.11-2020.10.30",
                 "frequency": "every"
             }
         ],
@@ -586,7 +582,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.11.06",
+                "date": "2020.09.18-2020.11.20",
                 "frequency": "every"
             }
         ],
@@ -603,7 +599,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.09.26",
+                "date": "2020.09.12-2020.10.03",
                 "frequency": "every"
             }
         ],
@@ -620,7 +616,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.09.26",
+                "date": "2020.09.12-2020.10.03",
                 "frequency": "every"
             }
         ],
@@ -641,7 +637,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "Девятерикова Е.А",
         "subgroup": "Common",
         "time": {
             "end": "17:40",
@@ -654,7 +650,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.10",
+                "date": "2020.09.26-2020.10.10",
                 "frequency": "every"
             },
             {
@@ -666,7 +662,7 @@
                 "frequency": "once"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "Девятерикова Е.А",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -683,7 +679,7 @@
                 "frequency": "once"
             },
             {
-                "date": "2020.10.03-2020.10.31",
+                "date": "2020.10.03-2020.11.21",
                 "frequency": "every"
             }
         ],

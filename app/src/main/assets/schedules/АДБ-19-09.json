@@ -37,7 +37,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.09",
+                "date": "2020.09.14-2020.11.16",
                 "frequency": "every"
             }
         ],
@@ -119,14 +119,14 @@
         "type": "Lecture"
     },
     {
-        "classroom": "",
+        "classroom": "343",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.15",
+                "date": "2020.09.15-2020.12.22",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Изотова А.С",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -172,7 +172,7 @@
                 "frequency": "once"
             }
         ],
-        "lecturer": "Соломахо К.Г",
+        "lecturer": "Карпова Е.Е",
         "subgroup": "A",
         "time": {
             "end": "19:30",
@@ -189,7 +189,7 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Соломахо К.Г",
+        "lecturer": "Карпова Е.Е",
         "subgroup": "B",
         "time": {
             "end": "19:30",
@@ -379,7 +379,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.22",
+                "date": "2020.09.10-2020.10.29",
                 "frequency": "every"
             }
         ],
@@ -396,7 +396,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.22",
+                "date": "2020.09.10-2020.10.29",
                 "frequency": "every"
             }
         ],
@@ -413,7 +413,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.19",
+                "date": "2020.09.17-2020.12.03",
                 "frequency": "every"
             }
         ],
@@ -430,7 +430,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.17",
+                "date": "2020.12.24",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Надыкто О.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Математика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.12.24",
                 "frequency": "every"
             }
         ],
@@ -495,18 +512,35 @@
         "type": "Seminar"
     },
     {
+        "classroom": "343",
+        "dates": [
+            {
+                "date": "2020.12.25",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Изотова А.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
         "classroom": "0309",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.11",
-                "frequency": "every"
+                "date": "2020.12.25",
+                "frequency": "once"
             }
         ],
         "lecturer": "Надыкто О.Б",
         "subgroup": "Common",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "end": "15:50",
+            "start": "14:10"
         },
         "title": "Математика",
         "type": "Seminar"
@@ -515,15 +549,15 @@
         "classroom": "0309",
         "dates": [
             {
-                "date": "2020.12.18",
-                "frequency": "once"
+                "date": "2020.09.18-2020.12.25",
+                "frequency": "every"
             }
         ],
         "lecturer": "Надыкто О.Б",
         "subgroup": "Common",
         "time": {
-            "end": "10:10",
-            "start": "8:30"
+            "end": "14:00",
+            "start": "12:20"
         },
         "title": "Математика",
         "type": "Seminar"
@@ -617,7 +651,7 @@
         "classroom": "235(е)",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.14",
+                "date": "2020.09.19-2020.11.21",
                 "frequency": "every"
             }
         ],
@@ -634,7 +668,7 @@
         "classroom": "235(е)",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.17",
+                "date": "2020.09.19-2020.10.24",
                 "frequency": "every"
             }
         ],

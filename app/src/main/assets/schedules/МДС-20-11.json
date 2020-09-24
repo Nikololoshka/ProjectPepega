@@ -1,22 +1,5 @@
 [
     {
-        "classroom": "256",
-        "dates": [
-            {
-                "date": "2020.09.28-2020.11.23",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Папулова Г.Н",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Химия",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "419",
         "dates": [
             {
@@ -31,6 +14,23 @@
             "start": "8:30"
         },
         "title": "Физика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "256",
+        "dates": [
+            {
+                "date": "2020.09.28-2020.11.23",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Папулова Г.Н",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Химия",
         "type": "Laboratory"
     },
     {
@@ -92,11 +92,11 @@
         "classroom": "309",
         "dates": [
             {
-                "date": "2020.11.16-2020.12.07",
+                "date": "2020.09.28-2020.12.07",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Барышникова О.В",
         "subgroup": "Common",
         "time": {
             "end": "15:50",
@@ -113,7 +113,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Барышникова О.В",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
@@ -155,23 +155,6 @@
         },
         "title": "Физика",
         "type": "Lecture"
-    },
-    {
-        "classroom": "309",
-        "dates": [
-            {
-                "date": "2020.09.15-2020.11.10",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Иностранный язык",
-        "type": "Seminar"
     },
     {
         "classroom": "ИГ-1",
@@ -326,7 +309,7 @@
         "type": "Lecture"
     },
     {
-        "classroom": "Фрезер 402",
+        "classroom": "Фрезер 301",
         "dates": [
             {
                 "date": "2020.09.24-2020.10.15",
@@ -499,7 +482,24 @@
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.21",
+                "date": "2020.09.26",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Ибатулин М.Ю",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Информационные технологии",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0208",
+        "dates": [
+            {
+                "date": "2020.09.26-2020.11.21",
                 "frequency": "every"
             }
         ],
@@ -520,7 +520,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "Папулова Г.Н",
+        "lecturer": "Гололобова Е.Г",
         "subgroup": "Common",
         "time": {
             "end": "14:00",

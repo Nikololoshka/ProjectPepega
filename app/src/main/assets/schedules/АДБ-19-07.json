@@ -119,23 +119,6 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0406",
-        "dates": [
-            {
-                "date": "2020.12.07",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Виноградова Ю.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Математика",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
         "dates": [
             {
@@ -173,6 +156,40 @@
         "classroom": "201",
         "dates": [
             {
+                "date": "2020.09.15-2020.10.27",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Базалеева К.О",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Материаловедение",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "210",
+        "dates": [
+            {
+                "date": "2020.11.03-2020.12.01",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Соколов С.В",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Мехатронные системы",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "201",
+        "dates": [
+            {
                 "date": "2020.09.08",
                 "frequency": "once"
             },
@@ -183,27 +200,14 @@
             {
                 "date": "2020.10.20",
                 "frequency": "once"
+            },
+            {
+                "date": "2020.11.03",
+                "frequency": "once"
             }
         ],
         "lecturer": "Базалеева К.О",
         "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Материаловедение",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "201",
-        "dates": [
-            {
-                "date": "2020.09.15-2020.10.27",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Базалеева К.О",
-        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -249,23 +253,6 @@
         "classroom": "210",
         "dates": [
             {
-                "date": "2020.11.03-2020.12.01",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Соколов С.В",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Мехатронные системы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "210",
-        "dates": [
-            {
                 "date": "2020.11.10-2020.12.08",
                 "frequency": "throughout"
             }
@@ -283,24 +270,7 @@
         "classroom": "0805",
         "dates": [
             {
-                "date": "2020.09.22-2020.10.27",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Куфаков А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Политология",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "0805",
-        "dates": [
-            {
-                "date": "2020.09.15-2020.10.27",
+                "date": "2020.09.15-2020.11.03",
                 "frequency": "every"
             }
         ],
@@ -314,10 +284,27 @@
         "type": "Seminar"
     },
     {
+        "classroom": "0805",
+        "dates": [
+            {
+                "date": "2020.09.22-2020.11.10",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Куфаков А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Политология",
+        "type": "Seminar"
+    },
+    {
         "classroom": "0406",
         "dates": [
             {
-                "date": "2020.11.10-2020.12.15",
+                "date": "2020.11.10-2020.12.22",
                 "frequency": "every"
             }
         ],
@@ -363,11 +350,11 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.10.14",
-                "frequency": "once"
+                "date": "2020.10.14-2020.10.28",
+                "frequency": "every"
             },
             {
-                "date": "2020.10.21",
+                "date": "2020.11.11",
                 "frequency": "once"
             }
         ],
@@ -401,7 +388,7 @@
         "classroom": "0406",
         "dates": [
             {
-                "date": "2020.09.16-2020.10.14",
+                "date": "2020.09.16-2020.10.21",
                 "frequency": "every"
             }
         ],
@@ -418,7 +405,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.22",
+                "date": "2020.09.10-2020.10.29",
                 "frequency": "every"
             }
         ],
@@ -435,7 +422,41 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.17",
+                "date": "2020.09.17-2020.12.03",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Соколов С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Мехатронные системы",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.24",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Яновская Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Математика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.12.24",
                 "frequency": "every"
             }
         ],
@@ -453,23 +474,6 @@
         "dates": [
             {
                 "date": "2020.09.17-2020.11.19",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Соколов С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Мехатронные системы",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.17-2020.11.05",
                 "frequency": "every"
             }
         ],
@@ -551,10 +555,31 @@
         "type": "Lecture"
     },
     {
+        "classroom": "0805",
+        "dates": [
+            {
+                "date": "2020.11.13",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.20",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Багдасаров Д.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Философия",
+        "type": "Seminar"
+    },
+    {
         "classroom": "0411",
         "dates": [
             {
-                "date": "2020.09.11-2020.11.06",
+                "date": "2020.09.11-2020.11.13",
                 "frequency": "every"
             }
         ],
@@ -568,20 +593,24 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0805",
+        "classroom": "0406",
         "dates": [
             {
-                "date": "2020.11.13",
+                "date": "2020.12.18",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.25",
                 "frequency": "once"
             }
         ],
-        "lecturer": "Багдасаров Д.Р",
+        "lecturer": "Виноградова Ю.А",
         "subgroup": "Common",
         "time": {
-            "end": "12:00",
-            "start": "10:20"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "title": "Философия",
+        "title": "Математика",
         "type": "Seminar"
     },
     {
@@ -664,7 +693,7 @@
         "classroom": "0801",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.31",
+                "date": "2020.09.19-2020.11.07",
                 "frequency": "every"
             }
         ],
@@ -681,7 +710,7 @@
         "classroom": "409",
         "dates": [
             {
-                "date": "2020.11.07-2020.11.28",
+                "date": "2020.11.14-2020.11.28",
                 "frequency": "every"
             }
         ],
@@ -695,20 +724,54 @@
         "type": "Seminar"
     },
     {
-        "classroom": "",
+        "classroom": "405",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.19",
+                "date": "2020.12.26",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Барыбин А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "405",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.12.26",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Барыбин А.В",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
             "start": "12:20"
         },
         "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "409",
+        "dates": [
+            {
+                "date": "2020.11.07",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Кречет В.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Физика",
         "type": "Seminar"
     }
 ]

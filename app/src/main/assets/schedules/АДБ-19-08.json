@@ -88,7 +88,7 @@
         "classroom": "419",
         "dates": [
             {
-                "date": "2020.11.02-2020.11.23",
+                "date": "2020.11.16-2020.12.07",
                 "frequency": "every"
             }
         ],
@@ -200,6 +200,10 @@
             {
                 "date": "2020.12.15",
                 "frequency": "once"
+            },
+            {
+                "date": "2020.12.22",
+                "frequency": "once"
             }
         ],
         "lecturer": "Иванова Н.В",
@@ -215,7 +219,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.12.15",
+                "date": "2020.09.22-2020.12.22",
                 "frequency": "every"
             }
         ],
@@ -232,11 +236,11 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.12.15",
+                "date": "2020.09.22-2020.12.22",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Изотова А.С",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
@@ -249,7 +253,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.10.13",
+                "date": "2020.09.22-2020.10.27",
                 "frequency": "every"
             }
         ],
@@ -288,6 +292,31 @@
         "type": "Laboratory"
     },
     {
+        "classroom": "235(е)",
+        "dates": [
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Шевченко М.А",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Высокоэффективные технологии и оборудование современных производств",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "202",
         "dates": [
             {
@@ -314,31 +343,6 @@
             "start": "8:30"
         },
         "title": "Материаловедение",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "235(е)",
-        "dates": [
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Шевченко М.А",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Высокоэффективные технологии и оборудование современных производств",
         "type": "Laboratory"
     },
     {
@@ -428,11 +432,11 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.10.14",
-                "frequency": "once"
+                "date": "2020.10.14-2020.10.28",
+                "frequency": "every"
             },
             {
-                "date": "2020.10.21",
+                "date": "2020.11.11",
                 "frequency": "once"
             }
         ],
@@ -449,24 +453,28 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.11-2020.12.02",
-                "frequency": "every"
+                "date": "2020.12.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.23",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Пушков Р.Л",
+        "lecturer": "Изотова А.С",
         "subgroup": "Common",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "title": "Программирование и алгоритмизация",
+        "title": "Иностранный язык",
         "type": "Seminar"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.22",
+                "date": "2020.09.10-2020.10.29",
                 "frequency": "every"
             }
         ],
@@ -483,24 +491,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.17",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Яновская Е.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Математика",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.17-2020.11.19",
+                "date": "2020.09.17-2020.12.03",
                 "frequency": "every"
             }
         ],
@@ -511,6 +502,40 @@
             "start": "12:20"
         },
         "title": "Мехатронные системы",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.24",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Яновская Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Математика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.12.24",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Яновская Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Математика",
         "type": "Lecture"
     },
     {
@@ -538,7 +563,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.05",
+                "date": "2020.11.19",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Багдасаров Д.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Философия",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.11.19",
                 "frequency": "every"
             }
         ],
@@ -555,12 +597,12 @@
         "classroom": "216",
         "dates": [
             {
-                "date": "2020.11.13-2020.12.11",
+                "date": "2020.11.20-2020.12.18",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Соколов С.В",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "12:00",
             "start": "8:30"
@@ -572,12 +614,12 @@
         "classroom": "216",
         "dates": [
             {
-                "date": "2020.11.20-2020.12.18",
+                "date": "2020.11.27-2020.12.25",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Соколов С.В",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "12:00",
             "start": "8:30"
@@ -623,7 +665,7 @@
         "classroom": "0411",
         "dates": [
             {
-                "date": "2020.09.11-2020.11.06",
+                "date": "2020.09.11-2020.11.13",
                 "frequency": "every"
             }
         ],
@@ -669,6 +711,23 @@
         },
         "title": "Программирование и алгоритмизация",
         "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.13-2020.12.04",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Пушков Р.Л",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Программирование и алгоритмизация",
+        "type": "Seminar"
     },
     {
         "classroom": "417",

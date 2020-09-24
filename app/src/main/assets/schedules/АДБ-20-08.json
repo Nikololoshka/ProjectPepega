@@ -1,5 +1,22 @@
 [
     {
+        "classroom": "246",
+        "dates": [
+            {
+                "date": "2020.12.21",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Нежметдинова Р.А",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Информационные технологии",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "0410",
         "dates": [
             {
@@ -75,7 +92,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Стихова О.В",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -316,7 +333,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Стихова О.В",
         "subgroup": "Common",
         "time": {
             "end": "15:50",
@@ -412,23 +429,6 @@
             "start": "8:30"
         },
         "title": "Химия",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "246",
-        "dates": [
-            {
-                "date": "2020.12.24",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Нежметдинова Р.А",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Информационные технологии",
         "type": "Laboratory"
     },
     {

@@ -3,6 +3,40 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.09.07-2020.11.09",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Тарасов А.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "ЭВМ и периферийные устройства",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.09-2020.11.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Фролов Е.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Основы теории систем",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.07-2020.12.14",
                 "frequency": "every"
             }
@@ -72,40 +106,6 @@
         "type": "Lecture"
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.07-2020.11.09",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Тарасов А.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "ЭВМ и периферийные устройства",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "408",
-        "dates": [
-            {
-                "date": "2020.09.08-2020.10.20",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Веселко С.Г",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Физика",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "235(д)",
         "dates": [
             {
@@ -124,6 +124,23 @@
             "start": "8:30"
         },
         "title": "Структуры и алгоритмы обработки данных",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "408",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.10.20",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Веселко С.Г",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Физика",
         "type": "Laboratory"
     },
     {
@@ -238,6 +255,10 @@
             {
                 "date": "2020.09.30-2020.10.28",
                 "frequency": "every"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
             }
         ],
         "lecturer": "Шитов С.Б",
@@ -247,23 +268,6 @@
             "start": "14:10"
         },
         "title": "Философия",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.11-2020.11.25",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Фролов Е.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Основы теории систем",
         "type": "Lecture"
     },
     {
@@ -329,7 +333,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Петрова И.К",
         "subgroup": "Common",
         "time": {
             "end": "15:50",
@@ -479,6 +483,23 @@
         "type": "Seminar"
     },
     {
+        "classroom": "235(д)",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.10.17",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Тарасов А.Г",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "ЭВМ и периферийные устройства",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "313",
         "dates": [
             {
@@ -503,12 +524,12 @@
         "classroom": "235(д)",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.17",
+                "date": "2020.09.26-2020.10.24",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Тарасов А.Г",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -535,23 +556,6 @@
             "start": "12:20"
         },
         "title": "Исследование операций",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "235(д)",
-        "dates": [
-            {
-                "date": "2020.09.26-2020.10.24",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Тарасов А.Г",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "ЭВМ и периферийные устройства",
         "type": "Laboratory"
     },
     {

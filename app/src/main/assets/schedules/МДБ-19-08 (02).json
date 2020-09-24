@@ -75,7 +75,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "Кречет В.Г",
+        "lecturer": "Байдин А.Э",
         "subgroup": "Common",
         "time": {
             "end": "15:50",
@@ -88,7 +88,7 @@
         "classroom": "0308",
         "dates": [
             {
-                "date": "2020.09.08-2020.10.20",
+                "date": "2020.09.08-2020.10.27",
                 "frequency": "every"
             }
         ],
@@ -102,10 +102,44 @@
         "type": "Lecture"
     },
     {
+        "classroom": "405",
+        "dates": [
+            {
+                "date": "2020.09.01-2020.11.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Барышникова О.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "405",
+        "dates": [
+            {
+                "date": "2020.09.01-2020.11.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Барышникова О.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
         "classroom": "0206",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.01",
+                "date": "2020.09.08-2020.12.08",
                 "frequency": "every"
             }
         ],
@@ -116,57 +150,6 @@
             "start": "12:20"
         },
         "title": "Математика",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.08-2020.11.17",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Иностранный язык",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.08-2020.11.17",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Иностранный язык",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.01-2020.12.15",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Байкин И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Социология культуры и межкультурные коммуникации",
         "type": "Lecture"
     },
     {
@@ -269,7 +252,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.12.16",
+                "date": "2020.11.25-2020.12.09",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Байкин И.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Социология культуры и межкультурные коммуникации",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.23",
                 "frequency": "once"
             }
         ],
@@ -290,7 +290,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11-2020.12.16",
+                "date": "2020.11.11-2020.12.23",
                 "frequency": "every"
             }
         ],
@@ -321,23 +321,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "201",
-        "dates": [
-            {
-                "date": "2020.09.24-2020.10.22",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Климов В.Н",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Материаловедение",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
         "dates": [
             {
@@ -356,6 +339,23 @@
             "start": "12:20"
         },
         "title": "Сопротивление материалов",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "201",
+        "dates": [
+            {
+                "date": "2020.09.24-2020.10.22",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Климов В.Н",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Материаловедение",
         "type": "Laboratory"
     },
     {
@@ -485,12 +485,8 @@
         "classroom": "417",
         "dates": [
             {
-                "date": "2020.09.18",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.02",
-                "frequency": "once"
+                "date": "2020.09.18-2020.10.16",
+                "frequency": "throughout"
             }
         ],
         "lecturer": "Байдин А.Э",
@@ -599,7 +595,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.12.19",
+                "date": "2020.09.12-2020.12.26",
                 "frequency": "every"
             }
         ],
@@ -616,7 +612,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.11.07",
+                "date": "2020.09.12-2020.11.14",
                 "frequency": "every"
             }
         ],

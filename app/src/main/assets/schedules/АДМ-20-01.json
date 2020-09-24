@@ -127,23 +127,6 @@
         "type": "Lecture"
     },
     {
-        "classroom": "ТехП 20",
-        "dates": [
-            {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бушуев С.В",
-        "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Измерительные информационные системы",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "333",
         "dates": [
             {
@@ -158,6 +141,23 @@
             "start": "19:40"
         },
         "title": "Автоматизация измерений, испытаний и контроля",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 20",
+        "dates": [
+            {
+                "date": "2020.11.11-2020.12.09",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бушуев С.В",
+        "subgroup": "B",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Измерительные информационные системы",
         "type": "Laboratory"
     },
     {

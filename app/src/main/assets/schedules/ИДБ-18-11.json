@@ -502,6 +502,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.10.16-2020.11.13",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бычкова Н.А",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Базы данных",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.10.16",
                 "frequency": "once"
             },
@@ -523,17 +540,17 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.16-2020.11.13",
+                "date": "2020.09.18-2020.10.16",
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Бычкова Н.А",
-        "subgroup": "A",
+        "lecturer": "Кузнецова Л.В",
+        "subgroup": "B",
         "time": {
-            "end": "19:30",
-            "start": "16:00"
+            "end": "15:50",
+            "start": "12:20"
         },
-        "title": "Базы данных",
+        "title": "Управление проектами",
         "type": "Laboratory"
     },
     {
@@ -572,23 +589,6 @@
             "start": "12:20"
         },
         "title": "Методы оптимизации",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.18-2020.10.16",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Кузнецова Л.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Управление проектами",
         "type": "Laboratory"
     },
     {

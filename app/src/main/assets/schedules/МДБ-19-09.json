@@ -126,7 +126,28 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.15",
+                "date": "2020.09.22",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "19:40"
+        },
+        "title": "Физическая культура и спорт",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.15",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.29-2020.12.15",
                 "frequency": "every"
             }
         ],
@@ -137,6 +158,23 @@
             "start": "18:00"
         },
         "title": "Физическая культура и спорт",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0204",
+        "dates": [
+            {
+                "date": "2020.09.08-2020.12.08",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Бубнова Т.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Математика",
         "type": "Seminar"
     },
     {
@@ -160,7 +198,7 @@
         "classroom": "0206",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.01",
+                "date": "2020.09.08-2020.12.08",
                 "frequency": "every"
             }
         ],
@@ -188,23 +226,6 @@
             "start": "10:20"
         },
         "title": "Социология",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.01-2020.12.15",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Байкин И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Социология культуры и межкультурные коммуникации",
         "type": "Lecture"
     },
     {
@@ -275,6 +296,10 @@
             {
                 "date": "2020.11.11",
                 "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бутримова Е.В",
@@ -290,7 +315,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.12.16",
+                "date": "2020.11.25-2020.12.09",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Байкин И.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Социология культуры и межкультурные коммуникации",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.23",
                 "frequency": "once"
             }
         ],
@@ -311,7 +353,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11-2020.12.16",
+                "date": "2020.11.11-2020.12.23",
                 "frequency": "every"
             }
         ],
@@ -650,7 +692,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.23",
+                "date": "2020.09.18-2020.11.06",
                 "frequency": "every"
             }
         ],
@@ -667,7 +709,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.09-2020.10.23",
+                "date": "2020.10.09-2020.10.30",
                 "frequency": "every"
             }
         ],
@@ -684,7 +726,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.12.19",
+                "date": "2020.09.12-2020.12.26",
                 "frequency": "every"
             }
         ],
@@ -701,34 +743,17 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.12.19",
+                "date": "2020.09.12-2020.12.26",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Петросян И.М",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
             "start": "12:20"
         },
         "title": "Иностранный язык",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.12-2020.12.12",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Бубнова Т.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Математика",
         "type": "Seminar"
     },
     {

@@ -451,7 +451,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "235(д)",
+        "classroom": "210",
         "dates": [
             {
                 "date": "2020.09.24-2020.11.19",
@@ -468,7 +468,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "235(д)",
+        "classroom": "210",
         "dates": [
             {
                 "date": "2020.10.01-2020.11.26",
@@ -704,5 +704,26 @@
         },
         "title": "Защита информации",
         "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.24",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.31",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Сидоров А.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Современные технологии и средства разработки программного обеспечения",
+        "type": "Seminar"
     }
 ]

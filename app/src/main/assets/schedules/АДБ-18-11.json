@@ -134,7 +134,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "Александров С.А",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
@@ -151,7 +151,7 @@
                 "frequency": "once"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "Александров С.А",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -159,6 +159,23 @@
         },
         "title": "Экономика и управление производством",
         "type": "Lecture"
+    },
+    {
+        "classroom": "0102",
+        "dates": [
+            {
+                "date": "2020.11.30-2020.12.14",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Чаруйская М.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Проектная деятельность",
+        "type": "Seminar"
     },
     {
         "classroom": "0806",
@@ -172,7 +189,7 @@
                 "frequency": "once"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "Александров С.А",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
@@ -250,44 +267,36 @@
         "type": "Lecture"
     },
     {
-        "classroom": "",
+        "classroom": "0102",
         "dates": [
             {
-                "date": "2020.09.16",
+                "date": "2020.11.10",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
+                "date": "2020.11.17",
+                "frequency": "once"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Чаруйская М.А",
         "subgroup": "Common",
         "time": {
             "end": "17:40",
             "start": "16:00"
         },
-        "title": "Иностранный язык",
+        "title": "Проектная деятельность",
         "type": "Seminar"
     },
     {
-        "classroom": "",
+        "classroom": "0102",
         "dates": [
             {
-                "date": "2020.09.16",
+                "date": "2020.11.10",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "every"
+                "date": "2020.11.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Чаруйская М.А",
@@ -303,19 +312,23 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.12.16",
+                "date": "2020.09.16",
                 "frequency": "once"
             },
             {
-                "date": "2020.12.23",
-                "frequency": "once"
+                "date": "2020.09.30-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11-2020.12.23",
+                "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Зайдефтер М.Г",
         "subgroup": "Common",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "end": "17:40",
+            "start": "16:00"
         },
         "title": "Иностранный язык",
         "type": "Seminar"
@@ -332,7 +345,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "Александров С.А",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
@@ -345,21 +358,34 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.12.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.16",
-                "frequency": "once"
+                "date": "2020.12.02-2020.12.16",
+                "frequency": "every"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "Александров С.А",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
             "start": "10:20"
         },
         "title": "Экономика и управление производством",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.09-2020.12.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Зайдефтер М.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Иностранный язык",
         "type": "Seminar"
     },
     {
@@ -421,15 +447,15 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.01",
+                "date": "2020.09.17-2020.10.08",
                 "frequency": "every"
             }
         ],
         "lecturer": "Ковальский В.М",
         "subgroup": "Common",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "end": "15:50",
+            "start": "14:10"
         },
         "title": "Теория автоматического управления",
         "type": "Seminar"
@@ -438,15 +464,15 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.01",
+                "date": "2020.09.17-2020.10.08",
                 "frequency": "every"
             }
         ],
         "lecturer": "Игнатьев В.А",
         "subgroup": "Common",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "end": "14:00",
+            "start": "12:20"
         },
         "title": "Моделирование систем",
         "type": "Seminar"
@@ -486,7 +512,7 @@
         "type": "Seminar"
     },
     {
-        "classroom": "",
+        "classroom": "0102",
         "dates": [
             {
                 "date": "2020.09.11",
@@ -506,24 +532,7 @@
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.23",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Игнатьев В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Моделирование систем",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0208",
-        "dates": [
-            {
-                "date": "2020.09.11-2020.10.23",
+                "date": "2020.09.11-2020.12.11",
                 "frequency": "every"
             }
         ],
@@ -537,35 +546,35 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0208",
+        "classroom": "0102",
         "dates": [
             {
-                "date": "2020.10.30-2020.12.04",
+                "date": "2020.11.27-2020.12.18",
                 "frequency": "every"
             }
         ],
-        "lecturer": "Подураев Ю.В",
+        "lecturer": "Чаруйская М.А",
         "subgroup": "Common",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "end": "17:40",
+            "start": "16:00"
         },
-        "title": "Основы мехатроники и робототехники",
-        "type": "Lecture"
+        "title": "Проектная деятельность",
+        "type": "Seminar"
     },
     {
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.10.30-2020.12.04",
+                "date": "2020.09.18-2020.12.18",
                 "frequency": "every"
             }
         ],
         "lecturer": "Игнатьев В.А",
         "subgroup": "Common",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "end": "15:50",
+            "start": "14:10"
         },
         "title": "Моделирование систем",
         "type": "Lecture"
@@ -591,7 +600,7 @@
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.09.18-2020.11.06",
+                "date": "2020.09.18-2020.11.20",
                 "frequency": "every"
             }
         ],
@@ -602,6 +611,23 @@
             "start": "8:30"
         },
         "title": "Прикладная математика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0208",
+        "dates": [
+            {
+                "date": "2020.12.25",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Буйнов М.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Теория автоматического управления",
         "type": "Lecture"
     },
     {
@@ -650,34 +676,17 @@
         "classroom": "246",
         "dates": [
             {
-                "date": "2020.10.10-2020.11.21",
+                "date": "2020.10.17-2020.11.28",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Ковальский В.М",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Теория автоматического управления",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "247",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Климов Д.Д",
         "subgroup": "B",
         "time": {
             "end": "19:30",
             "start": "16:00"
         },
-        "title": "Моделирование систем",
+        "title": "Теория автоматического управления",
         "type": "Laboratory"
     },
     {
@@ -701,17 +710,34 @@
         "classroom": "246",
         "dates": [
             {
-                "date": "2020.10.17-2020.11.28",
+                "date": "2020.10.24-2020.12.05",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Ковальский В.М",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "19:30",
             "start": "16:00"
         },
         "title": "Теория автоматического управления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "247",
+        "dates": [
+            {
+                "date": "2020.10.24-2020.11.21",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Климов Д.Д",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Моделирование систем",
         "type": "Laboratory"
     },
     {

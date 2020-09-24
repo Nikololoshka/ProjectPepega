@@ -157,14 +157,14 @@
         "type": "Lecture"
     },
     {
-        "classroom": "",
+        "classroom": "239",
         "dates": [
             {
                 "date": "2020.09.08-2020.12.22",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Клюева Т.Б",
         "subgroup": "Common",
         "time": {
             "end": "15:50",
@@ -571,23 +571,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "346/4",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.12.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Чумаева М.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Электротехника",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "246",
         "dates": [
             {
@@ -602,6 +585,23 @@
             "start": "12:20"
         },
         "title": "Прикладное программирование",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "346/4",
+        "dates": [
+            {
+                "date": "2020.10.10-2020.12.05",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Чумаева М.В",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Электротехника",
         "type": "Laboratory"
     },
     {
