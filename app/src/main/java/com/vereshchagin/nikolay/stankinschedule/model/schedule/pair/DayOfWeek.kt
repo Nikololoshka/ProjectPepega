@@ -46,7 +46,7 @@ enum class DayOfWeek : Parcelable {
          * Возвращает день недели соотвествующей даты.
          * @param date дата.
          * @return день недели.
-         * @throws IllegalArgumentException если не удалось узнать день недели.
+         * @throws DateDayOfWeekException если не удалось узнать день недели.
          */
         fun of(date: DateTime) : DayOfWeek {
             return when(date.dayOfWeek) {
@@ -57,7 +57,7 @@ enum class DayOfWeek : Parcelable {
                 DateTimeConstants.FRIDAY -> FRIDAY
                 DateTimeConstants.SATURDAY -> SATURDAY
                 else -> {
-                    throw IllegalArgumentException( "Invalid day of week: $date")
+                    throw DateDayOfWeekException( "Invalid day of week: $date")
                 }
             }
         }

@@ -102,7 +102,8 @@ class DateEditorActivity : AppCompatActivity() {
         initFields()
 
         if (savedInstanceState != null) {
-            switchMode(savedInstanceState.getSerializable(DATE_MODE) as Mode)
+            mode = (savedInstanceState.getSerializable(DATE_MODE) as Mode)
+            binding.dateMode.setCurrentPosition(mode.number)
         } else {
             dateItem?.let {
                 bind(it)
@@ -278,6 +279,7 @@ class DateEditorActivity : AppCompatActivity() {
             setCurrentFrequency(item.frequency())
             switchMode(Mode.RANGE)
         }
+        binding.dateMode.setCurrentPosition(mode.number)
     }
 
     /**
