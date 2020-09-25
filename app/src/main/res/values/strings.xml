@@ -69,6 +69,8 @@
     <string name="sch_remove_schedules">The following number of schedules will be deleted: %1$s</string>
     <string name="sch_successfully_added">Schedule: \'%1$s\' successfully added</string>
     <string name="sch_failed_add">Schedule: \'%1$s\' failed to add</string>
+    <string name="sch_edit_schedules">Edit schedules</string>
+    <string name="sch_remove_schedule">Remove schedule</string>
 
     <!-- repository -->
     <string name="repository">Repository</string>
@@ -177,6 +179,9 @@
         \t\t - Dobrovolsky D.   \n
         \t\t - Belova E.        \n
     </string>
+    <string name="about_version">Version: %1$s</string>
+    <string name="about_privacy_policy">Privacy Policy</string>
+    <string name="about_terms_conditions"><![CDATA[Terms & Conditions]]></string>
 
     <!-- notification -->
     <string name="notification">Notification</string>

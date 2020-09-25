@@ -90,6 +90,8 @@
     <string name="sch_view_will_be_deleted">Внимание, расписание будет удалено безвозвратно!</string>
     <string name="sch_view_today">Сегодня</string>
     <string name="sch_view_empty">Расписание пустое</string>
+    <string name="sch_edit_schedules">Редактировать расписания</string>
+    <string name="sch_remove_schedule">Удалить расписания</string>
 
     <!-- pair editor -->
     <string name="pair_editor_title">Название</string>
@@ -167,6 +169,10 @@
         \t\t - Добровольский Д.   \n
         \t\t - Белова Е.          \n
     </string>
+
+    <string name="about_version">Версия: %1$s</string>
+    <string name="about_privacy_policy">Политика конфиденциальности</string>
+    <string name="about_terms_conditions">Условия использования</string>
 
     <!-- notification -->
     <string name="notification">Уведомления</string>

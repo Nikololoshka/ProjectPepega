@@ -3,5 +3,5 @@
     <item
         android:id="@+id/edit_schedules"
         android:icon="@drawable/ic_menu_edit_button"
-        android:title="Edit schedules" />
+        android:title="@string/sch_edit_schedules" />
 </menu>
