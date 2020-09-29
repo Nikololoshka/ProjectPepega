@@ -32,7 +32,7 @@ class PairEditorViewModel(
     val scheduleState = MutableLiveData<State>(State.LOADING)
 
     init {
-        // загрухка расписания
+        // загрузка расписания
         viewModelScope.launch(Dispatchers.IO) {
             val path = SchedulePreference.createPath(application, scheduleName)
             try {
