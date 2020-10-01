@@ -27,6 +27,7 @@ public class ApplicationPreference {
     public static final String DARK_MODE_BATTERY_SAVER = "pref_battery_saver";
     public static final String DARK_MODE_MANUAL = "pref_manual_mode";
 
+    public static final String HOME_SCHEDULE_DELTA = "home_schedule_delta";
     public static final String APP_BROWSER = "app_browser";
 
     public static final String SCHEDULE_VIEW_VERTICAL = "pref_vertical";
@@ -92,6 +93,16 @@ public class ApplicationPreference {
     public static boolean useAppBrowser(@NonNull Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getBoolean(APP_BROWSER, true);
+    }
+
+    /**
+     * Возвращает количество дней, которые будет прогружены вперед и назад на главном экране.
+     * @param context контекст приложения.
+     * @return количество дней прогрузки.
+     */
+    public static int homeScheduleDelta(@NonNull Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getInt(HOME_SCHEDULE_DELTA, 2);
     }
 
     /**

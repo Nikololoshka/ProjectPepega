@@ -21,6 +21,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val scheduleData = MutableLiveData<HomeScheduleData>(null)
     val repository = ScheduleRepository()
 
+    private var delta = 2
+
     init {
         viewModelScope.launch(Dispatchers.IO) {
             loadSchedule()
@@ -44,14 +46,15 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             return
         }
 
+        delta = ApplicationPreference.homeScheduleDelta(getApplication())
+        val count = delta * 2 + 1
+        var start = LocalDate.now().minusDays(delta)
 
-        var start = LocalDate.now().minusDays(2)
-
-        val titles = ArrayList<String>(5)
-        val pairs = ArrayList<ArrayList<Pair>>(5)
+        val titles = ArrayList<String>(count)
+        val pairs = ArrayList<ArrayList<Pair>>(count)
         val subgroup = ApplicationPreference.subgroup(getApplication())
 
-        for (i in 0..4) {
+        for (i in 0 until count) {
             val list = ArrayList<Pair>()
             schedule.pairsByDate(start).filter {
                 it.isCurrently(subgroup)
@@ -78,6 +81,17 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             loadSchedule()
         }
+    }
+
+    /**
+     * Проверяет, правильное количество дней загружено.
+     */
+    fun isScheduleDeltaCorrect(): Boolean {
+        val newDelta = ApplicationPreference.homeScheduleDelta(getApplication())
+        if (newDelta != delta) {
+            return false
+        }
+        return true
     }
 
     /**

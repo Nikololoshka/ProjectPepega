@@ -24,35 +24,35 @@
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
-        <com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.ColorPreference
+        <com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.picker.ColorPreference
             android:key="schedule_lecture_color"
             android:title="@string/pref_lecture_color"
             android:summary="@string/pref_color_summary"
             android:defaultValue="@color/colorCardLecture"
             app:iconSpaceReserved="false" />
 
-        <com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.ColorPreference
+        <com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.picker.ColorPreference
             android:key="schedule_seminar_color"
             android:title="@string/pref_seminar_color"
             android:summary="@string/pref_color_summary"
             android:defaultValue="@color/colorCardSeminar"
             app:iconSpaceReserved="false" />
 
-        <com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.ColorPreference
+        <com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.picker.ColorPreference
             android:key="schedule_laboratory_color"
             android:title="@string/pref_laboratory_color"
             android:summary="@string/pref_color_summary"
             android:defaultValue="@color/colorCardLaboratory"
             app:iconSpaceReserved="false" />
 
-        <com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.ColorPreference
+        <com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.picker.ColorPreference
             android:key="schedule_subgroup_a_color"
             android:title="@string/pref_subgroup_a_color"
             android:summary="@string/pref_color_summary"
             android:defaultValue="@color/colorCardSubgroupA"
             app:iconSpaceReserved="false" />
 
-        <com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.ColorPreference
+        <com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.picker.ColorPreference
             android:key="schedule_subgroup_b_color"
             android:title="@string/pref_subgroup_b_color"
             android:summary="@string/pref_color_summary"

@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection;
+package com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.picker;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;

@@ -58,7 +58,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         // установка данных в pager
         viewModel.scheduleData.observe(viewLifecycleOwner, Observer {
             val data = it ?: return@Observer
-            
+
+            if (!viewModel.isScheduleDeltaCorrect()) {
+                viewModel.updateSchedule()
+
+                return@Observer
+            }
+
             if (data.empty) {
                 scheduleStateful.setState(StatefulLayout2.EMPTY)
             } else {
