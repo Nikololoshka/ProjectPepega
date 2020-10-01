@@ -17,6 +17,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
+import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils;
 
 
 /**
@@ -142,6 +143,9 @@ public class ColorPreference extends Preference
             Log.d(TAG, "OnColorResult: " + color);
         }
         mColor = color;
+        if (getKey().startsWith("schedule_")) {
+            WidgetUtils.updateAllScheduleWidgets(getContext());
+        }
 
         persistInt(color);
         notifyChanged();

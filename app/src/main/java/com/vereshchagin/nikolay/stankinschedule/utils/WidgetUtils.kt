@@ -1,36 +1,57 @@
-package com.vereshchagin.nikolay.stankinschedule.utils;
+package com.vereshchagin.nikolay.stankinschedule.utils
 
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
-import android.content.Context;
-
-import androidx.annotation.NonNull;
-
-import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidget;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
+import android.content.Context
+import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidget
+import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidgetConfigureActivity
 
 /**
  * Вспомогательные функции по работе с виджетами.
  */
-public class WidgetUtils {
+class WidgetUtils {
 
-    /**
-     * Возвращает текущий список виджетов с расписаниями.
-     * @param context контекст.
-     * @return список виджетов.
-     */
-    @NonNull
-    public static List<Integer> scheduleWidgets(@NonNull Context context) {
-        AppWidgetManager widgetManager = AppWidgetManager.getInstance(context);
-        int[] ids = widgetManager.getAppWidgetIds(new ComponentName(context, ScheduleWidget.class));
+    companion object {
 
-        List<Integer> idsList = new ArrayList<>(ids.length);
-        for (int id : ids) {
-            idsList.add(id);
+        /**
+         * Возвращает текущий список виджетов с расписаниями.
+         */
+        @JvmStatic
+        fun scheduleWidgets(context: Context): List<Int> {
+            val widgetManager = AppWidgetManager.getInstance(context)
+            val ids = widgetManager.getAppWidgetIds(
+                ComponentName(
+                    context,
+                    ScheduleWidget::class.java
+                )
+            )
+            return ids.toList()
         }
 
-        return idsList;
+        /**
+         * Обновляет все виджеты с расписанием.
+         */
+        @JvmStatic
+        fun updateAllScheduleWidgets(context: Context) {
+            val appWidgetManager = AppWidgetManager.getInstance(context)
+            scheduleWidgets(context).forEach {
+                ScheduleWidget.updateAppWidget(context, appWidgetManager, it)
+            }
+        }
+
+        /**
+         * Обновляет виждет для расписания, если такой имеется.
+         */
+        @JvmStatic
+        fun updateScheduleWidget(context: Context, scheduleName: String) {
+            scheduleWidgets(context).forEach {
+                val data = ScheduleWidgetConfigureActivity.loadPref(context, it)
+                if (data.scheduleName() == scheduleName) {
+                    val appWidgetManager = AppWidgetManager.getInstance(context)
+                    ScheduleWidget.updateAppWidget(context, appWidgetManager, it)
+                    return // из функции
+                }
+            }
+        }
     }
 }

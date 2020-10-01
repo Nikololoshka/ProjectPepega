@@ -7,6 +7,7 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.DateException
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -63,6 +64,7 @@ class PairEditorViewModel(
             val path = SchedulePreference.createPath(getApplication(), scheduleName)
             try {
                 repository.save(schedule!!, path)
+                WidgetUtils.updateScheduleWidget(getApplication(), scheduleName)
                 scheduleState.postValue(State.SUCCESSFULLY_SAVED)
 
             } catch (e: Exception) {
@@ -73,7 +75,6 @@ class PairEditorViewModel(
                 }
             }
         }
-
     }
 
     /**
