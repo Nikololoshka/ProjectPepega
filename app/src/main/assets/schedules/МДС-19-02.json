@@ -37,7 +37,11 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.26",
+                "date": "2020.09.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.21-2020.10.26",
                 "frequency": "every"
             }
         ],
@@ -109,12 +113,8 @@
         "classroom": "0209",
         "dates": [
             {
-                "date": "2020.09.08",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.22",
-                "frequency": "once"
+                "date": "2020.09.08-2020.10.06",
+                "frequency": "every"
             }
         ],
         "lecturer": "Тюрина Л.Ф",
@@ -195,6 +195,40 @@
         "type": "Seminar"
     },
     {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.11-2020.12.09",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Филитов С.В",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Сопротивление материалов",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.18-2020.12.16",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Филитов С.В",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Сопротивление материалов",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "501",
         "dates": [
             {
@@ -248,21 +282,17 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.12.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.16",
+                "date": "2020.09.16",
                 "frequency": "once"
             }
         ],
-        "lecturer": "Господинова А.Г",
+        "lecturer": "Филитов С.В",
         "subgroup": "Common",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "end": "19:30",
+            "start": "18:00"
         },
-        "title": "Математика",
+        "title": "Сопротивление материалов",
         "type": "Seminar"
     },
     {
@@ -290,35 +320,22 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.12-2020.12.10",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Филитов С.В",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Сопротивление материалов",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
+                "date": "2020.12.09",
+                "frequency": "once"
+            },
             {
-                "date": "2020.11.19-2020.12.17",
-                "frequency": "throughout"
+                "date": "2020.12.16",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Филитов С.В",
-        "subgroup": "B",
+        "lecturer": "Господинова А.Г",
+        "subgroup": "Common",
         "time": {
-            "end": "19:30",
-            "start": "16:00"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "title": "Сопротивление материалов",
-        "type": "Laboratory"
+        "title": "Математика",
+        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -366,12 +383,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.12-2020.12.10",
+                "date": "2020.11.05-2020.12.17",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Чеканин В.А",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "12:00",
             "start": "8:30"
@@ -383,12 +400,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.19-2020.12.17",
+                "date": "2020.11.12-2020.12.24",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Чеканин В.А",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "12:00",
             "start": "8:30"
@@ -417,6 +434,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.09.03-2020.10.29",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Чеканин В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Алгоритмические языки и программирование",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.03-2020.10.22",
                 "frequency": "every"
             }
@@ -434,6 +468,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.10.29",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Чеканин В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Алгоритмические языки и программирование",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.03-2020.11.05",
                 "frequency": "every"
             }
@@ -445,23 +496,6 @@
             "start": "16:00"
         },
         "title": "Экономическая теория",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.03-2020.11.05",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Чеканин В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Алгоритмические языки и программирование",
         "type": "Lecture"
     },
     {
@@ -629,7 +663,7 @@
         "classroom": "0801",
         "dates": [
             {
-                "date": "2020.09.12-2020.12.19",
+                "date": "2020.09.12-2020.12.26",
                 "frequency": "every"
             }
         ],
@@ -646,11 +680,11 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.11.21",
+                "date": "2020.09.12-2020.11.28",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Осина Г.В",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -663,11 +697,11 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.11.21",
+                "date": "2020.09.12-2020.11.28",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Осина Г.В",
         "subgroup": "Common",
         "time": {
             "end": "10:10",

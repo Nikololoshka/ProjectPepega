@@ -11,13 +11,13 @@
                 "frequency": "once"
             }
         ],
-        "lecturer": "Никишечкин А.П",
-        "subgroup": "B",
+        "lecturer": "Нежметдинов Р.А",
+        "subgroup": "A",
         "time": {
             "end": "15:50",
             "start": "12:20"
         },
-        "title": "Информационные системы",
+        "title": "Автоматика и управление движением",
         "type": "Laboratory"
     },
     {
@@ -32,13 +32,13 @@
                 "frequency": "once"
             }
         ],
-        "lecturer": "Нежметдинов Р.А",
-        "subgroup": "A",
+        "lecturer": "Никишечкин А.П",
+        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
         },
-        "title": "Автоматика и управление движением",
+        "title": "Информационные системы",
         "type": "Laboratory"
     },
     {
@@ -227,44 +227,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.10.13",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Мартинова Л.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Программирование и настройка систем ЧПУ",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.10",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Водолажский Е.Ф",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Социология",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.09.15-2020.12.08",
                 "frequency": "every"
             }
@@ -294,6 +256,23 @@
         },
         "title": "Автоматика и управление движением",
         "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.22-2020.10.13",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Мартинова Л.И",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Программирование и настройка систем ЧПУ",
+        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -490,6 +469,27 @@
         "time": {
             "end": "10:10",
             "start": "8:30"
+        },
+        "title": "Социология",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Водолажский Е.Ф",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
         },
         "title": "Социология",
         "type": "Seminar"

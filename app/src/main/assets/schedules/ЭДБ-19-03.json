@@ -1,24 +1,20 @@
 [
     {
-        "classroom": "502",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.11.30",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.14",
+                "date": "2020.11.09",
                 "frequency": "once"
             }
         ],
-        "lecturer": "Кузнецов Б.М",
+        "lecturer": "Шитов С.Б",
         "subgroup": "Common",
         "time": {
-            "end": "15:50",
-            "start": "12:20"
+            "end": "17:40",
+            "start": "16:00"
         },
-        "title": "Управление человеческими ресурсами",
-        "type": "Laboratory"
+        "title": "Философия",
+        "type": "Lecture"
     },
     {
         "classroom": "",
@@ -41,7 +37,7 @@
         "classroom": "0207",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.17",
+                "date": "2020.09.08-2020.11.24",
                 "frequency": "every"
             }
         ],
@@ -75,7 +71,7 @@
         "classroom": "240(б)",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.03",
+                "date": "2020.09.08-2020.11.10",
                 "frequency": "every"
             }
         ],
@@ -109,7 +105,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.10-2020.12.01",
+                "date": "2020.11.10-2020.12.15",
                 "frequency": "every"
             }
         ],
@@ -126,7 +122,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.10-2020.12.01",
+                "date": "2020.11.17-2020.12.08",
                 "frequency": "every"
             }
         ],
@@ -140,63 +136,25 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0303",
+        "classroom": "502",
         "dates": [
             {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "every"
+                "date": "2020.12.02",
+                "frequency": "once"
             },
             {
-                "date": "2020.11.11-2020.12.23",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Волкова Е.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Русский язык (как иностранный) - 2 курс",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "240(б)",
-        "dates": [
-            {
-                "date": "2020.09.09-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
+                "date": "2020.12.16",
                 "frequency": "once"
             }
         ],
-        "lecturer": "Иванова О.К",
+        "lecturer": "Кузнецов Б.М",
         "subgroup": "Common",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "end": "12:00",
+            "start": "8:30"
         },
-        "title": "Математика",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0303",
-        "dates": [
-            {
-                "date": "2020.11.18-2020.12.23",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Волкова Е.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Русский язык (как иностранный) - 2 курс",
-        "type": "Seminar"
+        "title": "Управление человеческими ресурсами",
+        "type": "Laboratory"
     },
     {
         "classroom": "0303",
@@ -233,6 +191,10 @@
             {
                 "date": "2020.11.11",
                 "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
             }
         ],
         "lecturer": "Шинкевич И.А",
@@ -245,10 +207,90 @@
         "type": "Lecture"
     },
     {
+        "classroom": "0303",
+        "dates": [
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Волкова Е.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Русский язык (как иностранный) - 2 курс",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0303",
+        "dates": [
+            {
+                "date": "2020.09.30-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11-2020.12.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Волкова Е.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Русский язык (как иностранный) - 2 курс",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "240(б)",
+        "dates": [
+            {
+                "date": "2020.09.09-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Иванова О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Математика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0303",
+        "dates": [
+            {
+                "date": "2020.11.25-2020.12.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Волкова Е.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Русский язык (как иностранный) - 2 курс",
+        "type": "Seminar"
+    },
+    {
         "classroom": "235(е)",
         "dates": [
             {
-                "date": "2020.09.10-2020.11.12",
+                "date": "2020.09.10-2020.11.26",
                 "frequency": "every"
             }
         ],
@@ -513,27 +555,6 @@
             "start": "12:20"
         },
         "title": "Организация предпринимательской деятельности",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.12",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.19",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Кузнецов Б.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Управление человеческими ресурсами",
         "type": "Seminar"
     }
 ]

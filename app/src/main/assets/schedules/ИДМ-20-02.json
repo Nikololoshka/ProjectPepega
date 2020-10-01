@@ -316,6 +316,31 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.10.03",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.31",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.14",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Сидоров А.С",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Технологии и средства разработки ПО",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.10.03-2020.10.31",
                 "frequency": "throughout"
             }
@@ -333,33 +358,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.03",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.31",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Сидоров А.С",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Технологии и средства разработки ПО",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.24",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.07",
-                "frequency": "once"
+                "date": "2020.10.24-2020.11.21",
+                "frequency": "throughout"
             }
         ],
         "lecturer": "Сидоров А.С",

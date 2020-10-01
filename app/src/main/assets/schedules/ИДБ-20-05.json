@@ -123,23 +123,6 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0308",
-        "dates": [
-            {
-                "date": "2020.09.29-2020.11.17",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Кузнецов Б.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Психология и педагогика",
-        "type": "Lecture"
-    },
-    {
         "classroom": "0209",
         "dates": [
             {
@@ -174,8 +157,29 @@
         "type": "Lecture"
     },
     {
+        "classroom": "0308",
+        "dates": [
+            {
+                "date": "2020.09.29-2020.12.01",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Психология и педагогика",
+        "type": "Lecture"
+    },
+    {
         "classroom": "357(ж)",
         "dates": [
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
+            },
             {
                 "date": "2020.11.18",
                 "frequency": "once"
@@ -188,6 +192,23 @@
             "start": "14:10"
         },
         "title": "Алгебра и геометрия",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "306(а)",
+        "dates": [
+            {
+                "date": "2020.12.23",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Воронова М.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Иностранный язык",
         "type": "Seminar"
     },
     {
@@ -267,10 +288,27 @@
         "type": "Seminar"
     },
     {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.09.25-2020.10.09",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Дорожкина О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Цифровая экономика",
+        "type": "Seminar"
+    },
+    {
         "classroom": "357(ж)",
         "dates": [
             {
-                "date": "2020.10.16-2020.10.30",
+                "date": "2020.10.16-2020.11.06",
                 "frequency": "every"
             }
         ],
@@ -287,7 +325,7 @@
         "classroom": "0811",
         "dates": [
             {
-                "date": "2020.10.02-2020.10.30",
+                "date": "2020.10.02-2020.11.06",
                 "frequency": "every"
             }
         ],
@@ -304,28 +342,7 @@
         "classroom": "0811",
         "dates": [
             {
-                "date": "2020.09.25-2020.10.09",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.13",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Дорожкина О.К",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Цифровая экономика",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "0811",
-        "dates": [
-            {
-                "date": "2020.10.16-2020.10.30",
+                "date": "2020.10.16-2020.11.06",
                 "frequency": "every"
             }
         ],
@@ -346,7 +363,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.06-2020.12.04",
+                "date": "2020.11.13-2020.12.04",
                 "frequency": "every"
             }
         ],
@@ -452,12 +469,8 @@
                 "frequency": "once"
             },
             {
-                "date": "2020.10.17-2020.11.07",
+                "date": "2020.10.17-2020.11.21",
                 "frequency": "every"
-            },
-            {
-                "date": "2020.11.21",
-                "frequency": "once"
             }
         ],
         "lecturer": "Дорожкина О.К",
@@ -477,11 +490,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.14",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.28-2020.12.19",
+                "date": "2020.11.28-2020.12.26",
                 "frequency": "every"
             }
         ],
@@ -498,28 +507,11 @@
         "classroom": "306(а)",
         "dates": [
             {
-                "date": "2020.12.26",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Иностранный язык",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "306(а)",
-        "dates": [
-            {
                 "date": "2020.09.19-2020.12.26",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Воронова М.Н",
         "subgroup": "Common",
         "time": {
             "end": "10:10",

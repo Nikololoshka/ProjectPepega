@@ -405,6 +405,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.09.17-2020.12.10",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Быстрикова В.А",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Управление данными",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.17",
                 "frequency": "once"
             },
@@ -420,23 +437,6 @@
             "start": "16:00"
         },
         "title": "Информационно-телекоммуникационные сети",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.17-2020.12.10",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Быстрикова В.А",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Управление данными",
         "type": "Laboratory"
     },
     {

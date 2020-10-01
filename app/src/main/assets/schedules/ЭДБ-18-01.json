@@ -45,11 +45,11 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.30",
-                "frequency": "every"
+                "date": "2020.09.21",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "Девятерикова Е.А",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -100,23 +100,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.17",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Карплюк Ю.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Бухгалтерский учет и анализ",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.09.08",
                 "frequency": "once"
             }
@@ -142,7 +125,7 @@
                 "frequency": "once"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "АмерАбдаллах Д.А",
         "subgroup": "Common",
         "time": {
             "end": "17:40",
@@ -155,17 +138,17 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.15",
+                "date": "2020.09.08-2020.12.01",
                 "frequency": "every"
             }
         ],
-        "lecturer": "Попов Д.В",
+        "lecturer": "Карплюк Ю.А",
         "subgroup": "Common",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "title": "Маркетинг",
+        "title": "Бухгалтерский учет и анализ",
         "type": "Lecture"
     },
     {
@@ -189,6 +172,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.09.22-2020.12.22",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Попов Д.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Маркетинг",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.09",
                 "frequency": "once"
             },
@@ -197,8 +197,12 @@
                 "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.21",
+                "date": "2020.09.30-2020.10.28",
                 "frequency": "every"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
             }
         ],
         "lecturer": "Михайлова М.В",
@@ -434,28 +438,11 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11-2020.12.04",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Ковалев А.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Стоимостный анализ",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.12.11",
                 "frequency": "once"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "АмерАбдаллах Д.А",
         "subgroup": "Common",
         "time": {
             "end": "17:40",
@@ -463,23 +450,6 @@
         },
         "title": "Статистика",
         "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.11",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гринман И.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Статистика",
-        "type": "Lecture"
     },
     {
         "classroom": "",
@@ -502,6 +472,57 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.09.11-2020.12.11",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Ковалев А.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Стоимостный анализ",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.02-2020.12.18",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Девятерикова Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Статистика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Девятерикова Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Статистика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.12-2020.11.07",
                 "frequency": "every"
             }
@@ -519,12 +540,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.14",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.21",
-                "frequency": "once"
+                "date": "2020.11.14-2020.11.28",
+                "frequency": "every"
             }
         ],
         "lecturer": "Водолажский Е.Ф",
@@ -540,7 +557,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.11.21",
+                "date": "2020.09.12-2020.11.28",
                 "frequency": "every"
             }
         ],
@@ -549,23 +566,6 @@
         "time": {
             "end": "12:00",
             "start": "10:20"
-        },
-        "title": "Финансовое право",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.28",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Водолажский Е.Ф",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
         },
         "title": "Финансовое право",
         "type": "Seminar"

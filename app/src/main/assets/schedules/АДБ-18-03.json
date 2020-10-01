@@ -191,7 +191,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "",
+        "classroom": "0205",
         "dates": [
             {
                 "date": "2020.09.15-2020.12.01",
@@ -208,7 +208,7 @@
         "type": "Seminar"
     },
     {
-        "classroom": "",
+        "classroom": "342",
         "dates": [
             {
                 "date": "2020.09.15",
@@ -229,7 +229,7 @@
         "type": "Seminar"
     },
     {
-        "classroom": "",
+        "classroom": "0622",
         "dates": [
             {
                 "date": "2020.10.06-2020.10.27",
@@ -261,7 +261,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11-2020.12.02",
+                "date": "2020.11.11-2020.12.09",
                 "frequency": "every"
             }
         ],
@@ -282,7 +282,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11-2020.11.25",
+                "date": "2020.11.11-2020.12.02",
                 "frequency": "every"
             }
         ],
@@ -303,7 +303,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11-2020.11.25",
+                "date": "2020.11.11-2020.12.02",
                 "frequency": "every"
             }
         ],
@@ -324,7 +324,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11-2020.11.25",
+                "date": "2020.11.11-2020.12.02",
                 "frequency": "every"
             }
         ],
@@ -451,7 +451,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.19",
+                "date": "2020.09.17-2020.11.26",
                 "frequency": "every"
             }
         ],
@@ -468,7 +468,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.03",
+                "date": "2020.09.17-2020.12.10",
                 "frequency": "every"
             }
         ],
@@ -553,7 +553,7 @@
         "classroom": "240(б)",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.16",
+                "date": "2020.09.18-2020.10.23",
                 "frequency": "every"
             }
         ],
@@ -570,7 +570,7 @@
         "classroom": "0411",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.09",
+                "date": "2020.09.18-2020.10.23",
                 "frequency": "every"
             }
         ],
@@ -584,27 +584,10 @@
         "type": "Lecture"
     },
     {
-        "classroom": "",
+        "classroom": "240(б)",
         "dates": [
             {
-                "date": "2020.10.16-2020.11.06",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Глубоков А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.23-2020.12.11",
+                "date": "2020.10.30-2020.12.18",
                 "frequency": "every"
             }
         ],
@@ -615,6 +598,23 @@
             "start": "14:10"
         },
         "title": "Основы технического регулирования",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "240(б)",
+        "dates": [
+            {
+                "date": "2020.10.30-2020.11.20",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Глубоков А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Методы и средства измерений, испытаний и контроля",
         "type": "Seminar"
     },
     {

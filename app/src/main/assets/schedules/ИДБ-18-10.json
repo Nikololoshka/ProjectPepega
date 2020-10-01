@@ -147,6 +147,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.10.13-2020.11.10",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бычкова Н.А",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Базы данных",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.10.13",
                 "frequency": "once"
             },
@@ -162,23 +179,6 @@
             "start": "16:00"
         },
         "title": "Проектирование информационных систем",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.13-2020.11.10",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бычкова Н.А",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Базы данных",
         "type": "Laboratory"
     },
     {
@@ -420,23 +420,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.29",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Красикова Е.М",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Методы оптимизации",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.09.17-2020.10.15",
                 "frequency": "throughout"
             }
@@ -448,6 +431,23 @@
             "start": "16:00"
         },
         "title": "Управление проектами",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.10.29",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Красикова Е.М",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Методы оптимизации",
         "type": "Laboratory"
     },
     {
@@ -587,7 +587,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "209",
+        "classroom": "235(д)",
         "dates": [
             {
                 "date": "2020.10.09-2020.11.06",
@@ -604,7 +604,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "209",
+        "classroom": "235(д)",
         "dates": [
             {
                 "date": "2020.10.16-2020.11.13",

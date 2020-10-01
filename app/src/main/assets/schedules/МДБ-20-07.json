@@ -7,7 +7,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Карелина Е.А",
         "subgroup": "Common",
         "time": {
             "end": "15:50",
@@ -24,7 +24,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Карелина Е.А",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
@@ -68,23 +68,6 @@
         "type": "Seminar"
     },
     {
-        "classroom": "256",
-        "dates": [
-            {
-                "date": "2020.09.22-2020.10.20",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Разводова Н.М",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Химия",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "419",
         "dates": [
             {
@@ -99,6 +82,23 @@
             "start": "12:20"
         },
         "title": "Физика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "256",
+        "dates": [
+            {
+                "date": "2020.09.22-2020.10.20",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Разводова Н.М",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Химия",
         "type": "Laboratory"
     },
     {
@@ -133,23 +133,6 @@
             "start": "12:20"
         },
         "title": "Химия",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "210",
-        "dates": [
-            {
-                "date": "2020.11.03-2020.12.15",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Конюхова Г.П",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Информатика",
         "type": "Laboratory"
     },
     {
@@ -171,6 +154,23 @@
             "start": "8:30"
         },
         "title": "Безопасность жизнедеятельности",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "210",
+        "dates": [
+            {
+                "date": "2020.11.03-2020.12.15",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Конюхова Г.П",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Информатика",
         "type": "Laboratory"
     },
     {
@@ -435,13 +435,13 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "Козловская Т.Д",
+        "lecturer": "Конюхова Г.П",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
             "start": "10:20"
         },
-        "title": "Математика",
+        "title": "Информатика",
         "type": "Lecture"
     },
     {
@@ -503,13 +503,13 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "Конюхова Г.П",
+        "lecturer": "Козловская Т.Д",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
             "start": "12:20"
         },
-        "title": "Информатика",
+        "title": "Математика",
         "type": "Lecture"
     },
     {

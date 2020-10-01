@@ -470,23 +470,6 @@
         "type": "Seminar"
     },
     {
-        "classroom": "216",
-        "dates": [
-            {
-                "date": "2020.11.07-2020.12.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Зверев И.А",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Вибродиагностика и мониторинг технического состояния оборудования",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
         "dates": [
             {
@@ -501,6 +484,23 @@
             "start": "12:20"
         },
         "title": "Трение и изнашивание в машинах",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "216",
+        "dates": [
+            {
+                "date": "2020.11.07-2020.12.05",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Зверев И.А",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Вибродиагностика и мониторинг технического состояния оборудования",
         "type": "Laboratory"
     },
     {

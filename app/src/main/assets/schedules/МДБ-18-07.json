@@ -1,22 +1,5 @@
 [
     {
-        "classroom": "346/5",
-        "dates": [
-            {
-                "date": "2020.10.19-2020.11.16",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Воронин В.В",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "ТехП 5",
         "dates": [
             {
@@ -31,6 +14,23 @@
             "start": "8:30"
         },
         "title": "Нагрев и нагревательные устройства",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "346/5",
+        "dates": [
+            {
+                "date": "2020.10.19-2020.11.16",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Воронин В.В",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Электротехника и электроника",
         "type": "Laboratory"
     },
     {

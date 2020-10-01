@@ -85,14 +85,14 @@
         "type": "Seminar"
     },
     {
-        "classroom": "",
+        "classroom": "343",
         "dates": [
             {
                 "date": "2020.09.08-2020.12.22",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Изотова А.С",
         "subgroup": "Common",
         "time": {
             "end": "15:50",
@@ -537,23 +537,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "357(з)",
-        "dates": [
-            {
-                "date": "2020.09.19-2020.10.17",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Будный К.А",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Теория графов и тензорное исчисление",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "210",
         "dates": [
             {
@@ -568,6 +551,23 @@
             "start": "8:30"
         },
         "title": "Инновационные технологии цифрового производства",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "357(з)",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.10.17",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Будный К.А",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Теория графов и тензорное исчисление",
         "type": "Laboratory"
     },
     {

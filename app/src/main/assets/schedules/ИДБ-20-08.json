@@ -123,23 +123,6 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0308",
-        "dates": [
-            {
-                "date": "2020.09.29-2020.11.17",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Кузнецов Б.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Психология и педагогика",
-        "type": "Lecture"
-    },
-    {
         "classroom": "0209",
         "dates": [
             {
@@ -174,6 +157,23 @@
         "type": "Lecture"
     },
     {
+        "classroom": "0308",
+        "dates": [
+            {
+                "date": "2020.09.29-2020.12.01",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Психология и педагогика",
+        "type": "Lecture"
+    },
+    {
         "classroom": "302",
         "dates": [
             {
@@ -183,17 +183,9 @@
             {
                 "date": "2020.09.30-2020.10.28",
                 "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Зайдефтер М.Г",
         "subgroup": "Common",
         "time": {
             "end": "15:50",
@@ -221,6 +213,23 @@
             "start": "12:20"
         },
         "title": "Цифровая экономика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "302",
+        "dates": [
+            {
+                "date": "2020.12.09-2020.12.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Зайдефтер М.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Иностранный язык",
         "type": "Seminar"
     },
     {
@@ -303,7 +312,7 @@
         "classroom": "0806",
         "dates": [
             {
-                "date": "2020.10.01-2020.10.29",
+                "date": "2020.10.01-2020.11.05",
                 "frequency": "every"
             }
         ],
@@ -320,11 +329,11 @@
         "classroom": "302",
         "dates": [
             {
-                "date": "2020.11.05-2020.12.24",
+                "date": "2020.11.12-2020.12.24",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Зайдефтер М.Г",
         "subgroup": "Common",
         "time": {
             "end": "14:00",

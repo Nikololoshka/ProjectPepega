@@ -7,13 +7,13 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Субботин П.М",
-        "subgroup": "A",
+        "lecturer": "Петров А.Б",
+        "subgroup": "B",
         "time": {
             "end": "22:50",
             "start": "19:40"
         },
-        "title": "Интернет-технологии",
+        "title": "Технологии разработки программного обеспечения",
         "type": "Laboratory"
     },
     {
@@ -24,13 +24,13 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Петров А.Б",
-        "subgroup": "B",
+        "lecturer": "Субботин П.М",
+        "subgroup": "A",
         "time": {
             "end": "22:50",
             "start": "19:40"
         },
-        "title": "Технологии разработки программного обеспечения",
+        "title": "Интернет-технологии",
         "type": "Laboratory"
     },
     {
@@ -215,23 +215,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бабарин С.С",
-        "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Математическое и компьютерное моделирование",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.08-2020.11.05",
                 "frequency": "throughout"
             }
@@ -243,6 +226,23 @@
             "start": "19:40"
         },
         "title": "Архитектура цифрового производства и предприятия",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08-2020.11.19",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бабарин С.С",
+        "subgroup": "B",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Математическое и компьютерное моделирование",
         "type": "Laboratory"
     },
     {

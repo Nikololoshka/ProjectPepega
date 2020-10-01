@@ -181,23 +181,6 @@
         "classroom": "235(е)",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.13",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Шулепов А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Основы проектирования приборов и систем",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "235(е)",
-        "dates": [
-            {
                 "date": "2020.09.29-2020.10.20",
                 "frequency": "every"
             }
@@ -212,10 +195,27 @@
         "type": "Seminar"
     },
     {
-        "classroom": "",
+        "classroom": "235(е)",
         "dates": [
             {
-                "date": "2020.10.20-2020.12.08",
+                "date": "2020.09.15-2020.10.20",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Шулепов А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Основы проектирования приборов и систем",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "240(б)",
+        "dates": [
+            {
+                "date": "2020.10.27-2020.12.15",
                 "frequency": "every"
             }
         ],
@@ -244,7 +244,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11-2020.12.02",
+                "date": "2020.11.11-2020.12.09",
                 "frequency": "every"
             }
         ],
@@ -265,7 +265,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11-2020.11.25",
+                "date": "2020.11.11-2020.12.02",
                 "frequency": "every"
             }
         ],
@@ -286,7 +286,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11-2020.11.25",
+                "date": "2020.11.11-2020.12.02",
                 "frequency": "every"
             }
         ],
@@ -307,7 +307,7 @@
                 "frequency": "every"
             },
             {
-                "date": "2020.11.11-2020.11.25",
+                "date": "2020.11.11-2020.12.02",
                 "frequency": "every"
             }
         ],
@@ -375,7 +375,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.19",
+                "date": "2020.09.17-2020.11.26",
                 "frequency": "every"
             }
         ],
@@ -387,40 +387,6 @@
         },
         "title": "Теория и расчет измерительных преобразователей",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.17-2020.12.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Шулепов А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Основы проектирования приборов и систем",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0205",
-        "dates": [
-            {
-                "date": "2020.09.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Чаруйская М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Проектная деятельность",
-        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -438,6 +404,23 @@
         },
         "title": "Экономика",
         "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.12.10",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Шулепов А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Основы проектирования приборов и систем",
+        "type": "Lecture"
     },
     {
         "classroom": "",
@@ -536,7 +519,7 @@
         "classroom": "0411",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.09",
+                "date": "2020.09.18-2020.10.23",
                 "frequency": "every"
             }
         ],
@@ -553,7 +536,7 @@
         "classroom": "0205",
         "dates": [
             {
-                "date": "2020.10.02-2020.11.27",
+                "date": "2020.10.02-2020.12.11",
                 "frequency": "every"
             }
         ],

@@ -219,6 +219,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.09.08-2020.10.20",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Краснов А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "CAD-системы",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.15-2020.12.01",
                 "frequency": "every"
             }
@@ -230,27 +247,6 @@
             "start": "16:00"
         },
         "title": "Программирование на языке высокого уровня",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.08-2020.10.13",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.03-2020.11.24",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Краснов А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "CAD-системы",
         "type": "Lecture"
     },
     {
@@ -334,6 +330,10 @@
             {
                 "date": "2020.09.30-2020.10.28",
                 "frequency": "every"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
             }
         ],
         "lecturer": "Шитов С.Б",
@@ -344,23 +344,6 @@
         },
         "title": "Философия",
         "type": "Lecture"
-    },
-    {
-        "classroom": "408",
-        "dates": [
-            {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Аристархов П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Физика",
-        "type": "Seminar"
     },
     {
         "classroom": "431",
@@ -382,6 +365,23 @@
         },
         "title": "Физика",
         "type": "Lecture"
+    },
+    {
+        "classroom": "408",
+        "dates": [
+            {
+                "date": "2020.11.18-2020.12.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Аристархов П.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Физика",
+        "type": "Seminar"
     },
     {
         "classroom": "408",
@@ -421,7 +421,7 @@
         "classroom": "216",
         "dates": [
             {
-                "date": "2020.09.24-2020.10.22",
+                "date": "2020.09.24-2020.11.05",
                 "frequency": "throughout"
             }
         ],
@@ -438,7 +438,7 @@
         "classroom": "216",
         "dates": [
             {
-                "date": "2020.10.01-2020.10.29",
+                "date": "2020.10.01-2020.11.12",
                 "frequency": "throughout"
             }
         ],
@@ -447,40 +447,6 @@
         "time": {
             "end": "12:00",
             "start": "8:30"
-        },
-        "title": "Программирование на языке высокого уровня",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "216",
-        "dates": [
-            {
-                "date": "2020.11.12",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Шибаева А.Н",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Программирование на языке высокого уровня",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "216",
-        "dates": [
-            {
-                "date": "2020.11.19",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Шибаева А.Н",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
         },
         "title": "Программирование на языке высокого уровня",
         "type": "Laboratory"
@@ -494,7 +460,7 @@
             }
         ],
         "lecturer": "Тарасов А.Г",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "12:00",
             "start": "8:30"
@@ -511,13 +477,30 @@
             }
         ],
         "lecturer": "Тарасов А.Г",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "12:00",
             "start": "8:30"
         },
         "title": "ЭВМ и периферийные устройства",
         "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.03-2020.12.17",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Обухова Е.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -535,23 +518,6 @@
         },
         "title": "Структуры и алгоритмы обработки данных",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.04-2020.12.18",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Иностранный язык",
-        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -663,10 +629,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.24",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.31",
                 "frequency": "once"
             }
@@ -730,6 +692,23 @@
         },
         "title": "CAD-системы",
         "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.07-2020.11.28",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Краснов А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "CAD-системы",
+        "type": "Lecture"
     },
     {
         "classroom": "",

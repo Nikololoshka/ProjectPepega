@@ -105,11 +105,28 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.11.23",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Гайбу В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Экономико-правовые основы рынка интеллектуальных продуктов",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.15-2020.11.24",
                 "frequency": "every"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "Гайбу В",
         "subgroup": "Common",
         "time": {
             "end": "15:50",
@@ -122,11 +139,11 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.11.17",
+                "date": "2020.09.15-2020.12.01",
                 "frequency": "every"
             }
         ],
-        "lecturer": "Гринман И.Р",
+        "lecturer": "Александров С.А",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
@@ -139,24 +156,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.24",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гринман И.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Экономико-правовые основы рынка интеллектуальных продуктов",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.08-2020.12.01",
+                "date": "2020.09.08-2020.12.08",
                 "frequency": "every"
             }
         ],
@@ -173,7 +173,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.01",
+                "date": "2020.09.08-2020.12.08",
                 "frequency": "every"
             }
         ],
@@ -185,6 +185,27 @@
         },
         "title": "Компьютерная графика",
         "type": "Lecture"
+    },
+    {
+        "classroom": "246",
+        "dates": [
+            {
+                "date": "2020.09.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.30-2020.10.28",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Рожкова О.А",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Базы данных",
+        "type": "Laboratory"
     },
     {
         "classroom": "247",
@@ -209,27 +230,6 @@
             "start": "16:00"
         },
         "title": "Компьютерная графика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "246",
-        "dates": [
-            {
-                "date": "2020.09.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Рожкова О.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Базы данных",
         "type": "Laboratory"
     },
     {
@@ -340,7 +340,7 @@
         "classroom": "0206",
         "dates": [
             {
-                "date": "2020.09.10-2020.11.19",
+                "date": "2020.09.10-2020.11.26",
                 "frequency": "every"
             }
         ],
@@ -357,7 +357,7 @@
         "classroom": "0206",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.03",
+                "date": "2020.09.17-2020.12.17",
                 "frequency": "every"
             }
         ],

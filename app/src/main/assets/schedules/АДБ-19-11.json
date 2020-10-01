@@ -37,7 +37,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.09",
+                "date": "2020.11.16",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Багдасаров Д.Р",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Философия",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.16",
                 "frequency": "every"
             }
         ],
@@ -122,7 +139,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.15",
+                "date": "2020.12.22",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Надыкто О.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Математика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.12.22",
                 "frequency": "every"
             }
         ],
@@ -139,15 +173,32 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.15",
+                "date": "2020.09.15-2020.12.22",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Осина Г.В",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
             "start": "12:20"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.22",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Осина Г.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
         },
         "title": "Иностранный язык",
         "type": "Seminar"
@@ -300,7 +351,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.22",
+                "date": "2020.09.10-2020.10.29",
                 "frequency": "every"
             }
         ],
@@ -317,7 +368,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.22",
+                "date": "2020.09.10-2020.10.29",
                 "frequency": "every"
             }
         ],
@@ -334,7 +385,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.19",
+                "date": "2020.09.17-2020.12.03",
                 "frequency": "every"
             }
         ],
@@ -351,7 +402,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.12.17",
+                "date": "2020.12.24",
                 "frequency": "once"
             }
         ],
@@ -362,13 +413,13 @@
             "start": "10:20"
         },
         "title": "Математика",
-        "type": "Seminar"
+        "type": "Lecture"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.17",
+                "date": "2020.09.17-2020.12.24",
                 "frequency": "every"
             }
         ],
@@ -512,7 +563,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.16",
+                "date": "2020.09.18-2020.10.23",
                 "frequency": "every"
             }
         ],

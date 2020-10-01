@@ -92,13 +92,13 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Бумарин Д.П",
-        "subgroup": "B",
+        "lecturer": "Бабенко Е.В",
+        "subgroup": "A",
         "time": {
             "end": "15:50",
             "start": "12:20"
         },
-        "title": "Администрирование в информационных системах",
+        "title": "Управление информационной средой предприятия",
         "type": "Laboratory"
     },
     {
@@ -109,13 +109,13 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Бабенко Е.В",
-        "subgroup": "A",
+        "lecturer": "Бумарин Д.П",
+        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
         },
-        "title": "Управление информационной средой предприятия",
+        "title": "Администрирование в информационных системах",
         "type": "Laboratory"
     },
     {
@@ -278,23 +278,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.11.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Поляков С.Д",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Проектный менеджмент информационных систем",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.09.24-2020.12.03",
                 "frequency": "throughout"
             }
@@ -306,6 +289,23 @@
             "start": "16:00"
         },
         "title": "Проектирование информационных систем",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.24-2020.11.05",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Поляков С.Д",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Проектный менеджмент информационных систем",
         "type": "Laboratory"
     },
     {

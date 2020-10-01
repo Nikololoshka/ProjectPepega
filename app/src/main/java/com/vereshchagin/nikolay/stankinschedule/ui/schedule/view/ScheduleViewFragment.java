@@ -797,7 +797,7 @@ public class ScheduleViewFragment extends Fragment
                 }
 
                 LocalDate currentDay = item.day();
-                int dayDiff = Days.daysBetween(targetDay, currentDay).getDays();
+                int dayDiff = Days.daysBetween(currentDay, targetDay).getDays();
                 int scrollItemPos = pos + dayDiff;
 
                 if (scrollItemPos >= 0 && scrollItemPos < items.size()) {

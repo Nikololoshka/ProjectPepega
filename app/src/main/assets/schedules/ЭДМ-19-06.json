@@ -62,8 +62,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.10.06",
-                "frequency": "every"
+                "date": "2020.09.22",
+                "frequency": "once"
             }
         ],
         "lecturer": "Гришина Т.Г",
@@ -131,6 +131,40 @@
         "type": "Seminar"
     },
     {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.09.23-2020.10.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гришина Т.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Методы комплексной оценки систем управления качеством",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.09.23-2020.10.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гришина Т.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Методы комплексной оценки систем управления качеством",
+        "type": "Lecture"
+    },
+    {
         "classroom": "",
         "dates": [
             {
@@ -146,6 +180,61 @@
         },
         "title": "Методы комплексной оценки систем управления качеством",
         "type": "Seminar"
+    },
+    {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.09.24",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Гришина Т.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Методы комплексной оценки систем управления качеством",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0811",
+        "dates": [
+            {
+                "date": "2020.09.24",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Гришина Т.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Методы комплексной оценки систем управления качеством",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.01",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.08",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Гришина Т.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Управление технологическими рисками в производственной деятельности",
+        "type": "Lecture"
     },
     {
         "classroom": "",
@@ -247,23 +336,6 @@
             "start": "10:20"
         },
         "title": "Управление технологическими рисками в производственной деятельности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.24-2020.11.12",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Методы комплексной оценки систем управления качеством",
         "type": "Lecture"
     },
     {
@@ -451,12 +523,8 @@
                 "frequency": "once"
             },
             {
-                "date": "2020.11.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.05",
-                "frequency": "once"
+                "date": "2020.11.21-2020.12.05",
+                "frequency": "every"
             }
         ],
         "lecturer": "Симанженков К.А",
@@ -472,8 +540,12 @@
         "classroom": "240(б)",
         "dates": [
             {
-                "date": "2020.11.07-2020.11.21",
-                "frequency": "every"
+                "date": "2020.11.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Симанженков К.А",

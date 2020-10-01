@@ -153,6 +153,40 @@
         "type": "Lecture"
     },
     {
+        "classroom": "0206",
+        "dates": [
+            {
+                "date": "2020.12.08-2020.12.22",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Иванова О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Математика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "ТехП 20",
+        "dates": [
+            {
+                "date": "2020.09.23-2020.10.21",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Зернов А.М",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Введение в специальность",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "209",
         "dates": [
             {
@@ -175,23 +209,6 @@
             "start": "12:20"
         },
         "title": "Информатика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 20",
-        "dates": [
-            {
-                "date": "2020.09.23-2020.10.21",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Зернов А.М",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Введение в специальность",
         "type": "Laboratory"
     },
     {
@@ -248,7 +265,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Петросян И.М",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -269,7 +286,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Петросян И.М",
         "subgroup": "Common",
         "time": {
             "end": "10:10",
@@ -452,8 +469,8 @@
         "classroom": "305",
         "dates": [
             {
-                "date": "2020.12.25",
-                "frequency": "once"
+                "date": "2020.12.04-2020.12.25",
+                "frequency": "every"
             }
         ],
         "lecturer": "Виноградова Ю.А",
@@ -554,7 +571,7 @@
         "classroom": "305",
         "dates": [
             {
-                "date": "2020.11.28-2020.12.19",
+                "date": "2020.11.28-2020.12.26",
                 "frequency": "every"
             }
         ],

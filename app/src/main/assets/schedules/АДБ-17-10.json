@@ -506,23 +506,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.01-2020.11.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Прохоренко Л.С",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Управление роботами и робототехническими системами",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.01",
                 "frequency": "once"
             },
@@ -538,6 +521,23 @@
             "start": "8:30"
         },
         "title": "САПР робототехнических систем",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.01-2020.11.12",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Прохоренко Л.С",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Управление роботами и робототехническими системами",
         "type": "Laboratory"
     },
     {

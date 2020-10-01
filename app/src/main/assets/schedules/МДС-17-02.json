@@ -85,6 +85,44 @@
         "type": "Seminar"
     },
     {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.26",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.02",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Управление персоналом",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.09",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Кузнецов Б.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Управление персоналом",
+        "type": "Lecture"
+    },
+    {
         "classroom": "501-8",
         "dates": [
             {
@@ -375,7 +413,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.22",
+                "date": "2020.09.10-2020.10.29",
                 "frequency": "every"
             }
         ],
@@ -392,7 +430,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.22",
+                "date": "2020.09.10-2020.11.12",
                 "frequency": "every"
             }
         ],
@@ -401,23 +439,6 @@
         "time": {
             "end": "14:00",
             "start": "12:20"
-        },
-        "title": "Трехмерное моделирование",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.29-2020.11.12",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Бушуев В.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
         },
         "title": "Трехмерное моделирование",
         "type": "Lecture"
@@ -515,7 +536,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.17",
+                "date": "2020.09.12-2020.10.24",
                 "frequency": "every"
             }
         ],
@@ -532,7 +553,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.17",
+                "date": "2020.09.12-2020.10.24",
                 "frequency": "every"
             }
         ],
@@ -574,7 +595,7 @@
                 "frequency": "once"
             },
             {
-                "date": "2020.10.03-2020.10.31",
+                "date": "2020.10.03-2020.11.14",
                 "frequency": "every"
             }
         ],

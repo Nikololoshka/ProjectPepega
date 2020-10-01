@@ -17,7 +17,7 @@
         "type": "Lecture"
     },
     {
-        "classroom": "Фрезер 405",
+        "classroom": "Фрезер 301",
         "dates": [
             {
                 "date": "2020.09.21-2020.12.07",
@@ -34,7 +34,7 @@
         "type": "Seminar"
     },
     {
-        "classroom": "Фрезер 405",
+        "classroom": "Фрезер 301",
         "dates": [
             {
                 "date": "2020.09.21-2020.12.07",
@@ -51,7 +51,7 @@
         "type": "Seminar"
     },
     {
-        "classroom": "Фрезер 405",
+        "classroom": "Фрезер 301",
         "dates": [
             {
                 "date": "2020.12.14",
@@ -72,7 +72,7 @@
         "type": "Seminar"
     },
     {
-        "classroom": "Фрезер 402",
+        "classroom": "Фрезер 301",
         "dates": [
             {
                 "date": "2020.09.21-2020.12.21",
@@ -325,23 +325,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "210",
-        "dates": [
-            {
-                "date": "2020.12.24",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Конюхова Г.П",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Информатика",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "0301",
         "dates": [
             {
@@ -400,7 +383,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Изотова А.С",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -417,7 +400,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Изотова А.С",
         "subgroup": "Common",
         "time": {
             "end": "10:10",
@@ -442,6 +425,23 @@
         },
         "title": "Физика",
         "type": "Seminar"
+    },
+    {
+        "classroom": "210",
+        "dates": [
+            {
+                "date": "2020.12.25",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Конюхова Г.П",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Информатика",
+        "type": "Laboratory"
     },
     {
         "classroom": "Фрезер 303",
@@ -485,13 +485,13 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "Козловская Т.Д",
+        "lecturer": "Конюхова Г.П",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
             "start": "10:20"
         },
-        "title": "Математика",
+        "title": "Информатика",
         "type": "Lecture"
     },
     {
@@ -536,13 +536,13 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "Конюхова Г.П",
+        "lecturer": "Козловская Т.Д",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
             "start": "12:20"
         },
-        "title": "Информатика",
+        "title": "Математика",
         "type": "Lecture"
     },
     {

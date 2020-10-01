@@ -68,6 +68,23 @@
         "type": "Lecture"
     },
     {
+        "classroom": "410",
+        "dates": [
+            {
+                "date": "2020.12.07-2020.12.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Иванова О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Математика",
+        "type": "Seminar"
+    },
+    {
         "classroom": "0811",
         "dates": [
             {
@@ -136,6 +153,23 @@
         "type": "Lecture"
     },
     {
+        "classroom": "0206",
+        "dates": [
+            {
+                "date": "2020.12.08-2020.12.22",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Иванова О.К",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Математика",
+        "type": "Lecture"
+    },
+    {
         "classroom": "420",
         "dates": [
             {
@@ -164,7 +198,7 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Гололобова Е.Г",
+        "lecturer": "Проскурина Е.М",
         "subgroup": "A",
         "time": {
             "end": "12:00",
@@ -202,7 +236,7 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Гололобова Е.Г",
+        "lecturer": "Проскурина Е.М",
         "subgroup": "B",
         "time": {
             "end": "12:00",
@@ -287,7 +321,7 @@
                 "frequency": "once"
             },
             {
-                "date": "2020.10.22-2020.11.19",
+                "date": "2020.10.22-2020.12.03",
                 "frequency": "throughout"
             }
         ],
@@ -308,7 +342,7 @@
                 "frequency": "once"
             },
             {
-                "date": "2020.10.29-2020.11.26",
+                "date": "2020.10.29-2020.12.10",
                 "frequency": "throughout"
             }
         ],
@@ -448,7 +482,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Барыбин А.В",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
@@ -516,7 +550,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Барыбин А.В",
         "subgroup": "Common",
         "time": {
             "end": "10:10",

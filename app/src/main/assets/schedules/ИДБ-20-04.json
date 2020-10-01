@@ -96,7 +96,7 @@
                 "frequency": "once"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Клюева Т.Б",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
@@ -126,12 +126,20 @@
         "classroom": "210",
         "dates": [
             {
-                "date": "2020.09.29-2020.12.08",
+                "date": "2020.10.06-2020.11.03",
                 "frequency": "throughout"
+            },
+            {
+                "date": "2020.12.01",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Шибаева А.Н",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -143,12 +151,37 @@
         "classroom": "210",
         "dates": [
             {
-                "date": "2020.10.06-2020.12.15",
-                "frequency": "throughout"
+                "date": "2020.12.22",
+                "frequency": "once"
             }
         ],
         "lecturer": "Шибаева А.Н",
         "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Программирование на языке высокого уровня",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "210",
+        "dates": [
+            {
+                "date": "2020.09.29-2020.11.10",
+                "frequency": "throughout"
+            },
+            {
+                "date": "2020.12.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.22",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Шибаева А.Н",
+        "subgroup": "A",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -393,7 +426,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Клюева Т.Б",
         "subgroup": "Common",
         "time": {
             "end": "12:00",

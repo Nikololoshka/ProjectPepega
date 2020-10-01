@@ -3,6 +3,40 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.09.07-2020.11.09",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Тарасов А.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "ЭВМ и периферийные устройства",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.09-2020.11.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Фролов Е.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Основы теории систем",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.07-2020.12.14",
                 "frequency": "every"
             }
@@ -69,23 +103,6 @@
             "start": "10:20"
         },
         "title": "Математическая логика и теория алгоритмов",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.07-2020.11.09",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Тарасов А.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "ЭВМ и периферийные устройства",
         "type": "Lecture"
     },
     {
@@ -195,23 +212,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "209",
-        "dates": [
-            {
-                "date": "2020.09.16-2020.10.14",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Тарасов А.Г",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "ЭВМ и периферийные устройства",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "408",
         "dates": [
             {
@@ -226,6 +226,23 @@
             "start": "8:30"
         },
         "title": "Физика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "209",
+        "dates": [
+            {
+                "date": "2020.09.16-2020.10.14",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Тарасов А.Г",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "ЭВМ и периферийные устройства",
         "type": "Laboratory"
     },
     {
@@ -263,28 +280,7 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0209",
-        "dates": [
-            {
-                "date": "2020.09.02-2020.09.16",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Шитов С.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Философия",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0406",
+        "classroom": "0306",
         "dates": [
             {
                 "date": "2020.11.11-2020.12.16",
@@ -301,20 +297,28 @@
         "type": "Seminar"
     },
     {
-        "classroom": "",
+        "classroom": "0209",
         "dates": [
             {
-                "date": "2020.11.11-2020.11.25",
+                "date": "2020.09.02-2020.09.16",
                 "frequency": "every"
+            },
+            {
+                "date": "2020.09.30-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Фролов Е.Б",
+        "lecturer": "Шитов С.Б",
         "subgroup": "Common",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "end": "15:50",
+            "start": "14:10"
         },
-        "title": "Основы теории систем",
+        "title": "Философия",
         "type": "Lecture"
     },
     {
@@ -414,7 +418,7 @@
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Изотова А.С",
         "subgroup": "Common",
         "time": {
             "end": "15:50",

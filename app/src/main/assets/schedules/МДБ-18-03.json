@@ -312,12 +312,12 @@
         "classroom": "346/1",
         "dates": [
             {
-                "date": "2020.11.05-2020.12.03",
+                "date": "2020.11.12-2020.12.10",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Чумаева М.В",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -329,12 +329,12 @@
         "classroom": "346/1",
         "dates": [
             {
-                "date": "2020.11.12-2020.12.10",
+                "date": "2020.11.19-2020.12.17",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Чумаева М.В",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -363,7 +363,7 @@
         "classroom": "0207",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.29",
+                "date": "2020.09.10-2020.11.05",
                 "frequency": "every"
             }
         ],
@@ -380,7 +380,7 @@
         "classroom": "0207",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.29",
+                "date": "2020.09.10-2020.11.05",
                 "frequency": "every"
             }
         ],
@@ -524,6 +524,23 @@
                 "frequency": "throughout"
             }
         ],
+        "lecturer": "Кареев Ю.А",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Основы технологии машиностроения",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.10-2020.11.07",
+                "frequency": "throughout"
+            }
+        ],
         "lecturer": "Волкова О.Р",
         "subgroup": "B",
         "time": {
@@ -541,13 +558,13 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Кареев Ю.А",
-        "subgroup": "A",
+        "lecturer": "Некрасов А.Я",
+        "subgroup": "B",
         "time": {
-            "end": "15:50",
-            "start": "12:20"
+            "end": "12:00",
+            "start": "8:30"
         },
-        "title": "Основы технологии машиностроения",
+        "title": "Основы конструирования машин",
         "type": "Laboratory"
     },
     {
@@ -603,23 +620,6 @@
             "start": "8:30"
         },
         "title": "Программирование на ЭВМ",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Некрасов А.Я",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Основы конструирования машин",
         "type": "Laboratory"
     },
     {
