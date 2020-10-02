@@ -41,9 +41,9 @@
                         android:background="?attr/selectableItemBackground"
                         android:clickable="true"
                         android:focusable="true"
-                        android:drawableEnd="@drawable/ic_button_next"
                         android:text="@string/sch_name"
-                        android:padding="5dp" />
+                        android:padding="5dp"
+                        app:drawableEndCompat="@drawable/ic_button_next" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -85,7 +85,7 @@
             style="@style/CardStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone" >
+            android:visibility="visible" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -108,9 +108,9 @@
                         android:background="?attr/selectableItemBackground"
                         android:clickable="true"
                         android:focusable="true"
-                        android:drawableEnd="@drawable/ic_button_next"
                         android:text="@string/nav_module_journal"
-                        android:padding="5dp" />
+                        android:padding="5dp"
+                        app:drawableEndCompat="@drawable/ic_button_next" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -122,7 +122,7 @@
             style="@style/CardStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone" >
+            android:visibility="visible" >
 
             <LinearLayout
                 android:layout_width="match_parent"

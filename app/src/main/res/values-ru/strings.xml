@@ -24,6 +24,7 @@
     <string name="home_subgroup_a">Подгруппа А</string>
     <string name="home_subgroup_b">Подгруппа Б</string>
     <string name="home_select">Выбрать</string>
+    <string name="home_display_subgroup">Отображать подгруппу</string>
 
     <!-- module journal -->
     <string name="mj_login">Логин</string>
@@ -211,6 +212,8 @@
     <string name="pref_app_browser_summary">Открывать внешние ссылки в приложении</string>
     <string name="pref_home_schedule_delta">Количество дней в расписании</string>
     <string name="pref_home_schedule_delta_summary">Отображаемых вперед и назад</string>
+    <string name="sch_home_display_subgroup">Отображаемая подгруппа на главной:  %1$s</string>
+    <string name="sch_home_change_subgroup">Изменить</string>
 
     <!--  picker color  -->
     <string name="picker_color_choose_color">Выберете цвет</string>

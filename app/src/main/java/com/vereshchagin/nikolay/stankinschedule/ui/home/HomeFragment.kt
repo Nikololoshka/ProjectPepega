@@ -59,15 +59,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         viewModel.scheduleData.observe(viewLifecycleOwner, Observer {
             val data = it ?: return@Observer
 
-            if (!viewModel.isScheduleDeltaCorrect()) {
+            if (!viewModel.isScheduleDataValid()) {
                 viewModel.updateSchedule()
-
                 return@Observer
             }
 
             if (data.empty) {
                 scheduleStateful.setState(StatefulLayout2.EMPTY)
             } else {
+                binding.scheduleName.text = data.scheduleName
                 binding.schedulePager.update(data.titles, data.pairs)
                 scheduleStateful.setState(StatefulLayout2.CONTENT)
             }

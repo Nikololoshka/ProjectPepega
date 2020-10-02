@@ -18,14 +18,17 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.home.ChangeSubgroupBottomSheet
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleDownloaderService
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
@@ -94,7 +97,10 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     override fun onAttach(context: Context) {
         super.onAttach(context)
         LocalBroadcastManager.getInstance(context)
-            .registerReceiver(receiver, IntentFilter(ScheduleDownloaderService.SCHEDULE_DOWNLOADED_EVENT))
+            .registerReceiver(
+                receiver,
+                IntentFilter(ScheduleDownloaderService.SCHEDULE_DOWNLOADED_EVENT)
+            )
     }
 
     override fun onDestroy() {
@@ -166,6 +172,23 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                 DividerItemDecoration.VERTICAL
             )
         )
+
+        // скрытие кнопки при прокрутке
+        binding.schedules.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    binding.addSchedule.show()
+                }
+                super.onScrollStateChanged(recyclerView, newState)
+            }
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if ((dy > 0 || dy < 0) && binding.addSchedule.isShown) {
+                    binding.addSchedule.hide()
+                }
+            }
+        })
 
         // расписания
         viewModel.adapterData.observe(viewLifecycleOwner, Observer {
@@ -253,8 +276,9 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                         IOUtils.toString(stream, StandardCharsets.UTF_8)
                     } ?: throw RuntimeException("Cannot load json")
 
-                    scheduleName = uri.extractFilename(requireContext()) ?: throw FileNotFoundException()
-                    
+                    scheduleName =
+                        uri.extractFilename(requireContext()) ?: throw FileNotFoundException()
+
                     viewModel.loadScheduleFromJson(json, scheduleName)
                     showSnack(R.string.sch_successfully_added, args = arrayOf(scheduleName))
 
@@ -299,6 +323,20 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
 
     override fun onScheduleFavoriteSelected(favorite: String) {
         viewModel.setFavorite(favorite)
+
+        // отображение выбранной подгруппы
+        val subgroup = ApplicationPreference.subgroup(requireContext())
+        Snackbar.make(
+            binding.schedulesLayout,
+            getString(R.string.sch_home_display_subgroup, subgroup.toString(requireContext())),
+            Snackbar.LENGTH_LONG
+        )
+            .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
+            .setAction(R.string.sch_home_change_subgroup) {
+                val dialog = ChangeSubgroupBottomSheet()
+                dialog.show(parentFragmentManager, dialog.tag)
+            }
+            .show()
     }
 
     override fun onScheduleItemMove(fromPosition: Int, toPosition: Int) {

@@ -6,6 +6,7 @@ import androidx.lifecycle.*
 import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleData
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
@@ -22,6 +23,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val repository = ScheduleRepository()
 
     private var delta = 2
+    private var subgroup = Subgroup.COMMON
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
@@ -52,7 +54,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
         val titles = ArrayList<String>(count)
         val pairs = ArrayList<ArrayList<Pair>>(count)
-        val subgroup = ApplicationPreference.subgroup(getApplication())
+        subgroup = ApplicationPreference.subgroup(getApplication())
 
         for (i in 0 until count) {
             val list = ArrayList<Pair>()
@@ -66,8 +68,16 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             start = start.plusDays(1)
         }
 
+        val isDisplay = ApplicationPreference.displaySubgroup(getApplication())
+        val scheduleName = if (subgroup != Subgroup.COMMON && isDisplay) {
+            "$favorite ${subgroup.toString(getApplication())}"
+        } else {
+            favorite
+        }
+
         scheduleData.postValue(
             HomeScheduleData(
+                scheduleName,
                 titles,
                 pairs
             )
@@ -84,13 +94,18 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     /**
-     * Проверяет, правильное количество дней загружено.
+     * Проверяет, правильное количество дней загружено и отображается ли нужная погруппа.
      */
-    fun isScheduleDeltaCorrect(): Boolean {
+    fun isScheduleDataValid(): Boolean {
         val newDelta = ApplicationPreference.homeScheduleDelta(getApplication())
         if (newDelta != delta) {
             return false
         }
+        val newSubgroup = ApplicationPreference.subgroup(getApplication())
+        if (newSubgroup != subgroup) {
+            return false
+        }
+
         return true
     }
 
