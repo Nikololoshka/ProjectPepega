@@ -1,5 +1,22 @@
 [
     {
+        "classroom": "0411",
+        "dates": [
+            {
+                "date": "2020.09.07-2020.09.28",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Феофанов А.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Компьютерная графика",
+        "type": "Lecture"
+    },
+    {
         "classroom": "",
         "dates": [
             {
@@ -72,10 +89,10 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0411",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.09",
+                "date": "2020.10.05-2020.11.09",
                 "frequency": "every"
             }
         ],
@@ -367,23 +384,6 @@
         "type": "Lecture"
     },
     {
-        "classroom": "417",
-        "dates": [
-            {
-                "date": "2020.09.10-2020.10.08",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Карпова Е.Е",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Физика",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "214",
         "dates": [
             {
@@ -404,12 +404,12 @@
         "classroom": "417",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.15",
+                "date": "2020.09.10-2020.10.08",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Карпова Е.Е",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "19:30",
             "start": "16:00"
@@ -432,6 +432,23 @@
             "start": "16:00"
         },
         "title": "Компьютерная графика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "417",
+        "dates": [
+            {
+                "date": "2020.09.17-2020.10.15",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Карпова Е.Е",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Физика",
         "type": "Laboratory"
     },
     {

@@ -1,6 +1,6 @@
 [
     {
-        "classroom": "408",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.09.07-2020.10.19",
@@ -9,23 +9,6 @@
         ],
         "lecturer": "Лоскутов А.И",
         "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Физика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "408",
-        "dates": [
-            {
-                "date": "2020.09.14-2020.10.26",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Лоскутов А.И",
-        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -48,6 +31,23 @@
             "start": "12:20"
         },
         "title": "Архитектура ЭВМ и вычислительных систем",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.10.26",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Лоскутов А.И",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Физика",
         "type": "Laboratory"
     },
     {
@@ -119,23 +119,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "209",
-        "dates": [
-            {
-                "date": "2020.09.15-2020.12.08",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Петухов П.А",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Объектно-ориентированное программирование на языке высокого уровня",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "214",
         "dates": [
             {
@@ -150,6 +133,23 @@
             "start": "12:20"
         },
         "title": "Компьютерная геометрия и графика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "209",
+        "dates": [
+            {
+                "date": "2020.09.15-2020.12.08",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Петухов П.А",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Объектно-ориентированное программирование на языке высокого уровня",
         "type": "Laboratory"
     },
     {

@@ -1,5 +1,43 @@
 [
     {
+        "classroom": "ИГ-1",
+        "dates": [
+            {
+                "date": "2020.09.21",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.28",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Суринов В.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Инженерная графика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.11.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Суринов В.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "19:40"
+        },
+        "title": "Инженерная графика",
+        "type": "Seminar"
+    },
+    {
         "classroom": "307",
         "dates": [
             {
@@ -51,88 +89,88 @@
         "type": "Lecture"
     },
     {
-        "classroom": "ИГ-1",
+        "classroom": "419",
         "dates": [
             {
-                "date": "2020.09.21-2020.11.23",
-                "frequency": "every"
+                "date": "2020.09.22-2020.10.20",
+                "frequency": "throughout"
             }
         ],
-        "lecturer": "Суринов В.В",
-        "subgroup": "Common",
+        "lecturer": "Шарц А.А",
+        "subgroup": "B",
         "time": {
-            "end": "10:10",
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Физика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "256",
+        "dates": [
+            {
+                "date": "2020.09.22-2020.10.20",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Разводова Н.М",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Химия",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "419",
+        "dates": [
+            {
+                "date": "2020.09.29-2020.10.27",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Шарц А.А",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Физика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "256",
+        "dates": [
+            {
+                "date": "2020.09.29-2020.10.27",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Разводова Н.М",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Химия",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "210",
+        "dates": [
+            {
+                "date": "2020.11.03-2020.12.15",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Конюхова Г.П",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
             "start": "8:30"
         },
-        "title": "Инженерная графика",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "419",
-        "dates": [
-            {
-                "date": "2020.09.22-2020.10.20",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Шарц А.А",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Физика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "256",
-        "dates": [
-            {
-                "date": "2020.09.22-2020.10.20",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Разводова Н.М",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Химия",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "419",
-        "dates": [
-            {
-                "date": "2020.09.29-2020.10.27",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Шарц А.А",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Физика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "256",
-        "dates": [
-            {
-                "date": "2020.09.29-2020.10.27",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Разводова Н.М",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Химия",
+        "title": "Информатика",
         "type": "Laboratory"
     },
     {
@@ -154,23 +192,6 @@
             "start": "8:30"
         },
         "title": "Безопасность жизнедеятельности",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "210",
-        "dates": [
-            {
-                "date": "2020.11.03-2020.12.15",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Конюхова Г.П",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Информатика",
         "type": "Laboratory"
     },
     {

@@ -1,5 +1,39 @@
 [
     {
+        "classroom": "0209",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Феофанов А.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Начертательная геометрия",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.21-2020.12.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Суринов В.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Начертательная геометрия",
+        "type": "Seminar"
+    },
+    {
         "classroom": "410",
         "dates": [
             {
@@ -28,23 +62,6 @@
         "classroom": "0209",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.30",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Феофанов А.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Начертательная геометрия",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0209",
-        "dates": [
-            {
                 "date": "2020.09.14-2020.12.14",
                 "frequency": "every"
             }
@@ -57,23 +74,6 @@
         },
         "title": "Алгебра и геометрия",
         "type": "Lecture"
-    },
-    {
-        "classroom": "ИГ-2",
-        "dates": [
-            {
-                "date": "2020.09.21-2020.12.07",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Суринов В.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Начертательная геометрия",
-        "type": "Seminar"
     },
     {
         "classroom": "410",

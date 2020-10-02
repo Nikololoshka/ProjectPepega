@@ -20,7 +20,24 @@
         "classroom": "0411",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.09",
+                "date": "2020.09.07-2020.09.28",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Феофанов А.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Компьютерная графика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.11.09",
                 "frequency": "every"
             }
         ],

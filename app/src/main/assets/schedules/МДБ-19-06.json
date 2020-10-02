@@ -62,7 +62,7 @@
         "classroom": "0411",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.09",
+                "date": "2020.09.07-2020.09.28",
                 "frequency": "every"
             }
         ],
@@ -79,7 +79,7 @@
         "classroom": "342",
         "dates": [
             {
-                "date": "2020.09.07-2020.12.07",
+                "date": "2020.09.07-2020.09.28",
                 "frequency": "every"
             }
         ],
@@ -93,20 +93,37 @@
         "type": "Seminar"
     },
     {
-        "classroom": "342",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.19-2020.11.23",
+                "date": "2020.10.05-2020.11.09",
                 "frequency": "every"
             }
         ],
-        "lecturer": "Соломахо К.Г",
+        "lecturer": "Феофанов А.Н",
         "subgroup": "Common",
         "time": {
-            "end": "10:10",
-            "start": "8:30"
+            "end": "14:00",
+            "start": "12:20"
         },
-        "title": "Физика",
+        "title": "Компьютерная графика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.12.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Козловская Т.Д",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Математика",
         "type": "Seminar"
     },
     {
@@ -159,6 +176,23 @@
         },
         "title": "Сопротивление материалов",
         "type": "Lecture"
+    },
+    {
+        "classroom": "342",
+        "dates": [
+            {
+                "date": "2020.10.20-2020.11.24",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Соломахо К.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Физика",
+        "type": "Seminar"
     },
     {
         "classroom": "0206",

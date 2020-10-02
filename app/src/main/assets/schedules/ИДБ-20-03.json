@@ -17,6 +17,23 @@
         "type": "Laboratory"
     },
     {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гончарова В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Инженерная графика",
+        "type": "Lecture"
+    },
+    {
         "classroom": "0204",
         "dates": [
             {
@@ -69,23 +86,6 @@
             "start": "10:20"
         },
         "title": "Физическая культура и спорт",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0206",
-        "dates": [
-            {
-                "date": "2020.09.14-2020.11.30",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Гончарова В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Инженерная графика",
         "type": "Lecture"
     },
     {

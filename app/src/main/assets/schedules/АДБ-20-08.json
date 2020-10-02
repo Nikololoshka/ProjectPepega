@@ -17,23 +17,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "0410",
-        "dates": [
-            {
-                "date": "2020.09.14-2020.11.16",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Феофанов А.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Инженерная и компьютерная графика",
-        "type": "Lecture"
-    },
-    {
         "classroom": "409",
         "dates": [
             {
@@ -54,8 +37,8 @@
         "classroom": "0805",
         "dates": [
             {
-                "date": "2020.09.21-2020.11.23",
-                "frequency": "every"
+                "date": "2020.09.21",
+                "frequency": "once"
             }
         ],
         "lecturer": "Лыткин И.Н",
@@ -63,6 +46,40 @@
         "time": {
             "end": "14:00",
             "start": "12:20"
+        },
+        "title": "Инженерная и компьютерная графика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0410",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.16",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Феофанов А.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Инженерная и компьютерная графика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.28-2020.11.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Лыткин И.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "19:40"
         },
         "title": "Инженерная и компьютерная графика",
         "type": "Seminar"
@@ -520,7 +537,28 @@
         "classroom": "0410",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.21",
+                "date": "2020.10.10",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Разводова Н.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Химия",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0410",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.10.03",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.10.17-2020.11.21",
                 "frequency": "every"
             }
         ],

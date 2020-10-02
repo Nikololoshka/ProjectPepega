@@ -1,22 +1,5 @@
 [
     {
-        "classroom": "357(з)",
-        "dates": [
-            {
-                "date": "2020.09.07-2020.10.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Будный К.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Теория графов и тензорное исчисление",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "246",
         "dates": [
             {
@@ -37,12 +20,12 @@
         "classroom": "357(з)",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.12",
+                "date": "2020.09.07-2020.10.05",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Будный К.А",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "19:30",
             "start": "16:00"
@@ -65,6 +48,23 @@
             "start": "16:00"
         },
         "title": "Инновационные технологии цифрового производства",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "357(з)",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.10.12",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Будный К.А",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Теория графов и тензорное исчисление",
         "type": "Laboratory"
     },
     {
@@ -126,7 +126,11 @@
         "classroom": "0408",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.09",
+                "date": "2020.09.07-2020.09.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.10.12-2020.11.09",
                 "frequency": "every"
             }
         ],
@@ -571,23 +575,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "246",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.11.21",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Кузнецов И.А",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Прикладное программирование",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "346/4",
         "dates": [
             {
@@ -602,6 +589,23 @@
             "start": "12:20"
         },
         "title": "Электротехника",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "246",
+        "dates": [
+            {
+                "date": "2020.10.10-2020.11.21",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Кузнецов И.А",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Прикладное программирование",
         "type": "Laboratory"
     },
     {

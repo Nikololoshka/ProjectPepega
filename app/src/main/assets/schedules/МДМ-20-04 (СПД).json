@@ -1,22 +1,5 @@
 [
     {
-        "classroom": "ТехП 6",
-        "dates": [
-            {
-                "date": "2020.09.21-2020.11.02",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Косарев В.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "ТехП 11",
         "dates": [
             {
@@ -34,7 +17,24 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 6",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.21-2020.11.02",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Косарев В.А",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.09.28-2020.11.09",

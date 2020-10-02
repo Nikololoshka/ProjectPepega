@@ -20,8 +20,12 @@
         "classroom": "Фрезер 301",
         "dates": [
             {
-                "date": "2020.09.21-2020.12.07",
-                "frequency": "every"
+                "date": "2020.09.21",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.28",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бубнова Т.В",
@@ -37,8 +41,12 @@
         "classroom": "Фрезер 301",
         "dates": [
             {
-                "date": "2020.09.21-2020.12.07",
-                "frequency": "every"
+                "date": "2020.09.21",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.28",
+                "frequency": "once"
             }
         ],
         "lecturer": "Васехина Н.В",
@@ -54,29 +62,12 @@
         "classroom": "Фрезер 301",
         "dates": [
             {
-                "date": "2020.12.14",
+                "date": "2020.09.21",
                 "frequency": "once"
             },
             {
-                "date": "2020.12.21",
+                "date": "2020.09.28",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Бубнова Т.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Математика",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "Фрезер 301",
-        "dates": [
-            {
-                "date": "2020.09.21-2020.12.21",
-                "frequency": "every"
             }
         ],
         "lecturer": "Пустошная Л.С",
@@ -86,6 +77,57 @@
             "start": "10:20"
         },
         "title": "Экология",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.12.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Пустошная Л.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "19:40"
+        },
+        "title": "Экология",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.12.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Бубнова Т.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Математика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "Фрезер 301",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.12.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Васехина Н.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "История",
         "type": "Seminar"
     },
     {

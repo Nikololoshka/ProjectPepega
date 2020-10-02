@@ -54,7 +54,11 @@
         "classroom": "0410",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.26",
+                "date": "2020.09.07-2020.09.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.10.12-2020.10.26",
                 "frequency": "every"
             }
         ],
@@ -451,23 +455,6 @@
         "type": "Lecture"
     },
     {
-        "classroom": "501-7",
-        "dates": [
-            {
-                "date": "2020.10.23-2020.12.04",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Соболев А.Н",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Теория механизмов и машин",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "333",
         "dates": [
             {
@@ -482,6 +469,23 @@
             "start": "12:20"
         },
         "title": "Метрология, стандартизация и сертификация",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "501-7",
+        "dates": [
+            {
+                "date": "2020.10.23-2020.12.04",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Соболев А.Н",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Теория механизмов и машин",
         "type": "Laboratory"
     },
     {

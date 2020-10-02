@@ -1,5 +1,22 @@
 [
     {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.11.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Гончарова В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Инженерная графика",
+        "type": "Lecture"
+    },
+    {
         "classroom": "0308",
         "dates": [
             {
@@ -38,21 +55,38 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0206",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.30",
+                "date": "2020.09.28-2020.12.21",
                 "frequency": "every"
             }
         ],
-        "lecturer": "Гончарова В.А",
+        "lecturer": "Холщевникова Н.Н",
         "subgroup": "Common",
         "time": {
-            "end": "10:10",
-            "start": "8:30"
+            "end": "21:10",
+            "start": "19:40"
         },
-        "title": "Инженерная графика",
-        "type": "Lecture"
+        "title": "Математический анализ",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.12.21",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Холщевникова Н.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Математический анализ",
+        "type": "Seminar"
     },
     {
         "classroom": "С/З СТАНКИН",
@@ -72,41 +106,7 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0204",
-        "dates": [
-            {
-                "date": "2020.12.21",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Холщевникова Н.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Математический анализ",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "0204",
-        "dates": [
-            {
-                "date": "2020.09.28-2020.12.21",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Холщевникова Н.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Математический анализ",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "0204",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.12.07",

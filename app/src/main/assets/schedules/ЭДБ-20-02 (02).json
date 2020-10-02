@@ -1,5 +1,39 @@
 [
     {
+        "classroom": "0208",
+        "dates": [
+            {
+                "date": "2020.09.14-2020.09.28",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Борисов А.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Материалы и высокоэффективные технологии современного производства",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.11.30",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Борисов А.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "19:40"
+        },
+        "title": "Материалы и высокоэффективные технологии современного производства",
+        "type": "Lecture"
+    },
+    {
         "classroom": "305",
         "dates": [
             {
@@ -34,27 +68,35 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0208",
+        "classroom": "410",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.30",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Борисов А.М",
+        "lecturer": "Шинкевич И.А",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
             "start": "10:20"
         },
-        "title": "Материалы и высокоэффективные технологии современного производства",
-        "type": "Lecture"
+        "title": "Микроэкономика",
+        "type": "Seminar"
     },
     {
         "classroom": "410",
         "dates": [
             {
-                "date": "2020.09.21-2020.12.21",
+                "date": "2020.09.21",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.09.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12-2020.12.21",
                 "frequency": "every"
             }
         ],

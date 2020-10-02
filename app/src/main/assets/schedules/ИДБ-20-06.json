@@ -55,6 +55,27 @@
         "type": "Lecture"
     },
     {
+        "classroom": "306(а)",
+        "dates": [
+            {
+                "date": "2020.09.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12-2020.12.14",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Воронова М.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
         "classroom": "0806",
         "dates": [
             {
@@ -69,23 +90,6 @@
             "start": "10:20"
         },
         "title": "Русский язык и культура речи",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "306(а)",
-        "dates": [
-            {
-                "date": "2020.09.28-2020.12.14",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Воронова М.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Иностранный язык",
         "type": "Seminar"
     },
     {

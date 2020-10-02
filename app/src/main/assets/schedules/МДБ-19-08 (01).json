@@ -3,7 +3,7 @@
         "classroom": "342",
         "dates": [
             {
-                "date": "2020.09.07-2020.12.07",
+                "date": "2020.09.07-2020.09.28",
                 "frequency": "every"
             }
         ],
@@ -20,7 +20,7 @@
         "classroom": "240(б)",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.26",
+                "date": "2020.09.07-2020.09.28",
                 "frequency": "every"
             }
         ],
@@ -37,7 +37,7 @@
         "classroom": "0411",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.09",
+                "date": "2020.09.07-2020.09.28",
                 "frequency": "every"
             }
         ],
@@ -66,6 +66,57 @@
         },
         "title": "Сопротивление материалов",
         "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.12.07",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Козловская Т.Д",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Математика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.10.26",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Волкова Л.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Теоретическая механика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.11.09",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Феофанов А.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Компьютерная графика",
+        "type": "Lecture"
     },
     {
         "classroom": "240(б)",
@@ -321,6 +372,23 @@
         "type": "Laboratory"
     },
     {
+        "classroom": "201",
+        "dates": [
+            {
+                "date": "2020.09.24-2020.10.22",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Климов В.Н",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Материаловедение",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "",
         "dates": [
             {
@@ -339,23 +407,6 @@
             "start": "12:20"
         },
         "title": "Сопротивление материалов",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "201",
-        "dates": [
-            {
-                "date": "2020.09.24-2020.10.22",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Климов В.Н",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Материаловедение",
         "type": "Laboratory"
     },
     {
@@ -448,23 +499,6 @@
         "type": "Seminar"
     },
     {
-        "classroom": "417",
-        "dates": [
-            {
-                "date": "2020.09.11-2020.10.09",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Байдин А.Э",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Физика",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "214",
         "dates": [
             {
@@ -479,6 +513,23 @@
             "start": "8:30"
         },
         "title": "Компьютерная графика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "417",
+        "dates": [
+            {
+                "date": "2020.09.11-2020.10.09",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Байдин А.Э",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Физика",
         "type": "Laboratory"
     },
     {

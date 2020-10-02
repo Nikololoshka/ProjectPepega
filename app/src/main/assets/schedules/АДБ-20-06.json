@@ -17,7 +17,7 @@
         "type": "Lecture"
     },
     {
-        "classroom": "410",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.09.21-2020.11.23",
@@ -27,8 +27,8 @@
         "lecturer": "Лыткин И.Н",
         "subgroup": "Common",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "end": "19:30",
+            "start": "18:00"
         },
         "title": "Инженерная и компьютерная графика",
         "type": "Seminar"
@@ -469,7 +469,28 @@
         "classroom": "0410",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.21",
+                "date": "2020.10.10",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Разводова Н.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Химия",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "0410",
+        "dates": [
+            {
+                "date": "2020.09.19-2020.10.03",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.10.17-2020.11.21",
                 "frequency": "every"
             }
         ],

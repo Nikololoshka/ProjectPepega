@@ -17,23 +17,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "216",
-        "dates": [
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Кузнецов И.А",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Прикладное программирование",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "346/4",
         "dates": [
             {
@@ -48,6 +31,23 @@
             "start": "8:30"
         },
         "title": "Электротехника",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "216",
+        "dates": [
+            {
+                "date": "2020.10.05",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Кузнецов И.А",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Прикладное программирование",
         "type": "Laboratory"
     },
     {
@@ -88,7 +88,11 @@
         "classroom": "0408",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.09",
+                "date": "2020.09.07-2020.09.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.10.12-2020.11.09",
                 "frequency": "every"
             }
         ],

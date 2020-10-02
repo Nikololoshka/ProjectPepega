@@ -3,8 +3,8 @@
         "classroom": "201",
         "dates": [
             {
-                "date": "2020.09.28-2020.10.26",
-                "frequency": "throughout"
+                "date": "2020.09.28",
+                "frequency": "once"
             }
         ],
         "lecturer": "Климов В.Н",
@@ -17,7 +17,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "201",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.05-2020.11.02",
@@ -37,27 +37,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.19",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Филитов С.В",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Сопротивление материалов",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.12",
                 "frequency": "once"
             },
@@ -66,13 +45,13 @@
                 "frequency": "once"
             }
         ],
-        "lecturer": "Филитов С.В",
-        "subgroup": "B",
+        "lecturer": "Климов В.Н",
+        "subgroup": "A",
         "time": {
             "end": "12:00",
             "start": "8:30"
         },
-        "title": "Сопротивление материалов",
+        "title": "Материаловедение",
         "type": "Laboratory"
     },
     {
@@ -121,7 +100,7 @@
         "classroom": "342",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.09",
+                "date": "2020.09.07-2020.09.28",
                 "frequency": "every"
             }
         ],
@@ -138,7 +117,7 @@
         "classroom": "0411",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.09",
+                "date": "2020.09.07-2020.09.28",
                 "frequency": "every"
             }
         ],
@@ -152,7 +131,41 @@
         "type": "Lecture"
     },
     {
-        "classroom": "342",
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.11.09",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Козловская Т.Д",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Математика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.11.09",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Феофанов А.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Компьютерная графика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.11.16-2020.12.07",
@@ -544,6 +557,44 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.23",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Филитов С.В",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Сопротивление материалов",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Филитов С.В",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Сопротивление материалов",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.11-2020.10.16",
                 "frequency": "every"
             }
@@ -629,6 +680,40 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.10.31",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Филитов С.В",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Сопротивление материалов",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.09.12-2020.10.03",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Филитов С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Сопротивление материалов",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.09.12-2020.12.26",
                 "frequency": "every"
             }
@@ -658,22 +743,5 @@
         },
         "title": "Материаловедение",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.12-2020.10.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Филитов С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Сопротивление материалов",
-        "type": "Seminar"
     }
 ]
