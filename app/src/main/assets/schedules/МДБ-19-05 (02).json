@@ -1,52 +1,14 @@
 [
     {
-        "classroom": "210",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.11.16",
+                "date": "2020.10.05",
                 "frequency": "once"
             },
             {
-                "date": "2020.11.30",
+                "date": "2020.10.12",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Харитонюк И.А",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Теоретическая механика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "210",
-        "dates": [
-            {
-                "date": "2020.11.23",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.07",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Харитонюк И.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Теоретическая механика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0622",
-        "dates": [
-            {
-                "date": "2020.09.07-2020.11.09",
-                "frequency": "every"
             }
         ],
         "lecturer": "Сотова Е.С",
@@ -59,32 +21,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0410",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.09.28",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
             },
             {
-                "date": "2020.10.12-2020.10.26",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Филитов С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Сопротивление материалов",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "324",
-        "dates": [
-            {
-                "date": "2020.09.07-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Липатова А.Б",
@@ -100,8 +45,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.15",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "",
@@ -117,8 +66,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.22",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "Липатова А.Б",
@@ -134,8 +87,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.10",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "Феофанов А.Н",
@@ -151,8 +108,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.22",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "Шарц А.А",
@@ -165,46 +126,25 @@
         "type": "Lecture"
     },
     {
-        "classroom": "201",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16-2020.10.14",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Томшин В.О",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Материаловедение",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "201",
-        "dates": [
-            {
-                "date": "2020.09.23-2020.10.21",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Томшин В.О",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Материаловедение",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "210",
-        "dates": [
-            {
-                "date": "2020.09.23",
+                "date": "2020.10.13",
                 "frequency": "once"
-            },
+            }
+        ],
+        "lecturer": "Филитов С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Сопротивление материалов",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
             {
                 "date": "2020.10.07",
                 "frequency": "once"
@@ -220,12 +160,42 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "210",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.30",
+                "date": "2020.10.07",
                 "frequency": "once"
-            },
+            }
+        ],
+        "lecturer": "Томшин В.О",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Материаловедение",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Томшин В.О",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Материаловедение",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
             {
                 "date": "2020.10.14",
                 "frequency": "once"
@@ -241,65 +211,15 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "322",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.21",
+                "date": "2020.10.07",
                 "frequency": "once"
             },
             {
-                "date": "2020.11.11",
+                "date": "2020.10.14",
                 "frequency": "once"
-            },
-            {
-                "date": "2020.11.25",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Емельянов П.Н",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Метрология, стандартизация и сертификация",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "322",
-        "dates": [
-            {
-                "date": "2020.10.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.02",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Емельянов П.Н",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Метрология, стандартизация и сертификация",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "240(в)",
-        "dates": [
-            {
-                "date": "2020.09.23-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
             }
         ],
         "lecturer": "Карелина Е.А",
@@ -312,15 +232,15 @@
         "type": "Seminar"
     },
     {
-        "classroom": "240(в)",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.23-2020.10.28",
-                "frequency": "every"
+                "date": "2020.10.07",
+                "frequency": "once"
             },
             {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Карелина Е.А",
@@ -333,45 +253,11 @@
         "type": "Seminar"
     },
     {
-        "classroom": "417",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.08",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Аристархов П.В",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Физика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "417",
-        "dates": [
-            {
-                "date": "2020.09.17-2020.10.15",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Аристархов П.В",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Физика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "246",
-        "dates": [
-            {
-                "date": "2020.09.24-2020.11.19",
-                "frequency": "throughout"
+                "date": "2020.10.08",
+                "frequency": "once"
             }
         ],
         "lecturer": "Феофанов А.Н",
@@ -384,11 +270,28 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "246",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.01-2020.11.26",
-                "frequency": "throughout"
+                "date": "2020.10.08",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Аристархов П.В",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Физика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Феофанов А.Н",
@@ -404,8 +307,29 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.12.10",
-                "frequency": "every"
+                "date": "2020.10.15",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Аристархов П.В",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Физика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Соболев А.Н",
@@ -421,59 +345,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.12.03-2020.12.17",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Байкин И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Социология культуры и межкультурные коммуникации",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.04",
+                "date": "2020.10.09",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
+            },
             {
-                "date": "2020.09.04",
+                "date": "2020.10.16",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.11-2020.12.18",
-                "frequency": "every"
             }
         ],
         "lecturer": "",
@@ -489,8 +366,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11-2020.10.30",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Харитонюк И.А",
@@ -506,8 +387,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11-2020.12.11",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бубнова Т.В",
@@ -523,25 +408,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11-2020.10.02",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Некрасов А.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Сопротивление материалов",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16-2020.10.30",
-                "frequency": "every"
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Штанько А.Е",
@@ -557,59 +425,33 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.06-2020.11.20",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Штанько А.Е",
+        "lecturer": "Бубнова Т.В",
         "subgroup": "Common",
         "time": {
-            "end": "12:00",
-            "start": "10:20"
+            "end": "19:30",
+            "start": "18:00"
         },
-        "title": "Физика",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "501",
-        "dates": [
-            {
-                "date": "2020.10.24-2020.12.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Соболев А.Н",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Теория механизмов и машин",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "501",
-        "dates": [
-            {
-                "date": "2020.10.31-2020.12.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Соболев А.Н",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Теория механизмов и машин",
-        "type": "Laboratory"
+        "title": "Математика",
+        "type": "Lecture"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.17",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Соболев А.Н",
@@ -622,11 +464,15 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0408",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05-2020.11.21",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Поляков Ю.А",
@@ -636,23 +482,6 @@
             "start": "10:20"
         },
         "title": "Теоретическая механика",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0408",
-        "dates": [
-            {
-                "date": "2020.09.12-2020.12.12",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Бубнова Т.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Математика",
         "type": "Lecture"
     }
 ]

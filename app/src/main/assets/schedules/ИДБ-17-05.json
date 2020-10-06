@@ -3,7 +3,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.16",
+                "date": "2020.10.05-2020.11.16",
                 "frequency": "every"
             }
         ],
@@ -20,7 +20,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.16",
+                "date": "2020.10.05-2020.11.16",
                 "frequency": "every"
             }
         ],
@@ -54,7 +54,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.12.21",
+                "date": "2020.10.05-2020.12.21",
                 "frequency": "every"
             }
         ],
@@ -71,8 +71,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Овчинников П.Е",
@@ -122,7 +126,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "throughout"
             }
         ],
@@ -139,7 +143,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.11.03",
+                "date": "2020.10.06-2020.11.03",
                 "frequency": "throughout"
             }
         ],
@@ -156,7 +160,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.29-2020.11.10",
+                "date": "2020.10.13-2020.11.10",
                 "frequency": "throughout"
             }
         ],
@@ -173,7 +177,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.29-2020.12.08",
+                "date": "2020.10.13-2020.12.08",
                 "frequency": "throughout"
             }
         ],
@@ -245,11 +249,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -287,11 +287,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -307,57 +303,6 @@
         },
         "title": "Проектный менеджмент информационных систем",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.24-2020.11.19",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бумарин Д.П",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Администрирование в информационных системах",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.01-2020.11.26",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бабенко Е.В",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Управление информационной средой предприятия",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.01-2020.11.26",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бумарин Д.П",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Администрирование в информационных системах",
-        "type": "Laboratory"
     },
     {
         "classroom": "",
@@ -380,7 +325,58 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.24",
+                "date": "2020.10.08-2020.11.19",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бумарин Д.П",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Администрирование в информационных системах",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.15-2020.11.26",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бабенко Е.В",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Управление информационной средой предприятия",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.15-2020.11.26",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бумарин Д.П",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Администрирование в информационных системах",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08-2020.12.24",
                 "frequency": "every"
             }
         ],
@@ -397,7 +393,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.17",
+                "date": "2020.10.08-2020.12.17",
                 "frequency": "every"
             }
         ],
@@ -431,24 +427,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.25-2020.11.13",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Петров А.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Управление рисками и надежностью информационных систем",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.02-2020.12.18",
+                "date": "2020.10.09-2020.12.18",
                 "frequency": "every"
             }
         ],
@@ -499,7 +478,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.25",
+                "date": "2020.10.09-2020.12.25",
                 "frequency": "every"
             }
         ],
@@ -516,9 +495,22 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.26",
-                "frequency": "once"
-            },
+                "date": "2020.10.09-2020.11.13",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Петров А.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Управление рисками и надежностью информационных систем",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
             {
                 "date": "2020.10.10",
                 "frequency": "once"
@@ -537,10 +529,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.26",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.10",
                 "frequency": "once"
             }
@@ -557,10 +545,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.10.03",
-                "frequency": "once"
-            },
             {
                 "date": "2020.10.17",
                 "frequency": "once"
@@ -579,10 +563,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.03",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.17",
                 "frequency": "once"
             }
@@ -600,7 +580,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.26-2020.11.14",
+                "date": "2020.10.10-2020.11.14",
                 "frequency": "every"
             }
         ],

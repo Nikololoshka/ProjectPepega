@@ -37,23 +37,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.09.28",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Алешин С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Технологические основы высокоскоростной обработки материалов",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.06-2020.11.17",
                 "frequency": "throughout"
             }
@@ -122,40 +105,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.09.29",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Шитов С.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Философские проблемы науки и техники",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.08-2020.09.22",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Шитов С.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Философские проблемы науки и техники",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.13-2020.11.03",
                 "frequency": "every"
             }
@@ -172,10 +121,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
             {
                 "date": "2020.10.07",
                 "frequency": "once"
@@ -202,8 +147,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
             },
             {
                 "date": "2020.11.18",
@@ -223,12 +172,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
+                "date": "2020.10.07",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.14",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Коробова Н.В",
@@ -244,7 +193,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.03-2020.11.19",
+                "date": "2020.10.08-2020.11.19",
                 "frequency": "every"
             }
         ],
@@ -261,7 +210,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.03-2020.11.19",
+                "date": "2020.10.08-2020.11.19",
                 "frequency": "every"
             }
         ],
@@ -336,41 +285,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Шитов С.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Философские проблемы науки и техники",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.11-2020.10.02",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Вороненко В.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Проектирование гибких производственных систем",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.04-2020.11.20",
+                "date": "2020.10.09-2020.11.20",
                 "frequency": "every"
             }
         ],
@@ -387,41 +302,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Красновский А.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Новые конструкционные материалы в машиностроении",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.05-2020.11.21",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Алешин С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Технологические основы высокоскоростной обработки материалов",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.03-2020.12.19",
+                "date": "2020.10.10-2020.12.19",
                 "frequency": "every"
             }
         ],
@@ -432,6 +313,23 @@
             "start": "10:20"
         },
         "title": "Производственный инжиниринг",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.10-2020.11.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Алешин С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Технологические основы высокоскоростной обработки материалов",
         "type": "Lecture"
     }
 ]

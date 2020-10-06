@@ -3,7 +3,7 @@
         "classroom": "216",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.02",
+                "date": "2020.10.05-2020.11.02",
                 "frequency": "throughout"
             }
         ],
@@ -20,12 +20,12 @@
         "classroom": "214",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.26",
+                "date": "2020.10.05-2020.11.02",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Рожкова О.А",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "19:30",
             "start": "16:00"
@@ -37,7 +37,7 @@
         "classroom": "216",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.09",
+                "date": "2020.10.12-2020.11.09",
                 "frequency": "throughout"
             }
         ],
@@ -54,12 +54,16 @@
         "classroom": "214",
         "dates": [
             {
-                "date": "2020.09.21-2020.11.02",
-                "frequency": "throughout"
+                "date": "2020.10.12",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.26",
+                "frequency": "once"
             }
         ],
         "lecturer": "Рожкова О.А",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "19:30",
             "start": "16:00"
@@ -71,7 +75,7 @@
         "classroom": "0801",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.30",
+                "date": "2020.10.05-2020.11.30",
                 "frequency": "every"
             }
         ],
@@ -88,7 +92,7 @@
         "classroom": "0622",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.19",
+                "date": "2020.10.05-2020.10.19",
                 "frequency": "every"
             }
         ],
@@ -105,24 +109,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.08",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Тюрбеева Т.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Базы данных",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.15-2020.12.15",
+                "date": "2020.10.06-2020.12.15",
                 "frequency": "every"
             }
         ],
@@ -139,7 +126,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "every"
             }
         ],
@@ -156,7 +143,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.08",
+                "date": "2020.10.06-2020.12.08",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Тюрбеева Т.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Базы данных",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.06-2020.12.08",
                 "frequency": "every"
             }
         ],
@@ -173,11 +177,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             }
         ],
@@ -193,18 +193,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30",
-                "frequency": "once"
-            },
             {
                 "date": "2020.10.07",
                 "frequency": "once"
@@ -237,27 +225,10 @@
         "type": "Seminar"
     },
     {
-        "classroom": "346/4",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.26",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Сергеев Ю.Д",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Электротехника, электроника и схемотехника",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "346/4",
-        "dates": [
-            {
-                "date": "2020.09.24-2020.12.03",
+                "date": "2020.10.08-2020.12.03",
                 "frequency": "throughout"
             }
         ],
@@ -271,27 +242,44 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "0206",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.11.26",
+                "date": "2020.10.15-2020.11.26",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Сергеев Ю.Д",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Электротехника, электроника и схемотехника",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08-2020.11.26",
                 "frequency": "every"
             }
         ],
         "lecturer": "Сергеев Ю.Д",
         "subgroup": "Common",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "end": "17:40",
+            "start": "16:00"
         },
         "title": "Электротехника, электроника и схемотехника",
         "type": "Lecture"
     },
     {
-        "classroom": "0206",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.17",
+                "date": "2020.10.08-2020.12.17",
                 "frequency": "every"
             }
         ],
@@ -307,31 +295,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.18",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.02",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Ефромеева Е.В",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Модели и методы анализа проектных решений",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.25",
-                "frequency": "once"
-            },
             {
                 "date": "2020.10.09",
                 "frequency": "once"
@@ -392,7 +355,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.10.23",
+                "date": "2020.10.09-2020.10.23",
                 "frequency": "every"
             }
         ],
@@ -426,7 +389,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.12.04",
+                "date": "2020.10.09-2020.12.04",
                 "frequency": "every"
             }
         ],
@@ -443,12 +406,25 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05",
-                "frequency": "once"
-            },
+                "date": "2020.10.10-2020.11.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Новиков В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Прикладная механика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
             {
-                "date": "2020.09.12",
-                "frequency": "once"
+                "date": "2020.10.10-2020.12.19",
+                "frequency": "every"
             }
         ],
         "lecturer": "",
@@ -458,13 +434,13 @@
             "start": "10:20"
         },
         "title": "Прикладная физическая культура",
-        "type": "Lecture"
+        "type": "Seminar"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05-2020.11.07",
+                "date": "2020.10.10-2020.11.07",
                 "frequency": "every"
             }
         ],
@@ -476,39 +452,5 @@
         },
         "title": "Организация и управление предприятием",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.19-2020.11.21",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Новиков В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Прикладная механика",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.19-2020.12.19",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Seminar"
     }
 ]

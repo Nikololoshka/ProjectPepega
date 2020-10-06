@@ -3,23 +3,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.28-2020.11.09",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Красновский А.Н",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Материаловедение",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.05-2020.11.02",
                 "frequency": "throughout"
             }
@@ -58,6 +41,23 @@
                 "frequency": "throughout"
             }
         ],
+        "lecturer": "Красновский А.Н",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Материаловедение",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.12-2020.11.09",
+                "frequency": "throughout"
+            }
+        ],
         "lecturer": "Ефромеев Н.М",
         "subgroup": "B",
         "time": {
@@ -71,7 +71,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.26",
+                "date": "2020.10.05-2020.10.26",
                 "frequency": "every"
             }
         ],
@@ -87,10 +87,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.07-2020.09.21",
-                "frequency": "every"
-            },
             {
                 "date": "2020.10.12-2020.12.07",
                 "frequency": "every"
@@ -143,24 +139,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.09.29",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Ефромеев Н.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Информатика и информационно-коммуникационные системы",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.22-2020.10.27",
+                "date": "2020.10.06-2020.10.27",
                 "frequency": "every"
             }
         ],
@@ -177,7 +156,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.10",
+                "date": "2020.10.06-2020.11.10",
                 "frequency": "every"
             }
         ],
@@ -191,7 +170,7 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0207",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.12.08",
@@ -208,7 +187,7 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0207",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.12.08",
@@ -232,7 +211,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.08",
+                "date": "2020.10.06-2020.12.08",
                 "frequency": "every"
             }
         ],
@@ -266,14 +245,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.23",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.14",
                 "frequency": "once"
             }
@@ -291,15 +262,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -320,15 +283,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -366,7 +321,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -429,12 +384,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.03",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.10",
-                "frequency": "once"
+                "date": "2020.10.08-2020.12.17",
+                "frequency": "every"
             }
         ],
         "lecturer": "",
@@ -444,13 +395,13 @@
             "start": "14:10"
         },
         "title": "Прикладная физическая культура",
-        "type": "Lecture"
+        "type": "Seminar"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.03-2020.11.19",
+                "date": "2020.10.08-2020.11.19",
                 "frequency": "every"
             }
         ],
@@ -467,26 +418,26 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.17",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Рязанов Д.Ю",
         "subgroup": "Common",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "end": "12:00",
+            "start": "10:20"
         },
-        "title": "Прикладная физическая культура",
+        "title": "Экологически чистые и ресурсосберегающие технологии",
         "type": "Seminar"
     },
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.10",
-                "frequency": "once"
-            },
             {
                 "date": "2020.10.22-2020.11.12",
                 "frequency": "every"
@@ -503,23 +454,6 @@
     },
     {
         "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.17-2020.10.15",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Рязанов Д.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Экологически чистые и ресурсосберегающие технологии",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "346/4",
         "dates": [
             {
                 "date": "2020.10.23-2020.11.20",
@@ -550,23 +484,6 @@
             "start": "16:00"
         },
         "title": "Экологически чистые и ресурсосберегающие технологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "346/4",
-        "dates": [
-            {
-                "date": "2020.10.30-2020.11.27",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Сергеев Ю.Д",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Электротехника и электроника",
         "type": "Laboratory"
     },
     {
@@ -621,6 +538,23 @@
         "type": "Laboratory"
     },
     {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.30-2020.11.27",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Сергеев Ю.Д",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Электротехника и электроника",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "0407",
         "dates": [
             {
@@ -658,25 +592,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11",
+                "date": "2020.10.09",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Рязанов Д.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Экологически чистые и ресурсосберегающие технологии",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "0207",
-        "dates": [
+            },
             {
-                "date": "2020.09.18-2020.10.16",
-                "frequency": "every"
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Шварцбург Л.Э",
@@ -689,10 +610,10 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0207",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.23",
+                "date": "2020.10.09-2020.10.23",
                 "frequency": "every"
             }
         ],
@@ -747,7 +668,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.31",
+                "date": "2020.10.10-2020.10.31",
                 "frequency": "every"
             }
         ],
@@ -764,7 +685,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.31",
+                "date": "2020.10.10-2020.10.31",
                 "frequency": "every"
             }
         ],
@@ -781,8 +702,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.17",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Сергеев Ю.Д",
@@ -798,7 +723,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],

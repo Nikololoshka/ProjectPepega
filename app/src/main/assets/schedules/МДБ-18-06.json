@@ -37,7 +37,7 @@
         "classroom": "0306",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.19",
+                "date": "2020.10.05-2020.10.19",
                 "frequency": "every"
             }
         ],
@@ -48,61 +48,6 @@
             "start": "16:00"
         },
         "title": "Электротехника и электроника",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0409",
-        "dates": [
-            {
-                "date": "2020.09.14-2020.09.28",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Молодцов В.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Металлорежущие станки",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "0409",
-        "dates": [
-            {
-                "date": "2020.09.14-2020.09.28",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Молодцов В.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Металлорежущие станки",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0409",
-        "dates": [
-            {
-                "date": "2020.09.14",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.21",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Молодцов В.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Металлорежущие станки",
         "type": "Lecture"
     },
     {
@@ -143,29 +88,12 @@
         "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Крутов А.В",
         "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Трехмерное графическое моделирование",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 11",
-        "dates": [
-            {
-                "date": "2020.09.15-2020.12.08",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Крутов А.В",
-        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -191,6 +119,23 @@
         "type": "Laboratory"
     },
     {
+        "classroom": "ТехП 11",
+        "dates": [
+            {
+                "date": "2020.10.13-2020.12.08",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Крутов А.В",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Трехмерное графическое моделирование",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "501",
         "dates": [
             {
@@ -211,8 +156,12 @@
         "classroom": "305",
         "dates": [
             {
-                "date": "2020.09.08-2020.10.13",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "Будяков А.С",
@@ -245,7 +194,7 @@
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.09.15-2020.11.17",
+                "date": "2020.10.13-2020.11.17",
                 "frequency": "every"
             }
         ],
@@ -293,7 +242,7 @@
         "type": "Lecture"
     },
     {
-        "classroom": "ТехП 8",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.07",
@@ -314,7 +263,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 8",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.14",
@@ -414,12 +363,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
+                "date": "2020.10.07",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.14",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Волкова О.Р",
@@ -485,7 +434,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.03-2020.12.17",
+                "date": "2020.10.08-2020.12.17",
                 "frequency": "every"
             }
         ],
@@ -502,45 +451,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.03",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.10",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.03-2020.12.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Тимирязев В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Основы технологии машиностроения",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.17-2020.12.17",
+                "date": "2020.10.08-2020.12.17",
                 "frequency": "every"
             }
         ],
@@ -557,7 +468,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.29",
+                "date": "2020.10.08-2020.12.03",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Тимирязев В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Основы технологии машиностроения",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08-2020.10.29",
                 "frequency": "every"
             },
             {
@@ -654,40 +582,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.02",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Сазанов И.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Гидравлическое и пневматическое оборудование",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.11-2020.10.02",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Кареев Ю.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Основы технологии машиностроения",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.09-2020.11.13",
                 "frequency": "every"
             }
@@ -743,24 +637,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05-2020.10.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Некрасов А.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Основы конструирования машин",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.26-2020.10.31",
+                "date": "2020.10.10-2020.10.31",
                 "frequency": "every"
             }
         ],
@@ -777,7 +654,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05-2020.11.07",
+                "date": "2020.10.10-2020.11.07",
                 "frequency": "every"
             }
         ],
@@ -788,23 +665,6 @@
             "start": "12:20"
         },
         "title": "Трехмерное графическое моделирование",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.05-2020.10.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Некрасов А.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Основы конструирования машин",
         "type": "Lecture"
     },
     {

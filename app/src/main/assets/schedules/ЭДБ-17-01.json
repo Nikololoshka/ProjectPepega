@@ -24,7 +24,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.23",
+                "date": "2020.10.05-2020.11.23",
                 "frequency": "every"
             }
         ],
@@ -41,7 +41,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.23",
+                "date": "2020.10.05-2020.11.23",
                 "frequency": "every"
             }
         ],
@@ -58,7 +58,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21-2020.11.23",
+                "date": "2020.10.05-2020.11.23",
                 "frequency": "every"
             }
         ],
@@ -191,27 +191,10 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0205",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Червенкова С.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Бюджетирование",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "445",
-        "dates": [
-            {
-                "date": "2020.09.22-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             },
             {
@@ -229,7 +212,7 @@
         "type": "Seminar"
     },
     {
-        "classroom": "445",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.27",
@@ -246,10 +229,10 @@
         "type": "Lecture"
     },
     {
-        "classroom": "445",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             },
             {
@@ -267,7 +250,7 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0102",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.11.24-2020.12.22",
@@ -284,7 +267,7 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0102",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.12.22",
@@ -301,7 +284,7 @@
         "type": "Seminar"
     },
     {
-        "classroom": "445",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.27",
@@ -322,11 +305,32 @@
         "type": "Seminar"
     },
     {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.24-2020.12.15",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Андреев В.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Экономика интеллектуальных ресурсов",
+        "type": "Seminar"
+    },
+    {
         "classroom": "0102",
         "dates": [
             {
-                "date": "2020.09.22-2020.12.22",
-                "frequency": "every"
+                "date": "2020.11.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Червенкова С.Г",
@@ -342,28 +346,28 @@
         "classroom": "0102",
         "dates": [
             {
-                "date": "2020.11.11",
-                "frequency": "once"
+                "date": "2020.10.07-2020.10.28",
+                "frequency": "every"
             },
             {
-                "date": "2020.11.18-2020.12.16",
-                "frequency": "throughout"
+                "date": "2020.11.11",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Андреев В.Н",
+        "lecturer": "Червенкова С.Г",
         "subgroup": "Common",
         "time": {
             "end": "15:50",
             "start": "14:10"
         },
-        "title": "Экономика интеллектуальных ресурсов",
+        "title": "Финансовый менеджмент",
         "type": "Seminar"
     },
     {
         "classroom": "0205",
         "dates": [
             {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -378,6 +382,23 @@
             "start": "12:20"
         },
         "title": "Бюджетирование",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Андреев В.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Экономика интеллектуальных ресурсов",
         "type": "Seminar"
     },
     {
@@ -401,7 +422,7 @@
         "classroom": "0205",
         "dates": [
             {
-                "date": "2020.09.23-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -457,6 +478,48 @@
         "type": "Lecture"
     },
     {
+        "classroom": "0102",
+        "dates": [
+            {
+                "date": "2020.12.23",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Червенкова С.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Финансовый менеджмент",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "0102",
+        "dates": [
+            {
+                "date": "2020.12.02",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.23",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Червенкова С.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Финансовый менеджмент",
+        "type": "Seminar"
+    },
+    {
         "classroom": "443",
         "dates": [
             {
@@ -481,11 +544,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.01-2020.10.29",
+                "date": "2020.10.08-2020.10.29",
                 "frequency": "every"
             },
             {
@@ -514,7 +573,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.19",
+                "date": "2020.10.08-2020.11.19",
                 "frequency": "every"
             }
         ],
@@ -594,7 +653,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.01-2020.10.29",
+                "date": "2020.10.08-2020.10.29",
                 "frequency": "every"
             },
             {
@@ -635,13 +694,13 @@
                 "frequency": "once"
             }
         ],
-        "lecturer": "Андреев В.Н",
+        "lecturer": "Червенкова С.Г",
         "subgroup": "Common",
         "time": {
             "end": "15:50",
             "start": "14:10"
         },
-        "title": "Экономика интеллектуальных ресурсов",
+        "title": "Финансовый менеджмент",
         "type": "Seminar"
     },
     {
@@ -665,41 +724,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.18",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Шинкевич И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Производственный и операционный менеджмент",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.18-2020.12.18",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Пополитова С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Методы оптимальных решений",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.25-2020.12.25",
+                "date": "2020.10.09-2020.12.25",
                 "frequency": "every"
             }
         ],
@@ -716,7 +741,41 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.25-2020.12.25",
+                "date": "2020.10.09-2020.12.18",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Шинкевич И.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Производственный и операционный менеджмент",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09-2020.12.18",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Пополитова С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Методы оптимальных решений",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09-2020.12.25",
                 "frequency": "every"
             }
         ],

@@ -3,8 +3,12 @@
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Чаруйская М.А",
@@ -20,7 +24,7 @@
         "classroom": "0811",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.30",
+                "date": "2020.10.05-2020.11.30",
                 "frequency": "every"
             }
         ],
@@ -32,65 +36,6 @@
         },
         "title": "Экономика и управление производством",
         "type": "Lecture"
-    },
-    {
-        "classroom": "235(е)",
-        "dates": [
-            {
-                "date": "2020.09.07-2020.09.28",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Игнатьев В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Моделирование систем",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "235(е)",
-        "dates": [
-            {
-                "date": "2020.09.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.21",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.28",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Ковальский В.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Теория автоматического управления",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "0804",
-        "dates": [
-            {
-                "date": "2020.09.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Ковальский В.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Теория автоматического управления",
-        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -193,8 +138,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.10.13",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "Назаренко К.М",
@@ -231,7 +180,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.03",
+                "date": "2020.10.06-2020.12.22",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Воронова М.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Иностранный язык",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.06-2020.11.03",
                 "frequency": "every"
             }
         ],
@@ -248,7 +214,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -260,23 +226,6 @@
         },
         "title": "Детали мехатронных модулей, роботов и их конструирование",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.15-2020.12.22",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Воронова М.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Иностранный язык",
-        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -333,8 +282,8 @@
         "classroom": "ТехП 6",
         "dates": [
             {
-                "date": "2020.09.09-2020.10.07",
-                "frequency": "throughout"
+                "date": "2020.10.07",
+                "frequency": "once"
             }
         ],
         "lecturer": "Крит Б.Л",
@@ -347,45 +296,15 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 6",
-        "dates": [
-            {
-                "date": "2020.09.16-2020.10.14",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Крит Б.Л",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "ТехП 16",
         "dates": [
             {
-                "date": "2020.09.16-2020.10.28",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Ким В.Л",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Конструирование механизмов роботов",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 16",
-        "dates": [
+                "date": "2020.10.07",
+                "frequency": "once"
+            },
             {
-                "date": "2020.09.23-2020.10.21",
-                "frequency": "throughout"
+                "date": "2020.10.21",
+                "frequency": "once"
             },
             {
                 "date": "2020.11.11",
@@ -402,10 +321,48 @@
         "type": "Laboratory"
     },
     {
+        "classroom": "ТехП 16",
+        "dates": [
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Ким В.Л",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Конструирование механизмов роботов",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 6",
+        "dates": [
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Крит Б.Л",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Высокоэффективные технологии и оборудование современных производств",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "0207",
         "dates": [
             {
-                "date": "2020.09.09-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -426,8 +383,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.22",
-                "frequency": "throughout"
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.22",
+                "frequency": "once"
             }
         ],
         "lecturer": "Воротников А.А",
@@ -443,29 +404,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10",
+                "date": "2020.10.15",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.24",
+                "date": "2020.10.29",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Егоров О.Д",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Детали мехатронных модулей, роботов и их конструирование",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.17-2020.10.29",
-                "frequency": "throughout"
             }
         ],
         "lecturer": "Воротников А.А",
@@ -476,82 +420,6 @@
         },
         "title": "Основы мехатроники и робототехники",
         "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.17",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.01",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Егоров О.Д",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Детали мехатронных модулей, роботов и их конструирование",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.03",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Крит Б.Л",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.03",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Егоров О.Д",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Детали мехатронных модулей, роботов и их конструирование",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.03",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.10",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Lecture"
     },
     {
         "classroom": "",
@@ -578,7 +446,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.17",
+                "date": "2020.10.08-2020.12.17",
                 "frequency": "every"
             }
         ],
@@ -595,7 +463,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.03-2020.12.17",
+                "date": "2020.10.08-2020.12.17",
                 "frequency": "every"
             }
         ],
@@ -609,10 +477,44 @@
         "type": "Lecture"
     },
     {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09-2020.11.20",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Яремко О.Э",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "19:40"
+        },
+        "title": "Прикладная математика",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09-2020.12.18",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Игнатьев В.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Моделирование систем",
+        "type": "Lecture"
+    },
+    {
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.09.11-2020.12.11",
+                "date": "2020.10.09-2020.12.11",
                 "frequency": "every"
             }
         ],
@@ -629,24 +531,7 @@
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.18",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Игнатьев В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Моделирование систем",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0208",
-        "dates": [
-            {
-                "date": "2020.09.11-2020.12.18",
+                "date": "2020.10.09-2020.12.18",
                 "frequency": "every"
             }
         ],
@@ -657,23 +542,6 @@
             "start": "10:20"
         },
         "title": "Теория автоматического управления",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0208",
-        "dates": [
-            {
-                "date": "2020.09.18-2020.11.20",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Яремко О.Э",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Прикладная математика",
         "type": "Lecture"
     },
     {
@@ -760,22 +628,5 @@
         },
         "title": "Теория автоматического управления",
         "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.19-2020.10.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Александров С.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Экономика и управление производством",
-        "type": "Seminar"
     }
 ]

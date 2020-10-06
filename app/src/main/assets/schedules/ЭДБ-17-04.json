@@ -3,7 +3,7 @@
         "classroom": "333",
         "dates": [
             {
-                "date": "2020.09.21-2020.11.02",
+                "date": "2020.10.05-2020.11.02",
                 "frequency": "throughout"
             }
         ],
@@ -20,7 +20,7 @@
         "classroom": "333",
         "dates": [
             {
-                "date": "2020.09.28-2020.11.09",
+                "date": "2020.10.12-2020.11.09",
                 "frequency": "throughout"
             }
         ],
@@ -37,7 +37,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.30",
+                "date": "2020.10.05-2020.11.30",
                 "frequency": "every"
             }
         ],
@@ -71,7 +71,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.12.21",
+                "date": "2020.10.05-2020.12.21",
                 "frequency": "every"
             }
         ],
@@ -143,24 +143,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.13",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Краснов А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "ИПИ-технологии",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.22-2020.11.24",
+                "date": "2020.10.06-2020.11.24",
                 "frequency": "every"
             }
         ],
@@ -177,8 +160,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.10.13",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "Евдокимов С.А",
@@ -194,8 +181,33 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.13",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Краснов А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "ИПИ-технологии",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "Краснов А.А",
@@ -253,7 +265,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -274,7 +286,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.23-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -299,7 +311,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.23-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             }
         ],
@@ -316,29 +328,12 @@
         "classroom": "235(д)",
         "dates": [
             {
-                "date": "2020.09.24-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Евдокимов С.А",
         "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Автоматизированные интегрированные системы управления качеством",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "235(д)",
-        "dates": [
-            {
-                "date": "2020.10.01-2020.11.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Евдокимов С.А",
-        "subgroup": "A",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -361,6 +356,23 @@
             "start": "12:20"
         },
         "title": "ИПИ-технологии",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "235(д)",
+        "dates": [
+            {
+                "date": "2020.10.15-2020.11.12",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Евдокимов С.А",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Автоматизированные интегрированные системы управления качеством",
         "type": "Laboratory"
     },
     {
@@ -405,7 +417,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.12.10",
+                "date": "2020.10.08-2020.12.10",
                 "frequency": "every"
             }
         ],
@@ -443,6 +455,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.10.23-2020.12.04",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Чекина Е.В",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Обеспечение качества при разработке изделий",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.10.23",
                 "frequency": "once"
             },
@@ -458,23 +487,6 @@
             "start": "12:20"
         },
         "title": "Управление логистическими системами",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.23-2020.12.04",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Чекина Е.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Обеспечение качества при разработке изделий",
         "type": "Laboratory"
     },
     {
@@ -540,7 +552,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.04",
+                "date": "2020.10.09-2020.12.04",
                 "frequency": "every"
             }
         ],
@@ -557,7 +569,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.04",
+                "date": "2020.10.09-2020.12.04",
                 "frequency": "every"
             }
         ],
@@ -574,7 +586,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.05",
+                "date": "2020.10.10-2020.12.05",
                 "frequency": "every"
             }
         ],
@@ -591,7 +603,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.05",
+                "date": "2020.10.10-2020.12.05",
                 "frequency": "every"
             }
         ],
@@ -608,7 +620,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.05",
+                "date": "2020.10.10-2020.12.05",
                 "frequency": "every"
             }
         ],
@@ -625,7 +637,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.26-2020.11.14",
+                "date": "2020.10.10-2020.11.14",
                 "frequency": "every"
             }
         ],

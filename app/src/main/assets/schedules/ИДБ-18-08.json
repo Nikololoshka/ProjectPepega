@@ -3,7 +3,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.23",
+                "date": "2020.10.05-2020.11.23",
                 "frequency": "every"
             }
         ],
@@ -20,7 +20,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.23",
+                "date": "2020.10.05-2020.11.23",
                 "frequency": "every"
             }
         ],
@@ -29,23 +29,6 @@
         "time": {
             "end": "15:50",
             "start": "14:10"
-        },
-        "title": "Управление данными",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.07",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Быстрикова В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
         },
         "title": "Управление данными",
         "type": "Lecture"
@@ -160,7 +143,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.29-2020.11.03",
+                "date": "2020.10.06-2020.11.03",
                 "frequency": "every"
             }
         ],
@@ -176,10 +159,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.08-2020.09.29",
-                "frequency": "every"
-            },
             {
                 "date": "2020.10.13-2020.11.03",
                 "frequency": "every"
@@ -198,7 +177,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.11.17",
+                "date": "2020.10.06-2020.11.17",
                 "frequency": "every"
             }
         ],
@@ -338,27 +317,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Чеканин А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Основы прочностного моделирования технических систем",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.21",
                 "frequency": "once"
             },
@@ -380,32 +338,41 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.24",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.22-2020.12.03",
+                "date": "2020.10.08-2020.12.17",
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Сосенушкин С.Е",
-        "subgroup": "A",
+        "lecturer": "Быстрикова В.А",
+        "subgroup": "B",
         "time": {
             "end": "19:30",
             "start": "16:00"
         },
-        "title": "Информационно-телекоммуникационные сети",
+        "title": "Управление данными",
         "type": "Laboratory"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.10",
+                "date": "2020.10.08-2020.11.05",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Девятерикова Е.А",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Математическая статистика в технике",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.15-2020.12.10",
                 "frequency": "throughout"
             }
         ],
@@ -421,10 +388,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.17",
-                "frequency": "once"
-            },
             {
                 "date": "2020.10.15-2020.12.10",
                 "frequency": "throughout"
@@ -443,42 +406,29 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.12.17",
+                "date": "2020.10.22-2020.12.03",
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Быстрикова В.А",
-        "subgroup": "B",
+        "lecturer": "Сосенушкин С.Е",
+        "subgroup": "A",
         "time": {
             "end": "19:30",
             "start": "16:00"
         },
-        "title": "Управление данными",
+        "title": "Информационно-телекоммуникационные сети",
         "type": "Laboratory"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.11.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Девятерикова Е.А",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Математическая статистика в технике",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
+                "date": "2020.10.15",
+                "frequency": "once"
+            },
             {
-                "date": "2020.10.01-2020.10.29",
-                "frequency": "throughout"
+                "date": "2020.10.29",
+                "frequency": "once"
             }
         ],
         "lecturer": "Девятерикова Е.А",
@@ -528,8 +478,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.10.16",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Чеканин А.В",
@@ -544,31 +498,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.04-2020.09.25",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.10.16-2020.12.25",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Сосенушкин С.Е",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Информационно-телекоммуникационные сети",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.02",
-                "frequency": "once"
-            },
             {
                 "date": "2020.10.09",
                 "frequency": "once"
@@ -587,7 +516,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.25-2020.12.04",
+                "date": "2020.10.09-2020.12.04",
                 "frequency": "every"
             }
         ],
@@ -598,6 +527,23 @@
             "start": "12:20"
         },
         "title": "Математическая статистика в технике",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.16-2020.12.25",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Сосенушкин С.Е",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Информационно-телекоммуникационные сети",
         "type": "Lecture"
     },
     {
@@ -625,7 +571,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.12.18",
+                "date": "2020.10.09-2020.12.18",
                 "frequency": "every"
             }
         ],
@@ -659,24 +605,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.14",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бабенко Е.В",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Основы проектирования информационных систем",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.26-2020.11.21",
+                "date": "2020.10.10-2020.11.21",
                 "frequency": "throughout"
             }
         ],
@@ -693,8 +622,29 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.17",
-                "frequency": "every"
+                "date": "2020.10.17-2020.11.14",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Бабенко Е.В",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Основы проектирования информационных систем",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бабенко Е.В",
@@ -705,27 +655,6 @@
         },
         "title": "Основы проектирования информационных систем",
         "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.12",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Lecture"
     },
     {
         "classroom": "",
@@ -748,7 +677,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.19",
+                "date": "2020.10.10-2020.12.19",
                 "frequency": "every"
             }
         ],

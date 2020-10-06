@@ -3,8 +3,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.30",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Гончарова В.А",
@@ -17,11 +21,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "302",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.12.21",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Власюк Н.Н",
@@ -34,11 +42,15 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0308",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.12.14",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Носовицкий В.Б",
@@ -51,49 +63,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "С/З СТАНКИН",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14",
+                "date": "2020.10.05",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.21",
+                "date": "2020.10.12",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Физическая культура и спорт",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "302",
-        "dates": [
-            {
-                "date": "2020.12.21",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Власюк Н.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Иностранный язык",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "С/З СТАНКИН",
-        "dates": [
-            {
-                "date": "2020.09.28-2020.12.21",
-                "frequency": "every"
             }
         ],
         "lecturer": "",
@@ -106,112 +84,57 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0209",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.12.21",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Петросян Н.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Математический анализ",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "210",
-        "dates": [
-            {
-                "date": "2020.10.21",
+                "date": "2020.10.07",
                 "frequency": "once"
             },
             {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Кобец Е",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Информатика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "210",
-        "dates": [
-            {
-                "date": "2020.10.28",
+                "date": "2020.10.14",
                 "frequency": "once"
-            },
-            {
-                "date": "2020.11.18-2020.12.16",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Кобец Е",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Информатика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0805",
-        "dates": [
-            {
-                "date": "2020.09.23-2020.10.14",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Кобец Е",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Информатика",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "342",
-        "dates": [
-            {
-                "date": "2020.09.23-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
             }
         ],
         "lecturer": "Голова Е.В",
         "subgroup": "Common",
         "time": {
-            "end": "12:00",
-            "start": "10:20"
+            "end": "17:40",
+            "start": "16:00"
         },
         "title": "Инженерная графика",
         "type": "Seminar"
     },
     {
-        "classroom": "0306",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.23-2020.10.28",
-                "frequency": "every"
+                "date": "2020.10.07",
+                "frequency": "once"
             },
             {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Кобец Е",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Информатика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Фомченко А.О",
@@ -224,11 +147,15 @@
         "type": "Seminar"
     },
     {
-        "classroom": "Фрезер 303",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.17",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Елькин А.Г",
@@ -241,11 +168,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "Фрезер 303",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.17",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Алешин В.И",
@@ -258,11 +189,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "Фрезер 305",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.12.24",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Петросян Н.С",
@@ -275,11 +210,15 @@
         "type": "Seminar"
     },
     {
-        "classroom": "Фрезер 407",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.10.29",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Куликова Г.А",
@@ -292,11 +231,36 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0308",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.04",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Петросян Н.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Математический анализ",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Васильева Т.В",
@@ -309,28 +273,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0308",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.12.25",
+                "date": "2020.10.09",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Носовицкий В.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Информатика",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0308",
-        "dates": [
+            },
             {
-                "date": "2020.09.18-2020.12.25",
-                "frequency": "every"
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Носовицкий В.Б",
@@ -343,11 +294,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "С/З СТАНКИН",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.25",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "",
@@ -360,45 +315,11 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0209",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.25",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Петросян Н.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Математический анализ",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "Фрезер 203",
-        "dates": [
-            {
-                "date": "2020.10.03-2020.12.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Куликова Г.А",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Программирование на языке высокого уровня",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "Фрезер 203",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.12.19",
-                "frequency": "throughout"
+                "date": "2020.10.10",
+                "frequency": "once"
             }
         ],
         "lecturer": "Куликова Г.А",
@@ -411,11 +332,53 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "Фрезер 401",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.26-2020.11.28",
-                "frequency": "every"
+                "date": "2020.10.17",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Куликова Г.А",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Программирование на языке высокого уровня",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Елькин А.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Алгебра и геометрия",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Алешин В.И",
@@ -425,44 +388,6 @@
             "start": "14:10"
         },
         "title": "Методы социологических исследований",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "Фрезер 307",
-        "dates": [
-            {
-                "date": "2020.12.19",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.26",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Петросян Н.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Математический анализ",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "Фрезер 401",
-        "dates": [
-            {
-                "date": "2020.09.26-2020.12.26",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Елькин А.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Алгебра и геометрия",
         "type": "Seminar"
     }
 ]

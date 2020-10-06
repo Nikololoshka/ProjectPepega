@@ -1,9 +1,9 @@
 [
     {
-        "classroom": "ТехП 11",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21-2020.11.30",
+                "date": "2020.10.05-2020.11.30",
                 "frequency": "throughout"
             }
         ],
@@ -20,7 +20,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21-2020.11.02",
+                "date": "2020.10.05-2020.11.02",
                 "frequency": "throughout"
             }
         ],
@@ -37,7 +37,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.28-2020.11.09",
+                "date": "2020.10.12-2020.11.09",
                 "frequency": "throughout"
             }
         ],
@@ -51,10 +51,10 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 11",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.28-2020.12.07",
+                "date": "2020.10.12-2020.12.07",
                 "frequency": "throughout"
             }
         ],
@@ -71,25 +71,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14",
+                "date": "2020.10.06",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Домнин П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.15-2020.10.06",
-                "frequency": "every"
             }
         ],
         "lecturer": "Дмитриев А.М",
@@ -143,7 +126,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "every"
             }
         ],
@@ -159,10 +142,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
             {
                 "date": "2020.10.07",
                 "frequency": "once"
@@ -181,12 +160,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
+                "date": "2020.10.07",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.14",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Косарев В.А",
@@ -202,7 +181,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "throughout"
             }
         ],
@@ -219,24 +198,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Домнин П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.17-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "every"
             }
         ],
@@ -253,12 +215,12 @@
         "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.10.02-2020.10.30",
+                "date": "2020.10.09-2020.11.06",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Гиловой Л.Я",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "22:50",
             "start": "19:40"
@@ -270,12 +232,16 @@
         "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.10.09-2020.11.06",
-                "frequency": "throughout"
+                "date": "2020.10.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.30",
+                "frequency": "once"
             }
         ],
         "lecturer": "Гиловой Л.Я",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "22:50",
             "start": "19:40"
@@ -376,7 +342,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.21",
+                "date": "2020.10.10-2020.11.21",
                 "frequency": "every"
             }
         ],
@@ -393,7 +359,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.05",
+                "date": "2020.10.10-2020.12.05",
                 "frequency": "every"
             }
         ],
@@ -410,7 +376,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.05",
+                "date": "2020.10.10-2020.12.05",
                 "frequency": "every"
             }
         ],
@@ -427,8 +393,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.26-2020.10.17",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Гиловой Л.Я",

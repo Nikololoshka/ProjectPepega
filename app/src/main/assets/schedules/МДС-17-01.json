@@ -1,6 +1,6 @@
 [
     {
-        "classroom": "ТехП 8",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.11.09-2020.12.07",
@@ -17,7 +17,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 8",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.11.16-2020.12.14",
@@ -37,7 +37,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.19",
+                "date": "2020.10.05-2020.10.19",
                 "frequency": "every"
             }
         ],
@@ -54,7 +54,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.19",
+                "date": "2020.10.05-2020.10.19",
                 "frequency": "every"
             }
         ],
@@ -68,28 +68,15 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0805",
-        "dates": [
-            {
-                "date": "2020.09.07",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Кузнецов Б.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Управление персоналом",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бушуев В.В",
@@ -126,7 +113,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.02",
+                "date": "2020.10.26",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Ривкин А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Транспортные системы и манипуляторы",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.11.02",
                 "frequency": "every"
             }
         ],
@@ -157,40 +161,6 @@
         "type": "Lecture"
     },
     {
-        "classroom": "ТехП 11",
-        "dates": [
-            {
-                "date": "2020.09.15-2020.10.13",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бушуев В.В",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Трехмерное моделирование",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 11",
-        "dates": [
-            {
-                "date": "2020.09.22-2020.10.20",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бушуев В.В",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Трехмерное моделирование",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "415",
         "dates": [
             {
@@ -208,6 +178,27 @@
         "type": "Laboratory"
     },
     {
+        "classroom": "ТехП 11",
+        "dates": [
+            {
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.20",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Бушуев В.В",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Трехмерное моделирование",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "415",
         "dates": [
             {
@@ -222,6 +213,23 @@
             "start": "8:30"
         },
         "title": "Методы и средства контроля качества изделий в машиностроении",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 11",
+        "dates": [
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Бушуев В.В",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Трехмерное моделирование",
         "type": "Laboratory"
     },
     {
@@ -301,44 +309,10 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "0208",
-        "dates": [
-            {
-                "date": "2020.09.08",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Чумаева М.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Управление техническими системами",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.08",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Чумаева М.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Управление техническими системами",
-        "type": "Seminar"
-    },
-    {
         "classroom": "0805",
         "dates": [
             {
-                "date": "2020.09.29-2020.11.10",
+                "date": "2020.10.06-2020.11.10",
                 "frequency": "every"
             }
         ],
@@ -355,7 +329,7 @@
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "every"
             }
         ],
@@ -414,45 +388,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09-2020.09.30",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Рязанов Д.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Методы и средства контроля качества изделий в машиностроении",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.09-2020.09.30",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Луцюк С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Основы технологии машиностроения",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.02-2020.09.16",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             }
         ],
@@ -469,7 +405,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -490,8 +426,29 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.29",
-                "frequency": "every"
+                "date": "2020.10.15",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Ривкин А.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Транспортные системы и манипуляторы",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.22",
+                "frequency": "once"
             }
         ],
         "lecturer": "Ривкин А.В",
@@ -507,8 +464,33 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.11.12",
-                "frequency": "every"
+                "date": "2020.10.15",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.29",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Бушуев В.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Трехмерное моделирование",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08-2020.11.05",
+                "frequency": "throughout"
+            },
+            {
+                "date": "2020.11.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бушуев В.В",
@@ -541,7 +523,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.10.29",
+                "date": "2020.10.08-2020.10.29",
                 "frequency": "every"
             },
             {
@@ -566,7 +548,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.30",
+                "date": "2020.10.09-2020.10.30",
                 "frequency": "every"
             },
             {
@@ -587,7 +569,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.11.06",
+                "date": "2020.10.09-2020.11.06",
                 "frequency": "every"
             }
         ],
@@ -604,7 +586,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.11.06",
+                "date": "2020.10.09-2020.11.06",
                 "frequency": "every"
             }
         ],
@@ -621,7 +603,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.11.20",
+                "date": "2020.10.09-2020.11.20",
                 "frequency": "every"
             }
         ],
@@ -697,7 +679,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],
@@ -714,11 +696,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.03-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],
@@ -735,28 +713,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.26",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Чумаева М.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Управление техническими системами",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.12-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],
@@ -773,7 +730,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.03-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],

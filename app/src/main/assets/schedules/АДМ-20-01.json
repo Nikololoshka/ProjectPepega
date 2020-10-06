@@ -79,8 +79,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Власюк Н.Н",
@@ -96,7 +100,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "every"
             }
         ],
@@ -113,7 +117,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "every"
             }
         ],
@@ -125,23 +129,6 @@
         },
         "title": "Измерительные информационные системы",
         "type": "Lecture"
-    },
-    {
-        "classroom": "333",
-        "dates": [
-            {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Педь С.Е",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Автоматизация измерений, испытаний и контроля",
-        "type": "Laboratory"
     },
     {
         "classroom": "ТехП 20",
@@ -158,6 +145,23 @@
             "start": "19:40"
         },
         "title": "Измерительные информационные системы",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "333",
+        "dates": [
+            {
+                "date": "2020.11.11-2020.12.09",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Педь С.Е",
+        "subgroup": "A",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Автоматизация измерений, испытаний и контроля",
         "type": "Laboratory"
     },
     {
@@ -198,11 +202,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             }
         ],
@@ -219,11 +219,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             }
         ],
@@ -257,7 +253,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "every"
             }
         ],
@@ -291,7 +287,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.04",
+                "date": "2020.10.09-2020.12.04",
                 "frequency": "every"
             }
         ],

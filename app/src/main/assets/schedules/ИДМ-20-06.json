@@ -3,7 +3,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.12.14",
+                "date": "2020.10.05-2020.12.14",
                 "frequency": "every"
             }
         ],
@@ -20,8 +20,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Шитов С.Б",
@@ -58,8 +62,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.10.13",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "Пашин М.И",
@@ -75,7 +83,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -92,7 +100,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.11.03",
+                "date": "2020.10.06-2020.11.03",
                 "frequency": "every"
             }
         ],
@@ -104,23 +112,6 @@
         },
         "title": "Методология научных исследований",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Чеканин В.А",
-        "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Методы и средства имитационного моделирования",
-        "type": "Laboratory"
     },
     {
         "classroom": "",
@@ -140,6 +131,27 @@
         ],
         "lecturer": "Чеканин В.А",
         "subgroup": "A",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Методы и средства имитационного моделирования",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Чеканин В.А",
+        "subgroup": "B",
         "time": {
             "end": "22:50",
             "start": "19:40"
@@ -202,11 +214,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             }
         ],
@@ -223,11 +231,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             }
         ],
@@ -244,8 +248,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.10.22",
-                "frequency": "throughout"
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.22",
+                "frequency": "once"
             }
         ],
         "lecturer": "Ибатулин М.Ю",
@@ -261,8 +269,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.01-2020.10.29",
-                "frequency": "throughout"
+                "date": "2020.10.15",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.29",
+                "frequency": "once"
             }
         ],
         "lecturer": "Ибатулин М.Ю",
@@ -312,7 +324,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.22",
+                "date": "2020.10.08-2020.10.22",
                 "frequency": "every"
             }
         ],
@@ -346,7 +358,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.04",
+                "date": "2020.10.09-2020.12.04",
                 "frequency": "every"
             }
         ],
@@ -358,61 +370,6 @@
         },
         "title": "Математическое и компьютерное моделирование",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.26-2020.10.24",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Субботин П.М",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Интернет-технологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.03-2020.10.31",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Субботин П.М",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Интернет-технологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.03",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Пашин М.И",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Математическое и компьютерное моделирование",
-        "type": "Laboratory"
     },
     {
         "classroom": "",
@@ -433,6 +390,65 @@
             "start": "12:20"
         },
         "title": "Математическое и компьютерное моделирование",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.24",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Субботин П.М",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Интернет-технологии",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Пашин М.И",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Математическое и компьютерное моделирование",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.31",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Субботин П.М",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Интернет-технологии",
         "type": "Laboratory"
     }
 ]

@@ -3,7 +3,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.30",
+                "date": "2020.10.05-2020.11.30",
                 "frequency": "every"
             }
         ],
@@ -20,7 +20,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.30",
+                "date": "2020.10.05-2020.11.30",
                 "frequency": "every"
             }
         ],
@@ -37,7 +37,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.09",
+                "date": "2020.10.05-2020.11.09",
                 "frequency": "every"
             }
         ],
@@ -54,8 +54,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.05",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
             }
         ],
         "lecturer": "Надыкто О.Б",
@@ -164,7 +164,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -181,7 +181,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "every"
             }
         ],
@@ -236,7 +236,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.15",
+                "date": "2020.10.06-2020.12.15",
                 "frequency": "every"
             }
         ],
@@ -270,7 +270,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.22",
+                "date": "2020.10.06-2020.12.22",
                 "frequency": "every"
             }
         ],
@@ -287,12 +287,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
+                "date": "2020.10.07",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.14",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Пашин М.И",
@@ -308,8 +308,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16-2020.10.14",
-                "frequency": "every"
+                "date": "2020.10.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Кузнецова Л.В",
@@ -342,7 +346,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -360,27 +364,27 @@
         "type": "Lecture"
     },
     {
-        "classroom": "357(з)",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.01",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Надыкто О.Б",
+        "lecturer": "Толок А.В",
         "subgroup": "Common",
         "time": {
-            "end": "14:00",
-            "start": "10:20"
+            "end": "15:50",
+            "start": "12:20"
         },
-        "title": "Моделирование наносистем",
+        "title": "Геометрическое моделирование и компьютерная графика",
         "type": "Laboratory"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.03",
+                "date": "2020.10.08-2020.12.03",
                 "frequency": "every"
             }
         ],
@@ -397,8 +401,8 @@
         "classroom": "357(з)",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.09",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
             }
         ],
         "lecturer": "Елисеева Ю.В",
@@ -408,23 +412,6 @@
             "start": "12:20"
         },
         "title": "Теория разностных уравнений",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "210",
-        "dates": [
-            {
-                "date": "2020.09.18-2020.10.09",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Толок А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Геометрическое моделирование и компьютерная графика",
         "type": "Laboratory"
     },
     {
@@ -452,23 +439,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.13-2020.12.04",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Елисеева Ю.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Теория разностных уравнений",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.11.20",
                 "frequency": "once"
             }
@@ -481,6 +451,23 @@
         },
         "title": "Программная инженерия",
         "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.11.13-2020.12.04",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Елисеева Ю.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Теория разностных уравнений",
+        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -507,7 +494,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],
@@ -545,7 +532,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.28",
+                "date": "2020.10.10-2020.11.28",
                 "frequency": "every"
             }
         ],
@@ -562,7 +549,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.07",
+                "date": "2020.10.10-2020.11.07",
                 "frequency": "every"
             }
         ],

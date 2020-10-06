@@ -37,8 +37,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.05",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
             }
         ],
         "lecturer": "Гиловой Л.Я",
@@ -71,7 +71,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.02",
+                "date": "2020.10.05-2020.11.02",
                 "frequency": "every"
             }
         ],
@@ -88,7 +88,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.16",
+                "date": "2020.10.05-2020.11.16",
                 "frequency": "every"
             }
         ],
@@ -105,7 +105,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.16",
+                "date": "2020.10.05-2020.11.16",
                 "frequency": "every"
             }
         ],
@@ -160,7 +160,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -219,7 +219,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.15",
+                "date": "2020.10.06-2020.12.15",
                 "frequency": "every"
             }
         ],
@@ -236,7 +236,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.15",
+                "date": "2020.10.06-2020.12.15",
                 "frequency": "every"
             }
         ],
@@ -253,7 +253,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -308,31 +308,6 @@
         "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.02",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Системы компьютерной поддержки инженерных решений",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 11",
-        "dates": [
-            {
                 "date": "2020.10.07",
                 "frequency": "once"
             },
@@ -358,9 +333,34 @@
         "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.09.16",
+                "date": "2020.10.14",
                 "frequency": "once"
             },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.02",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Гиловой Л.Я",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Системы компьютерной поддержки инженерных решений",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
             {
                 "date": "2020.10.07",
                 "frequency": "once"
@@ -384,11 +384,15 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 11",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
             },
             {
                 "date": "2020.11.18",
@@ -408,7 +412,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "throughout"
             }
         ],
@@ -459,23 +463,6 @@
         "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.10",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Исаев А.В",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 11",
-        "dates": [
-            {
                 "date": "2020.12.17",
                 "frequency": "once"
             }
@@ -493,7 +480,7 @@
         "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.09.24-2020.12.17",
+                "date": "2020.10.08-2020.12.17",
                 "frequency": "throughout"
             }
         ],
@@ -507,10 +494,27 @@
         "type": "Laboratory"
     },
     {
+        "classroom": "ТехП 11",
+        "dates": [
+            {
+                "date": "2020.10.15-2020.12.10",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Исаев А.В",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.01-2020.11.12",
+                "date": "2020.10.15-2020.11.12",
                 "frequency": "throughout"
             }
         ],
@@ -620,23 +624,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.02",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Молодцов В.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Расчет и конструирование станков",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.09",
                 "frequency": "once"
             }
@@ -654,7 +641,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.18",
+                "date": "2020.10.09-2020.12.18",
                 "frequency": "every"
             }
         ],
@@ -666,23 +653,6 @@
         },
         "title": "Системы компьютерной поддержки инженерных решений",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.18-2020.10.02",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Молодцов В.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Расчет и конструирование станков",
-        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -739,8 +709,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.10",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
             }
         ],
         "lecturer": "Крутов А.В",
@@ -756,7 +726,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.07",
+                "date": "2020.10.10-2020.11.07",
                 "frequency": "every"
             }
         ],
@@ -773,7 +743,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.07",
+                "date": "2020.10.10-2020.11.07",
                 "frequency": "every"
             }
         ],
@@ -807,7 +777,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.07",
+                "date": "2020.10.10-2020.11.07",
                 "frequency": "every"
             },
             {

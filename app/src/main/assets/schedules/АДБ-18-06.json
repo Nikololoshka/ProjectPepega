@@ -3,44 +3,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Евстафиева С.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Операционные системы и базы данных",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гвоздкова С.И",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Экология",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.21",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.05",
                 "frequency": "once"
             }
@@ -58,10 +20,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.05",
                 "frequency": "once"
             }
@@ -73,23 +31,6 @@
             "start": "12:20"
         },
         "title": "Экология",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 20",
-        "dates": [
-            {
-                "date": "2020.10.12-2020.11.09",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бушуев С.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Технические измерения и приборы",
         "type": "Laboratory"
     },
     {
@@ -113,12 +54,12 @@
         "classroom": "ТехП 20",
         "dates": [
             {
-                "date": "2020.10.19-2020.11.16",
+                "date": "2020.10.12-2020.11.09",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Бушуев С.В",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -144,28 +85,28 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "",
+        "classroom": "ТехП 20",
         "dates": [
             {
-                "date": "2020.09.07",
-                "frequency": "once"
+                "date": "2020.10.19-2020.11.16",
+                "frequency": "throughout"
             }
         ],
-        "lecturer": "Яремко О.Э",
-        "subgroup": "Common",
+        "lecturer": "Бушуев С.В",
+        "subgroup": "A",
         "time": {
-            "end": "14:00",
+            "end": "15:50",
             "start": "12:20"
         },
-        "title": "Прикладная математика",
-        "type": "Seminar"
+        "title": "Технические измерения и приборы",
+        "type": "Laboratory"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.05",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
             }
         ],
         "lecturer": "Чаруйская М.А",
@@ -181,8 +122,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.05",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
             }
         ],
         "lecturer": "Гусев В.Н",
@@ -274,65 +215,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.29",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Будный К.А",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Прикладная математика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.15-2020.10.27",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Суханова Н.В",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Надежность и тестирование программного обеспечения",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.22-2020.11.03",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Суханова Н.В",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Надежность и тестирование программного обеспечения",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.22",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.06",
                 "frequency": "once"
             }
@@ -344,6 +226,23 @@
             "start": "8:30"
         },
         "title": "Прикладная математика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.06-2020.11.03",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Суханова Н.В",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Надежность и тестирование программного обеспечения",
         "type": "Laboratory"
     },
     {
@@ -367,6 +266,27 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.10.13",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.27",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Суханова Н.В",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Надежность и тестирование программного обеспечения",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.10.20-2020.11.17",
                 "frequency": "throughout"
             }
@@ -384,29 +304,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08",
+                "date": "2020.10.06",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.15",
+                "date": "2020.10.13",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Гвоздкова С.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Экология",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.22-2020.10.13",
-                "frequency": "every"
             }
         ],
         "lecturer": "Никишечкин А.П",
@@ -439,8 +342,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.10.06",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
             },
             {
                 "date": "2020.10.20-2020.11.03",
@@ -498,8 +401,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09-2020.10.07",
-                "frequency": "throughout"
+                "date": "2020.10.07",
+                "frequency": "once"
             }
         ],
         "lecturer": "Кропоткина Е.Ю",
@@ -515,8 +418,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16-2020.10.14",
-                "frequency": "throughout"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Кропоткина Е.Ю",
@@ -532,32 +435,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.02",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.09",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -578,7 +456,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -671,8 +549,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.08",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
             }
         ],
         "lecturer": "Ривкин А.В",
@@ -688,8 +566,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.08",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
             }
         ],
         "lecturer": "Яремко О.Э",
@@ -705,7 +583,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.12.17",
+                "date": "2020.10.08-2020.12.17",
                 "frequency": "every"
             }
         ],
@@ -722,8 +600,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.15",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Яремко О.Э",
@@ -770,28 +652,11 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0205",
-        "dates": [
-            {
-                "date": "2020.09.11",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Чаруйская М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Проектная деятельность",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11-2020.10.09",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
             }
         ],
         "lecturer": "Мартинов Г.М",
@@ -828,24 +693,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.11.13-2020.11.27",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Мартинов Г.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Программное обеспечение систем управления",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.11-2020.12.25",
+                "date": "2020.10.09-2020.12.25",
                 "frequency": "every"
             }
         ],
@@ -862,8 +710,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.09",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
             }
         ],
         "lecturer": "Чумаева М.В",
@@ -873,6 +721,23 @@
             "start": "10:20"
         },
         "title": "Теория автоматического управления",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.23-2020.11.27",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Мартинов Г.М",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Программное обеспечение систем управления",
         "type": "Seminar"
     },
     {
@@ -896,25 +761,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.12.04-2020.12.18",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Мартинов Г.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Программное обеспечение систем управления",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.05-2020.10.10",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
             }
         ],
         "lecturer": "Суханова Н.В",
@@ -930,7 +778,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05-2020.11.07",
+                "date": "2020.10.10-2020.11.07",
                 "frequency": "every"
             }
         ],
@@ -947,7 +795,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05-2020.11.07",
+                "date": "2020.10.10-2020.11.07",
                 "frequency": "every"
             }
         ],
@@ -964,7 +812,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],

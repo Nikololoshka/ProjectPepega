@@ -71,8 +71,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Аверцев В.И",
@@ -88,25 +92,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07",
+                "date": "2020.10.05",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Аверцев В.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
+            },
             {
-                "date": "2020.09.21-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Гончарова В.А",
@@ -122,8 +113,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Селезнев А.Е",
@@ -139,8 +134,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Гурин В.Д",
@@ -190,29 +189,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.15",
+                "date": "2020.10.06",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.29-2020.10.13",
-                "frequency": "every"
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "Гурин В.Д",
@@ -228,8 +210,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.13",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "",
@@ -245,7 +231,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.08",
+                "date": "2020.10.06-2020.12.08",
                 "frequency": "every"
             }
         ],
@@ -279,64 +265,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гончарова В.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Компьютерная графика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "501",
-        "dates": [
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.21",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Арбузов М.О",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Детали машин",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.07",
                 "frequency": "once"
             },
@@ -363,11 +291,40 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "501",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
+                "date": "2020.10.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.21",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.11",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Арбузов М.О",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Детали машин",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
             },
             {
                 "date": "2020.11.18",
@@ -387,28 +344,32 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.02",
+                "date": "2020.10.14",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.09",
+                "date": "2020.10.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
                 "frequency": "once"
             }
         ],
-        "lecturer": "Гурин В.Д",
-        "subgroup": "Common",
+        "lecturer": "Гончарова В.А",
+        "subgroup": "B",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "end": "19:30",
+            "start": "16:00"
         },
-        "title": "Резание материалов",
-        "type": "Lecture"
+        "title": "Компьютерная графика",
+        "type": "Laboratory"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.02-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -429,41 +390,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.02",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.10",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Стихова О.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Математические методы",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.10-2020.12.10",
+                "date": "2020.10.08-2020.12.10",
                 "frequency": "every"
             }
         ],
@@ -480,7 +407,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.29",
+                "date": "2020.10.08-2020.10.29",
                 "frequency": "every"
             }
         ],
@@ -497,7 +424,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.01-2020.10.22",
+                "date": "2020.10.08-2020.10.22",
                 "frequency": "every"
             }
         ],
@@ -549,7 +476,7 @@
         "type": "Lecture"
     },
     {
-        "classroom": "322",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.30",
@@ -570,7 +497,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "322",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.11.06",
@@ -594,28 +521,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11-2020.10.23",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Профессиональный иностранный язык",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.18-2020.12.11",
+                "date": "2020.10.09-2020.12.11",
                 "frequency": "every"
             }
         ],
@@ -632,15 +538,11 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.30",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.13-2020.12.25",
+                "date": "2020.10.09-2020.12.25",
                 "frequency": "every"
             }
         ],
-        "lecturer": "",
+        "lecturer": "Воронова М.Н",
         "subgroup": "Common",
         "time": {
             "end": "12:00",
@@ -650,10 +552,10 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0207",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05-2020.12.05",
+                "date": "2020.10.10-2020.12.05",
                 "frequency": "every"
             }
         ],
@@ -667,10 +569,10 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0306",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.19",
+                "date": "2020.10.10-2020.12.19",
                 "frequency": "every"
             }
         ],
@@ -684,10 +586,10 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0306",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.19",
+                "date": "2020.10.10-2020.12.19",
                 "frequency": "every"
             }
         ],

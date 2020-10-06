@@ -3,7 +3,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.26",
+                "date": "2020.10.05-2020.10.26",
                 "frequency": "every"
             }
         ],
@@ -20,7 +20,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.23",
+                "date": "2020.10.05-2020.11.23",
                 "frequency": "every"
             }
         ],
@@ -54,23 +54,6 @@
         "classroom": "323",
         "dates": [
             {
-                "date": "2020.09.29-2020.12.08",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Мастеренко Д.А",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Адаптивные электронные и микропроцессорные системы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "323",
-        "dates": [
-            {
                 "date": "2020.10.06-2020.12.15",
                 "frequency": "throughout"
             }
@@ -85,12 +68,25 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "",
+        "classroom": "323",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
+                "date": "2020.10.13-2020.12.08",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Мастеренко Д.А",
+        "subgroup": "A",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Адаптивные электронные и микропроцессорные системы",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
             {
                 "date": "2020.10.07",
                 "frequency": "once"
@@ -117,8 +113,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
             },
             {
                 "date": "2020.11.18",
@@ -231,7 +231,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.29",
+                "date": "2020.10.08-2020.10.29",
                 "frequency": "every"
             }
         ],
@@ -248,24 +248,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.10.23",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Пополитова С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Проектный менеджмент",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.11-2020.10.30",
+                "date": "2020.10.09-2020.10.30",
                 "frequency": "every"
             }
         ],
@@ -277,6 +260,23 @@
         },
         "title": "Проектный менеджмент",
         "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09-2020.10.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Пополитова С.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Проектный менеджмент",
+        "type": "Lecture"
     },
     {
         "classroom": "",
@@ -299,7 +299,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05-2020.11.21",
+                "date": "2020.10.10-2020.11.21",
                 "frequency": "every"
             }
         ],
@@ -316,7 +316,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05-2020.11.07",
+                "date": "2020.10.10-2020.11.07",
                 "frequency": "every"
             }
         ],

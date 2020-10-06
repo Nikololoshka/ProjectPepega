@@ -37,7 +37,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21-2020.10.19",
+                "date": "2020.10.05-2020.10.19",
                 "frequency": "every"
             }
         ],
@@ -54,7 +54,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.19",
+                "date": "2020.10.05-2020.10.19",
                 "frequency": "every"
             }
         ],
@@ -71,7 +71,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.19",
+                "date": "2020.10.05-2020.10.19",
                 "frequency": "every"
             }
         ],
@@ -102,7 +102,7 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0407",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.27-2020.12.08",
@@ -119,7 +119,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "0407",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.11.03-2020.12.15",
@@ -139,7 +139,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -156,7 +156,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -173,7 +173,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "every"
             }
         ],
@@ -190,7 +190,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "every"
             }
         ],
@@ -207,16 +207,16 @@
         "classroom": "0407",
         "dates": [
             {
-                "date": "2020.09.30",
+                "date": "2020.10.07",
                 "frequency": "once"
             },
             {
-                "date": "2020.10.14",
+                "date": "2020.10.21",
                 "frequency": "once"
             }
         ],
         "lecturer": "Гузенко Д.С",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -228,16 +228,12 @@
         "classroom": "0407",
         "dates": [
             {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.21",
+                "date": "2020.10.14",
                 "frequency": "once"
             }
         ],
         "lecturer": "Гузенко Д.С",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -312,11 +308,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -337,7 +329,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "every"
             }
         ],
@@ -354,7 +346,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "every"
             }
         ],
@@ -371,7 +363,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.19",
+                "date": "2020.10.08-2020.11.19",
                 "frequency": "every"
             }
         ],
@@ -388,7 +380,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.19",
+                "date": "2020.10.08-2020.11.19",
                 "frequency": "every"
             }
         ],
@@ -400,23 +392,6 @@
         },
         "title": "Науки о Земле",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.02-2020.11.13",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Пустошная Л.С",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Промышленная экология",
-        "type": "Laboratory"
     },
     {
         "classroom": "",
@@ -439,18 +414,18 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.23",
-                "frequency": "every"
+                "date": "2020.10.16-2020.11.13",
+                "frequency": "throughout"
             }
         ],
-        "lecturer": "Фокин М.Г",
-        "subgroup": "Common",
+        "lecturer": "Пустошная Л.С",
+        "subgroup": "A",
         "time": {
-            "end": "10:10",
-            "start": "8:30"
+            "end": "19:30",
+            "start": "16:00"
         },
-        "title": "Экологические информационные системы",
-        "type": "Seminar"
+        "title": "Промышленная экология",
+        "type": "Laboratory"
     },
     {
         "classroom": "",
@@ -473,7 +448,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.25-2020.12.18",
+                "date": "2020.10.09-2020.12.18",
                 "frequency": "every"
             }
         ],
@@ -484,6 +459,23 @@
             "start": "14:10"
         },
         "title": "Промышленная экология",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09-2020.10.23",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Фокин М.Г",
+        "subgroup": "Common",
+        "time": {
+            "end": "10:10",
+            "start": "8:30"
+        },
+        "title": "Экологические информационные системы",
         "type": "Seminar"
     },
     {
@@ -545,7 +537,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.21",
+                "date": "2020.10.10-2020.11.21",
                 "frequency": "every"
             }
         ],
@@ -562,7 +554,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.21",
+                "date": "2020.10.10-2020.11.21",
                 "frequency": "every"
             }
         ],

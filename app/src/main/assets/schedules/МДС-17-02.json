@@ -17,7 +17,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 8",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.11.16-2020.12.14",
@@ -37,41 +37,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.09.28",
-                "frequency": "every"
+                "date": "2020.10.26",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Луцюк С.В",
+        "lecturer": "Ривкин А.В",
         "subgroup": "Common",
         "time": {
-            "end": "12:00",
-            "start": "10:20"
+            "end": "17:40",
+            "start": "16:00"
         },
-        "title": "Основы технологии машиностроения",
-        "type": "Seminar"
+        "title": "Транспортные системы и манипуляторы",
+        "type": "Lecture"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.09.28",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Рязанов Д.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Методы и средства контроля качества изделий в машиностроении",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.14-2020.11.02",
+                "date": "2020.10.05-2020.11.02",
                 "frequency": "every"
             }
         ],
@@ -82,6 +65,23 @@
             "start": "14:10"
         },
         "title": "Металлорежущие станки",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.12-2020.10.26",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Сазанов И.И",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Гидропневмоавтоматика",
         "type": "Seminar"
     },
     {
@@ -144,28 +144,11 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "0208",
-        "dates": [
-            {
-                "date": "2020.09.08",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Чумаева М.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Управление техническими системами",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.10.27",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
             }
         ],
         "lecturer": "Сазанов И.И",
@@ -181,7 +164,7 @@
         "classroom": "305",
         "dates": [
             {
-                "date": "2020.09.15-2020.11.03",
+                "date": "2020.10.06-2020.11.03",
                 "frequency": "every"
             }
         ],
@@ -198,7 +181,7 @@
         "classroom": "0208",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "every"
             }
         ],
@@ -232,7 +215,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09-2020.10.21",
+                "date": "2020.10.07-2020.10.21",
                 "frequency": "every"
             }
         ],
@@ -249,32 +232,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09-2020.10.21",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Краснов А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Основы CALS-технологий",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -295,11 +253,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.02-2020.09.16",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             }
         ],
@@ -311,6 +265,23 @@
         },
         "title": "Основы технологии машиностроения",
         "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.07-2020.10.21",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Краснов А.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Основы CALS-технологий",
+        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -348,8 +319,8 @@
         "lecturer": "Луцюк С.В",
         "subgroup": "Common",
         "time": {
-            "end": "21:10",
-            "start": "18:00"
+            "end": "19:30",
+            "start": "16:00"
         },
         "title": "Основы технологии машиностроения",
         "type": "Laboratory"
@@ -358,8 +329,12 @@
         "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.10.15-2020.11.12",
-                "frequency": "throughout"
+                "date": "2020.10.15",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.29",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бушуев В.В",
@@ -386,35 +361,56 @@
         "lecturer": "Еремьянц В.А",
         "subgroup": "Common",
         "time": {
-            "end": "12:00",
-            "start": "8:30"
+            "end": "19:30",
+            "start": "16:00"
         },
         "title": "Металлорежущие станки",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 11",
+        "dates": [
+            {
+                "date": "2020.11.12",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Бушуев В.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Трехмерное моделирование",
         "type": "Laboratory"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.01",
-                "frequency": "every"
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Бушуев В.В",
+        "lecturer": "Ривкин А.В",
         "subgroup": "Common",
         "time": {
-            "end": "12:00",
-            "start": "10:20"
+            "end": "17:40",
+            "start": "16:00"
         },
-        "title": "Трехмерное моделирование",
-        "type": "Seminar"
+        "title": "Транспортные системы и манипуляторы",
+        "type": "Lecture"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.29",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.22",
+                "frequency": "once"
             }
         ],
         "lecturer": "Ривкин А.В",
@@ -430,8 +426,33 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.11.12",
-                "frequency": "every"
+                "date": "2020.10.15",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.29",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Бушуев В.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Трехмерное моделирование",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08-2020.11.05",
+                "frequency": "throughout"
+            },
+            {
+                "date": "2020.11.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бушуев В.В",
@@ -447,7 +468,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.30",
+                "date": "2020.10.09-2020.10.30",
                 "frequency": "every"
             },
             {
@@ -468,7 +489,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.11.06",
+                "date": "2020.10.09-2020.11.06",
                 "frequency": "every"
             }
         ],
@@ -485,7 +506,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.11.06",
+                "date": "2020.10.09-2020.11.06",
                 "frequency": "every"
             }
         ],
@@ -502,7 +523,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.11.20",
+                "date": "2020.10.09-2020.11.20",
                 "frequency": "every"
             }
         ],
@@ -536,7 +557,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],
@@ -553,7 +574,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],
@@ -570,11 +591,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.03-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],
@@ -591,11 +608,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.03-2020.11.14",
+                "date": "2020.10.10-2020.11.14",
                 "frequency": "every"
             }
         ],

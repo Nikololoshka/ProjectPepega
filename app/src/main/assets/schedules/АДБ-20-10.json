@@ -3,8 +3,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.05-2020.11.02",
-                "frequency": "throughout"
+                "date": "2020.10.05",
+                "frequency": "once"
             }
         ],
         "lecturer": "Иванов Г.Н",
@@ -20,8 +20,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.12-2020.11.09",
-                "frequency": "throughout"
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Иванов Г.Н",
@@ -34,28 +34,15 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "С/З СТАНКИН",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14",
+                "date": "2020.10.05",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "СЗ Фрезер 1",
-        "dates": [
+            },
             {
-                "date": "2020.09.21-2020.12.21",
-                "frequency": "every"
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "",
@@ -68,11 +55,15 @@
         "type": "Seminar"
     },
     {
-        "classroom": "Фрезер 407",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21-2020.11.23",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Свирина М.С",
@@ -85,11 +76,11 @@
         "type": "Seminar"
     },
     {
-        "classroom": "420",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.11.03",
-                "frequency": "throughout"
+                "date": "2020.10.06",
+                "frequency": "once"
             }
         ],
         "lecturer": "Карпова Е.Е",
@@ -102,11 +93,11 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "420",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.29-2020.11.10",
-                "frequency": "throughout"
+                "date": "2020.10.13",
+                "frequency": "once"
             }
         ],
         "lecturer": "Карпова Е.Е",
@@ -119,91 +110,36 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "256",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.11.03-2020.12.01",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Проскурина Е.М",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Химия",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "256",
-        "dates": [
+                "date": "2020.10.07",
+                "frequency": "once"
+            },
             {
-                "date": "2020.11.10-2020.12.08",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Проскурина Е.М",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Химия",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0410",
-        "dates": [
-            {
-                "date": "2020.09.22-2020.11.24",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Голова Е.В",
         "subgroup": "Common",
         "time": {
-            "end": "12:00",
-            "start": "10:20"
+            "end": "19:30",
+            "start": "18:00"
         },
         "title": "Инженерная и компьютерная графика: инженерная графика",
         "type": "Seminar"
     },
     {
-        "classroom": "0410",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
+                "date": "2020.10.07",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.12.02",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Папулова Г.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Химия",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0410",
-        "dates": [
-            {
-                "date": "2020.09.16-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.11.25",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Нежметдинова Р.А",
@@ -216,15 +152,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0204",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.23-2020.10.28",
-                "frequency": "every"
+                "date": "2020.10.07",
+                "frequency": "once"
             },
             {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Коновалова А.В",
@@ -237,15 +173,15 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0204",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.23-2020.10.28",
-                "frequency": "every"
+                "date": "2020.10.07",
+                "frequency": "once"
             },
             {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Коновалова А.В",
@@ -258,79 +194,15 @@
         "type": "Seminar"
     },
     {
-        "classroom": "246",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.22-2020.12.17",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Аль_Хури А",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Информатика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "246",
-        "dates": [
-            {
-                "date": "2020.10.29-2020.12.24",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Аль_Хури А",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Информатика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "С/З СТАНКИН",
-        "dates": [
-            {
-                "date": "2020.09.17",
+                "date": "2020.10.08",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0805",
-        "dates": [
+            },
             {
-                "date": "2020.09.24-2020.10.15",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Аль_Хури А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Информатика",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "0204",
-        "dates": [
-            {
-                "date": "2020.09.24-2020.12.10",
-                "frequency": "every"
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бурдыкина А.А",
@@ -343,28 +215,15 @@
         "type": "Seminar"
     },
     {
-        "classroom": "409",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.12.24",
+                "date": "2020.10.08",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Кречет В.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Физика",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "239",
-        "dates": [
+            },
             {
-                "date": "2020.09.24-2020.12.24",
-                "frequency": "every"
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Петрова И.К",
@@ -377,11 +236,57 @@
         "type": "Seminar"
     },
     {
-        "classroom": "0209",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.11.27",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.15",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Аль_Хури А",
+        "subgroup": "Common",
+        "time": {
+            "end": "12:00",
+            "start": "10:20"
+        },
+        "title": "Информатика",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Папулова Г.Н",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Химия",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Яновская Е.А",
@@ -394,11 +299,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0410",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.11.20",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Гончарова В.А",
@@ -411,11 +320,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0410",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.11.20",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Свирина М.С",
@@ -428,45 +341,36 @@
         "type": "Lecture"
     },
     {
-        "classroom": "409",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.11.27-2020.12.25",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Кречет В.Г",
+        "lecturer": "Иванов Г.Н",
         "subgroup": "Common",
         "time": {
-            "end": "12:00",
-            "start": "10:20"
+            "end": "19:30",
+            "start": "18:00"
         },
-        "title": "Физика",
-        "type": "Seminar"
+        "title": "Технологические процессы в машиностроении",
+        "type": "Lecture"
     },
     {
-        "classroom": "СЗ СТАНКИН 1",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.25-2020.12.25",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "431",
-        "dates": [
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
             {
-                "date": "2020.09.19-2020.12.19",
-                "frequency": "every"
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Мандель А.М",
@@ -479,11 +383,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0209",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.28",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Яновская Е.А",
@@ -496,11 +404,15 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0410",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.05",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Васильева Т.В",
@@ -513,58 +425,24 @@
         "type": "Lecture"
     },
     {
-        "classroom": "0209",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.28",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Иванов Г.Н",
+        "lecturer": "",
         "subgroup": "Common",
         "time": {
             "end": "10:10",
             "start": "8:30"
         },
-        "title": "Технологические процессы в машиностроении",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0209",
-        "dates": [
-            {
-                "date": "2020.12.05-2020.12.19",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Иванов Г.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Технологические процессы в машиностроении",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "239",
-        "dates": [
-            {
-                "date": "2020.12.12",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.19",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Петрова И.К",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Иностранный язык",
+        "title": "Прикладная физическая культура",
         "type": "Seminar"
     }
 ]

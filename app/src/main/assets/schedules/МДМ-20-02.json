@@ -20,23 +20,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.26-2020.12.07",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Караваев Я.С",
-        "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Основы цифровых производств в машиностроении",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.26",
                 "frequency": "once"
             }
@@ -48,6 +31,23 @@
             "start": "19:40"
         },
         "title": "Патентоведение и защита интеллектуальной собственности",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.26-2020.12.07",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Караваев Я.С",
+        "subgroup": "B",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Основы цифровых производств в машиностроении",
         "type": "Laboratory"
     },
     {
@@ -66,44 +66,6 @@
         },
         "title": "Патентоведение и защита интеллектуальной собственности",
         "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Домнин П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.21",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.28",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Косарев В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
-        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -130,8 +92,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Зверев И.А",
@@ -178,10 +144,10 @@
         "type": "Lecture"
     },
     {
-        "classroom": "ТехП 11",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "throughout"
             }
         ],
@@ -195,10 +161,10 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 11",
+        "classroom": "",
         "dates": [
             {
-                "date": "2020.09.29-2020.12.08",
+                "date": "2020.10.13-2020.12.08",
                 "frequency": "throughout"
             }
         ],
@@ -249,10 +215,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.07",
                 "frequency": "once"
             }
@@ -270,12 +232,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
+                "date": "2020.10.07",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.14",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Косарев В.А",
@@ -308,12 +270,12 @@
         "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.10.01-2020.10.29",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Гиловой Л.Я",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "22:50",
             "start": "19:40"
@@ -322,7 +284,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 6",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.08-2020.11.19",
@@ -342,12 +304,16 @@
         "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "throughout"
+                "date": "2020.10.15",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.29",
+                "frequency": "once"
             }
         ],
         "lecturer": "Гиловой Л.Я",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "22:50",
             "start": "19:40"
@@ -356,7 +322,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 6",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.15-2020.11.26",
@@ -376,25 +342,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17",
+                "date": "2020.10.09",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Домнин П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
+            },
             {
-                "date": "2020.09.25-2020.10.16",
-                "frequency": "every"
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Караваев Я.С",
@@ -431,7 +384,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.25-2020.11.13",
+                "date": "2020.10.09-2020.11.13",
                 "frequency": "every"
             }
         ],
@@ -448,7 +401,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.21",
+                "date": "2020.10.10-2020.11.21",
                 "frequency": "every"
             }
         ],
@@ -465,7 +418,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.05",
+                "date": "2020.10.10-2020.12.05",
                 "frequency": "every"
             }
         ],
@@ -482,7 +435,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.05",
+                "date": "2020.10.10-2020.12.05",
                 "frequency": "every"
             }
         ],
@@ -499,8 +452,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.17",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             },
             {
                 "date": "2020.11.07",

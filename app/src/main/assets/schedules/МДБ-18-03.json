@@ -3,8 +3,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.05",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
             }
         ],
         "lecturer": "Волкова О.Р",
@@ -20,7 +20,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.16",
+                "date": "2020.10.12",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Филатов В.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Электротехника и электроника",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.11.16",
                 "frequency": "every"
             }
         ],
@@ -37,7 +54,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.23",
+                "date": "2020.10.05-2020.11.23",
                 "frequency": "every"
             }
         ],
@@ -54,8 +71,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Федоров С.В",
@@ -88,7 +109,28 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.10.20",
+                "date": "2020.10.06",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.13",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Метель А.С",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Основы обработки материалов потоками частиц",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -105,7 +147,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.17",
+                "date": "2020.10.06-2020.11.17",
                 "frequency": "every"
             }
         ],
@@ -122,7 +164,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.12.01",
+                "date": "2020.10.06-2020.12.01",
                 "frequency": "every"
             }
         ],
@@ -157,7 +199,7 @@
         "type": "Lecture"
     },
     {
-        "classroom": "ТехП 9",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.21",
@@ -182,7 +224,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 9",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.28",
@@ -207,62 +249,36 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.02",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Филатов В.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.02",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Тимирязев В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Основы технологии машиностроения",
-        "type": "Lecture"
-    },
-    {
         "classroom": "235(е)",
         "dates": [
             {
-                "date": "2020.09.09-2020.10.14",
+                "date": "2020.10.07-2020.10.28",
+                "frequency": "every"
+            },
+            {
+                "date": "2020.11.11-2020.11.25",
                 "frequency": "every"
             }
         ],
-        "lecturer": "Метель А.С",
+        "lecturer": "Алешин С.В",
         "subgroup": "Common",
         "time": {
             "end": "14:00",
             "start": "12:20"
         },
-        "title": "Основы обработки материалов потоками частиц",
+        "title": "Методы механической обработки деталей машин",
         "type": "Seminar"
     },
     {
         "classroom": "240(б)",
         "dates": [
             {
-                "date": "2020.09.09-2020.10.14",
-                "frequency": "every"
+                "date": "2020.10.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Федоров С.В",
@@ -278,7 +294,7 @@
         "classroom": "ТехП 6",
         "dates": [
             {
-                "date": "2020.09.24-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "throughout"
             }
         ],
@@ -295,7 +311,7 @@
         "classroom": "ТехП 6",
         "dates": [
             {
-                "date": "2020.10.01-2020.11.12",
+                "date": "2020.10.15-2020.11.12",
                 "frequency": "throughout"
             }
         ],
@@ -343,27 +359,10 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.03",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Исаев А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Программирование на ЭВМ",
-        "type": "Lecture"
-    },
-    {
         "classroom": "0207",
         "dates": [
             {
-                "date": "2020.09.10-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "every"
             }
         ],
@@ -380,7 +379,7 @@
         "classroom": "0207",
         "dates": [
             {
-                "date": "2020.09.10-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "every"
             }
         ],
@@ -397,8 +396,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.10.09",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
             }
         ],
         "lecturer": "Астафьева А.А",
@@ -414,44 +413,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.10.09",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Филатов В.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.04",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.11",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.16-2020.12.18",
                 "frequency": "every"
             }
@@ -486,7 +447,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.18",
+                "date": "2020.10.09-2020.12.18",
                 "frequency": "every"
             }
         ],
@@ -503,7 +464,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.12.18",
+                "date": "2020.10.09-2020.12.18",
                 "frequency": "every"
             }
         ],
@@ -524,13 +485,13 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Кареев Ю.А",
-        "subgroup": "A",
+        "lecturer": "Волкова О.Р",
+        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
         },
-        "title": "Основы технологии машиностроения",
+        "title": "Теория управления",
         "type": "Laboratory"
     },
     {
@@ -541,13 +502,13 @@
                 "frequency": "throughout"
             }
         ],
-        "lecturer": "Волкова О.Р",
-        "subgroup": "B",
+        "lecturer": "Кареев Ю.А",
+        "subgroup": "A",
         "time": {
             "end": "15:50",
             "start": "12:20"
         },
-        "title": "Теория управления",
+        "title": "Основы технологии машиностроения",
         "type": "Laboratory"
     },
     {
@@ -659,73 +620,5 @@
         },
         "title": "Программирование на ЭВМ",
         "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.05-2020.10.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Некрасов А.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Основы конструирования машин",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.05-2020.10.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Некрасов А.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Основы конструирования машин",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.12-2020.10.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Тимофеев А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Программирование на ЭВМ",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.12-2020.10.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Кареев Ю.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Основы технологии машиностроения",
-        "type": "Seminar"
     }
 ]

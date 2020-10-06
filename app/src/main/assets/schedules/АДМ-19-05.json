@@ -3,10 +3,6 @@
         "classroom": "209",
         "dates": [
             {
-                "date": "2020.09.21",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.05",
                 "frequency": "once"
             }
@@ -24,10 +20,6 @@
         "classroom": "209",
         "dates": [
             {
-                "date": "2020.09.28",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.12",
                 "frequency": "once"
             }
@@ -42,7 +34,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "0409",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.11.02",
@@ -63,7 +55,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "0409",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.11.09",
@@ -86,14 +78,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.14",
-                "frequency": "once"
-            },
             {
                 "date": "2020.10.19",
                 "frequency": "once"
@@ -137,13 +121,26 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08",
+                "date": "2020.10.06",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.15",
+                "date": "2020.10.13",
                 "frequency": "once"
-            },
+            }
+        ],
+        "lecturer": "Андреев В.П",
+        "subgroup": "Common",
+        "time": {
+            "end": "17:40",
+            "start": "16:00"
+        },
+        "title": "Сенсорные и управляющие системы роботов",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
             {
                 "date": "2020.10.20",
                 "frequency": "once"
@@ -162,35 +159,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.15",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.29-2020.10.13",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Андреев В.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Сенсорные и управляющие системы роботов",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.07",
                 "frequency": "once"
             }
@@ -207,10 +175,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.30",
-                "frequency": "once"
-            },
             {
                 "date": "2020.10.14",
                 "frequency": "once"
@@ -229,57 +193,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.02",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Андреев В.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Сенсорные и управляющие системы роботов",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.24",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Андреев В.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Сенсорные и управляющие системы роботов",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.01",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Шитов С.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Философские проблемы науки и техники",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.08-2020.10.29",
                 "frequency": "every"
             }
@@ -297,46 +210,29 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.09.24",
+                "date": "2020.10.08-2020.10.29",
                 "frequency": "every"
+            }
+        ],
+        "lecturer": "Шитов С.Б",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Философские проблемы науки и техники",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08",
+                "frequency": "once"
             },
             {
-                "date": "2020.10.08-2020.10.29",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Шитов С.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Философские проблемы науки и техники",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.01",
+                "date": "2020.10.15",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Поливанов А.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Программное обеспечение мехатронных систем",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.24-2020.10.15",
-                "frequency": "every"
             }
         ],
         "lecturer": "Шитов С.Б",
@@ -394,24 +290,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.25",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Андреев В.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Сенсорные и управляющие системы роботов",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.04-2020.10.23",
+                "date": "2020.10.09-2020.10.23",
                 "frequency": "every"
             }
         ],
@@ -428,8 +307,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.25-2020.10.16",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Игнатьев В.А",
@@ -445,8 +328,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.03-2020.10.17",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Андреев В.П",
@@ -461,10 +348,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.05-2020.09.19",
-                "frequency": "every"
-            },
             {
                 "date": "2020.10.10-2020.10.31",
                 "frequency": "every"
@@ -482,27 +365,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.10.03",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Игнатьев В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Моделирование мехатронных и робототехнических систем",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.05-2020.09.19",
-                "frequency": "every"
-            },
             {
                 "date": "2020.10.10-2020.10.31",
                 "frequency": "every"

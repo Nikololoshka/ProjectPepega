@@ -3,7 +3,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.19",
+                "date": "2020.10.05-2020.10.19",
                 "frequency": "every"
             }
         ],
@@ -37,7 +37,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.12.14",
+                "date": "2020.10.05-2020.12.14",
                 "frequency": "every"
             }
         ],
@@ -54,8 +54,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.05",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
             }
         ],
         "lecturer": "Сосенушкин Е.Н",
@@ -71,8 +71,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.05",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
             }
         ],
         "lecturer": "Сосенушкин Е.Н",
@@ -190,8 +190,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.06",
-                "frequency": "every"
+                "date": "2020.10.06",
+                "frequency": "once"
             }
         ],
         "lecturer": "Коробова Н.В",
@@ -207,7 +207,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.11.17",
+                "date": "2020.10.06-2020.11.17",
                 "frequency": "every"
             }
         ],
@@ -224,7 +224,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -241,7 +241,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -275,8 +275,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16-2020.10.07",
-                "frequency": "every"
+                "date": "2020.10.07",
+                "frequency": "once"
             }
         ],
         "lecturer": "Сосенушкин А.Е",
@@ -292,7 +292,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -313,7 +313,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -334,7 +334,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -355,7 +355,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "throughout"
             }
         ],
@@ -386,23 +386,6 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.01-2020.11.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Сидоров А.А",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Моделирование процессов пластического деформирования",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "ТехП 5",
         "dates": [
             {
@@ -417,6 +400,23 @@
             "start": "8:30"
         },
         "title": "Специализированное оборудование для инновационных процессов обработки давлением",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.15-2020.11.12",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Сидоров А.А",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Моделирование процессов пластического деформирования",
         "type": "Laboratory"
     },
     {
@@ -457,8 +457,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.08",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
             }
         ],
         "lecturer": "Аноприенко А.К",
@@ -542,8 +542,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.09",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
             }
         ],
         "lecturer": "Вишенков М.А",
@@ -559,8 +559,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.10.09",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
             }
         ],
         "lecturer": "Вишенков М.А",
@@ -576,8 +576,8 @@
         "classroom": "ТехП 5",
         "dates": [
             {
-                "date": "2020.10.17-2020.11.14",
-                "frequency": "throughout"
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Сосенушкин А.Е",
@@ -593,8 +593,8 @@
         "classroom": "ТехП 5",
         "dates": [
             {
-                "date": "2020.10.24-2020.11.21",
-                "frequency": "throughout"
+                "date": "2020.10.24",
+                "frequency": "once"
             }
         ],
         "lecturer": "Сосенушкин А.Е",
@@ -607,7 +607,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 5",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.10.31-2020.12.12",
@@ -624,7 +624,7 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "ТехП 5",
+        "classroom": "",
         "dates": [
             {
                 "date": "2020.11.07-2020.12.19",
@@ -641,10 +641,52 @@
         "type": "Laboratory"
     },
     {
+        "classroom": "ТехП 5",
+        "dates": [
+            {
+                "date": "2020.10.31",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.14",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Сосенушкин А.Е",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Кузнечно-штамповочное оборудование",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "ТехП 5",
+        "dates": [
+            {
+                "date": "2020.11.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.21",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Сосенушкин А.Е",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Кузнечно-штамповочное оборудование",
+        "type": "Laboratory"
+    },
+    {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],
@@ -661,7 +703,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.24",
+                "date": "2020.10.10-2020.10.24",
                 "frequency": "every"
             }
         ],

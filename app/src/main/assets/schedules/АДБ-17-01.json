@@ -3,7 +3,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21-2020.10.19",
+                "date": "2020.10.05-2020.10.19",
                 "frequency": "every"
             }
         ],
@@ -54,7 +54,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.30",
+                "date": "2020.10.05-2020.11.30",
                 "frequency": "every"
             }
         ],
@@ -92,7 +92,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.29-2020.11.17",
+                "date": "2020.10.06-2020.11.17",
                 "frequency": "every"
             }
         ],
@@ -126,7 +126,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.12.08",
+                "date": "2020.10.06-2020.12.08",
                 "frequency": "every"
             }
         ],
@@ -143,7 +143,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.22-2020.11.24",
+                "date": "2020.10.06-2020.11.24",
                 "frequency": "every"
             }
         ],
@@ -211,8 +211,12 @@
         "classroom": "323",
         "dates": [
             {
-                "date": "2020.09.23-2020.10.21",
-                "frequency": "throughout"
+                "date": "2020.10.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.21",
+                "frequency": "once"
             },
             {
                 "date": "2020.11.11",
@@ -221,48 +225,6 @@
         ],
         "lecturer": "Пимушкин Я.И",
         "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Компьютерные технологии в приборостроении",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "324",
-        "dates": [
-            {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Мороз А.Ю",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Технология разработки стандартов",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "323",
-        "dates": [
-            {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Пимушкин Я.И",
-        "subgroup": "B",
         "time": {
             "end": "12:00",
             "start": "8:30"
@@ -297,6 +259,56 @@
             "start": "8:30"
         },
         "title": "Технология разработки стандартов",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "324",
+        "dates": [
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Мороз А.Ю",
+        "subgroup": "A",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Технология разработки стандартов",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "323",
+        "dates": [
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Пимушкин Я.И",
+        "subgroup": "B",
+        "time": {
+            "end": "12:00",
+            "start": "8:30"
+        },
+        "title": "Компьютерные технологии в приборостроении",
         "type": "Laboratory"
     },
     {
@@ -345,7 +357,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -387,10 +399,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.12.02-2020.12.16",
                 "frequency": "every"
             }
@@ -407,10 +415,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
             {
                 "date": "2020.12.02-2020.12.23",
                 "frequency": "every"
@@ -429,7 +433,7 @@
         "classroom": "417",
         "dates": [
             {
-                "date": "2020.09.24-2020.11.05",
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "throughout"
             }
         ],
@@ -440,40 +444,6 @@
             "start": "12:20"
         },
         "title": "Физическая и прикладная оптика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "417",
-        "dates": [
-            {
-                "date": "2020.10.01-2020.11.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Иванова С.Д",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Физическая и прикладная оптика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "333",
-        "dates": [
-            {
-                "date": "2020.10.01-2020.11.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Глубокова С.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Методы и средства измерений, испытаний и контроля",
         "type": "Laboratory"
     },
     {
@@ -486,6 +456,40 @@
         ],
         "lecturer": "Глубокова С.В",
         "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Методы и средства измерений, испытаний и контроля",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "417",
+        "dates": [
+            {
+                "date": "2020.10.15-2020.11.12",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Иванова С.Д",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Физическая и прикладная оптика",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "333",
+        "dates": [
+            {
+                "date": "2020.10.15-2020.11.12",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Глубокова С.В",
+        "subgroup": "B",
         "time": {
             "end": "15:50",
             "start": "12:20"
@@ -565,29 +569,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18",
+                "date": "2020.10.09",
                 "frequency": "once"
             },
             {
-                "date": "2020.12.04",
+                "date": "2020.10.16",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Мастеренко Д.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Теоретические основы ИИТ",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.25-2020.10.16",
-                "frequency": "every"
             }
         ],
         "lecturer": "Пимушкин Я.И",
@@ -603,8 +590,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.25-2020.10.09",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
             }
         ],
         "lecturer": "Глубоков А.В",
@@ -637,6 +624,23 @@
         "classroom": "",
         "dates": [
             {
+                "date": "2020.12.04",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Мастеренко Д.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "15:50",
+            "start": "14:10"
+        },
+        "title": "Теоретические основы ИИТ",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
                 "date": "2020.10.16-2020.12.04",
                 "frequency": "every"
             }
@@ -654,7 +658,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.05",
+                "date": "2020.10.10-2020.12.05",
                 "frequency": "every"
             }
         ],
@@ -671,7 +675,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.05",
+                "date": "2020.10.10-2020.12.05",
                 "frequency": "every"
             }
         ],
@@ -688,7 +692,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.26",
+                "date": "2020.10.10-2020.12.26",
                 "frequency": "every"
             }
         ],
@@ -705,7 +709,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.05",
+                "date": "2020.10.10-2020.12.05",
                 "frequency": "every"
             }
         ],

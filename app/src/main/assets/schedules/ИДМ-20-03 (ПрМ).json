@@ -3,7 +3,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.02",
+                "date": "2020.10.05-2020.11.02",
                 "frequency": "every"
             }
         ],
@@ -20,8 +20,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.28-2020.10.12",
-                "frequency": "every"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Соколов А.В",
@@ -37,7 +41,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.10.20",
+                "date": "2020.10.06-2020.10.20",
                 "frequency": "every"
             }
         ],
@@ -54,7 +58,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.15-2020.11.03",
+                "date": "2020.10.06-2020.11.03",
                 "frequency": "every"
             }
         ],
@@ -66,27 +70,6 @@
         },
         "title": "Методология научных исследований",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.30",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Пашин М.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Моделирование сложных технических систем",
-        "type": "Laboratory"
     },
     {
         "classroom": "",
@@ -113,17 +96,17 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Субботин П.М",
-        "subgroup": "A",
+        "lecturer": "Пашин М.И",
+        "subgroup": "Common",
         "time": {
-            "end": "19:30",
-            "start": "16:00"
+            "end": "22:50",
+            "start": "19:40"
         },
-        "title": "Интернет-технологии",
+        "title": "Моделирование сложных технических систем",
         "type": "Laboratory"
     },
     {
@@ -155,17 +138,21 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.01-2020.11.12",
-                "frequency": "throughout"
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
             }
         ],
-        "lecturer": "Соколов А.В",
+        "lecturer": "Субботин П.М",
         "subgroup": "A",
         "time": {
-            "end": "22:50",
-            "start": "19:40"
+            "end": "19:30",
+            "start": "16:00"
         },
-        "title": "Математическое и компьютерное моделирование",
+        "title": "Интернет-технологии",
         "type": "Laboratory"
     },
     {
@@ -189,24 +176,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24",
-                "frequency": "once"
+                "date": "2020.10.15-2020.11.12",
+                "frequency": "throughout"
             }
         ],
-        "lecturer": "Шитов С.Б",
-        "subgroup": "Common",
+        "lecturer": "Соколов А.В",
+        "subgroup": "A",
         "time": {
-            "end": "21:10",
+            "end": "22:50",
             "start": "19:40"
         },
-        "title": "Методология научных исследований",
-        "type": "Seminar"
+        "title": "Математическое и компьютерное моделирование",
+        "type": "Laboratory"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.22",
+                "date": "2020.10.08-2020.10.22",
                 "frequency": "every"
             }
         ],
@@ -223,8 +210,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.25-2020.10.23",
-                "frequency": "throughout"
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.23",
+                "frequency": "once"
             }
         ],
         "lecturer": "Локтев М.А",
@@ -240,8 +231,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.02-2020.10.30",
-                "frequency": "throughout"
+                "date": "2020.10.16",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.30",
+                "frequency": "once"
             }
         ],
         "lecturer": "Локтев М.А",
@@ -257,7 +252,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.18",
+                "date": "2020.10.09-2020.12.18",
                 "frequency": "every"
             }
         ],
@@ -274,7 +269,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.18-2020.12.04",
+                "date": "2020.10.09-2020.12.04",
                 "frequency": "every"
             }
         ],
@@ -312,7 +307,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.11.07",
+                "date": "2020.10.10-2020.11.07",
                 "frequency": "every"
             }
         ],
@@ -329,25 +324,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.26",
+                "date": "2020.10.10",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Соколов А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Математическое и компьютерное моделирование",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
+            },
             {
-                "date": "2020.10.03-2020.10.17",
-                "frequency": "every"
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Шитов С.Б",

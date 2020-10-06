@@ -3,7 +3,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.23",
+                "date": "2020.10.05-2020.11.23",
                 "frequency": "every"
             }
         ],
@@ -20,7 +20,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.23",
+                "date": "2020.10.05-2020.11.23",
                 "frequency": "every"
             }
         ],
@@ -37,24 +37,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Быстрикова В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Управление данными",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.21-2020.10.26",
+                "date": "2020.10.05-2020.10.26",
                 "frequency": "every"
             }
         ],
@@ -70,10 +53,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.14-2020.09.28",
-                "frequency": "every"
-            },
             {
                 "date": "2020.10.12-2020.11.09",
                 "frequency": "every"
@@ -198,7 +177,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.10",
+                "date": "2020.10.06-2020.11.10",
                 "frequency": "every"
             }
         ],
@@ -214,64 +193,6 @@
     {
         "classroom": "",
         "dates": [
-            {
-                "date": "2020.09.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
-            },
-            {
-                "date": "2020.11.18-2020.12.16",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Быстрикова В.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Управление данными",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.02",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Сосенушкин С.Е",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Информационно-телекоммуникационные сети",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.16",
-                "frequency": "once"
-            },
             {
                 "date": "2020.10.07",
                 "frequency": "once"
@@ -298,9 +219,59 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.16",
+                "date": "2020.10.14",
                 "frequency": "once"
             },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18-2020.12.16",
+                "frequency": "throughout"
+            }
+        ],
+        "lecturer": "Быстрикова В.А",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Управление данными",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.11.18",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.12.02",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Сосенушкин С.Е",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Информационно-телекоммуникационные сети",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
             {
                 "date": "2020.10.21",
                 "frequency": "once"
@@ -323,42 +294,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09-2020.10.21",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Адамова Ю.С",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Интеллектуальные и экспертные системы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
+                "date": "2020.10.07",
+                "frequency": "once"
+            },
             {
-                "date": "2020.09.16-2020.10.28",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Адамова Ю.С",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Интеллектуальные и экспертные системы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.23-2020.10.21",
-                "frequency": "throughout"
+                "date": "2020.10.21",
+                "frequency": "once"
             },
             {
                 "date": "2020.11.11",
@@ -378,8 +319,33 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.30-2020.10.28",
-                "frequency": "throughout"
+                "date": "2020.10.07",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.21",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Адамова Ю.С",
+        "subgroup": "A",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Интеллектуальные и экспертные системы",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
             },
             {
                 "date": "2020.11.18",
@@ -399,12 +365,33 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.11.12",
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Адамова Ю.С",
+        "subgroup": "B",
+        "time": {
+            "end": "15:50",
+            "start": "12:20"
+        },
+        "title": "Интеллектуальные и экспертные системы",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08-2020.11.19",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Адамова Ю.С",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "12:00",
             "start": "8:30"
@@ -416,12 +403,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.11.19",
+                "date": "2020.10.15-2020.11.12",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Адамова Ю.С",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "12:00",
             "start": "8:30"
@@ -467,7 +454,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.29",
+                "date": "2020.10.08-2020.10.29",
                 "frequency": "every"
             }
         ],
@@ -484,8 +471,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.10.16",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
             }
         ],
         "lecturer": "Чеканин А.В",
@@ -501,9 +492,22 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.09.25",
+                "date": "2020.10.09-2020.12.04",
                 "frequency": "every"
-            },
+            }
+        ],
+        "lecturer": "Девятерикова Е.А",
+        "subgroup": "Common",
+        "time": {
+            "end": "14:00",
+            "start": "12:20"
+        },
+        "title": "Математическая статистика в технике",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
             {
                 "date": "2020.10.16-2020.12.25",
                 "frequency": "every"
@@ -516,23 +520,6 @@
             "start": "14:10"
         },
         "title": "Информационно-телекоммуникационные сети",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.25-2020.12.04",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Девятерикова Е.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Математическая статистика в технике",
         "type": "Lecture"
     },
     {
@@ -560,7 +547,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.12.18",
+                "date": "2020.10.09-2020.12.18",
                 "frequency": "every"
             }
         ],
@@ -588,27 +575,6 @@
             "start": "12:20"
         },
         "title": "Информационно-телекоммуникационные сети",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.12",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Прикладная физическая культура",
         "type": "Lecture"
     },
     {
@@ -649,7 +615,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.12.19",
+                "date": "2020.10.10-2020.12.19",
                 "frequency": "every"
             }
         ],

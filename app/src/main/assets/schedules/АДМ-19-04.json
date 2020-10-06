@@ -3,12 +3,12 @@
         "classroom": "355",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.26",
+                "date": "2020.10.05-2020.11.02",
                 "frequency": "throughout"
             }
         ],
         "lecturer": "Бабин М.С",
-        "subgroup": "A",
+        "subgroup": "B",
         "time": {
             "end": "22:50",
             "start": "19:40"
@@ -20,25 +20,12 @@
         "classroom": "350",
         "dates": [
             {
-                "date": "2020.09.14-2020.10.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Никич А.Н",
-        "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Интеллектуальные системы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "350",
-        "dates": [
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
             {
-                "date": "2020.09.21-2020.10.19",
-                "frequency": "throughout"
+                "date": "2020.10.19",
+                "frequency": "once"
             }
         ],
         "lecturer": "Никич А.Н",
@@ -54,12 +41,16 @@
         "classroom": "355",
         "dates": [
             {
-                "date": "2020.09.21-2020.11.02",
-                "frequency": "throughout"
+                "date": "2020.10.12",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.26",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бабин М.С",
-        "subgroup": "B",
+        "subgroup": "A",
         "time": {
             "end": "22:50",
             "start": "19:40"
@@ -68,21 +59,21 @@
         "type": "Laboratory"
     },
     {
-        "classroom": "",
+        "classroom": "350",
         "dates": [
             {
-                "date": "2020.09.08-2020.09.29",
-                "frequency": "every"
+                "date": "2020.10.12",
+                "frequency": "once"
             }
         ],
         "lecturer": "Никич А.Н",
-        "subgroup": "Common",
+        "subgroup": "B",
         "time": {
             "end": "22:50",
-            "start": "21:20"
+            "start": "19:40"
         },
         "title": "Интеллектуальные системы",
-        "type": "Seminar"
+        "type": "Laboratory"
     },
     {
         "classroom": "",
@@ -130,7 +121,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.10",
+                "date": "2020.10.06-2020.11.10",
                 "frequency": "every"
             }
         ],
@@ -147,7 +138,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.03",
+                "date": "2020.10.06-2020.11.03",
                 "frequency": "every"
             }
         ],
@@ -181,75 +172,49 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09-2020.10.21",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Нежметдинов Р.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Программируемые логические контроллеры в системах автоматизированного управления",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
+                "date": "2020.10.07",
+                "frequency": "once"
+            },
             {
-                "date": "2020.09.16-2020.10.28",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Нежметдинов Р.А",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Программируемые логические контроллеры в системах автоматизированного управления",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.02",
+                "date": "2020.10.21",
                 "frequency": "once"
             }
         ],
         "lecturer": "Нежметдинов Р.А",
-        "subgroup": "Common",
+        "subgroup": "B",
         "time": {
             "end": "19:30",
-            "start": "18:00"
+            "start": "16:00"
         },
         "title": "Программируемые логические контроллеры в системах автоматизированного управления",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.17-2020.10.29",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Ковалев И.А",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Разработка и интегрирование прикладных компонентов систем управления",
         "type": "Laboratory"
     },
     {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.11.05",
+                "date": "2020.10.14",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.28",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Нежметдинов Р.А",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Программируемые логические контроллеры в системах автоматизированного управления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08-2020.11.05",
                 "frequency": "throughout"
             }
         ],
@@ -266,8 +231,29 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.03-2020.10.08",
-                "frequency": "every"
+                "date": "2020.10.15",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.29",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Ковалев И.А",
+        "subgroup": "A",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Разработка и интегрирование прикладных компонентов систем управления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08",
+                "frequency": "once"
             }
         ],
         "lecturer": "Никич А.Н",
@@ -283,8 +269,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.03-2020.10.08",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
             }
         ],
         "lecturer": "Червоннова Н.Ю",
@@ -300,8 +286,29 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.10.09",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Червоннова Н.Ю",
+        "subgroup": "Common",
+        "time": {
+            "end": "21:10",
+            "start": "19:40"
+        },
+        "title": "Гетерогенные распределенные компьютерные управляющие системы и сети",
+        "type": "Seminar"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09",
+                "frequency": "once"
             }
         ],
         "lecturer": "Ковалев И.А",
@@ -317,8 +324,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04-2020.10.09",
-                "frequency": "every"
+                "date": "2020.10.09",
+                "frequency": "once"
             }
         ],
         "lecturer": "Ковалев И.А",
@@ -329,23 +336,6 @@
         },
         "title": "Хранение и защита компьютерной информации",
         "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.11-2020.10.16",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Червоннова Н.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Гетерогенные распределенные компьютерные управляющие системы и сети",
-        "type": "Seminar"
     },
     {
         "classroom": "",
@@ -368,24 +358,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Мартинов Г.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Операционные системы реального времени",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.05-2020.11.21",
+                "date": "2020.10.10-2020.11.21",
                 "frequency": "every"
             }
         ],
@@ -402,7 +375,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.05-2020.11.07",
+                "date": "2020.10.10-2020.11.07",
                 "frequency": "every"
             }
         ],
@@ -419,8 +392,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.17",
-                "frequency": "every"
+                "date": "2020.10.10",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Ковалев И.А",

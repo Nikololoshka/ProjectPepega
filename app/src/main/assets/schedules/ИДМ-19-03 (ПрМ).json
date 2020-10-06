@@ -3,10 +3,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21",
-                "frequency": "once"
-            },
-            {
                 "date": "2020.10.05",
                 "frequency": "once"
             }
@@ -24,7 +20,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.10.26",
+                "date": "2020.10.05-2020.10.26",
                 "frequency": "every"
             }
         ],
@@ -41,7 +37,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.09",
+                "date": "2020.10.05-2020.11.09",
                 "frequency": "every"
             }
         ],
@@ -58,7 +54,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.03",
+                "date": "2020.10.06-2020.11.03",
                 "frequency": "every"
             }
         ],
@@ -75,7 +71,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08-2020.11.10",
+                "date": "2020.10.06-2020.11.10",
                 "frequency": "every"
             }
         ],
@@ -92,11 +88,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.02-2020.09.16",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -121,12 +113,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.02-2020.09.16",
-                "frequency": "every"
+                "date": "2020.10.07",
+                "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.14",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Стихова О.В",
@@ -184,25 +176,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.10-2020.10.01",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Холщевникова Н.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Методы теории приближений",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.03-2020.10.08",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
             }
         ],
         "lecturer": "Холщевникова Н.Н",
@@ -218,7 +193,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.03-2020.10.22",
+                "date": "2020.10.08-2020.10.22",
                 "frequency": "every"
             }
         ],
@@ -232,66 +207,11 @@
         "type": "Lecture"
     },
     {
-        "classroom": "357(з)",
-        "dates": [
-            {
-                "date": "2020.09.18",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.02",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Яремко О.Э",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Методы стохастического анализа",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "357(з)",
-        "dates": [
-            {
-                "date": "2020.09.25",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Холщевникова Н.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Методы теории приближений",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.04",
+                "date": "2020.10.10",
                 "frequency": "once"
-            }
-        ],
-        "lecturer": "Михайлова М.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Социология культуры и межкультурные коммуникации",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.12-2020.10.10",
-                "frequency": "throughout"
             }
         ],
         "lecturer": "Бабарин С.С",
@@ -307,8 +227,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.12-2020.10.10",
-                "frequency": "throughout"
+                "date": "2020.10.10",
+                "frequency": "once"
             }
         ],
         "lecturer": "Мешков В.Г",
@@ -324,8 +244,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.17",
-                "frequency": "throughout"
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Мешков В.Г",
@@ -341,8 +261,8 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.19-2020.10.17",
-                "frequency": "throughout"
+                "date": "2020.10.17",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бабарин С.С",

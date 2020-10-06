@@ -3,8 +3,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.21-2020.10.19",
-                "frequency": "throughout"
+                "date": "2020.10.05",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.19",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бильчук М.В",
@@ -20,8 +24,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.28-2020.10.26",
-                "frequency": "throughout"
+                "date": "2020.10.12",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.26",
+                "frequency": "once"
             }
         ],
         "lecturer": "Бильчук М.В",
@@ -37,7 +45,24 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.07-2020.11.09",
+                "date": "2020.10.05-2020.11.16",
+                "frequency": "every"
+            }
+        ],
+        "lecturer": "Бильчук М.В",
+        "subgroup": "Common",
+        "time": {
+            "end": "19:30",
+            "start": "18:00"
+        },
+        "title": "Интегрированные системы управления ресурсами предприятия",
+        "type": "Lecture"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.05-2020.11.09",
                 "frequency": "every"
             }
         ],
@@ -54,24 +79,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.14-2020.11.16",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Бильчук М.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Интегрированные системы управления ресурсами предприятия",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.08-2020.11.03",
+                "date": "2020.10.06-2020.11.03",
                 "frequency": "every"
             }
         ],
@@ -88,11 +96,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.08",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.09.29-2020.11.17",
+                "date": "2020.10.06-2020.11.17",
                 "frequency": "every"
             }
         ],
@@ -109,16 +113,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.09",
+                "date": "2020.10.07",
                 "frequency": "once"
             },
             {
-                "date": "2020.09.16",
+                "date": "2020.10.14",
                 "frequency": "once"
-            },
-            {
-                "date": "2020.09.30-2020.10.14",
-                "frequency": "every"
             }
         ],
         "lecturer": "Водолажский Е.Ф",
@@ -134,11 +134,7 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.02-2020.09.16",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.09.30-2020.10.28",
+                "date": "2020.10.07-2020.10.28",
                 "frequency": "every"
             },
             {
@@ -163,12 +159,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.02-2020.09.16",
-                "frequency": "every"
+                "date": "2020.10.07",
+                "frequency": "once"
             },
             {
-                "date": "2020.09.30-2020.10.14",
-                "frequency": "every"
+                "date": "2020.10.14",
+                "frequency": "once"
             }
         ],
         "lecturer": "Стихова О.В",
@@ -226,23 +222,6 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.10.01-2020.10.29",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Саркисова И.О",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Системы оперативного управления цифровым производством",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
                 "date": "2020.10.08-2020.11.05",
                 "frequency": "throughout"
             }
@@ -260,8 +239,33 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.24-2020.10.15",
-                "frequency": "every"
+                "date": "2020.10.15",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.29",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Саркисова И.О",
+        "subgroup": "A",
+        "time": {
+            "end": "22:50",
+            "start": "19:40"
+        },
+        "title": "Системы оперативного управления цифровым производством",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Саркисова И.О",
@@ -277,8 +281,12 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.17-2020.10.15",
-                "frequency": "every"
+                "date": "2020.10.08",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.15",
+                "frequency": "once"
             }
         ],
         "lecturer": "Саркисова И.О",
@@ -311,85 +319,72 @@
         "classroom": "",
         "dates": [
             {
-                "date": "2020.09.11-2020.10.09",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Мешков В.Г",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Бизнес-архитектура предприятия",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.18-2020.10.16",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Коробов Н.А",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Суперкомпьютерные вычисления",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.18-2020.10.16",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Мешков В.Г",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Бизнес-архитектура предприятия",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.25-2020.10.23",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Коробов Н.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Суперкомпьютерные вычисления",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.09.04",
+                "date": "2020.10.09",
                 "frequency": "once"
             }
         ],
-        "lecturer": "Михайлова М.В",
-        "subgroup": "Common",
+        "lecturer": "Мешков В.Г",
+        "subgroup": "A",
         "time": {
-            "end": "17:40",
+            "end": "19:30",
             "start": "16:00"
         },
-        "title": "Социология культуры и межкультурные коммуникации",
-        "type": "Lecture"
+        "title": "Бизнес-архитектура предприятия",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.09",
+                "frequency": "once"
+            },
+            {
+                "date": "2020.10.23",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Коробов Н.А",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Суперкомпьютерные вычисления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Коробов Н.А",
+        "subgroup": "A",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Суперкомпьютерные вычисления",
+        "type": "Laboratory"
+    },
+    {
+        "classroom": "",
+        "dates": [
+            {
+                "date": "2020.10.16",
+                "frequency": "once"
+            }
+        ],
+        "lecturer": "Мешков В.Г",
+        "subgroup": "B",
+        "time": {
+            "end": "19:30",
+            "start": "16:00"
+        },
+        "title": "Бизнес-архитектура предприятия",
+        "type": "Laboratory"
     }
 ]
