@@ -6,17 +6,23 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 
 /**
  * Фрагмент главной страницы.
  */
-class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(),
+    View.OnClickListener, NewsPostAdapter.OnNewsClickListener {
 
     private var _scheduleStateful : StatefulLayout2? = null
     private val scheduleStateful get() = _scheduleStateful!!
@@ -59,11 +65,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         viewModel.scheduleData.observe(viewLifecycleOwner, Observer {
             val data = it ?: return@Observer
 
-            if (!viewModel.isScheduleDataValid()) {
-                viewModel.updateSchedule()
-                return@Observer
-            }
-
             if (data.empty) {
                 scheduleStateful.setState(StatefulLayout2.EMPTY)
             } else {
@@ -72,6 +73,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
                 scheduleStateful.setState(StatefulLayout2.CONTENT)
             }
         })
+
+        val glide = DrawableUtils.createGlide(this)
+        val adapter = NewsPostLatestAdapter(this, glide)
+        binding.newsLatest.adapter = adapter
+
+        // разделитель элементов
+        val itemDecoration = DividerItemDecoration(context, RecyclerView.VERTICAL)
+        binding.newsLatest.addItemDecoration(itemDecoration)
+
+        // новости
+        viewModel.newsData.observe(viewLifecycleOwner, Observer {
+            val data = it ?: return@Observer
+            adapter.submitList(data)
+        })
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (!viewModel.isScheduleDataValid()) {
+            viewModel.updateSchedule()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -130,6 +153,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
     override fun onDestroyView() {
         super.onDestroyView()
         _scheduleStateful = null
+    }
+
+    override fun onNewsClick(newsId: Int) {
+        navigateTo(R.id.to_news_viewer_fragment, NewsViewerFragment.createBundle(newsId))
     }
 
     companion object {

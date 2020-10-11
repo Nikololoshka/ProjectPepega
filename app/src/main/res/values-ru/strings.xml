@@ -61,6 +61,7 @@
     <string name="sch_remove_schedules">Будет удалено следующие число расписаний: %1$s</string>
     <string name="sch_successfully_added">Расписание: \'%1$s\' успешно добавлено</string>
     <string name="sch_failed_add">Расписание: \'%1$s\' не удалось добавить</string>
+    <string name="sch_without_subgroup">без подгруппы</string>
 
     <!-- repository -->
     <string name="repository">Репозиторий</string>
@@ -229,6 +230,7 @@
     <string name="widget_schedule_title">Виджет с расписанием</string>
     <string name="widget_schedule">Расписание виджета</string>
     <string name="widget_subgroup">Подгруппа виджета</string>
+    <string name="widget_show_subgroup">Показывать подгруппу</string>
     <string name="widget_schedule_add">Добавить виджет с расписанием</string>
     <string name="widget_schedule_update">Обновить виджет расписания</string>
     <string name="widget_schedule_type_marker">Маркер типа пары</string>

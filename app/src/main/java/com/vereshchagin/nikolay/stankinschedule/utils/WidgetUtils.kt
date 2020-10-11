@@ -46,7 +46,7 @@ class WidgetUtils {
         fun updateScheduleWidget(context: Context, scheduleName: String) {
             scheduleWidgets(context).forEach {
                 val data = ScheduleWidgetConfigureActivity.loadPref(context, it)
-                if (data.scheduleName() == scheduleName) {
+                if (data.scheduleName == scheduleName) {
                     val appWidgetManager = AppWidgetManager.getInstance(context)
                     ScheduleWidget.updateAppWidget(context, appWidgetManager, it)
                     return // из функции

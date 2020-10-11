@@ -324,11 +324,17 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     override fun onScheduleFavoriteSelected(favorite: String) {
         viewModel.setFavorite(favorite)
 
-        // отображение выбранной подгруппы
+        // текущая подгруппа
         val subgroup = ApplicationPreference.subgroup(requireContext())
+        var subgroupString = subgroup.toString(requireContext())
+        if (subgroupString.isEmpty()) {
+            subgroupString = getString(R.string.sch_without_subgroup)
+        }
+
+        // отображение выбранной подгруппы
         Snackbar.make(
             binding.schedulesLayout,
-            getString(R.string.sch_home_display_subgroup, subgroup.toString(requireContext())),
+            getString(R.string.sch_home_display_subgroup, subgroupString),
             Snackbar.LENGTH_LONG
         )
             .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)

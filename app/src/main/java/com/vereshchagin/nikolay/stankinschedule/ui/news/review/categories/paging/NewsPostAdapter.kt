@@ -89,6 +89,7 @@ class NewsPostAdapter(
         /**
          * Компаратор для сравнения новостей.
          */
+        @JvmStatic
         val POST_COMPARATOR = object : DiffUtil.ItemCallback<NewsItem>() {
 
             override fun areItemsTheSame(oldItem: NewsItem, newItem: NewsItem): Boolean =

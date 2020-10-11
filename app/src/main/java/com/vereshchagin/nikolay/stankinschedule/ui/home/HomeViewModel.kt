@@ -7,6 +7,7 @@ import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleData
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
+import com.vereshchagin.nikolay.stankinschedule.repository.NewsHomeRepository
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
@@ -19,11 +20,16 @@ import org.joda.time.LocalDate
  */
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
+
+    private val scheduleRepository = ScheduleRepository()
+    private val newsRepository = NewsHomeRepository(application)
+
     val scheduleData = MutableLiveData<HomeScheduleData>(null)
-    val repository = ScheduleRepository()
+    val newsData = newsRepository.latest()
 
     private var delta = 2
     private var subgroup = Subgroup.COMMON
+    private var isDisplay = true
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
@@ -42,7 +48,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         val path = SchedulePreference.createPath(getApplication(), favorite)
         val schedule: Schedule
         try {
-            schedule = repository.load(path)
+            schedule = scheduleRepository.load(path)
         } catch (ignored: Exception) {
             scheduleData.postValue(HomeScheduleData.empty())
             return
@@ -68,7 +74,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             start = start.plusDays(1)
         }
 
-        val isDisplay = ApplicationPreference.displaySubgroup(getApplication())
+        isDisplay = ApplicationPreference.displaySubgroup(getApplication())
         val scheduleName = if (subgroup != Subgroup.COMMON && isDisplay) {
             "$favorite ${subgroup.toString(getApplication())}"
         } else {
@@ -103,6 +109,11 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         }
         val newSubgroup = ApplicationPreference.subgroup(getApplication())
         if (newSubgroup != subgroup) {
+            return false
+        }
+
+        val newDisplay = ApplicationPreference.displaySubgroup(getApplication())
+        if (newDisplay != isDisplay) {
             return false
         }
 

@@ -84,7 +84,7 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
      * Обновляет новости в БД.
      */
     @MainThread
-    private fun refresh() : LiveData<NetworkState> {
+    fun refresh() : LiveData<NetworkState> {
         val networkState = MutableLiveData(NetworkState.LOADING)
 
         StankinNewsApi.getNews(api, newsSubdivision, 1).enqueue(

@@ -31,7 +31,7 @@ interface NewsDao {
      * Возвращает список (DataSource) из последних нескольких элемнтов.
      * @param max максимальное количество элементов.
      */
-    @Query("SELECT * FROM POSTS ORDER BY date ASC LIMIT :max")
+    @Query("SELECT * FROM POSTS ORDER BY date DESC LIMIT :max")
     fun latest(max: Int = 5) : DataSource.Factory<Int, NewsItem>
 
     /**

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup;
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout;
 import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils;
 import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidgetConfigureActivity;
@@ -73,8 +74,11 @@ public class SettingsWidgetFragment extends Fragment implements SettingsWidgetAd
         for (Integer id : ids) {
             ScheduleWidgetConfigureActivity.WidgetData data = ScheduleWidgetConfigureActivity.loadPref(context, id);
 
-            String scheduleName = data.scheduleName();
+            String scheduleName = data.getScheduleName();
             if (scheduleName != null) {
+                if (data.getDisplay() && data.getSubgroup() != Subgroup.COMMON) {
+                    scheduleName += " " + data.getSubgroup().toString(context);
+                }
                 names.add(scheduleName);
             }
         }
