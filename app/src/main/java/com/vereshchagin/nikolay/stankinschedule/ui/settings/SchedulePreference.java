@@ -7,8 +7,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.SubgroupEnum;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,7 +24,6 @@ public class SchedulePreference {
 
     private static ArrayList<String> mSchedulesList = null;
     private static String mFavoriteSchedule = null;
-    private static SubgroupEnum mSubgroup = null;
 
     private static long mChangeCount = 0;
 
@@ -94,27 +91,6 @@ public class SchedulePreference {
         return mFavoriteSchedule;
     }
 
-    public static void setSubgroup(@NonNull Context context, SubgroupEnum subgroup) {
-        if (mSubgroup == null) {
-            load(context);
-        }
-
-        if (mSubgroup == subgroup) {
-            return;
-        }
-
-        mSubgroup = subgroup;
-        save(context);
-    }
-
-    public static SubgroupEnum subgroup(@NonNull Context context) {
-        if (mSubgroup == null) {
-            load(context);
-        }
-
-        return mSubgroup;
-    }
-
     private static void load(@NonNull Context context) {
         SharedPreferences PREFERENCES =
                 context.getSharedPreferences(SCHEDULE_PREFERENCE, Context.MODE_PRIVATE);
@@ -128,9 +104,6 @@ public class SchedulePreference {
 
         mSchedulesList = schedules;
         mFavoriteSchedule = PREFERENCES.getString(FAVORITE_SCHEDULE, "");
-
-        String tag = PREFERENCES.getString(SUBGROUP, SubgroupEnum.COMMON.toString());
-        mSubgroup = SubgroupEnum.of(tag);
     }
 
     private static void save(@NonNull Context context) {
@@ -140,7 +113,6 @@ public class SchedulePreference {
         preferences.edit()
                 .putString(SCHEDULES, TextUtils.join(";", mSchedulesList))
                 .putString(FAVORITE_SCHEDULE, mFavoriteSchedule)
-                .putString(SUBGROUP, mSubgroup.toString())
                 .apply();
 
         ++mChangeCount;

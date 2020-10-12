@@ -155,7 +155,6 @@
                     android:id="@+id/news_latest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_news_post"
                     tools:itemCount="3"/>
 

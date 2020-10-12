@@ -78,11 +78,6 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
         };
     }
 
-    @Deprecated
-    public void submitList(@NonNull final List<com.vereshchagin.nikolay.stankinschedule.ui.schedule.model.pair.DateItem> data) {
-
-    }
-
     /**
      * Обновляет данные в адаптере.
      * @param date новые данные.

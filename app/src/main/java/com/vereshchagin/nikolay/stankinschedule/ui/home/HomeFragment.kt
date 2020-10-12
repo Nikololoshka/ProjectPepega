@@ -16,6 +16,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerFragmen
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
+import com.vereshchagin.nikolay.stankinschedule.utils.FixedLayoutManager
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 
 /**
@@ -24,7 +25,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     View.OnClickListener, NewsPostAdapter.OnNewsClickListener {
 
-    private var _scheduleStateful : StatefulLayout2? = null
+    private var _scheduleStateful: StatefulLayout2? = null
     private val scheduleStateful get() = _scheduleStateful!!
 
     private val viewModel by viewModels<HomeViewModel> {
@@ -45,8 +46,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        _scheduleStateful = StatefulLayout2(binding.scheduleLayout,
-            StatefulLayout2.LOADING, binding.scheduleLoading.loadingFragment)
+        _scheduleStateful = StatefulLayout2(
+            binding.scheduleLayout,
+            StatefulLayout2.LOADING, binding.scheduleLoading.loadingFragment
+        )
         scheduleStateful.addView(StatefulLayout2.EMPTY, binding.noFavoriteSchedule)
         scheduleStateful.addView(StatefulLayout2.CONTENT, binding.schedulePager)
 
@@ -76,7 +79,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
 
         val glide = DrawableUtils.createGlide(this)
         val adapter = NewsPostLatestAdapter(this, glide)
+        binding.newsLatest.layoutManager = FixedLayoutManager(requireContext()).apply {
+            fixedCount = 3
+        }
         binding.newsLatest.adapter = adapter
+        binding.newsLatest.setHasFixedSize(true)
 
         // разделитель элементов
         val itemDecoration = DividerItemDecoration(context, RecyclerView.VERTICAL)
@@ -104,7 +111,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.change_subgroup) {
-            val dialog =  ChangeSubgroupBottomSheet()
+            val dialog = ChangeSubgroupBottomSheet()
             dialog.setTargetFragment(this, REQUEST_SUBGROUP)
             dialog.show(parentFragmentManager, dialog.tag)
             return true
@@ -126,15 +133,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     }
 
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
             // расписание
             R.id.schedule_name -> {
                 val favorite = SchedulePreference.favorite(requireContext())
                 if (favorite != null && favorite.isNotEmpty()) {
-                    navigateTo(R.id.to_schedule_view_fragment,
+                    navigateTo(
+                        R.id.to_schedule_view_fragment,
                         ScheduleViewFragment.createBundle(
                             favorite, SchedulePreference.createPath(requireContext(), favorite)
-                        ))
+                        )
+                    )
                 } else {
                     navigateTo(R.id.nav_schedule_fragment)
                 }
