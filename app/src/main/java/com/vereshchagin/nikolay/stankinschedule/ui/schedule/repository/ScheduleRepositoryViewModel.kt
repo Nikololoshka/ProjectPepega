@@ -3,12 +3,12 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
 import android.app.Application
 import androidx.lifecycle.*
 import androidx.paging.*
-import com.vereshchagin.nikolay.stankinschedule.MainApplication
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryCategoryItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryDescription
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleServerRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.RepositoryCategorySource
 import com.vereshchagin.nikolay.stankinschedule.utils.State
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 /**
@@ -18,32 +18,59 @@ class ScheduleRepositoryViewModel(application: Application) : AndroidViewModel(a
 
     val description = MutableLiveData<State<RepositoryDescription>>(State.loading())
 
-    private val refreshTrigger = MutableLiveData<Unit>()
-    val categories = Transformations.switchMap(refreshTrigger) { refresh() }
+    private val refreshTrigger = MutableLiveData(true)
+    val categories = Transformations.switchMap(refreshTrigger) { refresh(it) }
 
-    private val repository = ScheduleServerRepository()
+    private val repository = ScheduleServerRepository(application.cacheDir)
 
     init {
-        viewModelScope.launch {
-            repository.description(this@ScheduleRepositoryViewModel::descriptionResult)
-        }
+        update()
     }
 
-    private fun descriptionResult(state: State<RepositoryDescription>) {
+    /**
+     * Вызывается, если пришел результат с описанием и необходимо загружать категории.
+     */
+    private fun descriptionResult(state: State<RepositoryDescription>, useCache: Boolean) {
         description.value = state
-        refreshTrigger.value = null
+        refreshTrigger.value = useCache
     }
 
-    private fun refresh(): LiveData<PagingData<RepositoryCategoryItem>> {
+    /**
+     * Возвращает название категории по индексу.
+     */
+    fun tabTitle(position: Int): String? {
+        val state = description.value
+        if (state is State.Success) {
+            return state.data.categories[position]
+        }
+        return null
+    }
+
+    /**
+     * Обновляет Pager для отображения категорий в репозитории.
+     */
+    private fun refresh(useCache: Boolean): LiveData<PagingData<RepositoryCategoryItem>> {
         val state = description.value
         if (state is State.Success) {
             return Pager(PagingConfig(1), state.data.categories.first()) {
-                RepositoryCategorySource(repository, getApplication<MainApplication>().cacheDir)
+                RepositoryCategorySource(repository, state.data.categories, useCache)
             }.liveData.cachedIn(viewModelScope)
         }
         return MutableLiveData(null)
     }
 
+    /**
+     * Обновляет содержимое репозитория
+     */
+    fun update(useCache: Boolean = true) {
+        description.value = State.loading()
+        viewModelScope.launch {
+            repository.description(useCache)
+                .collect {
+                    descriptionResult(it, useCache)
+                }
+        }
+    }
 
     /**
      * Фабрика для создания ViewModel.

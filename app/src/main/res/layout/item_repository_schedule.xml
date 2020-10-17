@@ -4,21 +4,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="scheduleName"
+            type="String" />
+    </data>
+
     <androidx.cardview.widget.CardView
         style="@style/CardStyle"
-        android:id="@+id/repository_schedule"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="0dp">
 
         <TextView
+            android:id="@+id/repository_schedule"
             style="@style/Text.Medium"
+            android:text="@{scheduleName}"
             android:textColor="?android:attr/textColorPrimary"
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/item_schedule_repository_padding"
+            android:gravity="center"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
             tools:text="ИДБ-17-09" />
 
     </androidx.cardview.widget.CardView>

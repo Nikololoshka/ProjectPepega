@@ -79,7 +79,7 @@
 
     <fragment
         android:id="@+id/nav_schedule_repository_fragment"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryFragment2"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryFragment"
         android:label="@string/repository" />
 
     <fragment

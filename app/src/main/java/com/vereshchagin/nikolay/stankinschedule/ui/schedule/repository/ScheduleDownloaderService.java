@@ -31,6 +31,7 @@ import java.util.Scanner;
 /**
  * Service по скачиванию расписания.
  */
+@Deprecated
 public class ScheduleDownloaderService extends IntentService {
 
     public static final String SCHEDULE_DOWNLOADED_EVENT = "schedule_downloaded_event";

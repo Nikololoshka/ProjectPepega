@@ -1,11 +1,8 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging
 
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemRepositoryCategoryBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryCategoryItem
 
@@ -13,20 +10,36 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.Reposi
  * Holder категории в репозитории.
  */
 class RepositoryCategoryHolder(
-    itemView: View
-) : RecyclerView.ViewHolder(itemView) {
+    private val binding: ItemRepositoryCategoryBinding
+) : RecyclerView.ViewHolder(binding.root) {
 
-    val binding = ItemRepositoryCategoryBinding.bind(itemView)
+    private val adapter = RepositoryScheduleItemAdapter()
 
+    init {
+        binding.repositoryCategory.adapter = adapter
+    }
+
+    /**
+     * Устанавливает данные в Holder.
+     */
     fun bind(item: RepositoryCategoryItem?) {
-        Log.d("MyLog", "bind: $item")
+        if (item != null) {
+            adapter.submitList(item)
+        }
+
+        binding.showContent = item != null
     }
 
     companion object {
+        /**
+         * Создает Holder для адаптера с категориями.
+         */
+        @JvmStatic
         fun create(parent: ViewGroup): RepositoryCategoryHolder {
             return RepositoryCategoryHolder(
-                LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_repository_category, parent, false)
+                ItemRepositoryCategoryBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                )
             )
         }
     }

@@ -1,98 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/stateful_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.schedule.repository.ScheduleRepositoryFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/repository_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+    <data>
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/app_bar_repository"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/appbar_repository_height" >
+        <variable
+            name="description"
+            type="com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryDescription" />
+    </data>
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:contentScrim="?android:attr/colorPrimary">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/background_repository"
-                    android:contentDescription="@string/repository_info_background"
-                    android:scaleType="centerCrop"
-                    android:alpha="0.3"
-                    app:layout_collapseMode="parallax" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="bottom"
-                    android:padding="@dimen/default_layout_padding">
-
-                    <TextView
-                        style="@style/Text.Medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/default_layout_padding"
-                        android:text="@string/repository_title"
-                        android:textColor="@color/colorTextLight" />
-
-                    <TextView
-                        android:id="@+id/repository_version"
-                        style="@style/Text.Subhead"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorTextLight"
-                        tools:text="Repository version: Spring-2020" />
-
-                    <TextView
-                        android:id="@+id/repository_last_update"
-                        style="@style/Text.Subhead"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorTextLight"
-                        tools:text="Last update: 07.02.20" />
-
-                </LinearLayout>
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_repository"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:itemCount="3"
-            tools:listitem="@layout/item_schedule_repository" />
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <FrameLayout
-        android:id="@+id/repository_empty"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/repository_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            style="@style/Text.Medium"
-            android:text="@string/repository_not_result"
+        <FrameLayout
+            android:id="@+id/repository_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:padding="@dimen/default_information_padding" />
+            android:layout_height="match_parent"
+            tools:context=".ui.schedule.repository.ScheduleRepositoryFragment">
 
-    </FrameLayout>
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/repository_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
 
-</com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout>
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/app_bar_repository"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/appbar_repository_height"
+                    android:theme="@style/AppTheme.AppBarOverlay">
+
+                    <com.google.android.material.appbar.CollapsingToolbarLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:contentScrim="@color/colorToolbar"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:alpha="0.3"
+                            android:contentDescription="@string/repository_info_background"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/background_repository"
+                            app:layout_collapseMode="parallax" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/default_layout_padding">
+
+                            <TextView
+                                style="@style/Text.Large"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="@dimen/default_layout_padding"
+                                android:text="@string/repository_server_title"
+                                android:textColor="@color/colorTextLight" />
+
+                            <TextView
+                                android:id="@+id/repository_last_update"
+                                style="@style/Text.Subhead"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{description.lastUpdate}"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/colorTextLight"
+                                tools:text="07.02.20" />
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.Toolbar
+                            android:id="@+id/toolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="?android:attr/actionBarSize"
+                            app:layout_collapseMode="pin"
+                            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tab_categories"
+                            android:layout_width="match_parent"
+                            android:layout_height="?android:attr/actionBarSize"
+                            android:layout_gravity="bottom"
+                            android:background="@android:color/transparent"
+                            app:tabGravity="start"
+                            app:tabMode="scrollable"
+                            app:tabTextColor="@color/colorTextLight" />
+
+                    </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/repository_categories"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <LinearLayout
+                android:id="@+id/repository_error_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/repository_error"
+                    style="@style/Text.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_information_padding"
+                    android:textAlignment="center"
+                    tools:text="Error message" />
+
+                <Button
+                    android:id="@+id/repository_error_retry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/retry" />
+
+            </LinearLayout>
+
+
+            <include
+                android:id="@+id/repository_loading"
+                layout="@layout/view_loading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible" />
+
+        </FrameLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</layout>
