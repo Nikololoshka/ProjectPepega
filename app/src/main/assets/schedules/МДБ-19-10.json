@@ -1,478 +1,431 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.12",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Харыбина И.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
         "title": "Теоретическая механика",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.12",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Харыбина И.Н",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Теоретическая механика",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.12",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Липатова А.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Метрология, стандартизация и сертификация",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.19"
             },
             {
-                "date": "2020.10.12",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.26"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Теоретическая механика",
+        "lecturer": "Харыбина И.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.26"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная графика",
         "lecturer": "Феофанов А.Н",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Компьютерная графика",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.05",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Липатова А.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Метрология, стандартизация и сертификация",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.19"
             },
             {
-                "date": "2020.10.13",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.26"
             }
-        ],
-        "lecturer": "",
+        ]
+    },
+    {
+        "title": "Метрология, стандартизация и сертификация",
+        "lecturer": "Липатова А.Б",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "18:00"
+            "start": "8:30",
+            "end": "10:10"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.26"
+            }
+        ]
+    },
+    {
         "title": "Физическая культура и спорт",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.13",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Филитов С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Сопротивление материалов",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.13",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Водолажский Е.Ф",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Социология",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.07",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.20"
             },
             {
-                "date": "2020.10.14",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.27"
             }
-        ],
-        "lecturer": "Разводова Н.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Методология выбора материалов и технологии в машиностроении",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Сопротивление материалов",
+        "lecturer": "Филитов С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.07",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.20"
             },
             {
-                "date": "2020.10.14",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.27"
             }
-        ],
-        "lecturer": "Разводова Н.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Методология выбора материалов и технологии в машиностроении",
-        "type": "Lecture"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Штанько А.Е",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Физика",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Бубнова Т.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
         "title": "Математика",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.15",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Разводова Н.М",
+        "lecturer": "Бубнова Т.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Неорганическая и органическая химия",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.08",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Сотова Е.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Механические и физические свойства материалов",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.20"
             },
             {
-                "date": "2020.10.15",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.27"
             }
-        ],
-        "lecturer": "Сотова Е.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Механические и физические свойства материалов",
-        "type": "Lecture"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.15",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Карелина Е.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Иностранный язык",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Аристархов П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Физика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Водолажский Е.Ф",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
         "title": "Социология",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Водолажский Е.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.09",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.20"
             },
             {
-                "date": "2020.10.16",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.27"
             }
-        ],
-        "lecturer": "Разводова Н.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Неорганическая и органическая химия",
-        "type": "Lecture"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Разводова Н.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Неорганическая и органическая химия",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Голова Е.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Компьютерная графика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Липатова А.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Метрология, стандартизация и сертификация",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Бубнова Т.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
         "title": "Математика",
-        "type": "Seminar"
+        "lecturer": "Бубнова Т.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.20"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.27"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Методология выбора материалов и технологии в машиностроении",
+        "lecturer": "Разводова Н.М",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Методология выбора материалов и технологии в машиностроении",
+        "lecturer": "Разводова Н.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Штанько А.Е",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Неорганическая и органическая химия",
+        "lecturer": "Разводова Н.М",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            }
+        ]
+    },
+    {
+        "title": "Механические и физические свойства материалов",
+        "lecturer": "Сотова Е.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.22"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            }
+        ]
+    },
+    {
+        "title": "Иностранный язык",
+        "lecturer": "Карелина Е.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.22"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Аристархов П.В",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Социология",
+        "lecturer": "Водолажский Е.Ф",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
+            }
+        ]
+    },
+    {
+        "title": "Неорганическая и органическая химия",
+        "lecturer": "Разводова Н.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная графика",
+        "lecturer": "Голова Е.В",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.24"
+            }
+        ]
+    },
+    {
+        "title": "Метрология, стандартизация и сертификация",
+        "lecturer": "Липатова А.Б",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.31"
+            }
+        ]
     }
 ]

@@ -1,506 +1,518 @@
 [
     {
-        "classroom": "443",
-        "dates": [
-            {
-                "date": "2020.11.23",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.07",
-                "frequency": "once"
-            }
-        ],
+        "title": "Бухгалтерский учет и анализ",
         "lecturer": "Иванова Т.В",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Бухгалтерский учет и анализ",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "443",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.11.30",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.23"
             },
             {
-                "date": "2020.12.14",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.07"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Бухгалтерский учет и анализ",
         "lecturer": "Иванова Т.В",
+        "type": "Laboratory",
         "subgroup": "B",
+        "classroom": "443",
         "time": {
-            "end": "15:50",
-            "start": "12:20"
+            "start": "12:20",
+            "end": "15:50"
         },
-        "title": "Бухгалтерский учет и анализ",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.19",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Чиркова В.О",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Стоимостный анализ",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.12.14",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Карелина Е.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Деловой иностранный язык",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.12.01",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.30"
             },
             {
-                "date": "2020.12.15",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.14"
             }
-        ],
-        "lecturer": "АмерАбдаллах Д.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Статистика",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Стоимостный анализ",
+        "lecturer": "Чиркова В.О",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.12.22",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.19"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Деловой иностранный язык",
+        "lecturer": "Карелина Е.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.19-2020.12.14"
+            }
+        ]
+    },
+    {
+        "title": "Статистика",
+        "lecturer": "АмерАбдаллах Д.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.01"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Маркетинг",
         "lecturer": "Попов Д.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Маркетинг",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.12.01",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.22"
             }
-        ],
-        "lecturer": "Карплюк Ю.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Бухгалтерский учет и анализ",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.11.17",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Карплюк Ю.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Бухгалтерский учет и анализ",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.12.08",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.01"
             }
-        ],
-        "lecturer": "Карелина Е.А",
+        ]
+    },
+    {
+        "title": "Бухгалтерский учет и анализ",
+        "lecturer": "Карплюк Ю.А",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "10:10",
-            "start": "8:30"
+            "start": "10:20",
+            "end": "12:00"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.17"
+            }
+        ]
+    },
+    {
         "title": "Деловой иностранный язык",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Карелина Е.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.08"
             }
-        ],
-        "lecturer": "Михайлова М.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Психология",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Михайлова М.В",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "start": "16:00",
+            "end": "17:40"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            }
+        ]
+    },
+    {
         "title": "Психология",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.16",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Назаренко К.М",
+        "lecturer": "Михайлова М.В",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Математическое моделирование бизнес-процессов",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
             }
-        ],
-        "lecturer": "Назаренко К.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Математическое моделирование бизнес-процессов",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.16",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гусева А.В",
+        "lecturer": "Назаренко К.М",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Маркетинг",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Математическое моделирование бизнес-процессов",
+        "lecturer": "Назаренко К.М",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.16"
             }
-        ],
-        "lecturer": "Гусева А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Маркетинг",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Гусева А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.12.16"
             }
-        ],
-        "lecturer": "Можаровская А.А",
+        ]
+    },
+    {
+        "title": "Маркетинг",
+        "lecturer": "Гусева А.В",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "start": "8:30",
+            "end": "10:10"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.16"
+            }
+        ]
+    },
+    {
         "title": "Страхование",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Можаровская А.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.12.10",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.19"
             }
-        ],
-        "lecturer": "Назаренко К.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Математическое моделирование бизнес-процессов",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Назаренко К.М",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.12.10"
             }
-        ],
-        "lecturer": "Можаровская А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Страхование",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.26",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Можаровская А.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Страхование",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.12.17",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.19"
             }
-        ],
-        "lecturer": "",
+        ]
+    },
+    {
+        "title": "Страхование",
+        "lecturer": "Можаровская А.А",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "10:10",
-            "start": "8:30"
+            "start": "10:20",
+            "end": "12:00"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.26"
+            }
+        ]
+    },
+    {
         "title": "Прикладная физическая культура",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
         "dates": [
             {
-                "date": "2020.12.11",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.22-2020.12.17"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Статистика",
         "lecturer": "АмерАбдаллах Д.А",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Статистика",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.12.18",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.12.11"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Статистика",
         "lecturer": "Девятерикова Е.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Статистика",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.23-2020.12.11",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.23-2020.12.18"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Стоимостный анализ",
         "lecturer": "Чиркова В.О",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Стоимостный анализ",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.12.11",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.23-2020.12.11"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Стоимостный анализ",
         "lecturer": "Ковалев А.П",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Стоимостный анализ",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.12.18",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.23-2020.12.11"
             }
-        ],
-        "lecturer": "Девятерикова Е.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Статистика",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Девятерикова Е.А",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.12.18"
             }
-        ],
-        "lecturer": "Водолажский Е.Ф",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Финансовое право",
-        "type": "Lecture"
+        ]
     },
     {
+        "title": "Финансовое право",
+        "lecturer": "Водолажский Е.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
         "dates": [
             {
-                "date": "2020.11.14-2020.11.28",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
             }
-        ],
-        "lecturer": "Водолажский Е.Ф",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Финансовое право",
-        "type": "Lecture"
+        ]
     },
     {
+        "title": "Финансовое право",
+        "lecturer": "Водолажский Е.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.28",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.11.14-2020.11.28"
             }
-        ],
-        "lecturer": "Водолажский Е.Ф",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Финансовое право",
-        "type": "Seminar"
+        "lecturer": "Водолажский Е.Ф",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.28"
+            }
+        ]
     }
 ]

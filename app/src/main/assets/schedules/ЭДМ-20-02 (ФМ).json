@@ -1,358 +1,269 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Карплюк Ю.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "18:00"
-        },
-        "title": "Теория и практика применения МСФО",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.26-2020.12.14",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Алешин В.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
         "title": "Методы социологических и прикладных исследований",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.12-2020.10.26",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.23",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.30",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Андреев В.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Корпоративные финансы",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Лукина С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Методы исследований в менеджменте",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Лукина С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Методы исследований в менеджменте",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.20-2020.12.08",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Алешин В.И",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "21:10",
-            "start": "19:40"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.26-2020.12.14"
+            }
+        ]
+    },
+    {
+        "title": "Корпоративные финансы",
+        "lecturer": "Андреев В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.26"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.30"
+            }
+        ]
+    },
+    {
         "title": "Методы социологических и прикладных исследований",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Алешин В.И",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.20",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.08"
             }
-        ],
-        "lecturer": "Андреев В.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Корпоративные финансы",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Андреев В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.27-2020.12.01",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.20"
             }
-        ],
-        "lecturer": "Шитов С.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Организация исследовательской деятельности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.10-2020.12.15",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Шитов С.Б",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.27-2020.12.01"
+            }
+        ]
+    },
+    {
         "title": "Организация исследовательской деятельности",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Шитов С.Б",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.11.10-2020.12.15"
             }
-        ],
-        "lecturer": "Карплюк Ю.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Управление оборотным капиталом",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Карплюк Ю.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.11.25-2020.12.09"
             }
-        ],
-        "lecturer": "Карплюк Ю.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Управление оборотным капиталом",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Карплюк Ю.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.11.25-2020.12.09",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.11.25-2020.12.09"
             }
-        ],
-        "lecturer": "Карплюк Ю.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Управление оборотным капиталом",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.25-2020.12.09",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Карплюк Ю.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Управление оборотным капиталом",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.26-2020.12.17",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Карплюк Ю.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "18:00"
-        },
         "title": "Теория и практика применения МСФО",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Карплюк Ю.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.11.26-2020.12.17"
             }
-        ],
-        "lecturer": "Андреев В.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Корпоративные финансы",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.29-2020.11.19",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Андреев В.Н",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.19"
+            }
+        ]
+    },
+    {
         "title": "Корпоративные финансы",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Андреев В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.10.23",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.29-2020.11.19"
             }
-        ],
-        "lecturer": "Бадалова А.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Управленческая экономика",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.10.23",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Бадалова А.Г",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Управленческая экономика",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.30-2020.11.20",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.23"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Управленческая экономика",
         "lecturer": "Бадалова А.Г",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Управленческая экономика",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.30-2020.12.18",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.23"
             }
-        ],
-        "lecturer": "Лукина С.В",
+        ]
+    },
+    {
+        "title": "Управленческая экономика",
+        "lecturer": "Бадалова А.Г",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "start": "19:40",
+            "end": "21:10"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.30-2020.11.20"
+            }
+        ]
+    },
+    {
         "title": "Методы исследований в менеджменте",
-        "type": "Seminar"
+        "lecturer": "Лукина С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.30-2020.12.18"
+            }
+        ]
     }
 ]

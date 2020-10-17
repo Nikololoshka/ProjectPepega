@@ -1,265 +1,227 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.10.26",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Солис П",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
         "title": "Нанотехнологии в машиностроении",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.10.19",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Солис П",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Нанотехнологии в машиностроении",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.13",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.19"
             },
             {
-                "date": "2020.10.20",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.26"
             }
-        ],
-        "lecturer": "Домнин П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Нанотехнологии в машиностроении",
+        "lecturer": "Солис П",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.11.03",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.19"
             }
-        ],
-        "lecturer": "Петрова И.К",
+        ]
+    },
+    {
+        "title": "Патентоведение и защита интеллектуальной собственности",
+        "lecturer": "Домнин П.В",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "18:00"
+            "start": "19:40",
+            "end": "21:10"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.20"
+            }
+        ]
+    },
+    {
         "title": "Технический иностранный язык",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Петрова И.К",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.14-2020.12.09",
-                "frequency": "throughout"
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.03"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
         "lecturer": "Новиков В.А",
+        "type": "Laboratory",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.07",
-                "frequency": "once"
+                "frequency": "throughout",
+                "date": "2020.10.28-2020.12.09"
             }
-        ],
-        "lecturer": "Домнин П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "type": "Lecture"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.22-2020.12.03",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Клюев М.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
         "title": "Основы цифровых производств в машиностроении",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "Клюев М.Б",
+        "type": "Laboratory",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.29",
-                "frequency": "once"
+                "frequency": "throughout",
+                "date": "2020.10.22-2020.12.03"
             }
-        ],
-        "lecturer": "Домнин П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Патентоведение и защита интеллектуальной собственности",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "Домнин П.В",
+        "type": "Laboratory",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.29"
             }
-        ],
-        "lecturer": "Ягольницер О.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Методология научных исследований в обеспечении инженерной защиты окружающей среды",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Ягольницер О.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.11.13",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.05"
             }
-        ],
-        "lecturer": "Букейханов Н.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Современные проблемы науки в области обеспечения безопасности",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.11.06",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Букейханов Н.Р",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Современные проблемы науки в области обеспечения безопасности",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.10",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.17",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.13"
             }
-        ],
-        "lecturer": "Клюев М.Б",
+        ]
+    },
+    {
+        "title": "Современные проблемы науки в области обеспечения безопасности",
+        "lecturer": "Букейханов Н.Р",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.06"
+            }
+        ]
+    },
+    {
         "title": "Основы цифровых производств в машиностроении",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.12.05",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Кутин А.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Основы цифровых производств в машиностроении",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.12.05",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.12.05"
             }
-        ],
-        "lecturer": "Крутов А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Крутов А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.14",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.12.05"
             }
-        ],
-        "lecturer": "Ягольницер О.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Методология научных исследований в обеспечении инженерной защиты окружающей среды",
-        "type": "Seminar"
+        "lecturer": "Ягольницер О.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.14"
+            }
+        ]
     }
 ]

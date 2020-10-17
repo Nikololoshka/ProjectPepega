@@ -1,542 +1,504 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.12",
-                "frequency": "once"
-            }
-        ],
+        "title": "Программирование и основы алгоритмизации",
         "lecturer": "Пушков Р.Л",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Программирование и основы алгоритмизации",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.05",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.19"
             },
             {
-                "date": "2020.10.12",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.26"
             }
-        ],
-        "lecturer": "Алешин С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Алешин С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.05",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.19"
             },
             {
-                "date": "2020.10.12",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.26"
             }
-        ],
-        "lecturer": "Багдасаров Д.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Философия",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Багдасаров Д.Р",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.05",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.19"
             },
             {
-                "date": "2020.10.12",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.26"
             }
-        ],
-        "lecturer": "Аверцев В.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Электротехника",
-        "type": "Lecture"
+        ]
     },
     {
+        "title": "Электротехника",
+        "lecturer": "Аверцев В.И",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.06",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.26"
             }
-        ],
-        "lecturer": "Чеканин А.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Сопротивление материалов",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гончарова В.А",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Компьютерная графика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.13",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Чеканин А.В",
-        "subgroup": "A",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "12:20"
+            "start": "12:20",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.20"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная графика",
+        "lecturer": "Гончарова В.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.20"
+            }
+        ]
+    },
+    {
         "title": "Сопротивление материалов",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.13",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гончарова В.А",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Компьютерная графика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.13",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Харыбина И.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Теоретическая механика",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.13",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Харыбина И.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Теоретическая механика",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Аверцев В.И",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Электротехника",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Мартемьянова Н.С",
+        "lecturer": "Чеканин А.В",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Программирование и основы алгоритмизации",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.14",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.27"
             }
-        ],
-        "lecturer": "Аверцев В.И",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Электротехника",
-        "type": "Laboratory"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Мартемьянова Н.С",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Программирование и основы алгоритмизации",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Прикладная физическая культура",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.15",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гончарова В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
         "title": "Компьютерная графика",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Гончарова В.А",
+        "type": "Laboratory",
+        "subgroup": "B",
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.08",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.27"
+            }
+        ]
+    },
+    {
+        "title": "Теоретическая механика",
+        "lecturer": "Харыбина И.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.20"
             },
             {
-                "date": "2020.10.15",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.27"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Теоретическая механика",
+        "lecturer": "Харыбина И.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.20"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.27"
+            }
+        ]
+    },
+    {
+        "title": "Электротехника",
+        "lecturer": "Аверцев В.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            }
+        ]
+    },
+    {
+        "title": "Программирование и основы алгоритмизации",
+        "lecturer": "Мартемьянова Н.С",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            }
+        ]
+    },
+    {
+        "title": "Электротехника",
+        "lecturer": "Аверцев В.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Программирование и основы алгоритмизации",
+        "lecturer": "Мартемьянова Н.С",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Прикладная физическая культура",
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная графика",
+        "lecturer": "Гончарова В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.22"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
         "lecturer": "Карпова Е.Е",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Физика",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.08",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.22"
             },
             {
-                "date": "2020.10.15",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.29"
             }
-        ],
-        "lecturer": "Филитов С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Сопротивление материалов",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Филитов С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.08",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.22"
             },
             {
-                "date": "2020.10.15",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.29"
             }
-        ],
-        "lecturer": "Надыкто О.Б",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Математика",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Байдин А.Э",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Физика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Алешин С.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Алешин С.В",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Байдин А.Э",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Физика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Надыкто О.Б",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Математика",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
         "dates": [
             {
-                "date": "2020.10.10",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.22"
             },
             {
-                "date": "2020.10.17",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.29"
             }
-        ],
-        "lecturer": "Аверцев В.И",
-        "subgroup": "Common",
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Байдин А.Э",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "start": "12:20",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Байдин А.Э",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
+            }
+        ]
+    },
+    {
+        "title": "Математика",
+        "lecturer": "Надыкто О.Б",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
+            }
+        ]
+    },
+    {
         "title": "Электротехника",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Аверцев В.И",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.10",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.17",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.24"
             }
-        ],
-        "lecturer": "Багдасаров Д.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Философия",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Багдасаров Д.Р",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.24"
             },
             {
-                "date": "2020.10.17",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.31"
             }
-        ],
-        "lecturer": "Петрова И.К",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Иностранный язык",
-        "type": "Seminar"
+        "lecturer": "Петрова И.К",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.31"
+            }
+        ]
     }
 ]

@@ -1,739 +1,699 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.02",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Ефромеев Н.М",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Информатика и информационно-коммуникационные системы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.16",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Красновский А.Н",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
         "title": "Материаловедение",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.12-2020.11.09",
-                "frequency": "throughout"
-            }
-        ],
         "lecturer": "Красновский А.Н",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Материаловедение",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.12-2020.11.09",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Ефромеев Н.М",
+        "type": "Laboratory",
         "subgroup": "B",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "16:00"
+            "start": "16:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.19-2020.11.16"
+            }
+        ]
+    },
+    {
         "title": "Информатика и информационно-коммуникационные системы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.10.26",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Красновский А.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Материаловедение",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.12-2020.12.07",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Артемьева М.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Здоровьесберегающие технологии",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0407",
-        "dates": [
-            {
-                "date": "2020.11.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Кулизаде Д.И",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Основы трибоэкологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0407",
-        "dates": [
-            {
-                "date": "2020.11.24",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Кулизаде Д.И",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Основы трибоэкологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.10.27",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Гвоздкова С.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Инженерно-экологическое обеспечение безопасности машиностроительного производства",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.11.10",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Ефромеев Н.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Информатика и информационно-коммуникационные системы",
-        "type": "Lecture"
-    },
-    {
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.12.08",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Шварцбург Л.Э",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Основы трибоэкологии",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.08",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.19"
             },
             {
-                "date": "2020.12.15",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.02"
             }
-        ],
-        "lecturer": "Шварцбург Л.Э",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Основы трибоэкологии",
-        "type": "Lecture"
+        ]
     },
     {
+        "title": "Материаловедение",
+        "lecturer": "Красновский А.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.12.08",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.26"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.09"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Информатика и информационно-коммуникационные системы",
+        "lecturer": "Ефромеев Н.М",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.26"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.09"
+            }
+        ]
+    },
+    {
+        "title": "Материаловедение",
+        "lecturer": "Красновский А.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.26"
+            }
+        ]
+    },
+    {
+        "title": "Здоровьесберегающие технологии",
+        "lecturer": "Артемьева М.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.19-2020.12.07"
+            }
+        ]
+    },
+    {
+        "title": "Основы трибоэкологии",
+        "lecturer": "Кулизаде Д.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "0407",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.17"
+            }
+        ]
+    },
+    {
+        "title": "Основы трибоэкологии",
+        "lecturer": "Кулизаде Д.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0407",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.24"
+            }
+        ]
+    },
+    {
+        "title": "Инженерно-экологическое обеспечение безопасности машиностроительного производства",
+        "lecturer": "Гвоздкова С.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.20"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.27"
+            }
+        ]
+    },
+    {
+        "title": "Информатика и информационно-коммуникационные системы",
+        "lecturer": "Ефромеев Н.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.10"
+            }
+        ]
+    },
+    {
+        "title": "Основы трибоэкологии",
+        "lecturer": "Шварцбург Л.Э",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.08"
+            }
+        ]
+    },
+    {
+        "title": "Основы трибоэкологии",
+        "lecturer": "Шварцбург Л.Э",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.08"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Инженерно-экологическое обеспечение безопасности машиностроительного производства",
         "lecturer": "Иванова Н.А",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "10:10",
-            "start": "8:30"
+            "start": "8:30",
+            "end": "10:10"
         },
-        "title": "Инженерно-экологическое обеспечение безопасности машиностроительного производства",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0407",
         "dates": [
             {
-                "date": "2020.12.02",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.08"
             }
-        ],
-        "lecturer": "Кулизаде Д.И",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Основы трибоэкологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Артемьева М.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Здоровьесберегающие технологии",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Михайлова М.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Психология",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Нелюбова С.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Культурология",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.25",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Сергеев Ю.Д",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.11.25",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Сергеев Ю.Д",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.19",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.03",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Артемьева М.С",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Здоровьесберегающие технологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.26",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.10",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Артемьева М.С",
+        "lecturer": "Кулизаде Д.И",
+        "type": "Laboratory",
         "subgroup": "B",
+        "classroom": "0407",
         "time": {
-            "end": "19:30",
-            "start": "16:00"
+            "start": "8:30",
+            "end": "12:00"
         },
-        "title": "Здоровьесберегающие технологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.08-2020.12.17",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.12.02"
             }
-        ],
-        "lecturer": "",
+        ]
+    },
+    {
+        "title": "Психология",
+        "lecturer": "Михайлова М.В",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "start": "16:00",
+            "end": "17:40"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            }
+        ]
+    },
+    {
+        "title": "Культурология",
+        "lecturer": "Нелюбова С.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            }
+        ]
+    },
+    {
+        "title": "Электротехника и электроника",
+        "lecturer": "Сергеев Ю.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.25"
+            }
+        ]
+    },
+    {
+        "title": "Электротехника и электроника",
+        "lecturer": "Сергеев Ю.Д",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
+            }
+        ]
+    },
+    {
+        "title": "Здоровьесберегающие технологии",
+        "lecturer": "Артемьева М.С",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.12.03"
+            }
+        ]
+    },
+    {
+        "title": "Здоровьесберегающие технологии",
+        "lecturer": "Артемьева М.С",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.26"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.12.10"
+            }
+        ]
+    },
+    {
         "title": "Прикладная физическая культура",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.12.17"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Экологически чистые и ресурсосберегающие технологии",
         "lecturer": "Кириллов А.К",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Экологически чистые и ресурсосберегающие технологии",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.08",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.15",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.19"
             }
-        ],
-        "lecturer": "Рязанов Д.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Экологически чистые и ресурсосберегающие технологии",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.22-2020.11.12",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Артемьева М.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
         "title": "Здоровьесберегающие технологии",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Артемьева М.С",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.23-2020.11.20",
-                "frequency": "throughout"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.12"
             }
-        ],
-        "lecturer": "Сергеев Ю.Д",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Электротехника и электроника",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "415",
-        "dates": [
-            {
-                "date": "2020.10.30-2020.11.27",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Кириллов А.К",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Экологически чистые и ресурсосберегающие технологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "415",
-        "dates": [
-            {
-                "date": "2020.11.06-2020.12.04",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Кириллов А.К",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Экологически чистые и ресурсосберегающие технологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0407",
-        "dates": [
-            {
-                "date": "2020.12.11",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Кулизаде Д.И",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Основы трибоэкологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0407",
-        "dates": [
-            {
-                "date": "2020.10.30-2020.12.11",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Гвоздкова С.И",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Инженерно-экологическое обеспечение безопасности машиностроительного производства",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.30-2020.11.27",
-                "frequency": "throughout"
-            }
-        ],
         "lecturer": "Сергеев Ю.Д",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0407",
-        "dates": [
-            {
-                "date": "2020.12.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Кулизаде Д.И",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Основы трибоэкологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0407",
-        "dates": [
-            {
-                "date": "2020.11.06-2020.12.18",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Гвоздкова С.И",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Инженерно-экологическое обеспечение безопасности машиностроительного производства",
-        "type": "Laboratory"
-    },
-    {
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.09",
-                "frequency": "once"
+                "frequency": "throughout",
+                "date": "2020.10.23-2020.11.20"
+            }
+        ]
+    },
+    {
+        "title": "Экологически чистые и ресурсосберегающие технологии",
+        "lecturer": "Кириллов А.К",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "415",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.30-2020.11.27"
+            }
+        ]
+    },
+    {
+        "title": "Экологически чистые и ресурсосберегающие технологии",
+        "lecturer": "Кириллов А.К",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "415",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.06-2020.12.04"
+            }
+        ]
+    },
+    {
+        "title": "Основы трибоэкологии",
+        "lecturer": "Кулизаде Д.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0407",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.11"
+            }
+        ]
+    },
+    {
+        "title": "Инженерно-экологическое обеспечение безопасности машиностроительного производства",
+        "lecturer": "Гвоздкова С.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0407",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.30-2020.12.11"
+            }
+        ]
+    },
+    {
+        "title": "Электротехника и электроника",
+        "lecturer": "Сергеев Ю.Д",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.30-2020.11.27"
+            }
+        ]
+    },
+    {
+        "title": "Основы трибоэкологии",
+        "lecturer": "Кулизаде Д.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "0407",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.18"
+            }
+        ]
+    },
+    {
+        "title": "Инженерно-экологическое обеспечение безопасности машиностроительного производства",
+        "lecturer": "Гвоздкова С.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "0407",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.06-2020.12.18"
+            }
+        ]
+    },
+    {
+        "title": "Основы трибоэкологии",
+        "lecturer": "Шварцбург Л.Э",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Основы трибоэкологии",
+        "lecturer": "Кулизаде Д.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0407",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.28"
             },
             {
-                "date": "2020.10.16",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.12"
             }
-        ],
-        "lecturer": "Шварцбург Л.Э",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Основы трибоэкологии",
-        "type": "Lecture"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.10.23",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Шварцбург Л.Э",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
         "title": "Основы трибоэкологии",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0407",
-        "dates": [
-            {
-                "date": "2020.11.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.12",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Кулизаде Д.И",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Основы трибоэкологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0407",
-        "dates": [
-            {
-                "date": "2020.12.05",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Кулизаде Д.И",
+        "type": "Laboratory",
         "subgroup": "B",
+        "classroom": "0407",
         "time": {
-            "end": "15:50",
-            "start": "12:20"
+            "start": "12:20",
+            "end": "15:50"
         },
-        "title": "Основы трибоэкологии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.10-2020.10.31",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.12.05"
             }
-        ],
-        "lecturer": "Нелюбова С.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Культурология",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.10.31",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Михайлова М.В",
+        "lecturer": "Нелюбова С.М",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Психология",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.10",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.24"
             },
             {
-                "date": "2020.10.17",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.31"
             }
-        ],
-        "lecturer": "Сергеев Ю.Д",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Психология",
+        "lecturer": "Михайлова М.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.10.24",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.31"
             }
-        ],
-        "lecturer": "Кулизаде Д.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Основы трибоэкологии",
-        "type": "Seminar"
+        "lecturer": "Кулизаде Д.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.24"
+            }
+        ]
     }
 ]

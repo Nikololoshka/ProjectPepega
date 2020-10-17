@@ -1,811 +1,764 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Дорожкина О.К",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Управление проектами",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.19",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.02",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Дорожкина О.К",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
         "title": "Управление логистическими системами",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.23",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Шинкевич И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Экономический анализ деятельности предприятия",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.23",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Дорожкина О.К",
+        "type": "Laboratory",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Управление проектами",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.11.16",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Шинкевич И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Экономический анализ деятельности предприятия",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Пополитова С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Финансовый менеджмент",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.30-2020.12.14",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Дорожкина О.К",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Управление проектами",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.23",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.19"
             },
             {
-                "date": "2020.11.30",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.02"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Экономический анализ деятельности предприятия",
         "lecturer": "Шинкевич И.А",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Производственный и операционный менеджмент",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.11.23",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.23"
             }
-        ],
-        "lecturer": "Пополитова С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Финансовый менеджмент",
-        "type": "Lecture"
+        ]
     },
     {
+        "title": "Управление проектами",
+        "lecturer": "Дорожкина О.К",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.12.07",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.23"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Экономический анализ деятельности предприятия",
         "lecturer": "Шинкевич И.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Производственный и операционный менеджмент",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.12.07",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.16"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Финансовый менеджмент",
         "lecturer": "Пополитова С.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Финансовый менеджмент",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.12.21",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.14"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Управление проектами",
+        "lecturer": "Дорожкина О.К",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.30-2020.12.14"
+            }
+        ]
+    },
+    {
+        "title": "Производственный и операционный менеджмент",
+        "lecturer": "Шинкевич И.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.30"
+            }
+        ]
+    },
+    {
+        "title": "Финансовый менеджмент",
+        "lecturer": "Пополитова С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.23"
+            }
+        ]
+    },
+    {
+        "title": "Производственный и операционный менеджмент",
+        "lecturer": "Шинкевич И.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.07"
+            }
+        ]
+    },
+    {
+        "title": "Финансовый менеджмент",
+        "lecturer": "Пополитова С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.07"
+            }
+        ]
+    },
+    {
+        "title": "Финансовый менеджмент",
         "lecturer": "Чиркова В.О",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Финансовый менеджмент",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.12.21",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.21"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Финансовый менеджмент",
         "lecturer": "Чиркова В.О",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Финансовый менеджмент",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.12.21",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.21"
             }
-        ],
-        "lecturer": "Крючкова Е.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Инвестиционный анализ",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Крючкова Е.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.11.03-2020.12.15",
-                "frequency": "throughout"
+                "frequency": "once",
+                "date": "2020.12.21"
             }
-        ],
-        "lecturer": "Бычкова Н.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Проектирование бизнес-процессов",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "Бычкова Н.А",
+        "type": "Laboratory",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.06",
-                "frequency": "once"
+                "frequency": "throughout",
+                "date": "2020.11.03-2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Экономический анализ деятельности предприятия",
+        "lecturer": "Шинкевич И.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.17"
+            }
+        ]
+    },
+    {
+        "title": "Экономический анализ деятельности предприятия",
+        "lecturer": "Шинкевич И.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.10"
+            }
+        ]
+    },
+    {
+        "title": "Производственный и операционный менеджмент",
+        "lecturer": "Шинкевич И.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.20"
             },
             {
-                "date": "2020.12.15",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Шинкевич И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Производственный и операционный менеджмент",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Шинкевич И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Экономический анализ деятельности предприятия",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Шинкевич И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Экономический анализ деятельности предприятия",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.13-2020.11.17",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Шинкевич И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Экономический анализ деятельности предприятия",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.13-2020.11.10",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Шинкевич И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Экономический анализ деятельности предприятия",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.13-2020.10.27",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.27"
             },
             {
-                "date": "2020.11.10",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.10"
             }
-        ],
-        "lecturer": "Шинкевич И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Производственный и операционный менеджмент",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Производственный и операционный менеджмент",
+        "lecturer": "Шинкевич И.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.11.17",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Производственный и операционный менеджмент",
+        "lecturer": "Шинкевич И.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.17"
             },
             {
-                "date": "2020.12.15",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.15"
             }
-        ],
-        "lecturer": "Шинкевич И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Производственный и операционный менеджмент",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.21",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Чиркова В.О",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
         "title": "Финансовый менеджмент",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.16",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Крючкова Е.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Инвестиционный анализ",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.12.23",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Крючкова Е.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Инвестиционный анализ",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Крючкова Е.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Инвестиционный анализ",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.21",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Чиркова В.О",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Финансовый менеджмент",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.12.23",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.21"
             }
-        ],
-        "lecturer": "Крючкова Е.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Инвестиционный анализ",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Крючкова Е.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.12.10",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.12.16"
             }
-        ],
-        "lecturer": "Пополитова С.В",
+        ]
+    },
+    {
+        "title": "Инвестиционный анализ",
+        "lecturer": "Крючкова Е.В",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "start": "14:10",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.23"
+            }
+        ]
+    },
+    {
+        "title": "Инвестиционный анализ",
+        "lecturer": "Крючкова Е.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Финансовый менеджмент",
+        "lecturer": "Чиркова В.О",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Инвестиционный анализ",
+        "lecturer": "Крючкова Е.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.23"
+            }
+        ]
+    },
+    {
         "title": "Методы оптимальных решений",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Пополитова С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.12",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.12.10"
             }
-        ],
-        "lecturer": "Дорожкина О.К",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Управление логистическими системами",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.19",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Дорожкина О.К",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Управление проектами",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.12"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Управление проектами",
         "lecturer": "Дорожкина О.К",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "start": "14:10",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.19"
+            }
+        ]
+    },
+    {
         "title": "Управление проектами",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Дорожкина О.К",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.19"
             }
-        ],
-        "lecturer": "Пополитова С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Финансовый менеджмент",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.03",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Пополитова С.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Финансовый менеджмент",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.12.24",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.19"
             }
-        ],
-        "lecturer": "Крючкова Е.В",
+        ]
+    },
+    {
+        "title": "Финансовый менеджмент",
+        "lecturer": "Пополитова С.В",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "start": "14:10",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.03"
+            }
+        ]
+    },
+    {
         "title": "Инвестиционный анализ",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Крючкова Е.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.12.04",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.12.24"
             }
-        ],
-        "lecturer": "Дорожкина О.К",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Управление логистическими системами",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Дорожкина О.К",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.12.18",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.23-2020.12.04"
             }
-        ],
-        "lecturer": "Пополитова С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Методы оптимальных решений",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Пополитова С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.12.18",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.12.18"
             }
-        ],
-        "lecturer": "Шинкевич И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Производственный и операционный менеджмент",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Шинкевич И.А",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.12.18",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.23-2020.12.18"
             }
-        ],
-        "lecturer": "Пополитова С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Методы оптимальных решений",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.25",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Пополитова С.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Методы оптимальных решений",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.10.24",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.23-2020.12.18"
             }
-        ],
-        "lecturer": "Бычкова Н.А",
+        ]
+    },
+    {
+        "title": "Методы оптимальных решений",
+        "lecturer": "Пополитова С.В",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "start": "12:20",
+            "end": "14:00"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.25"
+            }
+        ]
+    },
+    {
         "title": "Проектирование бизнес-процессов",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Бычкова Н.А",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.31",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.24"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование бизнес-процессов",
+        "lecturer": "Бычкова Н.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.31"
             },
             {
-                "date": "2020.11.07",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.07"
             }
-        ],
-        "lecturer": "Бычкова Н.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Проектирование бизнес-процессов",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Проектирование бизнес-процессов",
+        "lecturer": "Бычкова Н.А",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
             }
-        ],
-        "lecturer": "Бычкова Н.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Проектирование бизнес-процессов",
-        "type": "Lecture"
+        ]
     },
     {
+        "title": "Проектирование бизнес-процессов",
+        "lecturer": "Бычкова Н.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.11.14-2020.12.19",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.11.14-2020.12.19"
             }
-        ],
-        "lecturer": "Бычкова Н.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Проектирование бизнес-процессов",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Проектирование бизнес-процессов",
+        "lecturer": "Бычкова Н.А",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.11.14-2020.12.19",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.11.14-2020.12.19"
             }
-        ],
-        "lecturer": "Бычкова Н.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Проектирование бизнес-процессов",
-        "type": "Lecture"
+        ]
     }
 ]

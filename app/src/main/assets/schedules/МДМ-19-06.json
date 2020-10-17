@@ -1,343 +1,322 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.09-2020.12.14",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Байкин И.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
         "title": "Деловые коммуникации",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.09-2020.12.14",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Байкин И.А",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "18:00"
+            "start": "19:40",
+            "end": "21:10"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.09-2020.12.14"
+            }
+        ]
+    },
+    {
         "title": "Деловые коммуникации",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "ТехП 11",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.11.17",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Чурилин А.В",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Технологическое оборудование машиностроительных производств",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 11",
-        "dates": [
-            {
-                "date": "2020.10.13-2020.11.24",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Чурилин А.В",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Технологическое оборудование машиностроительных производств",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.21",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.25",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Вишенков М.А",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Перспективные технологии и процессы заготовительного производства",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.21",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.25",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Хайбуллов К.А",
-        "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Производственный инжиниринг",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.02",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Хайбуллов К.А",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Производственный инжиниринг",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Вишенков М.А",
-        "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Перспективные технологии и процессы заготовительного производства",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Лукина С.В",
+        "lecturer": "Байкин И.А",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "18:00"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.09-2020.12.14"
+            }
+        ]
+    },
+    {
+        "title": "Технологическое оборудование машиностроительных производств",
+        "lecturer": "Чурилин А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.20-2020.11.17"
+            }
+        ]
+    },
+    {
+        "title": "Технологическое оборудование машиностроительных производств",
+        "lecturer": "Чурилин А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.27-2020.11.24"
+            }
+        ]
+    },
+    {
+        "title": "Производственный инжиниринг",
+        "lecturer": "Хайбуллов К.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.25"
+            }
+        ]
+    },
+    {
+        "title": "Перспективные технологии и процессы заготовительного производства",
+        "lecturer": "Вишенков М.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.25"
+            }
+        ]
+    },
+    {
+        "title": "Производственный инжиниринг",
+        "lecturer": "Хайбуллов К.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.12.02"
+            }
+        ]
+    },
+    {
+        "title": "Перспективные технологии и процессы заготовительного производства",
+        "lecturer": "Вишенков М.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
         "title": "Информационные ресурсы и технологии в менеджменте",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Лукина С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Перспективные технологии и процессы заготовительного производства",
         "lecturer": "Коробова Н.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Перспективные технологии и процессы заготовительного производства",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.10.29",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.19"
             }
-        ],
-        "lecturer": "Кириллов А.К",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Управление качеством изделия",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.29-2020.12.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Лукина С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "21:20"
-        },
         "title": "Информационные ресурсы и технологии в менеджменте",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Лукина С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "21:20",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.09",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.29-2020.12.03"
             }
-        ],
-        "lecturer": "Вишенков М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Перспективные технологии и процессы заготовительного производства",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.10.30",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Шашин А.Д",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Производственный инжиниринг",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.10.24",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Кириллов А.К",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
         "title": "Управление качеством изделия",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Кириллов А.К",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.22"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
             }
-        ],
-        "lecturer": "Чурилин А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Технологическое оборудование машиностроительных производств",
-        "type": "Lecture"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.12.19",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Кутин А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
         "title": "Производственный инжиниринг",
-        "type": "Lecture"
+        "lecturer": "Шашин А.Д",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
+            }
+        ]
+    },
+    {
+        "title": "Управление качеством изделия",
+        "lecturer": "Кириллов А.К",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.24"
+            }
+        ]
+    },
+    {
+        "title": "Технологическое оборудование машиностроительных производств",
+        "lecturer": "Чурилин А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Производственный инжиниринг",
+        "lecturer": "Кутин А.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.12.19"
+            }
+        ]
     }
 ]

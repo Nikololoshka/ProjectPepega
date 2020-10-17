@@ -1,319 +1,184 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.19",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Коробов Н.А",
-        "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Суперкомпьютерные вычисления",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.19",
-                "frequency": "once"
-            }
-        ],
+        "title": "Объектно-ориентированное проектирование и программирование",
         "lecturer": "Тясто С.А",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Объектно-ориентированное проектирование и программирование",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.12",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.19"
             }
-        ],
-        "lecturer": "Коробов Н.А",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Суперкомпьютерные вычисления",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.12",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Тясто С.А",
+        "lecturer": "Коробов Н.А",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Объектно-ориентированное проектирование и программирование",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.11.09",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.19"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Объектно-ориентированное проектирование и программирование",
         "lecturer": "Тясто С.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Объектно-ориентированное проектирование и программирование",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.11.09",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.09"
             }
-        ],
-        "lecturer": "Мешков В.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Бизнес-архитектура предприятия",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Мешков В.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.11.03",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.09"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Социология культуры и межкультурные коммуникации",
         "lecturer": "Михайлова М.В",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "18:00"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.03"
+            }
+        ]
+    },
+    {
+        "title": "Управление персоналом",
+        "lecturer": "Ревина М.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
+        "title": "Управление персоналом",
+        "lecturer": "Ревина М.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.12"
+            }
+        ]
+    },
+    {
         "title": "Социология культуры и межкультурные коммуникации",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Ревина М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Управление персоналом",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Стихова О.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Суперкомпьютерные вычисления",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.12",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Ревина М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Управление персоналом",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.26",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Кузнецов Б.М",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Социология культуры и межкультурные коммуникации",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.09",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.26"
             }
-        ],
-        "lecturer": "Мешков В.Г",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Бизнес-архитектура предприятия",
-        "type": "Laboratory"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.23",
-                "frequency": "once"
-            }
-        ],
+        "title": "Управление качеством в жизненном цикле информационных систем",
         "lecturer": "Поляков С.Д",
+        "type": "Laboratory",
         "subgroup": "B",
+        "classroom": "",
         "time": {
-            "end": "22:50",
-            "start": "19:40"
+            "start": "19:40",
+            "end": "22:50"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            }
+        ]
+    },
+    {
         "title": "Управление качеством в жизненном цикле информационных систем",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Поляков С.Д",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Управление качеством в жизненном цикле информационных систем",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Мешков В.Г",
-        "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Бизнес-архитектура предприятия",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.11.13",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Поляков С.Д",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Управление качеством в жизненном цикле информационных систем",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.13"
             }
-        ],
-        "lecturer": "Поляков С.Д",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Управление качеством в жизненном цикле информационных систем",
-        "type": "Seminar"
+        ]
     }
 ]

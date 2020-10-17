@@ -1,629 +1,652 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.12.14",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Пустошная Л.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
         "title": "Экология",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Пустошная Л.С",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.12-2020.12.21",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.12.14"
             }
-        ],
-        "lecturer": "Сосенушкин С.Е",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Сети и телекоммуникации",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Сосенушкин С.Е",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.12.21",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.12.21"
             }
-        ],
-        "lecturer": "Позднеев Б.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Стандартизация и сертификация информационно-программных средств",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.10.19",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Новоселова О.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Современные технологии и средства разработки программного обеспечения",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.10.19",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Новоселова О.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Современные технологии и средства разработки программного обеспечения",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.21",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Позднеев Б.М",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Стандартизация и сертификация информационно-программных средств",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.11.17",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.12.21"
             }
-        ],
-        "lecturer": "Пушкин А.Ю",
+        ]
+    },
+    {
+        "title": "Современные технологии и средства разработки программного обеспечения",
+        "lecturer": "Новоселова О.В",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "18:00"
+            "start": "12:20",
+            "end": "14:00"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.19"
+            }
+        ]
+    },
+    {
+        "title": "Современные технологии и средства разработки программного обеспечения",
+        "lecturer": "Новоселова О.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.19"
+            }
+        ]
+    },
+    {
+        "title": "Стандартизация и сертификация информационно-программных средств",
+        "lecturer": "Позднеев Б.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.21"
+            }
+        ]
+    },
+    {
         "title": "Операционные системы",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Пушкин А.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.12.15",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.17"
             }
-        ],
-        "lecturer": "Стоякова К.Л",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Системы искусственного интеллекта",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.22",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Симонов М.Ф",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Защита информации",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.12.22",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Симонов М.Ф",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Защита информации",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.10.27",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Стоякова К.Л",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Системы искусственного интеллекта",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.20",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Защита информации",
+        "lecturer": "Симонов М.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.22"
+            }
+        ]
+    },
+    {
+        "title": "Защита информации",
+        "lecturer": "Симонов М.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.22"
+            }
+        ]
+    },
+    {
+        "title": "Системы искусственного интеллекта",
+        "lecturer": "Стоякова К.Л",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.20"
             },
             {
-                "date": "2020.10.27",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.27"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Современные технологии и средства разработки программного обеспечения",
         "lecturer": "Сидоров А.С",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Современные технологии и средства разработки программного обеспечения",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.07",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Пустошная Л.С",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Экология",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.14-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.20"
             },
             {
-                "date": "2020.11.11-2020.12.23",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.27"
             }
-        ],
-        "lecturer": "Кузовкин К.Н",
+        ]
+    },
+    {
+        "title": "Экология",
+        "lecturer": "Пустошная Л.С",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "start": "16:00",
+            "end": "17:40"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.09"
+            }
+        ]
+    },
+    {
         "title": "Основы новых информационных технологий",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Кузовкин К.Н",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.14-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.12.16"
             },
             {
-                "date": "2020.11.11-2020.12.23",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.12.23"
             }
-        ],
-        "lecturer": "Крюков В.В",
+        ]
+    },
+    {
+        "title": "Основы новых информационных технологий",
+        "lecturer": "Кузовкин К.Н",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "start": "14:10",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.23"
+            }
+        ]
+    },
+    {
         "title": "Информационное обеспечение конструкторско-технологической подготовки производства",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Крюков В.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.14-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.23"
             }
-        ],
-        "lecturer": "Пустошная Л.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Экология",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.21",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Сосенушкин С.Е",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
         "title": "Сети и телекоммуникации",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Сосенушкин С.Е",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.12.16",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.12.23",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
             }
-        ],
-        "lecturer": "Кузовкин К.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Основы новых информационных технологий",
-        "type": "Lecture"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.02-2020.12.23",
-                "frequency": "every"
-            }
-        ],
+        "title": "Информационное обеспечение конструкторско-технологической подготовки производства",
         "lecturer": "Крюков В.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Информационное обеспечение конструкторско-технологической подготовки производства",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "313",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Стоякова К.Л",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Системы искусственного интеллекта",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "247",
-        "dates": [
-            {
-                "date": "2020.10.15-2020.11.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Пушкин А.Ю",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Операционные системы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "247",
-        "dates": [
-            {
-                "date": "2020.10.22-2020.11.19",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Пушкин А.Ю",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Операционные системы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "313",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.12.03",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бердюгин А.В",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Основы новых информационных технологий",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "313",
-        "dates": [
-            {
-                "date": "2020.10.15-2020.11.26",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бердюгин А.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Основы новых информационных технологий",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "313",
-        "dates": [
-            {
-                "date": "2020.10.15-2020.11.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Стоякова К.Л",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Системы искусственного интеллекта",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "209",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.11.20",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Комиссаров Р.Н",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Информационное обеспечение конструкторско-технологической подготовки производства",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "209",
-        "dates": [
-            {
-                "date": "2020.10.16-2020.11.27",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Комиссаров Р.Н",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Информационное обеспечение конструкторско-технологической подготовки производства",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.11.13",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.12.02-2020.12.23"
             }
-        ],
-        "lecturer": "Шароватов В.И",
-        "subgroup": "Common",
+        ]
+    },
+    {
+        "title": "Операционные системы",
+        "lecturer": "Пушкин А.Ю",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "247",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "start": "16:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.22-2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Операционные системы",
+        "lecturer": "Пушкин А.Ю",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "247",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.12"
+            }
+        ]
+    },
+    {
+        "title": "Основы новых информационных технологий",
+        "lecturer": "Бердюгин А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "313",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.22-2020.12.03"
+            }
+        ]
+    },
+    {
+        "title": "Основы новых информационных технологий",
+        "lecturer": "Бердюгин А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "313",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.29-2020.11.26"
+            }
+        ]
+    },
+    {
+        "title": "Системы искусственного интеллекта",
+        "lecturer": "Стоякова К.Л",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "313",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.22"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.05"
+            }
+        ]
+    },
+    {
+        "title": "Системы искусственного интеллекта",
+        "lecturer": "Стоякова К.Л",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "313",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.12"
+            }
+        ]
+    },
+    {
+        "title": "Информационное обеспечение конструкторско-технологической подготовки производства",
+        "lecturer": "Комиссаров Р.Н",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "209",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.23-2020.11.20"
+            }
+        ]
+    },
+    {
+        "title": "Информационное обеспечение конструкторско-технологической подготовки производства",
+        "lecturer": "Комиссаров Р.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "209",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.30-2020.11.27"
+            }
+        ]
+    },
+    {
         "title": "Стандартизация и сертификация информационно-программных средств",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.10.30",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Крюков В.В",
+        "lecturer": "Шароватов В.И",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "12:00",
-            "start": "10:20"
+            "start": "12:20",
+            "end": "14:00"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.13"
+            }
+        ]
+    },
+    {
         "title": "Информационное обеспечение конструкторско-технологической подготовки производства",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Крюков В.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.12.05",
-                "frequency": "throughout"
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
             }
-        ],
-        "lecturer": "Симонов М.Ф",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Защита информации",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Гаврилов А.Г",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Современные технологии и средства разработки программного обеспечения",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.17-2020.12.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Сосенушкин С.Е",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Сети и телекоммуникации",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.17-2020.12.12",
-                "frequency": "throughout"
-            }
-        ],
         "lecturer": "Симонов М.Ф",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Защита информации",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.17-2020.11.14",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Гаврилов А.Г",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Современные технологии и средства разработки программного обеспечения",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.24-2020.12.19",
-                "frequency": "throughout"
+                "frequency": "throughout",
+                "date": "2020.10.24-2020.12.05"
             }
-        ],
-        "lecturer": "Сосенушкин С.Е",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Сети и телекоммуникации",
-        "type": "Laboratory"
+        "lecturer": "Сосенушкин С.Е",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.24-2020.12.19"
+            }
+        ]
+    },
+    {
+        "title": "Защита информации",
+        "lecturer": "Симонов М.Ф",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.31-2020.12.12"
+            }
+        ]
+    },
+    {
+        "title": "Сети и телекоммуникации",
+        "lecturer": "Сосенушкин С.Е",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.31-2020.12.12"
+            }
+        ]
+    },
+    {
+        "title": "Современные технологии и средства разработки программного обеспечения",
+        "lecturer": "Гаврилов А.Г",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Современные технологии и средства разработки программного обеспечения",
+        "lecturer": "Гаврилов А.Г",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.31"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.14"
+            }
+        ]
     }
 ]

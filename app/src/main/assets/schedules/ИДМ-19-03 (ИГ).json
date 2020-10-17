@@ -1,277 +1,200 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.09",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Мешков В.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
         "title": "Бизнес-архитектура предприятия",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Мешков В.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.10.20",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.09"
             }
-        ],
-        "lecturer": "Толок А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Основы построения графического ядра",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Толок А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.11.03",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.20"
             }
-        ],
-        "lecturer": "Михайлова М.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Социология культуры и межкультурные коммуникации",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.11.10",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Михайлова М.В",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.03"
+            }
+        ]
+    },
+    {
         "title": "Социология культуры и межкультурные коммуникации",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Михайлова М.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.10"
             }
-        ],
-        "lecturer": "Ревина М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Управление персоналом",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Стихова О.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Суперкомпьютерные вычисления",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.25-2020.12.09",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Ревина М.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Управление персоналом",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.21",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.10.28",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.28"
             },
             {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
             }
-        ],
-        "lecturer": "Ревина М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Управление персоналом",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Управление персоналом",
+        "lecturer": "Ревина М.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.25-2020.12.09"
+            }
+        ]
+    },
+    {
+        "title": "Управление персоналом",
+        "lecturer": "Ревина М.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.09"
+            }
+        ]
+    },
+    {
+        "title": "Основы построения графического ядра",
+        "lecturer": "Толок А.В",
+        "type": "Laboratory",
+        "subgroup": "Common",
         "classroom": "ИГ-4",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "throughout"
+                "frequency": "once",
+                "date": "2020.10.22"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.05"
             }
-        ],
-        "lecturer": "Толок А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Основы построения графического ядра",
-        "type": "Laboratory"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.10.22",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Локтев М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
         "title": "Основы вычислительной геометрии",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.11.06",
-                "frequency": "throughout"
-            }
-        ],
         "lecturer": "Локтев М.А",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "16:00"
+            "start": "16:00",
+            "end": "17:40"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.22"
+            }
+        ]
+    },
+    {
         "title": "Основы вычислительной геометрии",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "Локтев М.А",
+        "type": "Laboratory",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.10",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Бабарин С.С",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Суперкомпьютерные вычисления",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
             {
-                "date": "2020.10.10",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.06"
             }
-        ],
-        "lecturer": "Мешков В.Г",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Бизнес-архитектура предприятия",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Мешков В.Г",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Бизнес-архитектура предприятия",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Бабарин С.С",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Суперкомпьютерные вычисления",
-        "type": "Laboratory"
+        ]
     }
 ]

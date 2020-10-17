@@ -1,433 +1,445 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.30",
-                "frequency": "once"
-            }
-        ],
+        "title": "Проектирование систем управления качеством машиностроительных производств",
         "lecturer": "Бекмешов А.Ю",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Проектирование систем управления качеством машиностроительных производств",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.11.23",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.16"
             },
             {
-                "date": "2020.12.07",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.30"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Проектирование систем управления качеством машиностроительных производств",
         "lecturer": "Бекмешов А.Ю",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Проектирование систем управления качеством машиностроительных производств",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.11.02",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.23"
             },
             {
-                "date": "2020.11.09",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.07"
             }
-        ],
-        "lecturer": "Корастылева А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Законодательно-правовое обеспечение качества",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Законодательно-правовое обеспечение качества",
+        "lecturer": "Корастылева А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.11.02-2020.12.07",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.02"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.09"
             }
-        ],
-        "lecturer": "Колесниченко И.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Основы теории эксперимента",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Куткин В.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Хозяйственное право",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.25",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Рыбаков А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Методология научных исследований",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Бекмешов А.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Проектирование систем управления качеством машиностроительных производств",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Рыбаков А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Методология научных исследований",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Рыбаков А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Методология научных исследований",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Бекмешов А.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Проектирование систем управления качеством машиностроительных производств",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.02-2020.12.16",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Бекмешов А.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Проектирование систем управления качеством машиностроительных производств",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Бекмешов А.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Проектирование систем управления качеством машиностроительных производств",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Корастылева А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Законодательно-правовое обеспечение качества",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Фомина О.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Аудит качества",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Фомина О.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Аудит качества",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.12",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Фомина О.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Аудит качества",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.19-2020.12.24",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Куткин В.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Хозяйственное право",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.26-2020.12.24",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Куткин В.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Хозяйственное право",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.06",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.20",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Колесниченко И.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.02-2020.12.07"
+            }
+        ]
+    },
+    {
+        "title": "Хозяйственное право",
+        "lecturer": "Куткин В.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.17"
+            }
+        ]
+    },
+    {
+        "title": "Методология научных исследований",
+        "lecturer": "Рыбаков А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.10.28-2020.11.25"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование систем управления качеством машиностроительных производств",
+        "lecturer": "Бекмешов А.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            }
+        ]
+    },
+    {
+        "title": "Методология научных исследований",
+        "lecturer": "Рыбаков А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            }
+        ]
+    },
+    {
+        "title": "Методология научных исследований",
+        "lecturer": "Рыбаков А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование систем управления качеством машиностроительных производств",
+        "lecturer": "Бекмешов А.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование систем управления качеством машиностроительных производств",
+        "lecturer": "Бекмешов А.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.12.02-2020.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование систем управления качеством машиностроительных производств",
+        "lecturer": "Бекмешов А.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Законодательно-правовое обеспечение качества",
+        "lecturer": "Корастылева А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.05"
+            }
+        ]
+    },
+    {
+        "title": "Аудит качества",
+        "lecturer": "Фомина О.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.05"
+            }
+        ]
+    },
+    {
+        "title": "Аудит качества",
+        "lecturer": "Фомина О.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.05"
+            }
+        ]
+    },
+    {
+        "title": "Аудит качества",
+        "lecturer": "Фомина О.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.12"
+            }
+        ]
+    },
+    {
+        "title": "Хозяйственное право",
+        "lecturer": "Куткин В.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.19-2020.12.24"
+            }
+        ]
+    },
+    {
+        "title": "Хозяйственное право",
+        "lecturer": "Куткин В.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.26-2020.12.24"
+            }
+        ]
+    },
+    {
+        "title": "Основы теории эксперимента",
+        "lecturer": "Колесниченко И.И",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Основы теории эксперимента",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.11.13",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.06"
             },
             {
-                "date": "2020.11.27",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.20"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Основы теории эксперимента",
         "lecturer": "Колесниченко И.И",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Основы теории эксперимента",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.10.30",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.27"
             }
-        ],
-        "lecturer": "Корастылева А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Законодательно-правовое обеспечение качества",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Корастылева А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.11.20",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
             }
-        ],
-        "lecturer": "Колесниченко И.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Основы теории эксперимента",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Колесниченко И.И",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.12.04",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.20"
             }
-        ],
-        "lecturer": "Стихова О.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Деловой иностранный язык",
-        "type": "Seminar"
+        "lecturer": "Стихова О.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.23-2020.12.04"
+            }
+        ]
     }
 ]

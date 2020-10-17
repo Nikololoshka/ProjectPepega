@@ -1,714 +1,667 @@
 [
     {
+        "title": "Информационные системы",
+        "lecturer": "Никишечкин А.П",
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.19",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.19"
             }
-        ],
-        "lecturer": "Никишечкин А.П",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Информационные системы",
-        "type": "Laboratory"
+        ]
     },
     {
+        "title": "Информационные системы",
+        "lecturer": "Никишечкин А.П",
+        "type": "Laboratory",
+        "subgroup": "B",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.26",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.26"
             },
             {
-                "date": "2020.11.09",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.09"
             }
-        ],
-        "lecturer": "Никишечкин А.П",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Информационные системы",
-        "type": "Laboratory"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.02",
-                "frequency": "once"
-            }
-        ],
+        "title": "Информационные системы",
         "lecturer": "Никишечкин А.П",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Информационные системы",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.11.09",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.02"
             }
-        ],
-        "lecturer": "Алешин В.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Социология",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Алешин В.И",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.11.09",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.09"
             }
-        ],
-        "lecturer": "Мешков В.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Управление качеством",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.12",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Нежметдинов Р.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Автоматика и управление движением",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.16-2020.11.30",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Куткин В.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Правоведение",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.16-2020.12.07",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Мартинова Л.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Программирование и настройка систем ЧПУ",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.12.08",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Куткин В.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Правоведение",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.12.08",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Алешин В.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Социология",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.11.10",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Нежметдинов Р.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Автоматика и управление движением",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.12.08",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Крючкова Е.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Экономика и управление",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.15",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Алешин В.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Социология",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.15",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Алешин В.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Социология",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Мартинова Л.И",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Программирование и настройка систем ЧПУ",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.18-2020.12.16",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Мартинова Л.И",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Программирование и настройка систем ЧПУ",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.12.02",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Мартинова Л.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Программирование и настройка систем ЧПУ",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Евстафиева С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Автоматизация технологических процессов и производств",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.12.02",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Игнатьев В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Моделирование систем и процессов",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.12",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Куткин В.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Правоведение",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.19",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Нежметдинов Р.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Автоматика и управление движением",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.12.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Крючкова Е.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Экономика и управление",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Игнатьев В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Моделирование систем и процессов",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.12.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Коган Ю.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Автоматизация управления жизненным циклом продукции",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.10",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Алешин В.И",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Социология",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.23",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Никишечкин А.П",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Искусственные нейронные сети",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.23-2020.11.20",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Нежметдинов Р.А",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Автоматика и управление движением",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.30-2020.11.27",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Нежметдинов Р.А",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Автоматика и управление движением",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.30",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.13",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Никишечкин А.П",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Искусственные нейронные сети",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Никишечкин А.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Искусственные нейронные сети",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.11.06",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Никишечкин А.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Искусственные нейронные сети",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.12.04",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Евстафиева С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Автоматизация технологических процессов и производств",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.07-2020.12.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Евстафиева С.В",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Автоматизация технологических процессов и производств",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.07-2020.12.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Коган Ю.Г",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Автоматизация управления жизненным циклом продукции",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.14-2020.12.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Коган Ю.Г",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Автоматизация управления жизненным циклом продукции",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.14-2020.12.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Евстафиева С.В",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Автоматизация технологических процессов и производств",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.10.31",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Коган Ю.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Автоматизация управления жизненным циклом продукции",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Никишечкин А.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Информационные системы",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Мешков В.Г",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Управление качеством",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.09"
             }
-        ],
-        "lecturer": "Никишечкин А.П",
+        ]
+    },
+    {
+        "title": "Правоведение",
+        "lecturer": "Куткин В.С",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "start": "16:00",
+            "end": "17:40"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.16-2020.11.30"
+            }
+        ]
+    },
+    {
+        "title": "Программирование и настройка систем ЧПУ",
+        "lecturer": "Мартинова Л.И",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.16-2020.12.07"
+            }
+        ]
+    },
+    {
+        "title": "Правоведение",
+        "lecturer": "Куткин В.С",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.08"
+            }
+        ]
+    },
+    {
+        "title": "Социология",
+        "lecturer": "Алешин В.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.08"
+            }
+        ]
+    },
+    {
+        "title": "Автоматика и управление движением",
+        "lecturer": "Нежметдинов Р.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.10"
+            }
+        ]
+    },
+    {
+        "title": "Экономика и управление",
+        "lecturer": "Крючкова Е.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.08"
+            }
+        ]
+    },
+    {
+        "title": "Социология",
+        "lecturer": "Алешин В.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Социология",
+        "lecturer": "Алешин В.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Программирование и настройка систем ЧПУ",
+        "lecturer": "Мартинова Л.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.11-2020.12.09"
+            }
+        ]
+    },
+    {
+        "title": "Программирование и настройка систем ЧПУ",
+        "lecturer": "Мартинова Л.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.18-2020.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Программирование и настройка систем ЧПУ",
+        "lecturer": "Мартинова Л.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.02"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация технологических процессов и производств",
+        "lecturer": "Евстафиева С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Моделирование систем и процессов",
+        "lecturer": "Игнатьев В.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.02"
+            }
+        ]
+    },
+    {
+        "title": "Правоведение",
+        "lecturer": "Куткин В.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.12"
+            }
+        ]
+    },
+    {
+        "title": "Автоматика и управление движением",
+        "lecturer": "Нежметдинов Р.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Экономика и управление",
+        "lecturer": "Крючкова Е.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.12.03"
+            }
+        ]
+    },
+    {
+        "title": "Моделирование систем и процессов",
+        "lecturer": "Игнатьев В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация управления жизненным циклом продукции",
+        "lecturer": "Коган Ю.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.12.03"
+            }
+        ]
+    },
+    {
+        "title": "Социология",
+        "lecturer": "Алешин В.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.10"
+            }
+        ]
+    },
+    {
+        "title": "Искусственные нейронные сети",
+        "lecturer": "Никишечкин А.П",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.06"
+            }
+        ]
+    },
+    {
+        "title": "Автоматика и управление движением",
+        "lecturer": "Нежметдинов Р.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.23-2020.11.20"
+            }
+        ]
+    },
+    {
+        "title": "Автоматика и управление движением",
+        "lecturer": "Нежметдинов Р.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.30-2020.11.27"
+            }
+        ]
+    },
+    {
+        "title": "Искусственные нейронные сети",
+        "lecturer": "Никишечкин А.П",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.13"
+            }
+        ]
+    },
+    {
+        "title": "Искусственные нейронные сети",
+        "lecturer": "Никишечкин А.П",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.06"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация технологических процессов и производств",
+        "lecturer": "Евстафиева С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.23-2020.12.04"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация технологических процессов и производств",
+        "lecturer": "Евстафиева С.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.07-2020.12.05"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация управления жизненным циклом продукции",
+        "lecturer": "Коган Ю.Г",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.07-2020.12.05"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация управления жизненным циклом продукции",
+        "lecturer": "Коган Ю.Г",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.14-2020.12.12"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация технологических процессов и производств",
+        "lecturer": "Евстафиева С.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.14-2020.12.12"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизация управления жизненным циклом продукции",
+        "lecturer": "Коган Ю.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.31"
+            }
+        ]
+    },
+    {
+        "title": "Управление качеством",
+        "lecturer": "Мешков В.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
+            }
+        ]
+    },
+    {
         "title": "Информационные системы",
-        "type": "Lecture"
+        "lecturer": "Никишечкин А.П",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
+            }
+        ]
     }
 ]

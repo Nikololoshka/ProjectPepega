@@ -1,218 +1,222 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.11.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Бадалова А.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
         "title": "Современный стратегический анализ",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.10.20",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Бадалова А.Г",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "18:00"
+            "start": "19:40",
+            "end": "21:10"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.03"
+            }
+        ]
+    },
+    {
         "title": "Современный стратегический анализ",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Бадалова А.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.20"
             }
-        ],
-        "lecturer": "Лукина С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Информационные ресурсы и технологии в менеджменте",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Лукина С.В",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "18:00"
+            "start": "19:40",
+            "end": "21:10"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.09"
+            }
+        ]
+    },
+    {
         "title": "Информационные ресурсы и технологии в менеджменте",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Лукина С.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.10.22",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
             }
-        ],
-        "lecturer": "Локтев М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Информационная графика",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.10.22",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Локтев М.А",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Информационная графика",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.22"
             }
-        ],
-        "lecturer": "Авакова О.В",
+        ]
+    },
+    {
+        "title": "Информационная графика",
+        "lecturer": "Локтев М.А",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.22"
+            }
+        ]
+    },
+    {
         "title": "Коммуникации в профессиональной деятельности",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Авакова О.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.29-2020.12.10",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.05"
             }
-        ],
-        "lecturer": "Павельева Т.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Методология научного творчества",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.23",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Павельева Т.Ю",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Методология научного творчества",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.16-2020.11.20",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.29-2020.12.10"
             }
-        ],
-        "lecturer": "Пополитов В.Н",
+        ]
+    },
+    {
+        "title": "Методология научного творчества",
+        "lecturer": "Павельева Т.Ю",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "18:00"
+            "start": "19:40",
+            "end": "21:10"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            }
+        ]
+    },
+    {
         "title": "Математические модели в теории управления и исследовании операций",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16-2020.11.20",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Пополитов В.Н",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Математические модели в теории управления и исследовании операций",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.30-2020.12.18",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.20"
             }
-        ],
-        "lecturer": "Павельева Т.Ю",
+        ]
+    },
+    {
+        "title": "Математические модели в теории управления и исследовании операций",
+        "lecturer": "Пополитов В.Н",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "21:10",
-            "start": "19:40"
+            "start": "16:00",
+            "end": "17:40"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.20"
+            }
+        ]
+    },
+    {
         "title": "Методология научного творчества",
-        "type": "Seminar"
+        "lecturer": "Павельева Т.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.30-2020.12.18"
+            }
+        ]
     }
 ]

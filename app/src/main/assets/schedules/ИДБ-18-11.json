@@ -1,649 +1,551 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.09",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Бабарин С.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
         "title": "Методы оптимизации",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Бабарин С.С",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.12",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.09"
             }
-        ],
-        "lecturer": "Краснов А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Системы автоматизации и управления",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.12",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Краснов А.А",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Системы автоматизации и управления",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.19-2020.11.02",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.02"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Системы автоматизации и управления",
         "lecturer": "Краснов А.А",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Системы автоматизации и управления",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.19-2020.11.02",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.02"
             }
-        ],
-        "lecturer": "Краснов А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Системы автоматизации и управления",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.09",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Владимиров А.Л",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
         "title": "Теория вероятностей и математическая статистика",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Владимиров А.Л",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.11.03",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.09"
             }
-        ],
-        "lecturer": "Кузнецова Л.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Управление проектами",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Кузнецова Л.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.12.08",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.03"
             }
-        ],
-        "lecturer": "Тясто С.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Теория управления",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.12.15",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Чеканин В.А",
+        "lecturer": "Тясто С.А",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Компьютерная механика",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.11.17",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.08"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Компьютерная механика",
+        "lecturer": "Чеканин В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Машинное обучение и интеллектуальные системы",
         "lecturer": "Мутина Е.И",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Машинное обучение и интеллектуальные системы",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11-2020.12.02",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.17"
             }
-        ],
-        "lecturer": "Кузнецова Л.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Управление проектами",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Кузнецова Л.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.02"
             }
-        ],
-        "lecturer": "Тясто С.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Теория управления",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Тясто С.А",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.16"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Методы оптимизации",
         "lecturer": "Красикова Е.М",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Методы оптимизации",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.12.23",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.09"
             }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Прикладная физическая культура",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "216",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Краснов А.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Системы автоматизации и управления",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.08",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.10.22",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Лазаревский И.Е",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Машинное обучение и интеллектуальные системы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.15",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Лазаревский И.Е",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Машинное обучение и интеллектуальные системы",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "216",
-        "dates": [
-            {
-                "date": "2020.10.15",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.28"
             },
             {
-                "date": "2020.10.29",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.23"
             }
-        ],
-        "lecturer": "Краснов А.А",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Системы автоматизации и управления",
-        "type": "Laboratory"
+        ]
     },
     {
+        "title": "Системы автоматизации и управления",
+        "lecturer": "Краснов А.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "216",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.22"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.05"
+            }
+        ]
+    },
+    {
+        "title": "Машинное обучение и интеллектуальные системы",
+        "lecturer": "Лазаревский И.Е",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.22"
+            }
+        ]
+    },
+    {
+        "title": "Системы автоматизации и управления",
+        "lecturer": "Краснов А.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "216",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            }
+        ]
+    },
+    {
+        "title": "Системы автоматизации и управления",
+        "lecturer": "Краснов А.А",
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "209",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.11.12",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.12"
             }
-        ],
-        "lecturer": "Краснов А.А",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Системы автоматизации и управления",
-        "type": "Laboratory"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Чеканин В.А",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
         "title": "Компьютерная механика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.15-2020.11.12",
-                "frequency": "throughout"
-            }
-        ],
         "lecturer": "Чеканин В.А",
-        "subgroup": "B",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "12:20"
+            "start": "12:20",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.22-2020.11.19"
+            }
+        ]
+    },
+    {
         "title": "Компьютерная механика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Владимиров А.Л",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Теория вероятностей и математическая статистика",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.11.06",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бычкова Н.А",
+        "lecturer": "Чеканин В.А",
+        "type": "Laboratory",
         "subgroup": "B",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "16:00"
+            "start": "12:20",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.12"
+            }
+        ]
+    },
+    {
         "title": "Базы данных",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16-2020.11.13",
-                "frequency": "throughout"
-            }
-        ],
         "lecturer": "Бычкова Н.А",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Базы данных",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.30",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Ибатулин М.Ю",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Проектирование информационных систем",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.23",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.23"
             },
             {
-                "date": "2020.11.06",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.06"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Проектирование информационных систем",
         "lecturer": "Ибатулин М.Ю",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Проектирование информационных систем",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.11.06",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Бабарин С.С",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Методы оптимизации",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.23"
             },
             {
-                "date": "2020.10.23",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.06"
             }
-        ],
-        "lecturer": "Кузнецова Л.В",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Управление проектами",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.30",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Бабарин С.С",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Методы оптимизации",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Кузнецова Л.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Управление проектами",
-        "type": "Laboratory"
-    },
-    {
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.10",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Базы данных",
+        "lecturer": "Бычкова Н.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
             },
             {
-                "date": "2020.10.17",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.13"
             }
-        ],
-        "lecturer": "Владимиров А.Л",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Теория вероятностей и математическая статистика",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.10.24",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Ибатулин М.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
         "title": "Проектирование информационных систем",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Ибатулин М.Ю",
+        "type": "Laboratory",
+        "subgroup": "B",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.30"
             }
-        ],
-        "lecturer": "Бычкова Н.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Базы данных",
-        "type": "Lecture"
+        ]
     },
     {
+        "title": "Методы оптимизации",
+        "lecturer": "Бабарин С.С",
+        "type": "Laboratory",
+        "subgroup": "B",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.10.24",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.06"
             }
-        ],
-        "lecturer": "Бычкова Н.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Базы данных",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Методы оптимизации",
+        "lecturer": "Бабарин С.С",
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.24-2020.11.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.30"
             }
-        ],
-        "lecturer": "Чеканин В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Компьютерная механика",
-        "type": "Seminar"
+        "lecturer": "Чеканин В.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.28"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование информационных систем",
+        "lecturer": "Ибатулин М.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.24"
+            }
+        ]
+    },
+    {
+        "title": "Базы данных",
+        "lecturer": "Бычкова Н.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Базы данных",
+        "lecturer": "Бычкова Н.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.24"
+            }
+        ]
     }
 ]

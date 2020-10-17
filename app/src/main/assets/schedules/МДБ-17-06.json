@@ -1,818 +1,746 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.09-2020.12.07",
-                "frequency": "throughout"
-            }
-        ],
+        "title": "Транспортные системы машиностроительного производства",
         "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "17:40",
-            "start": "14:10"
-        },
-        "title": "Транспортные системы машиностроительного производства",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.11.16-2020.12.14",
-                "frequency": "throughout"
+                "frequency": "throughout",
+                "date": "2020.11.09-2020.12.07"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Транспортные системы машиностроительного производства",
         "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "17:40",
-            "start": "14:10"
-        },
-        "title": "Транспортные системы машиностроительного производства",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.05",
-                "frequency": "once"
+                "frequency": "throughout",
+                "date": "2020.11.16-2020.12.14"
             }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "ГПС, автоматические линии",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.12-2020.10.26",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
         "title": "Системы компьютерной поддержки инженерных решений",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.02",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Гиловой Л.Я",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "ГПС, автоматические линии",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.11.16",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.26"
             }
-        ],
-        "lecturer": "Хайбуллов К.А",
+        ]
+    },
+    {
+        "title": "ГПС, автоматические линии",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "start": "14:10",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.02"
+            }
+        ]
+    },
+    {
         "title": "Проектирование технологических приспособлений",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.16",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Хайбуллов К.А",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Проектирование технологических приспособлений",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.11.23-2020.12.14",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.16"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Проектирование технологических приспособлений",
         "lecturer": "Хайбуллов К.А",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "start": "10:20",
+            "end": "12:00"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.16"
+            }
+        ]
+    },
+    {
         "title": "Проектирование технологических приспособлений",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Хайбуллов К.А",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.12.07",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.11.23-2020.12.14"
+            }
+        ]
+    },
+    {
+        "title": "Испытание и исследование станков",
+        "lecturer": "Сабиров Ф.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.07"
             },
             {
-                "date": "2020.12.14",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.14"
             }
-        ],
-        "lecturer": "Сабиров Ф.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Испытание и исследование станков",
-        "type": "Lecture"
+        ]
     },
     {
+        "title": "Испытание и исследование станков",
+        "lecturer": "Сабиров Ф.С",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.10.20",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.20"
             }
-        ],
-        "lecturer": "Сабиров Ф.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Испытание и исследование станков",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.10",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
         "title": "ГПС, автоматические линии",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.08",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.15",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Хлебалин Н.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Автоматизированный электропривод",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.12.15",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Хлебалин Н.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Автоматизированный электропривод",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.12.15",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Исаев А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.10.20",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Сабиров Ф.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Испытание и исследование станков",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.27-2020.12.01",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Сабиров Ф.С",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Испытание и исследование станков",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.08",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.15",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Исаев А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "ТехП 11",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.21",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "throughout"
-            }
-        ],
         "lecturer": "Гиловой Л.Я",
-        "subgroup": "B",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "12:20"
+            "start": "16:00",
+            "end": "17:40"
         },
-        "title": "Системы компьютерной поддержки инженерных решений",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.10.14",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.10"
             },
             {
-                "date": "2020.10.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.02",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.17"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Автоматизированный электропривод",
+        "lecturer": "Хлебалин Н.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.08"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизированный электропривод",
+        "lecturer": "Хлебалин Н.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
+        "lecturer": "Исаев А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Испытание и исследование станков",
+        "lecturer": "Сабиров Ф.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.20"
+            }
+        ]
+    },
+    {
+        "title": "Испытание и исследование станков",
+        "lecturer": "Сабиров Ф.С",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.27-2020.12.01"
+            }
+        ]
+    },
+    {
+        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
+        "lecturer": "Исаев А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.08"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.12.15"
+            }
+        ]
+    },
+    {
+        "title": "Системы компьютерной поддержки инженерных решений",
         "lecturer": "Гиловой Л.Я",
-        "subgroup": "A",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 11",
         "time": {
-            "end": "15:50",
-            "start": "12:20"
+            "start": "12:20",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "throughout",
+                "date": "2020.11.11-2020.12.09"
+            }
+        ]
+    },
+    {
         "title": "Системы компьютерной поддержки инженерных решений",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 11",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.07",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.28"
             },
             {
-                "date": "2020.10.21",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.18"
             },
             {
-                "date": "2020.11.11",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.02"
             }
-        ],
-        "lecturer": "Сабиров Ф.С",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Испытание и исследование станков",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Сабиров Ф.С",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Испытание и исследование станков",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Хлебалин Н.А",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Автоматизированный электропривод",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.15-2020.11.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Молодцов В.В",
-        "subgroup": "B",
         "time": {
-            "end": "15:50",
-            "start": "12:20"
+            "start": "8:30",
+            "end": "12:00"
         },
-        "title": "Расчет и конструирование станков",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 11",
         "dates": [
             {
-                "date": "2020.12.10",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Исаев А.В",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 11",
-        "dates": [
-            {
-                "date": "2020.12.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Исаев А.В",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 11",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.12.17",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Исаев А.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 11",
-        "dates": [
-            {
-                "date": "2020.10.15-2020.12.10",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Исаев А.В",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.15-2020.11.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Хлебалин Н.А",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Автоматизированный электропривод",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.22-2020.11.19",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Молодцов В.В",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Расчет и конструирование станков",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.10.30",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.11"
             }
-        ],
-        "lecturer": "Крутов А.В",
-        "subgroup": "A",
+        ]
+    },
+    {
+        "title": "Испытание и исследование станков",
+        "lecturer": "Сабиров Ф.С",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
         "time": {
-            "end": "12:00",
-            "start": "8:30"
+            "start": "8:30",
+            "end": "12:00"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
+        "title": "Расчет и конструирование станков",
+        "lecturer": "Молодцов В.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.22-2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
+        "lecturer": "Исаев А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.10"
+            }
+        ]
+    },
+    {
+        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
+        "lecturer": "Исаев А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
+        "lecturer": "Исаев А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.22-2020.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Средства автоматизации технологической подготовки металлообрабатывающего производства",
+        "lecturer": "Исаев А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.29-2020.12.10"
+            }
+        ]
+    },
+    {
+        "title": "Расчет и конструирование станков",
+        "lecturer": "Молодцов В.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.12"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизированный электропривод",
+        "lecturer": "Хлебалин Н.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.22"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.05"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизированный электропривод",
+        "lecturer": "Хлебалин Н.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.12"
+            }
+        ]
+    },
+    {
         "title": "Оборудование для электрохимической и электрфизической обработки",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "Крутов А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.23",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.23"
             },
             {
-                "date": "2020.11.06",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.06"
             }
-        ],
-        "lecturer": "Крутов А.В",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Оборудование для электрохимической и электрфизической обработки",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "Крутов А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.12.11",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.30"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Транспортные системы машиностроительного производства",
         "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Транспортные системы машиностроительного производства",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.12.18",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.11"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Транспортные системы машиностроительного производства",
         "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Транспортные системы машиностроительного производства",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.09",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.18"
             }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Системы компьютерной поддержки инженерных решений",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.12.18",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Гиловой Л.Я",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Системы компьютерной поддержки инженерных решений",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.16-2020.11.27",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.23-2020.12.18"
             }
-        ],
-        "lecturer": "Молодцов В.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Расчет и конструирование станков",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "ТехП 11",
+        "lecturer": "Молодцов В.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.11.14-2020.12.12",
-                "frequency": "throughout"
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.27"
             }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "ГПС, автоматические линии",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "ТехП 11",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.11.21-2020.12.19",
-                "frequency": "throughout"
+                "frequency": "throughout",
+                "date": "2020.11.14-2020.12.12"
             }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "ГПС, автоматические линии",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Крутов А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Оборудование для электрохимической и электрфизической обработки",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Крутов А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Оборудование для электрохимической и электрфизической обработки",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Гиловой Л.Я",
-        "subgroup": "Common",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 11",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "start": "16:00",
+            "end": "19:30"
         },
-        "title": "Транспортные системы машиностроительного производства",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
         "dates": [
             {
-                "date": "2020.11.14-2020.12.19",
-                "frequency": "every"
+                "frequency": "throughout",
+                "date": "2020.11.21-2020.12.19"
             }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Транспортные системы машиностроительного производства",
-        "type": "Lecture"
+        ]
     },
     {
+        "title": "Оборудование для электрохимической и электрфизической обработки",
+        "lecturer": "Крутов А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Транспортные системы машиностроительного производства",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Транспортные системы машиностроительного производства",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.14-2020.12.19"
+            }
+        ]
+    },
+    {
+        "title": "Транспортные системы машиностроительного производства",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
             },
             {
-                "date": "2020.12.12",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.12"
             },
             {
-                "date": "2020.12.19",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.19"
             }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Транспортные системы машиностроительного производства",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Молодцов В.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Расчет и конструирование станков",
-        "type": "Seminar"
+        ]
     }
 ]

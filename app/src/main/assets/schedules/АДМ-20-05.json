@@ -1,349 +1,289 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.02",
-                "frequency": "every"
-            }
-        ],
+        "title": "Современные методы управления в робототехнике и мехатронике",
         "lecturer": "Илюхин Ю.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Современные методы управления в робототехнике и мехатронике",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.11.02",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.02"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Научные и инженерные методы в мехатронике и робототехнике",
         "lecturer": "Подураев Ю.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Научные и инженерные методы в мехатронике и робототехнике",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.13",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.02"
             }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Специальные главы механики",
-        "type": "Laboratory"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.10",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Поливанов А.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
         "title": "Информационные системы в мехатронике и робототехнике",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "Поливанов А.Ю",
+        "type": "Laboratory",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.11.03",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.17"
             }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Специальные главы механики",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.13",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Гиловой Л.Я",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Специальные главы механики",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.14",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.03"
             }
-        ],
-        "lecturer": "Воротников А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Научные и инженерные методы в мехатронике и робототехнике",
-        "type": "Laboratory"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Яновская Е.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
         "title": "Методы и теория оптимизации",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Поливанов А.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Информационные системы в мехатронике и робототехнике",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "throughout"
-            }
-        ],
         "lecturer": "Яновская Е.А",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "16:00"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
+        "title": "Информационные системы в мехатронике и робототехнике",
+        "lecturer": "Поливанов А.Ю",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
         "title": "Методы и теория оптимизации",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "209",
+        "lecturer": "Яновская Е.А",
+        "type": "Laboratory",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.11.12",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.22"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.05"
             }
-        ],
-        "lecturer": "Колесниченко Р.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Современные методы управления в робототехнике и мехатронике",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.10.23",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Ермолов И.Л",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Автономные мобильные роботы",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.10.23",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Колесниченко Р.В",
+        "type": "Laboratory",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Современные методы управления в робототехнике и мехатронике",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.10.23",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.12"
             }
-        ],
-        "lecturer": "Ермолов И.Л",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Автономные мобильные роботы",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Ермолов И.Л",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.11.06-2020.11.20",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.23"
             }
-        ],
-        "lecturer": "Поливанов А.Ю",
+        ]
+    },
+    {
+        "title": "Современные методы управления в робототехнике и мехатронике",
+        "lecturer": "Колесниченко Р.В",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "21:10",
-            "start": "19:40"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            }
+        ]
+    },
+    {
+        "title": "Автономные мобильные роботы",
+        "lecturer": "Ермолов И.Л",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            }
+        ]
+    },
+    {
         "title": "Информационные системы в мехатронике и робототехнике",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Поливанов А.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.30-2020.11.20",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.11.06-2020.11.20"
             }
-        ],
-        "lecturer": "Воротников А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Научные и инженерные методы в мехатронике и робототехнике",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Воротников А.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.30",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.30-2020.11.20"
             }
-        ],
-        "lecturer": "Ермолов И.Л",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Автономные мобильные роботы",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Ермолов И.Л",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.11.27",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.30"
             }
-        ],
-        "lecturer": "Поливанов А.Ю",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Информационные системы в мехатронике и робототехнике",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "209",
+        "title": "Информационные системы в мехатронике и робототехнике",
+        "lecturer": "Поливанов А.Ю",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.10",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.27"
             }
-        ],
-        "lecturer": "Колесниченко Р.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Современные методы управления в робототехнике и мехатронике",
-        "type": "Laboratory"
+        ]
     }
 ]

@@ -1,209 +1,201 @@
 [
     {
+        "title": "Управление рисками, системный анализ и моделирование",
+        "lecturer": "Ягольницер О.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.10.26",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.26"
             }
-        ],
-        "lecturer": "Ягольницер О.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Управление рисками, системный анализ и моделирование",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Управление рисками, системный анализ и моделирование",
+        "lecturer": "Ягольницер О.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.10.26",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.26"
             }
-        ],
-        "lecturer": "Ягольницер О.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Управление рисками, системный анализ и моделирование",
-        "type": "Lecture"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.11.17",
-                "frequency": "every"
-            }
-        ],
+        "title": "Автоматизация обеспечения техносферной безопасности",
         "lecturer": "Шварцбург Л.Э",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "18:00"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.17"
+            }
+        ]
+    },
+    {
+        "title": "Расчет и проектирование систем обеспечения безопасности",
+        "lecturer": "Букейханов Н.Р",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            }
+        ]
+    },
+    {
+        "title": "Расчет и проектирование систем обеспечения безопасности",
+        "lecturer": "Букейханов Н.Р",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Инженерные технологии управления потреблением ресурсов и отходами",
+        "lecturer": "Букейханов Н.Р",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.22-2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Инженерные технологии управления потреблением ресурсов и отходами",
+        "lecturer": "Букейханов Н.Р",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.29-2020.11.26"
+            }
+        ]
+    },
+    {
         "title": "Автоматизация обеспечения техносферной безопасности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.21",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Букейханов Н.Р",
-        "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Расчет и проектирование систем обеспечения безопасности",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.28",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Букейханов Н.Р",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Расчет и проектирование систем обеспечения безопасности",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Букейханов Н.Р",
-        "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Инженерные технологии управления потреблением ресурсов и отходами",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.15-2020.11.26",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Букейханов Н.Р",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Инженерные технологии управления потреблением ресурсов и отходами",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0407",
-        "dates": [
-            {
-                "date": "2020.10.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.23",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.13",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Кулизаде Д.И",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Автоматизация обеспечения техносферной безопасности",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "0407",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.16",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.23"
             },
             {
-                "date": "2020.10.30",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.13"
             }
-        ],
-        "lecturer": "Кулизаде Д.И",
-        "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Автоматизация обеспечения техносферной безопасности",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
+        "lecturer": "Кулизаде Д.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "0407",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.21",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.30"
             }
-        ],
-        "lecturer": "Букейханов Н.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Инженерные технологии управления потреблением ресурсов и отходами",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Букейханов Н.Р",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.10.24",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.21"
             }
-        ],
-        "lecturer": "Букейханов Н.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Расчет и проектирование систем обеспечения безопасности",
-        "type": "Lecture"
+        "lecturer": "Букейханов Н.Р",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.24"
+            }
+        ]
     }
 ]

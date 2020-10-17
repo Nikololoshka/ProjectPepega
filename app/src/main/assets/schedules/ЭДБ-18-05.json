@@ -1,578 +1,568 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.23",
-                "frequency": "every"
-            }
-        ],
+        "title": "Экономика",
         "lecturer": "Дорожкина О.К",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Экономика",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.12.21",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.23"
             }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Прикладная физическая культура",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.12.21",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.12.21"
             }
-        ],
-        "lecturer": "Забелин А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Пакеты прикладных программ для исследований и разработок",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Забелин А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.11.09",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.12.21"
             }
-        ],
-        "lecturer": "Верещака А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Верещака А.А",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.11.17",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Схиртладзе А.Г",
-        "subgroup": "A",
         "time": {
-            "end": "15:50",
-            "start": "12:20"
+            "start": "8:30",
+            "end": "10:10"
         },
-        "title": "Технология и организация производства продукции и услуг",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.13-2020.11.24",
-                "frequency": "throughout"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.09"
             }
-        ],
-        "lecturer": "Схиртладзе А.Г",
+        ]
+    },
+    {
+        "title": "Всеобщее управление качеством",
+        "lecturer": "Балаболина Н.Н",
+        "type": "Laboratory",
         "subgroup": "B",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "12:20"
+            "start": "12:20",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.20-2020.12.01"
+            }
+        ]
+    },
+    {
         "title": "Технология и организация производства продукции и услуг",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.20-2020.12.01",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Балаболина Н.Н",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Всеобщее управление качеством",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.27-2020.12.08",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Балаболина Н.Н",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Всеобщее управление качеством",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.11.17",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Схиртладзе А.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Технология и организация производства продукции и услуг",
-        "type": "Lecture"
-    },
-    {
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.21",
-                "frequency": "every"
+                "frequency": "throughout",
+                "date": "2020.10.20-2020.11.17"
             }
-        ],
-        "lecturer": "Балаболина Н.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Всеобщее управление качеством",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Балаболина Н.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.11-2020.11.25",
-                "frequency": "every"
+                "frequency": "throughout",
+                "date": "2020.10.27-2020.12.08"
             }
-        ],
-        "lecturer": "Глубоков А.В",
-        "subgroup": "Common",
+        ]
+    },
+    {
+        "title": "Технология и организация производства продукции и услуг",
+        "lecturer": "Схиртладзе А.Г",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "start": "12:20",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.27-2020.11.24"
+            }
+        ]
+    },
+    {
+        "title": "Технология и организация производства продукции и услуг",
+        "lecturer": "Схиртладзе А.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.17"
+            }
+        ]
+    },
+    {
+        "title": "Всеобщее управление качеством",
+        "lecturer": "Балаболина Н.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            }
+        ]
+    },
+    {
         "title": "Методы и средства измерений, испытаний и контроля",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Глубоков А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
             },
             {
-                "date": "2020.11.11-2020.12.02",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Квалиметрия и управление качеством",
         "lecturer": "Гришина Т.Г",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Квалиметрия и управление качеством",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.12.02",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.02"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Методы и средства измерений, испытаний и контроля",
         "lecturer": "Глубоков А.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.12.02",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.02"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Электротехника и электроника",
         "lecturer": "Сергеев Ю.Д",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.12.03",
-                "frequency": "throughout"
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.02"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Электротехника и электроника",
         "lecturer": "Хлебалин Н.А",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.08",
-                "frequency": "once"
+                "frequency": "throughout",
+                "date": "2020.10.22-2020.12.03"
             }
-        ],
-        "lecturer": "Верещака А.А",
+        ]
+    },
+    {
+        "title": "Пакеты прикладных программ для исследований и разработок",
+        "lecturer": "Соколов В.А",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.15",
-                "frequency": "once"
+                "frequency": "throughout",
+                "date": "2020.10.22-2020.12.03"
             }
-        ],
-        "lecturer": "Верещака А.А",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Laboratory"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.15-2020.11.26",
-                "frequency": "throughout"
-            }
-        ],
+        "title": "Электротехника и электроника",
         "lecturer": "Хлебалин Н.А",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.22-2020.12.03",
-                "frequency": "throughout"
+                "frequency": "throughout",
+                "date": "2020.10.29-2020.11.26"
             }
-        ],
-        "lecturer": "Соколов В.А",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Пакеты прикладных программ для исследований и разработок",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.29-2020.12.10",
-                "frequency": "throughout"
-            }
-        ],
         "lecturer": "Соколов В.А",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Пакеты прикладных программ для исследований и разработок",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.10.29",
-                "frequency": "every"
+                "frequency": "throughout",
+                "date": "2020.10.29-2020.12.10"
             }
-        ],
-        "lecturer": "Мешков В.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Квалиметрия и управление качеством",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Козлова А.В",
+        "lecturer": "Мешков В.Г",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Сертификация систем качества",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.11.06",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.22"
             },
             {
-                "date": "2020.11.20",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.29"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Сертификация систем качества",
         "lecturer": "Козлова А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Сертификация систем качества",
+        "lecturer": "Козлова А.В",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Сертификация систем качества",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.11.13",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.06"
             },
             {
-                "date": "2020.11.27",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.20"
             }
-        ],
-        "lecturer": "Козлова А.В",
-        "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Сертификация систем качества",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "Козлова А.В",
+        "type": "Laboratory",
+        "subgroup": "B",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.10.30",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.27"
             }
-        ],
-        "lecturer": "Забелин А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Пакеты прикладных программ для исследований и разработок",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Забелин А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.12.11",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
             }
-        ],
-        "lecturer": "Астафьева А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Экономика",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Астафьева А.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.10.30",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.23-2020.12.11"
             }
-        ],
-        "lecturer": "Козлова А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Сертификация систем качества",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Козлова А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.11.06-2020.11.27",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
             }
-        ],
-        "lecturer": "Забелин А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Пакеты прикладных программ для исследований и разработок",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "322",
+        "lecturer": "Забелин А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "throughout"
+                "frequency": "every",
+                "date": "2020.11.06-2020.11.27"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Методы и средства измерений, испытаний и контроля",
         "lecturer": "Глубокова С.В",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "322",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.17",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.24"
             },
             {
-                "date": "2020.10.31",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.07"
             }
-        ],
-        "lecturer": "Глубокова С.В",
-        "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Методы и средства измерений, испытаний и контроля",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0207",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.12.05",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Кузнецова Н.М",
-        "subgroup": "Common",
+        "lecturer": "Глубокова С.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "322",
         "time": {
-            "end": "12:00",
-            "start": "10:20"
+            "start": "12:20",
+            "end": "15:50"
         },
-        "title": "Всеобщее управление качеством",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0207",
         "dates": [
             {
-                "date": "2020.11.28",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.31"
+            }
+        ]
+    },
+    {
+        "title": "Всеобщее управление качеством",
+        "lecturer": "Кузнецова Н.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.12.05"
+            }
+        ]
+    },
+    {
+        "title": "Всеобщее управление качеством",
+        "lecturer": "Кузнецова Н.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0207",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.28"
             },
             {
-                "date": "2020.12.05",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.05"
             }
-        ],
-        "lecturer": "Кузнецова Н.М",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Всеобщее управление качеством",
-        "type": "Lecture"
+        ]
     }
 ]

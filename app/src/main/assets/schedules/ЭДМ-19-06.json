@@ -1,455 +1,315 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.13",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.27",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Козлова А.В",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
         "title": "Управление проектами",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.20",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.03",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Козлова А.В",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Управление проектами",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Толкачева И.М",
-        "subgroup": "Common",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "start": "16:00",
+            "end": "19:30"
         },
-        "title": "Всеобщее управление качеством в обеспечении конкурентоспособности машиностроительных производств",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.06-2020.11.03",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Козлова А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Управление проектами",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Козлова А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Управление проектами",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.20",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Управление технологическими рисками в производственной деятельности",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "0811",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Методы комплексной оценки систем управления качеством",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "0811",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Методы комплексной оценки систем управления качеством",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.28",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Методы комплексной оценки систем управления качеством",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Управление технологическими рисками в производственной деятельности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Управление технологическими рисками в производственной деятельности",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.15",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Управление технологическими рисками в производственной деятельности",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.22",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Козлова А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Управление проектами",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.05",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Методы комплексной оценки систем управления качеством",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.15-2020.11.12",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Управление технологическими рисками в производственной деятельности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.20"
             },
             {
-                "date": "2020.10.30",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.03"
             }
-        ],
-        "lecturer": "Козлова А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Управление проектами",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Козлова А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.16-2020.10.30",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Толкачева И.М",
-        "subgroup": "Common",
         "time": {
-            "end": "14:00",
-            "start": "12:20"
+            "start": "16:00",
+            "end": "19:30"
         },
-        "title": "Всеобщее управление качеством в обеспечении конкурентоспособности машиностроительных производств",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.09-2020.11.06",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.27"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Управление проектами",
+        "lecturer": "Козлова А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.11.03"
+            }
+        ]
+    },
+    {
+        "title": "Управление технологическими рисками в производственной деятельности",
+        "lecturer": "Гришина Т.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.20"
+            }
+        ]
+    },
+    {
+        "title": "Методы комплексной оценки систем управления качеством",
+        "lecturer": "Гришина Т.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            }
+        ]
+    },
+    {
+        "title": "Управление проектами",
+        "lecturer": "Козлова А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.22"
+            }
+        ]
+    },
+    {
+        "title": "Методы комплексной оценки систем управления качеством",
+        "lecturer": "Гришина Т.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.05"
+            }
+        ]
+    },
+    {
+        "title": "Управление технологическими рисками в производственной деятельности",
+        "lecturer": "Гришина Т.Г",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.12"
+            }
+        ]
+    },
+    {
+        "title": "Управление проектами",
+        "lecturer": "Козлова А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
+            }
+        ]
+    },
+    {
+        "title": "Всеобщее управление качеством в обеспечении конкурентоспособности машиностроительных производств",
+        "lecturer": "Толкачева И.М",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
+            }
+        ]
+    },
+    {
+        "title": "Всеобщее управление качеством в обеспечении конкурентоспособности машиностроительных производств",
         "lecturer": "Шеховцова Ю.Н",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Всеобщее управление качеством в обеспечении конкурентоспособности машиностроительных производств",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.11.13",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.20",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.06"
             }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Управление технологическими рисками в производственной деятельности",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Гришина Т.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.10.23",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.13"
             },
             {
-                "date": "2020.11.13",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.20",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.20"
             }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Методы комплексной оценки систем управления качеством",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Гришина Т.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
         "dates": [
             {
-                "date": "2020.10.30",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.23"
             },
             {
-                "date": "2020.11.06",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.20"
             }
-        ],
-        "lecturer": "Гришина Т.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Управление технологическими рисками в производственной деятельности",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Гришина Т.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
         "dates": [
             {
-                "date": "2020.10.17-2020.11.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.30"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.06"
             }
-        ],
-        "lecturer": "Симанженков К.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Управление конфигурацией изделий",
-        "type": "Lecture"
+        ]
     },
     {
+        "title": "Управление конфигурацией изделий",
+        "lecturer": "Симанженков К.А",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.17",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.28"
             }
-        ],
-        "lecturer": "Симанженков К.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Управление конфигурацией изделий",
-        "type": "Lecture"
+        ]
     },
     {
+        "title": "Управление конфигурацией изделий",
+        "lecturer": "Симанженков К.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.12.05",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.05"
             }
-        ],
-        "lecturer": "Симанженков К.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Управление конфигурацией изделий",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Управление конфигурацией изделий",
+        "lecturer": "Симанженков К.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.24-2020.12.05",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.12.05"
             }
-        ],
-        "lecturer": "Симанженков К.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Управление конфигурацией изделий",
-        "type": "Seminar"
+        ]
     }
 ]

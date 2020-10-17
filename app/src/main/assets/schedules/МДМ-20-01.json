@@ -1,344 +1,218 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.30",
-                "frequency": "throughout"
-            }
-        ],
+        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
         "lecturer": "Новиков В.А",
+        "type": "Laboratory",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "22:50",
-            "start": "19:40"
+            "start": "19:40",
+            "end": "22:50"
         },
-        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "type": "Laboratory"
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.19-2020.11.30"
+            }
+        ]
     },
     {
+        "title": "Интегрированные САSЕ системы в машиностроении",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
+        "subgroup": "Common",
         "classroom": "ТехП 11",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.12",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.26",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.26"
             }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Интегрированные САSЕ системы в машиностроении",
-        "type": "Laboratory"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.20-2020.12.01",
-                "frequency": "throughout"
-            }
-        ],
+        "title": "Методология научных исследований в машиностроении",
         "lecturer": "Рязанов Д.Ю",
+        "type": "Laboratory",
         "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Методология научных исследований в машиностроении",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.27",
-                "frequency": "once"
+                "frequency": "throughout",
+                "date": "2020.10.20-2020.12.01"
             }
-        ],
-        "lecturer": "Домнин П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Патентоведение и защита интеллектуальной собственности",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.13",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Караваев Я.С",
+        "lecturer": "Домнин П.В",
+        "type": "Laboratory",
         "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Основы цифровых производств в машиностроении",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.12.01",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.27"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Методология научных исследований в машиностроении",
         "lecturer": "Кутин А.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Методология научных исследований в машиностроении",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.21",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "throughout"
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.01"
             }
-        ],
-        "lecturer": "Косарев В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Домнин П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.14",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Косарев В.А",
+        "type": "Laboratory",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.08",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.10.15",
-                "frequency": "once"
+                "frequency": "throughout",
+                "date": "2020.11.11-2020.12.09"
             }
-        ],
-        "lecturer": "Домнин П.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Рогинко Е.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
         "title": "Технический иностранный язык",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Рогинко Е.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.23-2020.12.04",
-                "frequency": "throughout"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.05"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Основы цифровых производств в машиностроении",
         "lecturer": "Караваев Я.С",
+        "type": "Laboratory",
         "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Основы цифровых производств в машиностроении",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.09",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
+                "frequency": "throughout",
+                "date": "2020.10.23-2020.12.04"
             }
-        ],
-        "lecturer": "Кутин А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Методология научных исследований в машиностроении",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.17",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Гиловой Л.Я",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
         "title": "Интегрированные САSЕ системы в машиностроении",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.11.21",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Гиловой Л.Я",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Интегрированные САSЕ системы в машиностроении",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.12.05",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.21"
             }
-        ],
-        "lecturer": "Кутин А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Основы цифровых производств в машиностроении",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Кутин А.А",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.12.05",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.12.05"
             }
-        ],
-        "lecturer": "Крутов А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Крутов А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.24",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.31",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.14-2020.12.05",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.12.05"
             }
-        ],
-        "lecturer": "Косарев В.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
-        "type": "Lecture"
+        "lecturer": "Косарев В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.24"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.31"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.14-2020.12.05"
+            }
+        ]
     }
 ]

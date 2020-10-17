@@ -1,612 +1,602 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.23",
-                "frequency": "every"
-            }
-        ],
+        "title": "Экономика",
         "lecturer": "Дорожкина О.К",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Экономика",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.12.21",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.23"
             }
-        ],
-        "lecturer": "",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Прикладная физическая культура",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.12.21",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.12.21"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Пакеты прикладных программ для исследований и разработок",
         "lecturer": "Забелин А.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Пакеты прикладных программ для исследований и разработок",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.11.09",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.12.21"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Высокоэффективные технологии и оборудование современных производств",
         "lecturer": "Верещака А.А",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.12.01",
-                "frequency": "throughout"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.09"
             }
-        ],
-        "lecturer": "Хлебалин Н.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Электротехника и электроника",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Верещака А.А",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.13",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Верещака А.А",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.13-2020.11.24",
-                "frequency": "throughout"
-            }
-        ],
         "lecturer": "Хлебалин Н.А",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Электротехника и электроника",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.20-2020.12.01",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Соколов В.А",
-        "subgroup": "A",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
-        "title": "Пакеты прикладных программ для исследований и разработок",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.27-2020.12.08",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Соколов В.А",
+        "type": "Laboratory",
         "subgroup": "B",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "16:00"
+            "start": "16:00",
+            "end": "19:30"
         },
-        "title": "Пакеты прикладных программ для исследований и разработок",
-        "type": "Laboratory"
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.20-2020.12.01"
+            }
+        ]
     },
     {
+        "title": "Пакеты прикладных программ для исследований и разработок",
+        "lecturer": "Соколов В.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.20-2020.12.01"
+            }
+        ]
+    },
+    {
+        "title": "Электротехника и электроника",
+        "lecturer": "Хлебалин Н.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.27-2020.11.24"
+            }
+        ]
+    },
+    {
+        "title": "Пакеты прикладных программ для исследований и разработок",
+        "lecturer": "Соколов В.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.27-2020.12.08"
+            }
+        ]
+    },
+    {
+        "title": "Проектная деятельность",
+        "lecturer": "Чаруйская М.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "0205",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.06-2020.12.01",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.01"
             }
-        ],
-        "lecturer": "Чаруйская М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Проектная деятельность",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Теория и расчет измерительных преобразователей",
+        "lecturer": "Пимушкин Я.И",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "0622",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.10.27",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Пимушкин Я.И",
-        "subgroup": "Common",
         "time": {
-            "end": "12:00",
-            "start": "10:20"
+            "start": "10:20",
+            "end": "12:00"
         },
-        "title": "Теория и расчет измерительных преобразователей",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.20"
             },
             {
-                "date": "2020.11.11-2020.12.09",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.27"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Основы технического регулирования",
         "lecturer": "Серко Н.Б",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Основы технического регулирования",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.12.02",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.09"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Квалиметрия и управление качеством",
         "lecturer": "Гришина Т.Г",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Квалиметрия и управление качеством",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.12.02",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.02"
             }
-        ],
-        "lecturer": "Глубоков А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Методы и средства измерений, испытаний и контроля",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Глубоков А.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.12.02",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.02"
             }
-        ],
-        "lecturer": "Сергеев Ю.Д",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Электротехника и электроника",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "332",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.19",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Зернов А.М",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Основы проектирования приборов и систем",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "332",
-        "dates": [
-            {
-                "date": "2020.10.15-2020.11.12",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Зернов А.М",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Основы проектирования приборов и систем",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "324",
-        "dates": [
-            {
-                "date": "2020.10.29",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.12",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Афонина И.В",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Основы технического регулирования",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "324",
-        "dates": [
-            {
-                "date": "2020.11.05",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.19",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Афонина И.В",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Основы технического регулирования",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.26",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Пимушкин Я.И",
+        "lecturer": "Сергеев Ю.Д",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Теория и расчет измерительных преобразователей",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.12.10",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.02"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Основы проектирования приборов и систем",
+        "lecturer": "Зернов А.М",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "332",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.10.22-2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Основы проектирования приборов и систем",
+        "lecturer": "Зернов А.М",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "332",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.12"
+            }
+        ]
+    },
+    {
+        "title": "Основы технического регулирования",
+        "lecturer": "Афонина И.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "324",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.29"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.12"
+            }
+        ]
+    },
+    {
+        "title": "Основы технического регулирования",
+        "lecturer": "Афонина И.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "324",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.05"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Теория и расчет измерительных преобразователей",
+        "lecturer": "Пимушкин Я.И",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.26"
+            }
+        ]
+    },
+    {
+        "title": "Основы проектирования приборов и систем",
         "lecturer": "Шулепов А.В",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "start": "14:10",
+            "end": "15:50"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.12.10"
+            }
+        ]
+    },
+    {
+        "title": "Методы и средства измерений, испытаний и контроля",
+        "lecturer": "Глубокова С.В",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "322",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.06"
+            }
+        ]
+    },
+    {
+        "title": "Теория и расчет измерительных преобразователей",
+        "lecturer": "Пимушкин Я.И",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "333",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.06"
+            }
+        ]
+    },
+    {
+        "title": "Методы и средства измерений, испытаний и контроля",
+        "lecturer": "Глубокова С.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "322",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
+            }
+        ]
+    },
+    {
+        "title": "Теория и расчет измерительных преобразователей",
+        "lecturer": "Пимушкин Я.И",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "333",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.30"
+            }
+        ]
+    },
+    {
         "title": "Основы проектирования приборов и систем",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "322",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.11.06",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Глубокова С.В",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "333",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.11.06",
-                "frequency": "throughout"
-            }
-        ],
-        "lecturer": "Пимушкин Я.И",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Теория и расчет измерительных преобразователей",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "322",
-        "dates": [
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.30",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Глубокова С.В",
-        "subgroup": "A",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "333",
-        "dates": [
-            {
-                "date": "2020.10.16",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.10.30",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Пимушкин Я.И",
-        "subgroup": "B",
-        "time": {
-            "end": "12:00",
-            "start": "8:30"
-        },
-        "title": "Теория и расчет измерительных преобразователей",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "Шулепов А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "240(б)",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.10.23",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.23"
             }
-        ],
-        "lecturer": "Шулепов А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
-        "title": "Основы проектирования приборов и систем",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "0411",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.10.23",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Чаруйская М.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
         "title": "Проектная деятельность",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "240(б)",
+        "lecturer": "Чаруйская М.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "0411",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.30-2020.12.18",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.23"
             }
-        ],
-        "lecturer": "Афонина И.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Основы технического регулирования",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Афонина И.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "240(б)",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.30-2020.11.20",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.30-2020.12.18"
             }
-        ],
-        "lecturer": "Глубоков А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Методы и средства измерений, испытаний и контроля",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
+        "lecturer": "Глубоков А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "240(б)",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.24-2020.11.14",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.30-2020.11.20"
             }
-        ],
-        "lecturer": "Верещака А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "15:50",
-            "start": "14:10"
-        },
+        ]
+    },
+    {
         "title": "Высокоэффективные технологии и оборудование современных производств",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Верещака А.А",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.14",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.14"
             }
-        ],
-        "lecturer": "Забелин А.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Пакеты прикладных программ для исследований и разработок",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Забелин А.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.14",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.14"
             }
-        ],
-        "lecturer": "Мешков В.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
+        ]
+    },
+    {
         "title": "Квалиметрия и управление качеством",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Мешков В.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.12.12",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.14"
             }
-        ],
-        "lecturer": "Астафьева А.А",
-        "subgroup": "Common",
-        "time": {
-            "end": "10:10",
-            "start": "8:30"
-        },
+        ]
+    },
+    {
         "title": "Экономика",
-        "type": "Seminar"
+        "lecturer": "Астафьева А.А",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.12.12"
+            }
+        ]
     }
 ]

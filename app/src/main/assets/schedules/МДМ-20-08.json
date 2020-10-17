@@ -1,307 +1,323 @@
 [
     {
+        "title": "Нанотехнологии в машиностроении",
+        "lecturer": "Солис П",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.10.19",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.19"
             }
-        ],
-        "lecturer": "Солис П",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Нанотехнологии в машиностроении",
-        "type": "Lecture"
+        ]
     },
     {
-        "classroom": "0407",
-        "dates": [
-            {
-                "date": "2020.10.06-2020.11.17",
-                "frequency": "throughout"
-            }
-        ],
+        "title": "Информационные технологии в сфере безопасности",
         "lecturer": "Бутримова Е.В",
+        "type": "Laboratory",
         "subgroup": "B",
+        "classroom": "",
         "time": {
-            "end": "22:50",
-            "start": "19:40"
+            "start": "19:40",
+            "end": "22:50"
         },
-        "title": "Информационные технологии в сфере безопасности",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "0407",
         "dates": [
             {
-                "date": "2020.10.13-2020.11.10",
-                "frequency": "throughout"
+                "frequency": "throughout",
+                "date": "2020.10.20-2020.11.17"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Информационные технологии в сфере безопасности",
         "lecturer": "Бутримова Е.В",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Информационные технологии в сфере безопасности",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.10"
             }
-        ],
-        "lecturer": "Солис П",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "21:20"
-        },
+        ]
+    },
+    {
         "title": "Нанотехнологии в машиностроении",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Солис П",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "21:20",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11-2020.11.25",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.28"
             }
-        ],
-        "lecturer": "Фокин М.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Мониторинг безопасности",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Фокин М.Г",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Мониторинг безопасности",
-        "type": "Lecture"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Зимовец О.Е",
-        "subgroup": "Common",
-        "time": {
-            "end": "22:50",
-            "start": "21:20"
-        },
-        "title": "Экономика и менеджмент безопасности",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Зимовец О.Е",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Экономика и менеджмент безопасности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.08-2020.11.05",
-                "frequency": "every"
-            }
-        ],
-        "lecturer": "Ягольницер О.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Методология научных исследований в обеспечении инженерной защиты окружающей среды",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.12",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.19",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
             }
-        ],
-        "lecturer": "Зимовец О.Е",
+        ]
+    },
+    {
+        "title": "Мониторинг безопасности",
+        "lecturer": "Фокин М.Г",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "21:10",
-            "start": "19:40"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
         "title": "Экономика и менеджмент безопасности",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Зимовец О.Е",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "21:20",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.11.13",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.05"
             }
-        ],
-        "lecturer": "Ягольницер О.В",
+        ]
+    },
+    {
+        "title": "Экономика и менеджмент безопасности",
+        "lecturer": "Зимовец О.Е",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "21:10",
-            "start": "19:40"
+            "start": "19:40",
+            "end": "21:10"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.05"
+            }
+        ]
+    },
+    {
         "title": "Методология научных исследований в обеспечении инженерной защиты окружающей среды",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Ягольницер О.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.11.06",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.22-2020.11.05"
             }
-        ],
-        "lecturer": "Букейханов Н.Р",
+        ]
+    },
+    {
+        "title": "Экономика и менеджмент безопасности",
+        "lecturer": "Зимовец О.Е",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "18:00"
+            "start": "19:40",
+            "end": "21:10"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Методология научных исследований в обеспечении инженерной защиты окружающей среды",
+        "lecturer": "Ягольницер О.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.13"
+            }
+        ]
+    },
+    {
         "title": "Современные проблемы науки в области обеспечения безопасности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.11.13",
-                "frequency": "once"
-            }
-        ],
         "lecturer": "Букейханов Н.Р",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Современные проблемы науки в области обеспечения безопасности",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.06"
             }
-        ],
-        "lecturer": "Бутримова Е.В",
+        ]
+    },
+    {
+        "title": "Современные проблемы науки в области обеспечения безопасности",
+        "lecturer": "Букейханов Н.Р",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "15:50",
-            "start": "14:10"
+            "start": "18:00",
+            "end": "19:30"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.13"
+            }
+        ]
+    },
+    {
         "title": "Информационные технологии в сфере безопасности",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Бутримова Е.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
             }
-        ],
-        "lecturer": "Фокин М.Г",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
+        ]
+    },
+    {
         "title": "Экспертиза безопасности",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Фокин М.Г",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Экспертиза безопасности",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.11.07",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
             }
-        ],
-        "lecturer": "Букейханов Н.Р",
+        ]
+    },
+    {
+        "title": "Экспертиза безопасности",
+        "lecturer": "Фокин М.Г",
+        "type": "Seminar",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "10:10",
-            "start": "8:30"
+            "start": "10:20",
+            "end": "12:00"
         },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
+            }
+        ]
+    },
+    {
         "title": "Современные проблемы науки в области обеспечения безопасности",
-        "type": "Seminar"
+        "lecturer": "Букейханов Н.Р",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.24-2020.11.07"
+            }
+        ]
     }
 ]

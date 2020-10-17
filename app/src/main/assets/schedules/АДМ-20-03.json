@@ -1,613 +1,591 @@
 [
     {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.05-2020.11.02",
-                "frequency": "throughout"
-            }
-        ],
+        "title": "Базы, банки и анализ данных",
         "lecturer": "Евстафиева С.В",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Базы, банки и анализ данных",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.10.12-2020.11.09",
-                "frequency": "throughout"
+                "frequency": "once",
+                "date": "2020.10.19"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.02"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Базы, банки и анализ данных",
         "lecturer": "Евстафиева С.В",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Базы, банки и анализ данных",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
         "dates": [
             {
-                "date": "2020.11.16",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.26"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.09"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Промышленная и мобильная робототехника",
         "lecturer": "Карлов К.Р",
+        "type": "Seminar",
         "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Промышленная и мобильная робототехника",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.11.30",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.16"
             }
-        ],
-        "lecturer": "Евстафиева С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Базы, банки и анализ данных",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.12.14",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Суханова Н.В",
+        "lecturer": "Евстафиева С.В",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Моделирование надежности машин",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.12.07",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.10.19-2020.11.30"
+            }
+        ]
+    },
+    {
+        "title": "Моделирование надежности машин",
+        "lecturer": "Суханова Н.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.14"
+            }
+        ]
+    },
+    {
+        "title": "Моделирование надежности машин",
+        "lecturer": "Суханова Н.В",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.07"
             },
             {
-                "date": "2020.12.14",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.14"
             }
-        ],
-        "lecturer": "Суханова Н.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Моделирование надежности машин",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Моделирование надежности машин",
+        "lecturer": "Суханова Н.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.05-2020.12.14",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.19-2020.12.14"
             }
-        ],
-        "lecturer": "Суханова Н.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Моделирование надежности машин",
-        "type": "Lecture"
+        ]
     },
     {
-        "classroom": "ТехП 16",
-        "dates": [
-            {
-                "date": "2020.10.27",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.10",
-                "frequency": "once"
-            }
-        ],
+        "title": "Промышленная и мобильная робототехника",
         "lecturer": "Ковальский В.М",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "22:50",
-            "start": "19:40"
-        },
-        "title": "Промышленная и мобильная робототехника",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "ТехП 16",
-        "dates": [
-            {
-                "date": "2020.11.03",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Ковальский В.М",
-        "subgroup": "B",
         "time": {
-            "end": "22:50",
-            "start": "19:40"
+            "start": "19:40",
+            "end": "22:50"
         },
-        "title": "Промышленная и мобильная робототехника",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.06-2020.10.20",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.27"
             },
             {
-                "date": "2020.11.17-2020.12.01",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.10"
             }
-        ],
-        "lecturer": "Власюк Н.Н",
-        "subgroup": "Common",
+        ]
+    },
+    {
+        "title": "Промышленная и мобильная робототехника",
+        "lecturer": "Ковальский В.М",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 16",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "start": "19:40",
+            "end": "22:50"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.03"
+            }
+        ]
+    },
+    {
         "title": "Деловой иностранный язык",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Власюк Н.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.20"
             },
             {
-                "date": "2020.11.11",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.18",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.11.17-2020.12.01"
             }
-        ],
-        "lecturer": "Никишечкин А.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
+        ]
+    },
+    {
         "title": "Нейронные сети и нечеткая логика в задачах управления",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Никишечкин А.П",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.28",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             },
             {
-                "date": "2020.11.11",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.28"
             },
             {
-                "date": "2020.11.18",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
             }
-        ],
-        "lecturer": "Козак Н.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Проектирование и разработка специализированных интерфейсов оператора",
-        "type": "Lecture"
-    },
-    {
+        "lecturer": "Козак Н.В",
+        "type": "Lecture",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.07-2020.10.21",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.10.28"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
             }
-        ],
-        "lecturer": "Евстафиева С.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Базы, банки и анализ данных",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Евстафиева С.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.28",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.11-2020.12.16",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.10.21"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Промышленная и мобильная робототехника",
         "lecturer": "Карлов К.Р",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "17:40",
-            "start": "16:00"
+            "start": "16:00",
+            "end": "17:40"
         },
-        "title": "Промышленная и мобильная робототехника",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "ТехП 16",
         "dates": [
             {
-                "date": "2020.10.22",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.28"
             },
             {
-                "date": "2020.12.03",
-                "frequency": "once"
+                "frequency": "every",
+                "date": "2020.11.11-2020.12.16"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Промышленная и мобильная робототехника",
         "lecturer": "Ковальский В.М",
+        "type": "Laboratory",
         "subgroup": "B",
+        "classroom": "ТехП 16",
         "time": {
-            "end": "22:50",
-            "start": "19:40"
+            "start": "19:40",
+            "end": "22:50"
         },
-        "title": "Промышленная и мобильная робототехника",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.29",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.22"
             },
             {
-                "date": "2020.11.12",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.03"
             }
-        ],
-        "lecturer": "Никишечкин А.П",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Нейронные сети и нечеткая логика в задачах управления",
-        "type": "Laboratory"
-    },
-    {
+        "lecturer": "Никишечкин А.П",
+        "type": "Laboratory",
+        "subgroup": "B",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.11.05",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.29"
             },
             {
-                "date": "2020.11.19",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.12"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Нейронные сети и нечеткая логика в задачах управления",
         "lecturer": "Никишечкин А.П",
+        "type": "Laboratory",
         "subgroup": "A",
+        "classroom": "",
         "time": {
-            "end": "19:30",
-            "start": "16:00"
+            "start": "16:00",
+            "end": "19:30"
         },
-        "title": "Нейронные сети и нечеткая логика в задачах управления",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "ТехП 16",
         "dates": [
             {
-                "date": "2020.11.26",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.05"
             },
             {
-                "date": "2020.12.10",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.19"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Промышленная и мобильная робототехника",
         "lecturer": "Ковальский В.М",
+        "type": "Laboratory",
         "subgroup": "A",
+        "classroom": "ТехП 16",
         "time": {
-            "end": "22:50",
-            "start": "19:40"
+            "start": "19:40",
+            "end": "22:50"
         },
-        "title": "Промышленная и мобильная робототехника",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
         "dates": [
             {
-                "date": "2020.10.08",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.26"
             },
             {
-                "date": "2020.10.15",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.12.10"
             }
-        ],
-        "lecturer": "Никишечкин А.П",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Нейронные сети и нечеткая логика в задачах управления",
-        "type": "Seminar"
+        ]
     },
     {
-        "classroom": "ТехП 16",
-        "dates": [
-            {
-                "date": "2020.11.20",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Ковальский В.М",
-        "subgroup": "B",
-        "time": {
-            "end": "19:30",
-            "start": "16:00"
-        },
         "title": "Промышленная и мобильная робототехника",
-        "type": "Laboratory"
-    },
-    {
-        "classroom": "",
+        "lecturer": "Ковальский В.М",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 16",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.10.09-2020.10.23",
-                "frequency": "every"
+                "frequency": "once",
+                "date": "2020.11.20"
             }
-        ],
-        "lecturer": "Багдасаров Д.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
+        ]
+    },
+    {
         "title": "Философские проблемы науки и техники",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.30",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.06",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.11.27",
-                "frequency": "once"
-            },
-            {
-                "date": "2020.12.04",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Карлов К.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "19:30",
-            "start": "18:00"
-        },
-        "title": "Промышленная и мобильная робототехника",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.10.23",
-                "frequency": "every"
-            },
-            {
-                "date": "2020.11.06",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Карлов К.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Промышленная и мобильная робототехника",
-        "type": "Lecture"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.30",
-                "frequency": "once"
-            }
-        ],
-        "lecturer": "Власюк Н.Н",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
-        "title": "Деловой иностранный язык",
-        "type": "Seminar"
-    },
-    {
-        "classroom": "",
-        "dates": [
-            {
-                "date": "2020.10.09-2020.10.30",
-                "frequency": "every"
-            }
-        ],
         "lecturer": "Багдасаров Д.Р",
+        "type": "Lecture",
         "subgroup": "Common",
-        "time": {
-            "end": "21:10",
-            "start": "19:40"
-        },
-        "title": "Философские проблемы науки и техники",
-        "type": "Seminar"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.11.13",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.23"
             }
-        ],
-        "lecturer": "Карлов К.Р",
-        "subgroup": "Common",
-        "time": {
-            "end": "17:40",
-            "start": "16:00"
-        },
+        ]
+    },
+    {
         "title": "Промышленная и мобильная робототехника",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Карлов К.Р",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "18:00",
+            "end": "19:30"
+        },
         "dates": [
             {
-                "date": "2020.11.06",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.30"
             },
             {
-                "date": "2020.11.13",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.06"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.27"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.12.04"
             }
-        ],
-        "lecturer": "Власюк Н.Н",
+        ]
+    },
+    {
+        "title": "Промышленная и мобильная робототехника",
+        "lecturer": "Карлов К.Р",
+        "type": "Lecture",
         "subgroup": "Common",
+        "classroom": "",
         "time": {
-            "end": "21:10",
-            "start": "19:40"
+            "start": "16:00",
+            "end": "17:40"
         },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.06"
+            }
+        ]
+    },
+    {
         "title": "Деловой иностранный язык",
-        "type": "Seminar"
-    },
-    {
+        "lecturer": "Власюк Н.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
         "dates": [
             {
-                "date": "2020.10.24",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.30"
+            }
+        ]
+    },
+    {
+        "title": "Философские проблемы науки и техники",
+        "lecturer": "Багдасаров Д.Р",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.10.23"
             },
             {
-                "date": "2020.11.07",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.30"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Промышленная и мобильная робототехника",
+        "lecturer": "Карлов К.Р",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.13"
+            }
+        ]
+    },
+    {
+        "title": "Деловой иностранный язык",
+        "lecturer": "Власюк Н.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "21:10"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.06"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.13"
+            }
+        ]
+    },
+    {
+        "title": "Проектирование и разработка специализированных интерфейсов оператора",
         "lecturer": "Козак Н.В",
+        "type": "Laboratory",
         "subgroup": "A",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Проектирование и разработка специализированных интерфейсов оператора",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.31",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.24"
             },
             {
-                "date": "2020.11.14",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.07"
             }
-        ],
+        ]
+    },
+    {
+        "title": "Проектирование и разработка специализированных интерфейсов оператора",
         "lecturer": "Козак Н.В",
+        "type": "Laboratory",
         "subgroup": "B",
-        "time": {
-            "end": "15:50",
-            "start": "12:20"
-        },
-        "title": "Проектирование и разработка специализированных интерфейсов оператора",
-        "type": "Laboratory"
-    },
-    {
         "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
         "dates": [
             {
-                "date": "2020.10.10",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.10.31"
             },
             {
-                "date": "2020.10.17",
-                "frequency": "once"
+                "frequency": "once",
+                "date": "2020.11.14"
             }
-        ],
-        "lecturer": "Козак Н.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "14:00",
-            "start": "12:20"
-        },
-        "title": "Проектирование и разработка специализированных интерфейсов оператора",
-        "type": "Seminar"
+        ]
     },
     {
+        "title": "Моделирование надежности машин",
+        "lecturer": "Суханова Н.В",
+        "type": "Seminar",
+        "subgroup": "Common",
         "classroom": "",
+        "time": {
+            "start": "10:20",
+            "end": "12:00"
+        },
         "dates": [
             {
-                "date": "2020.10.10-2020.12.05",
-                "frequency": "every"
+                "frequency": "every",
+                "date": "2020.10.24-2020.12.05"
             }
-        ],
-        "lecturer": "Суханова Н.В",
-        "subgroup": "Common",
-        "time": {
-            "end": "12:00",
-            "start": "10:20"
-        },
-        "title": "Моделирование надежности машин",
-        "type": "Seminar"
+        ]
     }
 ]
