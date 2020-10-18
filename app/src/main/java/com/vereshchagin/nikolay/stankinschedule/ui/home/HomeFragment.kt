@@ -89,7 +89,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         // новости
         viewModel.newsData.observe(viewLifecycleOwner, Observer {
             val data = it ?: return@Observer
-            adapter.submitList(data)
+            adapter.submitData(lifecycle, data)
         })
     }
 

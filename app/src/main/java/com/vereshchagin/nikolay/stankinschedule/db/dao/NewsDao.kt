@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.db.dao
 
 import androidx.paging.DataSource
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -32,7 +33,7 @@ interface NewsDao {
      * @param max максимальное количество элементов.
      */
     @Query("SELECT * FROM POSTS ORDER BY date DESC LIMIT :max")
-    fun latest(max: Int = 5) : DataSource.Factory<Int, NewsItem>
+    fun latest(max: Int = 3) : PagingSource<Int, NewsItem>
 
     /**
      * Очищает закэшированные новости.

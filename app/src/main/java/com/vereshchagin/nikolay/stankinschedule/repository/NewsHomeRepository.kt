@@ -1,9 +1,13 @@
 package com.vereshchagin.nikolay.stankinschedule.repository
 
 import android.content.Context
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PagedList
+import androidx.lifecycle.LiveData
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.liveData
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 
 class NewsHomeRepository(context: Context) {
 
@@ -20,14 +24,11 @@ class NewsHomeRepository(context: Context) {
         repositories.forEach { it.refresh() }
     }
 
-    fun latest(count: Int = 3) = LivePagedListBuilder(
-        db.news().latest(count),
-        PagedList.Config.Builder()
-            .setEnablePlaceholders(true)
-            .setInitialLoadSizeHint(count)
-            .setPageSize(1)
-            .build()
-    ).build()
+    fun latest(count: Int = 3): LiveData<PagingData<NewsItem>> {
+        return Pager(PagingConfig(count)) {
+            db.news().latest(count)
+        }.liveData
+    }
 
 
     companion object {

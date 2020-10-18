@@ -28,6 +28,11 @@
             android:title="@string/nav_about_application"  />
 
         <item
+            android:id="@+id/nav_firebase_test"
+            android:icon="@drawable/ic_nav_crash"
+            android:title="Crash app! (debug)" />
+
+        <item
             android:title=""
             android:enabled="false" />
 

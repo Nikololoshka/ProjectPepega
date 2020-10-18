@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Switch;
 
@@ -70,6 +71,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NavigationView navigationView = findViewById(R.id.nav_view);
         NavController navController = Navigation.findNavController(this, R.id.nav_host);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.nav_firebase_test) {
+                    throw new RuntimeException("Firebase test");
+                }
+                return false;
+            }
+        });
 
         AppBarConfiguration configuration = new AppBarConfiguration.Builder(
             R.id.nav_home_fragment, R.id.nav_schedule_fragment,
