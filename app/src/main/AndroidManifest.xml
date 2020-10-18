@@ -46,9 +46,6 @@
 
         <!-- Services -->
         <service
-            android:name=".ui.schedule.repository.ScheduleDownloaderService"
-            android:exported="false" />
-        <service
             android:name=".widget.ScheduleWidgetRemoteFactory$Service"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 

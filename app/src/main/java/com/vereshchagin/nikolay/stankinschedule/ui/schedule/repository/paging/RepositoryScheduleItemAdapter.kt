@@ -7,23 +7,24 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.Reposi
 /**
  * Адаптер для расписаний в категории.
  */
-class RepositoryScheduleItemAdapter : RecyclerView.Adapter<RepositoryScheduleItemHolder>() {
+class RepositoryScheduleItemAdapter(
+    private val callback: (scheduleName: String, position: Int) -> Unit
+) : RecyclerView.Adapter<RepositoryScheduleItemHolder>() {
 
     /**
      * Список с расписаниями.
      */
     private var schedules: List<String> = listOf()
-    private var category: String = ""
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): RepositoryScheduleItemHolder {
-        return RepositoryScheduleItemHolder.create(parent)
+        return RepositoryScheduleItemHolder.create(parent, callback)
     }
 
     override fun onBindViewHolder(holder: RepositoryScheduleItemHolder, position: Int) {
-        holder.bind(schedules[position], category)
+        holder.bind(schedules[position])
     }
 
     override fun getItemCount() = schedules.size
@@ -33,7 +34,6 @@ class RepositoryScheduleItemAdapter : RecyclerView.Adapter<RepositoryScheduleIte
      */
     fun submitList(item: RepositoryCategoryItem)  {
         schedules = item.schedules
-        category = item.categoryName
         notifyDataSetChanged()
     }
 }

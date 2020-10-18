@@ -1,10 +1,14 @@
 package com.vereshchagin.nikolay.stankinschedule.repository
 
+import android.net.Uri
 import android.util.Log
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import com.google.gson.GsonBuilder
+import com.vereshchagin.nikolay.stankinschedule.BuildConfig
+import com.vereshchagin.nikolay.stankinschedule.api.ScheduleRepositoryApi
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryCategoryItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryDescription
 import com.vereshchagin.nikolay.stankinschedule.utils.DateTimeTypeConverter
@@ -12,9 +16,13 @@ import com.vereshchagin.nikolay.stankinschedule.utils.State
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.apache.commons.io.FileUtils
 import org.joda.time.DateTime
 import org.joda.time.Hours
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.nio.charset.StandardCharsets
 import kotlin.coroutines.resume
@@ -114,10 +122,49 @@ class ScheduleServerRepository(
         }
     }
 
-    fun scheduleDownloader(categoryName: String, scheduleName: String): StorageReference {
-        return storage.getReference(
-            path(SCHEDULES_ROOT, categoryName, "$scheduleName.json")
-        )
+    /**
+     * Получение Uri расписания для скачивания.
+     */
+    suspend fun scheduleUri(categoryName: String, scheduleName: String): Uri {
+        return suspendCoroutine { continuation ->
+            storage.getReference(
+                path(SCHEDULES_ROOT, categoryName, "$scheduleName.json")
+            ).downloadUrl
+                .addOnSuccessListener {
+                    continuation.resume(it)
+                }
+                .addOnFailureListener {
+                    continuation.resume(Uri.EMPTY)
+                }
+        }
+    }
+
+    /**
+     * Возвращает API для скачивания с удаленного репозитория.
+     */
+    fun downloader(): ScheduleRepositoryApi {
+        val builder = Retrofit.Builder()
+            .baseUrl(FIREBASE_URL)
+            .addConverterFactory(GsonConverterFactory.create(
+                GsonBuilder()
+                    .registerTypeAdapter(Schedule::class.java, Schedule.Deserializer())
+                    .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
+                    .create()
+            ))
+
+        // включение лога
+        if (BuildConfig.DEBUG) {
+            val logger = HttpLoggingInterceptor()
+            logger.level = HttpLoggingInterceptor.Level.BODY
+
+            val client = OkHttpClient.Builder()
+                .addInterceptor(logger)
+                .build()
+
+            builder.client(client)
+        }
+
+        return builder.build().create(ScheduleRepositoryApi::class.java)
     }
 
     /**
@@ -206,6 +253,7 @@ class ScheduleServerRepository(
     private fun path(vararg paths: String) = paths.joinToString("/")
 
     companion object {
+        const val FIREBASE_URL = "https://firebasestorage.googleapis.com/v0/b/stankinschedule.appspot.com/o/"
         const val SCHEDULES_ROOT = "schedules"
         const val SCHEDULES_DESCRIPTION = "description.json"
         const val REPOSITORY_FOLDER = "repository"

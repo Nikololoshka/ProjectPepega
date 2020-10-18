@@ -4,25 +4,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemRepositoryScheduleBinding
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker
 
 /**
  * Holder расписания
  */
 class RepositoryScheduleItemHolder(
-    private val binding: ItemRepositoryScheduleBinding
+    private val binding: ItemRepositoryScheduleBinding,
+    private val callback: (scheduleName: String, position: Int) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
-
-    private var category: String? = null
 
     init {
         binding.repositorySchedule.setOnClickListener { view ->
-            category?.let { categoryName ->
-                ScheduleDownloadWorker.startWorker(
-                    view.context,
-                    categoryName,
-                    binding.scheduleName!!
-                )
+            binding.scheduleName?.let {
+                callback.invoke(it, bindingAdapterPosition)
             }
         }
     }
@@ -30,9 +24,8 @@ class RepositoryScheduleItemHolder(
     /**
      * Устанавливает данные в holder.
      */
-    fun bind(scheduleName: String, category: String) {
+    fun bind(scheduleName: String) {
         binding.scheduleName = scheduleName
-        this.category = category
     }
 
     companion object {
@@ -40,11 +33,15 @@ class RepositoryScheduleItemHolder(
          * Создает Holder для адаптера.
          */
         @JvmStatic
-        fun create(parent: ViewGroup): RepositoryScheduleItemHolder {
+        fun create(
+            parent: ViewGroup,
+            callback: (scheduleName: String, position: Int) -> Unit
+        ): RepositoryScheduleItemHolder {
             return RepositoryScheduleItemHolder(
                 ItemRepositoryScheduleBinding.inflate(
                     LayoutInflater.from(parent.context), parent, false
-                )
+                ),
+                callback
             )
         }
     }

@@ -26,7 +26,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.home.ChangeSubgroupBottomShee
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleDownloaderService
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker.Companion.SCHEDULE_DOWNLOADED_EVENT
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
@@ -99,7 +99,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         LocalBroadcastManager.getInstance(context)
             .registerReceiver(
                 receiver,
-                IntentFilter(ScheduleDownloaderService.SCHEDULE_DOWNLOADED_EVENT)
+                IntentFilter(SCHEDULE_DOWNLOADED_EVENT)
             )
     }
 

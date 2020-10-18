@@ -79,11 +79,11 @@
     <string name="repository_update">Update</string>
     <string name="repository_search">Search</string>
     <string name="repository_search_hint">Schedule…</string>
-    <string name="repository_title">Local repository of the device</string>
-    <string name="repository_version">Current version: Autumn-2020</string>
-    <string name="repository_server_title">Remote repository</string>
-    <string name="repository_last_update">Last update: 23.09.20</string>
+    <string name="repository_last_update">Last update: %1$s</string>
+    <string name="repository_schedule_loaded">Schedule loaded</string>
+    <string name="repository_loading_failure">Failure of loading the schedule</string>
     <string name="repository_loading_schedule">Loading schedule</string>
+    <string name="repository_start_loading">Started download the schedule: %1$s</string>
     <string name="repository_checking_schedule">Checking the loaded schedule</string>
     <string name="repository_info_background">Repository information background</string>
     <string name="repository_not_result">Not result</string>

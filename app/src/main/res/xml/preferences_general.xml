@@ -4,22 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        android:title="@string/nav_home"
-        android:layout="@layout/preference_custom_category">
-
-        <SeekBarPreference
-            android:key="home_schedule_delta"
-            android:title="@string/pref_home_schedule_delta"
-            android:summary="@string/pref_home_schedule_delta_summary"
-            android:defaultValue="2"
-            app:min="2"
-            android:max="7"
-            app:showSeekBarValue="true"
-            app:iconSpaceReserved="false"/>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:title="@string/pref_links"
         app:layout="@layout/preference_custom_category">
 

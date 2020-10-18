@@ -87,6 +87,33 @@ class ScheduleRepository {
     }
 
     /**
+     * Сохраняет расписание.
+     */
+    fun saveNew(context: Context, schedule: Schedule, scheduleName: String) {
+        if (schedules(context).contains(scheduleName)) {
+            throw FileAlreadyExistsException(File(scheduleName))
+        }
+
+        val path = SchedulePreference.createPath(context, scheduleName)
+        save(schedule, path)
+        SchedulePreference.add(context, scheduleName)
+    }
+
+    /**
+     * Создает путь к расписанию.
+     */
+    fun path(context: Context, scheduleName: String) : String {
+        return SchedulePreference.createPath(context, scheduleName)
+    }
+
+    /**
+     * Проверяет, существует ли расписание с таким именем.
+     */
+    fun exists(context: Context, scheduleName: String): Boolean {
+        return schedules(context).contains(scheduleName)
+    }
+
+    /**
      * Загружает и сохранаяет расписание с json.
      */
     fun loadAndSaveFromJson(context: Context, json: String, scheduleName: String) {

@@ -40,7 +40,7 @@ class ScheduleRepositoryFragment : BaseFragment<FragmentScheduleRepositoryBindin
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         _statefulLayout = StatefulLayout2.Builder(binding.repositoryLayout)
-            .init(StatefulLayout2.LOADING,  binding.repositoryLoading.root)
+            .init(StatefulLayout2.LOADING, binding.repositoryLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.repositoryContainer)
             .addView(StatefulLayout2.ERROR, binding.repositoryErrorLayout)
             .create()
@@ -63,7 +63,9 @@ class ScheduleRepositoryFragment : BaseFragment<FragmentScheduleRepositoryBindin
         viewModel.description.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is State.Success -> {
-                    binding.description = state.data
+                    binding.repositoryLastUpdate.text = getString(
+                        R.string.repository_last_update, state.data.lastUpdate
+                    )
                     binding.repositoryRefresh.isRefreshing = false
                     statefulLayout.setState(StatefulLayout2.CONTENT)
                 }
