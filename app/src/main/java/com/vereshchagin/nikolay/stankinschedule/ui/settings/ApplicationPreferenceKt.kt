@@ -4,11 +4,14 @@ import android.content.Context
 import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
 import com.vereshchagin.nikolay.stankinschedule.R
+import org.joda.time.DateTime
 
 /**
  * Настройки приложения.
  */
 object ApplicationPreferenceKt {
+
+    private const val UPDATE_APP_TIME = "update_app_time"
 
     /**
      * Возвращает список цветов для расписания.
@@ -23,6 +26,28 @@ object ApplicationPreferenceKt {
         }
 
         return colors
+    }
+
+    /**
+     * Возвращает время, когда последний раз проверялось доступность обновлений.
+     * Возвращается null, если никогда не проверялось.
+     */
+    @JvmStatic
+    fun updateAppTime(context: Context): DateTime? {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        val dateTime = preferences.getString(UPDATE_APP_TIME, null) ?: return null
+        return DateTime.parse(dateTime)
+    }
+
+    /**
+     * Устанавливает время последней проверки обновления приложения.
+     */
+    @JvmStatic
+    fun setUpdateAppTime(context: Context, dateTime: DateTime) {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        preferences.edit()
+            .putString(UPDATE_APP_TIME, dateTime.toString())
+            .apply()
     }
 
     /**
