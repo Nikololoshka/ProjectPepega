@@ -50,7 +50,7 @@ class ScheduleServerRepository(
 
         if (useCache) {
             val cache = loadDescription()
-            Log.d(TAG, "description: ${cache?.date}")
+            Log.d(TAG, "description: ${cache}")
             if (cache != null && isValid(cache.date)) {
                 emit(State.success(cache))
                 return@flow
@@ -69,9 +69,6 @@ class ScheduleServerRepository(
 
                     saveDescription(description)
                     continuation.resume(State.success(description))
-                }
-                .addOnProgressListener {
-                    Log.d(TAG, "description: ${it.bytesTransferred}/${it.totalByteCount}")
                 }
                 .addOnFailureListener {
                     continuation.resume(State.failed(it))

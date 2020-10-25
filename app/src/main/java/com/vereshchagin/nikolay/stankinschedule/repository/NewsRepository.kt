@@ -92,7 +92,11 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
                 override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
                     networkState.value = NetworkState.error(t.message)
                 }
-                override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
+
+                override fun onResponse(
+                    call: Call<NewsResponse>,
+                    response: Response<NewsResponse>
+                ) {
                     ioExecutor.execute {
                         db.runInTransaction {
                             // удаление старых постов и добавление новых
@@ -121,6 +125,13 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
         val refreshState = Transformations.switchMap(refreshTrigger) {
             refresh()
         }
+
+//        val pager = Pager(
+//            PagingConfig(40, 20, true),
+//            remoteMediator = null
+//        ) {
+//            db.news().all(newsSubdivision)
+//        }
 
         val pagedList = LivePagedListBuilder(db.news().all(newsSubdivision), size)
             .setBoundaryCallback(boundaryCallback)

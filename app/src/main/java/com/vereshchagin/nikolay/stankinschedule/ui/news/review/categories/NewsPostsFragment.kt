@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
@@ -18,12 +17,13 @@ import com.vereshchagin.nikolay.stankinschedule.api.Status
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostsBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostAdapter
-import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity
 
 /**
  * Фрагмент для отображения списка новостей.
  */
-class NewsPostsFragment: BaseFragment<ItemNewsPostsBinding>(), NewsPostAdapter.OnNewsClickListener {
+class NewsPostsFragment : BaseFragment<ItemNewsPostsBinding>(),
+    NewsPostAdapter.OnNewsClickListener {
 
     /**
      * ViewModel фрагмента.
@@ -71,7 +71,7 @@ class NewsPostsFragment: BaseFragment<ItemNewsPostsBinding>(), NewsPostAdapter.O
         })
 
         // посты
-        viewModel.posts.observe(viewLifecycleOwner, Observer { posts ->
+        viewModel.posts.observe(viewLifecycleOwner, { posts ->
             adapter.submitList(posts)
             if (viewModel.isStartRefreshing()) {
                 binding.newsRecycler.scrollToPosition(0)
@@ -80,7 +80,7 @@ class NewsPostsFragment: BaseFragment<ItemNewsPostsBinding>(), NewsPostAdapter.O
         })
 
         // сеть
-        viewModel.networkState.observe(viewLifecycleOwner, Observer { state ->
+        viewModel.networkState.observe(viewLifecycleOwner, { state ->
             adapter.setNetworkState(state)
         })
 
@@ -89,7 +89,7 @@ class NewsPostsFragment: BaseFragment<ItemNewsPostsBinding>(), NewsPostAdapter.O
         binding.newsRecycler.addItemDecoration(itemDecoration)
 
         // состояние обновления
-        viewModel.refreshState.observe(viewLifecycleOwner, Observer {
+        viewModel.refreshState.observe(viewLifecycleOwner, {
             if (it.status == Status.FAILED) {
                 val message = it.msg ?: "Unknown error"
                 Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG)
@@ -105,7 +105,7 @@ class NewsPostsFragment: BaseFragment<ItemNewsPostsBinding>(), NewsPostAdapter.O
 
     override fun onNewsClick(newsId: Int) {
         val controller = Navigation.findNavController(requireActivity(), R.id.nav_host)
-        controller.navigate(R.id.to_news_viewer_fragment, NewsViewerFragment.createBundle(newsId))
+        controller.navigate(R.id.to_news_viewer_fragment, NewsViewerActivity.createBundle(newsId))
     }
 
     companion object {

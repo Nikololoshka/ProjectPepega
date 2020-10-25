@@ -2,7 +2,6 @@ package com.vereshchagin.nikolay.stankinschedule.utils
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -37,7 +36,7 @@ class FixedLayoutManager : LinearLayoutManager {
 
     override fun setMeasuredDimension(widthSize: Int, heightSize: Int) {
         val maxHeight = computeHeight()
-        Log.d("MyLog", "setMeasuredDimension: $maxHeight, $heightSize")
+        // Log.d("MyLog", "setMeasuredDimension: $maxHeight, $heightSize")
 
         if (maxHeight > 0) {
             super.setMeasuredDimension(widthSize, maxHeight)

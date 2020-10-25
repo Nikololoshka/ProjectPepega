@@ -6,6 +6,7 @@ import android.content.Intent
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import android.widget.RemoteViewsService.RemoteViewsFactory
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
@@ -76,45 +77,53 @@ class ScheduleWidgetRemoteFactory(
     }
 
     override fun onDataSetChanged() {
-        days.clear()
-        val currentContext = context.get()
-        if (currentContext == null) {
-            loadingError = true
-            return
-        }
-
-        // загрузка цветов
-        val (lecture ,seminar, laboratory) = ApplicationPreferenceKt.colors(
-            currentContext, LECTURE_COLOR, SEMINAR_COLOR, LABORATORY_COLOR
-        )
-        lectureColor = lecture; seminarColor = seminar; laboratoryColor = laboratory
-
-        // загрузка данных
-        val widgetData = ScheduleWidgetConfigureActivity.loadPref(currentContext, scheduleAppWidgetId)
-        if (widgetData.scheduleName == null) {
-            loadingError = true
-            return
-        }
-        scheduleName = widgetData.scheduleName
-        subgroup = widgetData.subgroup
-
-        val schedulePath = SchedulePreference.createPath(currentContext, scheduleName)
         try {
-            val schedule = ScheduleRepository().load(schedulePath)
-
-            var data = LocalDate.now()
-            for (i in 0 until 7) {
-                days.add(ScheduleWidgetDayItem(
-                    data.toString("EE, dd MMMM").capitalize(Locale.ROOT),
-                    schedule.pairsByDate(data),
-                    data
-                ))
-                data = data.plusDays(1)
+            days.clear()
+            val currentContext = context.get()
+            if (currentContext == null) {
+                loadingError = true
+                return
             }
-            loadingError = false
 
-        } catch (e: Exception) {
-            loadingError = true
+            // загрузка цветов
+            val (lecture, seminar, laboratory) = ApplicationPreferenceKt.colors(
+                currentContext, LECTURE_COLOR, SEMINAR_COLOR, LABORATORY_COLOR
+            )
+            lectureColor = lecture; seminarColor = seminar; laboratoryColor = laboratory
+
+            // загрузка данных
+            val widgetData =
+                ScheduleWidgetConfigureActivity.loadPref(currentContext, scheduleAppWidgetId)
+            if (widgetData.scheduleName == null) {
+                loadingError = true
+                return
+            }
+            scheduleName = widgetData.scheduleName
+            subgroup = widgetData.subgroup
+
+            val schedulePath = SchedulePreference.createPath(currentContext, scheduleName)
+            try {
+                val schedule = ScheduleRepository().load(schedulePath)
+
+                var data = LocalDate.now()
+                for (i in 0 until 7) {
+                    days.add(
+                        ScheduleWidgetDayItem(
+                            data.toString("EE, dd MMMM").capitalize(Locale.ROOT),
+                            schedule.pairsByDate(data),
+                            data
+                        )
+                    )
+                    data = data.plusDays(1)
+                }
+                loadingError = false
+
+            } catch (e: Exception) {
+                loadingError = true
+            }
+        } catch (t: Throwable) {
+            FirebaseCrashlytics.getInstance().recordException(t)
+            throw t
         }
     }
 
@@ -127,60 +136,67 @@ class ScheduleWidgetRemoteFactory(
     }
 
     override fun getViewAt(position: Int): RemoteViews {
-        // отображаем ошибку
-        if (loadingError) {
-            val errorView = RemoteViews(packageName, R.layout.view_error)
-            errorView.setTextViewText(R.id.error_title, errorMessage)
-            return errorView
-        }
-
-        // создаем view с днем
-        val dayView = RemoteViews(packageName, R.layout.widget_item_schedule)
-        dayView.removeAllViews(R.id.schedule_day_pairs)
-        val item = days[position]
-
-        // заголовок дня
-        dayView.setTextViewText(R.id.schedule_day_title, item.dayTitle)
-
-        // добавляем пары
-        var isAdded = false
-        for (pair in item.pairs) {
-
-            // если не подходит по подгруппе
-            if (!pair.isCurrently(subgroup)) {
-                continue
+        try {
+            // отображаем ошибку
+            if (loadingError) {
+                val errorView = RemoteViews(packageName, R.layout.view_error)
+                errorView.setTextViewText(R.id.error_title, errorMessage)
+                return errorView
             }
 
-            // установка данных в пару
-            val pairView = RemoteViews(packageName, R.layout.widget_item_schedule_pair)
-            pairView.setTextViewText(R.id.widget_schedule_title, pair.title)
-            pairView.setTextViewText(R.id.widget_schedule_time, pair.time.toString())
-            pairView.setTextViewText(R.id.widget_schedule_classroom, pair.classroom)
+            // создаем view с днем
+            val dayView = RemoteViews(packageName, R.layout.widget_item_schedule)
+            dayView.removeAllViews(R.id.schedule_day_pairs)
+            val item = days[position]
 
-            // цвет типа
-            val color = when (pair.type) {
-                Type.LECTURE -> lectureColor
-                Type.SEMINAR -> seminarColor
-                Type.LABORATORY -> laboratoryColor
+            // заголовок дня
+            dayView.setTextViewText(R.id.schedule_day_title, item.dayTitle)
+
+            // добавляем пары
+            var isAdded = false
+            for (pair in item.pairs) {
+
+                // если не подходит по подгруппе
+                if (!pair.isCurrently(subgroup)) {
+                    continue
+                }
+
+                // установка данных в пару
+                val pairView = RemoteViews(packageName, R.layout.widget_item_schedule_pair)
+                pairView.setTextViewText(R.id.widget_schedule_title, pair.title)
+                pairView.setTextViewText(R.id.widget_schedule_time, pair.time.toString())
+                pairView.setTextViewText(R.id.widget_schedule_classroom, pair.classroom)
+
+                // цвет типа
+                val color = when (pair.type) {
+                    Type.LECTURE -> lectureColor
+                    Type.SEMINAR -> seminarColor
+                    Type.LABORATORY -> laboratoryColor
+                }
+
+                pairView.setInt(R.id.widget_schedule_type, "setColorFilter", color)
+                dayView.addView(R.id.schedule_day_pairs, pairView)
+                isAdded = true
             }
 
-            pairView.setInt(R.id.widget_schedule_type, "setColorFilter", color)
-            dayView.addView(R.id.schedule_day_pairs, pairView)
-            isAdded = true
+            // если нет пар
+            if (!isAdded) {
+                val pairView = RemoteViews(packageName, R.layout.widget_item_schedule_no_pairs)
+                dayView.addView(R.id.schedule_day_pairs, pairView)
+            }
+
+            // для обратного вызова приложения с расписанием на определенном дне
+            dayView.setOnClickFillInIntent(
+                R.id.widget_item_schedule_app,
+                ScheduleWidget.createDayIntent(scheduleName, item.dayTime)
+            )
+
+            return dayView
+
+        } catch (t: Throwable) {
+            FirebaseCrashlytics.getInstance().recordException(t)
+            throw t
         }
-
-        // если нет пар
-        if (!isAdded) {
-            val pairView = RemoteViews(packageName, R.layout.widget_item_schedule_no_pairs)
-            dayView.addView(R.id.schedule_day_pairs, pairView)
-        }
-
-        // для обратного вызова приложения с расписанием на определенном дне
-        dayView.setOnClickFillInIntent(
-            R.id.widget_item_schedule_app, ScheduleWidget.createDayIntent(scheduleName, item.dayTime)
-        )
-
-        return dayView
     }
 
     override fun getLoadingView(): RemoteViews {

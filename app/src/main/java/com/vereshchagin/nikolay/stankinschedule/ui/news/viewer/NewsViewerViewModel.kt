@@ -1,13 +1,17 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.news.viewer
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
+import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.repository.NewsPostRepository
-import com.vereshchagin.nikolay.stankinschedule.utils.LoadState
-import java.io.File
+import com.vereshchagin.nikolay.stankinschedule.utils.State
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 
 /**
@@ -17,30 +21,33 @@ import java.io.File
  */
 class NewsViewerViewModel(
     private val repository: NewsPostRepository,
-    val newsId: Int,
-    application: Application
-) : AndroidViewModel(application) {
+    val newsId: Int
+) : ViewModel() {
 
     /**
-     * Состояние загрузки.
+     * Пост с новостью.
      */
-    val state = MutableLiveData(LoadState.LOADING)
+    val post = MutableLiveData<State<NewsPost>>(null)
 
     init {
-        repository.loadPost(state)
+        refresh()
     }
-
-    /**
-     * Текущий пост.
-     */
-    fun post() = repository.newsPost
 
     /**
      * Обновляет новость.
      */
-    fun refresh() {
-        if (state.value != LoadState.LOADING) {
-            repository.refresh(state)
+    fun refresh(useCache: Boolean = true) {
+        if (post.value !is State.Loading) {
+            viewModelScope.launch {
+                repository.loadPost(useCache)
+                    .catch {
+                        FirebaseCrashlytics.getInstance()
+                            .recordException(it)
+                    }
+                    .collect {
+                        post.postValue(it)
+                    }
+            }
         }
     }
 
@@ -57,11 +64,9 @@ class NewsViewerViewModel(
             return NewsViewerViewModel(
                 NewsPostRepository(
                     newsId,
-                    cacheDir()
-                ), newsId, application
+                    application.cacheDir
+                ), newsId
             ) as T
         }
-
-        private fun cacheDir() = File(application.cacheDir, "posts")
     }
 }

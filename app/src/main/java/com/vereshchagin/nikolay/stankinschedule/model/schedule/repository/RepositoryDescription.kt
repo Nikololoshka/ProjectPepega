@@ -7,7 +7,10 @@ import org.joda.time.DateTime
  * Класс с описанием данных о репозитории с расписанием.
  */
 class RepositoryDescription (
-    @SerializedName("last_update") val lastUpdate: String,
+    @SerializedName("last_update")
+    val lastUpdate: String,
+    @SerializedName("categories")
     val categories: List<String>,
+    @SerializedName("date")
     var date: DateTime = DateTime.now()
 )

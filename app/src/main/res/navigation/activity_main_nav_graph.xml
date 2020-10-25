@@ -20,7 +20,7 @@
 
         <action
             android:id="@+id/toScheduleRepositoryFragment"
-            app:destination="@id/nav_schedule_repository_fragment"
+            app:destination="@id/nav_schedule_repository_activity"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -31,7 +31,8 @@
     <fragment
         android:id="@+id/nav_module_journal_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.ModuleJournalFragment"
-        android:label="@string/nav_module_journal">
+        android:label="@string/nav_module_journal"
+        tools:layout="@layout/fragment_module_journal">
 
         <action
             android:id="@+id/toModuleJournalLoginFragment"
@@ -52,7 +53,8 @@
     <fragment
         android:id="@+id/nav_module_journal_login_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.login.ModuleJournalLoginFragment"
-        android:label="@string/nav_module_journal" />
+        android:label="@string/nav_module_journal"
+        tools:layout="@layout/fragment_module_journal_login"/>
 
     <fragment
         android:id="@+id/nav_news_fragment"
@@ -60,11 +62,12 @@
         android:label="@string/news"
         tools:layout="@layout/fragment_news" />
 
-    <fragment
-        android:id="@+id/nav_news_viewer_fragment"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerFragment"
-        android:label="@string/news"
-        tools:layout="@layout/fragment_news_viewer">
+    <activity
+        android:id="@+id/nav_news_viewer_activity"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity"
+        android:label=""
+        tools:layout="@layout/activity_news_viewer">
+
 
         <deepLink
             android:id="@+id/news_deep_link"
@@ -75,17 +78,31 @@
             android:name="news_id"
             app:argType="integer" />
 
-    </fragment>
+    </activity>
 
-    <fragment
-        android:id="@+id/nav_schedule_repository_fragment"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryFragment"
-        android:label="@string/repository" />
+    <activity
+        android:id="@+id/nav_schedule_repository_activity"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryActivity"
+        android:label="@string/repository"
+        tools:layout="@layout/activity_schedule_repository"/>
 
     <fragment
         android:id="@+id/nav_schedule_view_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment"
-        android:label="@string/sch_view" />
+        android:label="@string/sch_view"
+        tools:layout="@layout/fragment_schedule_view"/>
+
+    <activity
+        android:id="@+id/nav_pair_editor_activity"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity"
+        android:label="activity_pair_editor"
+        tools:layout="@layout/activity_pair_editor" />
+
+    <activity
+        android:id="@+id/nav_date_editor_activity"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.date.DateEditorActivity"
+        android:label="activity_date_editor"
+        tools:layout="@layout/activity_date_editor" />
 
     <fragment
         android:id="@+id/nav_about_fragment"
@@ -180,7 +197,7 @@
 
     <action
         android:id="@+id/to_news_viewer_fragment"
-        app:destination="@id/nav_news_viewer_fragment"
+        app:destination="@id/nav_news_viewer_activity"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim"
         app:popEnterAnim="@anim/nav_default_pop_enter_anim"

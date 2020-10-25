@@ -37,11 +37,18 @@ class NewsPost(
             "    </head>\n" +
             "    <body>\n" +
             "        <div id=\"raw-text\">$text</div>\n" +
-            "        <div id=\"editor\"></div>\n" +
+            "        <div id=\"editor\" style=\"display: none;\"></div>\n" +
+            "        <div id=\"viewer\"></div>"   +
             "        <script>\n" +
             "            var delta = $delta\n" +
             "            var quill = new Quill('#editor', { readOnly: true });\n" +
-            "            quill.setContents(delta);\n" +
+            "            try {\n" +
+            "                quill.setContents(delta);\n" +
+            "            } catch (error) {\n" +
+            "                console.error(error);\n" +
+            "            }\n" +
+            "            document.getElementById(\"viewer\").innerHTML = quill.root.innerHTML;\n" +
+            "            document.getElementById(\"editor\").remove();" +
             "            Android.onNewsLoaded();  " +
             "        </script>\n" +
             "    </body>\n" +

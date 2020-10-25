@@ -22,6 +22,7 @@ class NewsPostsViewModel(
     val posts = Transformations.switchMap(repositoryListing) { it.pagedList }
     val networkState = Transformations.switchMap(repositoryListing) { it.networkState }
     val refreshState = Transformations.switchMap(repositoryListing) { it.refreshState }
+
     private var scrollToTop = false
     private var startRefreshing = false
 

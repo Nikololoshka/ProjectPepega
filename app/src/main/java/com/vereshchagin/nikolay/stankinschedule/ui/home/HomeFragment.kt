@@ -12,7 +12,7 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostAdapter
-import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
@@ -162,7 +162,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     }
 
     override fun onNewsClick(newsId: Int) {
-        navigateTo(R.id.to_news_viewer_fragment, NewsViewerFragment.createBundle(newsId))
+        navigateTo(R.id.to_news_viewer_fragment, NewsViewerActivity.createBundle(newsId))
     }
 
     companion object {

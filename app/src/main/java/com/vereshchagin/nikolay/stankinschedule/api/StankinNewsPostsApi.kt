@@ -1,5 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.api
 
+import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPostResponse
 import retrofit2.Call
 import retrofit2.http.Body
@@ -41,6 +43,10 @@ interface StankinNewsPostsApi {
         /**
          * Объект для POST запроса.
          */
-        class PostData(val action: String, val data: Map<String, Any>)
+        @Keep
+        class PostData(
+            @SerializedName("action") val action: String,
+            @SerializedName("data") val data: Map<String, Any>
+        )
     }
 }

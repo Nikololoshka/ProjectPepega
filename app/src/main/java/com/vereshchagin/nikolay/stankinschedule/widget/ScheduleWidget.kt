@@ -7,8 +7,10 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.widget.RemoteViews
 import androidx.navigation.NavDeepLinkBuilder
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
@@ -30,11 +32,15 @@ class ScheduleWidget : AppWidgetProvider() {
             val date = intent.getSerializableExtra(SCHEDULE_DAY_TIME) as LocalDate
             val scheduleName = intent.getStringExtra(SCHEDULE_NAME) ?: return
 
+            Log.d("MyLog", "onReceive: $date")
+
             // создание intent'а на открытие расписание на определенном дне
             val scheduleDayBundle = ScheduleViewFragment.createBundle(
                 scheduleName,
-                SchedulePreference.createPath(context, scheduleName), date
+                SchedulePreference.createPath(context, scheduleName),
+                date
             )
+
             val scheduleDayPendingIntent = NavDeepLinkBuilder(context)
                 .setComponentName(MainActivity::class.java)
                 .setGraph(R.navigation.activity_main_nav_graph)
@@ -55,9 +61,14 @@ class ScheduleWidget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        // Обновить все виджеты
-        for (appWidgetId in appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId)
+        try {
+            // Обновить все виджеты
+            for (appWidgetId in appWidgetIds) {
+                updateAppWidget(context, appWidgetManager, appWidgetId)
+            }
+        } catch (t: Throwable) {
+            FirebaseCrashlytics.getInstance().recordException(t)
+            throw t
         }
     }
 

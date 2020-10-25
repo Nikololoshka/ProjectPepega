@@ -17,9 +17,13 @@ import com.vereshchagin.nikolay.stankinschedule.repository.NewsRepository
 @Entity(tableName = "posts")
 data class NewsItem(
     @PrimaryKey
+    @SerializedName("id")
     val id: Int,
+    @SerializedName("title")
     val title: String,
+    @SerializedName("date")
     val date: String,
+    @SerializedName("logo")
     val logo: String,
     @SerializedName("short_text")
     val shortText: String,

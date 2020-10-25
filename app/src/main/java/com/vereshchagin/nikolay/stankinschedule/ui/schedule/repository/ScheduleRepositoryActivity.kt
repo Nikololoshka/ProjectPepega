@@ -1,14 +1,15 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
 
 import android.os.Bundle
-import android.view.*
-import androidx.fragment.app.viewModels
+import android.view.Menu
+import android.view.MenuItem
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleRepositoryBinding
-import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
+import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityScheduleRepositoryBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.RepositoryCategoryAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
@@ -16,34 +17,27 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 /**
  * Удаленный репозиторий с расписаниеями.
  */
-class ScheduleRepositoryFragment : BaseFragment<FragmentScheduleRepositoryBinding>() {
+class ScheduleRepositoryActivity : AppCompatActivity() {
 
-    private var _statefulLayout: StatefulLayout2? = null
-    private val statefulLayout get() = _statefulLayout!!
+    private lateinit var statefulLayout: StatefulLayout2
+    private lateinit var binding: ActivityScheduleRepositoryBinding
 
     private val viewModel by viewModels<ScheduleRepositoryViewModel> {
-        ScheduleRepositoryViewModel.Factory(activity?.application!!)
+        ScheduleRepositoryViewModel.Factory(application)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
 
-    override fun onInflateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): FragmentScheduleRepositoryBinding {
-        return FragmentScheduleRepositoryBinding.inflate(inflater, container, false)
-    }
+        binding = ActivityScheduleRepositoryBinding.inflate(layoutInflater)
 
-    override fun onPostCreateView(savedInstanceState: Bundle?) {
-        _statefulLayout = StatefulLayout2.Builder(binding.repositoryLayout)
+        statefulLayout = StatefulLayout2.Builder(binding.repositoryLayout)
             .init(StatefulLayout2.LOADING, binding.repositoryLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.repositoryContainer)
             .addView(StatefulLayout2.ERROR, binding.repositoryErrorLayout)
             .create()
+
+        setContentView(binding.root)
 
         binding.repositoryErrorRetry.setOnClickListener {
             viewModel.update()
@@ -60,7 +54,7 @@ class ScheduleRepositoryFragment : BaseFragment<FragmentScheduleRepositoryBindin
         )
 
         // описание репозитория
-        viewModel.description.observe(viewLifecycleOwner) { state ->
+        viewModel.description.observe(this) { state ->
             when (state) {
                 is State.Success -> {
                     binding.repositoryLastUpdate.text = getString(
@@ -100,15 +94,15 @@ class ScheduleRepositoryFragment : BaseFragment<FragmentScheduleRepositoryBindin
         )
 
         // добавление категорий в ViewPager2
-        viewModel.categories.observe(viewLifecycleOwner) {
+        viewModel.categories.observe(this) {
             val data = it ?: return@observe
             adapter.submitData(lifecycle, data)
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_schedule_repository, menu)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_schedule_repository, menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -117,11 +111,6 @@ class ScheduleRepositoryFragment : BaseFragment<FragmentScheduleRepositoryBindin
         }
 
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _statefulLayout = null
     }
 
     companion object {

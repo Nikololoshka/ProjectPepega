@@ -13,8 +13,8 @@ android {
         applicationId "com.vereshchagin.nikolay.stankinschedule"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 35
-        versionName "1.1.0-beta3"
+        versionCode 37
+        versionName "1.1.0-beta5"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -33,12 +33,20 @@ android {
             debuggable true
             minifyEnabled false
             shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+            manifestPlaceholders = [
+                    crashlyticsCollectionEnabled: "false"
+            ]
         }
         release {
             minifyEnabled false
             shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+            manifestPlaceholders = [
+                    crashlyticsCollectionEnabled: "true"
+            ]
         }
     }
 
@@ -46,7 +54,7 @@ android {
         unitTests.returnDefaultValues = false
     }
 
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
         viewBinding = true
     }

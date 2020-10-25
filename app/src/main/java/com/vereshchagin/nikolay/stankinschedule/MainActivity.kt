@@ -10,7 +10,7 @@ import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.appbar.MaterialToolbar
@@ -63,7 +63,8 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
 
         // конфигурирования навигации
-        val navController = Navigation.findNavController(this, R.id.nav_host)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
+        val navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.navView, navController)
 
         val configuration = AppBarConfiguration.Builder(
@@ -96,7 +97,6 @@ class MainActivity : AppCompatActivity() {
         binding.darkModeButton.isChecked = isDark
         binding.darkModeButton.setOnClickListener(this::onDarkModeButtonClicked)
         updateDarkModeButton()
-
 
         // настройка уведомлений приложения
         // android 8.0+
@@ -131,6 +131,8 @@ class MainActivity : AppCompatActivity() {
 
         appUpdateManager = AppUpdateManagerFactory.create(this)
         checkAppUpdate()
+
+        // throw RuntimeException("Stack deobfuscation example exception");
     }
 
     override fun onDestroy() {
@@ -274,10 +276,5 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val UPDATE_REQUEST = 1
         const val DAYS_FOR_FLEXIBLE_UPDATE = 2
-
-        @Deprecated("Use nav graph pending intent")
-        const val MODULE_JOURNAL_VIEW = "module_journal_view"
-        @Deprecated("Use nav graph pending intent")
-        const val VIEW_ACTION = "view_action"
     }
 }
