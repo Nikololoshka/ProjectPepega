@@ -17,6 +17,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.InstallState
@@ -64,7 +65,8 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
 
         // конфигурирования навигации
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
         val navController = navHostFragment.navController
 
         val configuration = AppBarConfiguration.Builder(
@@ -156,12 +158,12 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(
                 binding.appBarMain.contentMain.containerMain,
                 R.string.update_cancelled,
-                Snackbar.LENGTH_SHORT
+                Snackbar.LENGTH_LONG
             ).show()
             ApplicationPreferenceKt.setUpdateAppTime(this, DateTime.now())
         }
     }
-    
+
     /**
      * Вызывается при нажатию на переключатель по смене темы приложения.
      */
@@ -247,18 +249,34 @@ class MainActivity : AppCompatActivity() {
                     && stalenessDays != null
                     && stalenessDays >= DAYS_FOR_FLEXIBLE_UPDATE
                 ) {
-                    appUpdateManager.startUpdateFlowForResult(
-                        updateInfo,
-                        AppUpdateType.FLEXIBLE,
-                        this,
-                        UPDATE_REQUEST
-                    )
+                    onShowUpdate(updateInfo)
                 } else {
                     ApplicationPreferenceKt.setUpdateAppTime(this, DateTime.now())
                 }
             }.addOnFailureListener {
                 ApplicationPreferenceKt.setUpdateAppTime(this, DateTime.now())
             }
+    }
+
+    /**
+     * Показывает диалог, что доступно обновление приложения.
+     */
+    private fun onShowUpdate(updateInfo: AppUpdateInfo) {
+        Snackbar.make(
+            binding.appBarMain.contentMain.containerMain,
+            R.string.update_available,
+            Snackbar.LENGTH_INDEFINITE
+        ).apply {
+            setAction(R.string.update_start_update) {
+                appUpdateManager.startUpdateFlowForResult(
+                    updateInfo,
+                    AppUpdateType.FLEXIBLE,
+                    this@MainActivity,
+                    UPDATE_REQUEST
+                )
+            }
+            show()
+        }
     }
 
     /**
@@ -283,6 +301,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val UPDATE_REQUEST = 1
-        const val DAYS_FOR_FLEXIBLE_UPDATE = 2
+        const val DAYS_FOR_FLEXIBLE_UPDATE = 3
     }
 }
