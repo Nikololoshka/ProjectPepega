@@ -1,37 +1,42 @@
 package com.vereshchagin.nikolay.stankinschedule.repository
 
 import android.content.Context
-import androidx.lifecycle.LiveData
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import androidx.paging.liveData
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
-import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 
+/**
+ * Репозиторий для последних новостей на главной странице.
+ */
 class NewsHomeRepository(context: Context) {
 
-    private val repositories = ArrayList<NewsRepository>()
+    /**
+     * Список репозиториев.
+     */
+    private val repositories = SUBDIVISIONS.map {
+        NewsRepository(it, context)
+    }
+
+    /**
+     * БД с новостями.
+     */
     private var db = MainApplicationDatabase.database(context)
 
-    init {
-        for (id in SUBDIVISIONS) {
-            repositories.add(NewsRepository(id, context))
-        }
-    }
 
+    /**
+     * Обновить все репозитории с новостями.
+     */
     fun updateAll() {
-        repositories.forEach { it.refresh() }
+        repositories.forEach { it.update() }
     }
 
-    fun latest(count: Int = 3): LiveData<PagingData<NewsItem>> {
-        return Pager(PagingConfig(count)) {
-            db.news().latest(count)
-        }.liveData
-    }
-
+    /**
+     * LiveData на список с последними новостями.
+     */
+    fun latest(count: Int = 3) = db.news().latest(count)
 
     companion object {
+        /**
+         * Подразделения новостей (для репозиториев).
+         */
         val SUBDIVISIONS = listOf(0, 125)
     }
 }

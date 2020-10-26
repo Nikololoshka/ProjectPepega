@@ -45,7 +45,7 @@ class NewsViewerViewModel(
                             .recordException(it)
                     }
                     .collect {
-                        post.postValue(it)
+                        post.value = it
                     }
             }
         }

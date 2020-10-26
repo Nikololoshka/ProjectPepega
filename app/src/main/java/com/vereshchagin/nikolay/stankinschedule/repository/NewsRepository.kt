@@ -15,6 +15,8 @@ import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsResponse
 import com.vereshchagin.nikolay.stankinschedule.repository.boundary.NewsBoundaryCallback
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.Listing
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.NewsPreference
+import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -22,6 +24,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -35,6 +38,8 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
 
     private var db = MainApplicationDatabase.database(context)
     private var dao: NewsDao
+
+    private var newsValid: Boolean = false
 
     val ioExecutor: ExecutorService = Executors.newSingleThreadExecutor()
 
@@ -54,6 +59,9 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
 
             builder.client(client)
         }
+
+        val date = NewsPreference.lastNewsUpdate(context, newsSubdivision)
+        newsValid = date != null && DateUtils.minutesBetween(Calendar.getInstance(), date) < 30
 
         retrofit = builder.build()
         api = retrofit.create(StankinNewsApi::class.java)
@@ -81,6 +89,15 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
     }
 
     /**
+     * Обновляет новости в БД, если они больше не действительны.
+     */
+    fun update() {
+        if (!newsValid) {
+            refresh()
+        }
+    }
+
+    /**
      * Обновляет новости в БД.
      */
     @MainThread
@@ -103,6 +120,7 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
                             db.news().clear(newsSubdivision)
                             addPostsIntoDb(response.body())
                         }
+                        newsValid = true
                         networkState.postValue(NetworkState.LOADED)
                     }
                 }

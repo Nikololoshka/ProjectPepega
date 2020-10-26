@@ -18,7 +18,8 @@
                 android:id="@+id/repository_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone">
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <com.google.android.material.appbar.AppBarLayout
                     android:id="@+id/app_bar_repository"
@@ -48,7 +49,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorTextLight"
                             android:padding="@dimen/default_layout_padding"
-                            tools:text="07.02.20" />
+                            tools:text="Last update: 07.02.20" />
 
                         <androidx.appcompat.widget.Toolbar
                             android:id="@+id/toolbar"

@@ -28,7 +28,7 @@ class NewsPostsViewModel(
 
     init {
         val date = NewsPreference.lastNewsUpdate(application, newsSubdivision)
-        if (date == null || DateUtils.minutesBetween(Calendar.getInstance(), date) > 15) {
+        if (date == null || DateUtils.minutesBetween(Calendar.getInstance(), date) > 30) {
             refresh()
         }
     }

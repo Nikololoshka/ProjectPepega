@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -65,7 +66,6 @@ class MainActivity : AppCompatActivity() {
         // конфигурирования навигации
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
         val navController = navHostFragment.navController
-        NavigationUI.setupWithNavController(binding.navView, navController)
 
         val configuration = AppBarConfiguration.Builder(
             R.id.nav_home_fragment,
@@ -76,10 +76,14 @@ class MainActivity : AppCompatActivity() {
         ).setOpenableLayout(binding.drawerLayout)
             .build()
 
-
         NavigationUI.setupWithNavController(toolbar, navController, configuration)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
-        NavigationUI.setupWithNavController(bottomNavigationView, navController)
+
+        // Bottom Navigation
+        bottomNavigationView.setupWithNavController(navController)
+        // Drawer
+        binding.navView.setupWithNavController(navController)
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             // скрываем / показываем нижнию навигацию
             bottomNavigationView.visibility =
@@ -90,6 +94,10 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     View.VISIBLE
                 }
+
+            if (destination.id == R.id.nav_schedule_view_fragment) {
+                bottomNavigationView.menu.findItem(R.id.nav_schedule_fragment)?.isChecked = true
+            }
         }
 
         // переключатель темы приложения

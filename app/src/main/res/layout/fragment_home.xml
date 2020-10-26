@@ -58,7 +58,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                    <com.vereshchagin.nikolay.stankinschedule.ui.home.pager.HomePager
+                    <com.vereshchagin.nikolay.stankinschedule.ui.home.schedule.HomePager
                         android:id="@+id/schedule_pager"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -79,6 +79,8 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <!--
 
         <androidx.cardview.widget.CardView
             style="@style/CardStyle"
@@ -117,11 +119,12 @@
 
         </androidx.cardview.widget.CardView>
 
+        -->
+
         <androidx.cardview.widget.CardView
             style="@style/CardStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"

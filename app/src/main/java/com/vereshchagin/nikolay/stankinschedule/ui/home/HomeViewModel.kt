@@ -3,7 +3,6 @@ package com.vereshchagin.nikolay.stankinschedule.ui.home
 import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.*
-import androidx.paging.cachedIn
 import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleData
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
@@ -26,7 +25,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val newsRepository = NewsHomeRepository(application)
 
     val scheduleData = MutableLiveData<HomeScheduleData>(null)
-    val newsData = newsRepository.latest().cachedIn(viewModelScope)
+    val newsData = newsRepository.latest()
 
     private var delta = 2
     private var subgroup = Subgroup.COMMON
@@ -35,6 +34,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     init {
         viewModelScope.launch(Dispatchers.IO) {
             loadSchedule()
+            newsRepository.updateAll()
         }
     }
 

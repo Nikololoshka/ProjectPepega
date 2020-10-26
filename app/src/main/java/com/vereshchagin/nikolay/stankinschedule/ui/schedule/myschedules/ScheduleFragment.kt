@@ -54,6 +54,9 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
 
     private var actionMode: ActionMode? = null
 
+    /**
+     * Ресивер для просмотра появления нового расписания (при скачивании).
+     */
     private val receiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             viewModel.update()
@@ -154,8 +157,8 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                 viewHolder: RecyclerView.ViewHolder,
                 target: RecyclerView.ViewHolder
             ): Boolean {
-                val fromPosition = viewHolder.adapterPosition
-                val toPosition = target.adapterPosition
+                val fromPosition = viewHolder.bindingAdapterPosition
+                val toPosition = target.bindingAdapterPosition
 
                 adapter.moveItem(fromPosition, toPosition)
 
@@ -322,27 +325,29 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     }
 
     override fun onScheduleFavoriteSelected(favorite: String) {
-        viewModel.setFavorite(favorite)
+        val isNew = viewModel.setFavorite(favorite)
 
-        // текущая подгруппа
-        val subgroup = ApplicationPreference.subgroup(requireContext())
-        var subgroupString = subgroup.toString(requireContext())
-        if (subgroupString.isEmpty()) {
-            subgroupString = getString(R.string.sch_without_subgroup)
-        }
-
-        // отображение выбранной подгруппы
-        Snackbar.make(
-            binding.schedulesLayout,
-            getString(R.string.sch_home_display_subgroup, subgroupString),
-            Snackbar.LENGTH_LONG
-        )
-            .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
-            .setAction(R.string.sch_home_change_subgroup) {
-                val dialog = ChangeSubgroupBottomSheet()
-                dialog.show(parentFragmentManager, dialog.tag)
+        if (isNew) {
+            // текущая подгруппа
+            val subgroup = ApplicationPreference.subgroup(requireContext())
+            var subgroupString = subgroup.toString(requireContext())
+            if (subgroupString.isEmpty()) {
+                subgroupString = getString(R.string.sch_without_subgroup)
             }
-            .show()
+
+            // отображение выбранной подгруппы
+            Snackbar.make(
+                binding.schedulesLayout,
+                getString(R.string.sch_home_display_subgroup, subgroupString),
+                Snackbar.LENGTH_LONG
+            )
+                .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
+                .setAction(R.string.sch_home_change_subgroup) {
+                    val dialog = ChangeSubgroupBottomSheet()
+                    dialog.show(parentFragmentManager, dialog.tag)
+                }
+                .show()
+        }
     }
 
     override fun onScheduleItemMove(fromPosition: Int, toPosition: Int) {

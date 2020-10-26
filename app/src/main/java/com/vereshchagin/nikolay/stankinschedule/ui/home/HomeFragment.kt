@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.home.news.NewsPostLatestAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
@@ -54,7 +55,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
 
         // нажатие по заголовкам
         binding.scheduleName.setOnClickListener(this)
-        binding.mjName.setOnClickListener(this)
+        // binding.mjName.setOnClickListener(this)
         binding.newsName.setOnClickListener(this)
 
         // установка названия расписания
@@ -87,9 +88,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         binding.newsLatest.addItemDecoration(itemDecoration)
 
         // новости
-        viewModel.newsData.observe(viewLifecycleOwner, Observer {
-            val data = it ?: return@Observer
-            adapter.submitData(lifecycle, data)
+        viewModel.newsData.observe(viewLifecycleOwner, {
+            adapter.submitList(it)
         })
     }
 
@@ -146,9 +146,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
                 }
             }
             // модульный журнал
-            R.id.mj_name -> {
-                navigateTo(R.id.nav_module_journal_fragment)
-            }
+            // R.id.mj_name -> {
+            //     navigateTo(R.id.nav_module_journal_fragment)
+            // }
             // новости
             R.id.news_name -> {
                 navigateTo(R.id.nav_news_fragment)

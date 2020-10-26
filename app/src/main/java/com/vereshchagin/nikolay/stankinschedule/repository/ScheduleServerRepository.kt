@@ -47,6 +47,7 @@ class ScheduleServerRepository(
      * @param useCache использовать кэш, если он есть.
      */
     fun description(useCache: Boolean) = flow {
+        emit(State.loading())
 
         if (useCache) {
             val cache = loadDescription()

@@ -63,7 +63,6 @@ class ScheduleRepositoryViewModel(application: Application) : AndroidViewModel(a
      * Обновляет содержимое репозитория
      */
     fun update(useCache: Boolean = true) {
-        description.value = State.loading()
         viewModelScope.launch {
             repository.description(useCache)
                 .collect {
