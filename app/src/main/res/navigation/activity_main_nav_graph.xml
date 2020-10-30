@@ -87,7 +87,7 @@
 
     <fragment
         android:id="@+id/nav_schedule_view_fragment"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragmentKt"
         android:label="@string/sch_view"
         tools:layout="@layout/fragment_schedule_view"/>
 

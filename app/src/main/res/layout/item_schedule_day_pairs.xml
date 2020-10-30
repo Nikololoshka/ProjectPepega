@@ -22,6 +22,7 @@
             android:orientation="vertical"/>
 
         <include
+            android:id="@+id/no_pairs"
             layout="@layout/item_no_pairs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

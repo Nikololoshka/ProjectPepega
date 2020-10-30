@@ -46,10 +46,10 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             return
         }
 
-        val path = SchedulePreference.createPath(getApplication(), favorite)
         val schedule: Schedule
         try {
-            schedule = scheduleRepository.load(path)
+            schedule = scheduleRepository.load(favorite, getApplication())
+
         } catch (ignored: Exception) {
             scheduleData.postValue(HomeScheduleData.empty())
             return

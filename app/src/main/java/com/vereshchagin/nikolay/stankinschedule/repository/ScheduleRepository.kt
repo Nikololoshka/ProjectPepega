@@ -1,6 +1,8 @@
 package com.vereshchagin.nikolay.stankinschedule.repository
 
 import android.content.Context
+import android.net.Uri
+import androidx.documentfile.provider.DocumentFile
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonSyntaxException
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
@@ -31,6 +33,15 @@ class ScheduleRepository {
     fun load(path: String): Schedule {
         val json = FileUtils.readFileToString(File(path), StandardCharsets.UTF_8)
         return gson.fromJson(json, Schedule::class.java)
+    }
+
+    /**
+     * Загружает расписание по имени.
+     */
+    @Throws(IOException::class, JsonSyntaxException::class)
+    fun load(scheduleName: String, context: Context): Schedule {
+        val path = path(context, scheduleName)
+        return load(path)
     }
 
     /**
@@ -87,6 +98,37 @@ class ScheduleRepository {
     }
 
     /**
+     * Копирует расписание по необходимому пути.
+     */
+    @Suppress("UNUSED_PARAMETER")
+    fun copy(scheduleName: String, schedule: Schedule, uri: Uri, context: Context) {
+        // получаем объект файла по пути
+        var documentFile: DocumentFile? = DocumentFile.fromTreeUri(context, uri)
+
+        // регистрируем файл
+        documentFile = documentFile?.createFile(
+            "application/json",
+            scheduleName + SchedulePreference.fileExtension()
+        )
+        if (documentFile == null) {
+            throw RuntimeException("Failed register file on device")
+        }
+
+        // uri файла сохранения
+        val uriFile = documentFile.uri
+
+        // открывает поток для записи
+        val resolver = context.contentResolver
+        val stream = resolver.openOutputStream(uriFile)
+            ?: throw RuntimeException("Cannot open file stream")
+
+        FileUtils.copyFile(
+            File(path(context, scheduleName)),
+            stream
+        )
+    }
+
+    /**
      * Сохраняет расписание.
      */
     fun saveNew(context: Context, schedule: Schedule, scheduleName: String) {
@@ -102,7 +144,7 @@ class ScheduleRepository {
     /**
      * Создает путь к расписанию.
      */
-    fun path(context: Context, scheduleName: String) : String {
+    fun path(context: Context, scheduleName: String): String {
         return SchedulePreference.createPath(context, scheduleName)
     }
 

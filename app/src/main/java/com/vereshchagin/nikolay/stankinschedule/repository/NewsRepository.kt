@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.paging.LivePagedListBuilder
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
+import com.vereshchagin.nikolay.stankinschedule.MainApplication
 import com.vereshchagin.nikolay.stankinschedule.api.NetworkState
 import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsApi
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
@@ -101,7 +102,7 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
      * Обновляет новости в БД.
      */
     @MainThread
-    fun refresh() : LiveData<NetworkState> {
+    fun refresh(): LiveData<NetworkState> {
         val networkState = MutableLiveData(NetworkState.LOADING)
 
         StankinNewsApi.getNews(api, newsSubdivision, 1).enqueue(
@@ -121,6 +122,11 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
                             addPostsIntoDb(response.body())
                         }
                         newsValid = true
+                        NewsPreference.setNewsUpdate(
+                            MainApplication.instance,
+                            newsSubdivision,
+                            Calendar.getInstance()
+                        )
                         networkState.postValue(NetworkState.LOADED)
                     }
                 }
