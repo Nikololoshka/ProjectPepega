@@ -1,27 +1,6 @@
 [
     {
         "title": "Программирование на языке высокого уровня",
-        "lecturer": "Шибаева А.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            }
-        ]
-    },
-    {
-        "title": "Программирование на языке высокого уровня",
         "lecturer": "Носовицкий В.Б",
         "type": "Lecture",
         "subgroup": "Common",
@@ -32,12 +11,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
+                "frequency": "every",
+                "date": "2020.11.02-2020.11.23"
             }
         ]
     },
@@ -53,12 +28,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
+                "frequency": "every",
+                "date": "2020.11.02-2020.11.23"
             }
         ]
     },
@@ -74,12 +45,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
+                "frequency": "every",
+                "date": "2020.11.02-2020.11.23"
             }
         ]
     },
@@ -95,12 +62,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.20"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
+                "frequency": "every",
+                "date": "2020.11.10-2020.11.24"
             }
         ]
     },
@@ -116,12 +79,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.20"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
+                "frequency": "every",
+                "date": "2020.11.03-2020.11.24"
             }
         ]
     },
@@ -137,12 +96,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.20"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
+                "frequency": "every",
+                "date": "2020.11.03-2020.11.24"
             }
         ]
     },
@@ -159,24 +114,7 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.21"
-            }
-        ]
-    },
-    {
-        "title": "Программирование на языке высокого уровня",
-        "lecturer": "Шибаева А.Н",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
+                "date": "2020.11.11"
             }
         ]
     },
@@ -192,12 +130,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
             }
         ]
     },
@@ -213,12 +147,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
+                "frequency": "every",
+                "date": "2020.11.05-2020.11.26"
             }
         ]
     },
@@ -234,12 +164,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
+                "frequency": "every",
+                "date": "2020.11.05-2020.11.26"
             }
         ]
     },
@@ -255,12 +181,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.23"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
+                "frequency": "every",
+                "date": "2020.11.06-2020.11.27"
             }
         ]
     },
@@ -276,12 +198,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.23"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
+                "frequency": "every",
+                "date": "2020.11.06-2020.11.27"
             }
         ]
     },
@@ -297,12 +215,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.23"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
+                "frequency": "every",
+                "date": "2020.11.06-2020.11.27"
             }
         ]
     },
@@ -318,12 +232,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.23"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
+                "frequency": "every",
+                "date": "2020.11.06-2020.11.27"
             }
         ]
     },
@@ -340,7 +250,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.24"
+                "date": "2020.11.07"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.21"
             }
         ]
     },
@@ -357,7 +271,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.31"
+                "date": "2020.11.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.28"
             }
         ]
     },
@@ -373,12 +291,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
+                "frequency": "every",
+                "date": "2020.11.07-2020.11.28"
             }
         ]
     },
@@ -394,12 +308,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
+                "frequency": "every",
+                "date": "2020.11.07-2020.11.28"
             }
         ]
     }

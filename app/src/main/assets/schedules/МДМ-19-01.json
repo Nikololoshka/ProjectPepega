@@ -4,15 +4,19 @@
         "lecturer": "Алешин С.В",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "ТехП 6",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "22:50"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.19-2020.11.16"
+                "frequency": "once",
+                "date": "2020.11.02"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.16"
             }
         ]
     },
@@ -21,15 +25,19 @@
         "lecturer": "Алешин С.В",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "ТехП 6",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "22:50"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.26-2020.11.23"
+                "frequency": "once",
+                "date": "2020.11.09"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.23"
             }
         ]
     },
@@ -46,7 +54,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.20-2020.12.01"
+                "date": "2020.11.03-2020.12.01"
             }
         ]
     },
@@ -62,8 +70,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.20-2020.11.17"
+                "frequency": "once",
+                "date": "2020.11.03"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.17"
             }
         ]
     },
@@ -79,8 +91,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.27-2020.11.24"
+                "frequency": "once",
+                "date": "2020.11.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.24"
             }
         ]
     },
@@ -96,8 +112,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.27-2020.11.24"
+                "frequency": "once",
+                "date": "2020.11.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.24"
             }
         ]
     },
@@ -131,10 +151,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.11"
             }
         ]
@@ -150,10 +166,6 @@
             "end": "22:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.18"
@@ -207,10 +219,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.23"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.13"
             },
             {
@@ -230,10 +238,6 @@
             "end": "22:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.20"

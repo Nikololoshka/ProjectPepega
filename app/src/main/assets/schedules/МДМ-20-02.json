@@ -1,56 +1,5 @@
 [
     {
-        "title": "Основы цифровых производств в машиностроении",
-        "lecturer": "Караваев Я.С",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.19-2020.11.30"
-            }
-        ]
-    },
-    {
-        "title": "Основы цифровых производств в машиностроении",
-        "lecturer": "Караваев Я.С",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.26-2020.12.07"
-            }
-        ]
-    },
-    {
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "lecturer": "Домнин П.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            }
-        ]
-    },
-    {
         "title": "Патентоведение и защита интеллектуальной собственности",
         "lecturer": "Домнин П.В",
         "type": "Laboratory",
@@ -64,6 +13,40 @@
             {
                 "frequency": "once",
                 "date": "2020.11.02"
+            }
+        ]
+    },
+    {
+        "title": "Основы цифровых производств в машиностроении",
+        "lecturer": "Караваев Я.С",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.02-2020.11.30"
+            }
+        ]
+    },
+    {
+        "title": "Основы цифровых производств в машиностроении",
+        "lecturer": "Караваев Я.С",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.09-2020.12.07"
             }
         ]
     },
@@ -102,23 +85,6 @@
         ]
     },
     {
-        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
-        "lecturer": "Новиков В.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.20-2020.12.01"
-            }
-        ]
-    },
-    {
         "title": "Динамические и тепловые процессы в технологических системах",
         "lecturer": "Зверев И.А",
         "type": "Laboratory",
@@ -131,7 +97,24 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.20-2020.12.01"
+                "date": "2020.11.03-2020.12.01"
+            }
+        ]
+    },
+    {
+        "title": "Интегрированные CAD/CAM системы и управление станками с ЧПУ",
+        "lecturer": "Новиков В.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.03-2020.12.01"
             }
         ]
     },
@@ -148,7 +131,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.27-2020.12.08"
+                "date": "2020.11.10-2020.12.08"
             }
         ]
     },
@@ -165,7 +148,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.27-2020.12.08"
+                "date": "2020.11.10-2020.12.08"
             }
         ]
     },
@@ -187,11 +170,11 @@
         ]
     },
     {
-        "title": "Интегрированные САSЕ системы в машиностроении",
-        "lecturer": "Гиловой Л.Я",
+        "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
+        "lecturer": "Косарев В.А",
         "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 11",
+        "subgroup": "A",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "22:50"
@@ -199,8 +182,25 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.22"
+                "date": "2020.11.05"
             },
+            {
+                "frequency": "once",
+                "date": "2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Интегрированные САSЕ системы в машиностроении",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
             {
                 "frequency": "once",
                 "date": "2020.11.05"
@@ -211,40 +211,6 @@
         "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
         "lecturer": "Косарев В.А",
         "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.22-2020.11.19"
-            }
-        ]
-    },
-    {
-        "title": "Интегрированные САSЕ системы в машиностроении",
-        "lecturer": "Гиловой Л.Я",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
-        "lecturer": "Косарев В.А",
-        "type": "Laboratory",
         "subgroup": "B",
         "classroom": "",
         "time": {
@@ -253,29 +219,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.29-2020.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Динамические и тепловые процессы в технологических системах",
-        "lecturer": "Зверев И.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
                 "frequency": "once",
-                "date": "2020.10.23"
+                "date": "2020.11.12"
             },
             {
                 "frequency": "once",
-                "date": "2020.10.30"
+                "date": "2020.11.26"
             }
         ]
     },
@@ -348,31 +297,6 @@
         ]
     },
     {
-        "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
-        "lecturer": "Косарев В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.11.14-2020.12.05"
-            }
-        ]
-    },
-    {
         "title": "Динамические и тепловые процессы в технологических системах",
         "lecturer": "Зверев И.А",
         "type": "Lecture",
@@ -386,6 +310,23 @@
             {
                 "frequency": "once",
                 "date": "2020.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
+        "lecturer": "Косарев В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.14-2020.12.05"
             }
         ]
     }

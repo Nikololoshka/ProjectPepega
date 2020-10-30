@@ -1,22 +1,5 @@
 [
     {
-        "title": "Математическое моделирование технологических процессов",
-        "lecturer": "Рязанов Д.Ю",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            }
-        ]
-    },
-    {
         "title": "Нанотехнологии в машиностроении",
         "lecturer": "Кириллов А.К",
         "type": "Laboratory",
@@ -28,8 +11,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.26-2020.11.23"
+                "frequency": "once",
+                "date": "2020.11.09"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.23"
             }
         ]
     },
@@ -85,23 +72,6 @@
         ]
     },
     {
-        "title": "Проектирование и производство заготовок",
-        "lecturer": "Седых М.И",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            }
-        ]
-    },
-    {
         "title": "Корпоративное право",
         "lecturer": "Куткин В.С",
         "type": "Seminar",
@@ -112,14 +82,6 @@
             "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.09"
@@ -138,14 +100,6 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.16"
             }
@@ -162,14 +116,6 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.11.25"
@@ -257,7 +203,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.23-2020.12.04"
+                "date": "2020.11.06-2020.12.04"
             }
         ]
     },
@@ -273,8 +219,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.30-2020.11.27"
+                "frequency": "once",
+                "date": "2020.11.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.27"
             }
         ]
     },

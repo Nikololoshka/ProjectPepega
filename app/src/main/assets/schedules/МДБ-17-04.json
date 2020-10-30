@@ -185,10 +185,6 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
                 "frequency": "throughout",
                 "date": "2020.11.11-2020.12.09"
             }
@@ -205,10 +201,6 @@
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.18"
@@ -230,10 +222,6 @@
             "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.11"
@@ -257,10 +245,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.18"
             },
             {
@@ -281,10 +265,6 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
                 "frequency": "throughout",
                 "date": "2020.11.11-2020.12.09"
             }
@@ -302,80 +282,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "throughout",
                 "date": "2020.11.18-2020.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Автоматизированное проектирование специальных режущих инструментов",
-        "lecturer": "Зубов К.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "234(а)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Автоматизированное проектирование специальных режущих инструментов",
-        "lecturer": "Зубов К.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "234(а)",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Диагностика инструментальных систем",
-        "lecturer": "Пивкин П.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Специальные технологии изготовления инструментальной техники",
-        "lecturer": "Исаев А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
             }
         ]
     },
@@ -414,23 +322,6 @@
         ]
     },
     {
-        "title": "Информатика в инструментальном производстве",
-        "lecturer": "Домнин П.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.23-2020.12.04"
-            }
-        ]
-    },
-    {
         "title": "Эксплуатация инструментальных систем",
         "lecturer": "Кокарев В.И",
         "type": "Laboratory",
@@ -443,45 +334,24 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.23"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.06"
             }
         ]
     },
     {
-        "title": "Эксплуатация инструментальных систем",
-        "lecturer": "Кокарев В.И",
+        "title": "Информатика в инструментальном производстве",
+        "lecturer": "Домнин П.В",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "",
+        "classroom": "ТехП 7",
         "time": {
             "start": "16:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.30"
-            }
-        ]
-    },
-    {
-        "title": "САПР и машинная графика в инструментальной технике",
-        "lecturer": "Пивкин П.М",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
                 "frequency": "throughout",
-                "date": "2020.10.23-2020.11.20"
+                "date": "2020.11.06-2020.12.04"
             }
         ]
     },
@@ -498,7 +368,45 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.30-2020.12.11"
+                "date": "2020.11.13-2020.12.11"
+            }
+        ]
+    },
+    {
+        "title": "САПР и машинная графика в инструментальной технике",
+        "lecturer": "Пивкин П.М",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 7",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.06"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.20"
+            }
+        ]
+    },
+    {
+        "title": "Диагностика инструментальных систем",
+        "lecturer": "Пивкин П.М",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "ТехП 7",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.06"
             }
         ]
     },
@@ -514,80 +422,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.30-2020.11.27"
-            }
-        ]
-    },
-    {
-        "title": "Диагностика инструментальных систем",
-        "lecturer": "Пивкин П.М",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
                 "frequency": "once",
-                "date": "2020.10.23"
+                "date": "2020.11.13"
             },
             {
                 "frequency": "once",
-                "date": "2020.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Диагностика инструментальных систем",
-        "lecturer": "Пивкин П.М",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальные системы интегрированных машиностроительных производств",
-        "lecturer": "Домнин П.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальные системы интегрированных машиностроительных производств",
-        "lecturer": "Домнин П.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
+                "date": "2020.11.27"
             }
         ]
     },
@@ -664,48 +504,6 @@
             {
                 "frequency": "once",
                 "date": "2020.11.28"
-            }
-        ]
-    },
-    {
-        "title": "Математическое моделирование в инструментальном производстве",
-        "lecturer": "Домнин П.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
-            }
-        ]
-    },
-    {
-        "title": "Инструментальные системы интегрированных машиностроительных производств",
-        "lecturer": "Петухов Ю.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
             }
         ]
     },

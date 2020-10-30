@@ -34,23 +34,6 @@
         ]
     },
     {
-        "title": "Программирование на ЭВМ",
-        "lecturer": "Исаев А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.20"
-            }
-        ]
-    },
-    {
         "title": "Электротехника и электроника",
         "lecturer": "Филатов В.В",
         "type": "Lecture",
@@ -118,32 +101,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.11"
             },
             {
                 "frequency": "once",
                 "date": "2020.11.25"
-            }
-        ]
-    },
-    {
-        "title": "Электротехника и электроника",
-        "lecturer": "Чумаева М.В",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "346/1",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
             }
         ]
     },
@@ -158,14 +120,6 @@
             "end": "10:10"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.02"
@@ -185,28 +139,7 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.05"
-            }
-        ]
-    },
-    {
-        "title": "Программирование на ЭВМ",
-        "lecturer": "Тимофеев А.А",
-        "type": "Laboratory",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
             }
         ]
     },
@@ -324,8 +257,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.24-2020.11.21"
+                "frequency": "once",
+                "date": "2020.11.07"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.21"
             }
         ]
     },
@@ -340,10 +277,6 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.07"
@@ -361,10 +294,6 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.14"

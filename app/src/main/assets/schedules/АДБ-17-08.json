@@ -12,10 +12,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.02"
             }
         ]
@@ -31,10 +27,6 @@
             "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.02"
@@ -54,10 +46,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.26"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.09"
             }
         ]
@@ -73,10 +61,6 @@
             "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.09"
@@ -258,10 +242,10 @@
         ]
     },
     {
-        "title": "Автоматизация технологических процессов и производств",
-        "lecturer": "Евстафиева С.В",
+        "title": "Автоматизация управления жизненным циклом продукции",
+        "lecturer": "Коган Ю.Г",
         "type": "Laboratory",
-        "subgroup": "B",
+        "subgroup": "A",
         "classroom": "",
         "time": {
             "start": "16:00",
@@ -275,10 +259,10 @@
         ]
     },
     {
-        "title": "Автоматизация управления жизненным циклом продукции",
-        "lecturer": "Коган Ю.Г",
+        "title": "Автоматизация технологических процессов и производств",
+        "lecturer": "Евстафиева С.В",
         "type": "Laboratory",
-        "subgroup": "A",
+        "subgroup": "B",
         "classroom": "",
         "time": {
             "start": "16:00",
@@ -337,79 +321,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Автоматизация управления жизненным циклом продукции",
-        "lecturer": "Коган Ю.Г",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Автоматизация технологических процессов и производств",
-        "lecturer": "Евстафиева С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Социология",
-        "lecturer": "Водолажский Е.Ф",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
             }
         ]
     },

@@ -12,11 +12,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.19"
+                "date": "2020.11.02"
             },
             {
                 "frequency": "once",
-                "date": "2020.10.26"
+                "date": "2020.11.09"
             }
         ]
     },
@@ -33,11 +33,28 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.19"
+                "date": "2020.11.02"
             },
             {
                 "frequency": "once",
-                "date": "2020.10.26"
+                "date": "2020.11.09"
+            }
+        ]
+    },
+    {
+        "title": "Философия",
+        "lecturer": "Багдасаров Д.Р",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.16"
             }
         ]
     },
@@ -53,12 +70,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
+                "frequency": "every",
+                "date": "2020.11.02-2020.11.16"
             }
         ]
     },
@@ -74,12 +87,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
+                "frequency": "every",
+                "date": "2020.11.02-2020.11.23"
             }
         ]
     },
@@ -95,12 +104,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.20"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
+                "frequency": "every",
+                "date": "2020.11.03-2020.11.17"
             }
         ]
     },
@@ -117,11 +122,32 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.20"
+                "date": "2020.11.03"
             },
             {
                 "frequency": "once",
-                "date": "2020.10.27"
+                "date": "2020.11.10"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Карпова Е.Е",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.17"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.24"
             }
         ]
     },
@@ -137,12 +163,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.20"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
+                "frequency": "every",
+                "date": "2020.11.03-2020.11.24"
             }
         ]
     },
@@ -158,18 +180,14 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.20"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
+                "frequency": "every",
+                "date": "2020.11.03-2020.11.24"
             }
         ]
     },
     {
-        "title": "Теоретическая механика",
-        "lecturer": "Харыбина И.Н",
+        "title": "Программирование и основы алгоритмизации",
+        "lecturer": "Мартемьянова Н.С",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "",
@@ -179,12 +197,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
             }
         ]
     },
@@ -200,12 +214,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
             }
         ]
     },
@@ -221,54 +231,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная графика",
-        "lecturer": "Гончарова В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Карпова Е.Е",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
             }
         ]
     },
@@ -284,12 +248,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
+                "frequency": "every",
+                "date": "2020.11.05-2020.11.26"
             }
         ]
     },
@@ -305,12 +265,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
+                "frequency": "every",
+                "date": "2020.11.05-2020.11.26"
             }
         ]
     },
@@ -327,13 +283,13 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.23"
+                "date": "2020.11.06"
             }
         ]
     },
     {
-        "title": "Программирование и основы алгоритмизации",
-        "lecturer": "Мартемьянова Н.С",
+        "title": "Сопротивление материалов",
+        "lecturer": "Филитов С.В",
         "type": "Laboratory",
         "subgroup": "A",
         "classroom": "",
@@ -343,8 +299,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.30"
+                "frequency": "throughout",
+                "date": "2020.11.06-2020.12.18"
             }
         ]
     },
@@ -361,24 +317,49 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.30"
+                "date": "2020.11.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.27"
             }
         ]
     },
     {
-        "title": "Электротехника",
-        "lecturer": "Аверцев В.И",
-        "type": "Seminar",
-        "subgroup": "Common",
+        "title": "Теоретическая механика",
+        "lecturer": "Харыбина И.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
         "time": {
-            "start": "10:20",
-            "end": "12:00"
+            "start": "16:00",
+            "end": "19:30"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.23"
+                "date": "2020.11.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.27"
+            }
+        ]
+    },
+    {
+        "title": "Теоретическая механика",
+        "lecturer": "Харыбина И.Н",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.20"
             }
         ]
     },
@@ -395,41 +376,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.24"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная графика",
-        "lecturer": "Гончарова В.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
+                "date": "2020.11.07"
+            },
             {
                 "frequency": "once",
-                "date": "2020.10.24"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Мандель А.М",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
+                "date": "2020.11.21"
             }
         ]
     },
@@ -446,41 +397,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.31"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная графика",
-        "lecturer": "Гончарова В.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
+                "date": "2020.11.14"
+            },
             {
                 "frequency": "once",
-                "date": "2020.10.31"
-            }
-        ]
-    },
-    {
-        "title": "Физика",
-        "lecturer": "Мандель А.М",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
+                "date": "2020.11.28"
             }
         ]
     }

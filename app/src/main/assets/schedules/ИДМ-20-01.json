@@ -28,33 +28,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.09-2020.11.23"
-            }
-        ]
-    },
-    {
-        "title": "Инфографика",
-        "lecturer": "Локтев М.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.20"
             }
         ]
     },
@@ -88,32 +63,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.11"
             }
         ]
     },
     {
-        "title": "Инфографика",
-        "lecturer": "Локтев М.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
         "title": "Технический иностранный язык",
         "lecturer": "Клюева Т.Б",
         "type": "Seminar",
@@ -125,33 +79,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.09"
-            }
-        ]
-    },
-    {
-        "title": "Методология научных исследований",
-        "lecturer": "Шитов С.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
             }
         ]
     },
@@ -173,23 +102,6 @@
         ]
     },
     {
-        "title": "Интернет-технологии",
-        "lecturer": "Субботин П.М",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            }
-        ]
-    },
-    {
         "title": "Технологии и средства разработки ПО",
         "lecturer": "Сидоров А.С",
         "type": "Laboratory",
@@ -201,63 +113,29 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.22-2020.11.19"
-            }
-        ]
-    },
-    {
-        "title": "Интернет-технологии",
-        "lecturer": "Субботин П.М",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
                 "frequency": "once",
-                "date": "2020.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Технологии и средства разработки ПО",
-        "lecturer": "Сидоров А.С",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
+                "date": "2020.11.05"
             },
+            {
+                "frequency": "once",
+                "date": "2020.11.19"
+            }
+        ]
+    },
+    {
+        "title": "Технологии и средства разработки ПО",
+        "lecturer": "Сидоров А.С",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
             {
                 "frequency": "once",
                 "date": "2020.11.12"
-            }
-        ]
-    },
-    {
-        "title": "Интернет-технологии",
-        "lecturer": "Петров А.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
             }
         ]
     },
@@ -279,23 +157,6 @@
         ]
     },
     {
-        "title": "Математическое и компьютерное моделирование",
-        "lecturer": "Соколов А.В",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.24-2020.11.21"
-            }
-        ]
-    },
-    {
         "title": "Методы анализа и проектирования программного обеспечения",
         "lecturer": "Семячкова Е.Г",
         "type": "Laboratory",
@@ -306,10 +167,6 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.07"
@@ -320,27 +177,6 @@
         "title": "Математическое и компьютерное моделирование",
         "lecturer": "Соколов А.В",
         "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.14"
-            }
-        ]
-    },
-    {
-        "title": "Методы анализа и проектирования программного обеспечения",
-        "lecturer": "Семячкова Е.Г",
-        "type": "Laboratory",
         "subgroup": "B",
         "classroom": "",
         "time": {
@@ -350,7 +186,28 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.31"
+                "date": "2020.11.07"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.21"
+            }
+        ]
+    },
+    {
+        "title": "Математическое и компьютерное моделирование",
+        "lecturer": "Соколов А.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.14"
             }
         ]
     }

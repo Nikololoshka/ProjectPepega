@@ -144,19 +144,19 @@
         ]
     },
     {
-        "title": "Защита информации",
-        "lecturer": "Симонов М.Ф",
-        "type": "Laboratory",
+        "title": "Геометрическое моделирование и компьютерная графика",
+        "lecturer": "Толок А.В",
+        "type": "Lecture",
         "subgroup": "Common",
         "classroom": "",
         "time": {
-            "start": "10:20",
-            "end": "14:00"
+            "start": "18:00",
+            "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.20"
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.15"
             }
         ]
     },
@@ -174,6 +174,40 @@
             {
                 "frequency": "every",
                 "date": "2020.10.20-2020.12.01"
+            }
+        ]
+    },
+    {
+        "title": "Защита информации",
+        "lecturer": "Симонов М.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "17:40"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.12.22"
+            }
+        ]
+    },
+    {
+        "title": "Защита информации",
+        "lecturer": "Симонов М.Ф",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "14:10",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.10.20-2020.12.22"
             }
         ]
     },
@@ -218,57 +252,6 @@
     {
         "title": "Геометрическое моделирование и компьютерная графика",
         "lecturer": "Толок А.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.20-2020.12.15"
-            }
-        ]
-    },
-    {
-        "title": "Защита информации",
-        "lecturer": "Симонов М.Ф",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.12.22"
-            }
-        ]
-    },
-    {
-        "title": "Защита информации",
-        "lecturer": "Симонов М.Ф",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.20-2020.12.22"
-            }
-        ]
-    },
-    {
-        "title": "Геометрическое моделирование и компьютерная графика",
-        "lecturer": "Толок А.В",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "",
@@ -294,14 +277,6 @@
             "end": "10:10"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.11.25"
@@ -398,23 +373,6 @@
             {
                 "frequency": "once",
                 "date": "2020.12.19"
-            }
-        ]
-    },
-    {
-        "title": "Моделирование и анализ бизнес-процессов",
-        "lecturer": "Кузнецова Н.М",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
             }
         ]
     },

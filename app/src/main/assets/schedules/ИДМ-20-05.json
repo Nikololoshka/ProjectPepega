@@ -1,22 +1,5 @@
 [
     {
-        "title": "Математическое и компьютерное моделирование",
-        "lecturer": "Пашин М.И",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.19-2020.11.16"
-            }
-        ]
-    },
-    {
         "title": "Архитектура цифрового производства и предприятия",
         "lecturer": "Шароватов В.И",
         "type": "Laboratory",
@@ -27,10 +10,6 @@
             "end": "22:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.02"
@@ -41,27 +20,6 @@
         "title": "Математическое и компьютерное моделирование",
         "lecturer": "Пашин М.И",
         "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.09"
-            }
-        ]
-    },
-    {
-        "title": "Архитектура цифрового производства и предприятия",
-        "lecturer": "Шароватов В.И",
-        "type": "Laboratory",
         "subgroup": "B",
         "classroom": "",
         "time": {
@@ -71,58 +29,28 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.26"
+                "date": "2020.11.02"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.16"
             }
         ]
     },
     {
-        "title": "Технологии разработки программного обеспечения",
-        "lecturer": "Петров А.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
+        "title": "Математическое и компьютерное моделирование",
+        "lecturer": "Пашин М.И",
+        "type": "Laboratory",
+        "subgroup": "A",
         "classroom": "",
         "time": {
-            "start": "18:00",
-            "end": "19:30"
+            "start": "19:40",
+            "end": "22:50"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.19"
-            }
-        ]
-    },
-    {
-        "title": "Архитектура цифрового производства и предприятия",
-        "lecturer": "Позднеев Б.М",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            }
-        ]
-    },
-    {
-        "title": "Инфографика",
-        "lecturer": "Локтев М.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.20"
+                "date": "2020.11.09"
             }
         ]
     },
@@ -156,113 +84,7 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.11"
-            }
-        ]
-    },
-    {
-        "title": "Инфографика",
-        "lecturer": "Локтев М.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            }
-        ]
-    },
-    {
-        "title": "Интернет-технологии",
-        "lecturer": "Субботин П.М",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Инфографика",
-        "lecturer": "Локтев М.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Технологии разработки программного обеспечения",
-        "lecturer": "Петров А.Б",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Технологии разработки программного обеспечения",
-        "lecturer": "Петров А.Б",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
-            }
-        ]
-    },
-    {
-        "title": "Интернет-технологии",
-        "lecturer": "Петров А.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
             }
         ]
     },

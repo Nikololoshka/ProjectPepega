@@ -12,49 +12,7 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.02"
-            }
-        ]
-    },
-    {
-        "title": "Детали машин",
-        "lecturer": "Арбузов М.О",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            }
-        ]
-    },
-    {
-        "title": "Основы метрологии, стандартизации и сертификации",
-        "lecturer": "Емельянов П.Н",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.09"
             }
         ]
     },
@@ -80,6 +38,23 @@
         ]
     },
     {
+        "title": "Основы метрологии, стандартизации и сертификации",
+        "lecturer": "Емельянов П.Н",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.09"
+            }
+        ]
+    },
+    {
         "title": "Резание материалов",
         "lecturer": "Гурин В.Д",
         "type": "Laboratory",
@@ -92,7 +67,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.19-2020.11.30"
+                "date": "2020.11.02-2020.11.30"
             }
         ]
     },
@@ -109,7 +84,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.26-2020.12.07"
+                "date": "2020.11.09-2020.12.07"
             }
         ]
     },
@@ -126,7 +101,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.20-2020.12.01"
+                "date": "2020.11.03-2020.12.01"
             }
         ]
     },
@@ -143,7 +118,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.27-2020.12.08"
+                "date": "2020.11.10-2020.12.08"
             }
         ]
     },
@@ -194,15 +169,28 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.11"
             },
             {
                 "frequency": "once",
                 "date": "2020.11.25"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная графика",
+        "lecturer": "Гончарова В.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
             }
         ]
     },
@@ -219,36 +207,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.18"
             },
             {
                 "frequency": "once",
                 "date": "2020.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Компьютерная графика",
-        "lecturer": "Гончарова В.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.11"
             }
         ]
     },
@@ -263,10 +226,6 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.18"
@@ -284,14 +243,6 @@
             "end": "14:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.11.25"
@@ -333,27 +284,6 @@
         ]
     },
     {
-        "title": "Основы метрологии, стандартизации и сертификации",
-        "lecturer": "Липатова А.Б",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
-            }
-        ]
-    },
-    {
         "title": "Резание материалов",
         "lecturer": "Гурин В.Д",
         "type": "Lecture",
@@ -383,10 +313,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.29"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.12.10"
             }
         ]
@@ -405,23 +331,6 @@
             {
                 "frequency": "every",
                 "date": "2020.10.23-2020.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Основы метрологии, стандартизации и сертификации",
-        "lecturer": "Липатова А.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.23"
             }
         ]
     },

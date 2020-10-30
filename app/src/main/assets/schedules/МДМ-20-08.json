@@ -1,22 +1,5 @@
 [
     {
-        "title": "Нанотехнологии в машиностроении",
-        "lecturer": "Солис П",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            }
-        ]
-    },
-    {
         "title": "Информационные технологии в сфере безопасности",
         "lecturer": "Бутримова Е.В",
         "type": "Laboratory",
@@ -28,8 +11,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.20-2020.11.17"
+                "frequency": "once",
+                "date": "2020.11.03"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.17"
             }
         ]
     },
@@ -46,32 +33,7 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.27"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.10"
-            }
-        ]
-    },
-    {
-        "title": "Нанотехнологии в машиностроении",
-        "lecturer": "Солис П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "21:20",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
             }
         ]
     },
@@ -86,14 +48,6 @@
             "end": "21:10"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.11.25"
@@ -111,14 +65,6 @@
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.11"

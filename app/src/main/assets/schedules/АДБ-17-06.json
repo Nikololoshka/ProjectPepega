@@ -6,13 +6,13 @@
         "subgroup": "A",
         "classroom": "",
         "time": {
-            "start": "16:00",
-            "end": "19:30"
+            "start": "18:00",
+            "end": "21:10"
         },
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.19"
+                "date": "2020.11.02"
             }
         ]
     },
@@ -24,33 +24,12 @@
         "classroom": "",
         "time": {
             "start": "18:00",
-            "end": "19:30"
+            "end": "21:10"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.09"
-            }
-        ]
-    },
-    {
-        "title": "Информационные системы",
-        "lecturer": "Никишечкин А.П",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.11.02"
             }
         ]
     },
@@ -270,37 +249,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Автоматизация технологических процессов и производств",
-        "lecturer": "Евстафиева С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
             }
         ]
     },
@@ -315,14 +265,6 @@
             "end": "10:10"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.02"
@@ -444,10 +386,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.23"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.06"
             }
         ]
@@ -464,8 +402,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.23-2020.11.20"
+                "frequency": "once",
+                "date": "2020.11.06"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.20"
             }
         ]
     },
@@ -481,8 +423,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.30-2020.11.27"
+                "frequency": "once",
+                "date": "2020.11.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.27"
             }
         ]
     },
@@ -497,10 +443,6 @@
             "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.13"
@@ -542,10 +484,10 @@
         ]
     },
     {
-        "title": "Автоматизация технологических процессов и производств",
-        "lecturer": "Евстафиева С.В",
+        "title": "Автоматизация управления жизненным циклом продукции",
+        "lecturer": "Коган Ю.Г",
         "type": "Laboratory",
-        "subgroup": "A",
+        "subgroup": "B",
         "classroom": "",
         "time": {
             "start": "8:30",
@@ -559,10 +501,10 @@
         ]
     },
     {
-        "title": "Автоматизация управления жизненным циклом продукции",
-        "lecturer": "Коган Ю.Г",
+        "title": "Автоматизация технологических процессов и производств",
+        "lecturer": "Евстафиева С.В",
         "type": "Laboratory",
-        "subgroup": "B",
+        "subgroup": "A",
         "classroom": "",
         "time": {
             "start": "8:30",
@@ -606,27 +548,6 @@
             {
                 "frequency": "throughout",
                 "date": "2020.11.14-2020.12.12"
-            }
-        ]
-    },
-    {
-        "title": "Автоматизация управления жизненным циклом продукции",
-        "lecturer": "Коган Ю.Г",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
             }
         ]
     },

@@ -2,40 +2,6 @@
     {
         "title": "Современный стратегический анализ",
         "lecturer": "Бадалова А.Г",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.20"
-            }
-        ]
-    },
-    {
-        "title": "Современный стратегический анализ",
-        "lecturer": "Бадалова А.Г",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.20"
-            }
-        ]
-    },
-    {
-        "title": "Современный стратегический анализ",
-        "lecturer": "Бадалова А.Г",
         "type": "Seminar",
         "subgroup": "Common",
         "classroom": "",
@@ -55,23 +21,6 @@
         ]
     },
     {
-        "title": "Математические модели в теории управления и исследовании операций",
-        "lecturer": "Пополитов В.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            }
-        ]
-    },
-    {
         "title": "Информационные ресурсы и технологии в менеджменте",
         "lecturer": "Лукина С.В",
         "type": "Lecture",
@@ -82,14 +31,6 @@
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.11"
@@ -118,40 +59,6 @@
         ]
     },
     {
-        "title": "Информационная графика",
-        "lecturer": "Локтев М.А",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "21:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Информационная графика",
-        "lecturer": "Локтев М.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            }
-        ]
-    },
-    {
         "title": "Методология научного творчества",
         "lecturer": "Павельева Т.Ю",
         "type": "Seminar",
@@ -164,7 +71,11 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.10.29-2020.12.17"
+                "date": "2020.10.29-2020.11.12"
+            },
+            {
+                "frequency": "every",
+                "date": "2020.12.03-2020.12.17"
             }
         ]
     },
@@ -181,24 +92,32 @@
         "dates": [
             {
                 "frequency": "every",
-                "date": "2020.10.29-2020.12.10"
+                "date": "2020.10.29-2020.11.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.12.03"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.12.10"
             }
         ]
     },
     {
-        "title": "Методология научного творчества",
-        "lecturer": "Павельева Т.Ю",
-        "type": "Lecture",
+        "title": "Коммуникации в профессиональной деятельности",
+        "lecturer": "Барышникова О.В",
+        "type": "Seminar",
         "subgroup": "Common",
         "classroom": "",
         "time": {
-            "start": "19:40",
-            "end": "21:10"
+            "start": "16:00",
+            "end": "17:40"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.23"
+                "frequency": "every",
+                "date": "2020.10.23-2020.11.06"
             }
         ]
     },
@@ -233,23 +152,6 @@
             {
                 "frequency": "every",
                 "date": "2020.10.23-2020.11.20"
-            }
-        ]
-    },
-    {
-        "title": "Коммуникации в профессиональной деятельности",
-        "lecturer": "Барышникова О.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "every",
-                "date": "2020.10.23-2020.11.06"
             }
         ]
     }

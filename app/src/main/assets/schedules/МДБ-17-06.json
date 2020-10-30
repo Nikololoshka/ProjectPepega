@@ -34,27 +34,6 @@
         ]
     },
     {
-        "title": "Системы компьютерной поддержки инженерных решений",
-        "lecturer": "Гиловой Л.Я",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            }
-        ]
-    },
-    {
         "title": "ГПС, автоматические линии",
         "lecturer": "Гиловой Л.Я",
         "type": "Lecture",
@@ -144,23 +123,6 @@
         ]
     },
     {
-        "title": "Испытание и исследование станков",
-        "lecturer": "Сабиров Ф.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.20"
-            }
-        ]
-    },
-    {
         "title": "ГПС, автоматические линии",
         "lecturer": "Гиловой Л.Я",
         "type": "Lecture",
@@ -243,23 +205,6 @@
         "subgroup": "Common",
         "classroom": "",
         "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.20"
-            }
-        ]
-    },
-    {
-        "title": "Испытание и исследование станков",
-        "lecturer": "Сабиров Ф.С",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
             "start": "10:20",
             "end": "12:00"
         },
@@ -296,19 +241,32 @@
         "lecturer": "Гиловой Л.Я",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "ТехП 11",
+        "classroom": "",
         "time": {
             "start": "12:20",
             "end": "15:50"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
                 "frequency": "throughout",
                 "date": "2020.11.11-2020.12.09"
+            }
+        ]
+    },
+    {
+        "title": "Испытание и исследование станков",
+        "lecturer": "Сабиров Ф.С",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.11"
             }
         ]
     },
@@ -317,16 +275,12 @@
         "lecturer": "Гиловой Л.Я",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "ТехП 11",
+        "classroom": "",
         "time": {
             "start": "12:20",
             "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.18"
@@ -341,27 +295,6 @@
         "title": "Испытание и исследование станков",
         "lecturer": "Сабиров Ф.С",
         "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.11"
-            }
-        ]
-    },
-    {
-        "title": "Испытание и исследование станков",
-        "lecturer": "Сабиров Ф.С",
-        "type": "Laboratory",
         "subgroup": "B",
         "classroom": "",
         "time": {
@@ -369,10 +302,6 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.18"
@@ -391,8 +320,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.22-2020.11.19"
+                "frequency": "once",
+                "date": "2020.11.05"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.19"
             }
         ]
     },
@@ -443,7 +376,24 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.22-2020.12.17"
+                "date": "2020.11.05-2020.12.17"
+            }
+        ]
+    },
+    {
+        "title": "Автоматизированный электропривод",
+        "lecturer": "Хлебалин Н.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.05"
             }
         ]
     },
@@ -460,7 +410,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.29-2020.12.10"
+                "date": "2020.11.12-2020.12.10"
             }
         ]
     },
@@ -477,32 +427,7 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.29"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.12"
-            }
-        ]
-    },
-    {
-        "title": "Автоматизированный электропривод",
-        "lecturer": "Хлебалин Н.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.05"
             }
         ]
     },
@@ -517,10 +442,6 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.12"
@@ -538,30 +459,9 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.23"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.06"
-            }
-        ]
-    },
-    {
-        "title": "Оборудование для электрохимической и электрфизической обработки",
-        "lecturer": "Крутов А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
             }
         ]
     },
@@ -638,7 +538,7 @@
         "lecturer": "Гиловой Л.Я",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "ТехП 11",
+        "classroom": "",
         "time": {
             "start": "16:00",
             "end": "19:30"
@@ -655,7 +555,7 @@
         "lecturer": "Гиловой Л.Я",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "ТехП 11",
+        "classroom": "",
         "time": {
             "start": "16:00",
             "end": "19:30"

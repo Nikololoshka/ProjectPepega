@@ -169,7 +169,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.20-2020.12.15"
+                "date": "2020.11.03-2020.12.15"
             }
         ]
     },
@@ -186,7 +186,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.27-2020.12.08"
+                "date": "2020.11.10-2020.12.08"
             }
         ]
     },
@@ -211,27 +211,6 @@
         "title": "Информационно-телекоммуникационные сети",
         "lecturer": "Сосенушкин С.Е",
         "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "throughout",
-                "date": "2020.11.18-2020.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Управление данными",
-        "lecturer": "Быстрикова В.А",
-        "type": "Laboratory",
         "subgroup": "B",
         "classroom": "",
         "time": {
@@ -240,12 +219,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
                 "frequency": "throughout",
-                "date": "2020.11.18-2020.12.16"
+                "date": "2020.11.11-2020.12.09"
             }
         ]
     },
@@ -262,24 +237,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.28-2020.12.09"
-            }
-        ]
-    },
-    {
-        "title": "Информационно-телекоммуникационные сети",
-        "lecturer": "Сосенушкин С.Е",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.28-2020.12.09"
+                "date": "2020.11.11-2020.12.09"
             }
         ]
     },
@@ -294,68 +252,9 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.11"
-            }
-        ]
-    },
-    {
-        "title": "Интеллектуальные и экспертные системы",
-        "lecturer": "Адамова Ю.С",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            }
-        ]
-    },
-    {
-        "title": "Математическая статистика в технике",
-        "lecturer": "Девятерикова Е.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.18"
-            }
-        ]
-    },
-    {
-        "title": "Интеллектуальные и экспертные системы",
-        "lecturer": "Адамова Ю.С",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
             }
         ]
     },
@@ -377,6 +276,57 @@
         ]
     },
     {
+        "title": "Информационно-телекоммуникационные сети",
+        "lecturer": "Сосенушкин С.Е",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.18-2020.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Управление данными",
+        "lecturer": "Быстрикова В.А",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.18-2020.12.16"
+            }
+        ]
+    },
+    {
+        "title": "Математическая статистика в технике",
+        "lecturer": "Девятерикова Е.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.18"
+            }
+        ]
+    },
+    {
         "title": "Основы прочностного моделирования технических систем",
         "lecturer": "Чеканин А.В",
         "type": "Laboratory",
@@ -390,27 +340,6 @@
             {
                 "frequency": "throughout",
                 "date": "2020.11.18-2020.12.16"
-            }
-        ]
-    },
-    {
-        "title": "Основы проектирования информационных систем",
-        "lecturer": "Адамова Ю.С",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
             }
         ]
     },
@@ -500,23 +429,6 @@
             {
                 "frequency": "once",
                 "date": "2020.12.25"
-            }
-        ]
-    },
-    {
-        "title": "Основы прочностного моделирования технических систем",
-        "lecturer": "Чеканин А.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
             }
         ]
     },

@@ -12,7 +12,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.19-2020.11.30"
+                "date": "2020.11.02-2020.11.30"
             }
         ]
     },
@@ -27,10 +27,6 @@
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.02"
@@ -50,10 +46,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.26"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.09"
             }
         ]
@@ -71,7 +63,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.26-2020.12.07"
+                "date": "2020.11.09-2020.12.07"
             }
         ]
     },
@@ -143,10 +135,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.05"
             }
         ]
@@ -169,20 +157,33 @@
         ]
     },
     {
-        "title": "Интегрированные САSЕ системы в машиностроении",
-        "lecturer": "Гиловой Л.Я",
+        "title": "Основы цифровых производств в машиностроении",
+        "lecturer": "Клюев М.Б",
         "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 11",
+        "subgroup": "A",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "22:50"
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.23"
-            },
+                "frequency": "throughout",
+                "date": "2020.11.06-2020.12.04"
+            }
+        ]
+    },
+    {
+        "title": "Интегрированные САSЕ системы в машиностроении",
+        "lecturer": "Гиловой Л.Я",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "19:40",
+            "end": "22:50"
+        },
+        "dates": [
             {
                 "frequency": "once",
                 "date": "2020.11.06"
@@ -193,40 +194,6 @@
         "title": "Основы цифровых производств в машиностроении",
         "lecturer": "Клюев М.Б",
         "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.23-2020.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Интегрированные САSЕ системы в машиностроении",
-        "lecturer": "Гиловой Л.Я",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 11",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
-            }
-        ]
-    },
-    {
-        "title": "Основы цифровых производств в машиностроении",
-        "lecturer": "Клюев М.Б",
-        "type": "Laboratory",
         "subgroup": "B",
         "classroom": "",
         "time": {
@@ -236,7 +203,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.30-2020.12.11"
+                "date": "2020.11.13-2020.12.11"
             }
         ]
     },
@@ -357,14 +324,6 @@
             "end": "10:10"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.14-2020.12.05"

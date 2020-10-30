@@ -84,10 +84,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.20"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.03"
             }
         ]
@@ -103,10 +99,6 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.10"
@@ -144,23 +136,6 @@
             {
                 "frequency": "every",
                 "date": "2020.10.20-2020.11.03"
-            }
-        ]
-    },
-    {
-        "title": "Детали мехатронных модулей, роботов и их конструирование",
-        "lecturer": "Егоров О.Д",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.20"
             }
         ]
     },
@@ -228,28 +203,7 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.11"
-            }
-        ]
-    },
-    {
-        "title": "Конструирование механизмов роботов",
-        "lecturer": "Ким В.Л",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 16",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
             }
         ]
     },
@@ -265,50 +219,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Основы мехатроники и робототехники",
-        "lecturer": "Воротников А.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            }
-        ]
-    },
-    {
-        "title": "Основы мехатроники и робототехники",
-        "lecturer": "Воротников А.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
             }
         ]
     },
@@ -465,10 +377,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.07"
             }
         ]
@@ -484,10 +392,6 @@
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.14"
@@ -506,8 +410,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.24-2020.11.21"
+                "frequency": "once",
+                "date": "2020.11.07"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.21"
             }
         ]
     },
@@ -523,8 +431,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.31-2020.11.28"
+                "frequency": "once",
+                "date": "2020.11.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.28"
             }
         ]
     }

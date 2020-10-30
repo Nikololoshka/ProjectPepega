@@ -193,27 +193,6 @@
     {
         "title": "Трение и изнашивание в машинах",
         "lecturer": "Самусенко В.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Трение и изнашивание в машинах",
-        "lecturer": "Самусенко В.Д",
         "type": "Lecture",
         "subgroup": "Common",
         "classroom": "",
@@ -240,14 +219,6 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.09"
             }
@@ -264,14 +235,6 @@
             "end": "10:10"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.02"
@@ -290,8 +253,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.22-2020.11.19"
+                "frequency": "once",
+                "date": "2020.11.05"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.19"
             }
         ]
     },
@@ -308,7 +275,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.22-2020.12.17"
+                "date": "2020.11.05-2020.12.17"
             }
         ]
     },
@@ -325,7 +292,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.29-2020.12.10"
+                "date": "2020.11.12-2020.12.10"
             }
         ]
     },
@@ -341,25 +308,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.29-2020.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Электрофизическая и электрохимическая обработки",
-        "lecturer": "Мельник Ю.А",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "ТехП 9",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.11.12"
+            },
             {
-                "frequency": "throughout",
-                "date": "2020.10.29-2020.12.10"
+                "frequency": "once",
+                "date": "2020.11.26"
             }
         ]
     },
@@ -381,6 +335,23 @@
         ]
     },
     {
+        "title": "Электрофизическая и электрохимическая обработки",
+        "lecturer": "Мельник Ю.А",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "ТехП 9",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.12-2020.12.10"
+            }
+        ]
+    },
+    {
         "title": "Надежность и диагностирование технологических систем",
         "lecturer": "Остриков Е.А",
         "type": "Laboratory",
@@ -392,8 +363,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.23-2020.11.20"
+                "frequency": "once",
+                "date": "2020.11.06"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.20"
             }
         ]
     },
@@ -409,8 +384,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.30-2020.11.27"
+                "frequency": "once",
+                "date": "2020.11.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.27"
             }
         ]
     },

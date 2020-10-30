@@ -96,8 +96,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.20-2020.11.17"
+                "frequency": "once",
+                "date": "2020.11.03"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.17"
             }
         ]
     },
@@ -113,42 +117,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.20-2020.11.17"
-            }
-        ]
-    },
-    {
-        "title": "Управление информационной средой предприятия",
-        "lecturer": "Бабенко Е.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.11.03"
+            },
             {
-                "frequency": "throughout",
-                "date": "2020.10.27-2020.11.24"
-            }
-        ]
-    },
-    {
-        "title": "Администрирование в информационных системах",
-        "lecturer": "Бумарин Д.П",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.27-2020.11.24"
+                "frequency": "once",
+                "date": "2020.11.17"
             }
         ]
     },
@@ -165,10 +139,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.20"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.03"
             }
         ]
@@ -186,11 +156,49 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.20"
+                "date": "2020.11.03"
+            }
+        ]
+    },
+    {
+        "title": "Управление информационной средой предприятия",
+        "lecturer": "Бабенко Е.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.10"
             },
             {
                 "frequency": "once",
-                "date": "2020.11.03"
+                "date": "2020.11.24"
+            }
+        ]
+    },
+    {
+        "title": "Администрирование в информационных системах",
+        "lecturer": "Бумарин Д.П",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
+            {
+                "frequency": "once",
+                "date": "2020.11.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.24"
             }
         ]
     },
@@ -205,10 +213,6 @@
             "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.10"
@@ -226,10 +230,6 @@
             "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.10"
@@ -248,10 +248,6 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
                 "frequency": "throughout",
                 "date": "2020.11.11-2020.12.09"
             }
@@ -269,10 +265,6 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
                 "frequency": "throughout",
                 "date": "2020.11.11-2020.12.09"
             }
@@ -289,10 +281,6 @@
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "throughout",
                 "date": "2020.11.18-2020.12.16"
@@ -310,10 +298,6 @@
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "throughout",
                 "date": "2020.11.18-2020.12.16"
@@ -331,14 +315,6 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.02"
@@ -373,14 +349,6 @@
             "end": "10:10"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.23"

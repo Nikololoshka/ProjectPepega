@@ -114,7 +114,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.20-2020.12.01"
+                "date": "2020.11.03-2020.12.01"
             }
         ]
     },
@@ -129,10 +129,6 @@
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.20"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.03"
@@ -152,10 +148,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.27"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.10"
             }
         ]
@@ -173,24 +165,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.27-2020.12.08"
-            }
-        ]
-    },
-    {
-        "title": "Корпоративные информационные системы",
-        "lecturer": "Иванова Т.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.27-2020.12.08"
+                "date": "2020.11.10-2020.12.08"
             }
         ]
     },
@@ -212,6 +187,23 @@
         ]
     },
     {
+        "title": "Корпоративные информационные системы",
+        "lecturer": "Иванова Т.В",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "15:50"
+        },
+        "dates": [
+            {
+                "frequency": "throughout",
+                "date": "2020.11.10-2020.12.08"
+            }
+        ]
+    },
+    {
         "title": "Экология",
         "lecturer": "Пустошная Л.С",
         "type": "Seminar",
@@ -222,14 +214,6 @@
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.11.25"
@@ -247,14 +231,6 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.02"
@@ -290,14 +266,6 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.23"
             }
@@ -315,8 +283,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.22-2020.11.19"
+                "frequency": "once",
+                "date": "2020.11.05"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.19"
             }
         ]
     },
@@ -333,7 +305,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.22-2020.12.03"
+                "date": "2020.11.05-2020.12.03"
             }
         ]
     },
@@ -349,8 +321,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.29-2020.11.26"
+                "frequency": "once",
+                "date": "2020.11.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.26"
             }
         ]
     },
@@ -366,8 +342,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.29-2020.11.26"
+                "frequency": "once",
+                "date": "2020.11.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.26"
             }
         ]
     },

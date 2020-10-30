@@ -1,26 +1,5 @@
 [
     {
-        "title": "Теория чисел",
-        "lecturer": "Иванова О.К",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            }
-        ]
-    },
-    {
         "title": "Бизнес-архитектура предприятия",
         "lecturer": "Мешков В.Г",
         "type": "Lecture",
@@ -84,14 +63,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.11"
             },
             {
@@ -129,33 +100,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.09"
-            }
-        ]
-    },
-    {
-        "title": "Методы стохастического анализа",
-        "lecturer": "Яремко О.Э",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
             }
         ]
     }

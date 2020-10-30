@@ -114,10 +114,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.20"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.03"
             }
         ]
@@ -134,8 +130,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.20-2020.11.17"
+                "frequency": "once",
+                "date": "2020.11.03"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.17"
             }
         ]
     },
@@ -150,10 +150,6 @@
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.10"
@@ -172,8 +168,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.27-2020.11.24"
+                "frequency": "once",
+                "date": "2020.11.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.24"
             }
         ]
     },
@@ -299,14 +299,6 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.02"
             }
@@ -324,14 +316,6 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.02"
             }
@@ -348,14 +332,6 @@
             "end": "10:10"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "every",
                 "date": "2020.11.11-2020.12.16"
@@ -550,27 +526,6 @@
         ]
     },
     {
-        "title": "Автоматизация технологических процессов и производств",
-        "lecturer": "Евстафиева С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.23"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
-            }
-        ]
-    },
-    {
         "title": "Искусственные нейронные сети",
         "lecturer": "Никишечкин А.П",
         "type": "Lecture",
@@ -647,23 +602,6 @@
         ]
     },
     {
-        "title": "Информационные системы",
-        "lecturer": "Никишечкин А.П",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            }
-        ]
-    },
-    {
         "title": "Управление качеством",
         "lecturer": "Мешков В.Г",
         "type": "Lecture",
@@ -694,27 +632,6 @@
             {
                 "frequency": "every",
                 "date": "2020.10.24-2020.11.07"
-            }
-        ]
-    },
-    {
-        "title": "Автоматизация управления жизненным циклом продукции",
-        "lecturer": "Коган Ю.Г",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
             }
         ]
     },

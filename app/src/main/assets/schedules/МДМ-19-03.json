@@ -4,15 +4,19 @@
         "lecturer": "Алешин С.В",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "ТехП 6",
+        "classroom": "",
         "time": {
             "start": "16:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.20-2020.11.17"
+                "frequency": "once",
+                "date": "2020.11.03"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.17"
             }
         ]
     },
@@ -21,15 +25,19 @@
         "lecturer": "Алешин С.В",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "ТехП 6",
+        "classroom": "",
         "time": {
             "start": "16:00",
             "end": "19:30"
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.27-2020.11.24"
+                "frequency": "once",
+                "date": "2020.11.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.24"
             }
         ]
     },
@@ -44,10 +52,6 @@
             "end": "22:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.11"
@@ -71,10 +75,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.11"
             },
             {
@@ -94,10 +94,6 @@
             "end": "22:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.18"
@@ -121,57 +117,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.18"
             },
             {
                 "frequency": "once",
                 "date": "2020.12.02"
-            }
-        ]
-    },
-    {
-        "title": "Перспективные технологии и процессы заготовительного производства",
-        "lecturer": "Сосенушкин Е.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "18:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Математическое моделирование в инструментальной технике",
-        "lecturer": "Пищулин Д.Н",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "21:20",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
             }
         ]
     },
@@ -227,23 +177,6 @@
         ]
     },
     {
-        "title": "Математическое моделирование в инструментальной технике",
-        "lecturer": "Пищулин Д.Н",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "throughout",
-                "date": "2020.10.23-2020.11.20"
-            }
-        ]
-    },
-    {
         "title": "Новые конструкционные материалы в машиностроении",
         "lecturer": "Красновский А.Н",
         "type": "Laboratory",
@@ -254,10 +187,6 @@
             "end": "22:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.23"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.06"
@@ -265,8 +194,8 @@
         ]
     },
     {
-        "title": "Новые конструкционные материалы в машиностроении",
-        "lecturer": "Красновский А.Н",
+        "title": "Математическое моделирование в инструментальной технике",
+        "lecturer": "Пищулин Д.Н",
         "type": "Laboratory",
         "subgroup": "A",
         "classroom": "",
@@ -277,7 +206,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.30"
+                "date": "2020.11.06"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.20"
             }
         ]
     },
@@ -293,8 +226,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.30-2020.11.27"
+                "frequency": "once",
+                "date": "2020.11.13"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.27"
             }
         ]
     },

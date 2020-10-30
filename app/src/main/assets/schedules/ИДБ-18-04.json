@@ -1,26 +1,5 @@
 [
     {
-        "title": "Компьютерная графика",
-        "lecturer": "Болдарев А.С",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "216",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.11.02"
-            }
-        ]
-    },
-    {
         "title": "Базы данных",
         "lecturer": "Рожкова О.А",
         "type": "Laboratory",
@@ -33,8 +12,21 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.19"
-            },
+                "date": "2020.11.02"
+            }
+        ]
+    },
+    {
+        "title": "Компьютерная графика",
+        "lecturer": "Болдарев А.С",
+        "type": "Laboratory",
+        "subgroup": "B",
+        "classroom": "216",
+        "time": {
+            "start": "16:00",
+            "end": "19:30"
+        },
+        "dates": [
             {
                 "frequency": "once",
                 "date": "2020.11.02"
@@ -52,30 +44,9 @@
             "end": "19:30"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.09"
-            }
-        ]
-    },
-    {
-        "title": "Базы данных",
-        "lecturer": "Рожкова О.А",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "214",
-        "time": {
-            "start": "16:00",
-            "end": "19:30"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
             }
         ]
     },
@@ -93,23 +64,6 @@
             {
                 "frequency": "every",
                 "date": "2020.10.19-2020.11.30"
-            }
-        ]
-    },
-    {
-        "title": "Базы данных",
-        "lecturer": "Тюрбеева Т.Б",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "0622",
-        "time": {
-            "start": "12:20",
-            "end": "14:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.19"
             }
         ]
     },
@@ -182,48 +136,6 @@
         ]
     },
     {
-        "title": "Организация и управление предприятием",
-        "lecturer": "Лукина С.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "16:00",
-            "end": "17:40"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
-        "title": "Электротехника, электроника и схемотехника",
-        "lecturer": "Сергеев Ю.Д",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "10:20",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
         "title": "Электротехника, электроника и схемотехника",
         "lecturer": "Сергеев Ю.Д",
         "type": "Laboratory",
@@ -236,7 +148,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.22-2020.12.03"
+                "date": "2020.11.05-2020.12.03"
             }
         ]
     },
@@ -252,8 +164,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.29-2020.11.26"
+                "frequency": "once",
+                "date": "2020.11.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.26"
             }
         ]
     },
@@ -330,23 +246,6 @@
             {
                 "frequency": "once",
                 "date": "2020.12.11"
-            }
-        ]
-    },
-    {
-        "title": "Модели и методы анализа проектных решений",
-        "lecturer": "Ефромеева Е.В",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "14:10",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.23"
             }
         ]
     },

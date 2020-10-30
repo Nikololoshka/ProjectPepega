@@ -12,28 +12,7 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.02"
-            }
-        ]
-    },
-    {
-        "title": "Диагностика инструментальных систем",
-        "lecturer": "Пивкин П.М",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "ТехП 7",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
             }
         ]
     },
@@ -105,7 +84,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.20-2020.12.01"
+                "date": "2020.11.03-2020.12.01"
             }
         ]
     },
@@ -121,8 +100,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.27-2020.11.24"
+                "frequency": "once",
+                "date": "2020.11.10"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.24"
             }
         ]
     },
@@ -148,16 +131,12 @@
         "lecturer": "Гиловой Л.Я",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "ТехП 11",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "22:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.11"
@@ -173,16 +152,12 @@
         "lecturer": "Гиловой Л.Я",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "ТехП 11",
+        "classroom": "",
         "time": {
             "start": "19:40",
             "end": "22:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.18"
@@ -206,7 +181,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.22-2020.12.03"
+                "date": "2020.11.05-2020.12.03"
             }
         ]
     },
@@ -222,8 +197,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.22-2020.11.19"
+                "frequency": "once",
+                "date": "2020.11.05"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.19"
             }
         ]
     },
@@ -239,8 +218,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.29-2020.11.26"
+                "frequency": "once",
+                "date": "2020.11.12"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.26"
             }
         ]
     },
@@ -256,25 +239,12 @@
         },
         "dates": [
             {
-                "frequency": "throughout",
-                "date": "2020.10.29-2020.11.26"
-            }
-        ]
-    },
-    {
-        "title": "Патентоведение и защита интеллектуальной собственности",
-        "lecturer": "Домнин П.В",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "19:40",
-            "end": "22:50"
-        },
-        "dates": [
+                "frequency": "once",
+                "date": "2020.11.12"
+            },
             {
                 "frequency": "once",
-                "date": "2020.10.30"
+                "date": "2020.11.26"
             }
         ]
     },
@@ -402,31 +372,6 @@
         ]
     },
     {
-        "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
-        "lecturer": "Косарев В.А",
-        "type": "Lecture",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
-            },
-            {
-                "frequency": "every",
-                "date": "2020.11.14-2020.12.05"
-            }
-        ]
-    },
-    {
         "title": "Патентоведение и защита интеллектуальной собственности",
         "lecturer": "Домнин П.В",
         "type": "Seminar",
@@ -440,6 +385,23 @@
             {
                 "frequency": "once",
                 "date": "2020.11.07"
+            }
+        ]
+    },
+    {
+        "title": "Современные проблемы инструментального обеспечения машиностроительных производств",
+        "lecturer": "Косарев В.А",
+        "type": "Lecture",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
+                "frequency": "every",
+                "date": "2020.11.14-2020.12.05"
             }
         ]
     }

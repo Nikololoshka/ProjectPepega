@@ -12,7 +12,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.19"
+                "date": "2020.11.02"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.16"
             }
         ]
     },
@@ -29,7 +33,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.19"
+                "date": "2020.11.02"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.16"
             }
         ]
     },
@@ -46,7 +54,7 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.26"
+                "date": "2020.11.09"
             }
         ]
     },
@@ -63,7 +71,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.26"
+                "date": "2020.11.09"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.23"
             }
         ]
     },
@@ -79,12 +91,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
+                "frequency": "every",
+                "date": "2020.11.02-2020.11.23"
             }
         ]
     },
@@ -100,12 +108,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
+                "frequency": "every",
+                "date": "2020.11.02-2020.11.23"
             }
         ]
     },
@@ -121,12 +125,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.20"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.27"
+                "frequency": "every",
+                "date": "2020.11.03-2020.11.17"
             }
         ]
     },
@@ -142,12 +142,25 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.20"
-            },
+                "frequency": "every",
+                "date": "2020.11.03-2020.11.17"
+            }
+        ]
+    },
+    {
+        "title": "Физика",
+        "lecturer": "Стрекалов В.Н",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "12:20",
+            "end": "14:00"
+        },
+        "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.27"
+                "date": "2020.11.24"
             }
         ]
     },
@@ -163,12 +176,29 @@
         },
         "dates": [
             {
+                "frequency": "every",
+                "date": "2020.11.03-2020.11.24"
+            }
+        ]
+    },
+    {
+        "title": "Математика",
+        "lecturer": "Господинова А.Г",
+        "type": "Seminar",
+        "subgroup": "Common",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "10:10"
+        },
+        "dates": [
+            {
                 "frequency": "once",
-                "date": "2020.10.20"
+                "date": "2020.11.17"
             },
             {
                 "frequency": "once",
-                "date": "2020.10.27"
+                "date": "2020.11.24"
             }
         ]
     },
@@ -184,12 +214,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
             }
         ]
     },
@@ -205,12 +231,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
             }
         ]
     },
@@ -226,12 +248,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
             }
         ]
     },
@@ -247,12 +265,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
+                "frequency": "every",
+                "date": "2020.11.11-2020.11.25"
             }
         ]
     },
@@ -268,12 +282,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
+                "frequency": "every",
+                "date": "2020.11.05-2020.11.26"
             }
         ]
     },
@@ -289,12 +299,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
+                "frequency": "every",
+                "date": "2020.11.05-2020.11.26"
             }
         ]
     },
@@ -310,12 +316,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
+                "frequency": "every",
+                "date": "2020.11.05-2020.11.26"
             }
         ]
     },
@@ -331,12 +333,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.23"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
+                "frequency": "every",
+                "date": "2020.11.06-2020.11.27"
             }
         ]
     },
@@ -352,29 +350,29 @@
         },
         "dates": [
             {
+                "frequency": "every",
+                "date": "2020.11.06-2020.11.27"
+            }
+        ]
+    },
+    {
+        "title": "Информационные технологии",
+        "lecturer": "Ибатулин М.Ю",
+        "type": "Laboratory",
+        "subgroup": "A",
+        "classroom": "",
+        "time": {
+            "start": "8:30",
+            "end": "12:00"
+        },
+        "dates": [
+            {
                 "frequency": "once",
-                "date": "2020.10.23"
+                "date": "2020.11.07"
             },
             {
                 "frequency": "once",
-                "date": "2020.10.30"
-            }
-        ]
-    },
-    {
-        "title": "Информационные технологии",
-        "lecturer": "Ибатулин М.Ю",
-        "type": "Laboratory",
-        "subgroup": "A",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "12:00"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.24"
+                "date": "2020.11.21"
             }
         ]
     },
@@ -391,7 +389,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.24"
+                "date": "2020.11.07"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.21"
             }
         ]
     },
@@ -408,7 +410,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.31"
+                "date": "2020.11.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.28"
             }
         ]
     },
@@ -425,7 +431,11 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.31"
+                "date": "2020.11.14"
+            },
+            {
+                "frequency": "once",
+                "date": "2020.11.28"
             }
         ]
     },
@@ -441,12 +451,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
+                "frequency": "every",
+                "date": "2020.11.07-2020.11.21"
             }
         ]
     },
@@ -462,12 +468,8 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.24"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.31"
+                "frequency": "every",
+                "date": "2020.11.07-2020.11.21"
             }
         ]
     }

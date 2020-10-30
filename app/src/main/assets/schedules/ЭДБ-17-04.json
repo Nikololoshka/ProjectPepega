@@ -12,10 +12,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.19"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.02"
             }
         ]
@@ -31,10 +27,6 @@
             "end": "12:00"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.26"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.09"
@@ -218,14 +210,6 @@
         },
         "dates": [
             {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
                 "frequency": "every",
                 "date": "2020.11.11-2020.11.25"
             }
@@ -244,14 +228,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.11"
             },
             {
@@ -261,41 +237,16 @@
         ]
     },
     {
-        "title": "Методы и средства измерений, испытаний и контроля",
-        "lecturer": "Глубоков А.В",
-        "type": "Seminar",
-        "subgroup": "Common",
-        "classroom": "",
-        "time": {
-            "start": "8:30",
-            "end": "10:10"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.21"
-            },
-            {
-                "frequency": "once",
-                "date": "2020.10.28"
-            }
-        ]
-    },
-    {
         "title": "ИПИ-технологии",
         "lecturer": "Краснов А.А",
         "type": "Laboratory",
         "subgroup": "A",
-        "classroom": "247",
+        "classroom": "",
         "time": {
             "start": "12:20",
             "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.22"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.05"
@@ -315,10 +266,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.22"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.05"
             }
         ]
@@ -334,10 +281,6 @@
             "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.12"
@@ -349,16 +292,12 @@
         "lecturer": "Краснов А.А",
         "type": "Laboratory",
         "subgroup": "B",
-        "classroom": "247",
+        "classroom": "",
         "time": {
             "start": "12:20",
             "end": "15:50"
         },
         "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.29"
-            },
             {
                 "frequency": "once",
                 "date": "2020.11.12"
@@ -416,10 +355,6 @@
         "dates": [
             {
                 "frequency": "once",
-                "date": "2020.10.23"
-            },
-            {
-                "frequency": "once",
                 "date": "2020.11.06"
             }
         ]
@@ -437,24 +372,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.23-2020.12.04"
-            }
-        ]
-    },
-    {
-        "title": "Управление логистическими системами",
-        "lecturer": "Дорожкина О.К",
-        "type": "Laboratory",
-        "subgroup": "B",
-        "classroom": "",
-        "time": {
-            "start": "12:20",
-            "end": "15:50"
-        },
-        "dates": [
-            {
-                "frequency": "once",
-                "date": "2020.10.30"
+                "date": "2020.11.06-2020.12.04"
             }
         ]
     },
@@ -471,7 +389,7 @@
         "dates": [
             {
                 "frequency": "throughout",
-                "date": "2020.10.30-2020.12.11"
+                "date": "2020.11.13-2020.12.11"
             }
         ]
     },
