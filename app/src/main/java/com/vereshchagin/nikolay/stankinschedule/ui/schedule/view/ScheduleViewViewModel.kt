@@ -6,8 +6,8 @@ import androidx.lifecycle.*
 import androidx.paging.*
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.pagingkt.ScheduleViewDay
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.pagingkt.ScheduleViewDaySource
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewDay
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewDaySource
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import kotlinx.coroutines.launch
@@ -25,7 +25,7 @@ class ScheduleViewViewModel(
     /**
      * Состояние загрузки расписания.
      */
-    val state = MutableLiveData<State<Unit>>(State.loading())
+    val state = MutableLiveData<State<Boolean>>(State.loading())
 
     /**
      * Репозиторий с расписанием.
@@ -57,7 +57,7 @@ class ScheduleViewViewModel(
             state.value = State.failed(e)
             return
         }
-        state.value = State.success(Unit)
+        state.value = State.success(schedule.isEmpty())
         refreshTrigger.value = initKey
     }
 
@@ -78,7 +78,7 @@ class ScheduleViewViewModel(
                 initialLoadSize = PAGE_SIZE,
                 maxSize = PAGE_SIZE * 8
             ),
-            initKey,
+            schedule.limitDate(initKey),
         ) {
             ScheduleViewDaySource(
                 schedule,
@@ -95,7 +95,7 @@ class ScheduleViewViewModel(
     fun updatePagerView(scrollDate: LocalDate) {
         fakeRefresh()
 
-        state.value = State.success(Unit)
+        state.value = State.success(schedule.isEmpty())
         refreshTrigger.value = scrollDate
     }
 

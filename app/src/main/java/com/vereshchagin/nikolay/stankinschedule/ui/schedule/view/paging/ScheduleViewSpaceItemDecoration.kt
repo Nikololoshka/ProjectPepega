@@ -1,30 +1,25 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging;
+package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging
 
-import android.graphics.Rect;
-import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import android.graphics.Rect
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 
 /**
  * Добавляет отступ между каждым 2-ым элементом RecyclerView.
  */
-public class ScheduleViewSpaceItemDecoration extends RecyclerView.ItemDecoration {
+class ScheduleViewSpaceItemDecoration(
+    private val verticalSpaceHeight: Int
+) : ItemDecoration() {
 
-    private final int mVerticalSpaceHeight;
-
-    public ScheduleViewSpaceItemDecoration(int verticalSpaceHeight) {
-        mVerticalSpaceHeight = verticalSpaceHeight;
-    }
-
-    @Override
-    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view,
-                               @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+    override fun getItemOffsets(
+        outRect: Rect, view: View,
+        parent: RecyclerView, state: RecyclerView.State
+    ) {
         if (parent.getChildAdapterPosition(view) % 2 == 1) {
-            RecyclerView.Adapter adapter = parent.getAdapter();
-
-            if (adapter != null && adapter.getItemCount() - 1 != parent.getChildAdapterPosition(view)) {
-                outRect.bottom = mVerticalSpaceHeight;
+            val adapter = parent.adapter
+            if (adapter != null && adapter.itemCount - 1 != parent.getChildAdapterPosition(view)) {
+                outRect.bottom = verticalSpaceHeight
             }
         }
     }

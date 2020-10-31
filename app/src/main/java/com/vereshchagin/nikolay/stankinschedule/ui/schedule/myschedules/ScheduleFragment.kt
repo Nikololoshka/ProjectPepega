@@ -29,7 +29,6 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.S
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker.Companion.SCHEDULE_DOWNLOADED_EVENT
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.extractFilename
@@ -312,11 +311,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         }
 
         navigateTo(
-            R.id.to_schedule_view_fragment,
-            ScheduleViewFragment.createBundle(
-                schedule,
-                SchedulePreference.createPath(requireContext(), schedule)
-            )
+            R.id.to_schedule_view_fragment, ScheduleViewFragment.createBundle(schedule)
         )
     }
 

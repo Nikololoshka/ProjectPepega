@@ -14,7 +14,7 @@ class RepositoryScheduleItemHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     init {
-        binding.repositorySchedule.setOnClickListener { view ->
+        binding.repositorySchedule.setOnClickListener {
             binding.scheduleName?.let {
                 callback.invoke(it, bindingAdapterPosition)
             }

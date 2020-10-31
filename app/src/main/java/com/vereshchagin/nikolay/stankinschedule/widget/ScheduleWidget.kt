@@ -15,7 +15,6 @@ import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import org.joda.time.LocalDate
 
 /**
@@ -36,9 +35,7 @@ class ScheduleWidget : AppWidgetProvider() {
 
             // создание intent'а на открытие расписание на определенном дне
             val scheduleDayBundle = ScheduleViewFragment.createBundle(
-                scheduleName,
-                SchedulePreference.createPath(context, scheduleName),
-                date
+                scheduleName, date
             )
 
             val scheduleDayPendingIntent = NavDeepLinkBuilder(context)
@@ -113,8 +110,7 @@ class ScheduleWidget : AppWidgetProvider() {
 
             // для открытия приложения на распиании
             val scheduleBundle = ScheduleViewFragment.createBundle(
-                scheduleName,
-                SchedulePreference.createPath(context, scheduleName)
+                scheduleName
             )
             val schedulePendingIntent = NavDeepLinkBuilder(context)
                 .setComponentName(MainActivity::class.java)

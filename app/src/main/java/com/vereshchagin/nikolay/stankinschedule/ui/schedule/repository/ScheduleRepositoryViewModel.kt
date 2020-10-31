@@ -28,7 +28,7 @@ class ScheduleRepositoryViewModel(application: Application) : AndroidViewModel(a
     }
 
     /**
-     * Вызывается, если пришел результат с описанием и необходимо загружать категории.
+     * Вызывается, если пришел результат с описанием, и необходимо загружать категории.
      */
     private fun descriptionResult(state: State<RepositoryDescription>, useCache: Boolean) {
         description.value = state
@@ -41,7 +41,7 @@ class ScheduleRepositoryViewModel(application: Application) : AndroidViewModel(a
     fun tabTitle(position: Int): String? {
         val state = description.value
         if (state is State.Success) {
-            return state.data.categories[position]
+            return state.data.categories.getOrNull(position)
         }
         return null
     }

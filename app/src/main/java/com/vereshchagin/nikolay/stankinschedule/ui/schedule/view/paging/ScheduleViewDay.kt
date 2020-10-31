@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.pagingkt
+package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging
 
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import org.joda.time.LocalDate

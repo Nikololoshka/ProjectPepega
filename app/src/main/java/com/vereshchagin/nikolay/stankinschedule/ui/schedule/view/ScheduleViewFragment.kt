@@ -22,7 +22,8 @@ import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.pagingkt.ScheduleViewAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewSpaceItemDecoration
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
@@ -31,7 +32,7 @@ import org.joda.time.LocalDate
 /**
  * Фрагмент просмотра расписания.
  */
-class ScheduleViewFragmentKt : BaseFragment<FragmentScheduleViewBinding>() {
+class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
 
     /**
      * ViewModel фрагмента.
@@ -97,6 +98,12 @@ class ScheduleViewFragmentKt : BaseFragment<FragmentScheduleViewBinding>() {
                 val snapHelper = LinearSnapHelper()
                 snapHelper.attachToRecyclerView(binding.schViewContainer)
             }
+        } else {
+            binding.schViewContainer.addItemDecoration(
+                ScheduleViewSpaceItemDecoration(
+                    resources.getDimensionPixelSize(R.dimen.vertical_view_space)
+                )
+            )
         }
 
         // адаптер
@@ -111,7 +118,7 @@ class ScheduleViewFragmentKt : BaseFragment<FragmentScheduleViewBinding>() {
             val state = it ?: return@observe
             when (state) {
                 is State.Success -> {
-                    updateContentView()
+                    updateContentView(state.data)
                 }
                 is State.Loading -> {
                     statefulLayout.setState(StatefulLayout2.LOADING)
@@ -344,12 +351,13 @@ class ScheduleViewFragmentKt : BaseFragment<FragmentScheduleViewBinding>() {
      * Обновляет UI контента расписания.
      * Если расписание пустое, то отображает соответствующие сообщение.
      */
-    private fun updateContentView() {
+    private fun updateContentView(empty: Boolean) {
         statefulLayout.setState(
-            if (adapter.itemCount == 0)
+            if (empty) {
                 StatefulLayout2.EMPTY
-            else
+            } else {
                 StatefulLayout2.CONTENT
+            }
         )
     }
 

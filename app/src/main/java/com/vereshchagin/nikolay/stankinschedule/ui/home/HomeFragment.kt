@@ -137,9 +137,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
                 if (favorite != null && favorite.isNotEmpty()) {
                     navigateTo(
                         R.id.to_schedule_view_fragment,
-                        ScheduleViewFragment.createBundle(
-                            favorite, SchedulePreference.createPath(requireContext(), favorite)
-                        )
+                        ScheduleViewFragment.createBundle(favorite)
                     )
                 } else {
                     navigateTo(R.id.nav_schedule_fragment)

@@ -74,9 +74,7 @@ class ScheduleDownloadWorker(
             .setComponentName(MainActivity::class.java)
             .setGraph(R.navigation.activity_main_nav_graph)
             .setDestination(R.id.nav_schedule_view_fragment)
-            .setArguments(ScheduleViewFragment.createBundle(
-                scheduleName, ScheduleRepository().path(applicationContext, scheduleName)
-            ))
+            .setArguments(ScheduleViewFragment.createBundle(scheduleName))
             .createPendingIntent()
 
         // уведомление о окончании загрузки

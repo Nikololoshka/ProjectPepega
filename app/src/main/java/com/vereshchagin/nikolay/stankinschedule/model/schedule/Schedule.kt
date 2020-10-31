@@ -3,12 +3,13 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule
 import com.google.gson.*
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.DayOfWeek
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
-import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
 import org.joda.time.LocalDate
 import java.lang.reflect.Type
-import java.util.*
 
+/**
+ * Модель расписания.
+ */
 class Schedule {
 
     private val weeks = linkedMapOf<DayOfWeek, ScheduleDay>()
@@ -19,10 +20,16 @@ class Schedule {
         }
     }
 
+    /**
+     * Добавляет пару в расписание.
+     */
     fun add(pair: Pair) {
         weeks[pair.date.dayOfWeek()]!!.add(pair)
     }
 
+    /**
+     * Удаляет пару из расписания.
+     */
     fun remove(pair: Pair?) {
         if (pair == null) {
             return
@@ -31,6 +38,10 @@ class Schedule {
         weeks[pair.date.dayOfWeek()]!!.remove(pair)
     }
 
+    /**
+     * Возвращает дату, с которого начинается расписание.
+     * Если расписание пустое, то возвращается null.
+     */
     fun startDate(): LocalDate? {
         var start: LocalDate? = null
 
@@ -49,6 +60,10 @@ class Schedule {
         return start
     }
 
+    /**
+     * Возвращает дату, на которую заканчивается расписание.
+     * Если расписание пустое, то возвращается null.
+     */
     fun endDate(): LocalDate? {
         var last: LocalDate? = null
 
@@ -67,14 +82,35 @@ class Schedule {
         return last
     }
 
-    fun pairsByDate(date: Calendar): List<Pair> {
-        return pairsByDate(LocalDate(date))
+    /**
+     * Ограничивает дату, исходя из дат начала и конца расписания.
+     */
+    fun limitDate(date: LocalDate) : LocalDate {
+        startDate()?.let {
+            if (date.isBefore(it)) {
+                return it
+            }
+        }
+
+        endDate()?.let {
+            if (date.isAfter(it)) {
+                return it
+            }
+        }
+
+        return date
     }
 
-    fun pairsByDate(date: DateTime): List<Pair> {
-        return pairsByDate(date.toLocalDate())
+    /**
+     * Проверяет, является ли расписание пустым.
+     */
+    fun isEmpty() : Boolean {
+        return startDate() == null || endDate() == null
     }
 
+    /**
+     * Возвращает список пар, которые есть в заданный день.
+     */
     fun pairsByDate(date: LocalDate): List<Pair> {
         if (date.dayOfWeek == DateTimeConstants.SUNDAY) {
             return arrayListOf()
@@ -83,10 +119,16 @@ class Schedule {
         return weeks[dayOfWeek]!!.pairsByDate(date)
     }
 
-    fun possibleChangePair(old: Pair?, new: Pair) {
+    /**
+     * Проверяет, можно ли заменить одну пару на другую.
+     */
+    private fun possibleChangePair(old: Pair?, new: Pair) {
         weeks[new.date.dayOfWeek()]!!.possibleChangePair(old, new)
     }
 
+    /**
+     * Заменяет одну пару на другую.
+     */
     fun changePair(old: Pair?, new: Pair) {
         possibleChangePair(old, new)
 

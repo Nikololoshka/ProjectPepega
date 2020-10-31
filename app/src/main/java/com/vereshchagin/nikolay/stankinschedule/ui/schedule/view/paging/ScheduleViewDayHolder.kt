@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.pagingkt
+package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,9 +1,7 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.pagingkt
+package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging
 
 import android.util.Log
-import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingSource
-import androidx.paging.PagingState
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import org.joda.time.LocalDate
@@ -38,11 +36,6 @@ class ScheduleViewDaySource(
             prevDay,
             nextDay
         )
-    }
-
-    @ExperimentalPagingApi
-    override fun getRefreshKey(state: PagingState<LocalDate, ScheduleViewDay>): LocalDate? {
-        return super.getRefreshKey(state)
     }
 
     /**
