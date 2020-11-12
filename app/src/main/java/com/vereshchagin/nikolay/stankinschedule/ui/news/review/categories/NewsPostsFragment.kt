@@ -76,17 +76,19 @@ class NewsPostsFragment : BaseFragment<ItemNewsPostsBinding>() {
             }
         }
 
-        lifecycleScope.launchWhenCreated {
-            adapter.loadStateFlow
-                .distinctUntilChangedBy { it.refresh }
-                .filter { it.refresh is LoadState.NotLoading }
-                .collect { binding.newsRecycler.scrollToPosition(0) }
-        }
-
         // посты
         viewModel.posts.observe(viewLifecycleOwner, { posts ->
             adapter.submitData(lifecycle, posts)
         })
+
+        lifecycleScope.launchWhenCreated {
+            adapter.loadStateFlow
+                .distinctUntilChangedBy { it.refresh }
+                .filter { it.refresh is LoadState.NotLoading && it.mediator != null }
+                .collect {
+                    binding.newsRecycler.scrollToPosition(0)
+                }
+        }
 
         // разделитель элементов
         val itemDecoration = DividerItemDecoration(context, RecyclerView.VERTICAL)
