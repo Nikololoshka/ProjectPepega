@@ -12,7 +12,6 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.home.news.NewsPostLatestAdapter
-import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
@@ -22,8 +21,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 /**
  * Фрагмент главной страницы.
  */
-class HomeFragment : BaseFragment<FragmentHomeBinding>(),
-    View.OnClickListener, NewsPostAdapter.OnNewsClickListener {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
 
     private var _scheduleStateful: StatefulLayout2? = null
     private val scheduleStateful get() = _scheduleStateful!!
@@ -78,7 +76,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         })
 
         val glide = DrawableUtils.createGlide(this)
-        val adapter = NewsPostLatestAdapter(this, glide)
+        val adapter = NewsPostLatestAdapter(this::onNewsClick, glide)
 
         binding.newsLatest.adapter = adapter
         binding.newsLatest.setHasFixedSize(true)
@@ -95,10 +93,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
 
     override fun onResume() {
         super.onResume()
-
-        if (!viewModel.isScheduleDataValid()) {
-            viewModel.updateSchedule()
-        }
+        viewModel.checkScheduleData()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -159,7 +154,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         _scheduleStateful = null
     }
 
-    override fun onNewsClick(newsId: Int) {
+    private fun onNewsClick(newsId: Int) {
         navigateTo(R.id.to_news_viewer_fragment, NewsViewerActivity.createBundle(newsId))
     }
 

@@ -12,7 +12,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.concurrent.Executor
-import kotlin.math.roundToLong
 
 /**
  * Callback для дозагрузки данных из сети.
@@ -45,10 +44,10 @@ class NewsBoundaryCallback(
             val count = dao.count(newsSubdivision)
             Log.d("MyLog", count.toString())
 
-            helper.runIfNotRunning(PagingRequestHelper.RequestType.AFTER) {
-                StankinNewsApi.getNews(api, newsSubdivision, (count / 40.0).roundToLong() + 1)
-                    .enqueue(apiCallback(it))
-            }
+//            helper.runIfNotRunning(PagingRequestHelper.RequestType.AFTER) {
+//                StankinNewsApi.getNews(api, newsSubdivision, (count / 40.0).roundToLong() + 1)
+//                    .enqueue(apiCallback(it))
+//            }
         }
     }
 

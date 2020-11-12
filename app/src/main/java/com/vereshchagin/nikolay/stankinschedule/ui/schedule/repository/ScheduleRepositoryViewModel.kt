@@ -3,11 +3,13 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
 import android.app.Application
 import androidx.lifecycle.*
 import androidx.paging.*
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryCategoryItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryDescription
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleServerRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.RepositoryCategorySource
 import com.vereshchagin.nikolay.stankinschedule.utils.State
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -65,6 +67,9 @@ class ScheduleRepositoryViewModel(application: Application) : AndroidViewModel(a
     fun update(useCache: Boolean = true) {
         viewModelScope.launch {
             repository.description(useCache)
+                .catch { e ->
+                    FirebaseCrashlytics.getInstance().recordException(e)
+                }
                 .collect {
                     descriptionResult(it, useCache)
                 }

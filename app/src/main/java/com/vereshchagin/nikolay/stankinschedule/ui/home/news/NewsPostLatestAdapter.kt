@@ -13,7 +13,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging
  * @see NewsPostAdapter
  */
 class NewsPostLatestAdapter(
-    private val clickListener: NewsPostAdapter.OnNewsClickListener,
+    private val clickListener: (newsId: Int) -> Unit,
     private val glide: RequestManager,
     private val count: Int = 3
 ) : RecyclerView.Adapter<NewsPostItemHolder>() {

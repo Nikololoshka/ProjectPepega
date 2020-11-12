@@ -72,12 +72,12 @@ dependencies {
 
     // Layouts
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
 
     // Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
 
     // Preference
     implementation 'androidx.preference:preference:1.1.1'
@@ -85,7 +85,7 @@ dependencies {
 
     // Paging and pager
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
-    implementation 'androidx.paging:paging-runtime:3.0.0-alpha07'
+    implementation 'androidx.paging:paging-runtime:3.0.0-alpha08'
 
     // Work
     def work_version = "2.4.0"

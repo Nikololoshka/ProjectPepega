@@ -24,8 +24,8 @@ class NewsHomeRepository(context: Context) {
     /**
      * Обновить все репозитории с новостями.
      */
-    fun updateAll() {
-        repositories.forEach { it.update() }
+    suspend fun updateAll() {
+        repositories.forEach { it.refresh() }
     }
 
     /**

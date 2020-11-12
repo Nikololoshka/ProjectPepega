@@ -22,7 +22,7 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>() {
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        // установка адаптора
+        // установка адаптера
         binding.newsPager.adapter = NewsAdapter(this)
         binding.newsPager.offscreenPageLimit = 2
 

@@ -5,7 +5,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.NewsPostsFragment
 
 /**
- * Адаптер для вкладок новостей: универсетета и деканата.
+ * Адаптер для вкладок новостей: университета и деканата.
  */
 class NewsAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 

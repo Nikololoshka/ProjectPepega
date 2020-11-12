@@ -31,7 +31,7 @@ interface StankinNewsApi {
          * @param query фильтр для новостей.
          */
         fun getNews(
-            api: StankinNewsApi, subdivision: Int, page: Long,
+            api: StankinNewsApi, subdivision: Int, page: Int,
             count: Int = 40, tag: String = "", query: String = ""
         ): Call<NewsResponse> {
             val data = mapOf(

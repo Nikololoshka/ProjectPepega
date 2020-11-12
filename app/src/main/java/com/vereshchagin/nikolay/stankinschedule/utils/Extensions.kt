@@ -121,3 +121,7 @@ fun Uri.extractFilename(context: Context): String? {
 
     return result
 }
+
+fun View.setVisibility(visible: Boolean) {
+    visibility = if (visible) View.VISIBLE else View.GONE
+}

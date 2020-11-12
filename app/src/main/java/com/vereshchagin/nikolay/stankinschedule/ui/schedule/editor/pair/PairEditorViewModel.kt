@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
- * ViewModel для редактирование пар.
+ * ViewModel для редактирования пар.
  */
 class PairEditorViewModel(
     application: Application, private val scheduleName: String
@@ -30,7 +30,7 @@ class PairEditorViewModel(
     /**
      * Состояние загрузки расписания.
      */
-    val scheduleState = MutableLiveData<State>(State.LOADING)
+    val scheduleState = MutableLiveData(State.LOADING)
 
     init {
         // загрузка расписания

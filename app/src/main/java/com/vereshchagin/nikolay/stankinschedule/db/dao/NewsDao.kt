@@ -1,7 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.db.dao
 
 import androidx.lifecycle.LiveData
-import androidx.paging.DataSource
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -26,7 +26,7 @@ interface NewsDao {
      * @param newsSubdivision номер отдела новостей.
      */
     @Query("SELECT * FROM posts WHERE newsSubdivision = :newsSubdivision ORDER BY indexInResponse ASC")
-    fun all(newsSubdivision: Int) : DataSource.Factory<Int, NewsItem>
+    fun all(newsSubdivision: Int): PagingSource<Int, NewsItem>
 
     /**
      * Возвращает список (DataSource) из последних нескольких элемнтов.
