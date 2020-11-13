@@ -51,6 +51,8 @@ class ScheduleWidgetConfigureActivity : AppCompatActivity(), View.OnClickListene
         // настройка layout'а
         binding = WidgetScheduleConfigureBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val schedules = ScheduleRepository().schedules(this)
         initAutoComplete(binding.widgetScheduleSelector, schedules)

@@ -158,7 +158,9 @@
                     android:id="@+id/news_latest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fadeScrollbars="true"
+                    android:nestedScrollingEnabled="true"
+                    android:scrollbars="none"
+                    android:scrollIndicators="none"
                     app:layoutManager=".utils.FixedLayoutManager"
                     tools:itemCount="3"
                     tools:listitem="@layout/item_news_post" />

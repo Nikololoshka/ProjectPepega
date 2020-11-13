@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
-                app:contentScrim="@color/colorToolbar"
+                app:contentScrim="@color/colorToolbarContent"
                 app:expandedTitleGravity="start|bottom"
                 app:expandedTitleMarginBottom="@dimen/news_viewer_toolbar_margin_ver"
                 app:expandedTitleMarginEnd="@dimen/news_viewer_toolbar_margin_hor"

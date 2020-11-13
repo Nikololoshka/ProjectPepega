@@ -15,7 +15,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 
 /**
- * Удаленный репозиторий с расписаниеями.
+ * Удаленный репозиторий с расписаниями.
  */
 class ScheduleRepositoryActivity : AppCompatActivity() {
 
@@ -38,6 +38,8 @@ class ScheduleRepositoryActivity : AppCompatActivity() {
             .create()
 
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.repositoryErrorRetry.setOnClickListener {
             viewModel.update()

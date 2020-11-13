@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            // скрываем / показываем нижнию навигацию
+            // скрываем / показываем нижнюю навигацию
             bottomNavigationView.visibility =
                 if (destination.parent?.id == R.id.settings_nav_graph ||
                     destination.id == R.id.nav_about_fragment
@@ -283,7 +283,7 @@ class MainActivity : AppCompatActivity() {
      * Вызывается, если статус обновления изменен.
      */
     private fun onUpdateState(state: InstallState) {
-        // обновление звгружено
+        // обновление загружено
         if (state.installStatus() == InstallStatus.DOWNLOADED) {
             Snackbar.make(
                 binding.appBarMain.contentMain.containerMain,

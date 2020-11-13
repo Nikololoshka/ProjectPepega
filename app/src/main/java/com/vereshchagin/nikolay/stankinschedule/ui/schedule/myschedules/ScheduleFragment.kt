@@ -253,7 +253,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                         dialog.show(parentFragmentManager, dialog.tag)
                     }
                     R.id.from_repository -> {
-                        navigateTo(R.id.toScheduleRepositoryFragment)
+                        navigateTo(R.id.toScheduleRepositoryActivity)
                     }
                     R.id.load_schedule -> {
                         loadScheduleFromDevice()

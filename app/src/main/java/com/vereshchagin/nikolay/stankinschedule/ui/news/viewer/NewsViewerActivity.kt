@@ -30,12 +30,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
- *
+ * Активность для просмотра новостей.
  */
 class NewsViewerActivity : AppCompatActivity() {
 
     /**
-     * ViewModel фрагмента.
+     * ViewModel активности.
      */
     private lateinit var viewModel: NewsViewerViewModel
 

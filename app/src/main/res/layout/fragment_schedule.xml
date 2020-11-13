@@ -61,7 +61,7 @@
             android:src="@drawable/ic_common_schedule_add"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            app:backgroundTint="@color/colorToolbar"
+            app:backgroundTint="@color/colorToolbarContent"
             app:tint="@android:color/white" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
