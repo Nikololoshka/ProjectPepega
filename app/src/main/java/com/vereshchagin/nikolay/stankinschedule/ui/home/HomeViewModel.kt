@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.*
 import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleData
+import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleSettings
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
+import com.vereshchagin.nikolay.stankinschedule.repository.NewsHomeRepository
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreferenceKt
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.joda.time.LocalDate
@@ -18,43 +20,47 @@ import org.joda.time.LocalDate
  */
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
+    private val scheduleRepository = ScheduleRepository()
+    private val newsRepository = NewsHomeRepository(application)
+
     val scheduleData = MutableLiveData<HomeScheduleData>(null)
-    val repository = ScheduleRepository()
+    val newsData = newsRepository.latest()
+
+    private lateinit var scheduleSettings: HomeScheduleSettings
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
             loadSchedule()
+            newsRepository.updateAll()
         }
     }
 
     @SuppressLint("DefaultLocale")
     private fun loadSchedule() {
-        val favorite = SchedulePreference.favorite(getApplication())
-        if (favorite == null || favorite.isEmpty()) {
+        scheduleSettings = ApplicationPreferenceKt.homeScheduleSettings(getApplication())
+        // нет избранного расписания
+        if (scheduleSettings.favorite.isEmpty()) {
             scheduleData.postValue(HomeScheduleData.empty())
             return
         }
 
-        val path = SchedulePreference.createPath(getApplication(), favorite)
         val schedule: Schedule
         try {
-            schedule = repository.load(path)
+            schedule = scheduleRepository.load(scheduleSettings.favorite, getApplication())
         } catch (ignored: Exception) {
             scheduleData.postValue(HomeScheduleData.empty())
             return
         }
 
+        val count = scheduleSettings.delta * 2 + 1
+        var start = LocalDate.now().minusDays(scheduleSettings.delta)
+        val titles = ArrayList<String>(count)
+        val pairs = ArrayList<ArrayList<Pair>>(count)
 
-        var start = LocalDate.now().minusDays(2)
-
-        val titles = ArrayList<String>(5)
-        val pairs = ArrayList<ArrayList<Pair>>(5)
-        val subgroup = ApplicationPreference.subgroup(getApplication())
-
-        for (i in 0..4) {
+        for (i in 0 until count) {
             val list = ArrayList<Pair>()
             schedule.pairsByDate(start).filter {
-                it.isCurrently(subgroup)
+                it.isCurrently(scheduleSettings.subgroup)
             }.toCollection(list)
 
             pairs.add(list)
@@ -63,8 +69,15 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             start = start.plusDays(1)
         }
 
+        var scheduleName = scheduleSettings.favorite
+        // добавление подгруппы к названию
+        if (scheduleSettings.subgroup != Subgroup.COMMON && scheduleSettings.display) {
+            scheduleName += " ${scheduleSettings.subgroup.toString(getApplication())}"
+        }
+
         scheduleData.postValue(
             HomeScheduleData(
+                scheduleName,
                 titles,
                 pairs
             )
@@ -77,6 +90,17 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     fun updateSchedule() {
         viewModelScope.launch(Dispatchers.IO) {
             loadSchedule()
+        }
+    }
+
+    /**
+     * Проверяет, правильное количество дней загружено и отображается ли нужная подгруппа.
+     * Если нет, то обновляем данные расписания.
+     */
+    fun checkScheduleData() {
+        val newSettings = ApplicationPreferenceKt.homeScheduleSettings(getApplication())
+        if (scheduleSettings != newSettings) {
+            updateSchedule()
         }
     }
 

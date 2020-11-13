@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/schedules_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -58,11 +59,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_common_schedule_add"
-            app:backgroundTint="@color/colorToolbar"
-            app:layout_anchor="@id/schedules"
-            app:layout_anchorGravity="bottom|end"
-            app:tint="@android:color/white"
-            app:useCompatPadding="true" />
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:backgroundTint="@color/colorToolbarContent"
+            app:tint="@android:color/white" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

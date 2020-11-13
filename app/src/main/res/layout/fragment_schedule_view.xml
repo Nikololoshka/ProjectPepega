@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.schedule.view.ScheduleViewFragment">
     <!--  Padding находится внутри schedule_card чтобы анимация была красивая -->
@@ -17,7 +18,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sch_view_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <LinearLayout
             android:id="@+id/sch_view_error"
@@ -39,10 +41,18 @@
 
         </LinearLayout>
 
+        <include
+            android:id="@+id/sch_view_loading"
+            layout="@layout/view_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
         <FrameLayout
             android:id="@+id/sch_view_empty"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:visibility="gone">
 
             <TextView
                 style="@style/Text.Large"

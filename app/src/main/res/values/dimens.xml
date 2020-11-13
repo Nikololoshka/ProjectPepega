@@ -4,7 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="default_layout_padding">8dp</dimen>
     <dimen name="default_drawable_padding">8dp</dimen>
@@ -14,16 +13,22 @@
     <dimen name="drawer_horizontal_padding">15dp</dimen>
 
     <dimen name="card_elevation">2dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
     <!-- Репозиторий с расписниями -->
     <dimen name="item_schedule_repository_padding">12dp</dimen>
-    <dimen name="appbar_repository_height">150dp</dimen>
+    <dimen name="repository_app_bar_height">150dp</dimen>
 
     <!-- Модульный журнал -->
-    <dimen name="app_bar_mj_height">150dp</dimen>
+    <dimen name="mj_app_bar_height">150dp</dimen>
     <dimen name="mj_table_cell_padding">4dp</dimen>
     <dimen name="mj_min_column_header_size">25dp</dimen>
     <dimen name="mj_student_data_margin">2dp</dimen>
+
+    <!-- Просмотр новостей -->
+    <dimen name="news_viewer_app_bar_height">220dp</dimen>
+    <dimen name="news_viewer_toolbar_margin_hor">24dp</dimen>
+    <dimen name="news_viewer_toolbar_margin_ver">48dp</dimen>
 
     <!-- Горизонтальный ProgressBar  -->
     <dimen name="horizontal_loading_height">16dp</dimen>

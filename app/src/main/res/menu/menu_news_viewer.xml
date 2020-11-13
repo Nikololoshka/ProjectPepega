@@ -7,13 +7,13 @@
         android:id="@+id/open_in_browser"
         android:title="@string/news_open_in_browser"
         android:icon="@drawable/ic_menu_open_in_browser"
-        app:showAsAction="ifRoom|withText" />
+        app:showAsAction="collapseActionView" />
 
     <item
         android:id="@+id/news_share"
         android:title="@string/news_share"
         android:icon="@drawable/ic_menu_share"
-        app:showAsAction="ifRoom|withText" />
+        app:showAsAction="collapseActionView" />
 
     <item
         android:id="@+id/news_update"

@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemScheduleBinding
 
-
+/**
+ * Holder расписания в списке.
+ */
 class ScheduleItemHolder(
     itemView: View,
     private var itemListener: SchedulesAdapter.OnScheduleItemListener,
@@ -23,7 +25,7 @@ class ScheduleItemHolder(
         binding.scheduleItem.setOnClickListener(this)
         binding.scheduleItem.setOnLongClickListener {
             itemListener.onScheduleItemLongClicked(
-                binding.scheduleInfo.text.toString(), adapterPosition
+                binding.scheduleInfo.text.toString(), bindingAdapterPosition
             )
             true
         }
@@ -32,6 +34,9 @@ class ScheduleItemHolder(
         setOnTouchListener(this)
     }
 
+    /**
+     * Устанавливает данные в holder.
+     */
     fun bind(
         name: String,
         isFavorite: Boolean,
@@ -72,7 +77,7 @@ class ScheduleItemHolder(
         val name = binding.scheduleInfo.text.toString()
         when(v?.id) {
             R.id.schedule_item -> {
-                itemListener.onScheduleItemClicked(name, adapterPosition)
+                itemListener.onScheduleItemClicked(name, bindingAdapterPosition)
             }
             R.id.favorite_schedule -> {
                 itemListener.onScheduleFavoriteSelected(name)

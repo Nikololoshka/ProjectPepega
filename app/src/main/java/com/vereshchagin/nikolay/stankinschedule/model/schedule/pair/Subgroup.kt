@@ -1,6 +1,8 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
+import android.content.Context
 import android.os.Parcelable
+import com.vereshchagin.nikolay.stankinschedule.R
 import kotlinx.android.parcel.Parcelize
 
 /**
@@ -24,8 +26,21 @@ enum class Subgroup(val tag: String) : Parcelable {
      */
     COMMON("Common");
 
-    fun separate(subgroup: Subgroup) : Boolean {
+    fun separate(subgroup: Subgroup): Boolean {
         return this != subgroup && this != COMMON && subgroup != COMMON
+    }
+
+    override fun toString(): String {
+        return tag
+    }
+
+    /**
+     * Возвращает строку с учетом локализации.
+     */
+    fun toString(context: Context): String {
+        return context.resources.getStringArray(R.array.subgroup_simple_list).getOrNull(
+            listOf(A, B).indexOf(this)
+        ) ?: ""
     }
 
     companion object {

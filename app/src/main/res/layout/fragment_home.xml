@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:fillViewport="true"
+    android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
@@ -24,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/home_widget_bottom_margin" >
+                android:paddingBottom="@dimen/home_widget_bottom_margin">
 
                 <androidx.cardview.widget.CardView
                     style="@style/CardStyle"
@@ -33,17 +32,17 @@
                     app:cardUseCompatPadding="false">
 
                     <TextView
-                        style="@style/Text.Subhead"
-                        android:textSize="18sp"
                         android:id="@+id/schedule_name"
+                        style="@style/Text.Subhead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="?attr/selectableItemBackground"
                         android:clickable="true"
                         android:focusable="true"
-                        android:drawableEnd="@drawable/ic_button_next"
+                        android:padding="5dp"
                         android:text="@string/sch_name"
-                        android:padding="5dp" />
+                        android:textSize="18sp"
+                        app:drawableEndCompat="@drawable/ic_button_next" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -51,15 +50,16 @@
                     android:id="@+id/schedule_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:animateLayoutChanges="true" >
+                    android:animateLayoutChanges="true">
 
                     <include
                         android:id="@+id/schedule_loading"
                         layout="@layout/view_loading"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_layout_padding" />
 
-                    <com.vereshchagin.nikolay.stankinschedule.ui.home.pager.HomePager
+                    <com.vereshchagin.nikolay.stankinschedule.ui.home.schedule.HomePager
                         android:id="@+id/schedule_pager"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                         android:padding="@dimen/default_information_padding"
                         android:text="@string/home_no_favorite_schedule"
                         android:textAlignment="center"
-                        android:visibility="gone"/>
+                        android:visibility="gone" />
 
                 </FrameLayout>
 
@@ -81,11 +81,13 @@
 
         </androidx.cardview.widget.CardView>
 
+        <!--
+
         <androidx.cardview.widget.CardView
             style="@style/CardStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone" >
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -100,17 +102,17 @@
                     app:cardUseCompatPadding="false">
 
                     <TextView
-                        style="@style/Text.Subhead"
                         android:id="@+id/mj_name"
-                        android:textSize="18sp"
+                        style="@style/Text.Subhead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="?attr/selectableItemBackground"
                         android:clickable="true"
                         android:focusable="true"
-                        android:drawableEnd="@drawable/ic_button_next"
+                        android:padding="5dp"
                         android:text="@string/nav_module_journal"
-                        android:padding="5dp" />
+                        android:textSize="18sp"
+                        app:drawableEndCompat="@drawable/ic_button_next" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -118,11 +120,12 @@
 
         </androidx.cardview.widget.CardView>
 
+        -->
+
         <androidx.cardview.widget.CardView
             style="@style/CardStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" >
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -137,26 +140,30 @@
                     app:cardUseCompatPadding="false">
 
                     <TextView
-                        style="@style/Text.Subhead"
-                        android:textSize="18sp"
                         android:id="@+id/news_name"
+                        style="@style/Text.Subhead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="?attr/selectableItemBackground"
                         android:clickable="true"
                         android:focusable="true"
-                        android:drawableEnd="@drawable/ic_button_next"
+                        android:padding="5dp"
                         android:text="@string/news"
-                        android:padding="5dp" />
+                        android:textSize="18sp"
+                        app:drawableEndCompat="@drawable/ic_button_next" />
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/news_latest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_news_post"
-                    tools:itemCount="3"/>
+                    android:nestedScrollingEnabled="true"
+                    android:scrollbars="none"
+                    android:scrollIndicators="none"
+                    app:layoutManager=".utils.FixedLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_news_post" />
 
             </LinearLayout>
 

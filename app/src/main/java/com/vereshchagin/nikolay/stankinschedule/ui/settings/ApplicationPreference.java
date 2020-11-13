@@ -27,12 +27,14 @@ public class ApplicationPreference {
     public static final String DARK_MODE_BATTERY_SAVER = "pref_battery_saver";
     public static final String DARK_MODE_MANUAL = "pref_manual_mode";
 
+    public static final String HOME_SCHEDULE_DELTA = "home_schedule_delta";
     public static final String APP_BROWSER = "app_browser";
 
     public static final String SCHEDULE_VIEW_VERTICAL = "pref_vertical";
     public static final String SCHEDULE_VIEW_HORIZONTAL = "pref_horizontal";
 
     private static final String FIRST_RUN = "first_run";
+    private static final String DISPLAY_SUBGROUP = "schedule_home_subgroup";
     private static final String SCHEDULE_SUBGROUP = "schedule_subgroup";
     private static final String SCHEDULE_VIEW_METHOD = "schedule_view_method";
     private static final String SCHEDULE_LIMIT = "schedule_view_limit";
@@ -95,6 +97,16 @@ public class ApplicationPreference {
     }
 
     /**
+     * Возвращает количество дней, которые будет прогружены вперед и назад на главном экране.
+     * @param context контекст приложения.
+     * @return количество дней прогрузки.
+     */
+    public static int homeScheduleDelta(@NonNull Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getInt(HOME_SCHEDULE_DELTA, 2);
+    }
+
+    /**
      * Возвращает значение, как должно отображаться расписание.
      * @param context контекст приложения.
      * @return значение отображения.
@@ -133,6 +145,24 @@ public class ApplicationPreference {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         preferences.edit()
                 .putBoolean(FIRST_RUN, run)
+                .apply();
+    }
+
+    /**
+     * Возвращет true, если необходимо отображать подгруппу на главной.
+     */
+    public static boolean displaySubgroup(@NonNull Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean(DISPLAY_SUBGROUP, true);
+    }
+
+    /**
+     * Устанавливает, нужно ли отображать подгруппу на главной.
+     */
+    public static void setDisplaySubgroup(@NonNull Context context, boolean display) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit()
+                .putBoolean(DISPLAY_SUBGROUP, display)
                 .apply();
     }
 

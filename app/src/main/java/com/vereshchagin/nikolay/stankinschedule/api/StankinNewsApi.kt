@@ -1,5 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.api
 
+import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsResponse
 import retrofit2.Call
 import retrofit2.http.Body
@@ -29,7 +31,7 @@ interface StankinNewsApi {
          * @param query фильтр для новостей.
          */
         fun getNews(
-            api: StankinNewsApi, subdivision: Int, page: Long,
+            api: StankinNewsApi, subdivision: Int, page: Int,
             count: Int = 40, tag: String = "", query: String = ""
         ): Call<NewsResponse> {
             val data = mapOf(
@@ -52,6 +54,10 @@ interface StankinNewsApi {
         /**
          * Объект для POST запроса.
          */
-        class PostData(val action: String, val data: Map<String, Any>)
+        @Keep
+        class PostData(
+            @SerializedName("action") val action: String,
+            @SerializedName("data") val data: Map<String, Any>
+        )
     }
 }

@@ -1,42 +1,37 @@
 package com.vereshchagin.nikolay.stankinschedule.repository
 
 import android.content.Context
-import androidx.annotation.MainThread
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagingSource
+import androidx.room.withTransaction
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.api.NetworkState
 import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsApi
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsResponse
-import com.vereshchagin.nikolay.stankinschedule.repository.boundary.NewsBoundaryCallback
-import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.Listing
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.NewsPreference
+import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.await
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
+import java.util.*
 
 /**
  * Репозиторий с новостями.
  */
-class NewsRepository(private val newsSubdivision: Int, context: Context) {
+class NewsRepository(
+    val newsSubdivision: Int, private val context: Context
+) {
 
     private var retrofit: Retrofit
     private var api: StankinNewsApi
 
-    private var db = MainApplicationDatabase.database(context)
+    private val db = MainApplicationDatabase.database(context)
     private var dao: NewsDao
 
-    val ioExecutor: ExecutorService = Executors.newSingleThreadExecutor()
+    private var newsValid: Boolean = false
 
     init {
         val builder = Retrofit.Builder()
@@ -58,85 +53,73 @@ class NewsRepository(private val newsSubdivision: Int, context: Context) {
         retrofit = builder.build()
         api = retrofit.create(StankinNewsApi::class.java)
         dao = db.news()
+
+        val date = NewsPreference.lastNewsUpdate(context, newsSubdivision)
+        newsValid = date != null && DateUtils.minutesBetween(Calendar.getInstance(), date) < 30
     }
 
     /**
-     * Добавляет новости из API запроса в БД.
-     * @param body результат запроса к API.
+     * Добавляет новостные посты в БД.
      */
-    private fun addPostsIntoDb(body: NewsResponse?) {
-        body!!.data.news.let { posts ->
-            db.runInTransaction {
+    suspend fun addPostsIntoDb(response: NewsResponse, refresh: Boolean) {
+        val items = response.data.news
+        if (items.isNotEmpty()) {
+            db.withTransaction {
+                // если обновляем список
+                if (refresh) {
+                    dao.clear(newsSubdivision)
+                    NewsPreference.setNewsUpdate(context, newsSubdivision, Calendar.getInstance())
+                    newsValid = true
+                }
+
                 // индекс по порядку
-                val start = db.news().nextIndexInResponse(newsSubdivision)
+                val start = dao.nextIndexInResponse(newsSubdivision)
+
                 // добавление индекса и номера отдела
-                val items = posts.mapIndexed { index, newsPost ->
+                val news = items.mapIndexed { index, newsPost ->
                     newsPost.indexInResponse = start + index
                     newsPost.newsSubdivision = newsSubdivision
                     newsPost
                 }
-                db.news().insert(items)
+                dao.insert(news)
             }
         }
     }
 
     /**
-     * Обновляет новости в БД.
+     * Возвращает список новостей по номеру страницы и количеству необходимых новостей.
      */
-    @MainThread
-    private fun refresh() : LiveData<NetworkState> {
-        val networkState = MutableLiveData(NetworkState.LOADING)
-
-        StankinNewsApi.getNews(api, newsSubdivision, 1).enqueue(
-            object : Callback<NewsResponse> {
-                override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
-                    networkState.value = NetworkState.error(t.message)
-                }
-                override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
-                    ioExecutor.execute {
-                        db.runInTransaction {
-                            // удаление старых постов и добавление новых
-                            db.news().clear(newsSubdivision)
-                            addPostsIntoDb(response.body())
-                        }
-                        networkState.postValue(NetworkState.LOADED)
-                    }
-                }
-            }
-        )
-        return networkState
+    suspend fun news(page: Int, count: Int = 40): NewsResponse {
+        return StankinNewsApi.getNews(api, newsSubdivision, page, count).await()
     }
 
     /**
-     * Возвращает объект Listing для отображения.
-     * @param size размер пачки загружаемых новостей.
+     * Возвращает источник данных новостей (из БД).
      */
-    fun posts(size: Int = 20): Listing<NewsItem> {
-        val boundaryCallback =
-            NewsBoundaryCallback(
-                api, dao, newsSubdivision, ioExecutor, this::addPostsIntoDb
-            )
+    fun pagingSource(): PagingSource<Int, NewsItem> {
+        return db.news().all(newsSubdivision)
+    }
 
-        val refreshTrigger = MutableLiveData<Unit>()
-        val refreshState = Transformations.switchMap(refreshTrigger) {
-            refresh()
-        }
+    /**
+     * Обновляет новости в БД, если они больше не действительны.
+     */
+    suspend fun refresh() {
+        if (!newsValid) {
+            try {
+                val response = news(1)
+                addPostsIntoDb(response, true)
 
-        val pagedList = LivePagedListBuilder(db.news().all(newsSubdivision), size)
-            .setBoundaryCallback(boundaryCallback)
-            .build()
+            } catch (ignored: Exception) {
 
-        return Listing(
-            pagedList,
-            boundaryCallback.networkState,
-            refreshState,
-            refresh = {
-                refreshTrigger.value = null
-            },
-            retry = {
-                boundaryCallback.helper.retryAllFailed()
             }
-        )
+        }
+    }
+
+    /**
+     * Возвращает true, если необходимо обновить новости.
+     */
+    fun isRequiredRefresh(): Boolean {
+        return !newsValid
     }
 
     companion object {

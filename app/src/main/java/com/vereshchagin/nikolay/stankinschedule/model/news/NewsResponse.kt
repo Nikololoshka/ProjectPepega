@@ -1,5 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.model.news
 
+import com.google.gson.annotations.SerializedName
+
 /**
  * Ответ с новостями от сервера.
  * @param success успешен ли запрос.
@@ -7,8 +9,11 @@ package com.vereshchagin.nikolay.stankinschedule.model.news
  * @param error сообщение с ошибкой от сервера.
  */
 class NewsResponse(
+    @SerializedName("success")
     val success: Boolean,
+    @SerializedName("data")
     val data: NewsData,
+    @SerializedName("error")
     val error: String
 )
 

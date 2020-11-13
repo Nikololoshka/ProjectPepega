@@ -7,11 +7,12 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.DateException
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
- * ViewModel для редактирование пар.
+ * ViewModel для редактирования пар.
  */
 class PairEditorViewModel(
     application: Application, private val scheduleName: String
@@ -29,7 +30,7 @@ class PairEditorViewModel(
     /**
      * Состояние загрузки расписания.
      */
-    val scheduleState = MutableLiveData<State>(State.LOADING)
+    val scheduleState = MutableLiveData(State.LOADING)
 
     init {
         // загрузка расписания
@@ -63,6 +64,7 @@ class PairEditorViewModel(
             val path = SchedulePreference.createPath(getApplication(), scheduleName)
             try {
                 repository.save(schedule!!, path)
+                WidgetUtils.updateScheduleWidget(getApplication(), scheduleName)
                 scheduleState.postValue(State.SUCCESSFULLY_SAVED)
 
             } catch (e: Exception) {
@@ -73,7 +75,6 @@ class PairEditorViewModel(
                 }
             }
         }
-
     }
 
     /**

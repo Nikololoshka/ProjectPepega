@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     compileSdkVersion 29
@@ -11,8 +13,8 @@ android {
         applicationId "com.vereshchagin.nikolay.stankinschedule"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 38
-        versionName "1.0.11"
+        versionCode 47
+        versionName "1.1.0-rc2"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,12 +33,20 @@ android {
             debuggable true
             minifyEnabled false
             shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+            manifestPlaceholders = [
+                    crashlyticsCollectionEnabled: "false"
+            ]
         }
         release {
             minifyEnabled false
             shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+            manifestPlaceholders = [
+                    crashlyticsCollectionEnabled: "true"
+            ]
         }
     }
 
@@ -44,7 +54,7 @@ android {
         unitTests.returnDefaultValues = false
     }
 
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
         viewBinding = true
     }
@@ -55,19 +65,19 @@ dependencies {
 
     // Kotlin library
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.core:core-ktx:1.3.2'
 
     // AppCompat
     implementation 'androidx.appcompat:appcompat:1.2.0'
 
     // Layouts
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
 
     // Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
 
     // Preference
     implementation 'androidx.preference:preference:1.1.1'
@@ -75,13 +85,15 @@ dependencies {
 
     // Paging and pager
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
-    implementation 'androidx.paging:paging-runtime:2.1.2'
+    implementation 'androidx.paging:paging-runtime:3.0.0-alpha09'
 
-    // Work manager
-    implementation 'androidx.work:work-runtime:2.4.0'
+    // Work
+    def work_version = "2.4.0"
+    implementation "androidx.work:work-runtime:$work_version"
+    implementation "androidx.work:work-runtime-ktx:$work_version"
 
     // Material Design
-    implementation 'com.google.android.material:material:1.3.0-alpha02'
+    implementation 'com.google.android.material:material:1.3.0-alpha03'
 
     // Chrome Custom Tabs
     implementation 'androidx.browser:browser:1.2.0'
@@ -89,8 +101,17 @@ dependencies {
     // WebView
     implementation 'androidx.webkit:webkit:1.3.0'
 
+    // Google Play Core
+    implementation 'com.google.android.play:core-ktx:1.8.1'
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:25.12.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+
     // Room DB
-    def room_version = "2.2.5"
+    def room_version = "2.3.0-alpha03"
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     kapt "androidx.room:room-compiler:$room_version"

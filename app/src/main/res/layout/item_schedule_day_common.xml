@@ -13,11 +13,13 @@
         android:orientation="vertical">
 
         <include
+            android:id="@+id/day_title"
             layout="@layout/item_schedule_day_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <include
+            android:id="@+id/day_pairs"
             layout="@layout/item_schedule_day_pairs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

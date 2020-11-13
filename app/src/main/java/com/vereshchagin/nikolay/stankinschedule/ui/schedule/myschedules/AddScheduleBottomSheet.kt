@@ -12,6 +12,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.DialogAddScheduleBinding
 
+/**
+ * BottomSheetDialog для добавления нового расписания.
+ */
 class AddScheduleBottomSheet : BottomSheetDialogFragment(), View.OnClickListener {
 
     private var _binding: DialogAddScheduleBinding? = null
@@ -28,6 +31,7 @@ class AddScheduleBottomSheet : BottomSheetDialogFragment(), View.OnClickListener
         binding.fromRepository.setOnClickListener(this)
         binding.loadSchedule.setOnClickListener(this)
 
+        // для исправления "заезжания" диалога
         binding.root.viewTreeObserver.addOnGlobalLayoutListener {
             val bottomSheet = dialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
             bottomSheet?.let {
@@ -55,6 +59,9 @@ class AddScheduleBottomSheet : BottomSheetDialogFragment(), View.OnClickListener
         }
     }
 
+    /**
+     * Устанавливает возвращает результат.
+     */
     private fun setResult(intent: Intent) {
         targetFragment?.onActivityResult(targetRequestCode, Activity.RESULT_OK, intent)
     }

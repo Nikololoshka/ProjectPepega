@@ -3,6 +3,11 @@
     <string name="app_name" translatable="false">Stankin</string>
     <string name="app_name_full" translatable="false">Stankin Schedule</string>
     <string name="app_icon">Application icon</string>
+    <string name="update_cancelled">The app update is cancelled</string>
+    <string name="update_downloaded">An update has just been downloaded</string>
+    <string name="update_restart">Restart</string>
+    <string name="update_available">An update is available</string>
+    <string name="update_start_update">Update</string>
 
     <!-- activities -->
     <string name="pair_editor">Pair editor</string>
@@ -30,6 +35,7 @@
     <string name="home_subgroup_a">Subgroup A</string>
     <string name="home_subgroup_b">Subgroup B</string>
     <string name="home_select">Select</string>
+    <string name="home_display_subgroup">Display a subgroup</string>
 
     <!-- module journal -->
     <string name="mj_login">Login</string>
@@ -71,16 +77,18 @@
     <string name="sch_failed_add">Schedule: \'%1$s\' failed to add</string>
     <string name="sch_edit_schedules">Edit schedules</string>
     <string name="sch_remove_schedule">Remove schedule</string>
+    <string name="sch_without_subgroup">without a subgroup</string>
 
     <!-- repository -->
     <string name="repository">Repository</string>
     <string name="repository_update">Update</string>
     <string name="repository_search">Search</string>
     <string name="repository_search_hint">Schedule…</string>
-    <string name="repository_title">Local repository of the device</string>
-    <string name="repository_version">Current version: Autumn-2020</string>
-    <string name="repository_last_update">Last update: 30.10.20</string>
+    <string name="repository_last_update">Last update: %1$s</string>
+    <string name="repository_schedule_loaded">Schedule loaded</string>
+    <string name="repository_loading_failure">Failure of loading the schedule</string>
     <string name="repository_loading_schedule">Loading schedule</string>
+    <string name="repository_start_loading">Started download the schedule: %1$s</string>
     <string name="repository_checking_schedule">Checking the loaded schedule</string>
     <string name="repository_info_background">Repository information background</string>
     <string name="repository_not_result">Not result</string>
@@ -93,6 +101,7 @@
     <string name="sch_view_go_to_day">Go to day</string>
     <string name="sch_view_remove_pair">Remove pair</string>
     <string name="sch_view_save_schedule">Save schedule</string>
+    <string name="sch_view_saved_error">Error saving the schedule</string>
     <string name="sch_view_rename">Rename schedule</string>
     <string name="sch_view_renamed">Schedule renamed</string>
     <string name="sch_view_unable_rename">Unable to rename schedule</string>
@@ -101,6 +110,8 @@
     <string name="sch_view_saved">Schedule saved</string>
     <string name="sch_view_today">Today</string>
     <string name="sch_view_empty">Schedule is empty</string>
+    <string name="sch_home_display_subgroup">Displayed subgroup on the main page: %1$s</string>
+    <string name="sch_home_change_subgroup">Change</string>
 
     <!-- pair editor -->
     <string name="pair_editor_title">Title</string>
@@ -153,6 +164,8 @@
     <string name="news_share">Share the news</string>
     <string name="news_update">Update news</string>
     <string name="news_unknown_error">An unknown error occurred while downloading news. Please try again later</string>
+    <string name="news_viewer">News viewer</string>
+    <string name="news_post_date">from %1$s</string>
 
     <!-- about application -->
     <string name="about_changelog">ChangeLog</string>
@@ -169,7 +182,7 @@
         \t\t - Bogodaiko S.     \n
         \t\t - Binniatov R.     \n
         \t\t - Odintsova E.     \n
-        \t\t - Alekseev A.      \n
+        \t\t - Alekseev S.      \n
         \t\t - Altunin A.       \n
         \t\t - Matveychuk P.    \n
         \t\t - Lopatin D.       \n
@@ -218,6 +231,8 @@
     <string name="pref_links">Links</string>
     <string name="pref_app_browser">In-App browser</string>
     <string name="pref_app_browser_summary">Open external links within the app</string>
+    <string name="pref_home_schedule_delta">Number of days in the schedule</string>
+    <string name="pref_home_schedule_delta_summary">Displayed forwards and backwards</string>
 
     <!--  picker color  -->
     <string name="picker_color_hint" translatable="false">FF00FF</string>
@@ -235,6 +250,7 @@
     <string name="widget_schedule_title">Schedule</string>
     <string name="widget_schedule">Schedule</string>
     <string name="widget_subgroup">Subgroup</string>
+    <string name="widget_show_subgroup">Show a subgroup</string>
     <string name="widget_schedule_add">Add schedule widget</string>
     <string name="widget_schedule_update">Update the schedule widget</string>
     <string name="widget_schedule_type_marker">Pair type marker</string>

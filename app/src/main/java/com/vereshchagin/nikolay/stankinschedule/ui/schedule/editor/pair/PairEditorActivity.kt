@@ -102,7 +102,7 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
 
         val swipeToDeleteCallback = object : SwipeToDeleteCallback(this) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position = viewHolder.adapterPosition
+                val position = viewHolder.bindingAdapterPosition
                 val item = date.remove(position)
                 Log.d(TAG, "onSwiped: $date")
 

@@ -1,78 +1,39 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories
 
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
+import androidx.paging.*
 import com.vereshchagin.nikolay.stankinschedule.repository.NewsRepository
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.NewsPreference
-import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils
-import java.util.*
+import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostRemoteMediator
 
 /**
  * ViewModel для фрагмента с списком новостей.
  * @param repository репозиторий, откуда будут загружаться новости.
  * @param application объект приложение для доступа к контексту.
  */
+@ExperimentalPagingApi
 class NewsPostsViewModel(
     private val repository: NewsRepository,
-    private val newsSubdivision: Int,
     application: Application
 ) : AndroidViewModel(application) {
 
-    private val repositoryListing = MutableLiveData(repository.posts())
-    val posts = Transformations.switchMap(repositoryListing) { it.pagedList }
-    val networkState = Transformations.switchMap(repositoryListing) { it.networkState }
-    val refreshState = Transformations.switchMap(repositoryListing) { it.refreshState }
-    private var scrollToTop = false
-    private var startRefreshing = false
-
-    init {
-        val date = NewsPreference.lastNewsUpdate(application, newsSubdivision)
-        if (date == null || DateUtils.minutesBetween(Calendar.getInstance(), date) > 15) {
-            refresh()
-        }
-    }
-
     /**
-     * Вызывается, если новости были обновлены.
+     * Новостные посты отдела.
      */
-    fun newsUpdated() {
-        if (startRefreshing) {
-            scrollToTop = true
-            NewsPreference.setNewsUpdate(getApplication(), newsSubdivision, Calendar.getInstance())
-            startRefreshing = false
-        }
-    }
-
-    /**
-     * Обновляет новости.
-     */
-    fun refresh() {
-        startRefreshing = true
-        repositoryListing.value?.refresh?.invoke()
-    }
-
-    /**
-     * Попробавать сново загрузить данные, если были ошибки.
-     */
-    fun retry() {
-        repositoryListing.value?.retry?.invoke()
-    }
-
-    /**
-     * Прокручивать ли список на верх.
-     */
-    fun isScrollToTop() : Boolean {
-        if (scrollToTop) {
-            scrollToTop = false
-            return true
-        }
-        return false
-    }
-
-    /**
-     * Начато ли обновление списка новостей.
-     */
-    fun isStartRefreshing() : Boolean = startRefreshing
+    val posts = Pager(
+        PagingConfig(
+            NEWS_PAGE_SIZE,
+            prefetchDistance = NEWS_PAGE_SIZE / 2,
+            enablePlaceholders = false,
+            initialLoadSize = NEWS_PAGE_SIZE
+        ),
+        remoteMediator = NewsPostRemoteMediator(repository)
+    ) {
+        repository.pagingSource()
+    }.liveData.cachedIn(viewModelScope)
 
     /**
      * Factory для создания ViewModel.
@@ -80,7 +41,6 @@ class NewsPostsViewModel(
     class Factory(
         private val newsSubdivision: Int, private val application: Application
     ) : ViewModelProvider.Factory {
-
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return NewsPostsViewModel(
@@ -88,9 +48,12 @@ class NewsPostsViewModel(
                     newsSubdivision,
                     application.applicationContext
                 ),
-                newsSubdivision,
                 application
             ) as T
         }
+    }
+
+    companion object {
+        private const val NEWS_PAGE_SIZE = 40
     }
 }

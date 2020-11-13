@@ -30,15 +30,19 @@ class ChangeSubgroupBottomSheet : BottomSheetDialogFragment(), View.OnClickListe
         _binding = DialogChangeSubgroupBinding.inflate(inflater, container, false)
 
         val subgroup = ApplicationPreference.subgroup(requireContext())
-        binding.subgroupSelector.check(when (subgroup) {
-            Subgroup.COMMON -> R.id.subgroup_common
-            Subgroup.A -> R.id.subgroup_a
-            Subgroup.B -> R.id.subgroup_b
-        })
+        binding.subgroupSelector.check(
+            when (subgroup) {
+                Subgroup.COMMON -> R.id.subgroup_common
+                Subgroup.A -> R.id.subgroup_a
+                Subgroup.B -> R.id.subgroup_b
+            }
+        )
+        binding.showSubgroup.isChecked = ApplicationPreference.displaySubgroup(requireContext())
         binding.selectButton.setOnClickListener(this)
 
         binding.root.viewTreeObserver.addOnGlobalLayoutListener {
-            val bottomSheet = dialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+            val bottomSheet =
+                dialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
             bottomSheet?.let {
                 val behavior = BottomSheetBehavior.from(it)
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
@@ -67,6 +71,7 @@ class ChangeSubgroupBottomSheet : BottomSheetDialogFragment(), View.OnClickListe
         }
 
         ApplicationPreference.setSubgroup(requireContext(), subgroup)
+        ApplicationPreference.setDisplaySubgroup(requireContext(), binding.showSubgroup.isChecked)
         setResult(Intent())
 
         dismiss()

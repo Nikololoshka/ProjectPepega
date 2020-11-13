@@ -1,6 +1,8 @@
 package com.vereshchagin.nikolay.stankinschedule.repository
 
 import android.content.Context
+import android.net.Uri
+import androidx.documentfile.provider.DocumentFile
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonSyntaxException
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
@@ -31,6 +33,15 @@ class ScheduleRepository {
     fun load(path: String): Schedule {
         val json = FileUtils.readFileToString(File(path), StandardCharsets.UTF_8)
         return gson.fromJson(json, Schedule::class.java)
+    }
+
+    /**
+     * Загружает расписание по имени.
+     */
+    @Throws(IOException::class, JsonSyntaxException::class)
+    fun load(scheduleName: String, context: Context): Schedule {
+        val path = path(context, scheduleName)
+        return load(path)
     }
 
     /**
@@ -84,6 +95,64 @@ class ScheduleRepository {
     fun save(schedule: Schedule, path: String) {
         val json = gson.toJson(schedule)
         FileUtils.writeStringToFile(File(path), json, StandardCharsets.UTF_8)
+    }
+
+    /**
+     * Копирует расписание по необходимому пути.
+     */
+    @Suppress("UNUSED_PARAMETER")
+    fun copy(scheduleName: String, schedule: Schedule, uri: Uri, context: Context) {
+        // получаем объект файла по пути
+        var documentFile: DocumentFile? = DocumentFile.fromTreeUri(context, uri)
+
+        // регистрируем файл
+        documentFile = documentFile?.createFile(
+            "application/json",
+            scheduleName + SchedulePreference.fileExtension()
+        )
+        if (documentFile == null) {
+            throw RuntimeException("Failed register file on device")
+        }
+
+        // uri файла сохранения
+        val uriFile = documentFile.uri
+
+        // открывает поток для записи
+        val resolver = context.contentResolver
+        val stream = resolver.openOutputStream(uriFile)
+            ?: throw RuntimeException("Cannot open file stream")
+
+        FileUtils.copyFile(
+            File(path(context, scheduleName)),
+            stream
+        )
+    }
+
+    /**
+     * Сохраняет расписание.
+     */
+    fun saveNew(context: Context, schedule: Schedule, scheduleName: String) {
+        if (schedules(context).contains(scheduleName)) {
+            throw FileAlreadyExistsException(File(scheduleName))
+        }
+
+        val path = SchedulePreference.createPath(context, scheduleName)
+        save(schedule, path)
+        SchedulePreference.add(context, scheduleName)
+    }
+
+    /**
+     * Создает путь к расписанию.
+     */
+    fun path(context: Context, scheduleName: String): String {
+        return SchedulePreference.createPath(context, scheduleName)
+    }
+
+    /**
+     * Проверяет, существует ли расписание с таким именем.
+     */
+    fun exists(context: Context, scheduleName: String): Boolean {
+        return schedules(context).contains(scheduleName)
     }
 
     /**

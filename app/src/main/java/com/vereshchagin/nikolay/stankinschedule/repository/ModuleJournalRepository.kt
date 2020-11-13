@@ -116,7 +116,7 @@ class ModuleJournalRepository(private val cacheDir: File) {
 
     private fun loadLoginData(): Pair<String, String> {
         if (login == null || password == null) {
-            val signData = ModuleJournalPreference.loadSignData(MainApplication.getInstance())
+            val signData = ModuleJournalPreference.loadSignData(MainApplication.instance)
             login = signData.first!!
             password = signData.second!!
         }

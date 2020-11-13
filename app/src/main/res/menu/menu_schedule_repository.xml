@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/search_schedule"
-        android:icon="@drawable/ic_menu_search"
-        android:title="@string/repository_search"
-        app:showAsAction="always"
-        app:actionViewClass="androidx.appcompat.widget.SearchView" />
-
-    <item
-        android:id="@+id/update_schedule"
+        android:id="@+id/repository_update"
         android:icon="@drawable/ic_menu_update"
-        android:title="@string/repository_update"
-        android:visible="false" />
+        android:title="@string/repository_update" />
 
 </menu>

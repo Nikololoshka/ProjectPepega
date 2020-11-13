@@ -38,16 +38,13 @@
             android:name=".widget.ScheduleWidgetConfigureActivity"
             android:label="@string/widget_configurator"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
 
         <!-- Services -->
-        <service
-            android:name=".ui.schedule.repository.ScheduleDownloaderService"
-            android:exported="false" />
         <service
             android:name=".widget.ScheduleWidgetRemoteFactory$Service"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
@@ -63,6 +60,9 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data
+                android:name="firebase_crashlytics_collection_enabled"
+                android:value="${crashlyticsCollectionEnabled}" />
         </activity>
         <activity
             android:name=".ui.schedule.editor.pair.PairEditorActivity"
@@ -75,10 +75,15 @@
             android:parentActivityName=".ui.schedule.editor.pair.PairEditorActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.schedule.editor.name.ScheduleNameEditorActivity"
-            android:label="@string/schedule_editor"
+            android:name=".ui.schedule.repository.ScheduleRepositoryActivity"
+            android:label="@string/repository"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.news.viewer.NewsViewerActivity"
+            android:label="@string/news_viewer"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

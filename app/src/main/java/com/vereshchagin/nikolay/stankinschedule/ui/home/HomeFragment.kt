@@ -6,11 +6,16 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.home.news.NewsPostLatestAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 
 /**
@@ -18,7 +23,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
  */
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
 
-    private var _scheduleStateful : StatefulLayout2? = null
+    private var _scheduleStateful: StatefulLayout2? = null
     private val scheduleStateful get() = _scheduleStateful!!
 
     private val viewModel by viewModels<HomeViewModel> {
@@ -39,14 +44,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        _scheduleStateful = StatefulLayout2(binding.scheduleLayout,
-            StatefulLayout2.LOADING, binding.scheduleLoading.loadingFragment)
+        _scheduleStateful = StatefulLayout2(
+            binding.scheduleLayout,
+            StatefulLayout2.LOADING, binding.scheduleLoading.loadingFragment
+        )
         scheduleStateful.addView(StatefulLayout2.EMPTY, binding.noFavoriteSchedule)
         scheduleStateful.addView(StatefulLayout2.CONTENT, binding.schedulePager)
 
         // нажатие по заголовкам
         binding.scheduleName.setOnClickListener(this)
-        binding.mjName.setOnClickListener(this)
+        // binding.mjName.setOnClickListener(this)
         binding.newsName.setOnClickListener(this)
 
         // установка названия расписания
@@ -58,14 +65,35 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         // установка данных в pager
         viewModel.scheduleData.observe(viewLifecycleOwner, Observer {
             val data = it ?: return@Observer
-            
+
             if (data.empty) {
                 scheduleStateful.setState(StatefulLayout2.EMPTY)
             } else {
+                binding.scheduleName.text = data.scheduleName
                 binding.schedulePager.update(data.titles, data.pairs)
                 scheduleStateful.setState(StatefulLayout2.CONTENT)
             }
         })
+
+        val glide = DrawableUtils.createGlide(this)
+        val adapter = NewsPostLatestAdapter(this::onNewsClick, glide)
+
+        binding.newsLatest.adapter = adapter
+        binding.newsLatest.setHasFixedSize(true)
+
+        // разделитель элементов
+        val itemDecoration = DividerItemDecoration(context, RecyclerView.VERTICAL)
+        binding.newsLatest.addItemDecoration(itemDecoration)
+
+        // новости
+        viewModel.newsData.observe(viewLifecycleOwner, {
+            adapter.submitList(it)
+        })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.checkScheduleData()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -75,7 +103,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.change_subgroup) {
-            val dialog =  ChangeSubgroupBottomSheet()
+            val dialog = ChangeSubgroupBottomSheet()
             dialog.setTargetFragment(this, REQUEST_SUBGROUP)
             dialog.show(parentFragmentManager, dialog.tag)
             return true
@@ -97,26 +125,26 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
             // расписание
             R.id.schedule_name -> {
                 val favorite = SchedulePreference.favorite(requireContext())
                 if (favorite != null && favorite.isNotEmpty()) {
-                    navigateTo(R.id.to_schedule_view_fragment,
-                        ScheduleViewFragment.createBundle(
-                            favorite, SchedulePreference.createPath(requireContext(), favorite)
-                        ))
+                    navigateTo(
+                        R.id.to_schedule_view_fragment,
+                        ScheduleViewFragment.createBundle(favorite)
+                    )
                 } else {
-                    navigateTo(R.id.toScheduleFragment)
+                    navigateTo(R.id.nav_schedule_fragment)
                 }
             }
             // модульный журнал
-            R.id.mj_name -> {
-                navigateTo(R.id.toModuleJournalFragment)
-            }
+            // R.id.mj_name -> {
+            //     navigateTo(R.id.nav_module_journal_fragment)
+            // }
             // новости
             R.id.news_name -> {
-                navigateTo(R.id.toNewsFragment)
+                navigateTo(R.id.nav_news_fragment)
             }
         }
     }
@@ -124,6 +152,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
     override fun onDestroyView() {
         super.onDestroyView()
         _scheduleStateful = null
+    }
+
+    private fun onNewsClick(newsId: Int) {
+        navigateTo(R.id.to_news_viewer_fragment, NewsViewerActivity.createBundle(newsId))
     }
 
     companion object {
