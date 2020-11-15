@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.*
 import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleData
-import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleSettings
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
@@ -26,7 +25,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val scheduleData = MutableLiveData<HomeScheduleData>(null)
     val newsData = newsRepository.latest()
 
-    private lateinit var scheduleSettings: HomeScheduleSettings
+    private var scheduleSettings = ApplicationPreferenceKt.homeScheduleSettings(application)
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
