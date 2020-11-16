@@ -12,11 +12,14 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.apache.commons.io.FileUtils
 import retrofit2.Retrofit
+import retrofit2.await
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.nio.charset.StandardCharsets
 
-
+/**
+ * Репозиторий для работы с модульным журналом.
+ */
 class ModuleJournalRepository(private val cacheDir: File) {
 
     private var retrofit: Retrofit
@@ -24,6 +27,9 @@ class ModuleJournalRepository(private val cacheDir: File) {
 
     private val gson = Gson()
 
+    /**
+     * Кэш данных для входа в модульный журнал.
+     */
     private var login: String? = null
     private var password: String? = null
 
@@ -48,31 +54,29 @@ class ModuleJournalRepository(private val cacheDir: File) {
         api = retrofit.create(ModuleJournalApi2::class.java)
     }
 
-    fun loadStudentData(force: Boolean = false) : StudentData? {
-        if (force) {
+    /**
+     * Загружает данные о студенте из модульного журнала
+     */
+    suspend fun loadStudentData(refresh: Boolean = false): StudentData {
+        if (refresh) {
             val networkData = loadNetworkStudentData()
-            if (networkData != null) {
-                saveCacheStudentData(networkData)
-                return networkData
-            }
-            return null
+            saveCacheStudentData(networkData)
+            return networkData
         }
 
         val cacheData = loadCacheStudentData()
         if (cacheData == null || !cacheData.isValid()) {
-
             val networkData = loadNetworkStudentData()
-            if (networkData != null) {
-                saveCacheStudentData(networkData)
-                return networkData
-
-            } else if (cacheData != null) {
-                return cacheData
-            }
+            saveCacheStudentData(networkData)
+            return networkData
         }
-        return null
+
+        return cacheData
     }
 
+    /**
+     * Вычисляет рейтинг студента, исходя из оценок в семестре.
+     */
     fun computeRating(marks: SemesterMarks): Double {
         var ratingSum = 0.0
         var ratingCount = 0.0
@@ -91,29 +95,29 @@ class ModuleJournalRepository(private val cacheDir: File) {
         return ratingSum / ratingCount
     }
 
-    fun loadSemesterMarks(semester: String, force: Boolean = false): SemesterMarks? {
-        if (force) {
-            val cacheMarks = loadCacheSemesterMarks(semester)
-            if (cacheMarks != null) {
-                saveCacheSemesterMarks(cacheMarks, semester)
-                return cacheMarks
-            }
-            return null
+    /**
+     * Загружает данные об оценках студента в семестре из модульного журнала
+     */
+    suspend fun loadSemesterMarks(semester: String, refresh: Boolean = false): SemesterMarks {
+        if (refresh) {
+            val networkMarks = loadNetworkSemesterMarks(semester)
+            saveCacheSemesterMarks(networkMarks, semester)
+            return networkMarks
         }
 
         val cacheMarks = loadCacheSemesterMarks(semester)
         if (cacheMarks == null || !cacheMarks.isValid()) {
             val networkMarks = loadNetworkSemesterMarks(semester)
-            if (networkMarks != null) {
-                saveCacheSemesterMarks(networkMarks, semester)
-                return networkMarks
-            } else if (cacheMarks != null) {
-                return cacheMarks
-            }
+            saveCacheSemesterMarks(networkMarks, semester)
+            return networkMarks
         }
-        return null
+
+        return cacheMarks
     }
 
+    /**
+     * Возвращает данные для входа в модульный журнал.
+     */
     private fun loadLoginData(): Pair<String, String> {
         if (login == null || password == null) {
             val signData = ModuleJournalPreference.loadSignData(MainApplication.instance)
@@ -123,28 +127,29 @@ class ModuleJournalRepository(private val cacheDir: File) {
         return Pair(login!!, password!!)
     }
 
-    private fun loadNetworkSemesterMarks(semester: String): SemesterMarks? {
+    /**
+     * Загружает данные семестра студента по сети.
+     */
+    private suspend fun loadNetworkSemesterMarks(semester: String): SemesterMarks {
         val (login, password) = loadLoginData()
 
-        val response = api.getMarks(login, password, semester).execute()
-        if (response.isSuccessful) {
-            val marksResponse = response.body()!!
-            return SemesterMarks.fromResponse(marksResponse)
-        }
-        return null
+        val response = api.getMarks(login, password, semester).await()
+        return SemesterMarks.fromResponse(response)
     }
 
-    private fun loadNetworkStudentData(): StudentData? {
+    /**
+     * Загружает данные о студенте по сети.
+     */
+    private suspend fun loadNetworkStudentData(): StudentData {
         val (login, password) = loadLoginData()
 
-        val response = api.getSemesters(login, password).execute()
-        if (response.isSuccessful) {
-            val semestersResponse = response.body()!!
-            return StudentData(semestersResponse)
-        }
-        return null
+        val response = api.getSemesters(login, password).await()
+        return StudentData(response)
     }
 
+    /**
+     * Загружает данные семестра из кэша.
+     */
     private fun loadCacheSemesterMarks(semester: String): SemesterMarks? {
         val file = FileUtils.getFile(cacheDir, SEMESTERS_FOLDER, "$semester.json")
         if (!file.exists()) {
@@ -161,6 +166,9 @@ class ModuleJournalRepository(private val cacheDir: File) {
         return null
     }
 
+    /**
+     * Загружает данные о студенте из кэша.
+     */
     private fun loadCacheStudentData(): StudentData? {
         val file = FileUtils.getFile(cacheDir, STUDENT_FOLDER, STUDENT_FILE)
         if (!file.exists()) {
@@ -177,6 +185,9 @@ class ModuleJournalRepository(private val cacheDir: File) {
         return null
     }
 
+    /**
+     * Сохраняет в кэш семестр с оценками.
+     */
     private fun saveCacheSemesterMarks(marks: SemesterMarks, semester: String) {
         val file = FileUtils.getFile(cacheDir, SEMESTERS_FOLDER, "$semester.json")
         try {
@@ -187,6 +198,9 @@ class ModuleJournalRepository(private val cacheDir: File) {
         }
     }
 
+    /**
+     * Сохраняет в кэш данные о студенте.
+     */
     private fun saveCacheStudentData(data: StudentData) {
         val file = FileUtils.getFile(cacheDir, STUDENT_FOLDER, STUDENT_FILE)
         try {
@@ -197,6 +211,9 @@ class ModuleJournalRepository(private val cacheDir: File) {
         }
     }
 
+    /**
+     * Очищает весь кэш модульного журнала.
+     */
     private fun clearCache() {
         val cacheStudent = FileUtils.getFile(cacheDir, STUDENT_FOLDER, STUDENT_FILE)
         FileUtils.deleteQuietly(cacheStudent)

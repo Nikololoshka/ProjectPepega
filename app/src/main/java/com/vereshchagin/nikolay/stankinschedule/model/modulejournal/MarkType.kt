@@ -63,9 +63,7 @@ enum class MarkType(val tag: String, val weight: Int) {
 
     companion object {
         /**
-         * Возвращает тип оценки из перечисления соответстующего значению ответа от сервера.
-         * @param value ответ от сервера.
-         * @return тип оценки.
+         * Возвращает тип оценки из перечисления соответствующего значению ответа от сервера.
          */
         fun of(value: String): MarkType {
             for (type in values()) {
@@ -76,5 +74,4 @@ enum class MarkType(val tag: String, val weight: Int) {
             throw IllegalArgumentException("Unknown mark type: $value")
         }
     }
-
 }

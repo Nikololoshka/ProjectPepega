@@ -6,10 +6,10 @@ import com.google.gson.annotations.SerializedName
  * Ответ с информацией о студенте и его семестрах от сервера.
  */
 class SemestersResponse(
-    val surname: String,
-    val initials: String,
+    @SerializedName("surname") val surname: String,
+    @SerializedName("initials") val initials: String,
     @SerializedName("stgroup") val group: String,
-    val semesters: List<String>
+    @SerializedName("semesters") val semesters: List<String>
 ) {
     val fullname get() = "$surname $initials"
 

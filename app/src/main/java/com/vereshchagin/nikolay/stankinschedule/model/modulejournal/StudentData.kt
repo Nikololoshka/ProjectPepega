@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.model.modulejournal
 
+import com.google.gson.annotations.SerializedName
 import org.joda.time.DateTime
 import org.joda.time.Minutes
 
@@ -7,10 +8,10 @@ import org.joda.time.Minutes
  * Информация о студенте.
  */
 class StudentData(
-    val student: String,
-    val group: String,
-    val semesters: List<String>,
-    val time: DateTime = DateTime.now()
+    @SerializedName("student") val student: String,
+    @SerializedName("group") val group: String,
+    @SerializedName("semesters") val semesters: List<String>,
+    @SerializedName("time") val time: DateTime = DateTime.now()
 ) {
     constructor(
         response: SemestersResponse

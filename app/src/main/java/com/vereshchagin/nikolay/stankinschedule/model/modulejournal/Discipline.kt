@@ -1,14 +1,15 @@
 package com.vereshchagin.nikolay.stankinschedule.model.modulejournal
 
+import com.google.gson.annotations.SerializedName
 import kotlin.math.abs
 
 /**
  * Дисциплина в модульном журнале.
  */
 data class Discipline(
-    val title: String,
-    val marks: LinkedHashMap<MarkType, Int>,
-    val factor: Double
+    @SerializedName("title") val title: String,
+    @SerializedName("marks") val marks: LinkedHashMap<MarkType, Int>,
+    @SerializedName("factor") val factor: Double
 ) {
 
     fun createRowCells(): List<String?> {
@@ -23,9 +24,13 @@ data class Discipline(
             }
         }
 
-        row.add(if(abs(factor) < 2 * Double.MIN_VALUE)  "" else factor.toString())
+        row.add(if (abs(factor) < 2 * Double.MIN_VALUE) "" else factor.toString())
 
         return row
+    }
+
+    operator fun get(type: MarkType): Int? {
+        return marks[type]
     }
 
     override fun toString(): String {
@@ -33,6 +38,9 @@ data class Discipline(
     }
 
     companion object {
+        /**
+         * Отсутствует оценка.
+         */
         const val NO_MARK = 0
     }
 }

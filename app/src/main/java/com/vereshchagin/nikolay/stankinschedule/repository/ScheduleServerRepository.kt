@@ -29,7 +29,7 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 /**
- * Удаленный репозиторий с расписаниеями.
+ * Удаленный репозиторий с расписаниями.
  */
 class ScheduleServerRepository(
     private val cacheFolder: File

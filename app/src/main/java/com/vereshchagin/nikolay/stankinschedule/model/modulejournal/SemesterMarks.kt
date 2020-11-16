@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.model.modulejournal
 
+import com.google.gson.annotations.SerializedName
 import org.joda.time.DateTime
 import org.joda.time.Minutes
 import java.util.*
@@ -9,10 +10,10 @@ import kotlin.collections.ArrayList
  * Оценки студента за семестр.
  */
 data class SemesterMarks(
-    val disciplines: ArrayList<Discipline>,
-    var rating: Int?,
-    var accumulatedRating: Int?,
-    val time: DateTime = DateTime.now()
+    @SerializedName("disciplines") val disciplines: ArrayList<Discipline>,
+    @SerializedName("rating") var rating: Int?,
+    @SerializedName("accumulatedRating") var accumulatedRating: Int?,
+    @SerializedName("time") val time: DateTime = DateTime.now()
 ) {
 
     /**
@@ -93,6 +94,7 @@ data class SemesterMarks(
     }
 
     companion object {
+
         const val RATING = "Рейтинг"
         const val ACCUMULATED_RATING = "Накопленный Рейтинг"
 
