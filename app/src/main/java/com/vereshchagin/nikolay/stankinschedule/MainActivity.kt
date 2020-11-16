@@ -6,6 +6,7 @@ import android.app.NotificationManager
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,8 @@ import com.google.android.play.core.install.InstallState
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityMainBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreferenceKt
@@ -141,6 +144,10 @@ class MainActivity : AppCompatActivity() {
 
         appUpdateManager = AppUpdateManagerFactory.create(this)
         checkAppUpdate()
+
+        val isAnalytics = ApplicationPreferenceKt.firebaseAnalytics(this)
+        Firebase.analytics.setAnalyticsCollectionEnabled(isAnalytics)
+        Log.d("MyLog", "onCreate: $isAnalytics")
 
         // throw RuntimeException("Stack deobfuscation example exception");
     }

@@ -19,6 +19,8 @@ object ApplicationPreferenceKt {
     private const val DISPLAY_SUBGROUP = "schedule_home_subgroup"
     private const val SCHEDULE_SUBGROUP = "schedule_subgroup"
 
+    private const val FIREBASE_ANALYSTIC = "firebase_analytics"
+
     /**
      * Возвращает список цветов для расписания.
      */
@@ -68,6 +70,16 @@ object ApplicationPreferenceKt {
         preferences.edit()
             .putString(UPDATE_APP_TIME, dateTime.toString())
             .apply()
+    }
+
+    /**
+     * Возвращает true если можно ли использовать Firebase аналитику для
+     * сбора данных об использовании приложения. Иначе false.
+     */
+    @JvmStatic
+    fun firebaseAnalytics(context: Context): Boolean {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        return preferences.getBoolean(FIREBASE_ANALYSTIC, true)
     }
 
     /**
