@@ -3,25 +3,19 @@ package com.vereshchagin.nikolay.stankinschedule.model.modulejournal
 import com.google.gson.annotations.SerializedName
 import org.joda.time.DateTime
 import org.joda.time.Minutes
-import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * Оценки студента за семестр.
  */
 data class SemesterMarks(
-    @SerializedName("disciplines") val disciplines: ArrayList<Discipline>,
-    @SerializedName("rating") var rating: Int?,
-    @SerializedName("accumulatedRating") var accumulatedRating: Int?,
+    @SerializedName("disciplines") val disciplines: ArrayList<Discipline> = arrayListOf(),
+    @SerializedName("rating") var rating: Int? = null,
+    @SerializedName("accumulatedRating") var accumulatedRating: Int? = null,
     @SerializedName("time") val time: DateTime = DateTime.now()
 ) {
 
     /**
      * Добавляет оценку в список оценок за семестр.
-     * @param disciplineTitle название предмета.
-     * @param type тип оценки.
-     * @param value значение оценки.
-     * @param factor коэффициент предмета.
      */
     fun addMark(disciplineTitle: String, type: String, value: Int, factor: Double) {
         if (disciplineTitle == RATING) {
@@ -36,60 +30,27 @@ data class SemesterMarks(
         val markType = MarkType.of(type)
         for (discipline in disciplines) {
             if (discipline.title == disciplineTitle) {
-                discipline.marks[markType] = value
+                discipline[markType] = value
                 return
             }
         }
 
         val discipline = Discipline(disciplineTitle, linkedMapOf(Pair(markType, value)), factor)
         disciplines.add(discipline)
-        disciplines.sortWith(Comparator { o1, o2 -> o1.title.compareTo(o2.title) })
+        disciplines.sortWith { o1, o2 -> o1.title.compareTo(o2.title) }
     }
 
-    fun createRowData(): List<String> {
-        val rowData = arrayListOf<String>()
-        for (discipline in disciplines) {
-            rowData.add(discipline.title)
-        }
-
-        if (rating != null) {
-            rowData.add(RATING)
-        }
-        if (accumulatedRating != null) {
-            rowData.add(ACCUMULATED_RATING)
-        }
-
-        return rowData
-    }
-
-    fun createColumnData() : List<String> {
+    /**
+     * Возвращает заголовок таблицы (включая коэффициент).
+     */
+    fun headerData(): List<String> {
         return arrayListOf("М1", "М2", "К", "З", "Э", "К")
     }
 
-    fun createCellData(): List<List<String?>> {
-        val cellsData = arrayListOf<List<String?>>()
-        for (discipline in disciplines) {
-            cellsData.add(discipline.createRowCells())
-        }
-
-        val count = createColumnData().size
-        rating?.let {
-            val data = ArrayList<String?>(count)
-            data.add(if (it == 0) "" else it.toString())
-            for (i in 0 until count - 1) { data.add(null) }
-            cellsData.add(data)
-        }
-        accumulatedRating?.let {
-            val data = ArrayList<String?>(count)
-            data.add(if (it == 0) "" else it.toString())
-            for (i in 0 until count - 1) { data.add(null) }
-            cellsData.add(data)
-        }
-
-        return cellsData
-    }
-
-    fun isValid() : Boolean {
+    /**
+     * Проверяет, действительны ли оценки.
+     */
+    fun isValid(): Boolean {
         return Minutes.minutesBetween(DateTime.now(), time).minutes < 30
     }
 
@@ -98,12 +59,13 @@ data class SemesterMarks(
         const val RATING = "Рейтинг"
         const val ACCUMULATED_RATING = "Накопленный Рейтинг"
 
-        fun fromResponse(response: List<MarkResponse>): SemesterMarks {
-            val marks = SemesterMarks(arrayListOf(), null, null)
+        /**
+         * Возвращает объект с оценками семестра из ответа от сервера.
+         */
+        fun fromResponse(response: List<MarkResponse>) = SemesterMarks().apply {
             for (mark in response) {
-                marks.addMark(mark.title, mark.type, mark.value, mark.factor)
+                addMark(mark.title, mark.type, mark.value, mark.factor)
             }
-            return marks
         }
     }
 }

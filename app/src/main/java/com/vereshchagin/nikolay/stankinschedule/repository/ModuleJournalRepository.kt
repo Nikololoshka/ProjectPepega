@@ -84,7 +84,7 @@ class ModuleJournalRepository(private val cacheDir: File) {
             var disciplineSum = 0.0
             var disciplineCount = 0.0
             for (type in MarkType.values()) {
-                discipline.marks[type]?.let {
+                discipline[type]?.let {
                     disciplineSum += it * type.weight
                     disciplineCount += type.weight
                 }

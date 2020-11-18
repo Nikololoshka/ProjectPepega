@@ -4,12 +4,14 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Typeface
 import android.text.StaticLayout
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.Discipline
@@ -23,12 +25,12 @@ import kotlin.math.roundToInt
  */
 class MarksTable : View {
 
-    private val minHeaderSize = createPixelSize(25F).toFloat()
+    private val minCellSize = createPixelSize(25F).toFloat()
     private val cellMargin = createPixelSize(2F).toFloat()
     private val bitmapNoMark = Bitmap.createScaledBitmap(
         ContextCompat.getDrawable(context, R.drawable.drawable_no_mark)?.toBitmap()!!,
-        minHeaderSize.toInt(),
-        minHeaderSize.toInt(),
+        minCellSize.toInt(),
+        minCellSize.toInt(),
         false
     )
 
@@ -36,35 +38,40 @@ class MarksTable : View {
     private var totalHeaderSize = 0F
 
     private val markHeaderData = listOf("М1", "М2", "К", "З", "Э", "К")
-    private val marksData = testData()
+    private var marksData = emptyData()
 
     private val disciplineLayouts = arrayListOf<StaticLayout>()
-
+    private val ratingLayout = arrayListOf<StaticLayout>()
     private val headerLayout = arrayListOf<Float>()
     private var headerHeight = 0F
 
-    private val headerPainter = TextPaint(Paint.ANTI_ALIAS_FLAG)
-    private val textPainter = TextPaint(Paint.ANTI_ALIAS_FLAG)
-    private val linePainter = Paint(Paint.ANTI_ALIAS_FLAG)
+    private var ratingText: String = "Рейтинг"
+    private var accumulateRatingText: String = "Накопленный рейтинг"
 
+    private val contentPainter = TextPaint(Paint.ANTI_ALIAS_FLAG)
+    private val disciplinePainter = TextPaint(Paint.ANTI_ALIAS_FLAG)
+    private val ratingPainter = TextPaint(Paint.ANTI_ALIAS_FLAG)
+    private val linePainter = Paint(Paint.ANTI_ALIAS_FLAG)
 
     constructor(
         context: Context
-    ) : super(context)
+    ) : super(context) {
+        initialize(context, null, 0, 0)
+    }
 
     constructor(
         context: Context,
         attrs: AttributeSet
     ) : super(context, attrs) {
-        initialize(context, attrs)
+        initialize(context, attrs, 0, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttrs: Int) : super(
-        context,
-        attrs,
-        defStyleAttrs
-    ) {
-        initialize(context, attrs)
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyleAttrs: Int
+    ) : super(context, attrs, defStyleAttrs) {
+        initialize(context, attrs, defStyleAttrs, 0)
     }
 
     constructor(
@@ -73,44 +80,90 @@ class MarksTable : View {
         defStyleAttrs: Int,
         defStyleRes: Int
     ) : super(context, attrs, defStyleAttrs, defStyleRes) {
-        initialize(context, attrs)
+        initialize(context, attrs, defStyleAttrs, defStyleRes)
     }
 
     /**
      * Инициализация атрибутов таблицы с оценками.
      */
-    private fun initialize(context: Context, attrs: AttributeSet) {
-        headerPainter.textSize = createPixelSize(12F).toFloat()
-        headerPainter.textAlign = Paint.Align.CENTER
+    private fun initialize(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttrs: Int,
+        defStyleRes: Int
+    ) {
+        val typedArray = context.obtainStyledAttributes(
+            attrs, R.styleable.MarksTable, defStyleAttrs, defStyleRes
+        )
 
-        textPainter.textSize = createPixelSize(12F).toFloat()
-
+        // стиль линий
+        val dividerColor = R.styleable.MarksTable_mt_dividerColor
+        if (typedArray.hasValue(dividerColor)) {
+            linePainter.color = typedArray.getColor(dividerColor, 0)
+        }
         linePainter.strokeWidth = createPixelSize(0.5F).toFloat()
         linePainter.style = Paint.Style.STROKE
+
+        // стиль ячеек
+        val textStyle = R.styleable.MarksTable_mt_textStyle
+        if (typedArray.hasValue(textStyle)) {
+            val styleId = typedArray.getResourceId(textStyle, 0)
+            contentPainter.typeface = ResourcesCompat.getFont(context, styleId)
+            ratingPainter.typeface = ResourcesCompat.getFont(context, styleId)
+
+        } else {
+            contentPainter.textSize = createPixelSize(12F).toFloat()
+            disciplinePainter.textSize = createPixelSize(12F).toFloat()
+            ratingPainter.textSize = createPixelSize(12F).toFloat()
+        }
+        contentPainter.textAlign = Paint.Align.CENTER
+        ratingPainter.typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+
+        // ячейки с рейтингом
+//        accumulateRatingText = typedArray.getStringOrThrow(R.styleable.MarksTable_mt_accumulateRating)
+//        ratingText = typedArray.getStringOrThrow(R.styleable.MarksTable_mt_rating)
+
+        typedArray.recycle()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         headerLayout.clear()
         disciplineLayouts.clear()
+        ratingLayout.clear()
 
         val widthSize = resolveSize(0, widthMeasureSpec)
-        var wrapHeight = createPixelSize(0.5F).toFloat() // ширина линии
+        var wrapHeight = createPixelSize(0.5F).toFloat() // ширина нижней линии
 
         // заголовок с типами оценок
-        val fontMetrics = headerPainter.fontMetrics
+        val fontMetrics = contentPainter.fontMetrics
         headerHeight = fontMetrics.bottom - fontMetrics.top + fontMetrics.leading
-        wrapHeight += headerHeight + cellMargin * 2
+        val horMargin = cellMargin * 2
+        wrapHeight += headerHeight + horMargin
 
-        totalHeaderSize = 0F
         for (type in markHeaderData) {
-            val headerSize = max(minHeaderSize, headerPainter.measureText(type))
+            val headerSize = max(minCellSize, contentPainter.measureText(type)) + horMargin
             headerLayout.add(headerSize)
-            totalHeaderSize += headerSize
         }
 
+        // ячейки с оценками и коэффициентом
         for (discipline in marksData.disciplines) {
-
+            // оценки
+            for ((j, type) in MarkType.values().withIndex()) {
+                val mark = discipline[type]
+                if (mark != null) {
+                    val markSize = contentPainter.measureText(mark.toString()) + horMargin
+                    if (markSize > headerLayout[j]) {
+                        headerLayout[j] = markSize
+                    }
+                }
+            }
+            // коэффициент
+            val factorSize = contentPainter.measureText(discipline.factorString) + horMargin
+            if (factorSize > headerLayout.last()) {
+                headerLayout[headerLayout.size - 1] = factorSize
+            }
         }
+        totalHeaderSize = headerLayout.sum()
 
         // заголовок с дисциплинами
         totalDisciplineSize = (widthSize - totalHeaderSize)
@@ -119,10 +172,19 @@ class MarksTable : View {
         for (discipline in marksData.disciplines) {
             val title = discipline.title
             val layout = StaticLayout.Builder
-                .obtain(title, 0, title.length, textPainter, maxDisciplineTextSize)
+                .obtain(title, 0, title.length, disciplinePainter, maxDisciplineTextSize)
                 .build()
 
             disciplineLayouts.add(layout)
+            wrapHeight += layout.height + cellMargin * 2
+        }
+
+        // рейтинг
+        for (rating in listOf(ratingText, accumulateRatingText)) {
+            val layout = StaticLayout.Builder
+                .obtain(rating, 0, rating.length, ratingPainter, maxDisciplineTextSize)
+                .build()
+            ratingLayout.add(layout)
             wrapHeight += layout.height + cellMargin * 2
         }
 
@@ -133,7 +195,7 @@ class MarksTable : View {
 
     override fun onDraw(maybeCanvas: Canvas?) {
         val canvas = maybeCanvas ?: return super.onDraw(maybeCanvas)
-        val fontExtra = (headerPainter.descent() + headerPainter.ascent()) / 2
+        val fontExtra = (contentPainter.descent() + contentPainter.ascent()) / 2
 
         // рисование заголовка таблицы
         var offset = totalDisciplineSize
@@ -142,12 +204,13 @@ class MarksTable : View {
                 data,
                 offset + size / 2,
                 cellMargin + headerHeight / 2F - fontExtra,
-                headerPainter
+                contentPainter
             )
             canvas.drawLine(offset, 0F, offset, measuredHeight.toFloat(), linePainter)
             offset += size
         }
 
+        // подводящая линия заголовка таблицы
         canvas.translate(0F, headerHeight + cellMargin * 2)
         canvas.drawLine(0F, 0F, measuredWidth.toFloat(), 0F, linePainter)
         canvas.translate(cellMargin, cellMargin)
@@ -163,10 +226,11 @@ class MarksTable : View {
                 when {
                     // пустое значение (т.е. крестик)
                     mark == null -> {
+                        val halfImageSize = minCellSize / 2
                         canvas.drawBitmap(
                             bitmapNoMark,
-                            markOffset,
-                            layout.height / 2 - minHeaderSize / 2,
+                            markOffset + size / 2 - halfImageSize,
+                            layout.height / 2 - halfImageSize,
                             linePainter
                         )
                     }
@@ -176,7 +240,7 @@ class MarksTable : View {
                             mark.toString(),
                             markOffset + size / 2,
                             layout.height / 2 - fontExtra,
-                            headerPainter
+                            contentPainter
                         )
                     }
                 }
@@ -188,13 +252,52 @@ class MarksTable : View {
                 discipline.factor.toString(),
                 markOffset + headerLayout.last() / 2,
                 layout.height / 2 - fontExtra,
-                headerPainter
+                contentPainter
             )
 
-            canvas.translate(0F, layout.height + cellMargin)
-            canvas.drawLine(-cellMargin, 0F, measuredWidth.toFloat(), 0F, linePainter)
-            canvas.translate(0F, cellMargin)
+            drawLineAndMove(canvas, layout)
         }
+
+        // рейтинг
+        for ((value, layout) in listOf(marksData.rating, marksData.accumulatedRating).zip(
+            ratingLayout
+        )) {
+            layout.draw(canvas)
+
+            var ratingOffset = totalDisciplineSize - cellMargin
+            for ((i, size) in headerLayout.withIndex()) {
+                if (i == 0) {
+                    if (value != null) {
+                        canvas.drawText(
+                            value.toString(),
+                            ratingOffset + size / 2,
+                            layout.height / 2 - fontExtra,
+                            contentPainter
+                        )
+                    }
+                } else {
+                    val halfImageSize = minCellSize / 2
+                    canvas.drawBitmap(
+                        bitmapNoMark,
+                        ratingOffset + size / 2 - halfImageSize,
+                        layout.height / 2 - halfImageSize,
+                        linePainter
+                    )
+                }
+                ratingOffset += size
+            }
+
+            drawLineAndMove(canvas, layout)
+        }
+    }
+
+    /**
+     * Рисует подводящую линию в таблице.
+     */
+    private fun drawLineAndMove(canvas: Canvas, layout: StaticLayout) {
+        canvas.translate(0F, layout.height + cellMargin)
+        canvas.drawLine(-cellMargin, 0F, measuredWidth.toFloat(), 0F, linePainter)
+        canvas.translate(0F, cellMargin)
     }
 
     /**
@@ -207,6 +310,22 @@ class MarksTable : View {
         ).roundToInt()
     }
 
+    /**
+     * Устанавливает семестр с оценками для отображения
+     */
+    fun setSemesterMarks(data: SemesterMarks) {
+        marksData = data
+        requestLayout()
+    }
+
+    /**
+     * Пустые данные.
+     */
+    private fun emptyData() = SemesterMarks(arrayListOf(), null, null)
+
+    /**
+     * Тестовые данные для отображения.
+     */
     private fun testData() = SemesterMarks(
         arrayListOf(
             Discipline(
@@ -268,9 +387,9 @@ class MarksTable : View {
             Discipline(
                 "Теория массового обслуживания",
                 linkedMapOf(
-                    MarkType.FIRST_MODULE to 42,
-                    MarkType.SECOND_MODULE to 42,
-                    MarkType.EXAM to 43
+                    MarkType.FIRST_MODULE to 0,
+                    MarkType.SECOND_MODULE to 0,
+                    MarkType.EXAM to 0
                 ),
                 4.5
             ),
