@@ -24,6 +24,8 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Objects;
 
+import kotlin.io.FilesKt;
+
 /**
  * Оценки студента за семестр.
  */
@@ -317,8 +319,7 @@ public class SemesterMarks {
             return;
         }
         File cacheDir = FileUtils.getFile(cacheDirectory,SEMESTERS_FOLDER);
-
-        FileUtils.deleteQuietly(cacheDir);
+        FilesKt.deleteRecursively(cacheDir);
     }
 
     /**

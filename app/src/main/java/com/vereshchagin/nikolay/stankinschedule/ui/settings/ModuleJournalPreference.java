@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.core.util.Pair;
 import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKey;
-import androidx.security.crypto.MasterKeys;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -67,13 +66,14 @@ public class ModuleJournalPreference {
      */
     public static void saveSignData(@NonNull Context context, @NonNull String login,
                                     @NonNull String password) throws GeneralSecurityException, IOException {
-
-        String masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
+        MasterKey masterKey = new MasterKey.Builder(context)
+                .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+                .build();
 
         SharedPreferences preferences = EncryptedSharedPreferences.create(
-                MODULE_JOURNAL_SECURE_PREFERENCE,
-                masterKeyAlias,
                 context,
+                MODULE_JOURNAL_SECURE_PREFERENCE,
+                masterKey,
                 EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
                 EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         );

@@ -13,8 +13,8 @@ android {
         applicationId "com.vereshchagin.nikolay.stankinschedule"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 48
-        versionName "1.1.1"
+        versionCode 49
+        versionName "1.1.2"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -137,11 +137,10 @@ dependencies {
     implementation 'com.larswerkman:HoloColorPicker:1.5'
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     implementation 'commons-io:commons-io:2.7'
-    implementation 'com.getbase:floatingactionbutton:1.10.1'
     implementation 'joda-time:joda-time:2.10.6'
 
 
-    // debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.1'
     testImplementation 'junit:junit:4.13'
     testImplementation 'org.json:json:20200518'
     androidTestImplementation 'androidx.test:runner:1.2.0'

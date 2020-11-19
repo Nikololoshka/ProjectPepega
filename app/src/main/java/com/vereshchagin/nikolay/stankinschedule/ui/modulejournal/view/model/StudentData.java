@@ -19,6 +19,8 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Objects;
 
+import kotlin.io.FilesKt;
+
 /**
  * Информация о студенте.
  */
@@ -176,7 +178,6 @@ public class StudentData {
             return;
         }
         File cacheDir = FileUtils.getFile(cacheDirectory, STUDENT_FOLDER);
-
-        FileUtils.deleteQuietly(cacheDir);
+        FilesKt.deleteRecursively(cacheDir);
     }
 }

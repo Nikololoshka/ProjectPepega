@@ -6,7 +6,6 @@ import android.app.NotificationManager
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -147,7 +146,6 @@ class MainActivity : AppCompatActivity() {
 
         val isAnalytics = ApplicationPreferenceKt.firebaseAnalytics(this)
         Firebase.analytics.setAnalyticsCollectionEnabled(isAnalytics)
-        Log.d("MyLog", "onCreate: $isAnalytics")
 
         // throw RuntimeException("Stack deobfuscation example exception");
     }

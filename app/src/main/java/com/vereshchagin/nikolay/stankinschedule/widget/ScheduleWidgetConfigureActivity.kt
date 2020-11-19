@@ -14,6 +14,7 @@ import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.utils.DropDownAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.currentPosition
 import com.vereshchagin.nikolay.stankinschedule.utils.setCurrentPosition
+import com.vereshchagin.nikolay.stankinschedule.utils.setVisibility
 import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidget.Companion.updateAppWidget
 import java.util.*
 
@@ -72,6 +73,7 @@ class ScheduleWidgetConfigureActivity : AppCompatActivity(), View.OnClickListene
             binding.widgetScheduleAdd.isEnabled = false
             binding.widgetScheduleSelector.isEnabled = false
             binding.widgetSubgroupSelector.isEnabled = false
+            binding.emptyList.setVisibility(true)
         }
 
         // загрузка данных
@@ -118,7 +120,7 @@ class ScheduleWidgetConfigureActivity : AppCompatActivity(), View.OnClickListene
         val adapter = DropDownAdapter(this, objects)
         autoComplete.setAdapter(adapter)
 
-        if (autoComplete.text.isNullOrEmpty()) {
+        if (autoComplete.text.isNullOrEmpty() && objects.isNotEmpty()) {
             autoComplete.setText(adapter.getItem(0), false)
         }
     }

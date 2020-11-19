@@ -3,15 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        tools:context=".widget.ScheduleWidgetConfigureActivity">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_widget"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
@@ -23,9 +27,11 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            tools:context=".widget.ScheduleWidgetConfigureActivity">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_bar_widget">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -86,6 +92,15 @@
                     android:padding="10dp"
                     android:text="@string/widget_show_subgroup" />
 
+                <TextView
+                    android:id="@+id/empty_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_layout_padding"
+                    android:text="@string/widget_empty_list"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
                 <androidx.cardview.widget.CardView
                     style="@style/CardStyle"
                     android:layout_width="match_parent"
@@ -108,6 +123,6 @@
 
         </ScrollView>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
