@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
@@ -215,6 +216,8 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                 startActionMode(isRestore = true)
             }
         }
+
+        trackScreen(TAG, MainActivity.TAG)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -445,7 +448,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     }
 
     companion object {
-        private val TAG = ScheduleFragment::class.java.simpleName + "Log"
+        private const val TAG = "MySchedulesFragment"
 
         private const val ACTION_MODE = "action_mode"
 

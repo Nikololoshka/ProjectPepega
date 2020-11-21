@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleViewBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
@@ -129,6 +130,8 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
                 }
             }
         }
+
+        trackScreen(TAG, MainActivity.TAG)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -398,7 +401,7 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
 
     companion object {
 
-        private const val TAG = "ScheduleViewLog"
+        private const val TAG = "ScheduleViewFragment"
 
         private const val SCHEDULE_NAME = "schedule_name"
         private const val SCHEDULE_START_DATE = "schedule_start_date"

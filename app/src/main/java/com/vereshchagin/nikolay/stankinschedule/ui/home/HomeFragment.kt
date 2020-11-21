@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
@@ -89,6 +90,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         viewModel.newsData.observe(viewLifecycleOwner, {
             adapter.submitList(it)
         })
+
+        trackScreen(TAG, MainActivity.TAG)
     }
 
     override fun onResume() {
@@ -159,7 +162,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
     }
 
     companion object {
-        private const val TAG = "HomeFragmentLog"
+        private const val TAG = "HomeFragment"
 
         private const val REQUEST_SUBGROUP = 1
     }

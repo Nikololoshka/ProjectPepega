@@ -307,5 +307,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val UPDATE_REQUEST = 1
         const val DAYS_FOR_FLEXIBLE_UPDATE = 3
+
+        const val TAG = "MainActivity"
     }
 }

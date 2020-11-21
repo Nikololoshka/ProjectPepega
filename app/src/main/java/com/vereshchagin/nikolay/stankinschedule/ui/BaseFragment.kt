@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.R
 
 /**
@@ -37,7 +40,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) : T
+    ): T
 
     /**
      * Вызывается после создания View для дальнейшей инициализации.
@@ -49,7 +52,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
      * @param destination ID элемента назначения.
      * @param args аргументы для перехода.
      */
-    protected fun navigateTo(@IdRes destination: Int, args: Bundle? = null)  {
+    protected fun navigateTo(@IdRes destination: Int, args: Bundle? = null) {
         val navController = Navigation.findNavController(requireActivity(), R.id.nav_host)
         navController.navigate(destination, args)
     }
@@ -59,7 +62,11 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
      * @param id ID сообщения.
      * @param duration продолжительность показа.
      */
-    protected fun showSnack(@StringRes id: Int, duration: Int = Snackbar.LENGTH_SHORT, args: Array<String> = arrayOf()) {
+    protected fun showSnack(
+        @StringRes id: Int,
+        duration: Int = Snackbar.LENGTH_SHORT,
+        args: Array<String> = arrayOf()
+    ) {
         Snackbar.make(binding.root, getString(id, *args), duration)
             .show()
     }
@@ -72,6 +79,18 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     protected fun showSnack(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
         Snackbar.make(binding.root, message, duration)
             .show()
+    }
+
+    /**
+     * Добавление информации в FirebaseAnalytics о включенном фрагменте.
+     */
+    protected fun trackScreen(screenName: String, screenClass: String) {
+        Firebase.analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW,
+            Bundle().apply {
+                FirebaseAnalytics.Param.SCREEN_NAME to screenName
+                FirebaseAnalytics.Param.SCREEN_CLASS to screenClass
+            }
+        )
     }
 
     override fun onDestroyView() {
