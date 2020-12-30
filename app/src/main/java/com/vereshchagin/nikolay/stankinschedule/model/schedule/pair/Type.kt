@@ -1,7 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 /**
  * Тип пары.

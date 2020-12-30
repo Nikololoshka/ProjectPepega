@@ -1,7 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
 import org.joda.time.LocalDate

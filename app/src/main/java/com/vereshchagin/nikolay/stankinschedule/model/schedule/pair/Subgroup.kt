@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 import android.content.Context
 import android.os.Parcelable
 import com.vereshchagin.nikolay.stankinschedule.R
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 /**
  * Подгруппа пары.

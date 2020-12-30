@@ -4,7 +4,7 @@ import android.os.Parcelable
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.vereshchagin.nikolay.stankinschedule.utils.removeIfJava7
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 import org.joda.time.LocalDate
 import java.util.*
 
