@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.model.modulejournal
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import org.joda.time.DateTime
 import org.joda.time.Minutes
@@ -7,13 +8,17 @@ import org.joda.time.Minutes
 /**
  * Оценки студента за семестр.
  */
+@Entity(tableName = "semester_marks")
 data class SemesterMarks(
-    @SerializedName("disciplines") val disciplines: ArrayList<Discipline> = arrayListOf(),
-    @SerializedName("rating") var rating: Int? = null,
-    @SerializedName("accumulatedRating") var accumulatedRating: Int? = null,
-    @SerializedName("time") val time: DateTime = DateTime.now()
+    @SerializedName("disciplines")
+    val disciplines: ArrayList<Discipline> = arrayListOf(),
+    @SerializedName("rating")
+    var rating: Int? = null,
+    @SerializedName("accumulatedRating")
+    var accumulatedRating: Int? = null,
+    @SerializedName("time")
+    val time: DateTime = DateTime.now()
 ) {
-
     /**
      * Добавляет оценку в список оценок за семестр.
      */
@@ -41,6 +46,19 @@ data class SemesterMarks(
     }
 
     /**
+     * Рассчитывает рейтинг для данного семестра.
+     */
+    fun computeRating(): Double {
+        var ratingSum = 0.0
+        var ratingCount = 0.0
+        for (discipline in disciplines) {
+            ratingSum += discipline.computeRating()
+            ratingCount += discipline.factor
+        }
+        return ratingSum / ratingCount
+    }
+
+    /**
      * Возвращает заголовок таблицы (включая коэффициент).
      */
     fun headerData(): List<String> {
@@ -51,7 +69,7 @@ data class SemesterMarks(
      * Проверяет, действительны ли оценки.
      */
     fun isValid(): Boolean {
-        return Minutes.minutesBetween(DateTime.now(), time).minutes < 30
+        return Minutes.minutesBetween(DateTime.now(), time).minutes < 60
     }
 
     companion object {
@@ -62,6 +80,7 @@ data class SemesterMarks(
         /**
          * Возвращает объект с оценками семестра из ответа от сервера.
          */
+        @JvmStatic
         fun fromResponse(response: List<MarkResponse>) = SemesterMarks().apply {
             for (mark in response) {
                 addMark(mark.title, mark.type, mark.value, mark.factor)

@@ -4,10 +4,13 @@ import com.google.gson.Gson
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.MainApplication
 import com.vereshchagin.nikolay.stankinschedule.api.ModuleJournalApi2
-import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.MarkType
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.StudentData
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ModuleJournalPreference
+import com.vereshchagin.nikolay.stankinschedule.utils.State
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.apache.commons.io.FileUtils
@@ -55,6 +58,17 @@ class ModuleJournalRepository(private val cacheDir: File) {
     }
 
     /**
+     * Возвращает flow авторизации в модульном журнале.
+     */
+    fun signIn(userLogin: String, userPassword: String) = flow {
+        emit(State.loading())
+        val response = api.getSemesters(userLogin, userPassword).await()
+        saveCacheStudentData(StudentData.fromResponse(response))
+        ModuleJournalPreference.saveSignData(MainApplication.instance, userLogin, userPassword)
+        emit(State.success(true))
+    }.flowOn(Dispatchers.IO)
+
+    /**
      * Загружает данные о студенте из модульного журнала
      */
     suspend fun loadStudentData(refresh: Boolean = false): StudentData {
@@ -75,24 +89,14 @@ class ModuleJournalRepository(private val cacheDir: File) {
     }
 
     /**
-     * Вычисляет рейтинг студента, исходя из оценок в семестре.
+     * Вычисляет рейтинг студента, исходя из оценок в семестрах.
      */
-    fun computeRating(marks: SemesterMarks): Double {
-        var ratingSum = 0.0
-        var ratingCount = 0.0
-        for (discipline in marks.disciplines) {
-            var disciplineSum = 0.0
-            var disciplineCount = 0.0
-            for (type in MarkType.values()) {
-                discipline[type]?.let {
-                    disciplineSum += it * type.weight
-                    disciplineCount += type.weight
-                }
-            }
-            ratingSum += (disciplineSum / disciplineCount) * discipline.factor
-            ratingCount += discipline.factor
+    suspend fun computePredictedRating(semesters: List<String>): Double {
+        var rating = 0.0
+        for (semester in semesters) {
+            rating += loadSemesterMarks(semester).computeRating()
         }
-        return ratingSum / ratingCount
+        return rating / semesters.size
     }
 
     /**
@@ -144,7 +148,7 @@ class ModuleJournalRepository(private val cacheDir: File) {
         val (login, password) = loadLoginData()
 
         val response = api.getSemesters(login, password).await()
-        return StudentData(response)
+        return StudentData.fromResponse(response)
     }
 
     /**
@@ -216,7 +220,7 @@ class ModuleJournalRepository(private val cacheDir: File) {
      */
     private fun clearCache() {
         val cacheStudent = FileUtils.getFile(cacheDir, STUDENT_FOLDER, STUDENT_FILE)
-        FileUtils.deleteQuietly(cacheStudent)
+        cacheStudent.deleteRecursively()
     }
 
     companion object {

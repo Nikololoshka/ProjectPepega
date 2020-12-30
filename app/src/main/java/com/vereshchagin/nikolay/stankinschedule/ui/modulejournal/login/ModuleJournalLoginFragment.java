@@ -61,12 +61,9 @@ public class ModuleJournalLoginFragment extends Fragment
 
         mLoginLoadingAnimator = new ValueAnimator();
         mLoginLoadingAnimator.setDuration(300);
-        mLoginLoadingAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                mLoginLoading.getLayoutParams().height = (int) animation.getAnimatedValue();
-                mLoginLoading.requestLayout();
-            }
+        mLoginLoadingAnimator.addUpdateListener(animation -> {
+            mLoginLoading.getLayoutParams().height = (int) animation.getAnimatedValue();
+            mLoginLoading.requestLayout();
         });
     }
 

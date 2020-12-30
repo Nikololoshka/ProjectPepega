@@ -14,10 +14,6 @@
         android:orientation="vertical"
         android:padding="@dimen/default_layout_padding">
 
-        <com.vereshchagin.nikolay.stankinschedule.view.MarksTable
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
         <androidx.cardview.widget.CardView
             style="@style/CardStyle"
             android:layout_width="match_parent"
