@@ -1,7 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.utils;
 
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -43,25 +42,6 @@ public class NotificationUtils {
      * @param id ID уведомления.
      * @param notification уведомление.
      */
-    @Deprecated
-    public static void notifyCommon(@NonNull Context context, NotificationManager manager,
-                                    int id, @NonNull Notification notification) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-            if (!preferences.getBoolean(COMMON_PREFERENCE_TURN, true)) {
-                return;
-            }
-        }
-        manager.notify(id, notification);
-    }
-
-    /**
-     * Отправляет уведомление общего назначения в соответствии с настройками.
-     * @param context контекст приложения.
-     * @param manager менеджер уведомлений.
-     * @param id ID уведомления.
-     * @param notification уведомление.
-     */
     public static void notifyCommon(@NonNull Context context, NotificationManagerCompat manager,
                                     int id, @NonNull Notification notification) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
@@ -84,25 +64,6 @@ public class NotificationUtils {
         notificationBuilder = new NotificationCompat.Builder(context, CHANNEL_MODULE_JOURNAL);
         notificationBuilder.setDefaults(Notification.DEFAULT_ALL);
         return notificationBuilder;
-    }
-
-    /**
-     * Отправляет уведомление модульного журнала в соответствии с настройками.
-     * @param context контекст приложения.
-     * @param manager менеджер уведомлений.
-     * @param id ID уведомления.
-     * @param notification уведомление.
-     */
-    @Deprecated
-    public static void notifyModuleJournal(@NonNull Context context, NotificationManager manager,
-                                           int id, @NonNull Notification notification) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-            if (!preferences.getBoolean(MODULE_JOURNAL_PREFERENCE_TURN, true)) {
-                return;
-            }
-        }
-        manager.notify(id, notification);
     }
 
     /**

@@ -5,7 +5,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.vereshchagin.nikolay.stankinschedule.R
@@ -80,21 +79,21 @@ class ScheduleRepositoryActivity : AppCompatActivity() {
         binding.repositoryCategories.adapter = adapter
         binding.repositoryCategories.offscreenPageLimit = 1
 
-        val mediator = TabLayoutMediator(
+        TabLayoutMediator(
             binding.tabCategories, binding.repositoryCategories, true
         ) { tab, position ->
             tab.text = viewModel.tabTitle(position)
-        }
+        }.attach()
 
-        binding.repositoryCategories.registerOnPageChangeCallback(
-            object : ViewPager2.OnPageChangeCallback() {
-                override fun onPageSelected(position: Int) {
-                    if (!mediator.isAttached) {
-                        mediator.attach()
-                    }
-                }
-            }
-        )
+//        binding.repositoryCategories.registerOnPageChangeCallback(
+//            object : ViewPager2.OnPageChangeCallback() {
+//                override fun onPageSelected(position: Int) {
+//                    if (!mediator.isAttached) {
+//                        mediator.attach()
+//                    }
+//                }
+//            }
+//        )
 
         // добавление категорий в ViewPager2
         viewModel.categories.observe(this) {

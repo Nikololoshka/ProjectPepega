@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.utils
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.ViewStubProxy
 
 
 class StatefulLayout2(
@@ -9,6 +10,7 @@ class StatefulLayout2(
 ) {
 
     private val states = HashMap<Int, View>()
+    private val stubs = HashMap<Int, ViewStubProxy>()
     private var currentState: Int
 
     init {
@@ -21,13 +23,32 @@ class StatefulLayout2(
         view.visibility = View.GONE
     }
 
+    fun addView(key: Int, view: ViewStubProxy) {
+        stubs[key] = view
+    }
+
     fun setState(key: Int) {
         if (key == currentState) {
             return
         }
 
-        AnimationUtils.fade(states[currentState]!!, false)
-        AnimationUtils.fade(states[key]!!, true)
+        var oldState = states[currentState]
+        if (oldState == null) {
+            val stub = stubs[currentState]!!
+            oldState = stub.root!!
+        }
+
+        var newState = states[key]
+        if (newState == null) {
+            val stub = stubs[key]!!
+            if (!stub.isInflated) {
+                stub.viewStub?.inflate()
+            }
+            newState = stub.root!!
+        }
+
+        AnimationUtils.fade(oldState, false)
+        AnimationUtils.fade(newState, true)
 
         currentState = key
     }
@@ -38,6 +59,7 @@ class StatefulLayout2(
         private var initView: View? = null
 
         private val states = HashMap<Int, View>()
+        private val stubs = HashMap<Int, ViewStubProxy>()
 
         fun init(key: Int, view: View): Builder {
             initKey = key
@@ -50,9 +72,17 @@ class StatefulLayout2(
             return this
         }
 
+        fun addView(key: Int, view: ViewStubProxy): Builder {
+            stubs[key] = view
+            return this
+        }
+
         fun create(): StatefulLayout2 {
             val stateful = StatefulLayout2(root, initKey!!, initView!!)
             for ((key, view) in states) {
+                stateful.addView(key, view)
+            }
+            for ((key, view) in stubs) {
                 stateful.addView(key, view)
             }
             return stateful

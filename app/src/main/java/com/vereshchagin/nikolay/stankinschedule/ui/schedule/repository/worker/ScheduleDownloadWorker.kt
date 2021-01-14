@@ -107,10 +107,11 @@ class ScheduleDownloadWorker(
         private const val NOTIFICATION_ID = "notification_id"
 
         /**
-         * Запускает worker для скачаивания расписания.
+         * Запускает worker для скачивания расписания.
          * @param category категория расписания.
          * @param scheduleName название расписания.
          */
+        @JvmStatic
         fun startWorker(context: Context, category: String, scheduleName: String, id: Int) {
             val manager = WorkManager.getInstance(context)
             val workerName="$category-$scheduleName"

@@ -8,15 +8,14 @@ import android.graphics.Typeface
 import android.text.StaticLayout
 import android.text.TextPaint
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.Discipline
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.MarkType
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
+import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils
 import kotlin.math.max
 import kotlin.math.roundToInt
 
@@ -25,8 +24,9 @@ import kotlin.math.roundToInt
  */
 class MarksTable : View {
 
-    private val minCellSize = createPixelSize(25F).toFloat()
-    private val cellMargin = createPixelSize(2F).toFloat()
+    private val minCellSize = CommonUtils.dpToPx(25F, context.resources)
+    private val cellMargin = CommonUtils.dpToPx(4F, context.resources)
+
     private val bitmapNoMark = Bitmap.createScaledBitmap(
         ContextCompat.getDrawable(context, R.drawable.drawable_no_mark)?.toBitmap()!!,
         minCellSize.toInt(),
@@ -52,6 +52,7 @@ class MarksTable : View {
     private val disciplinePainter = TextPaint(Paint.ANTI_ALIAS_FLAG)
     private val ratingPainter = TextPaint(Paint.ANTI_ALIAS_FLAG)
     private val linePainter = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val drawablePainter = Paint(Paint.ANTI_ALIAS_FLAG)
 
     constructor(
         context: Context
@@ -101,21 +102,25 @@ class MarksTable : View {
         if (typedArray.hasValue(dividerColor)) {
             linePainter.color = typedArray.getColor(dividerColor, 0)
         }
-        linePainter.strokeWidth = createPixelSize(0.5F).toFloat()
+        linePainter.strokeWidth = CommonUtils.dpToPx(0.5F, context.resources)
         linePainter.style = Paint.Style.STROKE
 
-        // стиль ячеек
-        val textStyle = R.styleable.MarksTable_mt_textStyle
-        if (typedArray.hasValue(textStyle)) {
-            val styleId = typedArray.getResourceId(textStyle, 0)
-            contentPainter.typeface = ResourcesCompat.getFont(context, styleId)
-            ratingPainter.typeface = ResourcesCompat.getFont(context, styleId)
+        drawablePainter.strokeWidth = CommonUtils.dpToPx(0.5F, context.resources)
+        drawablePainter.style = Paint.Style.STROKE
 
-        } else {
-            contentPainter.textSize = createPixelSize(12F).toFloat()
-            disciplinePainter.textSize = createPixelSize(12F).toFloat()
-            ratingPainter.textSize = createPixelSize(12F).toFloat()
+        // стиль ячеек
+        val textColor = R.styleable.MarksTable_mt_textColor
+        if (typedArray.hasValue(textColor)) {
+            val color = typedArray.getColor(textColor, 0)
+            contentPainter.color = color
+            disciplinePainter.color = color
+            ratingPainter.color = color
         }
+
+        contentPainter.textSize = CommonUtils.spToPx(12F, context.resources)
+        disciplinePainter.textSize = CommonUtils.spToPx(12F, context.resources)
+        ratingPainter.textSize = CommonUtils.spToPx(12F, context.resources)
+
         contentPainter.textAlign = Paint.Align.CENTER
         ratingPainter.typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
 
@@ -131,8 +136,8 @@ class MarksTable : View {
         disciplineLayouts.clear()
         ratingLayout.clear()
 
-        val widthSize = resolveSize(0, widthMeasureSpec)
-        var wrapHeight = createPixelSize(0.5F).toFloat() // ширина нижней линии
+        val widthSize = resolveSize(100, widthMeasureSpec)
+        var wrapHeight = CommonUtils.dpToPx(0.5F, context.resources) // ширина нижней линии
 
         // заголовок с типами оценок
         val fontMetrics = contentPainter.fontMetrics
@@ -231,7 +236,7 @@ class MarksTable : View {
                             bitmapNoMark,
                             markOffset + size / 2 - halfImageSize,
                             layout.height / 2 - halfImageSize,
-                            linePainter
+                            drawablePainter
                         )
                     }
                     // есть оценка
@@ -267,7 +272,7 @@ class MarksTable : View {
             var ratingOffset = totalDisciplineSize - cellMargin
             for ((i, size) in headerLayout.withIndex()) {
                 if (i == 0) {
-                    if (value != null) {
+                    if (value != null && value != Discipline.NO_MARK) {
                         canvas.drawText(
                             value.toString(),
                             ratingOffset + size / 2,
@@ -281,7 +286,7 @@ class MarksTable : View {
                         bitmapNoMark,
                         ratingOffset + size / 2 - halfImageSize,
                         layout.height / 2 - halfImageSize,
-                        linePainter
+                        drawablePainter
                     )
                 }
                 ratingOffset += size
@@ -298,16 +303,6 @@ class MarksTable : View {
         canvas.translate(0F, layout.height + cellMargin)
         canvas.drawLine(-cellMargin, 0F, measuredWidth.toFloat(), 0F, linePainter)
         canvas.translate(0F, cellMargin)
-    }
-
-    /**
-     * Возвращает размер в пикселях, переводя из dp.
-     */
-    private fun createPixelSize(dp: Float): Int {
-        return TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, dp,
-            resources.displayMetrics
-        ).roundToInt()
     }
 
     /**

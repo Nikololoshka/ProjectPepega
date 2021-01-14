@@ -26,6 +26,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEdit
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.list.PairDatesAdaptor
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.list.SwipeToDeleteCallback
 import com.vereshchagin.nikolay.stankinschedule.utils.*
+import com.vereshchagin.nikolay.stankinschedule.view.DropDownAdapter
 
 /**
  * Активность редактирования пары.

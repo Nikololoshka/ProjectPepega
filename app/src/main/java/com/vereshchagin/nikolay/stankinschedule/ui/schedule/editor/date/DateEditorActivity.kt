@@ -20,7 +20,11 @@ import com.google.android.material.textfield.TextInputEditText
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityDateEditorBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.*
-import com.vereshchagin.nikolay.stankinschedule.utils.*
+import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import com.vereshchagin.nikolay.stankinschedule.utils.currentPosition
+import com.vereshchagin.nikolay.stankinschedule.utils.setCurrentPosition
+import com.vereshchagin.nikolay.stankinschedule.utils.setOkButton
+import com.vereshchagin.nikolay.stankinschedule.view.DropDownAdapter
 import org.joda.time.DateTime
 import org.joda.time.LocalDate
 import org.joda.time.format.DateTimeFormat

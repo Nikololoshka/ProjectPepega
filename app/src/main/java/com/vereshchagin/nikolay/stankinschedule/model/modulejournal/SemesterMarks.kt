@@ -1,6 +1,5 @@
 package com.vereshchagin.nikolay.stankinschedule.model.modulejournal
 
-import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import org.joda.time.DateTime
 import org.joda.time.Minutes
@@ -8,7 +7,6 @@ import org.joda.time.Minutes
 /**
  * Оценки студента за семестр.
  */
-@Entity(tableName = "semester_marks")
 data class SemesterMarks(
     @SerializedName("disciplines")
     val disciplines: ArrayList<Discipline> = arrayListOf(),
@@ -58,6 +56,42 @@ data class SemesterMarks(
         return ratingSum / ratingCount
     }
 
+    fun computePredictedRating(averageRating: Int): Double {
+        var ratingSum = 0.0
+        var ratingCount = 0.0
+        for (discipline in disciplines) {
+            ratingSum += discipline.computePredictedRating(averageRating)
+            ratingCount += discipline.factor
+        }
+        return ratingSum / ratingCount
+    }
+
+    /**
+     * Вычисляет среднюю оценку в семестре.
+     */
+    fun average(): Int {
+        var ratingSum = 0
+        var ratingCount = 0
+        for (discipline in disciplines) {
+            val (disciplineSum, disciplineCount) = discipline.prepareAverage()
+            ratingSum += disciplineSum
+            ratingCount += disciplineCount
+        }
+        return ratingSum / ratingCount
+    }
+
+    /**
+     * Проверяет, является ли семестр завершенным (есть все оценки).
+     */
+    fun isCompleted(): Boolean {
+        for (disciple in disciplines) {
+            if (!disciple.isCompleted()) {
+                return false
+            }
+        }
+        return true
+    }
+
     /**
      * Возвращает заголовок таблицы (включая коэффициент).
      */
@@ -68,8 +102,9 @@ data class SemesterMarks(
     /**
      * Проверяет, действительны ли оценки.
      */
-    fun isValid(): Boolean {
-        return Minutes.minutesBetween(DateTime.now(), time).minutes < 60
+    fun isValid(last: Boolean = false): Boolean {
+        return Minutes.minutesBetween(DateTime.now(), time).minutes < 60 +
+            if (last) 0 else 60 * 24 * 7
     }
 
     companion object {

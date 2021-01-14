@@ -11,8 +11,8 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryCategoryItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryDescription
-import com.vereshchagin.nikolay.stankinschedule.utils.DateTimeTypeConverter
 import com.vereshchagin.nikolay.stankinschedule.utils.State
+import com.vereshchagin.nikolay.stankinschedule.utils.convertors.gson.DateTimeTypeConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn

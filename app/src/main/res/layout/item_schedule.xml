@@ -21,7 +21,7 @@
             android:textSize="18sp"
             tools:text="ИДБ-17-09"/>
 
-        <com.vereshchagin.nikolay.stankinschedule.utils.FavoriteButton
+        <com.vereshchagin.nikolay.stankinschedule.view.FavoriteButton
             style="?android:attr/actionButtonStyle"
             android:id="@+id/favorite_schedule"
             android:layout_width="?listPreferredItemHeightSmall"

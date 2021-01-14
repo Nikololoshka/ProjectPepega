@@ -11,9 +11,9 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.WidgetScheduleConfigureBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.utils.DropDownAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.currentPosition
 import com.vereshchagin.nikolay.stankinschedule.utils.setCurrentPosition
+import com.vereshchagin.nikolay.stankinschedule.view.DropDownAdapter
 import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidget.Companion.updateAppWidget
 import java.util.*
 

@@ -1,6 +1,5 @@
 package com.vereshchagin.nikolay.stankinschedule.model.modulejournal
 
-import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import org.joda.time.DateTime
 import org.joda.time.Minutes
@@ -8,7 +7,6 @@ import org.joda.time.Minutes
 /**
  * Информация о студенте.
  */
-@Entity(tableName = "student_data")
 class StudentData(
     @SerializedName("student")
     val student: String,
@@ -24,7 +22,7 @@ class StudentData(
      * Проверяет, являются ли данные о студенте актуальными.
      */
     fun isValid(): Boolean {
-        return Minutes.minutesBetween(DateTime.now(), time).minutes < 60 * 2
+        return Minutes.minutesBetween(DateTime.now(), time).minutes < 60 * 8
     }
 
     override fun toString(): String {

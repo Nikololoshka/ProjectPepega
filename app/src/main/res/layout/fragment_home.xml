@@ -161,7 +161,7 @@
                     android:nestedScrollingEnabled="true"
                     android:scrollbars="none"
                     android:scrollIndicators="none"
-                    app:layoutManager=".utils.FixedLayoutManager"
+                    app:layoutManager=".view.FixedLayoutManager"
                     tools:itemCount="3"
                     tools:listitem="@layout/item_news_post" />
 

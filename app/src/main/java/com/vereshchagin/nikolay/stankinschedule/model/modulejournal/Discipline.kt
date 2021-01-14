@@ -1,12 +1,10 @@
 package com.vereshchagin.nikolay.stankinschedule.model.modulejournal
 
-import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 /**
  * Дисциплина в модульном журнале.
  */
-@Entity(tableName = "discipline")
 data class Discipline(
     @SerializedName("title")
     val title: String = "",
@@ -33,6 +31,57 @@ data class Discipline(
             }
         }
         return (disciplineSum / disciplineCount) * factor
+    }
+
+    /**
+     * Вычисляет прогнозируемый рейтинг для дисциплины.
+     * @param средний рейтинг для отсутствующих оценок.
+     */
+    fun computePredictedRating(averageRating: Int): Double {
+        var disciplineSum = 0.0
+        var disciplineCount = 0.0
+        for (type in MarkType.values()) {
+            marks[type]?.let { mark ->
+                disciplineSum += if (mark == NO_MARK) {
+                    averageRating * type.weight
+                } else {
+                    mark * type.weight
+                }
+                disciplineCount += type.weight
+            }
+        }
+        return (disciplineSum / disciplineCount) * factor
+    }
+
+    /**
+     * Возвращает сумму и количество проставленных оценок для
+     * вычисления средней оценки.
+     */
+    fun prepareAverage(): Pair<Int, Int> {
+        var disciplineSum = 0
+        var disciplineCount = 0
+        for (mark in marks) {
+            if (mark.value != NO_MARK) {
+                disciplineSum += mark.value
+                disciplineCount++
+            }
+        }
+        return disciplineSum to disciplineCount
+    }
+
+    /**
+     * Проверяет, является ли дисциплина завершенной (есть все оценки).
+     */
+    fun isCompleted(): Boolean {
+        for (mark in marks) {
+            if (mark.value == NO_MARK) {
+                return false
+            }
+        }
+        if (factor == NO_FACTOR) {
+            return false
+        }
+        return true
     }
 
     /**

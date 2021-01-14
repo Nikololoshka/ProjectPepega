@@ -10,10 +10,6 @@ import javax.net.ssl.HttpsURLConnection
 
 object ExceptionUtils {
 
-    fun errorTitle() {
-
-    }
-
     /**
      * Возвращает описание ошибки для пользователя.
      */

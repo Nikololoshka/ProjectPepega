@@ -20,7 +20,7 @@ import com.vereshchagin.nikolay.stankinschedule.R
  */
 abstract class BaseFragment<T : ViewBinding> : Fragment() {
 
-    private var _binding: T? = null
+    protected var _binding: T? = null
     protected val binding get() = _binding!!
 
     override fun onCreateView(
