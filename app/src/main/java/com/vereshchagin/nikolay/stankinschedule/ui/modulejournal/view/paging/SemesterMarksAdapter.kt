@@ -1,10 +1,10 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.viewer.paging
+package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging
 
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
-import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.viewer.paging.holder.SemesterMarksViewHolder
+import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging.holder.SemesterMarksViewHolder
 
 /**
  * Адаптер для отображения списка семестров.

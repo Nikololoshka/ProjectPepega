@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.viewer
+package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view
 
 import android.app.Application
 import androidx.lifecycle.*
@@ -8,7 +8,7 @@ import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.StudentData
 import com.vereshchagin.nikolay.stankinschedule.repository.ModuleJournalRepository
-import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.viewer.paging.SemesterMarksSource
+import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging.SemesterMarksSource
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect

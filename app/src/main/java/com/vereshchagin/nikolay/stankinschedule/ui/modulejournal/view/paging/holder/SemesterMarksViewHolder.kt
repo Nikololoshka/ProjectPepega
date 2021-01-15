@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.viewer.paging.holder
+package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging.holder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

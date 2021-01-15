@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.viewer.paging
+package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging
 
 import androidx.paging.PagingSource
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks

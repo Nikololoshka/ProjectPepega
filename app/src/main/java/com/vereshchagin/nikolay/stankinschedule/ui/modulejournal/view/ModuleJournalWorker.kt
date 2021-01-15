@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.viewer.worker
+package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view
 
 import android.content.Context
 import androidx.annotation.StringRes

@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.viewer
+package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view
 
 import android.os.Bundle
 import android.view.*
@@ -12,8 +12,7 @@ import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentModuleJourna
 import com.vereshchagin.nikolay.stankinschedule.databinding.ViewErrorWithButtonBinding
 import com.vereshchagin.nikolay.stankinschedule.settings.ModuleJournalPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
-import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.viewer.paging.SemesterMarksAdapter
-import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.viewer.worker.ModuleJournalWorker
+import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging.SemesterMarksAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State

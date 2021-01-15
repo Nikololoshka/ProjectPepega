@@ -26,7 +26,7 @@
 
     <fragment
         android:id="@+id/nav_module_journal_fragment"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.viewer.ModuleJournalFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.ModuleJournalFragment"
         android:label="@string/nav_module_journal"
         tools:layout="@layout/fragment_module_journal">
 
