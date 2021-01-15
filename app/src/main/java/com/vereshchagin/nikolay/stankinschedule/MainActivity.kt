@@ -36,7 +36,12 @@ import org.joda.time.Hours
  */
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appUpdateManager: AppUpdateManager
+    /**
+     * Менеджер для проверки обновлений приложения.
+     */
+    private var _appUpdateManager: AppUpdateManager? = null
+    private val appUpdateManager get() = _appUpdateManager!!
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -139,7 +144,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        appUpdateManager = AppUpdateManagerFactory.create(this)
+        _appUpdateManager = AppUpdateManagerFactory.create(this)
         checkAppUpdate()
 
         // throw RuntimeException("Stack deobfuscation example exception");
@@ -148,6 +153,7 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         appUpdateManager.unregisterListener(this::onUpdateState)
+        _appUpdateManager = null
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

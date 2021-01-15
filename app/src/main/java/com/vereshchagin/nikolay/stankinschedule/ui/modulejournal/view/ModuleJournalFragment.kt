@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.CombinedLoadStates
+import androidx.paging.LoadState
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentModuleJournalBinding
@@ -17,6 +21,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import kotlinx.coroutines.flow.collectLatest
 
 /**
  * Фрагмент модульного журнала с оценками.
@@ -123,6 +128,12 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
         val adapter = SemesterMarksAdapter()
         binding.mjPagerSemesters.adapter = adapter
 
+        lifecycleScope.launchWhenStarted {
+            adapter.loadStateFlow.collectLatest {
+                onSemesterMarksStateChanged(it)
+            }
+        }
+
         TabLayoutMediator(
             binding.mjTabSemesters, binding.mjPagerSemesters, true
         ) { tab, position ->
@@ -161,6 +172,22 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    /**
+     * Вызывается при изменении состояния загрузки семестров.
+     */
+    private fun onSemesterMarksStateChanged(loadStates: CombinedLoadStates) {
+        val errorState = loadStates.refresh
+        if (errorState is LoadState.Error) {
+            val description = ExceptionUtils.errorDescription(errorState.error, requireContext())
+            Snackbar.make(binding.mjContent, description, Snackbar.LENGTH_LONG)
+                .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
+                .setAction(R.string.retry) {
+                    refreshAll()
+                }
+                .show()
+        }
     }
 
     /**

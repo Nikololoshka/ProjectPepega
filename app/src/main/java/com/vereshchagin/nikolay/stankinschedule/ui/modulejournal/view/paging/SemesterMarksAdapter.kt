@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
-import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging.holder.SemesterMarksViewHolder
+import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging.viewholder.SemesterMarksViewHolder
 
 /**
  * Адаптер для отображения списка семестров.

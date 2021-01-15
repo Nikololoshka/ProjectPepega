@@ -69,7 +69,7 @@
                                 android:layout_below="@id/mj_student_name"
                                 android:layout_alignParentStart="true"
                                 android:layout_alignParentEnd="true"
-                                android:layout_marginTop="@dimen/mj_student_data_margin"
+                                android:layout_marginTop="@dimen/mj_data_margin"
                                 android:textColor="@color/colorTextLight"
                                 tools:text="ИДБ-17-09" />
 
@@ -83,6 +83,7 @@
                                 android:layout_toStartOf="@id/mj_student_predict_rating"
                                 android:text="@string/mj_current_rating"
                                 android:textColor="@color/colorTextLight"
+                                android:layout_marginBottom="@dimen/mj_data_margin"
                                 tools:text="Текущий рейтинг" />
 
                             <TextView
@@ -96,22 +97,24 @@
                                 android:textColor="@color/colorTextLight"
                                 tools:text="Прогнозируемый рейтинг" />
 
-                            <TextView
+                            <com.vereshchagin.nikolay.stankinschedule.view.ShimmerTextView
                                 android:id="@+id/mj_student_rating"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/mj_student_group"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="@dimen/mj_student_rating_margin"
-                                android:textColor="@color/colorTextLight" />
+                                android:textColor="@color/colorTextLight"
+                                app:stv_count="5" />
 
-                            <TextView
+                            <com.vereshchagin.nikolay.stankinschedule.view.ShimmerTextView
                                 android:id="@+id/mj_student_predict_rating"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/mj_student_rating_text"
                                 android:layout_alignParentEnd="true"
                                 android:textColor="@color/colorTextLight"
+                                app:stv_count="5"
                                 tools:text="50,48" />
 
                         </RelativeLayout>
@@ -180,7 +183,7 @@
                         style="@style/Text.Subhead"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="@dimen/mj_data_margin"
                         android:background="@drawable/background_shimmer" />
 
                     <TextView
@@ -192,7 +195,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="@dimen/mj_data_margin"
                         android:layout_marginBottom="?attr/actionBarSize"
                         android:background="@drawable/background_shimmer" />
 

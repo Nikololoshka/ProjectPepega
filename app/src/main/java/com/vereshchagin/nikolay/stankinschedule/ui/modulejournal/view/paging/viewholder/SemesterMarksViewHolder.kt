@@ -1,10 +1,11 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging.holder
+package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging.viewholder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemModuleJournalSemesterBinding
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
+import com.vereshchagin.nikolay.stankinschedule.utils.setVisibility
 
 /**
  * Элемент для отображения оценок в семестре.
@@ -20,6 +21,8 @@ class SemesterMarksViewHolder(
         if (marks != null) {
             binding.marksTable.setSemesterMarks(marks)
         }
+        binding.marksTable.setVisibility(marks != null)
+        binding.semesterLoading.setVisibility(marks == null)
     }
 
     companion object {

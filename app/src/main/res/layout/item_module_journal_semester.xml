@@ -8,6 +8,7 @@
     android:clipToPadding="false">
 
     <FrameLayout
+        android:id="@+id/semester_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -17,7 +18,14 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="?android:attr/actionBarSize"
             app:mt_textColor="?android:attr/textColorPrimary"
-            app:mt_dividerColor="@color/colorDivider" />
+            app:mt_dividerColor="@color/colorDivider"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/semester_loading"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </FrameLayout>
 

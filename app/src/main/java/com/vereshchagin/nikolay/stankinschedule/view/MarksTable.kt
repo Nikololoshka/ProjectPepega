@@ -25,7 +25,8 @@ import kotlin.math.roundToInt
 class MarksTable : View {
 
     private val minCellSize = CommonUtils.dpToPx(25F, context.resources)
-    private val cellMargin = CommonUtils.dpToPx(4F, context.resources)
+    private val textCellMargin = CommonUtils.dpToPx(4F, context.resources)
+    private val markCellMargin = CommonUtils.dpToPx(1F, context.resources)
 
     private val bitmapNoMark = Bitmap.createScaledBitmap(
         ContextCompat.getDrawable(context, R.drawable.drawable_no_mark)?.toBitmap()!!,
@@ -137,16 +138,18 @@ class MarksTable : View {
         ratingLayout.clear()
 
         val widthSize = resolveSize(100, widthMeasureSpec)
-        var wrapHeight = CommonUtils.dpToPx(0.5F, context.resources) // ширина нижней линии
+        var wrapHeight = CommonUtils.dpToPx(0.5F, context.resources) // ширина завершающей линии
 
         // заголовок с типами оценок
         val fontMetrics = contentPainter.fontMetrics
         headerHeight = fontMetrics.bottom - fontMetrics.top + fontMetrics.leading
-        val horMargin = cellMargin * 2
-        wrapHeight += headerHeight + horMargin
+        val verMargin = textCellMargin * 2
+        val horTextMargin = textCellMargin * 2
+        val horMarkMargin = markCellMargin * 2
+        wrapHeight += headerHeight + verMargin
 
         for (type in markHeaderData) {
-            val headerSize = max(minCellSize, contentPainter.measureText(type)) + horMargin
+            val headerSize = max(minCellSize, contentPainter.measureText(type)) + horMarkMargin
             headerLayout.add(headerSize)
         }
 
@@ -156,14 +159,14 @@ class MarksTable : View {
             for ((j, type) in MarkType.values().withIndex()) {
                 val mark = discipline[type]
                 if (mark != null) {
-                    val markSize = contentPainter.measureText(mark.toString()) + horMargin
+                    val markSize = contentPainter.measureText(mark.toString()) + horMarkMargin
                     if (markSize > headerLayout[j]) {
                         headerLayout[j] = markSize
                     }
                 }
             }
             // коэффициент
-            val factorSize = contentPainter.measureText(discipline.factorString) + horMargin
+            val factorSize = contentPainter.measureText(discipline.factorString) + horMarkMargin
             if (factorSize > headerLayout.last()) {
                 headerLayout[headerLayout.size - 1] = factorSize
             }
@@ -172,7 +175,7 @@ class MarksTable : View {
 
         // заголовок с дисциплинами
         totalDisciplineSize = (widthSize - totalHeaderSize)
-        val maxDisciplineTextSize = (totalDisciplineSize - cellMargin * 2).toInt()
+        val maxDisciplineTextSize = (totalDisciplineSize - horTextMargin).toInt()
 
         for (discipline in marksData.disciplines) {
             val title = discipline.title
@@ -181,7 +184,7 @@ class MarksTable : View {
                 .build()
 
             disciplineLayouts.add(layout)
-            wrapHeight += layout.height + cellMargin * 2
+            wrapHeight += layout.height + verMargin
         }
 
         // рейтинг
@@ -190,7 +193,7 @@ class MarksTable : View {
                 .obtain(rating, 0, rating.length, ratingPainter, maxDisciplineTextSize)
                 .build()
             ratingLayout.add(layout)
-            wrapHeight += layout.height + cellMargin * 2
+            wrapHeight += layout.height + verMargin
         }
 
         // установка конечных размеров
@@ -208,7 +211,7 @@ class MarksTable : View {
             canvas.drawText(
                 data,
                 offset + size / 2,
-                cellMargin + headerHeight / 2F - fontExtra,
+                textCellMargin + headerHeight / 2F - fontExtra,
                 contentPainter
             )
             canvas.drawLine(offset, 0F, offset, measuredHeight.toFloat(), linePainter)
@@ -216,16 +219,16 @@ class MarksTable : View {
         }
 
         // подводящая линия заголовка таблицы
-        canvas.translate(0F, headerHeight + cellMargin * 2)
+        canvas.translate(0F, headerHeight + textCellMargin * 2)
         canvas.drawLine(0F, 0F, measuredWidth.toFloat(), 0F, linePainter)
-        canvas.translate(cellMargin, cellMargin)
+        canvas.translate(textCellMargin, textCellMargin)
 
         // рисование дисциплин, их оценок и коэффициент
         for ((layout, discipline) in disciplineLayouts.zip(marksData.disciplines)) {
             layout.draw(canvas)
 
             // оценки дисциплины
-            var markOffset = totalDisciplineSize - cellMargin
+            var markOffset = totalDisciplineSize - textCellMargin
             for ((markType, size) in MarkType.values().zip(headerLayout)) {
                 val mark = discipline[markType]
                 when {
@@ -269,7 +272,7 @@ class MarksTable : View {
         )) {
             layout.draw(canvas)
 
-            var ratingOffset = totalDisciplineSize - cellMargin
+            var ratingOffset = totalDisciplineSize - textCellMargin
             for ((i, size) in headerLayout.withIndex()) {
                 if (i == 0) {
                     if (value != null && value != Discipline.NO_MARK) {
@@ -300,9 +303,9 @@ class MarksTable : View {
      * Рисует подводящую линию в таблице.
      */
     private fun drawLineAndMove(canvas: Canvas, layout: StaticLayout) {
-        canvas.translate(0F, layout.height + cellMargin)
-        canvas.drawLine(-cellMargin, 0F, measuredWidth.toFloat(), 0F, linePainter)
-        canvas.translate(0F, cellMargin)
+        canvas.translate(0F, layout.height + textCellMargin)
+        canvas.drawLine(-textCellMargin, 0F, measuredWidth.toFloat(), 0F, linePainter)
+        canvas.translate(0F, textCellMargin)
     }
 
     /**

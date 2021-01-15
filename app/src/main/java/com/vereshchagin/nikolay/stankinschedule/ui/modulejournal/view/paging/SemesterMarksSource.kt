@@ -15,6 +15,7 @@ class SemesterMarksSource(
 
     override suspend fun load(params: LoadParams<String>): LoadResult<String, SemesterMarks> {
         return try {
+
             val semester = params.key ?: semesters.last()
             val index = semesters.indexOf(semester)
             val marks = repository.loadSemesterMarks(

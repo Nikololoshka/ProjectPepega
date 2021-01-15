@@ -1,7 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.model.modulejournal
 
-import com.google.gson.*
-import java.lang.reflect.Type
+import com.google.gson.annotations.SerializedName
 
 /**
  * Типы оценок в модульном журнале.
@@ -11,55 +10,32 @@ enum class MarkType(val tag: String, val weight: Int) {
     /**
      * Первый модуль.
      */
+    @SerializedName("FIRST_MODULE")
     FIRST_MODULE("М1", 3),
 
     /**
      * Второй модуль.
      */
+    @SerializedName("SECOND_MODULE")
     SECOND_MODULE("М2", 2),
 
     /**
      * Курсовая работа.
      */
+    @SerializedName("COURSEWORK")
     COURSEWORK("К", 5),
 
     /**
      * Зачёт.
      */
+    @SerializedName("CREDIT")
     CREDIT("З", 5),
 
     /**
      * Экзамен.
      */
+    @SerializedName("EXAM")
     EXAM("Э", 7);
-
-
-    /**
-     * Сериализатор MarkType.
-     */
-    class MarkSerializer : JsonSerializer<MarkType> {
-        override fun serialize(
-            src: MarkType,
-            typeOfSrc: Type,
-            context: JsonSerializationContext
-        ): JsonElement {
-            return JsonPrimitive(src.tag)
-        }
-    }
-
-    /**
-     * Десериализатор MarkType.
-     */
-    class MarkDeserializer : JsonDeserializer<MarkType> {
-        @Throws(JsonParseException::class)
-        override fun deserialize(
-            json: JsonElement,
-            typeOfT: Type,
-            context: JsonDeserializationContext
-        ): MarkType {
-            return of(json.asJsonPrimitive.asString)
-        }
-    }
 
     companion object {
         /**

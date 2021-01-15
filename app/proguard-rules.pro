@@ -10,7 +10,7 @@
 # class:
 
 # NewsViewer interface
--keepclassmembers class com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerFragment.NewsViewInterface {
+-keepclassmembers class com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity$NewsViewInterface {
    public *;
 }
 

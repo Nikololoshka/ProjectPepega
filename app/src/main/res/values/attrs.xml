@@ -6,4 +6,7 @@
         <attr name="mt_accumulateRating" format="string" />
         <attr name="mt_rating" format="string" />
     </declare-styleable>
+    <declare-styleable name="ShimmerTextView">
+        <attr name="stv_count" format="integer" />
+    </declare-styleable>
 </resources>
