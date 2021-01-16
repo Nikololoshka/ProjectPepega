@@ -154,7 +154,7 @@
             android:id="@+id/mj_loading"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:visibility="gone">
+            tools:visibility="visible">
 
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/mj_loading_student"
@@ -173,7 +173,7 @@
 
                     <TextView
                         style="@style/Text.Head"
-                        android:layout_width="150dp"
+                        android:layout_width="@dimen/shimmer_extreme"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_shimmer"
                         app:layout_constraintStart_toStartOf="parent"
@@ -181,7 +181,7 @@
 
                     <TextView
                         style="@style/Text.Subhead"
-                        android:layout_width="100dp"
+                        android:layout_width="@dimen/shimmer_x_large"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/mj_data_margin"
                         android:background="@drawable/background_shimmer" />
@@ -216,7 +216,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ProgressBar
+            <include
+                layout="@layout/view_loading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -227,7 +228,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ViewStub
-            android:id="@+id/mj_content_error"
+            android:id="@+id/mj_error"
             android:layout="@layout/view_error_with_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

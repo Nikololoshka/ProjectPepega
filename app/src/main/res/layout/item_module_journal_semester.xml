@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:scrollbars="none"
+    android:clipToPadding="false"
     android:fillViewport="true"
-    android:clipToPadding="false">
+    android:scrollbars="none">
 
     <FrameLayout
         android:id="@+id/semester_container"
@@ -17,15 +18,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="?android:attr/actionBarSize"
-            app:mt_textColor="?android:attr/textColorPrimary"
+            android:visibility="gone"
             app:mt_dividerColor="@color/colorDivider"
-            android:visibility="gone" />
+            app:mt_textColor="?android:attr/textColorPrimary"
+            tools:visibility="visible" />
 
         <ProgressBar
             android:id="@+id/semester_loading"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:visibility="gone" />
 
     </FrameLayout>
 

@@ -30,7 +30,7 @@ import org.joda.time.LocalDate
 import org.joda.time.format.DateTimeFormat
 
 /**
- * Автивность редактора дат.
+ * Активность редактора дат.
  */
 class DateEditorActivity : AppCompatActivity() {
 

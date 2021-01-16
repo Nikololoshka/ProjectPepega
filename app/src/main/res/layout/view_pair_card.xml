@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="pair"
             type="com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair" />
@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorCardViewBackground"
-        android:padding="@dimen/pair_card_padding"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="@dimen/pair_card_padding">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -27,8 +27,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="3dp"
                 android:text="@{pair.time.startString()}"
-                android:textSize="18sp"
                 android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:text="10:20" />
 
@@ -37,8 +37,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{pair.time.endString()}"
-                android:textSize="18sp"
                 android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:text="12:00" />
 
@@ -46,7 +46,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/pair_card_title"
@@ -54,10 +54,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="10dp"
-                android:paddingTop="3dp"
-                android:paddingBottom="5dp"
                 android:paddingStart="3dp"
+                android:paddingTop="3dp"
                 android:paddingEnd="3dp"
+                android:paddingBottom="5dp"
                 android:text="@{pair.title}"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
@@ -69,34 +69,34 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/pair_card_title"
                 android:layout_alignStart="@id/pair_card_title"
-                android:maxWidth="180dp"
-                android:paddingTop="1dp"
-                android:paddingBottom="3dp"
-                android:paddingStart="3dp"
-                android:paddingEnd="3dp"
                 android:layout_marginBottom="5dp"
+                android:maxWidth="180dp"
+                android:paddingStart="3dp"
+                android:paddingTop="1dp"
+                android:paddingEnd="3dp"
+                android:paddingBottom="3dp"
                 android:text="@{pair.lecturer}"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp"
                 tools:text="Чеканин В.А."
-                tools:visibility="visible"/>
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/pair_card_classroom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/pair_card_title"
+                android:layout_alignBottom="@id/pair_card_lecturer"
                 android:layout_alignParentEnd="true"
                 android:layout_toEndOf="@id/pair_card_lecturer"
-                android:layout_alignBottom="@id/pair_card_lecturer"
-                android:paddingTop="1dp"
-                android:paddingBottom="3dp"
                 android:paddingStart="3dp"
+                android:paddingTop="1dp"
                 android:paddingEnd="3dp"
+                android:paddingBottom="3dp"
                 android:text="@{pair.classroom}"
+                android:textAlignment="textEnd"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp"
-                android:textAlignment="textEnd"
                 tools:text="0404" />
 
             <TextView

@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostsBinding
+import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostsListBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostLoadStateAdapter
@@ -28,7 +28,7 @@ import kotlinx.coroutines.flow.filter
 /**
  * Фрагмент для отображения списка новостей.
  */
-class NewsPostsFragment : BaseFragment<ItemNewsPostsBinding>() {
+class NewsPostsFragment : BaseFragment<ItemNewsPostsListBinding>() {
 
     /**
      * ViewModel фрагмента.
@@ -47,8 +47,8 @@ class NewsPostsFragment : BaseFragment<ItemNewsPostsBinding>() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): ItemNewsPostsBinding {
-        return ItemNewsPostsBinding.inflate(inflater, container, false)
+    ): ItemNewsPostsListBinding {
+        return ItemNewsPostsListBinding.inflate(inflater, container, false)
     }
 
     @InternalCoroutinesApi

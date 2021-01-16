@@ -4,12 +4,12 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:focusable="true"
-        android:focusableInTouchMode="true" >
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <com.larswerkman.holocolorpicker.ColorPicker
             android:id="@+id/color_picker"
@@ -25,24 +25,24 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <TextView
                 style="@style/Text.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/picker_color_rgb"
-                android:layout_marginEnd="@dimen/default_layout_padding"/>
+                android:layout_marginEnd="@dimen/default_layout_padding"
+                android:text="@string/picker_color_rgb" />
 
             <EditText
                 android:id="@+id/rgb_editor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/picker_color_hint"
-                android:maxLength="7"
+                android:importantForAutofill="no"
                 android:inputType="textCapCharacters"
-                android:singleLine="true"
-                android:importantForAutofill="no" />
+                android:maxLength="7"
+                android:singleLine="true" />
 
 
         </LinearLayout>

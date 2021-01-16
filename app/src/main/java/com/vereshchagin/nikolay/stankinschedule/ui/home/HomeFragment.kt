@@ -46,7 +46,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         _scheduleStateful = StatefulLayout2(
             binding.scheduleLayout,
-            StatefulLayout2.LOADING, binding.scheduleLoading.loadingFragment
+            StatefulLayout2.LOADING, binding.scheduleLoading.root
         )
         scheduleStateful.addView(StatefulLayout2.EMPTY, binding.noFavoriteSchedule)
         scheduleStateful.addView(StatefulLayout2.CONTENT, binding.schedulePager)

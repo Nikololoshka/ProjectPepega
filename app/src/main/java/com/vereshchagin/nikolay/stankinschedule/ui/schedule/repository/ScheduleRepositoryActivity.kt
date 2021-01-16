@@ -9,9 +9,12 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityScheduleRepositoryBinding
+import com.vereshchagin.nikolay.stankinschedule.databinding.ViewErrorWithButtonBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.RepositoryCategoryAdapter
+import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
 
 /**
  * Удаленный репозиторий с расписаниями.
@@ -33,16 +36,12 @@ class ScheduleRepositoryActivity : AppCompatActivity() {
         statefulLayout = StatefulLayout2.Builder(binding.repositoryLayout)
             .init(StatefulLayout2.LOADING, binding.repositoryLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.repositoryContainer)
-            .addView(StatefulLayout2.ERROR, binding.repositoryErrorLayout)
+            .addView(StatefulLayout2.ERROR, binding.repositoryError)
             .create()
 
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        binding.repositoryErrorRetry.setOnClickListener {
-            viewModel.update()
-        }
 
         binding.repositoryRefresh.setOnRefreshListener {
             viewModel.update(false)
@@ -69,8 +68,15 @@ class ScheduleRepositoryActivity : AppCompatActivity() {
                     statefulLayout.setState(StatefulLayout2.LOADING)
                 }
                 is State.Failed -> {
-                    binding.repositoryError.text = state.error.toString()
-                    statefulLayout.setState(StatefulLayout2.ERROR)
+
+                    val description = ExceptionUtils.errorDescription(state.error, this)
+                    binding.repositoryError.createBinding<ViewErrorWithButtonBinding>()?.let {
+                        it.errorTitle.text = description
+                        it.errorAction.setOnClickListener {
+                            viewModel.update()
+                        }
+                        statefulLayout.setState(StatefulLayout2.ERROR)
+                    }
                 }
             }
         }

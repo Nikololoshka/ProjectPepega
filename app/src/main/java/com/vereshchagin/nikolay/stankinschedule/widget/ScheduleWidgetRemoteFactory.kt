@@ -139,7 +139,7 @@ class ScheduleWidgetRemoteFactory(
         try {
             // отображаем ошибку
             if (loadingError) {
-                val errorView = RemoteViews(packageName, R.layout.view_error)
+                val errorView = RemoteViews(packageName, R.layout.widget_schedule_error)
                 errorView.setTextViewText(R.id.error_title, errorMessage)
                 return errorView
             }

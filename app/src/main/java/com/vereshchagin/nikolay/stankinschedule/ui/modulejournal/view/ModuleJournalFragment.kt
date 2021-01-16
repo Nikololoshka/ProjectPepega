@@ -2,7 +2,6 @@ package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view
 
 import android.os.Bundle
 import android.view.*
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.CombinedLoadStates
@@ -21,6 +20,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
 import kotlinx.coroutines.flow.collectLatest
 
 /**
@@ -67,7 +67,7 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
         _statefulLayout = StatefulLayout2.Builder(binding.mjRoot)
             .init(StatefulLayout2.LOADING, binding.mjLoading)
             .addView(StatefulLayout2.CONTENT, binding.mjRefresh)
-            .addView(StatefulLayout2.ERROR, binding.mjContentError)
+            .addView(StatefulLayout2.ERROR, binding.mjError)
             .create()
 
         binding.appBarMj.addOnOffsetChangedListener(
@@ -91,11 +91,8 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
                 }
                 is State.Failed -> {
                     statefulLayout.setState(StatefulLayout2.ERROR)
-                    val errorBinding = DataBindingUtil.bind<ViewErrorWithButtonBinding>(
-                        binding.mjContentError.root
-                    )
                     val errorText = ExceptionUtils.errorDescription(state.error, requireContext())
-                    errorBinding?.let {
+                    binding.mjError.createBinding<ViewErrorWithButtonBinding>()?.let {
                         it.errorTitle.text = errorText
                         it.errorAction.setOnClickListener {
                             refreshAll(true)

@@ -6,13 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" >
 
-
     <TextView
         style="@style/Preference.CustomCategory"
         android:text="@string/widget_schedule_widget"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
 
     <com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout
         android:id="@+id/stateful_layout"
@@ -36,7 +34,6 @@
                 tools:itemCount="4" />
 
         </androidx.cardview.widget.CardView>
-
 
         <TextView
             style="@style/Text.Medium"

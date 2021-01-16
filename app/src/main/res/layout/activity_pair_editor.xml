@@ -28,9 +28,11 @@
 
         <include
             android:id="@+id/editor_loading"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            layout="@layout/view_loading" />
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            layout="@layout/view_loading"
+            tools:visibility="gone" />
 
         <ScrollView
             android:id="@+id/editor_content"

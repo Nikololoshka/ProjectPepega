@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_schedule_no_pairs"
+    style="@style/Text"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingStart="@dimen/widget_sch_padding"
-    android:paddingEnd="@dimen/widget_sch_padding"
     android:paddingTop="@dimen/default_layout_padding"
-    android:paddingBottom="@dimen/default_layout_padding">
-
-    <TextView
-        style="@style/Text"
-        android:id="@+id/widget_schedule_no_pairs"
-        android:text="@string/sch_view_no_pairs"
-        android:textColor="@color/colorTextSecondary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
-</FrameLayout>
+    android:paddingEnd="@dimen/widget_sch_padding"
+    android:paddingBottom="@dimen/default_layout_padding"
+    android:text="@string/sch_view_no_pairs"
+    android:textAlignment="center"
+    android:textColor="@color/colorTextSecondary" />

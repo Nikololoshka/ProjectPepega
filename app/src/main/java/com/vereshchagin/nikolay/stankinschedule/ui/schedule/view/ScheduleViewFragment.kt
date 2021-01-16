@@ -70,7 +70,7 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         _statefulLayout = StatefulLayout2.Builder(binding.statefulLayout)
-            .init(StatefulLayout2.LOADING, binding.schViewLoading.loadingFragment)
+            .init(StatefulLayout2.LOADING, binding.schViewLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.schViewContainer)
             .addView(StatefulLayout2.EMPTY, binding.schViewEmpty)
             .addView(StatefulLayout2.ERROR, binding.schViewError)

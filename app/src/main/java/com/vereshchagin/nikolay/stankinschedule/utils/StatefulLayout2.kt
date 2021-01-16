@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.utils
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewStubProxy
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.inflateView
 
 
 class StatefulLayout2(
@@ -34,17 +35,12 @@ class StatefulLayout2(
 
         var oldState = states[currentState]
         if (oldState == null) {
-            val stub = stubs[currentState]!!
-            oldState = stub.root!!
+            oldState = stubs[currentState]!!.inflateView()
         }
 
         var newState = states[key]
         if (newState == null) {
-            val stub = stubs[key]!!
-            if (!stub.isInflated) {
-                stub.viewStub?.inflate()
-            }
-            newState = stub.root!!
+            newState = stubs[key]!!.inflateView()
         }
 
         AnimationUtils.fade(oldState, false)

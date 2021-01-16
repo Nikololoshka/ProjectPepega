@@ -1,69 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    tools:context=".ui.schedule.view.ScheduleViewFragment">
-    <!--  Padding находится внутри schedule_card чтобы анимация была красивая -->
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout
-        android:id="@+id/stateful_layout"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorScheduleViewBackground"
-        android:gravity="center" >
+        android:orientation="vertical"
+        tools:context=".ui.schedule.view.ScheduleViewFragment">
+        <!--  Padding находится внутри schedule_card чтобы анимация была красивая -->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/sch_view_container"
+        <com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout
+            android:id="@+id/stateful_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:background="@color/colorScheduleViewBackground"
+            android:gravity="center">
 
-        <LinearLayout
-            android:id="@+id/sch_view_error"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/sch_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-            <TextView
-                style="@style/Text.Medium"
-                android:id="@+id/error_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:id="@+id/sch_view_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                style="@style/Text.Body1"
-                android:id="@+id/error_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/error_title"
+                    style="@style/Text.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/error_description"
+                    style="@style/Text.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-        <include
-            android:id="@+id/sch_view_loading"
-            layout="@layout/view_loading"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"/>
+            </LinearLayout>
 
-        <FrameLayout
-            android:id="@+id/sch_view_empty"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/Text.Large"
-                android:text="@string/sch_view_empty"
+            <include
+                android:id="@+id/sch_view_loading"
+                layout="@layout/view_loading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
-        </FrameLayout>
+            <FrameLayout
+                android:id="@+id/sch_view_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
 
-    </com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout>
+                <TextView
+                    style="@style/Text.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/sch_view_empty" />
 
-</RelativeLayout>
+            </FrameLayout>
 
+        </com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout>
+
+    </RelativeLayout>
+
+</layout>

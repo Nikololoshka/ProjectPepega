@@ -7,7 +7,7 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import org.joda.time.LocalDate
 
 /**
- * Источник данных (дней) для простомтра расписания.
+ * Источник данных (дней) для просмотра расписания.
  */
 class ScheduleViewDaySource(
     private val schedule: Schedule,

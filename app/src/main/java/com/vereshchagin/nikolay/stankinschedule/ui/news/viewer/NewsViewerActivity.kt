@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.webkit.WebSettingsCompat
+import androidx.webkit.WebViewAssetLoader
 import androidx.webkit.WebViewFeature
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
@@ -24,10 +25,13 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.appbar.AppBarLayout
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityNewsViewerBinding
+import com.vereshchagin.nikolay.stankinschedule.databinding.ViewErrorWithButtonBinding
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.utils.*
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
 
 /**
  * Активность для просмотра новостей.
@@ -53,8 +57,8 @@ class NewsViewerActivity : AppCompatActivity() {
 
         binding = ActivityNewsViewerBinding.inflate(layoutInflater)
         stateful = StatefulLayout2.Builder(binding.newsLayout)
-            .init(StatefulLayout2.LOADING, binding.newsLoading.loadingFragment)
-            .addView(StatefulLayout2.ERROR, binding.newsError.errorButtonFragment)
+            .init(StatefulLayout2.LOADING, binding.newsLoading.root)
+            .addView(StatefulLayout2.ERROR, binding.newsError)
             .addView(StatefulLayout2.CONTENT, binding.newsView)
             .create()
 
@@ -93,10 +97,12 @@ class NewsViewerActivity : AppCompatActivity() {
         }
 
         // настройка WebView
+        val assetLoader = WebViewAssetLoader.Builder()
+            .addPathHandler("/assets/", WebViewAssetLoader.AssetsPathHandler(this))
+            .build()
+
         binding.newsView.settings.apply {
             allowFileAccess = true
-            allowFileAccessFromFileURLs = true
-            allowUniversalAccessFromFileURLs = true
             loadsImagesAutomatically = true
             javaScriptEnabled = true
         }
@@ -130,6 +136,13 @@ class NewsViewerActivity : AppCompatActivity() {
                 CommonUtils.openBrowser(this@NewsViewerActivity, request?.url.toString())
                 return true
             }
+
+            override fun shouldInterceptRequest(
+                view: WebView?,
+                request: WebResourceRequest
+            ): WebResourceResponse? {
+                return assetLoader.shouldInterceptRequest(request.url)
+            }
         }
 
         binding.appBarPost.addOnOffsetChangedListener(
@@ -145,14 +158,9 @@ class NewsViewerActivity : AppCompatActivity() {
                     .centerCrop()
             )
 
-        // обновление по свайпу
+        // обновление новости
         binding.newsRefresh.setOnRefreshListener {
             viewModel.refresh(false)
-        }
-
-        // обновление после ошибки
-        binding.newsError.errorAction.setOnClickListener {
-            viewModel.refresh()
         }
 
         // пост
@@ -235,8 +243,16 @@ class NewsViewerActivity : AppCompatActivity() {
                 stateful.setState(StatefulLayout2.LOADING)
             }
             is State.Failed -> {
-                binding.newsError.errorTitle.text = state.error.toString()
-                stateful.setState(StatefulLayout2.ERROR)
+                val description = ExceptionUtils.errorDescription(state.error, this)
+
+                binding.newsError.createBinding<ViewErrorWithButtonBinding>()?.let {
+                    it.errorTitle.text = description
+                    it.errorAction.setOnClickListener {
+                        viewModel.refresh()
+                    }
+
+                    stateful.setState(StatefulLayout2.ERROR)
+                }
             }
         }
 

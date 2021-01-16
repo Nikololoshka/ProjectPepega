@@ -18,14 +18,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:drawableStart="@drawable/ic_common_schedule"
                 android:drawablePadding="@dimen/schedule_item_padding"
                 android:paddingHorizontal="@dimen/schedule_item_layout_padding"
                 android:paddingVertical="@dimen/schedule_item_padding"
-                android:text="@string/sch_my_schedule" />
+                android:text="@string/sch_my_schedule"
+                app:drawableStartCompat="@drawable/ic_common_schedule" />
 
-            <View
-                style="@style/Divider"/>
+            <View style="@style/Divider" />
 
             <FrameLayout
                 android:id="@+id/schedules_container"
@@ -40,15 +39,15 @@
                     android:gravity="center"
                     android:padding="@dimen/default_information_padding"
                     android:text="@string/sch_no_available"
-                    tools:visibility="gone"/>
+                    tools:visibility="gone" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/schedules"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_schedule"
-                    tools:itemCount="15" />
+                    tools:itemCount="15"
+                    tools:listitem="@layout/item_schedule" />
 
             </FrameLayout>
 
@@ -58,9 +57,9 @@
             android:id="@+id/add_schedule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_common_schedule_add"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_common_schedule_add"
             app:backgroundTint="@color/colorToolbarContent"
             app:tint="@android:color/white" />
 
