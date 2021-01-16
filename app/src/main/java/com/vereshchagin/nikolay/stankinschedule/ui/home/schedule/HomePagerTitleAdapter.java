@@ -27,7 +27,8 @@ public class HomePagerTitleAdapter extends PagerAdapter {
     }
 
     /**
-     * Обновляет данные в адапторе.
+     * Обновляет данные в адаптере.
+     *
      * @param titleData массив с заголовками.
      */
     public void update(@NonNull ArrayList<String> titleData) {

@@ -29,7 +29,7 @@ enum class Frequency(val tag: String, val period: Int) : Parcelable {
                     return frequency
                 }
             }
-            throw IllegalArgumentException("No parse frequency: $value");
+            throw IllegalArgumentException("No parse frequency: $value")
         }
     }
 }

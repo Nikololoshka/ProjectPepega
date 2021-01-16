@@ -25,7 +25,7 @@ enum class Type(val tag: String) : Parcelable {
 
     companion object {
         /**
-         * Возвращает значение типа пары соотвествующие значению в строке.
+         * Возвращает значение типа пары соответствующие значению в строке.
          */
         fun of(value: String): Type {
             for (type in values()) {

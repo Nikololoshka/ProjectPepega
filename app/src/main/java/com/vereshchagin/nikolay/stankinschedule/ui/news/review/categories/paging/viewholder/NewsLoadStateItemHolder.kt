@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNetworkStateBinding
-import com.vereshchagin.nikolay.stankinschedule.utils.setVisibility
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setVisibility
 
 /**
  * Holder для отображения ошибки ил загрузки списка новостей.

@@ -51,7 +51,6 @@ class ScheduleServerRepository(
 
         if (useCache) {
             val cache = loadDescription()
-            Log.d(TAG, "description: ${cache}")
             if (cache != null && isValid(cache.date)) {
                 emit(State.success(cache))
                 return@flow
@@ -166,7 +165,7 @@ class ScheduleServerRepository(
     }
 
     /**
-     * Проверяет, является ли кэш валидным.
+     * Проверяет, является ли кэш актуальными.
      */
     private fun isValid(date: DateTime): Boolean {
         return Hours.hoursBetween(date, DateTime.now()).hours < 2

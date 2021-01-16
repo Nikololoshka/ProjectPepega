@@ -26,7 +26,7 @@ class ChangeSubgroupBottomSheet : BottomSheetDialogFragment(), View.OnClickListe
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = DialogChangeSubgroupBinding.inflate(inflater, container, false)
 
         val subgroup = ApplicationPreference.subgroup(requireContext())

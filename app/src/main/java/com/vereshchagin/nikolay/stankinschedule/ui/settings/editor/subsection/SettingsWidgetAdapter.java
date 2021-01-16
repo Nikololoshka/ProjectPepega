@@ -81,9 +81,10 @@ public class SettingsWidgetAdapter
         }
 
         /**
-         * Обновляет анные в holder.
+         * Обновляет данные в holder.
+         *
          * @param scheduleName название расписания.
-         * @param widgetID ID виджета расписания.
+         * @param widgetID     ID виджета расписания.
          */
         void bind(@NonNull String scheduleName, int widgetID) {
             mScheduleTitle.setText(scheduleName);

@@ -31,7 +31,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFra
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
-import com.vereshchagin.nikolay.stankinschedule.utils.extractFilename
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.extractFilename
 import org.apache.commons.io.IOUtils
 import java.io.FileNotFoundException
 import java.nio.charset.StandardCharsets
@@ -268,7 +268,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                     viewModel.createSchedule(scheduleName)
                 }
             }
-            // загрузка расписания с устройста
+            // загрузка расписания с устройства
             REQUEST_LOAD_SCHEDULE -> {
                 var scheduleName = ""
                 try {

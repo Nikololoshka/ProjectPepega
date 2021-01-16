@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vereshchagin.nikolay.stankinschedule.R;
 
 /**
- * Callback для перемещения с помошью Drag & Drop в RecyclerView.
+ * Callback для перемещения с помощью Drag & Drop в RecyclerView.
  */
 public abstract class DragToMoveCallback extends ItemTouchHelper.Callback {
 
@@ -24,7 +24,8 @@ public abstract class DragToMoveCallback extends ItemTouchHelper.Callback {
      */
     public interface OnStartDragListener {
         /**
-         * Вызывается когда требуется начать перетаскивание.
+         * Вызывается, когда требуется начать перетаскивание.
+         *
          * @param viewHolder - передвигаемая view.
          */
         void onStartDrag(RecyclerView.ViewHolder viewHolder);

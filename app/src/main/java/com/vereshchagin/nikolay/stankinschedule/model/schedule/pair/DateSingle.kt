@@ -10,7 +10,7 @@ import org.joda.time.LocalDate
 import org.joda.time.format.DateTimeFormat
 
 /**
- * Единождая дата пары.
+ * Единственная дата пары.
  */
 class DateSingle : DateItem {
 

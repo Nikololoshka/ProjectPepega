@@ -43,7 +43,8 @@ public class ApplicationPreference {
 
 
     /**
-     * Возвращает текущие созраненое значение режима темной темы.
+     * Возвращает текущие сохранённое значение режима темной темы.
+     *
      * @param context контекст.
      * @return режим темной темы.
      */
@@ -99,7 +100,7 @@ public class ApplicationPreference {
     /**
      * Возвращает количество дней, которые будет прогружены вперед и назад на главном экране.
      * @param context контекст приложения.
-     * @return количество дней прогрузки.
+     * @return количество дней загрузки.
      */
     public static int homeScheduleDelta(@NonNull Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -117,7 +118,7 @@ public class ApplicationPreference {
     }
 
     /**
-     * Возвращает значение, должно ли граничиваться расписание.
+     * Возвращает значение, должно ли ограничиваться расписание.
      * @param context контекст.
      * @return true - нужно ограничивать, иначе false.
      */
@@ -149,7 +150,7 @@ public class ApplicationPreference {
     }
 
     /**
-     * Возвращет true, если необходимо отображать подгруппу на главной.
+     * Возвращает true, если необходимо отображать подгруппу на главной.
      */
     public static boolean displaySubgroup(@NonNull Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -178,7 +179,7 @@ public class ApplicationPreference {
 
     /**
      * Устанавливает подгруппу.
-     * @param context контест приложения.
+     * @param context контекст приложения.
      * @param subgroup подгруппа.
      */
     public static void setSubgroup(@NonNull Context context, @NonNull Subgroup subgroup) {

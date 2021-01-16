@@ -216,7 +216,7 @@ class ScheduleWidgetRemoteFactory(
     }
 
     /**
-     * Сервис, который создает адаптер по обновлению данных в виджете.
+     * Сервис, который создает адаптер по обновлению данных виджета.
      */
     class Service : RemoteViewsService() {
         override fun onGetViewFactory(intent: Intent): RemoteViewsFactory {
@@ -225,7 +225,7 @@ class ScheduleWidgetRemoteFactory(
     }
 
     /**
-     * Информация о дне в виджете с расписанием.
+     * Информация о дне виджета с расписанием.
      * @param dayTitle заголовок дня.
      * @param pairs пары дня.
      * @param dayTime дата дня.

@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.utils
+package com.vereshchagin.nikolay.stankinschedule.utils.extensions
 
 import android.content.Context
 import android.net.Uri
@@ -14,7 +14,6 @@ import java.util.*
 
 /**
  * Текущая позиция в DropDown.
- * @see DropDownAdapter
  */
 fun MaterialAutoCompleteTextView.currentPosition(): Int {
     val currentText = text.toString()
@@ -29,7 +28,6 @@ fun MaterialAutoCompleteTextView.currentPosition(): Int {
 
 /**
  * Установить позицию в DropDown.
- * @see DropDownAdapter
  */
 fun MaterialAutoCompleteTextView.setCurrentPosition(position: Int) {
     val item = adapter.getItem(position) as String

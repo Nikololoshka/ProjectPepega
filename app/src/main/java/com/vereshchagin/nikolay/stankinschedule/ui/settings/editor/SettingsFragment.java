@@ -61,7 +61,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
             return false;
         }
 
-        // реализция передвижения по настройкам с помощью Navigation graph
+        // реализация передвижения по настройкам с помощью Navigation graph
         NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host);
 
         @IdRes
@@ -76,11 +76,11 @@ public class SettingsFragment extends PreferenceFragmentCompat
             case SETTINGS_SCHEDULE_FRAGMENT:
                 destination = R.id.toSettingsScheduleFragment;
                 break;
-            // к настрокам виджетов
+            // к настройкам виджетов
             case SETTINGS_WIDGET_FRAGMENT:
                 destination = R.id.toSettingsWidgetFragment;
                 break;
-            // к настрокам уведомлений
+            // к настройкам уведомлений
             case SETTINGS_NOTIFICATION_FRAGMENT:
                 // android 8.0+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

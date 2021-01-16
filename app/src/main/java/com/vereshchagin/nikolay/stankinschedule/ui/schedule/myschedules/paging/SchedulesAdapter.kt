@@ -31,7 +31,7 @@ class SchedulesAdapter(
     private var favorite: String = ""
 
     /**
-     * Анимировать ли кнопку "избранное".
+     * Нужно ли анимировать ли кнопку "избранное".
      */
     private var isAnimateFavoriteButton = false
 

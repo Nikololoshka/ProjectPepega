@@ -45,7 +45,7 @@ enum class Subgroup(val tag: String) : Parcelable {
 
     companion object {
         /**
-         * Возвращает значение подгруппы соотвествующие значению в строке.
+         * Возвращает значение подгруппы соответствующие значению в строке.
          */
         @JvmStatic
         fun of(value: String): Subgroup {

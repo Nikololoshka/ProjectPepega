@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule;
 
+
 import androidx.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
@@ -14,7 +15,7 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
-        @Test
+    @Test
     public void useAppContext() {
         assertTrue(true);
     }

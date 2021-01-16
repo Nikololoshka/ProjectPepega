@@ -7,7 +7,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.vereshchagin.nikolay.stankinschedule.R;
 
 /**
- * Категориия настроек расписания приложения.
+ * Категория настроек расписания приложения.
  */
 public class SettingsScheduleFragment extends PreferenceFragmentCompat {
 

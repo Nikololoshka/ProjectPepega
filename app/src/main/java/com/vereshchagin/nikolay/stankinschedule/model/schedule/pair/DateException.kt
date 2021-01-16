@@ -22,7 +22,7 @@ class DateDayOfWeekException(
 ) : DateException(message, cause)
 
 /**
- * Не удалось распарсить дату.
+ * Не удалось считать дату.
  */
 class DateParseException(
     message: String?, val parseDate: String, cause: Throwable? = null

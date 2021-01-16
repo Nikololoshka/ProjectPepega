@@ -59,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
+            android:contentDescription="@string/sch_adding_new_schedules"
             android:src="@drawable/ic_common_schedule_add"
             app:backgroundTint="@color/colorToolbarContent"
             app:tint="@android:color/white" />

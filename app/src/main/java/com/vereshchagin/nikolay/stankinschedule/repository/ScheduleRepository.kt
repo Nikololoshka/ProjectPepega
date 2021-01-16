@@ -45,7 +45,7 @@ class ScheduleRepository {
     }
 
     /**
-     * Возвращает список расписаний устройста.
+     * Возвращает список расписаний устройства.
      */
     fun schedules(context: Context): List<String> {
         return SchedulePreference.schedules(context)
@@ -62,7 +62,7 @@ class ScheduleRepository {
     }
 
     /**
-     * Переименновывает расписание.
+     * Переименовывает расписание.
      */
     fun renameSchedule(context: Context, oldName: String, newName: String) {
         val oldFile = File(SchedulePreference.createPath(context, oldName))
@@ -156,7 +156,7 @@ class ScheduleRepository {
     }
 
     /**
-     * Загружает и сохранаяет расписание с json.
+     * Загружает и сохраняет расписание с json.
      */
     fun loadAndSaveFromJson(context: Context, json: String, scheduleName: String) {
         if (schedules(context).contains(scheduleName)) {

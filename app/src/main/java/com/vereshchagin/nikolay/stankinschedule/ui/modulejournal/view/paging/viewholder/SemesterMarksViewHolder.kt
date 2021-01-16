@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemModuleJournalSemesterBinding
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
-import com.vereshchagin.nikolay.stankinschedule.utils.setVisibility
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setVisibility
 
 /**
  * Элемент для отображения оценок в семестре.

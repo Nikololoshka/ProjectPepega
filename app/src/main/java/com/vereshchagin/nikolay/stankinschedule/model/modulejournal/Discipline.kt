@@ -35,7 +35,7 @@ data class Discipline(
 
     /**
      * Вычисляет прогнозируемый рейтинг для дисциплины.
-     * @param средний рейтинг для отсутствующих оценок.
+     * @param averageRating средний рейтинг для отсутствующих оценок.
      */
     fun computePredictedRating(averageRating: Int): Double {
         var disciplineSum = 0.0

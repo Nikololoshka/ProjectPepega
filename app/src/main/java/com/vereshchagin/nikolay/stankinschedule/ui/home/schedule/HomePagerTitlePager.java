@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
 /**
- * Верхний pager для отображение заголовка дня (дату).
+ * Верхний pager для отображения заголовка дня (дату).
  */
 public class HomePagerTitlePager extends ViewPager {
 
@@ -22,7 +22,7 @@ public class HomePagerTitlePager extends ViewPager {
     }
 
     /**
-     * Переизмеряет pager.
+     * Устанавливает, нужно ли пересчитывать размеры pager.
      */
     public void remeasure() {
         measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
@@ -31,7 +31,7 @@ public class HomePagerTitlePager extends ViewPager {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        // Среди всех child элементов берем самы максимальный по высоте.
+        // Среди всех child элементов берем самые максимальный по высоте.
         // Это и будет высота нашего pager'а.
 
         int height = 0;

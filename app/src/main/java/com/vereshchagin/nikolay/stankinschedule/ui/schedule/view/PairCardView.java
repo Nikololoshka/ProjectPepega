@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
@@ -83,7 +84,7 @@ public class PairCardView extends CardView {
 
         TypedValue value = new TypedValue();
         context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, value, true);
-        setForeground(context.getDrawable(value.resourceId));
+        setForeground(ContextCompat.getDrawable(context, value.resourceId));
         setRadius(0);
         setCardElevation(0);
         setMaxCardElevation(0);
@@ -226,7 +227,8 @@ public class PairCardView extends CardView {
     }
 
     /**
-     * Определяет является ли цвет темным.
+     * Определяет, является ли цвет темным.
+     *
      * @param color цвет.
      * @return true если темный, иначе false.
      */

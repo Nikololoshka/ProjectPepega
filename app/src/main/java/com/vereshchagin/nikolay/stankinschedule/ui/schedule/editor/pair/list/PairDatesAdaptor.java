@@ -168,7 +168,7 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
         public void onClick(View v) {
             // нажата дата
             if (v.getId() == R.id.date_item) {
-                mListener.onDateItemClicked(getAdapterPosition());
+                mListener.onDateItemClicked(getBindingAdapterPosition());
             }
         }
     }

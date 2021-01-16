@@ -10,12 +10,12 @@ import com.google.gson.reflect.TypeToken
 class ListConverter {
 
     @TypeConverter
-    public fun fromList(list: List<String>): String {
+    fun fromList(list: List<String>): String {
         return Gson().toJson(list)
     }
 
     @TypeConverter
-    public fun toList(json: String): List<String> {
+    fun toList(json: String): List<String> {
         val type = object : TypeToken<List<String>>() {}.type
         return Gson().fromJson(json, type)
     }

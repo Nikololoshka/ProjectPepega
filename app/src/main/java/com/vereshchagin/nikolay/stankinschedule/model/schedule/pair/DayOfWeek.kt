@@ -43,7 +43,7 @@ enum class DayOfWeek : Parcelable {
 
     companion object {
         /**
-         * Возвращает день недели соотвествующей даты.
+         * Возвращает день недели соответствующей даты.
          * @param date дата.
          * @return день недели.
          * @throws DateDayOfWeekException если не удалось узнать день недели.

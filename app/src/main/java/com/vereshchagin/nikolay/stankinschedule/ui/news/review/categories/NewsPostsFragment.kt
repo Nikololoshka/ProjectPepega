@@ -54,7 +54,7 @@ class NewsPostsFragment : BaseFragment<ItemNewsPostsListBinding>() {
     @InternalCoroutinesApi
     @ExperimentalPagingApi
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        // glide для загрузки превью
+        // glide для загрузки пред просмотра
         val glide = Glide.with(this)
             .setDefaultRequestOptions(
                 RequestOptions()

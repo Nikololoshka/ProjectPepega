@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
 /**
- * Pager для отбражения пар.
+ * Pager для отображения пар.
  */
 public class HomePagerPairsPager extends ViewPager {
 
@@ -74,8 +74,9 @@ public class HomePagerPairsPager extends ViewPager {
     }
 
     /**
-     * Обновлет текущию отображаемую view. Вызывается adapter'ом, если
+     * Обновляет текущую отображаемую view. Вызывается adapter'ом, если
      * тот установил отображаемый сейчас элемент.
+     *
      * @param view отображаемая сейчас view.
      */
     public void updateCurrentView(@NonNull View view) {
@@ -93,7 +94,7 @@ public class HomePagerPairsPager extends ViewPager {
     }
 
     /**
-     * Переизмеряет pager.
+     * Устанавливает, нужно ли пересчитывать размеры pager.
      */
     public void remeasure() {
         mIsInitialization = false;

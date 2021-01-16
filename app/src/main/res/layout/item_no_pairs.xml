@@ -4,7 +4,6 @@
     style="@style/Text.Medium"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorCardViewBackground"
     android:padding="@dimen/default_information_padding"
     android:text="@string/sch_view_no_pairs"
     android:textAlignment="center" />

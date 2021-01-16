@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.Log
 import androidx.appcompat.widget.AppCompatImageButton
+import androidx.core.content.ContextCompat
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import com.vereshchagin.nikolay.stankinschedule.R
 
@@ -35,8 +36,8 @@ class FavoriteButton : AppCompatImageButton {
 
     private fun initialization() {
         mIsFavorite = false
-        mNotFavorite = context.getDrawable(R.drawable.ic_favorite_star_unchecked)
-        mFavorite = context.getDrawable(R.drawable.ic_favorite_star_checked)
+        mNotFavorite = ContextCompat.getDrawable(context, R.drawable.ic_favorite_star_unchecked)
+        mFavorite = ContextCompat.getDrawable(context, R.drawable.ic_favorite_star_checked)
         mFavoriteActivated =
             AnimatedVectorDrawableCompat.create(context, R.drawable.avd_favorite_button)
         setImageDrawable(mNotFavorite)

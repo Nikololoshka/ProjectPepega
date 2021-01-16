@@ -24,16 +24,17 @@ class AddScheduleBottomSheet : BottomSheetDialogFragment(), View.OnClickListener
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = DialogAddScheduleBinding.inflate(inflater, container, false)
 
         binding.createSchedule.setOnClickListener(this)
         binding.fromRepository.setOnClickListener(this)
         binding.loadSchedule.setOnClickListener(this)
 
-        // для исправления "заезжания" диалога
+        // для исправления "сворачивания" диалога
         binding.root.viewTreeObserver.addOnGlobalLayoutListener {
-            val bottomSheet = dialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+            val bottomSheet =
+                dialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
             bottomSheet?.let {
                 val behavior = BottomSheetBehavior.from(it)
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
