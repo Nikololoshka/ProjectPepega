@@ -78,13 +78,13 @@ class ModuleJournalViewModel(
                 .collect {
                     studentDateResult(it, useCache)
                 }
-            repository.predictedRating()
-                .collect {
-                    predictedRating.value = it
-                }
             repository.currentRating()
                 .collect {
                     currentRating.value = it
+                }
+            repository.predictedRating()
+                .collect {
+                    predictedRating.value = it
                 }
         }
     }

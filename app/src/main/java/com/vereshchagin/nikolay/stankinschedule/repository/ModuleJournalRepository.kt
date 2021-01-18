@@ -74,7 +74,11 @@ class ModuleJournalRepository(private val cacheDir: File) {
         try {
             val response = api.getSemesters(userLogin, userPassword).await()
             saveCacheStudentData(StudentData.fromResponse(response))
-            ModuleJournalPreference.signIn(MainApplication.instance, userLogin, userPassword)
+            ModuleJournalPreference.signIn(
+                MainApplication.instance.applicationContext,
+                userLogin,
+                userPassword
+            )
             emit(State.success(true))
 
         } catch (e: Exception) {
@@ -86,7 +90,7 @@ class ModuleJournalRepository(private val cacheDir: File) {
      * Выполняет выход из модульного журнала.
      */
     fun signOut() {
-        ModuleJournalPreference.signOut(MainApplication.instance)
+        ModuleJournalPreference.signOut(MainApplication.instance.applicationContext)
         clearCache()
     }
 

@@ -71,4 +71,8 @@ class ShimmerTextView : AppCompatTextView {
         }
         background = if (text != null && text.isNotEmpty()) null else shimmerDrawable
     }
+
+    companion object {
+        private const val TAG = "ShimmerTextViewLog"
+    }
 }

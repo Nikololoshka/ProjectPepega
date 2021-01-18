@@ -103,7 +103,7 @@ data class SemesterMarks(
      * Проверяет, действительны ли оценки.
      */
     fun isValid(last: Boolean = false): Boolean {
-        return Minutes.minutesBetween(DateTime.now(), time).minutes < 60 +
+        return Minutes.minutesBetween(time, DateTime.now()).minutes < 60 +
             if (last) 0 else 60 * 24 * 7
     }
 

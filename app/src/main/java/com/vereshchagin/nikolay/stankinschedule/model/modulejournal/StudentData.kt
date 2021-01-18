@@ -22,7 +22,7 @@ class StudentData(
      * Проверяет, являются ли данные о студенте актуальными.
      */
     fun isValid(): Boolean {
-        return Minutes.minutesBetween(DateTime.now(), time).minutes < 60 * 8
+        return Minutes.minutesBetween(time, DateTime.now()).minutes < 60 * 8
     }
 
     override fun toString(): String {
