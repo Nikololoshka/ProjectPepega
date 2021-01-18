@@ -23,6 +23,10 @@ class DateSingle : DateItem {
         try {
             date = DateTimeFormat.forPattern(pattern).parseDateTime(text)
             dayOfWeek = DayOfWeek.of(date)
+
+        } catch (e: DateDayOfWeekException) {
+            throw e
+
         } catch (e: Exception) {
             throw DateParseException("Invalid parse date: $text", text, e)
         }

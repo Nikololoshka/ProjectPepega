@@ -4,105 +4,65 @@ import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.PairIntersectException
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import org.apache.commons.io.FileUtils
-import org.junit.Assert
+import com.vereshchagin.nikolay.stankinschedule.resources.PairResources
+import org.junit.Before
 import org.junit.Test
-import java.io.File
-import java.io.IOException
-import java.nio.charset.StandardCharsets
 
 /**
- * Тесты связанные с расписанием.
+ * Тесты для расписания.
  */
 class ScheduleTest {
-    @Test
-    fun loading() {
-        val schedule = Schedule()
-        schedule.add(loadPair("pair_1.json"))
-        Assert.assertTrue(true)
-    }
 
-    @Test(expected = PairIntersectException::class)
-    fun impossiblePairs() {
-        val schedule = Schedule()
-        schedule.add(loadPair("pair_1.json"))
-        schedule.add(loadPair("pair_2.json"))
-    }
+    private val pairs: ArrayList<Pair> = arrayListOf()
 
-    @Test
-    fun possiblePairs() {
-        val schedule = Schedule()
-        schedule.add(loadPair("pair_2.json"))
-        schedule.add(loadPair("pair_3.json"))
-    }
+    @Before
+    fun uploadPairs() {
+        val gson = GsonBuilder()
+            .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
+            .create()
 
-    @Test(expected = PairIntersectException::class)
-    fun impossibleIntersect() {
-        val schedule = Schedule()
-        schedule.add(loadPair("pair_4.json"))
-        schedule.add(loadPair("pair_5.json"))
-        schedule.add(loadPair("pair_6.json"))
-    }
-
-    @Test
-    fun commonLoading() {
-        val schedules = FileUtils.listFiles(File(PATH_SCHEDULES), null, false)
-        for (schedule in schedules) {
-            println(schedule.name)
-
-//            if (schedule.name == "МДС-18-02.json") {
-//                continue
-//            }
-
-            val json = FileUtils.readFileToString(schedule, StandardCharsets.UTF_8)
-            GsonBuilder()
-                .registerTypeAdapter(Schedule::class.java, Schedule.Deserializer())
-                .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
-                .create()
-                .fromJson(json, Schedule::class.java)
-        }
-    }
-
-    @Test
-    fun repositoryLoading() {
-        val schedules = FileUtils.listFiles(File(PATH_SCHEDULES), null, false)
-
-        val repository = ScheduleRepository()
-        for (schedule in schedules) {
-            println(schedule)
-
-//            if (schedule.name == "МДС-18-02.json") {
-//                continue
-//            }
-
-            repository.load(schedule.absolutePath)
+        for (json in PairResources.PAIRS) {
+            pairs.add(gson.fromJson(json, Pair::class.java))
         }
     }
 
     /**
-     * Загружает пару из файла.
-     * @param filename имя файла.
-     * @return пара.
+     * Добавление в пустое расписание пары.
      */
-    private fun loadPair(filename: String): Pair {
-        try {
-
-            val file = FileUtils.getFile(PATH, filename)
-            val json = FileUtils.readFileToString(file, StandardCharsets.UTF_8)
-
-            return GsonBuilder()
-                .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
-                .create()
-                .fromJson(json, Pair::class.java)
-
-        } catch (e: IOException) {
-            throw IllegalArgumentException("Unknown error", e)
-        }
+    @Test
+    fun loading() {
+        val schedule = Schedule()
+        schedule.add(pairs[0])
     }
 
-    companion object {
-        private const val PATH = "src/test/resources/"
-        private const val PATH_SCHEDULES = "src/main/assets/schedules/"
+    /**
+     * Невозможное существование пар по дате.
+     */
+    @Test(expected = PairIntersectException::class)
+    fun impossibleDatePairs() {
+        val schedule = Schedule()
+        schedule.add(pairs[0])
+        schedule.add(pairs[1])
+    }
+
+    /**
+     * Возможное существование пар в расписании по времени.
+     */
+    @Test
+    fun possibleTimePairs() {
+        val schedule = Schedule()
+        schedule.add(pairs[1])
+        schedule.add(pairs[2])
+    }
+
+    /**
+     * Невозможное существование пары по подгруппе.
+     */
+    @Test(expected = PairIntersectException::class)
+    fun impossibleSubgroupIntersect() {
+        val schedule = Schedule()
+        schedule.add(pairs[3])
+        schedule.add(pairs[4])
+        schedule.add(pairs[5])
     }
 }

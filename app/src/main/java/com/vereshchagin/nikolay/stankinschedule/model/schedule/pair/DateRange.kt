@@ -94,7 +94,7 @@ class DateRange : DateItem {
         dayOfWeek = DayOfWeek.of(start)
 
         val days = Days.daysBetween(start, end).days
-        if (days == 0 || days % frequency.period != 0) {
+        if (days <= 0 || days % frequency.period != 0) {
             throw DateFrequencyException(
                 "Invalid frequency: $start - $end, ${frequency.tag}",
                 this.toString(), frequency
