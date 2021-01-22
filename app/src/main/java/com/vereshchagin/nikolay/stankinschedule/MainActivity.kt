@@ -150,6 +150,12 @@ class MainActivity : AppCompatActivity() {
         // throw RuntimeException("Stack deobfuscation example exception");
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
+        return navHostFragment.navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         appUpdateManager.unregisterListener(this::onUpdateState)

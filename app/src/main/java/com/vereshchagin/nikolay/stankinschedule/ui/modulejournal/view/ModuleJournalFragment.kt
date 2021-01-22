@@ -38,8 +38,11 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
     /**
      * Менеджер состояний.
      */
-    private var _statefulLayout: StatefulLayout2? = null
-    private val statefulLayout get() = _statefulLayout!!
+    private var _statefulStudentLayout: StatefulLayout2? = null
+    private val statefulStudentLayout get() = _statefulStudentLayout!!
+
+    private var _statefulSemestersLayout: StatefulLayout2? = null
+    private val statefulSemestersLayout get() = _statefulSemestersLayout!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,36 +66,41 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
         }
         ModuleJournalWorker.startWorker(requireContext())
 
-        binding.mjLoadingStudent.setShimmer(DrawableUtils.createShimmer())
-        _statefulLayout = StatefulLayout2.Builder(binding.mjRoot)
-            .init(StatefulLayout2.LOADING, binding.mjLoading)
-            .addView(StatefulLayout2.CONTENT, binding.mjRefresh)
-            .addView(StatefulLayout2.ERROR, binding.mjError)
+        binding.studentLoadingShimmer.setShimmer(DrawableUtils.createShimmer())
+        _statefulStudentLayout = StatefulLayout2.Builder(binding.mjContainer)
+            .init(StatefulLayout2.LOADING, binding.studentLoading)
+            .addView(StatefulLayout2.CONTENT, binding.refresh)
+            .addView(StatefulLayout2.ERROR, binding.studentError)
             .create()
 
-        binding.appBarMj.addOnOffsetChangedListener(
+        _statefulSemestersLayout = StatefulLayout2.Builder(binding.semestersContainer)
+            .init(StatefulLayout2.LOADING, binding.semestersLoading.root)
+            .addView(StatefulLayout2.CONTENT, binding.semestersPager)
+            .create()
+
+        binding.appBar.addOnOffsetChangedListener(
             AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
-                binding.mjRefresh.isEnabled = verticalOffset == 0
+                binding.refresh.isEnabled = verticalOffset == 0
             }
         )
-        binding.mjRefresh.setOnRefreshListener(this::refreshAll)
+        binding.refresh.setOnRefreshListener(this::refreshAll)
 
         // информация о студенте
         viewModel.studentData.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is State.Success -> {
-                    binding.mjStudentName.text = state.data.student
-                    binding.mjStudentGroup.text = state.data.group
+                    binding.studentName.text = state.data.student
+                    binding.studentGroup.text = state.data.group
 
-                    statefulLayout.setState(StatefulLayout2.CONTENT)
+                    statefulStudentLayout.setState(StatefulLayout2.CONTENT)
                 }
                 is State.Loading -> {
-                    statefulLayout.setState(StatefulLayout2.LOADING)
+                    statefulStudentLayout.setState(StatefulLayout2.LOADING)
                 }
                 is State.Failed -> {
-                    statefulLayout.setState(StatefulLayout2.ERROR)
+                    statefulStudentLayout.setState(StatefulLayout2.ERROR)
                     val errorText = ExceptionUtils.errorDescription(state.error, requireContext())
-                    binding.mjError.createBinding<ViewErrorWithButtonBinding>()?.let {
+                    binding.studentError.createBinding<ViewErrorWithButtonBinding>()?.let {
                         it.errorTitle.text = errorText
                         it.errorAction.setOnClickListener {
                             refreshAll(true)
@@ -100,15 +108,15 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
                     }
                 }
             }
-            binding.mjRefresh.isRefreshing = state is State.Loading
+            binding.refresh.isRefreshing = state is State.Loading
         }
 
         viewModel.predictedRating.observe(viewLifecycleOwner) { rating ->
-            binding.mjStudentPredictRating.text = rating
+            binding.studentPredictRating.text = rating
         }
 
         viewModel.currentRating.observe(viewLifecycleOwner) { rating ->
-            binding.mjStudentRating.text = rating
+            binding.studentRating.text = rating
         }
 
         // направление pager'а и tab layout
@@ -118,12 +126,12 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
         } else {
             View.LAYOUT_DIRECTION_LTR
         }
-        binding.mjPagerSemesters.layoutDirection = requireDirection
-        binding.mjTabSemesters.layoutDirection = requireDirection
+        binding.semestersPager.layoutDirection = requireDirection
+        binding.semestersTabs.layoutDirection = requireDirection
 
         // настройка списка семестров
         val adapter = SemesterMarksAdapter()
-        binding.mjPagerSemesters.adapter = adapter
+        binding.semestersPager.adapter = adapter
 
         lifecycleScope.launchWhenStarted {
             adapter.loadStateFlow.collectLatest {
@@ -132,7 +140,7 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
         }
 
         TabLayoutMediator(
-            binding.mjTabSemesters, binding.mjPagerSemesters, true
+            binding.semestersTabs, binding.semestersPager, true
         ) { tab, position ->
             tab.text = viewModel.tabTitle(position)
         }.attach()
@@ -146,7 +154,8 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _statefulLayout = null
+        _statefulStudentLayout = null
+        _statefulSemestersLayout = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -157,12 +166,12 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             // выход из модульного журнала
-            R.id.mj_sign_out -> {
+            R.id.sign_out -> {
                 signOut()
                 return true
             }
             // обновить данные журнала
-            R.id.mj_update_marks -> {
+            R.id.update_marks -> {
                 refreshAll()
                 return true
             }
@@ -175,15 +184,22 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
      * Вызывается при изменении состояния загрузки семестров.
      */
     private fun onSemesterMarksStateChanged(loadStates: CombinedLoadStates) {
-        val errorState = loadStates.refresh
-        if (errorState is LoadState.Error) {
-            val description = ExceptionUtils.errorDescription(errorState.error, requireContext())
-            Snackbar.make(binding.mjContent, description, Snackbar.LENGTH_LONG)
-                .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
-                .setAction(R.string.retry) {
-                    refreshAll()
-                }
-                .show()
+        when (val state = loadStates.refresh) {
+            is LoadState.Loading -> {
+                statefulSemestersLayout.setState(StatefulLayout2.LOADING)
+            }
+            is LoadState.Error -> {
+                val description = ExceptionUtils.errorDescription(state.error, requireContext())
+                Snackbar.make(binding.coordinatorLayout, description, Snackbar.LENGTH_LONG)
+                    .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
+                    .setAction(R.string.retry) {
+                        refreshAll()
+                    }
+                    .show()
+            }
+            else -> {
+                statefulSemestersLayout.setState(StatefulLayout2.CONTENT)
+            }
         }
     }
 
@@ -191,7 +207,7 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
      * Перезагружает все оценки в модульном журнале.
      */
     private fun refreshAll(afterError: Boolean = false) {
-        binding.mjRefresh.isRefreshing = true
+        binding.refresh.isRefreshing = true
         viewModel.refreshModuleJournal(false, afterError)
     }
 

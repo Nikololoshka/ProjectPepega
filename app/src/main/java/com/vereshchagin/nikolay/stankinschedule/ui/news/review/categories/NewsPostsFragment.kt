@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostsListBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostAdapter
@@ -99,9 +97,12 @@ class NewsPostsFragment : BaseFragment<ItemNewsPostsListBinding>() {
         }
     }
 
-    private fun onNewsClick(newsId: Int) {
-        val controller = Navigation.findNavController(requireActivity(), R.id.nav_host)
-        controller.navigate(R.id.to_news_viewer_fragment, NewsViewerActivity.createBundle(newsId))
+    /**
+     * Вызывается при нажатии на новость в списке.
+     */
+    private fun onNewsClick(newsId: Int, newsTitle: String?) {
+        val intent = NewsViewerActivity.newsIntent(requireContext(), newsId, newsTitle)
+        startActivity(intent)
     }
 
     companion object {

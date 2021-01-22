@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 
+
 /**
  * Вспомогательный класс с общими функциями.
  */
@@ -48,7 +49,7 @@ object CommonUtils {
     @JvmStatic
     fun openBrowser(context: Context, url: String) {
         if (ApplicationPreference.useAppBrowser(context)) {
-            val builder = CustomTabsIntent.Builder()
+            val customTabsIntent = CustomTabsIntent.Builder()
                 .setShowTitle(true)
                 .setShareState(CustomTabsIntent.SHARE_STATE_ON)
                 .setDefaultColorSchemeParams(
@@ -61,8 +62,10 @@ object CommonUtils {
                         )
                         .build()
                 )
-            val customTabsIntent = builder.build()
+                .build()
+
             customTabsIntent.launchUrl(context, Uri.parse(url))
+
         } else {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(url)

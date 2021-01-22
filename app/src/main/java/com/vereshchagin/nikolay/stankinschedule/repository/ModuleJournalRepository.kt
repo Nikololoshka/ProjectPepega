@@ -5,11 +5,13 @@ import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.MainApplication
 import com.vereshchagin.nikolay.stankinschedule.api.ModuleJournalApi2
+import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.MarkType
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.StudentData
 import com.vereshchagin.nikolay.stankinschedule.settings.ModuleJournalPreference
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.gson.DateTimeTypeConverter
+import com.vereshchagin.nikolay.stankinschedule.utils.convertors.gson.MarkTypeTypeConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -37,6 +39,7 @@ class ModuleJournalRepository(private val cacheDir: File) {
 
     private val gson = GsonBuilder()
         .registerTypeAdapter(DateTime::class.java, DateTimeTypeConverter())
+        .registerTypeAdapter(MarkType::class.java, MarkTypeTypeConverter())
         .create()
 
     /**
@@ -223,8 +226,13 @@ class ModuleJournalRepository(private val cacheDir: File) {
      */
     private fun loadLoginData(): Pair<String, String> {
         if (login == null || password == null) {
-            return ModuleJournalPreference.signInData(MainApplication.instance)
+            val (currentLogin, currentPassword) = ModuleJournalPreference.signInData(
+                MainApplication.instance.applicationContext
+            )
+            login = currentLogin
+            password = currentPassword
         }
+
         return login!! to password!!
     }
 

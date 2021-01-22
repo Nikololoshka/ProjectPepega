@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.news.viewer
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Build
@@ -69,9 +70,15 @@ class NewsViewerActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         // номер новости
-        val newsId = intent.getIntExtra(NEWS_ID, -1)
+        val newsId = intent.getIntExtra(EXTRA_NEWS_ID, -1)
         if (newsId == -1) {
             throw RuntimeException("NewsID is null: $newsId")
+        }
+
+        // название новости
+        val newsTitle = intent.getStringExtra(EXTRA_NEWS_TITLE)
+        if (newsTitle != null) {
+            binding.toolbarLayout.title = newsTitle
         }
 
         viewModel = ViewModelProvider(
@@ -273,16 +280,17 @@ class NewsViewerActivity : AppCompatActivity() {
 
     companion object {
 
-        const val NEWS_ID = "news_id"
+        private const val EXTRA_NEWS_ID = "news_id"
+        private const val EXTRA_NEWS_TITLE = "extra_news_title"
 
         /**
-         * Создает Bundle для создания фрагмента.
-         * @param newsId номер новости.
+         *  Возвращает Intent на просмотр новости.
          */
-        fun createBundle(newsId: Int): Bundle {
-            val bundle = Bundle()
-            bundle.putInt(NEWS_ID, newsId)
-            return bundle
+        fun newsIntent(context: Context, newsId: Int, newsTitle: String?): Intent {
+            val intent = Intent(context, NewsViewerActivity::class.java)
+            intent.putExtra(EXTRA_NEWS_ID, newsId)
+            intent.putExtra(EXTRA_NEWS_TITLE, newsTitle)
+            return intent
         }
     }
 }

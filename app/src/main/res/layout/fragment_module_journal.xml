@@ -4,26 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <FrameLayout
-        android:id="@+id/mj_root"
+        android:id="@+id/mj_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.modulejournal.view.ModuleJournalFragment">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/mj_refresh"
+            android:id="@+id/refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            tools:visibility="visible">
+            android:visibility="gone">
 
             <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:id="@+id/mj_content"
+                android:id="@+id/coordinator_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true">
 
                 <com.google.android.material.appbar.AppBarLayout
-                    android:id="@+id/app_bar_mj"
+                    android:id="@+id/app_bar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:theme="@style/AppTheme.AppBarOverlay">
@@ -44,14 +43,13 @@
                             app:layout_collapseMode="parallax" />
 
                         <RelativeLayout
-                            android:id="@+id/mj_student_data"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="?android:attr/actionBarSize"
                             android:padding="@dimen/default_layout_padding">
 
                             <TextView
-                                android:id="@+id/mj_student_name"
+                                android:id="@+id/student_name"
                                 style="@style/Text.Head"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -62,11 +60,11 @@
                                 tools:text="Верещагин Н.М." />
 
                             <TextView
-                                android:id="@+id/mj_student_group"
+                                android:id="@+id/student_group"
                                 style="@style/Text.Subhead"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/mj_student_name"
+                                android:layout_below="@id/student_name"
                                 android:layout_alignParentStart="true"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="@dimen/mj_data_margin"
@@ -74,44 +72,44 @@
                                 tools:text="ИДБ-17-09" />
 
                             <TextView
-                                android:id="@+id/mj_student_rating_text"
+                                android:id="@+id/student_rating_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/mj_student_group"
+                                android:layout_below="@id/student_group"
                                 android:layout_alignParentStart="true"
                                 android:layout_marginTop="@dimen/mj_student_rating_margin"
-                                android:layout_toStartOf="@id/mj_student_predict_rating"
+                                android:layout_toStartOf="@id/student_predict_rating"
                                 android:text="@string/mj_current_rating"
                                 android:textColor="@color/colorTextLight"
                                 android:layout_marginBottom="@dimen/mj_data_margin"
                                 tools:text="Текущий рейтинг" />
 
                             <TextView
-                                android:id="@+id/mj_student_predict_rating_text"
+                                android:id="@+id/student_predict_rating_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/mj_student_rating_text"
+                                android:layout_below="@id/student_rating_text"
                                 android:layout_alignParentStart="true"
-                                android:layout_toStartOf="@id/mj_student_predict_rating"
+                                android:layout_toStartOf="@id/student_predict_rating"
                                 android:text="@string/mj_predicted_rating"
                                 android:textColor="@color/colorTextLight"
                                 tools:text="Прогнозируемый рейтинг" />
 
                             <com.vereshchagin.nikolay.stankinschedule.view.ShimmerTextView
-                                android:id="@+id/mj_student_rating"
+                                android:id="@+id/student_rating"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/mj_student_group"
+                                android:layout_below="@id/student_group"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="@dimen/mj_student_rating_margin"
                                 android:textColor="@color/colorTextLight"
                                 app:stv_count="5" />
 
                             <com.vereshchagin.nikolay.stankinschedule.view.ShimmerTextView
-                                android:id="@+id/mj_student_predict_rating"
+                                android:id="@+id/student_predict_rating"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/mj_student_rating_text"
+                                android:layout_below="@id/student_rating_text"
                                 android:layout_alignParentEnd="true"
                                 android:textColor="@color/colorTextLight"
                                 app:stv_count="5"
@@ -127,7 +125,7 @@
                             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
                         <com.google.android.material.tabs.TabLayout
-                            android:id="@+id/mj_tab_semesters"
+                            android:id="@+id/semesters_tabs"
                             android:layout_width="match_parent"
                             android:layout_height="?android:attr/actionBarSize"
                             android:layout_gravity="bottom"
@@ -140,24 +138,38 @@
 
                 </com.google.android.material.appbar.AppBarLayout>
 
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/mj_pager_semesters"
+                <FrameLayout
+                    android:id="@+id/semesters_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/semesters_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <include
+                        android:id="@+id/semesters_loading"
+                        layout="@layout/view_loading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+                </FrameLayout>
 
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/mj_loading"
+            android:id="@+id/student_loading"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:visibility="visible">
 
             <com.facebook.shimmer.ShimmerFrameLayout
-                android:id="@+id/mj_loading_student"
+                android:id="@+id/student_loading_shimmer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorToolbarContent"
@@ -211,7 +223,7 @@
                 android:contentDescription="@string/mj_information_background"
                 android:scaleType="centerCrop"
                 android:src="@drawable/background_mj"
-                app:layout_constraintBottom_toBottomOf="@id/mj_loading_student"
+                app:layout_constraintBottom_toBottomOf="@id/student_loading_shimmer"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -223,12 +235,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mj_loading_student" />
+                app:layout_constraintTop_toBottomOf="@+id/student_loading_shimmer" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ViewStub
-            android:id="@+id/mj_error"
+            android:id="@+id/student_error"
             android:layout="@layout/view_error_with_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

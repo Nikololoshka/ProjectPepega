@@ -196,7 +196,6 @@
         app:enterAnim="@anim/nav_enter_anim"
         app:exitAnim="@anim/nav_exit_anim"
         app:popEnterAnim="@anim/nav_pop_enter_anim"
-        app:popExitAnim="@anim/nav_pop_exit_anim"
-        app:launchSingleTop="true" />
+        app:popExitAnim="@anim/nav_pop_exit_anim" />
 
 </navigation>

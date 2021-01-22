@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@anim/nav_default_enter_anim,
+                @anim/nav_default_exit_anim,
+                @anim/nav_default_pop_enter_anim,
+                @anim/nav_default_pop_exit_anim"
+    tools:shrinkMode="strict" />

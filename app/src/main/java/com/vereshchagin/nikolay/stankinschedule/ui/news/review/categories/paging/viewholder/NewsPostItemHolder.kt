@@ -16,15 +16,16 @@ import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
  */
 class NewsPostItemHolder(
     private val binding: ItemNewsPostBinding,
-    private val clickListener: (newsId: Int) -> Unit,
+    private val clickListener: (newsId: Int, newsTitle: String?) -> Unit,
     private val glide: RequestManager
 ) : RecyclerView.ViewHolder(binding.root) {
 
     private var newsId: Int? = null
+    private var newsTitle: String? = null
 
     init {
         itemView.setOnClickListener {
-            newsId?.let { clickListener(it) }
+            newsId?.let { clickListener(it, newsTitle) }
         }
     }
 
@@ -43,6 +44,7 @@ class NewsPostItemHolder(
             binding.newsTitle.text = item.title
             binding.newsDate.text = parseDate(item.onlyDate())?.let { formatDate(it) }
             newsId = item.id
+            newsTitle = item.title
         }
     }
 
@@ -52,7 +54,7 @@ class NewsPostItemHolder(
          */
         fun create(
             parent: ViewGroup,
-            clickListener: (newsId: Int) -> Unit,
+            clickListener: (newsId: Int, newsTitle: String?) -> Unit,
             glide: RequestManager
         ): NewsPostItemHolder {
             return NewsPostItemHolder(

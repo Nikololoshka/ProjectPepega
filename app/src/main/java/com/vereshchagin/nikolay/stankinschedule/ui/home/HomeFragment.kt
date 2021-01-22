@@ -154,8 +154,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         _scheduleStateful = null
     }
 
-    private fun onNewsClick(newsId: Int) {
-        navigateTo(R.id.to_news_viewer_fragment, NewsViewerActivity.createBundle(newsId))
+    private fun onNewsClick(newsId: Int, newsTitle: String?) {
+        val intent = NewsViewerActivity.newsIntent(requireContext(), newsId, newsTitle)
+        startActivity(intent)
     }
 
     companion object {
