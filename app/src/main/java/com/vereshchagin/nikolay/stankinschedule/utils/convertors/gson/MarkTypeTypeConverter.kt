@@ -14,7 +14,7 @@ class MarkTypeTypeConverter : JsonSerializer<MarkType>, JsonDeserializer<MarkTyp
         typeOfSrc: Type?,
         context: JsonSerializationContext?
     ): JsonElement {
-        return JsonPrimitive(src?.tag)
+        return JsonPrimitive(src.toString())
     }
 
     @Throws(JsonParseException::class)

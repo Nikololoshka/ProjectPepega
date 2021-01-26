@@ -269,7 +269,7 @@ class ModuleJournalRepository(private val cacheDir: File) {
             val json = FileUtils.readFileToString(file, StandardCharsets.UTF_8)
             return gson.fromJson(json, SemesterMarks::class.java)
         } catch (ignored: Exception) {
-            Log.d("MyLog", "loadCacheSemesterMarks: $ignored")
+            ignored.printStackTrace()
         }
 
         return null
@@ -301,6 +301,7 @@ class ModuleJournalRepository(private val cacheDir: File) {
         val file = FileUtils.getFile(cacheDir, SEMESTERS_FOLDER, "$semester.json")
         try {
             val json = gson.toJson(marks)
+            Log.d(TAG, "saveCacheSemesterMarks: $json")
             FileUtils.writeStringToFile(file, json, StandardCharsets.UTF_8, false)
         } catch (ignored: Exception) {
 

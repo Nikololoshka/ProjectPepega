@@ -118,7 +118,7 @@ class ScheduleWidgetConfigureActivity : AppCompatActivity(), View.OnClickListene
         val adapter = DropDownAdapter(this, objects)
         autoComplete.setAdapter(adapter)
 
-        if (autoComplete.text.isNullOrEmpty()) {
+        if (autoComplete.text.isNullOrEmpty() && objects.isNotEmpty()) {
             autoComplete.setText(adapter.getItem(0), false)
         }
     }

@@ -30,10 +30,15 @@ enum class MarkType(val tag: String, val weight: Int) {
      */
     EXAM("Э", 7);
 
+    override fun toString(): String {
+        return tag
+    }
+
     companion object {
         /**
          * Возвращает тип оценки из перечисления соответствующего значению ответа от сервера.
          */
+        @JvmStatic
         fun of(value: String?): MarkType {
             for (type in values()) {
                 if (type.tag == value) {

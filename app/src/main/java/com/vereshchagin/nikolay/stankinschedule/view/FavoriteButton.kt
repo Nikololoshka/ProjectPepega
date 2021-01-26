@@ -18,18 +18,18 @@ class FavoriteButton : AppCompatImageButton {
     var mFavorite: Drawable? = null
     var mFavoriteActivated: AnimatedVectorDrawableCompat? = null
 
-    constructor(context: Context?) : super(context!!) {
+    constructor(context: Context) : super(context) {
         initialization()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(
-        context!!, attrs
+    constructor(context: Context, attrs: AttributeSet) : super(
+        context, attrs
     ) {
         initialization()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context!!, attrs, defStyleAttr
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context, attrs, defStyleAttr
     ) {
         initialization()
     }

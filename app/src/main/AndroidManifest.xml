@@ -90,7 +90,12 @@
             android:name=".ui.news.viewer.NewsViewerActivity"
             android:label="@string/news_viewer"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.modulejournal.predict.ModuleJournalPredictActivity"
+            android:label="Predict rating"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -3,12 +3,15 @@ package com.vereshchagin.nikolay.stankinschedule.utils
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewStubProxy
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.inflateView
 
 
 class StatefulLayout2(
-    private val root: ViewGroup, initKey: Int, initView: View
-) {
+    private val root: ViewGroup, initKey: Int, initView: View,
+) : LifecycleObserver {
 
     private val states = HashMap<Int, View>()
     private val stubs = HashMap<Int, ViewStubProxy>()
@@ -47,6 +50,12 @@ class StatefulLayout2(
         AnimationUtils.fade(newState, true)
 
         currentState = key
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    fun clear() {
+        states.clear()
+        stubs.clear()
     }
 
     class Builder(private val root: ViewGroup) {

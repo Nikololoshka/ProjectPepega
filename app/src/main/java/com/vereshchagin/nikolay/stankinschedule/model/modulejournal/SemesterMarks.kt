@@ -43,6 +43,15 @@ data class SemesterMarks(
         disciplines.sortWith { o1, o2 -> o1.title.compareTo(o2.title) }
     }
 
+    fun updateMark(disciplineName: String, type: MarkType, mark: Int) {
+        for (discipline in disciplines) {
+            if (discipline.title == disciplineName) {
+                discipline[type] = mark
+                break
+            }
+        }
+    }
+
     /**
      * Рассчитывает рейтинг для данного семестра.
      */

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/default_layout_padding">
+
+    <TextView
+        android:id="@+id/discipline_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_layout_padding"
+        android:textColor="?android:attr/textColorPrimary"
+        tools:text="Архитектура высоконагруженных приложений" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mark_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintEnabled="true"
+        tools:hint="Зачет">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mark_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            tools:text="50" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

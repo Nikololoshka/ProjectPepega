@@ -321,91 +321,92 @@ class MarksTable : View {
      */
     private fun emptyData() = SemesterMarks(arrayListOf(), null, null)
 
-    /**
-     * Тестовые данные для отображения.
-     */
-    private fun testData() = SemesterMarks(
-        arrayListOf(
-            Discipline(
-                "Геометрическое моделирование и компьютерная графика",
-                linkedMapOf(
-                    MarkType.FIRST_MODULE to 50,
-                    MarkType.SECOND_MODULE to 54,
-                    MarkType.EXAM to 52
-                ),
-                3.5
-            ),
-            Discipline(
-                "Информационные системы и технологии",
-                linkedMapOf(
-                    MarkType.FIRST_MODULE to 54,
-                    MarkType.SECOND_MODULE to 52,
-                    MarkType.EXAM to 54
-                ),
-                3.5
-            ),
-            Discipline(
-                "Машинное обучение и интеллектуальные системы",
-                linkedMapOf(
-                    MarkType.FIRST_MODULE to 52,
-                    MarkType.SECOND_MODULE to 49,
-                    MarkType.COURSEWORK to 49,
-                    MarkType.EXAM to 48
-                ),
-                3.0
-            ),
-            Discipline(
-                "Прикладная физическая культура",
-                linkedMapOf(
-                    MarkType.FIRST_MODULE to 50,
-                    MarkType.SECOND_MODULE to 50,
-                    MarkType.CREDIT to 43
-                ),
-                1.0
-            ),
-            Discipline(
-                "Проектирование информационных систем",
-                linkedMapOf(
-                    MarkType.FIRST_MODULE to 52,
-                    MarkType.SECOND_MODULE to 50,
-                    MarkType.COURSEWORK to 50,
-                    MarkType.EXAM to 54
-                ),
-                3.0
-            ),
-            Discipline(
-                "Проектирование человеко-машинного взаимодействия",
-                linkedMapOf(
-                    MarkType.FIRST_MODULE to 49,
-                    MarkType.SECOND_MODULE to 45,
-                    MarkType.CREDIT to 47
-                ),
-                3.5
-            ),
-            Discipline(
-                "Теория массового обслуживания",
-                linkedMapOf(
-                    MarkType.FIRST_MODULE to 0,
-                    MarkType.SECOND_MODULE to 0,
-                    MarkType.EXAM to 0
-                ),
-                4.5
-            ),
-            Discipline(
-                "Технологии архивирования и восстановления данных",
-                linkedMapOf(
-                    MarkType.FIRST_MODULE to 38,
-                    MarkType.SECOND_MODULE to 45,
-                    MarkType.CREDIT to 41
-                ),
-                2.5
-            )
-        ),
-        48,
-        45
-    )
 
     companion object {
         private const val TAG = "MarksTableLog"
+
+        /**
+         * Тестовые данные для отображения.
+         */
+        fun testData() = SemesterMarks(
+            arrayListOf(
+                Discipline(
+                    "Геометрическое моделирование и компьютерная графика",
+                    linkedMapOf(
+                        MarkType.FIRST_MODULE to 50,
+                        MarkType.SECOND_MODULE to 54,
+                        MarkType.EXAM to 52
+                    ),
+                    3.5
+                ),
+                Discipline(
+                    "Информационные системы и технологии",
+                    linkedMapOf(
+                        MarkType.FIRST_MODULE to 54,
+                        MarkType.SECOND_MODULE to 52,
+                        MarkType.EXAM to 54
+                    ),
+                    3.5
+                ),
+                Discipline(
+                    "Машинное обучение и интеллектуальные системы",
+                    linkedMapOf(
+                        MarkType.FIRST_MODULE to 52,
+                        MarkType.SECOND_MODULE to 49,
+                        MarkType.COURSEWORK to 49,
+                        MarkType.EXAM to 48
+                    ),
+                    3.0
+                ),
+                Discipline(
+                    "Прикладная физическая культура",
+                    linkedMapOf(
+                        MarkType.FIRST_MODULE to 50,
+                        MarkType.SECOND_MODULE to 50,
+                        MarkType.CREDIT to 43
+                    ),
+                    1.0
+                ),
+                Discipline(
+                    "Проектирование информационных систем",
+                    linkedMapOf(
+                        MarkType.FIRST_MODULE to 52,
+                        MarkType.SECOND_MODULE to 50,
+                        MarkType.COURSEWORK to 50,
+                        MarkType.EXAM to 54
+                    ),
+                    3.0
+                ),
+                Discipline(
+                    "Проектирование человеко-машинного взаимодействия",
+                    linkedMapOf(
+                        MarkType.FIRST_MODULE to 49,
+                        MarkType.SECOND_MODULE to 45,
+                        MarkType.CREDIT to 47
+                    ),
+                    3.5
+                ),
+                Discipline(
+                    "Теория массового обслуживания",
+                    linkedMapOf(
+                        MarkType.FIRST_MODULE to 0,
+                        MarkType.SECOND_MODULE to 0,
+                        MarkType.EXAM to 0
+                    ),
+                    4.5
+                ),
+                Discipline(
+                    "Технологии архивирования и восстановления данных",
+                    linkedMapOf(
+                        MarkType.FIRST_MODULE to 38,
+                        MarkType.SECOND_MODULE to 45,
+                        MarkType.CREDIT to 41
+                    ),
+                    2.5
+                )
+            ),
+            48,
+            45
+        )
     }
 }

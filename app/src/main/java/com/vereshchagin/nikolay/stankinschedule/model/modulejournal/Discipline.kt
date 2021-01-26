@@ -16,7 +16,7 @@ data class Discipline(
     /**
      * Строковое представление коэффициента.
      */
-    val factorString = if (factor == NO_FACTOR) " " else factor.toString()
+    val factorString get() = if (factor == NO_FACTOR) " " else factor.toString()
 
     /**
      * Вычисляет рейтинг для дисциплины.

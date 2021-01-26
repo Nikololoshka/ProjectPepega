@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.viewModels
@@ -15,6 +16,7 @@ import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentModuleJourna
 import com.vereshchagin.nikolay.stankinschedule.databinding.ViewErrorWithButtonBinding
 import com.vereshchagin.nikolay.stankinschedule.settings.ModuleJournalPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.predict.ModuleJournalPredictActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging.SemesterMarksAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
@@ -173,6 +175,12 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
             // обновить данные журнала
             R.id.update_marks -> {
                 refreshAll()
+                return true
+            }
+            // к расчету рейтинга
+            R.id.predict_rating -> {
+                val intent = Intent(requireContext(), ModuleJournalPredictActivity::class.java)
+                startActivity(intent)
                 return true
             }
         }
