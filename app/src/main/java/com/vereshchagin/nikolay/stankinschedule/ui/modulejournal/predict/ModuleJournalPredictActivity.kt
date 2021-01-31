@@ -1,8 +1,11 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.predict
 
+import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.animation.DecelerateInterpolator
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -10,6 +13,7 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityModuleJournalPredictBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.predict.paging.PredictDisciplineAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import java.util.*
 
 /**
  * Активность для вычисления рейтинга студента.
@@ -23,33 +27,62 @@ class ModuleJournalPredictActivity : AppCompatActivity() {
     private lateinit var statefulLayout: StatefulLayout2
     private lateinit var binding: ActivityModuleJournalPredictBinding
 
+    /**
+     * Аниматор для изменения рейтинга.
+     */
+    private val ratingAnimator = ValueAnimator().apply {
+        duration = 300
+        interpolator = DecelerateInterpolator()
+        addUpdateListener(this@ModuleJournalPredictActivity::ratingAnimatorUpdate)
+    }
+
+    /**
+     * Текущий, отображаемый рейтинг
+     */
+    private var currentRating = 0.0F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityModuleJournalPredictBinding.inflate(layoutInflater)
+        statefulLayout = StatefulLayout2.Builder(binding.predictContainer)
+            .init(StatefulLayout2.LOADING, binding.predictLoading.root)
+            .addView(StatefulLayout2.CONTENT, binding.predictRecyclerView)
+            .addView(StatefulLayout2.EMPTY, binding.predictNoDisciplines)
+            .setOwner(this)
+            .create()
+
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        // настройка toolbar'а
         binding.toolbar.setOnClickListener {
             changeSemester()
         }
-
         viewModel.semester.observe(this) {
             binding.toolbar.subtitle = it
         }
 
-        val adapter = PredictDisciplineAdapter { item, value ->
+        // список с дисциплинами
+        val adapter = PredictDisciplineAdapter({ item, value ->
             viewModel.updateMark(item.title, item.type, value)
-        }
-
-        binding.recyclerView.adapter = adapter
+        }, { count ->
+            if (count == 0) {
+                statefulLayout.setState(StatefulLayout2.EMPTY)
+            } else {
+                statefulLayout.setState(StatefulLayout2.CONTENT)
+            }
+        })
+        binding.predictRecyclerView.adapter = adapter
 
         viewModel.semesterMarks.observe(this) {
-            val data = it ?: return@observe
-            adapter.submitData(lifecycle, data)
+            if (it == null) {
+                statefulLayout.setState(StatefulLayout2.LOADING)
+            } else {
+                adapter.submitData(lifecycle, it)
+            }
         }
 
         viewModel.showAllDiscipline.observe(this) {
@@ -57,7 +90,7 @@ class ModuleJournalPredictActivity : AppCompatActivity() {
         }
 
         viewModel.rating.observe(this) {
-            binding.rating.text = it
+            startUpdateRating(it.toFloat())
         }
     }
 
@@ -89,6 +122,49 @@ class ModuleJournalPredictActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    /**
+     * Вызывается при анимации изменения рейтинга для
+     * установки промежуточного значения.
+     */
+    private fun ratingAnimatorUpdate(animator: ValueAnimator) {
+        val rating = animator.animatedValue as Float
+        updateRating(rating)
+    }
+
+    /**
+     * Устанавливает новое значение рейтинга в UI
+     */
+    @SuppressLint("SetTextI18n")
+    private fun updateRating(rating: Float) {
+        binding.rating.text = "%.2f".format(rating)
+    }
+
+    /**
+     * Начинает обновления текущего рейтинга в UI.
+     */
+    private fun startUpdateRating(rating: Float) {
+        when {
+            // отсутствует рейтинг
+            rating == 0.0F -> {
+                binding.rating.text = "--.--"
+            }
+            // первый раз (установить сразу, без анимации)
+            currentRating == 0.0F -> {
+                currentRating = rating
+                updateRating(rating)
+            }
+            // изменение с анимацией
+            else -> {
+                val oldRating = currentRating
+                currentRating = rating
+                ratingAnimator.apply {
+                    setFloatValues(oldRating, rating)
+                    start()
+                }
+            }
+        }
+    }
+
     private fun changeSemester() {
         val semesters = viewModel.semestersArray.value
         if (semesters.isNullOrEmpty()) {
@@ -99,7 +175,7 @@ class ModuleJournalPredictActivity : AppCompatActivity() {
         val currentSemester = semesters.indexOf(selectedSemester)
 
         MaterialAlertDialogBuilder(this)
-            .setTitle("Выберите семестр")
+            .setTitle(R.string.mj_select_semester)
             .setSingleChoiceItems(semesters, currentSemester) { _, which ->
                 selectedSemester = semesters[which]
             }

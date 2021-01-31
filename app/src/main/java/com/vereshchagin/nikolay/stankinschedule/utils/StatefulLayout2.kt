@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.ViewStubProxy
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.inflateView
 
@@ -60,6 +61,8 @@ class StatefulLayout2(
 
     class Builder(private val root: ViewGroup) {
 
+        private var lifecycleOwner: LifecycleOwner? = null
+
         private var initKey: Int? = null
         private var initView: View? = null
 
@@ -82,6 +85,11 @@ class StatefulLayout2(
             return this
         }
 
+        fun setOwner(owner: LifecycleOwner): Builder {
+            lifecycleOwner = owner
+            return this
+        }
+
         fun create(): StatefulLayout2 {
             val stateful = StatefulLayout2(root, initKey!!, initView!!)
             for ((key, view) in states) {
@@ -90,6 +98,8 @@ class StatefulLayout2(
             for ((key, view) in stubs) {
                 stateful.addView(key, view)
             }
+
+            lifecycleOwner?.lifecycle?.addObserver(stateful)
             return stateful
         }
     }

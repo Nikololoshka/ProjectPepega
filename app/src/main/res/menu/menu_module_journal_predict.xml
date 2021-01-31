@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/change_semester"
-        android:title="Change semester" />
+        android:title="@string/mj_change_semester" />
 
     <group android:checkableBehavior="all">
         <item
             android:id="@+id/show_all_disciplines"
-            android:title="Show all disciplines"
+            android:title="@string/mj_show_all_disciplines"
             android:checkable="true" />
     </group>
 

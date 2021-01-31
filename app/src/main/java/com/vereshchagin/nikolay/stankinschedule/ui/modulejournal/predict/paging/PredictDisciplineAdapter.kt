@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
  */
 class PredictDisciplineAdapter(
     private val markChanged: (item: PredictDiscipline, value: Int) -> Unit,
+    private val onItemCountChanged: (count: Int) -> Unit,
 ) : RecyclerView.Adapter<PredictDisciplineViewHolder>() {
 
     private var semesterMarks: SemesterMarks? = null
@@ -43,6 +44,8 @@ class PredictDisciplineAdapter(
                 }
             }
         }
+
+        onItemCountChanged(newData.size)
 
         if (animation) {
             val oldData = data

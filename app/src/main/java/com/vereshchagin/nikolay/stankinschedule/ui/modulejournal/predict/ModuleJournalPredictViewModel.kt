@@ -21,7 +21,7 @@ class ModuleJournalPredictViewModel(
     val semestersArray = MutableLiveData<Array<String>>(null)
     val semesterMarks = MutableLiveData<SemesterMarks>(null)
     val showAllDiscipline = MutableLiveData(false)
-    val rating = MutableLiveData<String>("--.--")
+    val rating = MutableLiveData(0.0)
 
     init {
         viewModelScope.launch {
@@ -35,7 +35,9 @@ class ModuleJournalPredictViewModel(
     fun updateSemesterMarks(semester: String) {
         this.semester.value = semester
         viewModelScope.launch {
-            semesterMarks.value = repository.loadSemesterMarks(semester)
+            val marks = repository.loadSemesterMarks(semester)
+            semesterMarks.value = marks
+            rating.value = marks.computeRating()
         }
     }
 
@@ -46,7 +48,7 @@ class ModuleJournalPredictViewModel(
     fun updateMark(disciplineName: String, type: MarkType, mark: Int) {
         semesterMarks.value?.let {
             it.updateMark(disciplineName, type, mark)
-            rating.value = it.computeRating().toString()
+            rating.value = it.computeRating()
         }
     }
 

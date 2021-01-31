@@ -59,8 +59,14 @@
     <string name="mj_current_rating">Current rating</string>
     <string name="mj_predicted_rating">Predicted rating</string>
 
-    <string name="mj_shimmer_student_name" translatable="false">Student: StudentName</string>
-    <string name="mj_shimmer_group" translatable="false">Group: Group</string>
+    <!-- predict rating module journal -->
+    <string name="mj_rating">Rating</string>
+    <string name="mj_no_disciplines">No disciplines without grades</string>
+    <string name="mj_select_semester">Select semester</string>
+    <string name="mj_change_semester">Change semester</string>
+    <string name="mj_show_all_disciplines">Show all disciplines</string>
+    <string name="mj_mark_below_25">Score below 25</string>
+    <string name="mj_mark_above_100">Score above 100</string>
 
     <!-- my schedules -->
     <string name="sch_name">Schedule</string>

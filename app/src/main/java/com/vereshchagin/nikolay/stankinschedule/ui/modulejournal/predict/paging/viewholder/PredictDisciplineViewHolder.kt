@@ -2,8 +2,10 @@ package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.predict.paging
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
+import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemPredictDisciplineBinding
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.PredictDiscipline
 
@@ -16,27 +18,14 @@ class PredictDisciplineViewHolder(
     private val binding: ItemPredictDisciplineBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
 
+    /**
+     * Текущая отображаемая дисциплина.
+     */
     private var currentItem: PredictDiscipline? = null
 
     init {
         binding.markInput.doOnTextChanged { text, _, _, _ ->
-            val string = text.toString()
-            try {
-                val value = string.toInt()
-
-                binding.markInputLayout.error = when {
-                    value < 25 -> "< 25"
-                    value > 100 -> "> 100"
-                    else -> {
-                        binding.markInputLayout.isErrorEnabled = false
-                        currentItem?.let { markChanged(it, value, bindingAdapterPosition) }
-                        null
-                    }
-                }
-
-            } catch (e: NumberFormatException) {
-
-            }
+            onMarkChanged(text.toString())
         }
     }
 
@@ -51,6 +40,34 @@ class PredictDisciplineViewHolder(
         binding.markInput.setText(if (item.mark == 0) "" else item.mark.toString())
 
         bindingAdapterPosition
+    }
+
+    /**
+     * Вызывается при изменении оценки в поле.
+     */
+    private fun onMarkChanged(text: String) {
+        try {
+            val value = text.toInt()
+
+            binding.markInput.error = when {
+                value < 25 -> getString(R.string.mj_mark_below_25)
+                value > 100 -> getString(R.string.mj_mark_above_100)
+                else -> {
+                    currentItem?.let { markChanged(it, value, bindingAdapterPosition) }
+                    null
+                }
+            }
+
+        } catch (e: NumberFormatException) {
+
+        }
+    }
+
+    /**
+     * Возвращает строку из ресурсов.
+     */
+    private fun getString(@StringRes id: Int): String {
+        return itemView.context.getString(id)
     }
 
     companion object {
