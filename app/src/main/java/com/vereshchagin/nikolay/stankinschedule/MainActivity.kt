@@ -25,8 +25,7 @@ import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityMainBinding
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreferenceKt
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
 import org.joda.time.DateTime
 import org.joda.time.Hours
@@ -172,7 +171,7 @@ class MainActivity : AppCompatActivity() {
                 R.string.update_cancelled,
                 Snackbar.LENGTH_LONG
             ).show()
-            ApplicationPreferenceKt.setUpdateAppTime(this, DateTime.now())
+            ApplicationPreference.setUpdateAppTime(this, DateTime.now())
         }
     }
 
@@ -247,7 +246,7 @@ class MainActivity : AppCompatActivity() {
      * Проверка обновлений приложения.
      */
     private fun checkAppUpdate() {
-        val lastUpdate = ApplicationPreferenceKt.updateAppTime(this)
+        val lastUpdate = ApplicationPreference.updateAppTime(this)
         if (lastUpdate != null && Hours.hoursBetween(lastUpdate, DateTime.now()).hours < 24) {
             return
         }
@@ -263,10 +262,10 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     onShowUpdate(updateInfo)
                 } else {
-                    ApplicationPreferenceKt.setUpdateAppTime(this, DateTime.now())
+                    ApplicationPreference.setUpdateAppTime(this, DateTime.now())
                 }
             }.addOnFailureListener {
-                ApplicationPreferenceKt.setUpdateAppTime(this, DateTime.now())
+                ApplicationPreference.setUpdateAppTime(this, DateTime.now())
             }
     }
 
@@ -307,7 +306,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 show()
             }
-            ApplicationPreferenceKt.setUpdateAppTime(this, DateTime.now())
+            ApplicationPreference.setUpdateAppTime(this, DateTime.now())
         }
     }
 

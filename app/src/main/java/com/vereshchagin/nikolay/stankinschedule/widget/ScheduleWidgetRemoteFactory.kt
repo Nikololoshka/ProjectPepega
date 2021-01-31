@@ -12,9 +12,11 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.*
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreferenceKt
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LABORATORY_COLOR
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LECTURE_COLOR
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SEMINAR_COLOR
+import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
 import org.joda.time.LocalDate
 import java.lang.ref.WeakReference
 import java.util.*
@@ -86,7 +88,7 @@ class ScheduleWidgetRemoteFactory(
             }
 
             // загрузка цветов
-            val (lecture, seminar, laboratory) = ApplicationPreferenceKt.colors(
+            val (lecture, seminar, laboratory) = ApplicationPreference.colors(
                 currentContext, LECTURE_COLOR, SEMINAR_COLOR, LABORATORY_COLOR
             )
             lectureColor = lecture; seminarColor = seminar; laboratoryColor = laboratory

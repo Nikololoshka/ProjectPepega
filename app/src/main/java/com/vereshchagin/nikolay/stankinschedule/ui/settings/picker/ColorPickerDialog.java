@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.picker;
+package com.vereshchagin.nikolay.stankinschedule.ui.settings.picker;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -20,7 +20,7 @@ import androidx.fragment.app.DialogFragment;
 import com.larswerkman.holocolorpicker.ColorPicker;
 import com.larswerkman.holocolorpicker.SVBar;
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
 
 
 /**

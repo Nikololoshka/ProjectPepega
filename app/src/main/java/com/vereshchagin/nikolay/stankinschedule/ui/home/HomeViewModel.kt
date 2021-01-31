@@ -9,7 +9,7 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.repository.NewsHomeRepository
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreferenceKt
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.joda.time.LocalDate
@@ -25,7 +25,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val scheduleData = MutableLiveData<HomeScheduleData>(null)
     val newsData = newsRepository.latest()
 
-    private var scheduleSettings = ApplicationPreferenceKt.homeScheduleSettings(application)
+    private var scheduleSettings = ApplicationPreference.homeScheduleSettings(application)
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
@@ -36,7 +36,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     @SuppressLint("DefaultLocale")
     private fun loadSchedule() {
-        scheduleSettings = ApplicationPreferenceKt.homeScheduleSettings(getApplication())
+        scheduleSettings = ApplicationPreference.homeScheduleSettings(getApplication())
         // нет избранного расписания
         if (scheduleSettings.favorite.isEmpty()) {
             scheduleData.postValue(HomeScheduleData.empty())
@@ -97,7 +97,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
      * Если нет, то обновляем данные расписания.
      */
     fun checkScheduleData() {
-        val newSettings = ApplicationPreferenceKt.homeScheduleSettings(getApplication())
+        val newSettings = ApplicationPreference.homeScheduleSettings(getApplication())
         if (scheduleSettings != newSettings) {
             updateSchedule()
         }

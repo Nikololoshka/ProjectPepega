@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.settings.editor;
+package com.vereshchagin.nikolay.stankinschedule.ui.settings.view;
 
 
 import android.content.Intent;
@@ -13,7 +13,6 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
-
 
 /**
  * Фрагмент с настройками приложения.
@@ -84,12 +83,8 @@ public class SettingsFragment extends PreferenceFragmentCompat
             case SETTINGS_NOTIFICATION_FRAGMENT:
                 // android 8.0+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    if (getContext() == null) {
-                        return false;
-                    }
-
                     Intent  intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
-                    intent.putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName());
+                    intent.putExtra(Settings.EXTRA_APP_PACKAGE, requireContext().getPackageName());
                     startActivity(intent);
 
                     return true;

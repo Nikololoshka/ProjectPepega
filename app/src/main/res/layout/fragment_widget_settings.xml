@@ -12,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout
+    <FrameLayout
         android:id="@+id/stateful_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/schedule_widgets"
@@ -23,17 +23,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardUseCompatPadding="false"
-            android:layout_margin="@dimen/default_layout_padding" >
+            android:layout_margin="@dimen/default_layout_padding"
+            android:visibility="gone">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_widgets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_widget_settings"
                 tools:itemCount="4" />
 
         </androidx.cardview.widget.CardView>
+
+        <include
+            android:id="@+id/widgets_loading"
+            layout="@layout/view_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
 
         <TextView
             style="@style/Text.Medium"
@@ -42,8 +51,9 @@
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/default_information_padding" />
+            android:padding="@dimen/default_information_padding"
+            android:visibility="gone" />
 
-    </com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout>
+    </FrameLayout>
 
 </LinearLayout>

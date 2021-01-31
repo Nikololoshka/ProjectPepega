@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.picker;
+package com.vereshchagin.nikolay.stankinschedule.ui.settings.picker;
 
 import android.content.Context;
 import android.content.res.TypedArray;

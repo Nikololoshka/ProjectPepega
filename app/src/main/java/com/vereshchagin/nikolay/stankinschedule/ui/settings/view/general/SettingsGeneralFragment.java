@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection;
+package com.vereshchagin.nikolay.stankinschedule.ui.settings.view.general;
 
 import android.os.Bundle;
 
@@ -9,7 +9,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.vereshchagin.nikolay.stankinschedule.MainActivity;
 import com.vereshchagin.nikolay.stankinschedule.MainApplication;
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
 
 /**
  * Категория основные (общих) настроек приложения.

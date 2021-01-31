@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection;
+package com.vereshchagin.nikolay.stankinschedule.ui.settings.view.widget;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -8,16 +8,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup;
-import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout;
+import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2;
 import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils;
 import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidgetConfigureActivity;
 
@@ -31,7 +31,7 @@ public class SettingsWidgetFragment extends Fragment implements SettingsWidgetAd
 
     private static final String TAG = "SettingsWgtFragmentTag";
 
-    private StatefulLayout mStatefulLayout;
+    private StatefulLayout2 mStatefulLayout;
     private SettingsWidgetAdapter mWidgetAdapter;
 
     public SettingsWidgetFragment() {
@@ -43,14 +43,16 @@ public class SettingsWidgetFragment extends Fragment implements SettingsWidgetAd
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_widget_settings, container, false);
+        FrameLayout widgetsContainer = view.findViewById(R.id.stateful_layout);
 
-        mStatefulLayout = view.findViewById(R.id.stateful_layout);
-        mStatefulLayout.addXMLViews();
-        mStatefulLayout.setLoadState();
+        mStatefulLayout = new StatefulLayout2.Builder(widgetsContainer)
+                .init(StatefulLayout2.LOADING, view.findViewById(R.id.widgets_loading))
+                .addView(StatefulLayout2.CONTENT, view.findViewById(R.id.schedule_widgets))
+                .addView(StatefulLayout2.EMPTY, view.findViewById(R.id.not_widgets))
+                .setOwner(this)
+                .create();
 
         RecyclerView widgetsRecyclerView = view.findViewById(R.id.recycler_widgets);
-        widgetsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
         mWidgetAdapter = new SettingsWidgetAdapter(this);
         widgetsRecyclerView.setAdapter(mWidgetAdapter);
 
@@ -62,11 +64,7 @@ public class SettingsWidgetFragment extends Fragment implements SettingsWidgetAd
         super.onStart();
 
         // обновляем список текущих виджетов с расписаниями
-        Context context = getContext();
-        if (context == null) {
-            mStatefulLayout.setLoadState();
-            return;
-        }
+        Context context = requireContext();
 
         List<Integer> ids = WidgetUtils.scheduleWidgets(context);
         List<String> names = new ArrayList<>(ids.size());
@@ -84,12 +82,12 @@ public class SettingsWidgetFragment extends Fragment implements SettingsWidgetAd
         }
 
         if (names.isEmpty()) {
-            mStatefulLayout.setState(R.id.not_widgets);
+            mStatefulLayout.setState(StatefulLayout2.EMPTY);
             return;
         }
 
         mWidgetAdapter.submitList(names, ids);
-        mStatefulLayout.setState(R.id.schedule_widgets);
+        mStatefulLayout.setState(StatefulLayout2.CONTENT);
     }
 
     @Override

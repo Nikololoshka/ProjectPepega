@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
+import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.home.news.NewsPostLatestAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 

@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.crashlytics.FirebaseCrashlytics
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 
 /**
  * Singleton класс приложения.

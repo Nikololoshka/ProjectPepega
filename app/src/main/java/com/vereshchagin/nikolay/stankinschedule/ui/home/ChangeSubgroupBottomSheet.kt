@@ -14,7 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.DialogChangeSubgroupBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 
 
 class ChangeSubgroupBottomSheet : BottomSheetDialogFragment(), View.OnClickListener {

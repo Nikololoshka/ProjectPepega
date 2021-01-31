@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.settings;
+package com.vereshchagin.nikolay.stankinschedule.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -120,14 +120,6 @@ public class SchedulePreference {
 
     public static List<String> banCharacters() {
         return Arrays.asList(";", "/");
-    }
-
-    public static long changeCount() {
-        return mChangeCount;
-    }
-
-    public static void addChange() {
-        ++mChangeCount;
     }
 
     @NonNull

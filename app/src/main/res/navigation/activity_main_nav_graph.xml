@@ -112,7 +112,7 @@
 
         <fragment
             android:id="@+id/nav_settings_fragment"
-            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.SettingsFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.SettingsFragment"
             android:label="@string/nav_settings" >
             <action
                 android:id="@+id/toSettingsScheduleFragment"
@@ -147,21 +147,21 @@
 
         <fragment
             android:id="@+id/nav_settings_notification_fragment"
-            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.SettingsNotificationFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.notification.SettingsNotificationFragment"
             android:label="@string/notification" />
 
         <fragment
             android:id="@+id/nav_settings_widget_fragment"
-            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.SettingsWidgetFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.widget.SettingsWidgetFragment"
             android:label="@string/widget" />
 
         <fragment
             android:id="@+id/nav_settings_schedule_fragment"
-            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.SettingsScheduleFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.schedule.SettingsScheduleFragment"
             android:label="@string/sch_name" />
         <fragment
             android:id="@+id/nav_settings_general_fragment"
-            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.SettingsGeneralFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.general.SettingsGeneralFragment"
             android:label="@string/pref_general" />
 
     </navigation>

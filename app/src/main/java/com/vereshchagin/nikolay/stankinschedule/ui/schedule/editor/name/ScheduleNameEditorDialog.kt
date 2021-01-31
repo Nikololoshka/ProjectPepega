@@ -12,7 +12,7 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.DialogFragment
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.DialogScheduleNameEditorBinding
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.focusAndShowKeyboard
 
 class ScheduleNameEditorDialog : DialogFragment() {

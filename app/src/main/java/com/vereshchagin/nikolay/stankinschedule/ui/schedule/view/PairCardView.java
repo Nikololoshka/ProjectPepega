@@ -22,16 +22,16 @@ import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type;
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.LABORATORY_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.LECTURE_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.SEMINAR_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.SUBGROUP_A_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.SUBGROUP_B_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LABORATORY_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LECTURE_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SEMINAR_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SUBGROUP_A_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SUBGROUP_B_COLOR;
 
 /**
  * Карточка пары в расписании.
