@@ -137,9 +137,17 @@ class ModuleJournalRepository(private val cacheDir: File) {
 
         val cacheData = loadCacheStudentData()
         if (cacheData == null || !cacheData.isValid()) {
-            val networkData = loadNetworkStudentData()
-            saveCacheStudentData(networkData)
-            return networkData
+            return try {
+                val networkData = loadNetworkStudentData()
+                saveCacheStudentData(networkData)
+                networkData
+
+            } catch (e: Exception) {
+                if (cacheData == null) {
+                    throw e
+                }
+                cacheData
+            }
         }
 
         return cacheData
@@ -202,21 +210,28 @@ class ModuleJournalRepository(private val cacheDir: File) {
     suspend fun loadSemesterMarks(
         semester: String,
         refresh: Boolean = false,
-        last: Boolean = false
-    ): SemesterMarks =
-        mutex.withLock {
-            if (refresh) {
-                val networkMarks = loadNetworkSemesterMarks(semester)
-                saveCacheSemesterMarks(networkMarks, semester)
-                return networkMarks
-            }
+        last: Boolean = false,
+    ): SemesterMarks = mutex.withLock {
+        if (refresh) {
+            val networkMarks = loadNetworkSemesterMarks(semester)
+            saveCacheSemesterMarks(networkMarks, semester)
+            return networkMarks
+        }
 
-            val cacheMarks = loadCacheSemesterMarks(semester)
-            if (cacheMarks == null || !cacheMarks.isValid(last)) {
+        val cacheMarks = loadCacheSemesterMarks(semester)
+        if (cacheMarks == null || !cacheMarks.isValid(last)) {
+            return try {
                 val networkMarks = loadNetworkSemesterMarks(semester)
                 saveCacheSemesterMarks(networkMarks, semester)
-                return networkMarks
+                networkMarks
+
+            } catch (e: Exception) {
+                if (cacheMarks == null) {
+                    throw e
+                }
+                cacheMarks
             }
+        }
 
             return cacheMarks
         }

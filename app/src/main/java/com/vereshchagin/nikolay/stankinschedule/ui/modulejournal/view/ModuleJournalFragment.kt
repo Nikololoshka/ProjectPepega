@@ -40,11 +40,8 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
     /**
      * Менеджер состояний.
      */
-    private var _statefulStudentLayout: StatefulLayout2? = null
-    private val statefulStudentLayout get() = _statefulStudentLayout!!
-
-    private var _statefulSemestersLayout: StatefulLayout2? = null
-    private val statefulSemestersLayout get() = _statefulSemestersLayout!!
+    private lateinit var statefulStudentLayout: StatefulLayout2
+    private lateinit var statefulSemestersLayout: StatefulLayout2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +51,7 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
     override fun onInflateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): FragmentModuleJournalBinding {
         return FragmentModuleJournalBinding.inflate(inflater, container, false)
     }
@@ -69,15 +66,17 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
         ModuleJournalWorker.startWorker(requireContext())
 
         binding.studentLoadingShimmer.setShimmer(DrawableUtils.createShimmer())
-        _statefulStudentLayout = StatefulLayout2.Builder(binding.mjContainer)
+        statefulStudentLayout = StatefulLayout2.Builder(binding.mjContainer)
             .init(StatefulLayout2.LOADING, binding.studentLoading)
             .addView(StatefulLayout2.CONTENT, binding.refresh)
             .addView(StatefulLayout2.ERROR, binding.studentError)
+            .setOwner(this)
             .create()
 
-        _statefulSemestersLayout = StatefulLayout2.Builder(binding.semestersContainer)
+        statefulSemestersLayout = StatefulLayout2.Builder(binding.semestersContainer)
             .init(StatefulLayout2.LOADING, binding.semestersLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.semestersPager)
+            .setOwner(this)
             .create()
 
         binding.appBar.addOnOffsetChangedListener(
@@ -152,12 +151,6 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
             val data = it ?: return@observe
             adapter.submitData(lifecycle, data)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _statefulStudentLayout = null
-        _statefulSemestersLayout = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -242,6 +235,7 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
     }
 
     companion object {
+        @Suppress("unused")
         private const val TAG = "ModuleJournalLog"
     }
 }

@@ -38,12 +38,6 @@
     <string name="mj_forgot_password">Забыли пароль?</string>
     <string name="mj_sign_in">Войти</string>
     <string name="mj_data_problem">При получении данных возникла проблема</string>
-    <string name="mj_unknown_host">Не удалось определить хост \"lk.stankin.ru\"</string>
-    <string name="mj_unknown_host_description">Хост \"lk.stankin.ru\" недоступен. Попробуйте проверить подключение к сети.</string>
-    <string name="mj_failed_unauthorized">Ошибка авторизации</string>
-    <string name="mj_failed_unauthorized_description">Не удалось войти. Пожалуйста, проверьте правильность написания логина и пароля.</string>
-    <string name="mj_socket_timeout">"lk.stankin.ru" слишком долго не отвечал.</string>
-    <string name="mj_socket_timeout_description">Хост \"lk.stankin.ru\" долго не отвечает. Попробуйте позже.</string>
     <string name="mj_sign_out">Выйти</string>
     <string name="mj_information_background">Фон информации модульного журнала</string>
     <string name="mj_student">Студент: %1$s</string>
@@ -256,6 +250,11 @@
     <string name="widget_schedule_update">Обновить виджет расписания</string>
     <string name="widget_schedule_type_marker">Маркер типа пары</string>
     <string name="widget_schedule_error">Произошла ошибка при работе виджета</string>
+
+    <!-- exceptions -->
+    <string name="ex_unknown_host">Host is unavailable. Try to test your network connection.</string>
+    <string name="ex_failed_unauthorized">Login failed. Make sure you entered your username and password correctly.</string>
+    <string name="ex_socket_timeout">The host does not respond for a long time. Try later.</string>
 
     <!-- other -->
     <string name="error">Ошибка</string>

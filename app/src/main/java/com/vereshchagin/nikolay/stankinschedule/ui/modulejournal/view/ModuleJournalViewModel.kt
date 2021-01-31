@@ -78,14 +78,6 @@ class ModuleJournalViewModel(
                 .collect {
                     studentDateResult(it, useCache)
                 }
-            repository.currentRating()
-                .collect {
-                    currentRating.value = it
-                }
-            repository.predictedRating()
-                .collect {
-                    predictedRating.value = it
-                }
         }
     }
 
@@ -104,6 +96,7 @@ class ModuleJournalViewModel(
     private fun refreshSemesters(useCache: Boolean): LiveData<PagingData<SemesterMarks>> {
         val state = studentData.value
         if (state is State.Success) {
+            refreshRatings()
             return Pager(
                 PagingConfig(SEMESTER_PAGE_COUNT, enablePlaceholders = true),
                 initialKey = state.data.semesters.last()
@@ -112,6 +105,22 @@ class ModuleJournalViewModel(
             }.liveData.cachedIn(viewModelScope)
         }
         return MutableLiveData(null)
+    }
+
+    /**
+     * Обновляет расчеты текущего и прогнозируемого рейтинга.
+     */
+    private fun refreshRatings() {
+        viewModelScope.launch {
+            repository.currentRating()
+                .collect {
+                    currentRating.value = it
+                }
+            repository.predictedRating()
+                .collect {
+                    predictedRating.value = it
+                }
+        }
     }
 
     /**

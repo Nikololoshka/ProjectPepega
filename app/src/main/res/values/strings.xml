@@ -44,12 +44,6 @@
     <string name="mj_forgot_password">Forgot password?</string>
     <string name="mj_sign_in">Sign in</string>
     <string name="mj_data_problem">There was a problem retrieving the data</string>
-    <string name="mj_unknown_host">Unable to resolve host \"lk.stankin.ru\"</string>
-    <string name="mj_unknown_host_description">Host \"lk.stankin.ru\" are unavailable. Try checking your network connection.</string>
-    <string name="mj_failed_unauthorized">Authorization error</string>
-    <string name="mj_failed_unauthorized_description">Failed to log in. Please make sure that you have entered your login and password correctly.</string>
-    <string name="mj_socket_timeout">\"lk.stankin.ru\" took too long to respond.</string>
-    <string name="mj_socket_timeout_description">The host "lk.stankin.ru" does not respond for a long time. Try later.</string>
     <string name="mj_sign_out">Sign out</string>
     <string name="mj_information_background">Module journal information background</string>
     <string name="mj_student">Student: %1$s</string>
@@ -268,6 +262,11 @@
     <string name="widget_shimmer_title" translatable="false">Name of the pair discipline</string>
     <string name="widget_shimmer_classroom" translatable="false">Classroom</string>
     <string name="widget_shimmer_time" translatable="false">Time pair</string>
+
+    <!-- exceptions -->
+    <string name="ex_unknown_host">Хост недоступен. Попробуйте проверить подключение к сети.</string>
+    <string name="ex_failed_unauthorized">Не удалось войти. Убедитесь, что вы правильно ввели логин и пароль.</string>
+    <string name="ex_socket_timeout">Хост долго не отвечает. Попробуйте позже.</string>
 
     <!-- other -->
     <string name="error">Error</string>
