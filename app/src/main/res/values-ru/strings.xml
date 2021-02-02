@@ -251,6 +251,13 @@
     <string name="widget_schedule_type_marker">Маркер типа пары</string>
     <string name="widget_schedule_error">Произошла ошибка при работе виджета</string>
 
+    <!-- shortcuts -->
+    <string name="shortcut_favorite_short">Избранное</string>
+    <string name="shortcut_favorite_long">Избранное расписание</string>
+    <string name="shortcut_favorite_not_selected">Избранного расписания не выбрано</string>
+    <string name="shortcut_module_journal_short">Мод. журнал</string>
+    <string name="shortcut_module_journal_long">Модульный журнал</string>
+
     <!-- exceptions -->
     <string name="ex_unknown_host">Host is unavailable. Try to test your network connection.</string>
     <string name="ex_failed_unauthorized">Login failed. Make sure you entered your username and password correctly.</string>

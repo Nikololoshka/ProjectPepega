@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -25,8 +26,11 @@ import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityMainBinding
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
+import com.vereshchagin.nikolay.stankinschedule.utils.ShortcutsUtils
 import org.joda.time.DateTime
 import org.joda.time.Hours
 
@@ -146,6 +150,30 @@ class MainActivity : AppCompatActivity() {
         _appUpdateManager = AppUpdateManagerFactory.create(this)
         checkAppUpdate()
 
+        // настройка ярлыков (shortcuts)
+        // android 7.1+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+            when (intent.action) {
+                // избранное расписание
+                ShortcutsUtils.FAVORITE_SHORTCUT -> {
+                    val scheduleName = ScheduleRepository().favorite(this)
+                    if (scheduleName != null) {
+                        navController.navigate(
+                            R.id.to_schedule_view_fragment,
+                            ScheduleViewFragment.createBundle(scheduleName)
+                        )
+                    } else {
+                        Toast.makeText(
+                            this, R.string.shortcut_favorite_not_selected, Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+                // к модульному журналу
+                ShortcutsUtils.MODULE_JOURNAL_SHORTCUT -> {
+                    navController.navigate(R.id.to_module_journal_fragment)
+                }
+            }
+        }
         // throw RuntimeException("Stack deobfuscation example exception");
     }
 

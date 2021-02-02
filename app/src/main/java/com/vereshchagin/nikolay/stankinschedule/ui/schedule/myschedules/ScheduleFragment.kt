@@ -27,6 +27,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.home.ChangeSubgroupBottomShee
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker.Companion.SCHEDULE_DOWNLOADED_EVENT
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
@@ -129,7 +130,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     override fun onInflateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): FragmentScheduleBinding {
         return FragmentScheduleBinding.inflate(inflater, container, false)
     }
@@ -154,7 +155,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
+                target: RecyclerView.ViewHolder,
             ): Boolean {
                 val fromPosition = viewHolder.bindingAdapterPosition
                 val toPosition = target.bindingAdapterPosition
@@ -253,7 +254,9 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                         dialog.show(parentFragmentManager, dialog.tag)
                     }
                     R.id.from_repository -> {
-                        navigateTo(R.id.toScheduleRepositoryActivity)
+                        startActivity(
+                            Intent(requireContext(), ScheduleRepositoryActivity::class.java)
+                        )
                     }
                     R.id.load_schedule -> {
                         loadScheduleFromDevice()
@@ -295,7 +298,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         if (requestCode == REQUEST_PERMISSION_READ_STORAGE) {
             if (PermissionsUtils.isGrand(grantResults)) {

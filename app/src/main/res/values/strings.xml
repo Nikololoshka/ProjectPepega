@@ -263,6 +263,13 @@
     <string name="widget_shimmer_classroom" translatable="false">Classroom</string>
     <string name="widget_shimmer_time" translatable="false">Time pair</string>
 
+    <!-- shortcuts -->
+    <string name="shortcut_favorite_short">Favorite</string>
+    <string name="shortcut_favorite_long">Favorite schedule</string>
+    <string name="shortcut_favorite_not_selected">No favorite schedule selected</string>
+    <string name="shortcut_module_journal_short">Module journal</string>
+    <string name="shortcut_module_journal_long">Module journal</string>
+
     <!-- exceptions -->
     <string name="ex_unknown_host">Хост недоступен. Попробуйте проверить подключение к сети.</string>
     <string name="ex_failed_unauthorized">Не удалось войти. Убедитесь, что вы правильно ввели логин и пароль.</string>

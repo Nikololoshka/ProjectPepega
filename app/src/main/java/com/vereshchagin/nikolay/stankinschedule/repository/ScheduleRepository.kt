@@ -129,6 +129,17 @@ class ScheduleRepository {
     }
 
     /**
+     * Возвращает избранное расписание
+     */
+    fun favorite(context: Context): String? {
+        val scheduleName: String? = SchedulePreference.favorite(context)
+        if (scheduleName == null || scheduleName.isEmpty()) {
+            return null
+        }
+        return scheduleName
+    }
+
+    /**
      * Сохраняет расписание.
      */
     fun saveNew(context: Context, schedule: Schedule, scheduleName: String) {

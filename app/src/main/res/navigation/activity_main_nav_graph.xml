@@ -16,13 +16,7 @@
         android:id="@+id/nav_schedule_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.ScheduleFragment"
         android:label="@string/nav_schedule"
-        tools:layout="@layout/fragment_schedule" >
-
-        <action
-            android:id="@+id/toScheduleRepositoryActivity"
-            app:destination="@id/nav_schedule_repository_activity" />
-
-    </fragment>
+        tools:layout="@layout/fragment_schedule" />
 
     <fragment
         android:id="@+id/nav_module_journal_fragment"
@@ -181,6 +175,15 @@
         app:exitAnim="@anim/nav_exit_anim"
         app:popEnterAnim="@anim/nav_pop_enter_anim"
         app:popExitAnim="@anim/nav_pop_exit_anim" />
+
+    <action
+        android:id="@+id/to_module_journal_fragment"
+        app:destination="@id/nav_module_journal_fragment"
+        app:enterAnim="@anim/nav_enter_anim"
+        app:exitAnim="@anim/nav_exit_anim"
+        app:popEnterAnim="@anim/nav_pop_enter_anim"
+        app:popExitAnim="@anim/nav_pop_exit_anim" />
+
 
     <action
         android:id="@+id/to_about_fragment"
