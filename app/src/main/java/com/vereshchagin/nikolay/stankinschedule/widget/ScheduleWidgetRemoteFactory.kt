@@ -16,7 +16,6 @@ import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LABORATORY_COLOR
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LECTURE_COLOR
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SEMINAR_COLOR
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
 import org.joda.time.LocalDate
 import java.lang.ref.WeakReference
 import java.util.*
@@ -103,9 +102,8 @@ class ScheduleWidgetRemoteFactory(
             scheduleName = widgetData.scheduleName
             subgroup = widgetData.subgroup
 
-            val schedulePath = SchedulePreference.createPath(currentContext, scheduleName)
             try {
-                val schedule = ScheduleRepository().load(schedulePath)
+                val schedule = ScheduleRepository().load(scheduleName, currentContext)
 
                 var data = LocalDate.now()
                 for (i in 0 until 7) {

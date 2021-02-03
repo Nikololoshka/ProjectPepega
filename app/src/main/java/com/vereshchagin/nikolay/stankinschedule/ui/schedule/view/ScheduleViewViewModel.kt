@@ -71,6 +71,7 @@ class ScheduleViewViewModel(
             return MutableLiveData(PagingData.empty())
         }
 
+        val limit = ApplicationPreference.scheduleLimit(getApplication())
         val pager = Pager(
             PagingConfig(
                 pageSize = PAGE_SIZE,
@@ -78,12 +79,9 @@ class ScheduleViewViewModel(
                 initialLoadSize = PAGE_SIZE,
                 maxSize = PAGE_SIZE * 8
             ),
-            schedule.limitDate(initKey),
+            if (limit) schedule.limitDate(initKey) else initKey,
         ) {
-            ScheduleViewDaySource(
-                schedule,
-                ApplicationPreference.scheduleLimit(getApplication())
-            )
+            ScheduleViewDaySource(schedule, limit)
         }
 
         return pager.liveData.cachedIn(viewModelScope)
@@ -149,6 +147,6 @@ class ScheduleViewViewModel(
         /**
          * Размер страницы погрузки.
          */
-        private const val PAGE_SIZE = 30
+        private const val PAGE_SIZE = 10
     }
 }

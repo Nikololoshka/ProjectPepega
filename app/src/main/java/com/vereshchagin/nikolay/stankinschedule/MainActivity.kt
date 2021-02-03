@@ -156,7 +156,7 @@ class MainActivity : AppCompatActivity() {
             when (intent.action) {
                 // избранное расписание
                 ShortcutsUtils.FAVORITE_SHORTCUT -> {
-                    val scheduleName = ScheduleRepository().favorite(this)
+                    val scheduleName = ScheduleRepository.favorite(this)
                     if (scheduleName != null) {
                         navController.navigate(
                             R.id.to_schedule_view_fragment,

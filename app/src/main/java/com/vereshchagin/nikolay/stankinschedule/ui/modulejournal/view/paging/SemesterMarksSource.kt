@@ -35,4 +35,10 @@ class SemesterMarksSource(
             LoadResult.Error(e)
         }
     }
+
+//    override fun getRefreshKey(state: PagingState<String, SemesterMarks>): String? {
+//        return state.anchorPosition?.let { anchorPosition ->
+//            semesters[anchorPosition]
+//        }
+//    }
 }

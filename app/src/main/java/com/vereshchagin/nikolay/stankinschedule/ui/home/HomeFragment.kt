@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.home.news.NewsPostLatestAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity
@@ -57,7 +57,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         binding.newsName.setOnClickListener(this)
 
         // установка названия расписания
-        val favorite = SchedulePreference.favorite(requireContext())
+        val favorite = ScheduleRepository.favorite(requireContext())
         if (favorite != null && favorite.isNotEmpty()) {
             binding.scheduleName.text = favorite
         }
@@ -128,7 +128,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         when (v?.id) {
             // расписание
             R.id.schedule_name -> {
-                val favorite = SchedulePreference.favorite(requireContext())
+                val favorite = ScheduleRepository.favorite(requireContext())
                 if (favorite != null && favorite.isNotEmpty()) {
                     navigateTo(
                         R.id.to_schedule_view_fragment,

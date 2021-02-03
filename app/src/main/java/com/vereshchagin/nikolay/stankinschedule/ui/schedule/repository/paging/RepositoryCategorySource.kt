@@ -44,4 +44,10 @@ class RepositoryCategorySource(
             return LoadResult.Error(e)
         }
     }
+
+//    override fun getRefreshKey(state: PagingState<String, RepositoryCategoryItem>): String? {
+//        return state.anchorPosition?.let { anchorPosition ->
+//            categories[anchorPosition]
+//        }
+//    }
 }

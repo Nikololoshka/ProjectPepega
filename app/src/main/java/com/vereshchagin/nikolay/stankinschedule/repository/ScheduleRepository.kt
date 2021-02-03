@@ -129,17 +129,6 @@ class ScheduleRepository {
     }
 
     /**
-     * Возвращает избранное расписание
-     */
-    fun favorite(context: Context): String? {
-        val scheduleName: String? = SchedulePreference.favorite(context)
-        if (scheduleName == null || scheduleName.isEmpty()) {
-            return null
-        }
-        return scheduleName
-    }
-
-    /**
      * Сохраняет расписание.
      */
     fun saveNew(context: Context, schedule: Schedule, scheduleName: String) {
@@ -179,5 +168,24 @@ class ScheduleRepository {
         save(schedule, path)
 
         SchedulePreference.add(context, scheduleName)
+    }
+
+    companion object {
+        /**
+         * Возвращает избранное расписание
+         */
+        @JvmStatic
+        fun favorite(context: Context): String? {
+            val scheduleName: String? = SchedulePreference.favorite(context)
+            if (scheduleName == null || scheduleName.isEmpty()) {
+                return null
+            }
+            return scheduleName
+        }
+
+        @JvmStatic
+        fun updateFavorite(context: Context, scheduleName: String?) {
+            SchedulePreference.setFavorite(context, scheduleName)
+        }
     }
 }

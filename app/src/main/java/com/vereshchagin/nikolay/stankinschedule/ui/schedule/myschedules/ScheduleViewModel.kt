@@ -18,7 +18,7 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
     private val repository = ScheduleRepository()
 
     val selectedItems = MutableLiveData(SparseBooleanArray())
-    val adapterData = MutableLiveData<Pair<List<String>, String>>(null)
+    val adapterData = MutableLiveData<Pair<List<String>, String?>>(null)
 
     init {
         update()
@@ -29,7 +29,7 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
      */
     fun update() {
         val schedules = repository.schedules(getApplication())
-        val favorite = SchedulePreference.favorite(getApplication())
+        val favorite = ScheduleRepository.favorite(getApplication())
         adapterData.value = schedules to favorite
     }
 
@@ -57,14 +57,14 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
 
     /**
      * Устанавливает избранное расписание.
-     * Возвращает true, если было установлено новое избрано.
+     * Возвращает true, если было установлено новое избранное.
      * False если было удалено избранное.
      */
     fun setFavorite(favorite: String): Boolean {
-        val old = SchedulePreference.favorite(getApplication())
+        val old = ScheduleRepository.favorite(getApplication())
         val isNew = favorite != old
 
-        SchedulePreference.setFavorite(getApplication(), if (isNew) favorite else "")
+        ScheduleRepository.updateFavorite(getApplication(), if (isNew) favorite else null)
         update()
 
         return isNew

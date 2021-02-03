@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.paging.PagingSource
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
+import kotlinx.coroutines.delay
 import org.joda.time.LocalDate
 
 /**
@@ -31,6 +32,19 @@ class ScheduleViewDaySource(
         val nextDay = nextDay(date, loadSize)
         val prevDay = prevDay(date, loadSize)
 
+        if (BuildConfig.DEBUG) {
+            Log.d("ScheduleViewSourceLog",
+                "Load view data: " +
+                    "${prevDay?.toString("dd.MM.yyyy")} " +
+                    "<- ${date.toString("dd.MM.yyyy")} -> " +
+                    "${nextDay?.toString("dd.MM.yyyy")}"
+            )
+        }
+
+        // TODO(03/02/2021 После миграции сбивается текущая отображаемая дата)
+        // В alpha-9 все работало, в 10 - нет
+        delay(200)
+
         return LoadResult.Page(
             loadDays(date, nextDay),
             prevDay,
@@ -50,7 +64,7 @@ class ScheduleViewDaySource(
 
         val end: LocalDate = if (limit) {
             if (to == null) {
-                endDate!!
+                endDate!!.plusDays(1)
             } else {
                 if (to > endDate) endDate?.plusDays(1)!! else to
             }
@@ -60,7 +74,7 @@ class ScheduleViewDaySource(
 
         if (BuildConfig.DEBUG) {
             Log.d(
-                "ScheduleViewSource",
+                "ScheduleViewSourceLog",
                 "load: ${begin.toString("dd.MM.yyyy")} " +
                     "<--> ${end.toString("dd.MM.yyyy")}"
             )
@@ -77,6 +91,10 @@ class ScheduleViewDaySource(
             begin = begin.plusDays(1)
         }
 
+        if (BuildConfig.DEBUG) {
+            Log.d("ScheduleViewSourceLog", "loaded = ${result.size}")
+        }
+
         return result
     }
 
@@ -84,13 +102,14 @@ class ScheduleViewDaySource(
      * Вычисляет следующий день для загрузки данных.
      */
     private fun nextDay(currentDate: LocalDate, pageSize: Int): LocalDate? {
+        val next = currentDate.plusDays(pageSize)
         if (limit) {
-            if (currentDate > endDate) {
+            if (next > endDate) {
                 return null
             }
         }
 
-        return currentDate.plusDays(pageSize)
+        return next
     }
 
     /**
@@ -105,4 +124,12 @@ class ScheduleViewDaySource(
 
         return currentDate.minusDays(pageSize)
     }
+
+//    @ExperimentalPagingApi
+//    override fun getRefreshKey(state: PagingState<LocalDate, ScheduleViewDay>): LocalDate? {
+//        Log.d("ScheduleViewSourceLog", "getRefreshKey: $state")
+//        return state.anchorPosition?.let { anchorPosition ->
+//            state.closestItemToPosition(anchorPosition)?.day
+//        }
+//    }
 }

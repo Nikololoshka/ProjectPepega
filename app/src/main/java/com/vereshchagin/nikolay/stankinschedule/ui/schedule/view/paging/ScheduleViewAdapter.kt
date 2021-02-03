@@ -35,11 +35,10 @@ class ScheduleViewAdapter(
         private val SCHEDULE_DAY_COMPARATOR = object : DiffUtil.ItemCallback<ScheduleViewDay>() {
 
             override fun areItemsTheSame(oldItem: ScheduleViewDay, newItem: ScheduleViewDay) =
-                oldItem == newItem
+                oldItem.day == newItem.day
 
             override fun areContentsTheSame(oldItem: ScheduleViewDay, newItem: ScheduleViewDay) =
                 oldItem == newItem
-
         }
     }
 }
