@@ -8,6 +8,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -65,7 +66,7 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
     override fun onInflateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): FragmentScheduleViewBinding {
         return FragmentScheduleViewBinding.inflate(inflater, container, false)
     }
@@ -105,6 +106,13 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
         // адаптер
         adapter = ScheduleViewAdapter(this::onPairClicked)
         binding.schViewContainer.adapter = adapter
+
+        adapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                super.onItemRangeInserted(positionStart, itemCount)
+                Log.d(TAG, "onItemRangeInserted: $positionStart $itemCount")
+            }
+        })
 
         viewModel.scheduleDays.observe(viewLifecycleOwner) {
             adapter.submitData(lifecycle, it)
@@ -174,6 +182,16 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
 
                 return true
             }
+            // перейти к началу расписания
+            R.id.to_start_schedule -> {
+                scrollToScheduleStart()
+                return true
+            }
+            // перейти к концу расписания
+            R.id.to_end_schedule -> {
+                scrollToScheduleEnd()
+                return true
+            }
             // сохранить расписание на устройство
             R.id.save_schedule -> {
                 // проверка возможности записи
@@ -225,7 +243,7 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         // удалось ли получить запрос на запись
         if (requestCode == REQUEST_PERMISSION_WRITE_STORAGE) {
@@ -348,6 +366,26 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
             binding.schViewContainer.scrollToPosition(scrollIndex)
         } else {
             viewModel.updatePagerView(scrollDate)
+        }
+    }
+
+    /**
+     * Перемещает текущую позицию просмотра расписания к начале расписания.
+     */
+    private fun scrollToScheduleStart() {
+        val date = viewModel.currentSchedule()?.startDate()
+        if (date != null) {
+            scrollScheduleTo(date)
+        }
+    }
+
+    /**
+     * Перемещает текущую позицию просмотра расписания к концу расписания.
+     */
+    private fun scrollToScheduleEnd() {
+        val date = viewModel.currentSchedule()?.endDate()
+        if (date != null) {
+            scrollScheduleTo(date)
         }
     }
 

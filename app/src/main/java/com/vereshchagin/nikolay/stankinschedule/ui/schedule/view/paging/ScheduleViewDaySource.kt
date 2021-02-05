@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.paging.PagingSource
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
-import kotlinx.coroutines.delay
 import org.joda.time.LocalDate
 
 /**
@@ -12,7 +11,6 @@ import org.joda.time.LocalDate
  */
 class ScheduleViewDaySource(
     private val schedule: Schedule,
-    private val limit: Boolean
 ) : PagingSource<LocalDate, ScheduleViewDay>() {
 
     private val startDate = schedule.startDate()
@@ -41,10 +39,6 @@ class ScheduleViewDaySource(
             )
         }
 
-        // TODO(03/02/2021 После миграции сбивается текущая отображаемая дата)
-        // В alpha-9 все работало, в 10 - нет
-        delay(200)
-
         return LoadResult.Page(
             loadDays(date, nextDay),
             prevDay,
@@ -56,21 +50,8 @@ class ScheduleViewDaySource(
      * Загружает необходимое количество дней в расписание.
      */
     private fun loadDays(from: LocalDate, to: LocalDate?): List<ScheduleViewDay> {
-        var begin = if (limit) {
-            if (from < startDate) startDate!! else from
-        } else {
-            from
-        }
-
-        val end: LocalDate = if (limit) {
-            if (to == null) {
-                endDate!!.plusDays(1)
-            } else {
-                if (to > endDate) endDate?.plusDays(1)!! else to
-            }
-        } else {
-            to ?: endDate!!
-        }
+        var begin = from
+        val end = to ?: endDate!!
 
         if (BuildConfig.DEBUG) {
             Log.d(
@@ -102,26 +83,13 @@ class ScheduleViewDaySource(
      * Вычисляет следующий день для загрузки данных.
      */
     private fun nextDay(currentDate: LocalDate, pageSize: Int): LocalDate? {
-        val next = currentDate.plusDays(pageSize)
-        if (limit) {
-            if (next > endDate) {
-                return null
-            }
-        }
-
-        return next
+        return currentDate.plusDays(pageSize)
     }
 
     /**
      * Вычисляет предыдущий день для загрузки данных.
      */
     private fun prevDay(currentDate: LocalDate, pageSize: Int): LocalDate? {
-        if (limit) {
-            if (currentDate < startDate) {
-                return null
-            }
-        }
-
         return currentDate.minusDays(pageSize)
     }
 

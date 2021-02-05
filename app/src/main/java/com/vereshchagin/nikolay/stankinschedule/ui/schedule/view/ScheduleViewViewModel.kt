@@ -81,7 +81,7 @@ class ScheduleViewViewModel(
             ),
             if (limit) schedule.limitDate(initKey) else initKey,
         ) {
-            ScheduleViewDaySource(schedule, limit)
+            ScheduleViewDaySource(schedule)
         }
 
         return pager.liveData.cachedIn(viewModelScope)
@@ -130,12 +130,22 @@ class ScheduleViewViewModel(
     }
 
     /**
+     * Возвращает текущие расписание.
+     */
+    fun currentSchedule(): Schedule? {
+        if (this::schedule.isInitialized) {
+            return schedule
+        }
+        return null
+    }
+
+    /**
      * Factory для создания ViewModel.
      */
     class Factory(
         private val scheduleName: String,
         private val startDate: LocalDate?,
-        private val application: Application
+        private val application: Application,
     ) : ViewModelProvider.NewInstanceFactory() {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
