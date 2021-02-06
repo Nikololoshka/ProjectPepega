@@ -45,8 +45,7 @@ class ModuleJournalRepository(private val cacheDir: File) {
     /**
      * Кэш данных для входа в модульный журнал.
      */
-    private var login: String? = null
-    private var password: String? = null
+    private var userData: Pair<String, String>? = null
 
     init {
         val builder = Retrofit.Builder()
@@ -240,15 +239,15 @@ class ModuleJournalRepository(private val cacheDir: File) {
      * Возвращает данные для входа в модульный журнал.
      */
     private fun loadLoginData(): Pair<String, String> {
-        if (login == null || password == null) {
-            val (currentLogin, currentPassword) = ModuleJournalPreference.signInData(
+        val data = userData
+        if (data == null) {
+            val newUserData = ModuleJournalPreference.signInData(
                 MainApplication.instance.applicationContext
             )
-            login = currentLogin
-            password = currentPassword
+            userData = newUserData
+            return newUserData
         }
-
-        return login!! to password!!
+        return data
     }
 
     /**

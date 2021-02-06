@@ -32,7 +32,7 @@ interface NewsDao {
      * Возвращает список (DataSource) из последних нескольких элементов.
      * @param max максимальное количество элементов.
      */
-    @Query("SELECT * FROM POSTS ORDER BY date DESC LIMIT :max")
+    @Query("SELECT * FROM POSTS ORDER BY date DESC, id DESC LIMIT :max")
     fun latest(max: Int = 3) : LiveData<List<NewsItem>>
 
     /**

@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.animation.DecelerateInterpolator
+import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityModuleJournalPredictBinding
@@ -76,6 +78,9 @@ class ModuleJournalPredictActivity : AppCompatActivity() {
             }
         })
         binding.predictRecyclerView.adapter = adapter
+        binding.predictRecyclerView.addItemDecoration(
+            DividerItemDecoration(this, LinearLayout.VERTICAL)
+        )
 
         viewModel.semesterMarks.observe(this) {
             if (it == null) {

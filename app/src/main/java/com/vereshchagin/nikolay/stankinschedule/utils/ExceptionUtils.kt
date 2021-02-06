@@ -21,7 +21,7 @@ object ExceptionUtils {
         when (throwable) {
             // HTTP ошибка (retrofit2)
             is HttpException -> {
-                errorNetworkDescription(throwable, context)
+                return errorNetworkDescription(throwable, context)
             }
             // время ожидания сокета истекло
             is SocketTimeoutException -> {
@@ -53,7 +53,7 @@ object ExceptionUtils {
             }
             else -> {
                 Firebase.crashlytics.recordException(exception)
-                "[${exception.code()}] ${exception.message()}"
+                "[${exception.code()}] $exception"
             }
         }
     }

@@ -1,5 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.model.modulejournal
 
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import com.google.gson.annotations.SerializedName
 import org.joda.time.DateTime
 import org.joda.time.Minutes
@@ -15,7 +17,7 @@ data class SemesterMarks(
     @SerializedName("accumulatedRating")
     var accumulatedRating: Int? = null,
     @SerializedName("time")
-    val time: DateTime = DateTime.now()
+    val time: DateTime = DateTime.now(),
 ) {
     /**
      * Добавляет оценку в список оценок за семестр.
@@ -56,37 +58,58 @@ data class SemesterMarks(
      * Рассчитывает рейтинг для данного семестра.
      */
     fun computeRating(): Double {
-        var ratingSum = 0.0
-        var ratingCount = 0.0
-        for (discipline in disciplines) {
-            ratingSum += discipline.computeRating()
-            ratingCount += discipline.factor
+        try {
+            var ratingSum = 0.0
+            var ratingCount = 0.0
+            for (discipline in disciplines) {
+                ratingSum += discipline.computeRating()
+                ratingCount += discipline.factor
+            }
+            return ratingSum / ratingCount
+
+        } catch (e: Exception) {
+            Firebase.crashlytics.recordException(e)
         }
-        return ratingSum / ratingCount
+
+        return 0.0
     }
 
     fun computePredictedRating(averageRating: Int): Double {
-        var ratingSum = 0.0
-        var ratingCount = 0.0
-        for (discipline in disciplines) {
-            ratingSum += discipline.computePredictedRating(averageRating)
-            ratingCount += discipline.factor
+        try {
+            var ratingSum = 0.0
+            var ratingCount = 0.0
+            for (discipline in disciplines) {
+                ratingSum += discipline.computePredictedRating(averageRating)
+                ratingCount += discipline.factor
+            }
+            return ratingSum / ratingCount
+
+        } catch (e: Exception) {
+            Firebase.crashlytics.recordException(e)
         }
-        return ratingSum / ratingCount
+
+        return 0.0
     }
 
     /**
      * Вычисляет среднюю оценку в семестре.
      */
     fun average(): Int {
-        var ratingSum = 0
-        var ratingCount = 0
-        for (discipline in disciplines) {
-            val (disciplineSum, disciplineCount) = discipline.prepareAverage()
-            ratingSum += disciplineSum
-            ratingCount += disciplineCount
+        try {
+            var ratingSum = 0
+            var ratingCount = 0
+            for (discipline in disciplines) {
+                val (disciplineSum, disciplineCount) = discipline.prepareAverage()
+                ratingSum += disciplineSum
+                ratingCount += disciplineCount
+            }
+            return ratingSum / ratingCount
+
+        } catch (e: Exception) {
+            Firebase.crashlytics.recordException(e)
         }
-        return ratingSum / ratingCount
+
+        return 0
     }
 
     /**
@@ -99,13 +122,6 @@ data class SemesterMarks(
             }
         }
         return true
-    }
-
-    /**
-     * Возвращает заголовок таблицы (включая коэффициент).
-     */
-    fun headerData(): List<String> {
-        return arrayListOf("М1", "М2", "К", "З", "Э", "К")
     }
 
     /**

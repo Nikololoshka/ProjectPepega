@@ -5,8 +5,11 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.PairIntersectException
 import com.vereshchagin.nikolay.stankinschedule.resources.PairResources
+import org.apache.commons.io.FileUtils
 import org.junit.Before
 import org.junit.Test
+import java.io.File
+import java.nio.charset.StandardCharsets
 
 /**
  * Тесты для расписания.
@@ -64,5 +67,22 @@ class ScheduleTest {
         schedule.add(pairs[3])
         schedule.add(pairs[4])
         schedule.add(pairs[5])
+    }
+
+    //    @Test
+    fun tempStressTest() {
+        val path = "J:/data/schedules-json/"
+        val schedules = FileUtils.listFiles(File(path), null, false)
+
+        for (schedule in schedules) {
+            println(schedule.name)
+
+            val json = FileUtils.readFileToString(schedule, StandardCharsets.UTF_8)
+            GsonBuilder()
+                .registerTypeAdapter(Schedule::class.java, Schedule.Deserializer())
+                .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
+                .create()
+                .fromJson(json, Schedule::class.java)
+        }
     }
 }
