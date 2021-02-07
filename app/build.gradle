@@ -14,8 +14,8 @@ android {
         applicationId "com.vereshchagin.nikolay.stankinschedule"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 60
-        versionName "1.2.0-beta6"
+        versionCode 61
+        versionName "1.2.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
