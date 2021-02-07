@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/mj_update_marks"
-        android:title="@string/mj_update_marks"/>
+        android:id="@+id/predict_rating"
+        android:title="Predict rating"
+        android:icon="@drawable/ic_menu_predict_button"
+        app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/mj_sign_out"
+        android:id="@+id/update_marks"
+        android:title="@string/mj_update_marks" />
+
+    <item
+        android:id="@+id/sign_out"
         android:title="@string/mj_sign_out" />
 
 </menu>

@@ -11,7 +11,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging
  * Адаптер для списка новостей.
  */
 class NewsPostAdapter(
-    private val clickListener: (newsId: Int) -> Unit,
+    private val clickListener: (newsId: Int, newsTitle: String?) -> Unit,
     private val glide: RequestManager,
 ) : PagingDataAdapter<NewsItem, NewsPostItemHolder>(POST_COMPARATOR) {
 
@@ -30,10 +30,10 @@ class NewsPostAdapter(
         @JvmStatic
         val POST_COMPARATOR = object : DiffUtil.ItemCallback<NewsItem>() {
 
-            override fun areItemsTheSame(oldItem: NewsItem, newItem: NewsItem): Boolean =
+            override fun areItemsTheSame(oldItem: NewsItem, newItem: NewsItem) =
                 oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: NewsItem, newItem: NewsItem): Boolean =
+            override fun areContentsTheSame(oldItem: NewsItem, newItem: NewsItem) =
                 oldItem == newItem
         }
     }

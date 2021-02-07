@@ -15,7 +15,6 @@ interface StankinNewsPostsApi {
 
     /**
      * Запрос к API новостей stankin.ru.
-     * @param action дейстивие.
      * @param data данные запроса.
      */
     @POST("/api_entry.php")

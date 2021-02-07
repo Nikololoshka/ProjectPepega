@@ -44,21 +44,23 @@
     <string name="mj_forgot_password">Forgot password?</string>
     <string name="mj_sign_in">Sign in</string>
     <string name="mj_data_problem">There was a problem retrieving the data</string>
-    <string name="mj_unknown_host">Unable to resolve host \"lk.stankin.ru\"</string>
-    <string name="mj_unknown_host_description">Host \"lk.stankin.ru\" are unavailable. Try checking your network connection.</string>
-    <string name="mj_failed_unauthorized">Authorization error</string>
-    <string name="mj_failed_unauthorized_description">Failed to log in. Please make sure that you have entered your login and password correctly.</string>
-    <string name="mj_socket_timeout">\"lk.stankin.ru\" took too long to respond.</string>
-    <string name="mj_socket_timeout_description">The host "lk.stankin.ru" does not respond for a long time. Try later.</string>
     <string name="mj_sign_out">Sign out</string>
     <string name="mj_information_background">Module journal information background</string>
     <string name="mj_student">Student: %1$s</string>
     <string name="mj_group">Group: %1$s</string>
     <string name="mj_last_update">\"%1$s\" data from the cache from: %2$s</string>
     <string name="mj_update_marks">Update marks</string>
+    <string name="mj_current_rating">Current rating</string>
+    <string name="mj_predicted_rating">Predicted rating</string>
 
-    <string name="mj_shimmer_student_name" translatable="false">Student: StudentName</string>
-    <string name="mj_shimmer_group" translatable="false">Group: Group</string>
+    <!-- predict rating module journal -->
+    <string name="mj_rating">Rating</string>
+    <string name="mj_no_disciplines">No disciplines without grades</string>
+    <string name="mj_select_semester">Select semester</string>
+    <string name="mj_change_semester">Change semester</string>
+    <string name="mj_show_all_disciplines">Show all disciplines</string>
+    <string name="mj_mark_below_25">Score below 25</string>
+    <string name="mj_mark_above_100">Score above 100</string>
 
     <!-- my schedules -->
     <string name="sch_name">Schedule</string>
@@ -78,6 +80,7 @@
     <string name="sch_edit_schedules">Edit schedules</string>
     <string name="sch_remove_schedule">Remove schedule</string>
     <string name="sch_without_subgroup">without a subgroup</string>
+    <string name="sch_adding_new_schedules">Adding new schedules</string>
 
     <!-- repository -->
     <string name="repository">Repository</string>
@@ -112,6 +115,9 @@
     <string name="sch_view_empty">Schedule is empty</string>
     <string name="sch_home_display_subgroup">Displayed subgroup on the main page: %1$s</string>
     <string name="sch_home_change_subgroup">Change</string>
+    <string name="sch_view_go_to">Go to</string>
+    <string name="sch_view_go_to_schedule_start">Schedule start</string>
+    <string name="sch_view_go_to_schedule_end">End of schedule</string>
 
     <!-- pair editor -->
     <string name="pair_editor_title">Title</string>
@@ -263,6 +269,18 @@
     <string name="widget_shimmer_title" translatable="false">Name of the pair discipline</string>
     <string name="widget_shimmer_classroom" translatable="false">Classroom</string>
     <string name="widget_shimmer_time" translatable="false">Time pair</string>
+
+    <!-- shortcuts -->
+    <string name="shortcut_favorite_short">Favorite</string>
+    <string name="shortcut_favorite_long">Favorite schedule</string>
+    <string name="shortcut_favorite_not_selected">No favorite schedule selected</string>
+    <string name="shortcut_module_journal_short">Module journal</string>
+    <string name="shortcut_module_journal_long">Module journal</string>
+
+    <!-- exceptions -->
+    <string name="ex_unknown_host">Host is unavailable. Try to test your network connection.</string>
+    <string name="ex_failed_unauthorized">Login failed. Make sure you entered your username and password correctly.</string>
+    <string name="ex_socket_timeout">The host does not respond for a long time. Try later.</string>
 
     <!-- other -->
     <string name="error">Error</string>

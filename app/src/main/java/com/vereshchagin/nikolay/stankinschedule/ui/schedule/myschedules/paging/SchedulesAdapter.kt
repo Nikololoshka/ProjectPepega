@@ -28,10 +28,10 @@ class SchedulesAdapter(
     /**
      * Избранное расписание
      */
-    private var favorite: String = ""
+    private var favorite: String? = null
 
     /**
-     * Анимировать ли кнопку "избранное".
+     * Нужно ли анимировать ли кнопку "избранное".
      */
     private var isAnimateFavoriteButton = false
 
@@ -74,7 +74,7 @@ class SchedulesAdapter(
     /**
      * Устанавливает новый список с расписанием и новое избранное расписание.
      */
-    fun submitList(schedules: List<String>, favorite: String) {
+    fun submitList(schedules: List<String>, favorite: String?) {
         this.schedules = schedules
         this.favorite = favorite
 

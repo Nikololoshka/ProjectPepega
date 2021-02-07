@@ -6,7 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".ui.schedule.repository.ScheduleRepositoryActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -25,8 +26,7 @@
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/repository_refresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".ui.schedule.repository.ScheduleRepositoryActivity">
+            android:layout_height="match_parent">
 
             <FrameLayout
                 android:id="@+id/repository_layout"
@@ -98,38 +98,21 @@
 
                 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-                <LinearLayout
-                    android:id="@+id/repository_error_layout"
+                <ViewStub
+                    android:id="@+id/repository_error"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:id="@+id/repository_error"
-                        style="@style/Text.Medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/default_information_padding"
-                        android:textAlignment="center"
-                        tools:text="Error message" />
-
-                    <Button
-                        android:id="@+id/repository_error_retry"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/retry" />
-
-                </LinearLayout>
-
+                    android:layout="@layout/view_error_with_button"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
                 <include
                     android:id="@+id/repository_loading"
                     layout="@layout/view_loading"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="visible" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    tools:visibility="gone" />
 
             </FrameLayout>
 

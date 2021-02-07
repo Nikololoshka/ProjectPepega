@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 /**
  * ViewModel для фрагмента с новостью.
  * @param repository репозиторий, откуда будет загружаться новость.
- * @param application объект приложение для доступа к контексту.
+ * @param newsId номер новости.
  */
 class NewsViewerViewModel(
     private val repository: NewsPostRepository,

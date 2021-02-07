@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.home.news.NewsPostLatestAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 
@@ -47,7 +47,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         _scheduleStateful = StatefulLayout2(
             binding.scheduleLayout,
-            StatefulLayout2.LOADING, binding.scheduleLoading.loadingFragment
+            StatefulLayout2.LOADING, binding.scheduleLoading.root
         )
         scheduleStateful.addView(StatefulLayout2.EMPTY, binding.noFavoriteSchedule)
         scheduleStateful.addView(StatefulLayout2.CONTENT, binding.schedulePager)
@@ -58,7 +58,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         binding.newsName.setOnClickListener(this)
 
         // установка названия расписания
-        val favorite = SchedulePreference.favorite(requireContext())
+        val favorite = ScheduleRepository.favorite(requireContext())
         if (favorite != null && favorite.isNotEmpty()) {
             binding.scheduleName.text = favorite
         }
@@ -131,7 +131,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         when (v?.id) {
             // расписание
             R.id.schedule_name -> {
-                val favorite = SchedulePreference.favorite(requireContext())
+                val favorite = ScheduleRepository.favorite(requireContext())
                 if (favorite != null && favorite.isNotEmpty()) {
                     navigateTo(
                         R.id.to_schedule_view_fragment,
@@ -157,8 +157,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         _scheduleStateful = null
     }
 
-    private fun onNewsClick(newsId: Int) {
-        navigateTo(R.id.to_news_viewer_fragment, NewsViewerActivity.createBundle(newsId))
+    private fun onNewsClick(newsId: Int, newsTitle: String?) {
+        val intent = NewsViewerActivity.newsIntent(requireContext(), newsId, newsTitle)
+        startActivity(intent)
     }
 
     companion object {

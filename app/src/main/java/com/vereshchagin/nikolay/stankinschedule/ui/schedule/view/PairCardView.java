@@ -15,22 +15,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type;
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference;
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.LABORATORY_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.LECTURE_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.SEMINAR_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.SUBGROUP_A_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.SUBGROUP_B_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LABORATORY_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LECTURE_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SEMINAR_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SUBGROUP_A_COLOR;
+import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SUBGROUP_B_COLOR;
 
 /**
  * Карточка пары в расписании.
@@ -83,7 +84,7 @@ public class PairCardView extends CardView {
 
         TypedValue value = new TypedValue();
         context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, value, true);
-        setForeground(context.getDrawable(value.resourceId));
+        setForeground(ContextCompat.getDrawable(context, value.resourceId));
         setRadius(0);
         setCardElevation(0);
         setMaxCardElevation(0);
@@ -226,7 +227,8 @@ public class PairCardView extends CardView {
     }
 
     /**
-     * Определяет является ли цвет темным.
+     * Определяет, является ли цвет темным.
+     *
      * @param color цвет.
      * @return true если темный, иначе false.
      */

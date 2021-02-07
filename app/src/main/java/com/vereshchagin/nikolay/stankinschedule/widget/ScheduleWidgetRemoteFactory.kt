@@ -12,9 +12,10 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference.*
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreferenceKt
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LABORATORY_COLOR
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LECTURE_COLOR
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SEMINAR_COLOR
 import org.joda.time.LocalDate
 import java.lang.ref.WeakReference
 import java.util.*
@@ -86,7 +87,7 @@ class ScheduleWidgetRemoteFactory(
             }
 
             // загрузка цветов
-            val (lecture, seminar, laboratory) = ApplicationPreferenceKt.colors(
+            val (lecture, seminar, laboratory) = ApplicationPreference.colors(
                 currentContext, LECTURE_COLOR, SEMINAR_COLOR, LABORATORY_COLOR
             )
             lectureColor = lecture; seminarColor = seminar; laboratoryColor = laboratory
@@ -101,9 +102,8 @@ class ScheduleWidgetRemoteFactory(
             scheduleName = widgetData.scheduleName
             subgroup = widgetData.subgroup
 
-            val schedulePath = SchedulePreference.createPath(currentContext, scheduleName)
             try {
-                val schedule = ScheduleRepository().load(schedulePath)
+                val schedule = ScheduleRepository().load(scheduleName, currentContext)
 
                 var data = LocalDate.now()
                 for (i in 0 until 7) {
@@ -139,7 +139,7 @@ class ScheduleWidgetRemoteFactory(
         try {
             // отображаем ошибку
             if (loadingError) {
-                val errorView = RemoteViews(packageName, R.layout.view_error)
+                val errorView = RemoteViews(packageName, R.layout.widget_schedule_error)
                 errorView.setTextViewText(R.id.error_title, errorMessage)
                 return errorView
             }
@@ -216,7 +216,7 @@ class ScheduleWidgetRemoteFactory(
     }
 
     /**
-     * Сервис, который создает адаптер по обновлению данных в виджете.
+     * Сервис, который создает адаптер по обновлению данных виджета.
      */
     class Service : RemoteViewsService() {
         override fun onGetViewFactory(intent: Intent): RemoteViewsFactory {
@@ -225,7 +225,7 @@ class ScheduleWidgetRemoteFactory(
     }
 
     /**
-     * Информация о дне в виджете с расписанием.
+     * Информация о дне виджета с расписанием.
      * @param dayTitle заголовок дня.
      * @param pairs пары дня.
      * @param dayTime дата дня.

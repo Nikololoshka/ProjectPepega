@@ -6,7 +6,7 @@ import com.google.gson.JsonObject
 import org.joda.time.LocalDate
 
 /**
- * Абстактный класс дат пары в расписании.
+ * Абстрактный класс дат пары в расписании.
  */
 abstract class DateItem : Comparable<DateItem>, Parcelable {
 

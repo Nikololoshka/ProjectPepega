@@ -22,17 +22,18 @@ import com.google.android.material.snackbar.Snackbar
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleBinding
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.home.ChangeSubgroupBottomSheet
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker.Companion.SCHEDULE_DOWNLOADED_EVENT
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
-import com.vereshchagin.nikolay.stankinschedule.utils.extractFilename
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.extractFilename
 import org.apache.commons.io.IOUtils
 import java.io.FileNotFoundException
 import java.nio.charset.StandardCharsets
@@ -130,7 +131,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     override fun onInflateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): FragmentScheduleBinding {
         return FragmentScheduleBinding.inflate(inflater, container, false)
     }
@@ -155,7 +156,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
+                target: RecyclerView.ViewHolder,
             ): Boolean {
                 val fromPosition = viewHolder.bindingAdapterPosition
                 val toPosition = target.bindingAdapterPosition
@@ -256,7 +257,9 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                         dialog.show(parentFragmentManager, dialog.tag)
                     }
                     R.id.from_repository -> {
-                        navigateTo(R.id.toScheduleRepositoryActivity)
+                        startActivity(
+                            Intent(requireContext(), ScheduleRepositoryActivity::class.java)
+                        )
                     }
                     R.id.load_schedule -> {
                         loadScheduleFromDevice()
@@ -271,7 +274,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                     viewModel.createSchedule(scheduleName)
                 }
             }
-            // загрузка расписания с устройста
+            // загрузка расписания с устройства
             REQUEST_LOAD_SCHEDULE -> {
                 var scheduleName = ""
                 try {
@@ -298,7 +301,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         if (requestCode == REQUEST_PERMISSION_READ_STORAGE) {
             if (PermissionsUtils.isGrand(grantResults)) {

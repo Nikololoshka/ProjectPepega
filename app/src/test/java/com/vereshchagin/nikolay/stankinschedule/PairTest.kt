@@ -2,77 +2,51 @@ package com.vereshchagin.nikolay.stankinschedule
 
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
-import org.apache.commons.io.FileUtils
+import com.vereshchagin.nikolay.stankinschedule.resources.PairResources
 import org.junit.Assert
 import org.junit.Test
-import java.io.IOException
-import java.nio.charset.StandardCharsets
 
 /**
- * Тесты связанные с парой.
+ * Тесты для пары в расписании.
  */
 class PairTest {
+
+    private val gson = GsonBuilder()
+        .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
+        .registerTypeAdapter(Pair::class.java, Pair.Serializer())
+        .setPrettyPrinting()
+        .create()
+
     /**
      * Проверка на правильность загрузки/сохранения пары.
      */
     @Test
-    fun loadingAndSaving() {
-        try {
-            for (i in 1..6) {
-                val file = FileUtils.getFile(PATH, String.format("pair_%d.json", i))
-                val json = FileUtils.readFileToString(file, StandardCharsets.UTF_8)
-
-                val pair = GsonBuilder().registerTypeAdapter(
-                    Pair::class.java,
-                    Pair.Deserializer()
-                ).create().fromJson(
-                    json,
-                    Pair::class.java
-                )
-
-                println(pair)
-
-                val newJson = GsonBuilder()
-                    .registerTypeAdapter(
-                        Pair::class.java,
-                        Pair.Serializer()
-                    )
-                    .setPrettyPrinting()
-                    .create()
-                    .toJson(pair)
-
-                println(newJson)
-            }
-
-            Assert.assertTrue("Successfully!", true)
-
-        } catch (e: IOException) {
-            e.printStackTrace()
+    fun loadingAndSavingPairs() {
+        val pairs = PairResources.PAIRS.map { json ->
+            gson.fromJson(json, Pair::class.java)
         }
+
+        val newPairs = PairResources.PAIRS.map { json ->
+            val pair = gson.fromJson(json, Pair::class.java)
+            val newJson = gson.toJson(pair)
+            gson.fromJson(newJson, Pair::class.java)
+        }
+
+        Assert.assertEquals(pairs, newPairs)
     }
 
-    fun takePair(num: Int) : Pair {
-        val file = FileUtils.getFile(PATH, String.format("pair_%d.json", num))
-        val json = FileUtils.readFileToString(file, StandardCharsets.UTF_8)
-
-        return GsonBuilder().registerTypeAdapter(
-            Pair::class.java,
-            Pair.Deserializer()
-        ).create().fromJson(
-            json,
-            Pair::class.java
-        )
-    }
-
+    /**
+     * Проверка на сравнение пар.
+     */
     @Test
-    fun compare() {
-        val pair1 = takePair(1)
-        val pair2 = takePair(1)
+    fun pairEquals() {
+        val first = PairResources.PAIRS.map { json ->
+            gson.fromJson(json, Pair::class.java)
+        }
+        val second = PairResources.PAIRS.map { json ->
+            gson.fromJson(json, Pair::class.java)
+        }
 
-        Assert.assertTrue(pair1 == pair2)
-    }
-
-    companion object {
-        private const val PATH = "src/test/resources/"
+        Assert.assertEquals(first, second)
     }
 }

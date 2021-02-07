@@ -4,25 +4,25 @@
     android:id="@+id/widget_item_schedule_app"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:divider="@drawable/divider"
+    android:orientation="vertical"
     android:showDividers="middle">
 
     <TextView
-        style="@style/Text.Body2"
         android:id="@+id/schedule_day_title"
-        android:textColor="@color/colorTextPrimary"
+        style="@style/Text.Body2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/widget_sch_padding"
+        android:textColor="@color/colorTextPrimary"
         tools:text="Пн, 10 февраля" />
 
     <LinearLayout
         android:id="@+id/schedule_day_pairs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:divider="@drawable/divider"
+        android:orientation="vertical"
         android:showDividers="middle" />
 
 </LinearLayout>

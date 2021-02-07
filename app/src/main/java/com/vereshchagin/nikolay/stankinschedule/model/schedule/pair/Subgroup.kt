@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 import android.content.Context
 import android.os.Parcelable
 import com.vereshchagin.nikolay.stankinschedule.R
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 /**
  * Подгруппа пары.
@@ -45,7 +45,7 @@ enum class Subgroup(val tag: String) : Parcelable {
 
     companion object {
         /**
-         * Возвращает значение подгруппы соотвествующие значению в строке.
+         * Возвращает значение подгруппы соответствующие значению в строке.
          */
         @JvmStatic
         fun of(value: String): Subgroup {

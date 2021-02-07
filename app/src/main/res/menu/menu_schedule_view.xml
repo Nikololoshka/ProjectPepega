@@ -14,6 +14,19 @@
         android:title="@string/sch_view_go_to_day"
         app:showAsAction="ifRoom|withText" />
 
+    <item android:title="@string/sch_view_go_to">
+
+        <menu>
+            <item
+                android:title="@string/sch_view_go_to_schedule_start"
+                android:id="@+id/to_start_schedule" />
+            <item
+                android:title="@string/sch_view_go_to_schedule_end"
+                android:id="@+id/to_end_schedule" />
+        </menu>
+
+    </item>
+
     <item
         android:id="@+id/rename_schedule"
         android:icon="@drawable/ic_menu_edit_button"

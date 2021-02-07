@@ -1,24 +1,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/widgetColorBodyBackground"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/widgetColorTitleBackground" >
+        android:background="@color/widgetColorTitleBackground"
+        android:orientation="horizontal">
 
         <TextView
-            style="@style/Text.Subhead"
             android:id="@+id/widget_schedule_name"
-            android:text="@string/widget_schedule_title"
-            android:textColor="@color/widgetColorTitleText"
+            style="@style/Text.Subhead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/widget_sch_padding" />
+            android:padding="@dimen/widget_sch_padding"
+            android:text="@string/widget_schedule_title"
+            android:textColor="@color/widgetColorTitleText" />
 
     </LinearLayout>
 
@@ -27,6 +27,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@drawable/divider"
-        tools:listitem="@layout/widget_item_schedule"/>
+        tools:listitem="@layout/widget_item_schedule" />
 
 </LinearLayout>

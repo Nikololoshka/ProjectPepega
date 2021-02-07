@@ -4,23 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.ktx.analytics
-import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.R
 
 /**
- * Базовый фрагмент с ViewBinding.
+ * Базовый фрагмент реализацией с ViewBinding.
  */
 abstract class BaseFragment<T : ViewBinding> : Fragment() {
 
-    private var _binding: T? = null
+    protected var _binding: T? = null
     protected val binding get() = _binding!!
 
     override fun onCreateView(
@@ -48,19 +48,19 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     abstract fun onPostCreateView(savedInstanceState: Bundle?)
 
     /**
-     * Осуществляет переход к новому элементу.
-     * @param destination ID элемента назначения.
-     * @param args аргументы для перехода.
+     * Осуществляет переход к новому фрагменту / активности с заданными аргументами.
      */
-    protected fun navigateTo(@IdRes destination: Int, args: Bundle? = null) {
+    protected fun navigateTo(
+        @IdRes destination: Int,
+        args: Bundle? = null,
+        options: NavOptions? = null
+    ) {
         val navController = Navigation.findNavController(requireActivity(), R.id.nav_host)
-        navController.navigate(destination, args)
+        navController.navigate(destination, args, options)
     }
 
     /**
      * Показывает SnackBar для корневого View.
-     * @param id ID сообщения.
-     * @param duration продолжительность показа.
      */
     protected fun showSnack(
         @StringRes id: Int,
@@ -73,8 +73,6 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
 
     /**
      * Показывает SnackBar для корневого View.
-     * @param message сообщение.
-     * @param duration продолжительность показа.
      */
     protected fun showSnack(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
         Snackbar.make(binding.root, message, duration)
@@ -82,15 +80,18 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     }
 
     /**
-     * Добавление информации в FirebaseAnalytics о включенном фрагменте.
+     * Скрывает клавиатуру с экрана.
      */
-    protected fun trackScreen(screenName: String, screenClass: String) {
-        Firebase.analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW,
-            Bundle().apply {
-                FirebaseAnalytics.Param.SCREEN_NAME to screenName
-                FirebaseAnalytics.Param.SCREEN_CLASS to screenClass
-            }
-        )
+    protected fun hideKeyboard() {
+        val activity = requireActivity()
+        val manager = ContextCompat.getSystemService(activity, InputMethodManager::class.java)
+        val currentFocusedView = activity.currentFocus
+        if (currentFocusedView != null && manager != null) {
+            manager.hideSoftInputFromWindow(
+                currentFocusedView.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
+        }
     }
 
     override fun onDestroyView() {

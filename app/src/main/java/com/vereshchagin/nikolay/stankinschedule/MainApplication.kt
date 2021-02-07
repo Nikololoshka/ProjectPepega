@@ -2,8 +2,9 @@ package com.vereshchagin.nikolay.stankinschedule
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
-import com.google.firebase.crashlytics.FirebaseCrashlytics
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 
 /**
  * Singleton класс приложения.
@@ -14,7 +15,7 @@ class MainApplication : Application() {
         super.onCreate()
         // отключение FirebaseCrashlytics в debug
         if (BuildConfig.DEBUG) {
-            FirebaseCrashlytics.getInstance()
+            Firebase.crashlytics
                 .setCrashlyticsCollectionEnabled(false)
         }
 

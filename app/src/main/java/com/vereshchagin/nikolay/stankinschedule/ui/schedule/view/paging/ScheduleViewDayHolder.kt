@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.vereshchagin.nikolay.stankinschedule.databinding.ItemScheduleDayCommonBinding
+import com.vereshchagin.nikolay.stankinschedule.databinding.ItemScheduleDayBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.PairCardView
 import java.util.*
@@ -14,7 +14,7 @@ import kotlin.collections.ArrayList
  * Holder для в просмотре расписания.
  */
 class ScheduleViewDayHolder(
-    private val binding: ItemScheduleDayCommonBinding,
+    private val binding: ItemScheduleDayBinding,
     private val callback: (pair: Pair) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -27,9 +27,9 @@ class ScheduleViewDayHolder(
         val data = item ?: return
 
         val title = data.day.toString("EEEE, dd MMMM").capitalize(Locale.ROOT)
-        binding.dayTitle.scheduleDayTitle.text = title
+        binding.scheduleDayTitle.text = title
 
-        binding.dayPairs.scheduleDayPairs.removeAllViews()
+        binding.scheduleDayPairs.removeAllViews()
 
         for ((i, pair) in data.pairs.withIndex()) {
             var cardView: PairCardView
@@ -46,16 +46,16 @@ class ScheduleViewDayHolder(
                 }
                 pairCards.add(cardView)
             }
-            binding.dayPairs.scheduleDayPairs.addView(cardView)
+            binding.scheduleDayPairs.addView(cardView)
         }
 
         // если нет пар
         if (data.pairs.isEmpty()) {
-            binding.dayPairs.noPairs.noPairs.visibility = View.VISIBLE
-            binding.dayPairs.scheduleDayPairs.visibility = View.GONE
+            binding.noPairs.noPairs.visibility = View.VISIBLE
+            binding.scheduleDayPairs.visibility = View.GONE
         } else {
-            binding.dayPairs.noPairs.noPairs.visibility = View.GONE
-            binding.dayPairs.scheduleDayPairs.visibility = View.VISIBLE
+            binding.noPairs.noPairs.visibility = View.GONE
+            binding.scheduleDayPairs.visibility = View.VISIBLE
         }
     }
 
@@ -65,7 +65,7 @@ class ScheduleViewDayHolder(
          */
         fun create(parent: ViewGroup, callback: (pair: Pair) -> Unit): ScheduleViewDayHolder {
             return ScheduleViewDayHolder(
-                ItemScheduleDayCommonBinding.inflate(
+                ItemScheduleDayBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false

@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -24,12 +25,12 @@ import com.google.android.play.core.install.InstallState
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
-import com.google.firebase.analytics.ktx.analytics
-import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityMainBinding
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreferenceKt
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
+import com.vereshchagin.nikolay.stankinschedule.utils.ShortcutsUtils
 import org.joda.time.DateTime
 import org.joda.time.Hours
 
@@ -38,7 +39,12 @@ import org.joda.time.Hours
  */
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appUpdateManager: AppUpdateManager
+    /**
+     * Менеджер для проверки обновлений приложения.
+     */
+    private var _appUpdateManager: AppUpdateManager? = null
+    private val appUpdateManager get() = _appUpdateManager!!
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -141,18 +147,46 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        appUpdateManager = AppUpdateManagerFactory.create(this)
+        _appUpdateManager = AppUpdateManagerFactory.create(this)
         checkAppUpdate()
 
-        val isAnalytics = ApplicationPreferenceKt.firebaseAnalytics(this)
-        Firebase.analytics.setAnalyticsCollectionEnabled(isAnalytics)
-
+        // настройка ярлыков (shortcuts)
+        // android 7.1+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+            when (intent.action) {
+                // избранное расписание
+                ShortcutsUtils.FAVORITE_SHORTCUT -> {
+                    val scheduleName = ScheduleRepository.favorite(this)
+                    if (scheduleName != null) {
+                        navController.navigate(
+                            R.id.to_schedule_view_fragment,
+                            ScheduleViewFragment.createBundle(scheduleName)
+                        )
+                    } else {
+                        Toast.makeText(
+                            this, R.string.shortcut_favorite_not_selected, Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+                // к модульному журналу
+                ShortcutsUtils.MODULE_JOURNAL_SHORTCUT -> {
+                    navController.navigate(R.id.to_module_journal_fragment)
+                }
+            }
+        }
         // throw RuntimeException("Stack deobfuscation example exception");
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
+        return navHostFragment.navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         appUpdateManager.unregisterListener(this::onUpdateState)
+        _appUpdateManager = null
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -165,7 +199,7 @@ class MainActivity : AppCompatActivity() {
                 R.string.update_cancelled,
                 Snackbar.LENGTH_LONG
             ).show()
-            ApplicationPreferenceKt.setUpdateAppTime(this, DateTime.now())
+            ApplicationPreference.setUpdateAppTime(this, DateTime.now())
         }
     }
 
@@ -240,7 +274,7 @@ class MainActivity : AppCompatActivity() {
      * Проверка обновлений приложения.
      */
     private fun checkAppUpdate() {
-        val lastUpdate = ApplicationPreferenceKt.updateAppTime(this)
+        val lastUpdate = ApplicationPreference.updateAppTime(this)
         if (lastUpdate != null && Hours.hoursBetween(lastUpdate, DateTime.now()).hours < 24) {
             return
         }
@@ -256,10 +290,10 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     onShowUpdate(updateInfo)
                 } else {
-                    ApplicationPreferenceKt.setUpdateAppTime(this, DateTime.now())
+                    ApplicationPreference.setUpdateAppTime(this, DateTime.now())
                 }
             }.addOnFailureListener {
-                ApplicationPreferenceKt.setUpdateAppTime(this, DateTime.now())
+                ApplicationPreference.setUpdateAppTime(this, DateTime.now())
             }
     }
 
@@ -300,14 +334,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 show()
             }
-            ApplicationPreferenceKt.setUpdateAppTime(this, DateTime.now())
+            ApplicationPreference.setUpdateAppTime(this, DateTime.now())
         }
     }
 
     companion object {
         const val UPDATE_REQUEST = 1
         const val DAYS_FOR_FLEXIBLE_UPDATE = 3
-
-        const val TAG = "MainActivity"
     }
 }

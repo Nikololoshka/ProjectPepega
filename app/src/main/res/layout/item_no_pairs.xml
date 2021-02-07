@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/no_pairs"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Text.Medium"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:padding="@dimen/default_information_padding"
+    android:text="@string/sch_view_no_pairs"
+    android:textAlignment="center" />
 
-    <TextView
-        style="@style/Text.Medium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorCardViewBackground"
-        android:text="@string/sch_view_no_pairs"
-        android:textAlignment="center"
-        android:padding="@dimen/default_information_padding" />
-
-</LinearLayout>

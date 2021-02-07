@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -13,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostsBinding
+import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostsListBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostLoadStateAdapter
@@ -28,7 +26,7 @@ import kotlinx.coroutines.flow.filter
 /**
  * Фрагмент для отображения списка новостей.
  */
-class NewsPostsFragment : BaseFragment<ItemNewsPostsBinding>() {
+class NewsPostsFragment : BaseFragment<ItemNewsPostsListBinding>() {
 
     /**
      * ViewModel фрагмента.
@@ -47,14 +45,14 @@ class NewsPostsFragment : BaseFragment<ItemNewsPostsBinding>() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): ItemNewsPostsBinding {
-        return ItemNewsPostsBinding.inflate(inflater, container, false)
+    ): ItemNewsPostsListBinding {
+        return ItemNewsPostsListBinding.inflate(inflater, container, false)
     }
 
     @InternalCoroutinesApi
     @ExperimentalPagingApi
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        // glide для загрузки превью
+        // glide для загрузки пред просмотра
         val glide = Glide.with(this)
             .setDefaultRequestOptions(
                 RequestOptions()
@@ -99,9 +97,12 @@ class NewsPostsFragment : BaseFragment<ItemNewsPostsBinding>() {
         }
     }
 
-    private fun onNewsClick(newsId: Int) {
-        val controller = Navigation.findNavController(requireActivity(), R.id.nav_host)
-        controller.navigate(R.id.to_news_viewer_fragment, NewsViewerActivity.createBundle(newsId))
+    /**
+     * Вызывается при нажатии на новость в списке.
+     */
+    private fun onNewsClick(newsId: Int, newsTitle: String?) {
+        val intent = NewsViewerActivity.newsIntent(requireContext(), newsId, newsTitle)
+        startActivity(intent)
     }
 
     companion object {

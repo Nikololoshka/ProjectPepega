@@ -1,7 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 
 /**
@@ -29,7 +29,7 @@ enum class Frequency(val tag: String, val period: Int) : Parcelable {
                     return frequency
                 }
             }
-            throw IllegalArgumentException("No parse frequency: $value");
+            throw IllegalArgumentException("No parse frequency: $value")
         }
     }
 }

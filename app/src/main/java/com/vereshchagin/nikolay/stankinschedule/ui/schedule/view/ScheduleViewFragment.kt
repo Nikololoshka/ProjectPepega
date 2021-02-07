@@ -8,10 +8,13 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -20,14 +23,14 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleViewBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewAdapter
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewSpaceItemDecoration
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import kotlinx.coroutines.flow.collectLatest
 import org.joda.time.LocalDate
 
 /**
@@ -64,14 +67,14 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
     override fun onInflateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): FragmentScheduleViewBinding {
         return FragmentScheduleViewBinding.inflate(inflater, container, false)
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         _statefulLayout = StatefulLayout2.Builder(binding.statefulLayout)
-            .init(StatefulLayout2.LOADING, binding.schViewLoading.loadingFragment)
+            .init(StatefulLayout2.LOADING, binding.schViewLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.schViewContainer)
             .addView(StatefulLayout2.EMPTY, binding.schViewEmpty)
             .addView(StatefulLayout2.ERROR, binding.schViewError)
@@ -99,35 +102,44 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
                 val snapHelper = LinearSnapHelper()
                 snapHelper.attachToRecyclerView(binding.schViewContainer)
             }
-        } else {
-            binding.schViewContainer.addItemDecoration(
-                ScheduleViewSpaceItemDecoration(
-                    resources.getDimensionPixelSize(R.dimen.vertical_view_space)
-                )
-            )
         }
 
         // адаптер
         adapter = ScheduleViewAdapter(this::onPairClicked)
         binding.schViewContainer.adapter = adapter
 
+        adapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                super.onItemRangeInserted(positionStart, itemCount)
+                Log.d(TAG, "onItemRangeInserted: $positionStart $itemCount")
+            }
+        })
+
         viewModel.scheduleDays.observe(viewLifecycleOwner) {
             adapter.submitData(lifecycle, it)
         }
 
+        lifecycleScope.launchWhenCreated {
+            adapter.loadStateFlow.collectLatest { loadStates ->
+                val isLoading = loadStates.refresh is LoadState.Loading
+                if (isLoading) {
+                    statefulLayout.setState(StatefulLayout2.LOADING)
+                } else {
+                    val state = viewModel.state.value
+                    if (state is State.Success) {
+                        updateContentView(state.data)
+                    }
+                }
+            }
+        }
+
         viewModel.state.observe(viewLifecycleOwner) {
             val state = it ?: return@observe
-            when (state) {
-                is State.Success -> {
-                    updateContentView(state.data)
-                }
-                is State.Loading -> {
-                    statefulLayout.setState(StatefulLayout2.LOADING)
-                }
-                is State.Failed -> {
-                    statefulLayout.setState(StatefulLayout2.ERROR)
-                    binding.errorTitle.text = state.error.toString()
-                }
+            if (state is State.Loading) {
+                statefulLayout.setState(StatefulLayout2.LOADING)
+            } else if (state is State.Failed) {
+                statefulLayout.setState(StatefulLayout2.ERROR)
+                binding.errorTitle.text = state.error.toString()
             }
         }
 
@@ -171,6 +183,16 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
                     show()
                 }
 
+                return true
+            }
+            // перейти к началу расписания
+            R.id.to_start_schedule -> {
+                scrollToScheduleStart()
+                return true
+            }
+            // перейти к концу расписания
+            R.id.to_end_schedule -> {
+                scrollToScheduleEnd()
                 return true
             }
             // сохранить расписание на устройство
@@ -224,7 +246,7 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         // удалось ли получить запрос на запись
         if (requestCode == REQUEST_PERMISSION_WRITE_STORAGE) {
@@ -347,6 +369,26 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
             binding.schViewContainer.scrollToPosition(scrollIndex)
         } else {
             viewModel.updatePagerView(scrollDate)
+        }
+    }
+
+    /**
+     * Перемещает текущую позицию просмотра расписания к начале расписания.
+     */
+    private fun scrollToScheduleStart() {
+        val date = viewModel.currentSchedule()?.startDate()
+        if (date != null) {
+            scrollScheduleTo(date)
+        }
+    }
+
+    /**
+     * Перемещает текущую позицию просмотра расписания к концу расписания.
+     */
+    private fun scrollToScheduleEnd() {
+        val date = viewModel.currentSchedule()?.endDate()
+        if (date != null) {
+            scrollScheduleTo(date)
         }
     }
 

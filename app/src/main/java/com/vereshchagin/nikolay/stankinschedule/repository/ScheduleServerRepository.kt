@@ -11,8 +11,8 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryCategoryItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryDescription
-import com.vereshchagin.nikolay.stankinschedule.utils.DateTimeTypeConverter
 import com.vereshchagin.nikolay.stankinschedule.utils.State
+import com.vereshchagin.nikolay.stankinschedule.utils.convertors.gson.DateTimeTypeConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -29,7 +29,7 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 /**
- * Удаленный репозиторий с расписаниеями.
+ * Удаленный репозиторий с расписаниями.
  */
 class ScheduleServerRepository(
     private val cacheFolder: File
@@ -51,7 +51,6 @@ class ScheduleServerRepository(
 
         if (useCache) {
             val cache = loadDescription()
-            Log.d(TAG, "description: ${cache}")
             if (cache != null && isValid(cache.date)) {
                 emit(State.success(cache))
                 return@flow
@@ -166,7 +165,7 @@ class ScheduleServerRepository(
     }
 
     /**
-     * Проверяет, является ли кэш валидным.
+     * Проверяет, является ли кэш актуальными.
      */
     private fun isValid(date: DateTime): Boolean {
         return Hours.hoursBetween(date, DateTime.now()).hours < 2

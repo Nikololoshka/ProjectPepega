@@ -28,9 +28,11 @@
 
         <include
             layout="@layout/view_loading"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="@{showContent ? View.GONE : View.VISIBLE }" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{showContent ? View.GONE : View.VISIBLE }"
+            tools:visibility="gone" />
 
     </FrameLayout>
 

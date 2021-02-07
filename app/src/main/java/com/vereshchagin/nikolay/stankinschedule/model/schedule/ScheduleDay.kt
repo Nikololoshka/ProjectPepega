@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule
 import android.util.Log
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.PairIntersectException
-import com.vereshchagin.nikolay.stankinschedule.utils.removeIfJava7
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.removeIfJava7
 import org.joda.time.LocalDate
 
 

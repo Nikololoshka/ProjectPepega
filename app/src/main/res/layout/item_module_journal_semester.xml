@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <FrameLayout
+        android:id="@+id/semester_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.vereshchagin.nikolay.stankinschedule.view.MarksTable
+            android:id="@+id/marks_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="?android:attr/actionBarSize"
+            android:visibility="gone"
+            app:mt_dividerColor="@color/colorDivider"
+            app:mt_textColor="?android:attr/textColorPrimary"
+            tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/semester_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:visibility="gone" />
+
+    </FrameLayout>
+
+</androidx.core.widget.NestedScrollView>

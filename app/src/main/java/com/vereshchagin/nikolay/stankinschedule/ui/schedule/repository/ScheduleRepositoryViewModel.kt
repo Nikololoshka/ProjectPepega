@@ -3,7 +3,8 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
 import android.app.Application
 import androidx.lifecycle.*
 import androidx.paging.*
-import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryCategoryItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryDescription
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleServerRepository
@@ -68,7 +69,7 @@ class ScheduleRepositoryViewModel(application: Application) : AndroidViewModel(a
         viewModelScope.launch {
             repository.description(useCache)
                 .catch { e ->
-                    FirebaseCrashlytics.getInstance().recordException(e)
+                    Firebase.crashlytics.recordException(e)
                 }
                 .collect {
                     descriptionResult(it, useCache)

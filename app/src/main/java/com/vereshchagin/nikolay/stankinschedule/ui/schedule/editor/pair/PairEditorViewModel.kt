@@ -6,7 +6,7 @@ import com.google.gson.JsonParseException
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.DateException
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

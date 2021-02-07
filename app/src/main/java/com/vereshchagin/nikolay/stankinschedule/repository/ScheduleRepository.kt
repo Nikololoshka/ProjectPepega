@@ -7,7 +7,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.JsonSyntaxException
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
 import org.apache.commons.io.FileUtils
 import java.io.File
 import java.io.IOException
@@ -45,7 +45,7 @@ class ScheduleRepository {
     }
 
     /**
-     * Возвращает список расписаний устройста.
+     * Возвращает список расписаний устройства.
      */
     fun schedules(context: Context): List<String> {
         return SchedulePreference.schedules(context)
@@ -62,7 +62,7 @@ class ScheduleRepository {
     }
 
     /**
-     * Переименновывает расписание.
+     * Переименовывает расписание.
      */
     fun renameSchedule(context: Context, oldName: String, newName: String) {
         val oldFile = File(SchedulePreference.createPath(context, oldName))
@@ -156,7 +156,7 @@ class ScheduleRepository {
     }
 
     /**
-     * Загружает и сохранаяет расписание с json.
+     * Загружает и сохраняет расписание с json.
      */
     fun loadAndSaveFromJson(context: Context, json: String, scheduleName: String) {
         if (schedules(context).contains(scheduleName)) {
@@ -168,5 +168,24 @@ class ScheduleRepository {
         save(schedule, path)
 
         SchedulePreference.add(context, scheduleName)
+    }
+
+    companion object {
+        /**
+         * Возвращает избранное расписание
+         */
+        @JvmStatic
+        fun favorite(context: Context): String? {
+            val scheduleName: String? = SchedulePreference.favorite(context)
+            if (scheduleName == null || scheduleName.isEmpty()) {
+                return null
+            }
+            return scheduleName
+        }
+
+        @JvmStatic
+        fun updateFavorite(context: Context, scheduleName: String?) {
+            SchedulePreference.setFavorite(context, scheduleName)
+        }
     }
 }

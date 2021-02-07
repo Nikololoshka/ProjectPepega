@@ -7,11 +7,10 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import org.joda.time.LocalDate
 
 /**
- * Источник данных (дней) для простомтра расписания.
+ * Источник данных (дней) для просмотра расписания.
  */
 class ScheduleViewDaySource(
     private val schedule: Schedule,
-    private val limit: Boolean
 ) : PagingSource<LocalDate, ScheduleViewDay>() {
 
     private val startDate = schedule.startDate()
@@ -31,6 +30,15 @@ class ScheduleViewDaySource(
         val nextDay = nextDay(date, loadSize)
         val prevDay = prevDay(date, loadSize)
 
+        if (BuildConfig.DEBUG) {
+            Log.d("ScheduleViewSourceLog",
+                "Load view data: " +
+                    "${prevDay?.toString("dd.MM.yyyy")} " +
+                    "<- ${date.toString("dd.MM.yyyy")} -> " +
+                    "${nextDay?.toString("dd.MM.yyyy")}"
+            )
+        }
+
         return LoadResult.Page(
             loadDays(date, nextDay),
             prevDay,
@@ -42,25 +50,12 @@ class ScheduleViewDaySource(
      * Загружает необходимое количество дней в расписание.
      */
     private fun loadDays(from: LocalDate, to: LocalDate?): List<ScheduleViewDay> {
-        var begin = if (limit) {
-            if (from < startDate) startDate!! else from
-        } else {
-            from
-        }
-
-        val end: LocalDate = if (limit) {
-            if (to == null) {
-                endDate!!
-            } else {
-                if (to > endDate) endDate?.plusDays(1)!! else to
-            }
-        } else {
-            to ?: endDate!!
-        }
+        var begin = from
+        val end = to ?: endDate!!
 
         if (BuildConfig.DEBUG) {
             Log.d(
-                "ScheduleViewSource",
+                "ScheduleViewSourceLog",
                 "load: ${begin.toString("dd.MM.yyyy")} " +
                     "<--> ${end.toString("dd.MM.yyyy")}"
             )
@@ -77,6 +72,10 @@ class ScheduleViewDaySource(
             begin = begin.plusDays(1)
         }
 
+        if (BuildConfig.DEBUG) {
+            Log.d("ScheduleViewSourceLog", "loaded = ${result.size}")
+        }
+
         return result
     }
 
@@ -84,12 +83,6 @@ class ScheduleViewDaySource(
      * Вычисляет следующий день для загрузки данных.
      */
     private fun nextDay(currentDate: LocalDate, pageSize: Int): LocalDate? {
-        if (limit) {
-            if (currentDate > endDate) {
-                return null
-            }
-        }
-
         return currentDate.plusDays(pageSize)
     }
 
@@ -97,12 +90,14 @@ class ScheduleViewDaySource(
      * Вычисляет предыдущий день для загрузки данных.
      */
     private fun prevDay(currentDate: LocalDate, pageSize: Int): LocalDate? {
-        if (limit) {
-            if (currentDate < startDate) {
-                return null
-            }
-        }
-
         return currentDate.minusDays(pageSize)
     }
+
+//    @ExperimentalPagingApi
+//    override fun getRefreshKey(state: PagingState<LocalDate, ScheduleViewDay>): LocalDate? {
+//        Log.d("ScheduleViewSourceLog", "getRefreshKey: $state")
+//        return state.anchorPosition?.let { anchorPosition ->
+//            state.closestItemToPosition(anchorPosition)?.day
+//        }
+//    }
 }

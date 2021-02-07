@@ -11,15 +11,14 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.WidgetScheduleConfigureBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.utils.DropDownAdapter
-import com.vereshchagin.nikolay.stankinschedule.utils.currentPosition
-import com.vereshchagin.nikolay.stankinschedule.utils.setCurrentPosition
-import com.vereshchagin.nikolay.stankinschedule.utils.setVisibility
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.currentPosition
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setCurrentPosition
+import com.vereshchagin.nikolay.stankinschedule.view.DropDownAdapter
 import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidget.Companion.updateAppWidget
 import java.util.*
 
 /**
- * Конфигурационное активити для виджета с расписанием.
+ * Конфигурационная активность для виджета с расписанием.
  */
 class ScheduleWidgetConfigureActivity : AppCompatActivity(), View.OnClickListener {
     /**
@@ -73,7 +72,6 @@ class ScheduleWidgetConfigureActivity : AppCompatActivity(), View.OnClickListene
             binding.widgetScheduleAdd.isEnabled = false
             binding.widgetScheduleSelector.isEnabled = false
             binding.widgetSubgroupSelector.isEnabled = false
-            binding.emptyList.setVisibility(true)
         }
 
         // загрузка данных

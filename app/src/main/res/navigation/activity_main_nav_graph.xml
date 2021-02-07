@@ -16,13 +16,7 @@
         android:id="@+id/nav_schedule_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.ScheduleFragment"
         android:label="@string/nav_schedule"
-        tools:layout="@layout/fragment_schedule" >
-
-        <action
-            android:id="@+id/toScheduleRepositoryActivity"
-            app:destination="@id/nav_schedule_repository_activity" />
-
-    </fragment>
+        tools:layout="@layout/fragment_schedule" />
 
     <fragment
         android:id="@+id/nav_module_journal_fragment"
@@ -33,10 +27,10 @@
         <action
             android:id="@+id/toModuleJournalLoginFragment"
             app:destination="@id/nav_module_journal_login_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_exit_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim"
             app:popUpTo="@+id/nav_home_fragment" />
 
         <deepLink
@@ -112,56 +106,57 @@
 
         <fragment
             android:id="@+id/nav_settings_fragment"
-            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.SettingsFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.SettingsFragment"
             android:label="@string/nav_settings" >
-            <action
+
+        <action
                 android:id="@+id/toSettingsScheduleFragment"
                 app:destination="@id/nav_settings_schedule_fragment"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"
-                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+                app:enterAnim="@anim/nav_enter_anim"
+                app:exitAnim="@anim/nav_exit_anim"
+                app:popEnterAnim="@anim/nav_pop_enter_anim"
+                app:popExitAnim="@anim/nav_pop_exit_anim" />
             <action
                 android:id="@+id/toSettingsNotificationFragment"
                 app:destination="@id/nav_settings_notification_fragment"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"
-                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+                app:enterAnim="@anim/nav_enter_anim"
+                app:exitAnim="@anim/nav_exit_anim"
+                app:popEnterAnim="@anim/nav_pop_enter_anim"
+                app:popExitAnim="@anim/nav_pop_exit_anim" />
             <action
                 android:id="@+id/toSettingsWidgetFragment"
                 app:destination="@id/nav_settings_widget_fragment"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"
-                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+                app:enterAnim="@anim/nav_enter_anim"
+                app:exitAnim="@anim/nav_exit_anim"
+                app:popEnterAnim="@anim/nav_pop_enter_anim"
+                app:popExitAnim="@anim/nav_pop_exit_anim" />
             <action
                 android:id="@+id/toSettingsGeneralFragment"
                 app:destination="@id/nav_settings_general_fragment"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"
-                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+                app:enterAnim="@anim/nav_enter_anim"
+                app:exitAnim="@anim/nav_exit_anim"
+                app:popEnterAnim="@anim/nav_pop_enter_anim"
+                app:popExitAnim="@anim/nav_pop_exit_anim" />
 
         </fragment>
 
         <fragment
             android:id="@+id/nav_settings_notification_fragment"
-            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.SettingsNotificationFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.notification.SettingsNotificationFragment"
             android:label="@string/notification" />
 
         <fragment
             android:id="@+id/nav_settings_widget_fragment"
-            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.SettingsWidgetFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.widget.SettingsWidgetFragment"
             android:label="@string/widget" />
 
         <fragment
             android:id="@+id/nav_settings_schedule_fragment"
-            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.SettingsScheduleFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.schedule.SettingsScheduleFragment"
             android:label="@string/sch_name" />
         <fragment
             android:id="@+id/nav_settings_general_fragment"
-            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.editor.subsection.SettingsGeneralFragment"
+            android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.general.SettingsGeneralFragment"
             android:label="@string/pref_general" />
 
     </navigation>
@@ -169,34 +164,42 @@
     <action
         android:id="@+id/to_settings_fragment"
         app:destination="@id/settings_nav_graph"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim"
-        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-        app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+        app:enterAnim="@anim/nav_enter_anim"
+        app:exitAnim="@anim/nav_exit_anim"
+        app:popEnterAnim="@anim/nav_pop_enter_anim"
+        app:popExitAnim="@anim/nav_pop_exit_anim" />
 
     <action
         android:id="@+id/to_schedule_view_fragment"
         app:destination="@id/nav_schedule_view_fragment"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim"
-        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        app:enterAnim="@anim/nav_enter_anim"
+        app:exitAnim="@anim/nav_exit_anim"
+        app:popEnterAnim="@anim/nav_pop_enter_anim"
+        app:popExitAnim="@anim/nav_pop_exit_anim" />
+
+    <action
+        android:id="@+id/to_module_journal_fragment"
+        app:destination="@id/nav_module_journal_fragment"
+        app:enterAnim="@anim/nav_enter_anim"
+        app:exitAnim="@anim/nav_exit_anim"
+        app:popEnterAnim="@anim/nav_pop_enter_anim"
+        app:popExitAnim="@anim/nav_pop_exit_anim" />
+
 
     <action
         android:id="@+id/to_about_fragment"
         app:destination="@id/nav_about_fragment"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim"
-        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        app:enterAnim="@anim/nav_enter_anim"
+        app:exitAnim="@anim/nav_exit_anim"
+        app:popEnterAnim="@anim/nav_pop_enter_anim"
+        app:popExitAnim="@anim/nav_pop_exit_anim" />
 
     <action
         android:id="@+id/to_news_viewer_fragment"
         app:destination="@id/nav_news_viewer_activity"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim"
-        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-        app:popExitAnim="@anim/nav_default_pop_exit_anim"
-        app:launchSingleTop="true" />
+        app:enterAnim="@anim/nav_enter_anim"
+        app:exitAnim="@anim/nav_exit_anim"
+        app:popEnterAnim="@anim/nav_pop_enter_anim"
+        app:popExitAnim="@anim/nav_pop_exit_anim" />
 
 </navigation>

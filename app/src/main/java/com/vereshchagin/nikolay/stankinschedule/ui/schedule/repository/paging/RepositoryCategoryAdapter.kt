@@ -8,9 +8,8 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.Reposi
 /**
  * Адаптер для ViewPager2 с категориями расписаний.
  */
-class RepositoryCategoryAdapter(
-
-) : PagingDataAdapter<RepositoryCategoryItem, RepositoryCategoryHolder>(CATEGORY_COMPARATOR) {
+class RepositoryCategoryAdapter :
+    PagingDataAdapter<RepositoryCategoryItem, RepositoryCategoryHolder>(CATEGORY_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryCategoryHolder {
         return RepositoryCategoryHolder.create(parent)

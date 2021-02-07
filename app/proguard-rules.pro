@@ -10,9 +10,18 @@
 # class:
 
 # NewsViewer interface
--keepclassmembers class com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerFragment.NewsViewInterface {
+-keepclassmembers class com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity$NewsViewInterface {
    public *;
 }
+
+#-------------------------------------------------
+# JetPack Navigation
+# This fixes:
+# Caused by: androidx.fragment.app.Fragment$InstantiationException: Unable to instantiate
+# fragment androidx.navigation.fragment.NavHostFragment: make sure class name exists
+#-------------------------------------------------
+
+-keepnames class androidx.navigation.fragment.NavHostFragment
 
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
@@ -23,6 +32,11 @@
 # -renamesourcefileattribute SourceFile
 
 -dontobfuscate
+
+-keepattributes InnerClasses
+-keep class **.R$* {
+    <fields>;
+}
 
 #===================================================================================================
 #===================================================================================================
@@ -45,7 +59,7 @@
 #===================================================================================================
 # Joda Time
 # All the resources are retrieved via reflection, so we need to make sure we keep them
--keep class net.danlew.android.joda.R$raw { *; }
+# -keep class joda.R$raw { *; }
 
 # These aren't necessary if including joda-convert, but
 # most people aren't, so it's helpful to include it.

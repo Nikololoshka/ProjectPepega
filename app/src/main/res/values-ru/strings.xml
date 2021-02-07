@@ -38,18 +38,23 @@
     <string name="mj_forgot_password">Забыли пароль?</string>
     <string name="mj_sign_in">Войти</string>
     <string name="mj_data_problem">При получении данных возникла проблема</string>
-    <string name="mj_unknown_host">Не удалось определить хост \"lk.stankin.ru\"</string>
-    <string name="mj_unknown_host_description">Хост \"lk.stankin.ru\" недоступен. Попробуйте проверить подключение к сети.</string>
-    <string name="mj_failed_unauthorized">Ошибка авторизации</string>
-    <string name="mj_failed_unauthorized_description">Не удалось войти. Пожалуйста, проверьте правильность написания логина и пароля.</string>
-    <string name="mj_socket_timeout">"lk.stankin.ru" слишком долго не отвечал.</string>
-    <string name="mj_socket_timeout_description">Хост \"lk.stankin.ru\" долго не отвечает. Попробуйте позже.</string>
     <string name="mj_sign_out">Выйти</string>
     <string name="mj_information_background">Фон информации модульного журнала</string>
     <string name="mj_student">Студент: %1$s</string>
     <string name="mj_group">Группа: %1$s</string>
     <string name="mj_last_update">Данные \"%1$s\" из кэша от: %2$s</string>
     <string name="mj_update_marks">Обновить оценки</string>
+    <string name="mj_current_rating">Текущий рейтиг</string>
+    <string name="mj_predicted_rating">Прогнозируемый рейтинг</string>
+
+    <!-- predict rating module journal -->
+    <string name="mj_rating">Рейтинг</string>
+    <string name="mj_no_disciplines">Дисциплины без оценок отсутствуют</string>
+    <string name="mj_select_semester">Выбор семестра</string>
+    <string name="mj_change_semester">Изменить семестр</string>
+    <string name="mj_show_all_disciplines">Показать все дисциплины</string>
+    <string name="mj_mark_below_25">Оценка ниже 25</string>
+    <string name="mj_mark_above_100">Оценка больше 100</string>
 
     <!-- my schedules -->
     <string name="sch_name">Расписание</string>
@@ -67,6 +72,7 @@
     <string name="sch_successfully_added">Расписание: \'%1$s\' успешно добавлено</string>
     <string name="sch_failed_add">Расписание: \'%1$s\' не удалось добавить</string>
     <string name="sch_without_subgroup">без подгруппы</string>
+    <string name="sch_adding_new_schedules">Добавление новых расписаний</string>
 
     <!-- repository -->
     <string name="repository">Репозиторий</string>
@@ -101,6 +107,9 @@
     <string name="sch_view_empty">Расписание пустое</string>
     <string name="sch_edit_schedules">Редактировать расписания</string>
     <string name="sch_remove_schedule">Удалить расписания</string>
+    <string name="sch_view_go_to">Перейти к</string>
+    <string name="sch_view_go_to_schedule_start">Началу расписания</string>
+    <string name="sch_view_go_to_schedule_end">Концу расписания</string>
 
     <!-- pair editor -->
     <string name="pair_editor_title">Название</string>
@@ -248,6 +257,18 @@
     <string name="widget_empty_list">Нет доступных расписаний. Добавьте их в приложении</string>
     <string name="widget_schedule_type_marker">Маркер типа пары</string>
     <string name="widget_schedule_error">Произошла ошибка при работе виджета</string>
+
+    <!-- shortcuts -->
+    <string name="shortcut_favorite_short">Избранное</string>
+    <string name="shortcut_favorite_long">Избранное расписание</string>
+    <string name="shortcut_favorite_not_selected">Избранного расписания не выбрано</string>
+    <string name="shortcut_module_journal_short">Мод. журнал</string>
+    <string name="shortcut_module_journal_long">Модульный журнал</string>
+
+    <!-- exceptions -->
+    <string name="ex_unknown_host">Хост недоступен. Попробуйте проверить подключение к сети.</string>
+    <string name="ex_failed_unauthorized">Не удалось войти. Убедитесь, что вы правильно ввели логин и пароль.</string>
+    <string name="ex_socket_timeout">Хост долго не отвечает. Попробуйте позже.</string>
 
     <!-- other -->
     <string name="error">Ошибка</string>

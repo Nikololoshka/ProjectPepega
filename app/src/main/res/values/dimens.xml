@@ -15,15 +15,24 @@
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
-    <!-- Репозиторий с расписниями -->
+    <!-- Shimmer размеры  -->
+    <dimen name="shimmer_small">40dp</dimen>
+    <dimen name="shimmer_medium">60dp</dimen>
+    <dimen name="shimmer_large">80dp</dimen>
+    <dimen name="shimmer_x_large">100dp</dimen>
+    <dimen name="shimmer_xx_large">120dp</dimen>
+    <dimen name="shimmer_xxx_large">150dp</dimen>
+    <dimen name="shimmer_extreme">180dp</dimen>
+
+    <!-- Репозиторий с расписаниями -->
     <dimen name="item_schedule_repository_padding">12dp</dimen>
     <dimen name="repository_app_bar_height">150dp</dimen>
 
     <!-- Модульный журнал -->
-    <dimen name="mj_app_bar_height">150dp</dimen>
     <dimen name="mj_table_cell_padding">4dp</dimen>
     <dimen name="mj_min_column_header_size">25dp</dimen>
-    <dimen name="mj_student_data_margin">2dp</dimen>
+    <dimen name="mj_student_rating_margin">16dp</dimen>
+    <dimen name="mj_data_margin">2dp</dimen>
 
     <!-- Просмотр новостей -->
     <dimen name="news_viewer_app_bar_height">220dp</dimen>
@@ -34,7 +43,7 @@
     <dimen name="horizontal_loading_height">16dp</dimen>
     <dimen name="horizontal_loading_vertical_margin">-6dp</dimen>
 
-    <!-- Растояние между карточками при вертикальном отображении -->
+    <!-- Расстояние между карточками при вертикальном отображении -->
     <dimen name="vertical_view_space">10dp</dimen>
 
     <!-- Карточка с датой пары -->

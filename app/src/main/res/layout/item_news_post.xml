@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
     android:orientation="horizontal"
-    android:padding="@dimen/default_layout_padding"
-    android:background="?android:selectableItemBackground">
+    android:padding="@dimen/default_layout_padding">
 
     <ImageView
         android:id="@+id/news_preview"

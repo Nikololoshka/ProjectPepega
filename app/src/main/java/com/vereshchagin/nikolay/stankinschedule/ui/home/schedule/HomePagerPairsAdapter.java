@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.ui.home.schedule;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -33,7 +34,8 @@ public class HomePagerPairsAdapter extends PagerAdapter {
     }
 
     /**
-     * Обновляет данные  адапторе.
+     * Обновляет данные в адаптере.
+     *
      * @param pairsData массив с парами на день.
      */
     public void update(@NonNull ArrayList<ArrayList<Pair>> pairsData) {
@@ -63,7 +65,7 @@ public class HomePagerPairsAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater inflater = LayoutInflater.from(container.getContext());
-        View view = inflater.inflate(R.layout.item_pager_day_pairs, container, false);
+        View view = inflater.inflate(R.layout.item_home_pager_day_pairs, container, false);
 
         LinearLayout pairsLayout = view.findViewById(R.id.pager_day_pairs);
         View noPairs = view.findViewById(R.id.no_pairs);
@@ -93,6 +95,6 @@ public class HomePagerPairsAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((LinearLayout) object);
+        container.removeView((FrameLayout) object);
     }
 }

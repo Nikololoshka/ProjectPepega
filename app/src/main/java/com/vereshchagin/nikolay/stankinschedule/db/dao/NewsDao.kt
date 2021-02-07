@@ -22,21 +22,21 @@ interface NewsDao {
     fun insert(items: List<NewsItem>)
 
     /**
-     * Возвращает список (DataSource) закэшированных новостей.
+     * Возвращает список (DataSource) за кэшированных новостей.
      * @param newsSubdivision номер отдела новостей.
      */
     @Query("SELECT * FROM posts WHERE newsSubdivision = :newsSubdivision ORDER BY indexInResponse ASC")
     fun all(newsSubdivision: Int): PagingSource<Int, NewsItem>
 
     /**
-     * Возвращает список (DataSource) из последних нескольких элемнтов.
+     * Возвращает список (DataSource) из последних нескольких элементов.
      * @param max максимальное количество элементов.
      */
-    @Query("SELECT * FROM POSTS ORDER BY date DESC LIMIT :max")
+    @Query("SELECT * FROM POSTS ORDER BY date DESC, id DESC LIMIT :max")
     fun latest(max: Int = 3) : LiveData<List<NewsItem>>
 
     /**
-     * Очищает закэшированные новости.
+     * Очищает за кэшированные новости.
      * @param newsSubdivision номер отдела новостей.
      */
     @Query("DELETE FROM posts WHERE newsSubdivision = :newsSubdivision")

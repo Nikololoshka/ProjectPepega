@@ -20,13 +20,17 @@ import com.google.android.material.textfield.TextInputEditText
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityDateEditorBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.*
-import com.vereshchagin.nikolay.stankinschedule.utils.*
+import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.currentPosition
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setCurrentPosition
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setOkButton
+import com.vereshchagin.nikolay.stankinschedule.view.DropDownAdapter
 import org.joda.time.DateTime
 import org.joda.time.LocalDate
 import org.joda.time.format.DateTimeFormat
 
 /**
- * Автивность редактора дат.
+ * Активность редактора дат.
  */
 class DateEditorActivity : AppCompatActivity() {
 
@@ -54,7 +58,7 @@ class DateEditorActivity : AppCompatActivity() {
     }
 
     /**
-     * Watcher для начала диапозода дат.
+     * Watcher для начала диапазона дат.
      */
     private val START_RANGE_WATCHER = object : DateWatcher() {
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -68,7 +72,7 @@ class DateEditorActivity : AppCompatActivity() {
     }
 
     /**
-     * Watcher для конца диапозона дат.
+     * Watcher для конца диапазона дат.
      */
     private val END_RANGE_WATCHER = object : DateWatcher() {
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -215,7 +219,7 @@ class DateEditorActivity : AppCompatActivity() {
     }
 
     /**
-     * Инициализцая полей.
+     * Инициализация полей.
      */
     private fun initFields() {
         initAutoComplete(binding.dateMode, resourcesArray(R.array.date_type_list))
@@ -233,7 +237,7 @@ class DateEditorActivity : AppCompatActivity() {
         binding.singleDateLayout.setEndIconOnClickListener {
             onCalendarClicked(R.id.single_date_layout)
         }
-        // TODO("Добавить проверку периодичности в дате")
+
         binding.dateStart.addTextChangedListener(START_RANGE_WATCHER)
         binding.dateStartLayout.setEndIconOnClickListener {
             onCalendarClicked(R.id.date_start_layout)
@@ -258,7 +262,7 @@ class DateEditorActivity : AppCompatActivity() {
     }
 
     /**
-     * Возвращает соответсвующий список строк.
+     * Возвращает соответствующий список строк.
      * @param id ID ресурса.
      */
     private fun resourcesArray(@ArrayRes id: Int): List<String> {
@@ -318,7 +322,7 @@ class DateEditorActivity : AppCompatActivity() {
      */
     private fun onCalendarClicked(@IdRes id: Int) {
         when (id) {
-            // одинственная дата
+            // единственная дата
             R.id.single_date_layout -> {
                 showDataPicker(
                     binding.singleDate.text.toString()
@@ -336,7 +340,7 @@ class DateEditorActivity : AppCompatActivity() {
                     binding.dateStart.setText(startDate.toString(DATE_PATTERN))
                 }
             }
-            // дата концв
+            // дата конца
             R.id.date_end_layout -> {
                 showDataPicker(
                     binding.dateEnd.text.toString()
@@ -349,7 +353,7 @@ class DateEditorActivity : AppCompatActivity() {
     }
 
     /**
-     * Устаавливает периодичность.
+     * Устанавливает периодичность.
      */
     private fun setCurrentFrequency(frequency: Frequency) {
         val pos = listOf(
@@ -478,7 +482,7 @@ class DateEditorActivity : AppCompatActivity() {
         }
 
         /**
-         * Intent на редактиование даты.
+         * Intent на редактирование даты.
          */
         fun editDateIntent(context: Context, date: Date, dateItem: DateItem): Intent {
             val intent = Intent(context, DateEditorActivity::class.java)

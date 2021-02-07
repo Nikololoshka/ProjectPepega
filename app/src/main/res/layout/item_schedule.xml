@@ -4,9 +4,9 @@
 
     <LinearLayout
         android:id="@+id/schedule_item"
-        android:background="?android:attr/selectableItemBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
         android:orientation="horizontal"
         android:padding="@dimen/schedule_item_padding">
 
@@ -14,29 +14,29 @@
             android:id="@+id/schedule_info"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_gravity="center_vertical"
+            android:layout_weight="1"
             android:padding="@dimen/schedule_item_text_padding"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="18sp"
-            tools:text="ИДБ-17-09"/>
+            tools:text="ИДБ-17-09" />
 
-        <com.vereshchagin.nikolay.stankinschedule.utils.FavoriteButton
-            style="?android:attr/actionButtonStyle"
+        <com.vereshchagin.nikolay.stankinschedule.view.FavoriteButton
             android:id="@+id/favorite_schedule"
+            style="?android:attr/actionButtonStyle"
             android:layout_width="?listPreferredItemHeightSmall"
             android:layout_height="match_parent"
-            android:scaleType="center"
-            android:button="@null" />
+            android:button="@null"
+            android:scaleType="center" />
 
         <ImageView
             android:id="@+id/moving_handle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:scaleType="center"
             android:layout_gravity="center_vertical|start"
-            android:src="@drawable/ic_swipe_reorder"
-            android:contentDescription="@string/moving_handler" />
+            android:contentDescription="@string/moving_handler"
+            android:scaleType="center"
+            android:src="@drawable/ic_swipe_reorder" />
 
     </LinearLayout>
 

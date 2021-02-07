@@ -9,7 +9,7 @@ import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsResponse
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.NewsPreference
+import com.vereshchagin.nikolay.stankinschedule.settings.NewsPreference
 import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

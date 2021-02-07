@@ -2,7 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
 import android.os.Parcelable
 import com.google.gson.*
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 /**
  * Пара в расписании.

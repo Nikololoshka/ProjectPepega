@@ -3,8 +3,8 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 import android.os.Parcelable
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
-import com.vereshchagin.nikolay.stankinschedule.utils.removeIfJava7
-import kotlinx.android.parcel.Parcelize
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.removeIfJava7
+import kotlinx.parcelize.Parcelize
 import org.joda.time.LocalDate
 import java.util.*
 
