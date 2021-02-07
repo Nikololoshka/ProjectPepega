@@ -96,6 +96,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
                 return false;
         }
 
+        // TODO("07/02/21 Ошибка о переходе из "Основных" настроек в настройки "расписания"")
         navController.navigate(destination);
         return true;
     }

@@ -31,7 +31,7 @@ class ScheduleViewViewModel(
      * Репозиторий с расписанием.
      */
     private val repository = ScheduleRepository()
-    private lateinit var schedule: Schedule
+    private var schedule: Schedule? = null
 
     /**
      * LiveData с днями расписания.
@@ -51,14 +51,15 @@ class ScheduleViewViewModel(
     private fun loadSchedule(initKey: LocalDate) {
         state.value = State.loading()
         try {
-            schedule = repository.load(scheduleName, getApplication())
+            val newSchedule = repository.load(scheduleName, getApplication())
+            schedule = newSchedule
+
+            state.value = State.success(newSchedule.isEmpty())
+            refreshTrigger.value = initKey
 
         } catch (e: Exception) {
             state.value = State.failed(e)
-            return
         }
-        state.value = State.success(schedule.isEmpty())
-        refreshTrigger.value = initKey
     }
 
     /**
@@ -67,7 +68,8 @@ class ScheduleViewViewModel(
     private fun refresh(
         initKey: LocalDate = LocalDate.now()
     ): LiveData<PagingData<ScheduleViewDay>> {
-        if (state.value is State.Loading) {
+        val currentSchedule = schedule
+        if (state.value is State.Loading || currentSchedule == null) {
             return MutableLiveData(PagingData.empty())
         }
 
@@ -79,9 +81,9 @@ class ScheduleViewViewModel(
                 initialLoadSize = PAGE_SIZE,
                 maxSize = PAGE_SIZE * 8
             ),
-            if (limit) schedule.limitDate(initKey) else initKey,
+            if (limit) schedule?.limitDate(initKey) else initKey,
         ) {
-            ScheduleViewDaySource(schedule)
+            ScheduleViewDaySource(currentSchedule)
         }
 
         return pager.liveData.cachedIn(viewModelScope)
@@ -93,7 +95,7 @@ class ScheduleViewViewModel(
     fun updatePagerView(scrollDate: LocalDate) {
         fakeRefresh()
 
-        state.value = State.success(schedule.isEmpty())
+        state.value = State.success(schedule?.isEmpty() == true)
         refreshTrigger.value = scrollDate
     }
 
@@ -126,17 +128,14 @@ class ScheduleViewViewModel(
      * Сохраняет расписание на устройство по заданному пути.
      */
     fun saveScheduleToDevice(uri: Uri) {
-        repository.copy(scheduleName, schedule, uri, getApplication())
+        schedule?.let { repository.copy(scheduleName, it, uri, getApplication()) }
     }
 
     /**
      * Возвращает текущие расписание.
      */
     fun currentSchedule(): Schedule? {
-        if (this::schedule.isInitialized) {
-            return schedule
-        }
-        return null
+        return schedule
     }
 
     /**

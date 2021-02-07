@@ -108,7 +108,8 @@
             android:id="@+id/nav_settings_fragment"
             android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.SettingsFragment"
             android:label="@string/nav_settings" >
-            <action
+
+        <action
                 android:id="@+id/toSettingsScheduleFragment"
                 app:destination="@id/nav_settings_schedule_fragment"
                 app:enterAnim="@anim/nav_enter_anim"
