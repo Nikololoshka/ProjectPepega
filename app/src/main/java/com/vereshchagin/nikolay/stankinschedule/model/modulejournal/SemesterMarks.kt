@@ -65,7 +65,9 @@ data class SemesterMarks(
                 ratingSum += discipline.computeRating()
                 ratingCount += discipline.factor
             }
-            return ratingSum / ratingCount
+
+            val rating: Double = ratingSum / ratingCount
+            return if (rating.isFinite()) rating else 0.0
 
         } catch (e: Exception) {
             Firebase.crashlytics.recordException(e)
@@ -82,7 +84,9 @@ data class SemesterMarks(
                 ratingSum += discipline.computePredictedRating(averageRating)
                 ratingCount += discipline.factor
             }
-            return ratingSum / ratingCount
+
+            val rating: Double = ratingSum / ratingCount
+            return if (rating.isFinite()) rating else 0.0
 
         } catch (e: Exception) {
             Firebase.crashlytics.recordException(e)

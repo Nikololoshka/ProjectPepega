@@ -186,6 +186,10 @@ class ModuleJournalRepository(private val cacheDir: File) {
         }
 
         val rating = lastSemesterMarks.computePredictedRating(accumulatedRating)
+        if (rating == 0.0) {
+            return "--.--"
+        }
+
         return "%.2f".format(rating)
     }
 
