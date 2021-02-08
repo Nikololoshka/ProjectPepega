@@ -45,7 +45,7 @@ enum class MarkType(val tag: String, val weight: Int) {
                     return type
                 }
             }
-            throw IllegalArgumentException("Unknown mark type: $value")
+            throw IllegalArgumentException("Unknown mark type: '$value'")
         }
     }
 }
