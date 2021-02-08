@@ -37,8 +37,17 @@
 
         <SwitchPreferenceCompat
             android:key="firebase_analytics"
-            android:title="@string/pref_send_data"
-            android:summary="@string/pref_send_data_summary"
+            android:title="@string/pref_send_analytics_data"
+            android:summary="@string/pref_send_analytics_data_summary"
+            android:defaultValue="true"
+            app:singleLineTitle="false"
+            app:defaultValue="true"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
+            android:key="firebase_crashlytics"
+            android:title="@string/pref_send_crashlytics_data"
+            android:summary="@string/pref_send_crashlytics_data_summary"
             android:defaultValue="true"
             app:singleLineTitle="false"
             app:defaultValue="true"

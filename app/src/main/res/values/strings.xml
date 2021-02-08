@@ -240,8 +240,10 @@
     <string name="pref_home_schedule_delta">Number of days in the schedule</string>
     <string name="pref_home_schedule_delta_summary">Displayed forwards and backwards</string>
     <string name="pref_other">Other</string>
-    <string name="pref_send_data">Send technical data about application usage</string>
-    <string name="pref_send_data_summary">System events and errors</string>
+    <string name="pref_send_analytics_data">Send data about application usage</string>
+    <string name="pref_send_analytics_data_summary">Screen views, usage times</string>
+    <string name="pref_send_crashlytics_data">Send application crash data</string>
+    <string name="pref_send_crashlytics_data_summary">Loading errors, logic</string>
 
     <!--  picker color  -->
     <string name="picker_color_hint" translatable="false">FF00FF</string>

@@ -36,6 +36,8 @@ object ApplicationPreference {
     const val SCHEDULE_VIEW_HORIZONTAL = "pref_horizontal"
 
     // private const val FIRST_RUN = "first_run_v2"
+    private const val FIREBASE_ANALYTICS = "firebase_analytics"
+    private const val FIREBASE_CRASHLYTICS = "firebase_crashlytics"
 
     private const val SCHEDULE_VIEW_METHOD = "schedule_view_method"
     private const val SCHEDULE_LIMIT = "schedule_view_limit"
@@ -227,4 +229,24 @@ object ApplicationPreference {
             }
         }
     )
+
+    /**
+     * Возвращает true если можно ли использовать Firebase аналитику для
+     * сбора данных об использовании приложения. Иначе false.
+     */
+    @JvmStatic
+    fun firebaseAnalytics(context: Context): Boolean {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        return preferences.getBoolean(FIREBASE_ANALYTICS, true)
+    }
+
+    /**
+     * Возвращает true если можно ли использовать Firebase crashlytics для
+     * сбора ошибок об использовании приложения. Иначе false.
+     */
+    @JvmStatic
+    fun firebaseCrashlytics(context: Context): Boolean {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        return preferences.getBoolean(FIREBASE_CRASHLYTICS, true)
+    }
 }

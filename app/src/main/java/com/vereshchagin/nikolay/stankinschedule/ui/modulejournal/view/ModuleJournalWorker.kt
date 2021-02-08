@@ -175,8 +175,15 @@ class ModuleJournalWorker(
     /**
      * Возвращает строку из ресурсов.
      */
-    private fun getString(@StringRes id: Int, vararg formatArgs: Any): String {
-        return applicationContext.getString(id, formatArgs)
+    private fun getString(@StringRes id: Int, arg: String): String {
+        return applicationContext.getString(id, arg)
+    }
+
+    /**
+     * Возвращает строку из ресурсов.
+     */
+    private fun getString(@StringRes id: Int): String {
+        return applicationContext.getString(id)
     }
 
     companion object {

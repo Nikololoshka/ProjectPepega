@@ -13,6 +13,10 @@ import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.R
 
 /**
@@ -26,7 +30,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         _binding = onInflateView(inflater, container, savedInstanceState)
         onPostCreateView(savedInstanceState)
@@ -39,7 +43,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     abstract fun onInflateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): T
 
     /**
@@ -53,7 +57,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     protected fun navigateTo(
         @IdRes destination: Int,
         args: Bundle? = null,
-        options: NavOptions? = null
+        options: NavOptions? = null,
     ) {
         val navController = Navigation.findNavController(requireActivity(), R.id.nav_host)
         navController.navigate(destination, args, options)
@@ -65,7 +69,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     protected fun showSnack(
         @StringRes id: Int,
         duration: Int = Snackbar.LENGTH_SHORT,
-        args: Array<String> = arrayOf()
+        args: Array<String> = arrayOf(),
     ) {
         Snackbar.make(binding.root, getString(id, *args), duration)
             .show()
@@ -77,6 +81,16 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     protected fun showSnack(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
         Snackbar.make(binding.root, message, duration)
             .show()
+    }
+
+    /**
+     * Добавление информации в FirebaseAnalytics о включенном фрагменте.
+     */
+    protected fun trackScreen(screenName: String, screenClass: String) {
+        Firebase.analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
+            param(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
+            param(FirebaseAnalytics.Param.SCREEN_CLASS, screenClass)
+        }
     }
 
     /**

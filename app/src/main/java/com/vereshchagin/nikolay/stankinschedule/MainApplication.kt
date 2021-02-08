@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
@@ -13,11 +14,12 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        // отключение FirebaseCrashlytics в debug
-        if (BuildConfig.DEBUG) {
-            Firebase.crashlytics
-                .setCrashlyticsCollectionEnabled(false)
-        }
+
+        val isCrashlytics = ApplicationPreference.firebaseCrashlytics(this)
+        Firebase.crashlytics.setCrashlyticsCollectionEnabled(!BuildConfig.DEBUG && isCrashlytics)
+
+        val isAnalytics = ApplicationPreference.firebaseAnalytics(this)
+        Firebase.analytics.setAnalyticsCollectionEnabled(isAnalytics)
 
         updateDarkMode()
         singleton = this

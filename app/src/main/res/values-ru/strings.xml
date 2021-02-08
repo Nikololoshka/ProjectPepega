@@ -234,8 +234,10 @@
     <string name="sch_home_display_subgroup">Отображаемая подгруппа на главной:  %1$s</string>
     <string name="sch_home_change_subgroup">Изменить</string>
     <string name="pref_other">Другое</string>
-    <string name="pref_send_data">Отправлять технические данные об использовании приложения</string>
-    <string name="pref_send_data_summary">Системные события и ошибки</string>
+    <string name="pref_send_analytics_data">Отправлять данные об использовании приложения</string>
+    <string name="pref_send_analytics_data_summary">Просмотров экранов, время использования</string>
+    <string name="pref_send_crashlytics_data">Отправлять данные об сбоях приложения</string>
+    <string name="pref_send_crashlytics_data_summary">Ошибки загрузки, логики</string>
 
     <!--  picker color  -->
     <string name="picker_color_choose_color">Выберете цвет</string>
