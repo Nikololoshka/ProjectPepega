@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.model.modulejournal
 
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
+import com.google.gson.JsonParseException
 import com.google.gson.annotations.SerializedName
 import org.joda.time.DateTime
 import org.joda.time.Minutes
@@ -146,8 +147,12 @@ data class SemesterMarks(
          */
         @JvmStatic
         fun fromResponse(response: List<MarkResponse>) = SemesterMarks().apply {
-            for (mark in response) {
-                addMark(mark.title, mark.type, mark.value, mark.factor)
+            try {
+                for (mark in response) {
+                    addMark(mark.title, mark.type, mark.value, mark.factor)
+                }
+            } catch (e: Throwable) {
+                throw JsonParseException("Invalid parse response: $response", e)
             }
         }
     }
