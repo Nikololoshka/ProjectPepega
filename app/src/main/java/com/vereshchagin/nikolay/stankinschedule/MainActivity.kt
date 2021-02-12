@@ -195,7 +195,7 @@ class MainActivity : AppCompatActivity() {
         // отмена обновления
         if (requestCode == UPDATE_REQUEST && resultCode == RESULT_CANCELED) {
             Snackbar.make(
-                binding.appBarMain.contentMain.containerMain,
+                binding.containerMain,
                 R.string.update_cancelled,
                 Snackbar.LENGTH_LONG
             ).show()
@@ -302,7 +302,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun onShowUpdate(updateInfo: AppUpdateInfo) {
         Snackbar.make(
-            binding.appBarMain.contentMain.containerMain,
+            binding.containerMain,
             R.string.update_available,
             Snackbar.LENGTH_INDEFINITE
         ).apply {
@@ -325,7 +325,7 @@ class MainActivity : AppCompatActivity() {
         // обновление загружено
         if (state.installStatus() == InstallStatus.DOWNLOADED) {
             Snackbar.make(
-                binding.appBarMain.contentMain.containerMain,
+                binding.containerMain,
                 R.string.update_downloaded,
                 Snackbar.LENGTH_INDEFINITE
             ).apply {

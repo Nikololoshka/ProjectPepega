@@ -36,12 +36,15 @@
         <receiver
             android:name=".widget.ScheduleWidget"
             android:label="@string/widget_schedule_name">
+
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_schedule_app_info" />
+
         </receiver>
 
         <activity
@@ -49,9 +52,11 @@
             android:label="@string/widget_configurator"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
+
+        <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
+
         </activity>
 
         <!-- Services -->
@@ -66,29 +71,36 @@
             android:theme="@style/AppTheme.Splash"
             android:windowSoftInputMode="adjustPan">
             <nav-graph android:value="@navigation/activity_main_nav_graph" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
+
         <activity
             android:name=".ui.schedule.editor.pair.PairEditorActivity"
             android:label="@string/pair_editor"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".ui.schedule.editor.date.DateEditorActivity"
             android:label="@string/date_editor"
             android:parentActivityName=".ui.schedule.editor.pair.PairEditorActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".ui.schedule.repository.ScheduleRepositoryActivity"
             android:label="@string/repository"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".ui.news.viewer.NewsViewerActivity"
             android:label="@string/news_viewer"
@@ -107,11 +119,13 @@
                 <data android:scheme="https" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.modulejournal.predict.ModuleJournalPredictActivity"
             android:label="Predict rating"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>
