@@ -61,6 +61,7 @@ class NewsViewerActivity : AppCompatActivity() {
             .init(StatefulLayout2.LOADING, binding.newsLoading.root)
             .addView(StatefulLayout2.ERROR, binding.newsError)
             .addView(StatefulLayout2.CONTENT, binding.newsView)
+            .setOwner(this)
             .create()
 
         setContentView(binding.root)
@@ -70,9 +71,25 @@ class NewsViewerActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         // номер новости
-        val newsId = intent.getIntExtra(EXTRA_NEWS_ID, -1)
-        if (newsId == -1) {
-            throw RuntimeException("NewsID is null: $newsId")
+        var newsId = -1
+
+        // напрямую вызов просмотра
+        if (intent.action == Intent.ACTION_VIEW) {
+            val path = intent.data?.path // /news/item_{news_id}
+            val newsIdData = path?.substringAfterLast("item_", "-1")
+            val maybeNewsId = newsIdData?.toIntOrNull()
+            if (maybeNewsId != null) {
+                newsId = maybeNewsId
+            }
+        } else {
+            // из приложения
+            newsId = intent.getIntExtra(EXTRA_NEWS_ID, -1)
+        }
+
+        if (newsId <= -1) {
+            Toast.makeText(this, "Invalid news id: $newsId", Toast.LENGTH_SHORT).show()
+            onBackPressed()
+            return
         }
 
         // название новости
@@ -279,6 +296,8 @@ class NewsViewerActivity : AppCompatActivity() {
     }
 
     companion object {
+
+        private const val TAG = "NewsViewerActivityLog"
 
         private const val EXTRA_NEWS_ID = "news_id"
         private const val EXTRA_NEWS_TITLE = "extra_news_title"

@@ -58,11 +58,6 @@
         android:label=""
         tools:layout="@layout/activity_news_viewer">
 
-        <deepLink
-            android:id="@+id/news_deep_link"
-            android:autoVerify="true"
-            app:uri="stankin.ru/news/item_{news_id}" />
-
         <argument
             android:name="news_id"
             app:argType="integer" />
