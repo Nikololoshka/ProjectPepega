@@ -25,6 +25,7 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.ScheduleEditorActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewAdapter
@@ -46,8 +47,7 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
     /**
      * Менеджер состояний.
      */
-    private var _statefulLayout: StatefulLayout2? = null
-    private val statefulLayout get() = _statefulLayout!!
+    private lateinit var statefulLayout: StatefulLayout2
 
     /**
      * Название расписания.
@@ -73,11 +73,12 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        _statefulLayout = StatefulLayout2.Builder(binding.statefulLayout)
+        statefulLayout = StatefulLayout2.Builder(binding.statefulLayout)
             .init(StatefulLayout2.LOADING, binding.schViewLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.schViewContainer)
             .addView(StatefulLayout2.EMPTY, binding.schViewEmpty)
             .addView(StatefulLayout2.ERROR, binding.schViewError)
+            .setOwner(this)
             .create()
 
         // получение отображаемых данных
@@ -153,6 +154,12 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            // редактирование расписания
+            R.id.edit_schedule -> {
+                val intent = ScheduleEditorActivity.createIntent(requireContext(), scheduleName)
+                startActivity(intent)
+                return true
+            }
             // переименование расписания
             R.id.rename_schedule -> {
                 val dialog = ScheduleNameEditorDialog.newInstance(scheduleName)
@@ -236,11 +243,6 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
             }
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _statefulLayout = null
     }
 
     override fun onRequestPermissionsResult(

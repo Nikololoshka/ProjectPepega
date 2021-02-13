@@ -96,6 +96,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+            android:name=".ui.schedule.editor.ScheduleEditorActivity"
+            android:label="@string/schedule_editor"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".ui.schedule.repository.ScheduleRepositoryActivity"
             android:label="@string/repository"
             android:parentActivityName=".MainActivity"

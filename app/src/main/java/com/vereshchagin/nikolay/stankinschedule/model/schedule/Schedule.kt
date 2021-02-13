@@ -38,6 +38,17 @@ class Schedule {
         weeks[pair.date.dayOfWeek()]!!.remove(pair)
     }
 
+    fun disciplines(): List<String> {
+        val disciplines = HashSet<String>()
+        for (day in weeks.values) {
+            for (pair in day.pairs) {
+                disciplines.add(pair.title)
+            }
+        }
+
+        return disciplines.toList()
+    }
+
     /**
      * Возвращает дату, с которого начинается расписание.
      * Если расписание пустое, то возвращается null.
