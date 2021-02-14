@@ -19,10 +19,6 @@ object ExceptionUtils {
      */
     fun errorDescription(throwable: Throwable, context: Context): String {
         when (throwable) {
-            // HTTP ошибка (retrofit2)
-            is HttpException -> {
-                return errorNetworkDescription(throwable, context)
-            }
             // время ожидания сокета истекло
             is SocketTimeoutException -> {
                 return context.getString(R.string.ex_socket_timeout)
@@ -30,6 +26,10 @@ object ExceptionUtils {
             // не удалось подключиться к хосту
             is UnknownHostException -> {
                 return context.getString(R.string.ex_unknown_host)
+            }
+            // HTTP ошибка (retrofit2)
+            is HttpException -> {
+                return errorNetworkDescription(throwable, context)
             }
         }
 
