@@ -229,9 +229,10 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
             }
             // добавить пару
             R.id.add_pair -> {
-                val intent = PairEditorActivity.newPairIntent(requireContext(), scheduleName)
-                startActivityForResult(intent, REQUEST_PAIR)
-
+                if (viewModel.state.value is State.Success) {
+                    val intent = PairEditorActivity.newPairIntent(requireContext(), scheduleName)
+                    startActivityForResult(intent, REQUEST_PAIR)
+                }
                 return true
             }
         }

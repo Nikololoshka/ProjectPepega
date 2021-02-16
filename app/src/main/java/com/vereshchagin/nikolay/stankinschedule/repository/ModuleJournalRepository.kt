@@ -15,8 +15,6 @@ import com.vereshchagin.nikolay.stankinschedule.utils.convertors.gson.MarkTypeTy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.apache.commons.io.FileUtils
@@ -31,8 +29,6 @@ import java.nio.charset.StandardCharsets
  * Репозиторий для работы с модульным журналом.
  */
 class ModuleJournalRepository(private val cacheDir: File) {
-
-    private val mutex = Mutex()
 
     private var retrofit: Retrofit
     private var api: ModuleJournalApi2
@@ -127,7 +123,8 @@ class ModuleJournalRepository(private val cacheDir: File) {
     /**
      * Загружает данные о студенте из модульного журнала
      */
-    suspend fun loadStudentData(refresh: Boolean = false): StudentData = mutex.withLock {
+    @Synchronized
+    suspend fun loadStudentData(refresh: Boolean = false): StudentData {
         if (refresh) {
             val networkData = loadNetworkStudentData()
             saveCacheStudentData(networkData)
@@ -210,11 +207,12 @@ class ModuleJournalRepository(private val cacheDir: File) {
     /**
      * Загружает данные об оценках студента в семестре из модульного журнала
      */
+    @Synchronized
     suspend fun loadSemesterMarks(
         semester: String,
         refresh: Boolean = false,
         last: Boolean = false,
-    ): SemesterMarks = mutex.withLock {
+    ): SemesterMarks {
         if (refresh) {
             val networkMarks = loadNetworkSemesterMarks(semester)
             saveCacheSemesterMarks(networkMarks, semester)
