@@ -1,24 +1,27 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules
 
 import android.app.Application
+import android.util.Log
 import android.util.SparseBooleanArray
 import androidx.core.util.forEach
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import androidx.lifecycle.*
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
 import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * ViewModel списка расписаний.
  */
 class ScheduleViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = ScheduleRepository()
+    private val repository = ScheduleRepositoryKt(application)
 
+    val favorite = MutableLiveData<String>(null)
     val selectedItems = MutableLiveData(SparseBooleanArray())
-    val adapterData = MutableLiveData<Pair<List<String>, String?>>(null)
+    val schedules = MutableLiveData<List<ScheduleItem>>(null)
 
     init {
         update()
@@ -28,31 +31,39 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
      * Обновляет список расписаний и избранное.
      */
     fun update() {
-        val schedules = repository.schedules(getApplication())
-        val favorite = ScheduleRepository.favorite(getApplication())
-        adapterData.value = schedules to favorite
+        favorite.value = ScheduleRepositoryKt.favorite(getApplication())
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.schedules()
+                .collect { list ->
+                    schedules.postValue(list)
+                }
+        }
     }
 
     /**
      * Удаляет выбранные расписания.
      */
     fun removeSelected() {
-        val schedules = adapterData.value?.first
-        selectedItems.value?.forEach { key, value ->
-            if (schedules != null && value) {
-                val scheduleName = schedules[key]
-                repository.removeSchedule(getApplication(), scheduleName)
+        val currentSchedules = schedules.value
+
+        viewModelScope.launch(Dispatchers.IO) {
+            val removingItems = selectedItems.value
+            removingItems?.forEach { key, value ->
+                if (currentSchedules != null && value) {
+                    val item = currentSchedules[key]
+                    repository.removeSchedule(item.scheduleName)
+                }
             }
         }
-        update()
     }
 
     /**
      * Создает новое расписание.
      */
     fun createSchedule(scheduleName: String) {
-        repository.createSchedule(getApplication(), scheduleName)
-        update()
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.createSchedule(scheduleName)
+        }
     }
 
     /**
@@ -61,11 +72,11 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
      * False если было удалено избранное.
      */
     fun setFavorite(favorite: String): Boolean {
-        val old = ScheduleRepository.favorite(getApplication())
+        val old = ScheduleRepositoryKt.favorite(getApplication())
         val isNew = favorite != old
 
-        ScheduleRepository.updateFavorite(getApplication(), if (isNew) favorite else null)
-        update()
+        ScheduleRepositoryKt.setFavorite(getApplication(), if (isNew) favorite else null)
+        this.favorite.value = favorite
 
         return isNew
     }
@@ -74,6 +85,8 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
      * Переставляет расписания в списке.
      */
     fun moveSchedule(fromPosition: Int, toPosition: Int) {
+        Log.d("MyLog", "moveSchedule: $fromPosition - $toPosition")
+        TODO("")
         SchedulePreference.move(getApplication(), fromPosition, toPosition)
     }
 
@@ -81,8 +94,9 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
      * Загружает расписание из json.
      */
     fun loadScheduleFromJson(json: String, scheduleName: String) {
-        repository.loadAndSaveFromJson(getApplication(), json, scheduleName)
-        update()
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.saveResponse(scheduleName, json)
+        }
     }
 
     /**

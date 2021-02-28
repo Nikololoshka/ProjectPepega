@@ -2,27 +2,30 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
 import android.os.Parcelable
 import com.google.gson.*
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import kotlinx.parcelize.Parcelize
 
 /**
  * Пара в расписании.
  */
 @Parcelize
-class Pair(
+open class Pair(
     var title: String,
     var lecturer: String,
     var classroom: String,
     var type: Type,
     var subgroup: Subgroup,
     var time: Time,
-    var date: Date
-) : Parcelable, Comparable<Pair> {
+    var date: Date,
 
-    fun separate(other: Pair) : Boolean {
+    ) : Parcelable, Comparable<Pair> {
+
+
+    fun separate(other: Pair): Boolean {
         return subgroup.separate(other.subgroup)
     }
 
-    fun intersect(other: Pair) : Boolean {
+    fun intersect(other: Pair): Boolean {
         return time.intersect(other.time) && date.intersect(other.date)
     }
 
@@ -33,7 +36,7 @@ class Pair(
         type: Type,
         subgroup: Subgroup,
         time: Time,
-        date: Date
+        date: Date,
     ): Boolean {
         return title == this.title &&
             lecturer == this.lecturer &&
@@ -42,6 +45,12 @@ class Pair(
             subgroup == this.subgroup &&
             time == this.time &&
             date == this.date
+    }
+
+    fun toPairItem(scheduleId: Long, pairId: Long = 0): PairItem {
+        return PairItem(scheduleId, title, lecturer, classroom, type, subgroup, time, date).apply {
+            id = pairId
+        }
     }
 
     /**
@@ -93,11 +102,11 @@ class Pair(
     /**
      * Сериализатор пары.
      */
-    class Serializer : JsonSerializer<Pair> {
+    class Serializer : JsonSerializer<Pair>, JsonDeserializer<Pair> {
         override fun serialize(
             src: Pair?,
             typeOfSrc: java.lang.reflect.Type?,
-            context: JsonSerializationContext?
+            context: JsonSerializationContext?,
         ): JsonElement {
             return if (src == null) {
                 JsonObject()
@@ -113,16 +122,11 @@ class Pair(
                 }
             }
         }
-    }
 
-    /**
-     * Десериализатор пары.
-     */
-    class Deserializer : JsonDeserializer<Pair> {
         override fun deserialize(
             json: JsonElement?,
             typeOfT: java.lang.reflect.Type?,
-            context: JsonDeserializationContext?
+            context: JsonDeserializationContext?,
         ): Pair {
             if (json == null) {
                 throw JsonParseException("Json is null")

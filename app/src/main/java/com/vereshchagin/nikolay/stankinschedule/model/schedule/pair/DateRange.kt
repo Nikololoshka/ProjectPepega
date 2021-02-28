@@ -200,10 +200,10 @@ class DateRange : DateItem {
     }
 
     override fun toString(context: Context): String {
-        return this.toString() + context.resources.getStringArray(
-                R.array.frequency_simple_list
-            )[
-            when(frequency) {
+        return "$this " + context.resources.getStringArray(
+            R.array.frequency_simple_list
+        )[
+            when (frequency) {
                 Frequency.EVERY -> 0
                 Frequency.THROUGHOUT -> 1
                 else -> throw RuntimeException("Unknown frequency: $frequency")

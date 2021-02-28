@@ -85,6 +85,7 @@ class StatefulLayout2(
             return this
         }
 
+        @Deprecated("")
         fun setOwner(owner: LifecycleOwner): Builder {
             lifecycleOwner = owner
             return this

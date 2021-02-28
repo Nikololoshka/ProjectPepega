@@ -19,7 +19,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type;
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
@@ -56,9 +56,9 @@ public class PairCardView extends CardView {
     private List<String> mTypes;
     private List<String> mSubgroups;
 
-    private Pair mPair;
+    private PairItem mPair;
 
-    public PairCardView(@NonNull Context context, @NonNull Pair pair) {
+    public PairCardView(@NonNull Context context, @NonNull PairItem pair) {
         super(context);
         initialization(context);
         updatePair(pair);
@@ -112,7 +112,7 @@ public class PairCardView extends CardView {
                 10, getResources().getDisplayMetrics());
     }
 
-    public void updatePair(@NonNull Pair pair) {
+    public void updatePair(@NonNull PairItem pair) {
         mPair = pair;
 
         // title
@@ -237,7 +237,7 @@ public class PairCardView extends CardView {
     }
 
     @Nullable
-    public Pair pair() {
+    public PairItem pair() {
         return mPair;
     }
 }

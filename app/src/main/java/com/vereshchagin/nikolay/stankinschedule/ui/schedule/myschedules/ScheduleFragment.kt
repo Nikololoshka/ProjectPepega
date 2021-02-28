@@ -1,19 +1,14 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules
 
 import android.Manifest
-import android.app.Activity
-import android.content.BroadcastReceiver
-import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.*
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -29,7 +24,6 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.Schedule
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryActivity
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker.Companion.SCHEDULE_DOWNLOADED_EVENT
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
@@ -49,20 +43,14 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         ScheduleViewModel.Factory(activity?.application!!)
     }
 
-    private lateinit var stateful: StatefulLayout2
+    private var _statefulLayout: StatefulLayout2? = null
+    private val statefulLayout get() = _statefulLayout!!
+
+    // TODO("Memory leaks")
     private lateinit var itemTouchHelper: ItemTouchHelper
     private lateinit var adapter: SchedulesAdapter
 
     private var actionMode: ActionMode? = null
-
-    /**
-     * Ресивер для просмотра появления нового расписания (при скачивании).
-     */
-    private val receiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context?, intent: Intent?) {
-            viewModel.update()
-        }
-    }
 
     /**
      * Callback для ActionMode.
@@ -98,29 +86,17 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        LocalBroadcastManager.getInstance(context)
-            .registerReceiver(
-                receiver,
-                IntentFilter(SCHEDULE_DOWNLOADED_EVENT)
-            )
-    }
+    private val permissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission(), this::onReadPermission
+    )
 
-    override fun onDestroy() {
-        super.onDestroy()
-        LocalBroadcastManager.getInstance(requireContext())
-            .unregisterReceiver(receiver)
-    }
+    private val pickFileLauncher = registerForActivityResult(
+        ActivityResultContracts.OpenDocument(), this::onScheduleLoadFromDevice
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.update()
     }
 
     override fun onStop() {
@@ -137,16 +113,25 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        stateful = StatefulLayout2.Builder(binding.schedulesContainer)
+        _statefulLayout = StatefulLayout2.Builder(binding.schedulesContainer)
             .init(StatefulLayout2.CONTENT, binding.schedules)
             .addView(StatefulLayout2.EMPTY, binding.emptySchedules)
             .create()
 
         binding.addSchedule.setOnClickListener {
             val dialog = AddScheduleBottomSheet()
-            dialog.setTargetFragment(this, REQUEST_ADD_SCHEDULE)
             dialog.show(parentFragmentManager, dialog.tag)
         }
+
+        // callback для добавления нового расписания
+        parentFragmentManager.setFragmentResultListener(
+            AddScheduleBottomSheet.REQUEST_ADD_SCHEDULE, this, this::onScheduleAddClicked
+        )
+
+        // callback для создания нового расписания
+        parentFragmentManager.setFragmentResultListener(
+            ScheduleNameEditorDialog.REQUEST_SCHEDULE_NAME, this, this::onScheduleCreateClicked
+        )
 
         adapter = SchedulesAdapter(this, this)
         binding.schedules.adapter = adapter
@@ -195,21 +180,25 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         })
 
         // расписания
-        viewModel.adapterData.observe(viewLifecycleOwner, Observer {
-            val (schedules, favorite) = it ?: return@Observer
+        viewModel.schedules.observe(viewLifecycleOwner) {
+            val schedules = it ?: return@observe
 
             if (schedules.isEmpty()) {
-                stateful.setState(StatefulLayout2.EMPTY)
+                statefulLayout.setState(StatefulLayout2.EMPTY)
             } else {
-                adapter.submitList(schedules, favorite)
-                stateful.setState(StatefulLayout2.CONTENT)
+                adapter.submitList(schedules)
+                statefulLayout.setState(StatefulLayout2.CONTENT)
             }
-        })
+        }
 
-        viewModel.selectedItems.observe(viewLifecycleOwner, Observer {
-            val selectedItems = it ?: return@Observer
+        viewModel.favorite.observe(viewLifecycleOwner) {
+            adapter.submitFavorite(it)
+        }
+
+        viewModel.selectedItems.observe(viewLifecycleOwner) {
+            val selectedItems = it ?: return@observe
             adapter.setSelectedItems(selectedItems)
-        })
+        }
 
         // был активирован action mode
         savedInstanceState?.getBoolean(ACTION_MODE)?.let {
@@ -219,6 +208,11 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         }
 
         trackScreen(TAG, MainActivity.TAG)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _statefulLayout = null
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -240,73 +234,55 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (resultCode != Activity.RESULT_OK || data == null) {
-            return
-        }
-
-        when (requestCode) {
-            // добавление расписания
-            REQUEST_ADD_SCHEDULE -> {
-                when (data.getIntExtra(AddScheduleBottomSheet.SCHEDULE_ACTION, -1)) {
-                    R.id.create_schedule -> {
-                        val dialog = ScheduleNameEditorDialog.newInstance("")
-                        dialog.setTargetFragment(this, REQUEST_NEW_SCHEDULE)
-                        dialog.show(parentFragmentManager, dialog.tag)
-                    }
-                    R.id.from_repository -> {
-                        startActivity(
-                            Intent(requireContext(), ScheduleRepositoryActivity::class.java)
-                        )
-                    }
-                    R.id.load_schedule -> {
-                        loadScheduleFromDevice()
-                    }
+    private fun onScheduleAddClicked(key: String, bundle: Bundle) {
+        if (key == AddScheduleBottomSheet.REQUEST_ADD_SCHEDULE) {
+            when (bundle.getInt(AddScheduleBottomSheet.SCHEDULE_ACTION, -1)) {
+                R.id.create_schedule -> {
+                    val dialog = ScheduleNameEditorDialog.newInstance("")
+                    dialog.show(parentFragmentManager, dialog.tag)
                 }
-            }
-            // создано новое расписание
-            REQUEST_NEW_SCHEDULE -> {
-                val scheduleName = data.getStringExtra(ScheduleNameEditorDialog.SCHEDULE_NAME)
-                if (!scheduleName.isNullOrEmpty()) {
-                    Log.d(TAG, "onActivityResult: ")
-                    viewModel.createSchedule(scheduleName)
+                R.id.from_repository -> {
+                    startActivity(
+                        Intent(requireContext(), ScheduleRepositoryActivity::class.java)
+                    )
                 }
-            }
-            // загрузка расписания с устройства
-            REQUEST_LOAD_SCHEDULE -> {
-                var scheduleName = ""
-                try {
-                    val uri = data.data ?: throw RuntimeException("Invalid uri")
-                    val resolver = requireContext().contentResolver
-                    val json = resolver.openInputStream(uri)?.use { stream ->
-                        IOUtils.toString(stream, StandardCharsets.UTF_8)
-                    } ?: throw RuntimeException("Cannot load json")
-
-                    scheduleName =
-                        uri.extractFilename(requireContext()) ?: throw FileNotFoundException()
-
-                    viewModel.loadScheduleFromJson(json, scheduleName)
-                    showSnack(R.string.sch_successfully_added, args = arrayOf(scheduleName))
-
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    showSnack(R.string.sch_failed_add, args = arrayOf(scheduleName))
+                R.id.load_schedule -> {
+                    loadScheduleFromDevice()
                 }
             }
         }
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray,
-    ) {
-        if (requestCode == REQUEST_PERMISSION_READ_STORAGE) {
-            if (PermissionsUtils.isGrand(grantResults)) {
-                loadScheduleFromDevice()
+    private fun onScheduleCreateClicked(key: String, bundle: Bundle) {
+        if (key == ScheduleNameEditorDialog.REQUEST_SCHEDULE_NAME) {
+            val scheduleName = bundle.getString(ScheduleNameEditorDialog.SCHEDULE_NAME)
+            if (!scheduleName.isNullOrEmpty()) {
+                viewModel.createSchedule(scheduleName)
             }
+        }
+    }
+
+    private fun onScheduleLoadFromDevice(uri: Uri?) {
+        var scheduleName = ""
+        try {
+            if (uri == null) {
+                return
+            }
+
+            val resolver = requireContext().contentResolver
+            val json = resolver.openInputStream(uri)?.use { stream ->
+                IOUtils.toString(stream, StandardCharsets.UTF_8)
+            } ?: throw RuntimeException("Cannot load json")
+
+            scheduleName =
+                uri.extractFilename(requireContext()) ?: throw FileNotFoundException()
+
+            viewModel.loadScheduleFromJson(json, scheduleName)
+            showSnack(R.string.sch_successfully_added, args = arrayOf(scheduleName))
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+            showSnack(R.string.sch_failed_add, args = arrayOf(scheduleName))
         }
     }
 
@@ -348,6 +324,12 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
                     dialog.show(parentFragmentManager, dialog.tag)
                 }
                 .show()
+        }
+    }
+
+    private fun onReadPermission(hasPermission: Boolean) {
+        if (hasPermission) {
+            pickFileLauncher.launch(arrayOf("application/json"))
         }
     }
 
@@ -413,16 +395,11 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         // проверка разрешения
         val permission = Manifest.permission.READ_EXTERNAL_STORAGE
         if (PermissionsUtils.checkGrandPermission(requireContext(), permission)) {
-            requestPermissions(arrayOf(permission), REQUEST_PERMISSION_READ_STORAGE)
+            permissionLauncher.launch(permission)
             return
+        } else {
+            onReadPermission(true)
         }
-
-        // есть разрешение на чтение
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.addCategory(Intent.CATEGORY_OPENABLE)
-        intent.type = "*/*"
-
-        startActivityForResult(intent, REQUEST_LOAD_SCHEDULE)
     }
 
     /**
@@ -452,12 +429,6 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
 
     companion object {
         private const val TAG = "MySchedulesFragment"
-
         private const val ACTION_MODE = "action_mode"
-
-        private const val REQUEST_ADD_SCHEDULE = 1
-        private const val REQUEST_NEW_SCHEDULE = 2
-        private const val REQUEST_PERMISSION_READ_STORAGE = 3
-        private const val REQUEST_LOAD_SCHEDULE = 4
     }
 }

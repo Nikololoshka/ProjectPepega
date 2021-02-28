@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/date_item"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/date_info"
+    style="@style/Text.Medium"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:foreground="?android:attr/selectableItemBackground"
-    app:cardCornerRadius="0dp">
-
-    <TextView
-        android:id="@+id/date_info"
-        style="@style/Text.Medium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|start"
-        android:padding="@dimen/data_pair_padding"
-        android:textAlignment="viewStart"
-        android:textColor="?android:attr/textColorPrimary" />
-
-</androidx.cardview.widget.CardView>
+    android:background="?android:attr/selectableItemBackground"
+    android:padding="@dimen/data_pair_padding"
+    android:textAlignment="viewStart"
+    android:textColor="?android:attr/textColorPrimary"
+    tools:text="12.02.2021" />

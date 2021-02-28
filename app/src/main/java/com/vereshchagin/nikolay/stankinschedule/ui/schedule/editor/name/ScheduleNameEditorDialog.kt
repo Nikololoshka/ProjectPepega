@@ -1,19 +1,21 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import androidx.core.os.bundleOf
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.setFragmentResult
+import androidx.lifecycle.lifecycleScope
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.DialogScheduleNameEditorBinding
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.focusAndShowKeyboard
+import kotlinx.coroutines.launch
 
 class ScheduleNameEditorDialog : DialogFragment() {
 
@@ -47,13 +49,6 @@ class ScheduleNameEditorDialog : DialogFragment() {
             } else {
                 binding.scheduleNameLayout.error = null
             }
-
-            for (word in SchedulePreference.banCharacters()) {
-                if (text.contains(word)) {
-                    binding.scheduleNameLayout.error = getString(R.string.schedule_editor_not_allowed_character)
-                    return@doAfterTextChanged
-                }
-            }
             binding.scheduleNameLayout.error = null
         }
 
@@ -63,31 +58,27 @@ class ScheduleNameEditorDialog : DialogFragment() {
 
         binding.okButton.setOnClickListener {
             val name = binding.scheduleName.text.toString()
-            if (name.isEmpty()) {
-                binding.scheduleNameLayout.error = getString(R.string.schedule_editor_empty_name)
-                return@setOnClickListener
-            }
-
-            val isExist = SchedulePreference.contains(requireContext(), name)
-            if (isExist) {
-                binding.scheduleNameLayout.error = getString(R.string.schedule_editor_exists)
-                return@setOnClickListener
-            }
-
-            for (word in SchedulePreference.banCharacters()) {
-                if (name.contains(word)) {
-                    binding.scheduleNameLayout.error = getString(R.string.schedule_editor_not_allowed_character)
-                    return@setOnClickListener
-                }
-            }
-
-            val intent = Intent()
-            intent.putExtra(SCHEDULE_NAME, name)
-            setResult(intent)
-            dismiss()
+            onScheduleNameChanged(name)
         }
 
         return binding.root
+    }
+
+    private fun onScheduleNameChanged(scheduleName: String) {
+        if (scheduleName.isEmpty()) {
+            binding.scheduleNameLayout.error = getString(R.string.schedule_editor_empty_name)
+        }
+
+        lifecycleScope.launch {
+            val repository = ScheduleRepositoryKt(requireContext())
+            val exist = repository.isScheduleExist(scheduleName)
+            if (exist) {
+                binding.scheduleNameLayout.error = getString(R.string.schedule_editor_exists)
+            } else {
+                setResult(bundleOf(SCHEDULE_NAME to scheduleName))
+                dismiss()
+            }
+        }
     }
 
     override fun onStart() {
@@ -103,19 +94,18 @@ class ScheduleNameEditorDialog : DialogFragment() {
         _binding = null
     }
 
-    private fun setResult(intent: Intent) {
-        targetFragment?.onActivityResult(targetRequestCode, Activity.RESULT_OK, intent)
+    private fun setResult(bundle: Bundle) {
+        setFragmentResult(REQUEST_SCHEDULE_NAME, bundle)
     }
 
     companion object {
 
+        const val REQUEST_SCHEDULE_NAME = "request_schedule_name"
         const val SCHEDULE_NAME = "schedule_name"
 
         @JvmStatic
         fun newInstance(scheduleName: String?) = ScheduleNameEditorDialog().apply {
-            val args = Bundle()
-            args.putString(SCHEDULE_NAME, scheduleName)
-            arguments = args
+            arguments = bundleOf(SCHEDULE_NAME to scheduleName)
         }
     }
 }

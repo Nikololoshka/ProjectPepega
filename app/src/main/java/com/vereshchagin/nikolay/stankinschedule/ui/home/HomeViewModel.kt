@@ -4,13 +4,15 @@ import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.*
 import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleData
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleKt
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.repository.NewsHomeRepository
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.joda.time.LocalDate
 
@@ -19,7 +21,7 @@ import org.joda.time.LocalDate
  */
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val scheduleRepository = ScheduleRepository()
+    private val scheduleRepository = ScheduleRepositoryKt(application)
     private val newsRepository = NewsHomeRepository(application)
 
     val scheduleData = MutableLiveData<HomeScheduleData>(null)
@@ -29,35 +31,20 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            loadSchedule()
+            startUpdateSchedule()
             newsRepository.updateAll()
         }
     }
 
     @SuppressLint("DefaultLocale")
-    private fun loadSchedule() {
-        scheduleSettings = ApplicationPreference.homeScheduleSettings(getApplication())
-        // нет избранного расписания
-        if (scheduleSettings.favorite.isEmpty()) {
-            scheduleData.postValue(HomeScheduleData.empty())
-            return
-        }
-
-        val schedule: Schedule
-        try {
-            schedule = scheduleRepository.load(scheduleSettings.favorite, getApplication())
-        } catch (ignored: Exception) {
-            scheduleData.postValue(HomeScheduleData.empty())
-            return
-        }
-
+    private fun updateDataFromSchedule(schedule: ScheduleKt) {
         val count = scheduleSettings.delta * 2 + 1
         var start = LocalDate.now().minusDays(scheduleSettings.delta)
         val titles = ArrayList<String>(count)
-        val pairs = ArrayList<ArrayList<Pair>>(count)
+        val pairs = ArrayList<ArrayList<PairItem>>(count)
 
         for (i in 0 until count) {
-            val list = ArrayList<Pair>()
+            val list = ArrayList<PairItem>()
             schedule.pairsByDate(start).filter {
                 it.isCurrently(scheduleSettings.subgroup)
             }.toCollection(list)
@@ -83,12 +70,27 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         )
     }
 
+    private suspend fun startUpdateSchedule() {
+        scheduleSettings = ApplicationPreference.homeScheduleSettings(getApplication())
+
+        // нет избранного расписания
+        if (scheduleSettings.favorite.isEmpty()) {
+            scheduleData.postValue(HomeScheduleData.empty())
+        } else {
+            val schedule = scheduleRepository.schedule(scheduleSettings.favorite)
+                .filterNotNull()
+                .first()
+
+            updateDataFromSchedule(schedule)
+        }
+    }
+
     /**
      * Обновляет расписание.
      */
     fun updateSchedule() {
         viewModelScope.launch(Dispatchers.IO) {
-            loadSchedule()
+            startUpdateSchedule()
         }
     }
 

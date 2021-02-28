@@ -1,12 +1,12 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vereshchagin.nikolay.stankinschedule.R
@@ -20,6 +20,7 @@ class AddScheduleBottomSheet : BottomSheetDialogFragment(), View.OnClickListener
     private var _binding: DialogAddScheduleBinding? = null
     private val binding get() = _binding!!
 
+    @Suppress("UNRESOLVED")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -52,22 +53,14 @@ class AddScheduleBottomSheet : BottomSheetDialogFragment(), View.OnClickListener
     override fun onClick(v: View?) {
         v?.id?.let {
             if (it in listOf(R.id.create_schedule, R.id.from_repository, R.id.load_schedule)) {
-                val intent = Intent()
-                intent.putExtra(SCHEDULE_ACTION, it)
-                setResult(intent)
+                setFragmentResult(REQUEST_ADD_SCHEDULE, bundleOf(SCHEDULE_ACTION to it))
                 dismiss()
             }
         }
     }
 
-    /**
-     * Устанавливает возвращает результат.
-     */
-    private fun setResult(intent: Intent) {
-        targetFragment?.onActivityResult(targetRequestCode, Activity.RESULT_OK, intent)
-    }
-
     companion object {
+        const val REQUEST_ADD_SCHEDULE = "request_add_schedule"
         const val SCHEDULE_ACTION = "schedule_action"
     }
 }

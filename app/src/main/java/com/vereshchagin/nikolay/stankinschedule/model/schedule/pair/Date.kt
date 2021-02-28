@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
+import android.content.Context
 import android.os.Parcelable
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
@@ -124,7 +125,6 @@ class Date(
         return json
     }
 
-
     override fun iterator(): Iterator<DateItem> = dates.iterator()
 
     fun isEmpty(): Boolean = dates.isEmpty()
@@ -188,5 +188,11 @@ class Date(
 
     override fun toString(): String {
         return "[" + dates.joinToString(", ") + "]"
+    }
+
+    fun toString(context: Context): String {
+        return dates.joinToString(", ") {
+            it.toString(context)
+        }
     }
 }

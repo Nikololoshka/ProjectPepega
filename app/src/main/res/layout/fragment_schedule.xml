@@ -45,6 +45,8 @@
                     android:id="@+id/schedules"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:paddingBottom="88dp"
+                    android:clipToPadding="false"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="15"
                     tools:listitem="@layout/item_schedule" />
@@ -62,6 +64,7 @@
             android:contentDescription="@string/sch_adding_new_schedules"
             android:src="@drawable/ic_common_schedule_add"
             app:backgroundTint="@color/colorToolbarContent"
+            app:fabSize="normal"
             app:tint="@android:color/white" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

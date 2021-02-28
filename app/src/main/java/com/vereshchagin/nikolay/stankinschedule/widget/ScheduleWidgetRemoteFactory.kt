@@ -11,11 +11,13 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LABORATORY_COLOR
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LECTURE_COLOR
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SEMINAR_COLOR
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import org.joda.time.LocalDate
 import java.lang.ref.WeakReference
 import java.util.*
@@ -103,7 +105,14 @@ class ScheduleWidgetRemoteFactory(
             subgroup = widgetData.subgroup
 
             try {
-                val schedule = ScheduleRepository().load(scheduleName, currentContext)
+                val repository = ScheduleRepositoryKt(currentContext)
+                val schedule = runBlocking {
+                    repository.schedule(scheduleName).first()
+                }
+                if (schedule == null) {
+                    loadingError = true
+                    return
+                }
 
                 var data = LocalDate.now()
                 for (i in 0 until 7) {

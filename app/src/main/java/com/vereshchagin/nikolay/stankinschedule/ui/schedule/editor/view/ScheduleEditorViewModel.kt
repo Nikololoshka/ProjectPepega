@@ -2,8 +2,11 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view
 
 import android.app.Application
 import androidx.lifecycle.*
-import androidx.paging.PagingData
+import androidx.paging.*
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.editor.ScheduleEditorDiscipline
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.ScheduleDisciplineSource
 import kotlinx.coroutines.launch
 
 /**
@@ -14,14 +17,37 @@ class ScheduleEditorViewModel(
     application: Application,
 ) : AndroidViewModel(application) {
 
-    val disciplines = MutableLiveData<PagingData<String>>()
+    private val refreshTrigger = MutableLiveData<Unit?>()
+
+    val disciplines = Transformations.switchMap(refreshTrigger) {
+        update()
+    }
+    private var schedule: Schedule? = null
+    private var disciplineList = emptyList<String>()
 
     init {
         viewModelScope.launch {
             val repository = ScheduleRepository()
-            val schedule = repository.load(scheduleName, getApplication())
-            disciplines.value = PagingData.from(schedule.disciplines())
+            val newSchedule = repository.load(scheduleName, getApplication())
+
+            disciplineList = newSchedule.disciplines()
+            schedule = newSchedule
+
+            refreshTrigger.value = null
         }
+    }
+
+    private fun update(): LiveData<PagingData<ScheduleEditorDiscipline>> {
+        if (schedule == null) {
+            return MutableLiveData(null)
+        }
+
+        val pager = Pager(PagingConfig(1)) {
+            ScheduleDisciplineSource(
+                schedule!!, disciplineList
+            )
+        }
+        return pager.liveData.cachedIn(viewModelScope)
     }
 
 

@@ -1,15 +1,15 @@
 package com.vereshchagin.nikolay.stankinschedule.model.home
 
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 
 /**
  * Результат загрузки расписания на главной странице.
  */
-class HomeScheduleData (
+class HomeScheduleData(
     val scheduleName: String,
     val titles: ArrayList<String>,
-    val pairs: ArrayList<ArrayList<Pair>>,
-    val empty: Boolean = false
+    val pairs: ArrayList<ArrayList<PairItem>>,
+    val empty: Boolean = false,
 ) {
     companion object {
         /**

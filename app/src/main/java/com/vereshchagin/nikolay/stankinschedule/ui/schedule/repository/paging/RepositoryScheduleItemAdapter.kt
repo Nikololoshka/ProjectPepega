@@ -8,7 +8,7 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.Reposi
  * Адаптер для расписаний в категории.
  */
 class RepositoryScheduleItemAdapter(
-    private val callback: (scheduleName: String, position: Int) -> Unit
+    private val clickListener: (scheduleName: String, position: Int) -> Unit,
 ) : RecyclerView.Adapter<RepositoryScheduleItemHolder>() {
 
     /**
@@ -20,7 +20,7 @@ class RepositoryScheduleItemAdapter(
         parent: ViewGroup,
         viewType: Int
     ): RepositoryScheduleItemHolder {
-        return RepositoryScheduleItemHolder.create(parent, callback)
+        return RepositoryScheduleItemHolder.create(parent, clickListener)
     }
 
     override fun onBindViewHolder(holder: RepositoryScheduleItemHolder, position: Int) {

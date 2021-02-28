@@ -18,10 +18,11 @@ object DrawableUtils {
     fun createGlide(fragment: Fragment) = Glide.with(fragment)
         .setDefaultRequestOptions(
             RequestOptions()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                .override(100 * 8, 60 * 8)
                 .centerCrop()
-
         )
+
 
     /**
      * Создает Drawable с shimmer эффектом.

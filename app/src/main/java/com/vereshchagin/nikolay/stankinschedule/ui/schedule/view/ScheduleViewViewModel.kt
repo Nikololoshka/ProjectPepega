@@ -4,12 +4,15 @@ import android.app.Application
 import android.net.Uri
 import androidx.lifecycle.*
 import androidx.paging.*
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleKt
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewDaySource
-import com.vereshchagin.nikolay.stankinschedule.utils.State
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.joda.time.LocalDate
 
@@ -19,19 +22,35 @@ import org.joda.time.LocalDate
 class ScheduleViewViewModel(
     private var scheduleName: String,
     private val startDate: LocalDate?,
-    application: Application
+    application: Application,
 ) : AndroidViewModel(application) {
+
+    enum class ScheduleState {
+        LOADING,
+        SUCCESSFULLY_LOADED,
+        SUCCESSFULLY_LOADED_EMPTY,
+        NOT_EXIST,
+    }
+
+    enum class ScheduleActionState {
+        NONE,
+        RENAMED,
+        REMOVED,
+        EXPORTED
+    }
 
     /**
      * Состояние загрузки расписания.
      */
-    val state = MutableLiveData<State<Boolean>>(State.loading())
+    val scheduleState = MutableLiveData(ScheduleState.LOADING)
+    val actionState = MutableLiveData(ScheduleActionState.NONE)
 
     /**
      * Репозиторий с расписанием.
      */
-    private val repository = ScheduleRepository()
-    private var schedule: Schedule? = null
+    private val repository = ScheduleRepositoryKt(application)
+    var schedule: ScheduleKt? = null
+        private set
 
     /**
      * LiveData с днями расписания.
@@ -48,28 +67,31 @@ class ScheduleViewViewModel(
     /**
      * Загружает расписание для просмотра.
      */
-    private fun loadSchedule(initKey: LocalDate) {
-        state.value = State.loading()
-        try {
-            val newSchedule = repository.load(scheduleName, getApplication())
-            schedule = newSchedule
-
-            state.value = State.success(newSchedule.isEmpty())
-            refreshTrigger.value = initKey
-
-        } catch (e: Exception) {
-            state.value = State.failed(e)
+    private suspend fun loadSchedule(initKey: LocalDate) {
+        scheduleState.postValue(ScheduleState.LOADING)
+        val item = repository.scheduleItem(scheduleName).first()
+        if (item == null) {
+            scheduleState.postValue(ScheduleState.NOT_EXIST)
+            return
         }
+
+        repository.schedule(item.id)
+            .filterNotNull()
+            .collect {
+                this.schedule = it
+                refreshTrigger.value = initKey
+            }
     }
 
     /**
      * Обновляет pager с днями расписания.
      */
     private fun refresh(
-        initKey: LocalDate = LocalDate.now()
+        initKey: LocalDate = LocalDate.now(),
     ): LiveData<PagingData<ScheduleViewDay>> {
         val currentSchedule = schedule
-        if (state.value is State.Loading || currentSchedule == null) {
+        if (currentSchedule == null) {
+            scheduleState.value = ScheduleState.SUCCESSFULLY_LOADED
             return MutableLiveData(PagingData.empty())
         }
 
@@ -86,6 +108,12 @@ class ScheduleViewViewModel(
             ScheduleViewDaySource(currentSchedule)
         }
 
+        scheduleState.value = if (currentSchedule.isEmpty()) {
+            ScheduleState.SUCCESSFULLY_LOADED_EMPTY
+        } else {
+            ScheduleState.SUCCESSFULLY_LOADED
+        }
+
         return pager.liveData.cachedIn(viewModelScope)
     }
 
@@ -93,49 +121,40 @@ class ScheduleViewViewModel(
      * Обновляет pager, где изначальной позицией будет передаваемая дата.
      */
     fun updatePagerView(scrollDate: LocalDate) {
-        fakeRefresh()
-
-        state.value = State.success(schedule?.isEmpty() == true)
+        scheduleState.value = ScheduleState.LOADING
         refreshTrigger.value = scrollDate
     }
 
-    /**
-     *  Перезагружает расписание и pager связанный с ним.
-     *  В качестве изначальной позицией будет передаваемая дата.
-     */
-    fun refreshPagerView(newScheduleName: String, scrollDate: LocalDate) {
-        scheduleName = newScheduleName
-        fakeRefresh()
+    fun renameSchedule(newScheduleName: String) {
+        val currentScheduleItem = schedule?.info ?: return
 
-        viewModelScope.launch {
-            loadSchedule(scrollDate)
+        viewModelScope.launch(Dispatchers.IO) {
+            currentScheduleItem.scheduleName = newScheduleName
+            scheduleName = newScheduleName
+            repository.updateScheduleItem(currentScheduleItem)
+
+            actionState.postValue(ScheduleActionState.RENAMED)
         }
     }
 
-    /**
-     *  Сброс текущего расписания.
-     *
-     *  Для сброса всего списка вызывается "пустое" обновление.
-     *  Без него при асинхронном обновлении списка в адаптере возможен случай, когда
-     *  отображается не тот день, а смещенный на +- PAGE_SIZE.
-     */
-    private fun fakeRefresh() {
-        state.value = State.loading()
-        refreshTrigger.value = LocalDate.now()
+    fun removeSchedule() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.removeSchedule(scheduleName)
+            actionState.postValue(ScheduleActionState.REMOVED)
+        }
     }
 
     /**
      * Сохраняет расписание на устройство по заданному пути.
      */
     fun saveScheduleToDevice(uri: Uri) {
-        schedule?.let { repository.copy(scheduleName, it, uri, getApplication()) }
+        viewModelScope.launch {
+            repository.saveToDevice(scheduleName, uri, getApplication())
+        }
     }
 
-    /**
-     * Возвращает текущие расписание.
-     */
-    fun currentSchedule(): Schedule? {
-        return schedule
+    fun actionComplete() {
+        actionState.value = ScheduleActionState.NONE
     }
 
     /**

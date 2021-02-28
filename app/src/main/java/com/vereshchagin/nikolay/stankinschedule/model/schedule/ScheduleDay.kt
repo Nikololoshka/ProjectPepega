@@ -97,4 +97,14 @@ class ScheduleDay {
         }
         return pairsDate.sorted()
     }
+
+    fun pairsByDiscipline(discipline: String): List<Pair> {
+        val result = arrayListOf<Pair>()
+        for (pair in pairs) {
+            if (pair.title == discipline) {
+                result.add(pair)
+            }
+        }
+        return result
+    }
 }

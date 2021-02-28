@@ -1,15 +1,13 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker
 
 import android.content.Context
-import android.content.Intent
 import androidx.annotation.StringRes
 import androidx.core.app.NotificationManagerCompat
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.navigation.NavDeepLinkBuilder
 import androidx.work.*
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleServerRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
@@ -28,8 +26,8 @@ class ScheduleDownloadWorker(
         val scheduleName = inputData.getString(SCHEDULE_NAME)!!
         val notificationId = inputData.getInt(NOTIFICATION_ID, 1000)
 
-        val repository = ScheduleServerRepository(applicationContext.cacheDir)
-        val uri = repository.scheduleUri(category, scheduleName)
+        val serverRepository = ScheduleServerRepository(applicationContext.cacheDir)
+        val uri = serverRepository.scheduleUri(category, scheduleName)
 
         // подготовка уведомлений
         val manager = NotificationManagerCompat.from(applicationContext)
@@ -47,13 +45,8 @@ class ScheduleDownloadWorker(
         )
 
         try {
-            val response = repository.downloader().schedule(uri.toString()).await()
-            ScheduleRepository().saveNew(applicationContext, response, scheduleName)
-
-            // уведомляем о загруженном расписании
-            val notificationIntent = Intent(SCHEDULE_DOWNLOADED_EVENT)
-            LocalBroadcastManager.getInstance(applicationContext)
-                .sendBroadcast(notificationIntent)
+            val response = serverRepository.downloader().schedule(uri.toString()).await()
+            ScheduleRepositoryKt.saveResponse(applicationContext, scheduleName, response)
 
         } catch (e: Exception) {
             // ошибка загрузки
@@ -101,7 +94,6 @@ class ScheduleDownloadWorker(
 
     companion object {
 
-        const val SCHEDULE_DOWNLOADED_EVENT = "schedule_downloaded_event"
         private const val REPOSITORY_CATEGORY = "repository_category"
         private const val SCHEDULE_NAME = "schedule_name"
         private const val NOTIFICATION_ID = "notification_id"

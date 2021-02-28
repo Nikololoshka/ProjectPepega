@@ -10,13 +10,19 @@ import java.lang.reflect.Type
 /**
  * Модель расписания.
  */
+@Deprecated(
+    "Use ScheduleKt",
+    replaceWith = ReplaceWith("ScheduleKt",
+        "com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleKt"
+    )
+)
 class Schedule {
 
-    private val weeks = linkedMapOf<DayOfWeek, ScheduleDay>()
+    private val days = linkedMapOf<DayOfWeek, ScheduleDay>()
 
     init {
         for (dayOfWeek in DayOfWeek.values()) {
-            weeks[dayOfWeek] = ScheduleDay()
+            days[dayOfWeek] = ScheduleDay()
         }
     }
 
@@ -24,7 +30,7 @@ class Schedule {
      * Добавляет пару в расписание.
      */
     fun add(pair: Pair) {
-        weeks[pair.date.dayOfWeek()]!!.add(pair)
+        days[pair.date.dayOfWeek()]!!.add(pair)
     }
 
     /**
@@ -35,12 +41,12 @@ class Schedule {
             return
         }
 
-        weeks[pair.date.dayOfWeek()]!!.remove(pair)
+        days[pair.date.dayOfWeek()]!!.remove(pair)
     }
 
     fun disciplines(): List<String> {
         val disciplines = HashSet<String>()
-        for (day in weeks.values) {
+        for (day in days.values) {
             for (pair in day.pairs) {
                 disciplines.add(pair.title)
             }
@@ -56,7 +62,7 @@ class Schedule {
     fun startDate(): LocalDate? {
         var start: LocalDate? = null
 
-        for (day in weeks.values) {
+        for (day in days.values) {
             val firstDay = day.startDate()
             if (firstDay != null) {
                 if (start == null) {
@@ -78,7 +84,7 @@ class Schedule {
     fun endDate(): LocalDate? {
         var last: LocalDate? = null
 
-        for (day in weeks.values) {
+        for (day in days.values) {
             val lastDay = day.endDate()
             if (lastDay != null) {
                 if (last == null) {
@@ -96,7 +102,7 @@ class Schedule {
     /**
      * Ограничивает дату, исходя из дат начала и конца расписания.
      */
-    fun limitDate(date: LocalDate) : LocalDate {
+    fun limitDate(date: LocalDate): LocalDate {
         startDate()?.let {
             if (date.isBefore(it)) {
                 return it
@@ -115,7 +121,7 @@ class Schedule {
     /**
      * Проверяет, является ли расписание пустым.
      */
-    fun isEmpty() : Boolean {
+    fun isEmpty(): Boolean {
         return startDate() == null || endDate() == null
     }
 
@@ -127,14 +133,22 @@ class Schedule {
             return arrayListOf()
         }
         val dayOfWeek = DayOfWeek.of(date)
-        return weeks[dayOfWeek]!!.pairsByDate(date)
+        return days[dayOfWeek]!!.pairsByDate(date)
+    }
+
+    fun pairsByDiscipline(discipline: String): List<Pair> {
+        val pairs = arrayListOf<Pair>()
+        for (day in days.values) {
+            pairs.addAll(day.pairsByDiscipline(discipline))
+        }
+        return pairs
     }
 
     /**
      * Проверяет, можно ли заменить одну пару на другую.
      */
     private fun possibleChangePair(old: Pair?, new: Pair) {
-        weeks[new.date.dayOfWeek()]!!.possibleChangePair(old, new)
+        days[new.date.dayOfWeek()]!!.possibleChangePair(old, new)
     }
 
     /**
@@ -154,12 +168,12 @@ class Schedule {
         override fun serialize(
             src: Schedule?,
             typeOfSrc: Type?,
-            context: JsonSerializationContext?
+            context: JsonSerializationContext?,
         ): JsonElement {
             if (src == null) return JsonArray()
 
             val array = JsonArray()
-            for (week in src.weeks.values) {
+            for (week in src.days.values) {
                 for (pair in week.pairs) {
                     array.add(context?.serialize(pair, Pair::class.java))
                 }
@@ -176,7 +190,7 @@ class Schedule {
         override fun deserialize(
             json: JsonElement?,
             typeOfT: Type?,
-            context: JsonDeserializationContext?
+            context: JsonDeserializationContext?,
         ): Schedule {
             if (json == null) {
                 throw JsonParseException("Schedule json is null")

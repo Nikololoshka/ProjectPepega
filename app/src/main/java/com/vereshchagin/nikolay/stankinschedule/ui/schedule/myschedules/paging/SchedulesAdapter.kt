@@ -1,10 +1,9 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging
 
 import android.util.SparseBooleanArray
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.vereshchagin.nikolay.stankinschedule.R
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import java.util.*
 
 /**
@@ -12,7 +11,7 @@ import java.util.*
  */
 class SchedulesAdapter(
     private val itemListener: OnScheduleItemListener,
-    private val dragListener: DragToMoveCallback.OnStartDragListener
+    private val dragListener: DragToMoveCallback.OnStartDragListener,
 ) : RecyclerView.Adapter<ScheduleItemHolder>() {
 
     /**
@@ -23,7 +22,7 @@ class SchedulesAdapter(
     /**
      * Список с расписаниями.
      */
-    private var schedules: List<String> = listOf()
+    private var schedules: List<ScheduleItem> = listOf()
 
     /**
      * Избранное расписание
@@ -41,16 +40,16 @@ class SchedulesAdapter(
     private var isEditable = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleItemHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.item_schedule, parent, false)
-        return ScheduleItemHolder(view, itemListener, dragListener, this::animationController)
+        return ScheduleItemHolder.create(
+            parent, itemListener, dragListener, this::animationController
+        )
     }
 
     override fun getItemCount(): Int = schedules.size
 
     override fun onBindViewHolder(holder: ScheduleItemHolder, position: Int) {
-        val name = schedules[position]
-        holder.bind(name, name == favorite, isAnimateFavoriteButton,
+        val item = schedules[position]
+        holder.bind(item.scheduleName, item.scheduleName == favorite, isAnimateFavoriteButton,
             selectedItems.get(position, false), isEditable)
     }
 
@@ -72,12 +71,18 @@ class SchedulesAdapter(
     }
 
     /**
-     * Устанавливает новый список с расписанием и новое избранное расписание.
+     * Устанавливает новый список с расписанием.
      */
-    fun submitList(schedules: List<String>, favorite: String?) {
+    fun submitList(schedules: List<ScheduleItem>) {
         this.schedules = schedules
-        this.favorite = favorite
+        notifyDataSetChanged()
+    }
 
+    /**
+     * Устанавливает избранное расписание.
+     */
+    fun submitFavorite(favorite: String?) {
+        this.favorite = favorite
         notifyDataSetChanged()
     }
 

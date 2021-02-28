@@ -17,13 +17,13 @@ import java.nio.charset.StandardCharsets
 /**
  * Репозиторий для работы с расписанием.
  */
+@Deprecated("Use ScheduleRepositoryKt")
 class ScheduleRepository {
 
     private val gson = GsonBuilder()
         .registerTypeAdapter(Schedule::class.java, Schedule.Serializer())
         .registerTypeAdapter(Pair::class.java, Pair.Serializer())
         .registerTypeAdapter(Schedule::class.java, Schedule.Deserializer())
-        .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
         .create()
 
     /**

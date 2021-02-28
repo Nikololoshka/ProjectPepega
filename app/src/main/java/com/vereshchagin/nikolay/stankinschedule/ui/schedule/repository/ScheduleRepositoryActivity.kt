@@ -5,16 +5,21 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityScheduleRepositoryBinding
 import com.vereshchagin.nikolay.stankinschedule.databinding.ViewErrorWithButtonBinding
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.RepositoryCategoryAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker
 import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
+import kotlinx.coroutines.launch
 
 /**
  * Удаленный репозиторий с расписаниями.
@@ -81,7 +86,7 @@ class ScheduleRepositoryActivity : AppCompatActivity() {
             }
         }
 
-        val adapter = RepositoryCategoryAdapter()
+        val adapter = RepositoryCategoryAdapter(this::onScheduleItemClicked)
         binding.repositoryCategories.adapter = adapter
         binding.repositoryCategories.offscreenPageLimit = 1
 
@@ -91,20 +96,34 @@ class ScheduleRepositoryActivity : AppCompatActivity() {
             tab.text = viewModel.tabTitle(position)
         }.attach()
 
-//        binding.repositoryCategories.registerOnPageChangeCallback(
-//            object : ViewPager2.OnPageChangeCallback() {
-//                override fun onPageSelected(position: Int) {
-//                    if (!mediator.isAttached) {
-//                        mediator.attach()
-//                    }
-//                }
-//            }
-//        )
-
         // добавление категорий в ViewPager2
         viewModel.categories.observe(this) {
             val data = it ?: return@observe
             adapter.submitData(lifecycle, data)
+        }
+    }
+
+    private fun onScheduleItemClicked(scheduleName: String, categoryName: String, id: Int) {
+        lifecycleScope.launch {
+            val repository = ScheduleRepositoryKt(this@ScheduleRepositoryActivity)
+            if (repository.isScheduleExist(scheduleName)) {
+                Snackbar.make(binding.root, R.string.schedule_editor_exists, Snackbar.LENGTH_SHORT)
+                    .show()
+                return@launch
+            }
+
+            ScheduleDownloadWorker.startWorker(
+                binding.root.context,
+                categoryName,
+                scheduleName,
+                id
+            )
+
+            Snackbar.make(
+                binding.root,
+                binding.root.context.getString(R.string.repository_start_loading, scheduleName),
+                Snackbar.LENGTH_SHORT
+            ).show()
         }
     }
 

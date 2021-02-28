@@ -69,7 +69,7 @@ class ScheduleTest {
         schedule.add(pairs[5])
     }
 
-    //    @Test
+    @Test
     fun tempStressTest() {
         val path = "J:/data/schedules-json/"
         val schedules = FileUtils.listFiles(File(path), null, false)

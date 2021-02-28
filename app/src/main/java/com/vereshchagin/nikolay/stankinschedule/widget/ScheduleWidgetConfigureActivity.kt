@@ -5,12 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.WidgetScheduleConfigureBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.currentPosition
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setCurrentPosition
 import com.vereshchagin.nikolay.stankinschedule.view.DropDownAdapter
@@ -27,6 +27,9 @@ class ScheduleWidgetConfigureActivity : AppCompatActivity(), View.OnClickListene
     private var scheduleAppWidgetId: Int = AppWidgetManager.INVALID_APPWIDGET_ID
 
     private lateinit var binding: WidgetScheduleConfigureBinding
+    private val viewModel by viewModels<ScheduleWidgetConfigureViewModel> {
+        ScheduleWidgetConfigureViewModel.Factory(application)
+    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,12 +57,29 @@ class ScheduleWidgetConfigureActivity : AppCompatActivity(), View.OnClickListene
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val schedules = ScheduleRepository().schedules(this)
-        initAutoComplete(binding.widgetScheduleSelector, schedules)
+        turnUI(false)
+
+        // загрузка данных
+        val data = loadPref(this, scheduleAppWidgetId)
+
+        // список расписаний
+        viewModel.schedules.observe(this) { schedules ->
+            initAutoComplete(binding.widgetScheduleSelector, schedules)
+
+            // если нет расписаний, то отключить UI
+            turnUI(schedules.isNotEmpty())
+
+            val position = schedules.indexOf(data.scheduleName)
+            if (position != -1) {
+                binding.widgetScheduleSelector.setCurrentPosition(position)
+            }
+        }
+
         initAutoComplete(
             binding.widgetSubgroupSelector, resources.getStringArray(R.array.subgroup_list).asList()
         )
-
+        setSubgroupSpinner(data.subgroup)
+        binding.widgetSubgroupDisplay.isChecked = data.display
         binding.widgetScheduleAdd.setOnClickListener(this)
 
         val text = intent.getStringExtra(CONFIGURE_BUTTON_TEXT_EXTRA)
@@ -67,21 +87,7 @@ class ScheduleWidgetConfigureActivity : AppCompatActivity(), View.OnClickListene
             binding.widgetScheduleAdd.text = text
         }
 
-        // если нет расписаний, то отключить UI
-        if (schedules.isEmpty()) {
-            binding.widgetScheduleAdd.isEnabled = false
-            binding.widgetScheduleSelector.isEnabled = false
-            binding.widgetSubgroupSelector.isEnabled = false
-        }
 
-        // загрузка данных
-        val data = loadPref(this, scheduleAppWidgetId)
-        val position = schedules.indexOf(data.scheduleName)
-        if (position != -1) {
-            binding.widgetScheduleSelector.setCurrentPosition(position)
-        }
-        setSubgroupSpinner(data.subgroup)
-        binding.widgetSubgroupDisplay.isChecked = data.display
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -108,12 +114,18 @@ class ScheduleWidgetConfigureActivity : AppCompatActivity(), View.OnClickListene
         finish()
     }
 
+    private fun turnUI(enable: Boolean) {
+        binding.widgetScheduleAdd.isEnabled = enable
+        binding.widgetScheduleSelector.isEnabled = enable
+        binding.widgetSubgroupSelector.isEnabled = enable
+    }
+
     /**
      * Инициализация полей с DropDown меню.
      */
     private fun initAutoComplete(
         autoComplete: MaterialAutoCompleteTextView,
-        objects: List<String>
+        objects: List<String>,
     ) {
         val adapter = DropDownAdapter(this, objects)
         autoComplete.setAdapter(adapter)

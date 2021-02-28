@@ -13,7 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem;
 
 import java.util.ArrayList;
 
@@ -133,10 +133,11 @@ public class HomePager extends LinearLayout {
     /**
      * Обновляет данные в pager'ах и устанавливает отображать в
      * них центральный (средний) элемент.
+     *
      * @param titleData массив с заголовками.
      * @param pairsData массив с парами в дне.
      */
-    public void update(ArrayList<String> titleData, ArrayList<ArrayList<Pair>> pairsData) {
+    public void update(ArrayList<String> titleData, ArrayList<ArrayList<PairItem>> pairsData) {
         mTitleAdapter = new HomePagerTitleAdapter();
         mTitlePager.setAdapter(mTitleAdapter);
 

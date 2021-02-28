@@ -68,13 +68,19 @@
         android:id="@+id/nav_schedule_repository_activity"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryActivity"
         android:label="@string/repository"
-        tools:layout="@layout/activity_schedule_repository"/>
+        tools:layout="@layout/activity_schedule_repository" />
 
     <fragment
         android:id="@+id/nav_schedule_view_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment"
         android:label="@string/sch_view"
-        tools:layout="@layout/fragment_schedule_view"/>
+        tools:layout="@layout/fragment_schedule_view" />
+
+    <activity
+        android:id="@+id/nav_schedule_editor_activity"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.ScheduleEditorActivity"
+        android:label="@string/schedule_editor"
+        tools:layout="@layout/activity_schedule_editor" />
 
     <activity
         android:id="@+id/nav_pair_editor_activity"

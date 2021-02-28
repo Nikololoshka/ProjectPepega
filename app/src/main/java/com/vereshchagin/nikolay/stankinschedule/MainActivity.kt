@@ -26,7 +26,7 @@ import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityMainBinding
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
@@ -156,7 +156,7 @@ class MainActivity : AppCompatActivity() {
             when (intent.action) {
                 // избранное расписание
                 ShortcutsUtils.FAVORITE_SHORTCUT -> {
-                    val scheduleName = ScheduleRepository.favorite(this)
+                    val scheduleName = ScheduleRepositoryKt.favorite(this)
                     if (scheduleName != null) {
                         navController.navigate(
                             R.id.to_schedule_view_fragment,

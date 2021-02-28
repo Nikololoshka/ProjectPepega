@@ -2,30 +2,34 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.google.gson.JsonParseException
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.DateException
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
-import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleKt
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 /**
  * ViewModel для редактирования пар.
  */
 class PairEditorViewModel(
-    application: Application, private val scheduleName: String
+    application: Application,
+    private val scheduleName: String,
+    private val editablePairId: Long,
 ) : AndroidViewModel(application) {
 
-    private val repository = ScheduleRepository()
-    var schedule: Schedule? = null
+    private val repository = ScheduleRepositoryKt(application)
+    var schedule: ScheduleKt? = null
         get() {
             if (field == null) {
                 scheduleState.value = State.ERROR
             }
             return field
         }
+        private set
+
+    val editablePair = MutableLiveData<PairItem>(null)
 
     /**
      * Состояние загрузки расписания.
@@ -35,45 +39,55 @@ class PairEditorViewModel(
     init {
         // загрузка расписания
         viewModelScope.launch(Dispatchers.IO) {
-            val path = SchedulePreference.createPath(application, scheduleName)
-            try {
-                schedule = repository.load(path)
-                scheduleState.postValue(State.SUCCESSFULLY_LOADED)
+            loadEditablePair()
+            loadSchedule()
+        }
+    }
 
-            } catch (e: Exception) {
-                if (e is JsonParseException || e is DateException) {
-                    scheduleState.postValue(State.ERROR)
-                } else {
-                    throw e
-                }
+    private suspend fun loadEditablePair() {
+        editablePair.postValue(repository.pair(editablePairId).first())
+    }
+
+    private suspend fun loadSchedule() {
+        schedule = repository.schedule(scheduleName).first()
+        scheduleState.postValue(State.SUCCESSFULLY_LOADED)
+    }
+
+    fun changePair(newPair: Pair) {
+        val editablePair = editablePair.value
+        val currentSchedule = schedule
+
+        if (currentSchedule != null) {
+            // Проверка на возможность замены пары в UI потоке.
+            // Если не получиться заменить то возникнет исключение
+            currentSchedule.possibleChangePair(editablePair, newPair)
+
+            viewModelScope.launch(Dispatchers.IO) {
+                scheduleState.postValue(State.LOADING)
+                repository.updatePair(
+                    newPair.toPairItem(
+                        currentSchedule.info.id,    // id расписания
+                        editablePair?.id ?: 0       // id пары (0 - новая пара)
+                    )
+                )
+                scheduleState.postValue(State.SUCCESSFULLY_SAVED)
             }
         }
     }
 
-    /**
-     * Сохраняет расписание.
-     */
-    fun saveSchedule() {
-        if (schedule == null) {
-            scheduleState.value = State.ERROR
+    fun removePair() {
+        val editablePair = editablePair.value
+
+        // нет пары для удаления
+        if (editablePair == null) {
+            scheduleState.value = State.SUCCESSFULLY_SAVED
             return
         }
 
-        scheduleState.value = State.LOADING
         viewModelScope.launch(Dispatchers.IO) {
-            val path = SchedulePreference.createPath(getApplication(), scheduleName)
-            try {
-                repository.save(schedule!!, path)
-                WidgetUtils.updateScheduleWidget(getApplication(), scheduleName)
-                scheduleState.postValue(State.SUCCESSFULLY_SAVED)
-
-            } catch (e: Exception) {
-                if (e is JsonParseException || e is DateException) {
-                    scheduleState.postValue(State.ERROR)
-                } else {
-                    throw e
-                }
-            }
+            scheduleState.postValue(State.LOADING)
+            repository.removePair(editablePair)
+            scheduleState.postValue(State.SUCCESSFULLY_SAVED)
         }
     }
 
@@ -88,11 +102,11 @@ class PairEditorViewModel(
     }
 
     class Factory(
-        val application: Application, val scheduleName: String
+        val application: Application, val scheduleName: String, val editablePairId: Long,
     ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return PairEditorViewModel(application, scheduleName) as T
+            return PairEditorViewModel(application, scheduleName, editablePairId) as T
         }
     }
 }

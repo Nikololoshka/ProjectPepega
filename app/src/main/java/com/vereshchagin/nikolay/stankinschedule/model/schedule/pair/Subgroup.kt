@@ -30,6 +30,10 @@ enum class Subgroup(val tag: String) : Parcelable {
         return this != subgroup && this != COMMON && subgroup != COMMON
     }
 
+    fun isShow(): Boolean {
+        return this != COMMON
+    }
+
     override fun toString(): String {
         return tag
     }

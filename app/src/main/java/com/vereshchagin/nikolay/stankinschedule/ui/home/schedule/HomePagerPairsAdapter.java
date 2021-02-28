@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.vereshchagin.nikolay.stankinschedule.R;
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair;
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem;
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.PairCardView;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class HomePagerPairsAdapter extends PagerAdapter {
     /**
      * Массив с парами на день.
      */
-    private ArrayList<ArrayList<Pair>> mPairsData = new ArrayList<>();
+    private ArrayList<ArrayList<PairItem>> mPairsData = new ArrayList<>();
     /**
      * Текущая отображаемая на соответственном pager'е позиция адаптера.
      */
@@ -38,7 +38,7 @@ public class HomePagerPairsAdapter extends PagerAdapter {
      *
      * @param pairsData массив с парами на день.
      */
-    public void update(@NonNull ArrayList<ArrayList<Pair>> pairsData) {
+    public void update(@NonNull ArrayList<ArrayList<PairItem>> pairsData) {
         mPairsData = pairsData;
         notifyDataSetChanged();
     }
@@ -70,11 +70,11 @@ public class HomePagerPairsAdapter extends PagerAdapter {
         LinearLayout pairsLayout = view.findViewById(R.id.pager_day_pairs);
         View noPairs = view.findViewById(R.id.no_pairs);
 
-        ArrayList<Pair> pairs = mPairsData.get(position);
+        ArrayList<PairItem> pairs = mPairsData.get(position);
         if (pairs == null || pairs.isEmpty()) {
             pairsLayout.setVisibility(View.GONE);
         } else {
-            for (Pair pair : pairs) {
+            for (PairItem pair : pairs) {
                 PairCardView cardView = new PairCardView(container.getContext(), pair);
                 cardView.setClickable(false);
                 cardView.setFocusable(false);

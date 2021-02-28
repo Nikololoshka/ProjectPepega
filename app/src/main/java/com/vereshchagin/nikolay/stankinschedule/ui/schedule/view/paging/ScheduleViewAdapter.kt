@@ -3,13 +3,13 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 
 /**
  * Адаптер для просмотра расписания.
  */
 class ScheduleViewAdapter(
-    private val pairCallback: (pair: Pair) -> Unit
+    private val pairCallback: (pair: PairItem) -> Unit,
 ) : PagingDataAdapter<ScheduleViewDay, ScheduleViewDayHolder>(SCHEDULE_DAY_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewDayHolder {

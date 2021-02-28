@@ -1,12 +1,16 @@
 package com.vereshchagin.nikolay.stankinschedule.utils.extensions
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.provider.OpenableColumns
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.vereshchagin.nikolay.stankinschedule.R
@@ -47,6 +51,18 @@ fun MaterialAlertDialogBuilder.setOkButton(): MaterialAlertDialogBuilder {
  * Аналогично {@link TreeSet#removeIf}.
  */
 fun <T> AbstractSet<T>.removeIfJava7(filter: (item: T) -> Boolean): Boolean {
+    var removed = false
+    val each = iterator()
+    while (each.hasNext()) {
+        if (filter.invoke(each.next())) {
+            each.remove()
+            removed = true
+        }
+    }
+    return removed
+}
+
+fun <T> ArrayList<T>.removeIfJava7(filter: (item: T) -> Boolean): Boolean {
     var removed = false
     val each = iterator()
     while (each.hasNext()) {
@@ -100,7 +116,11 @@ fun View.focusAndShowKeyboard() {
 fun Uri.extractFilename(context: Context): String? {
     var result: String? = null
     if (this.scheme == "content") {
-        val cursor = context.contentResolver.query(this, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)
+        val cursor = context.contentResolver.query(this,
+            arrayOf(OpenableColumns.DISPLAY_NAME),
+            null,
+            null,
+            null)
         cursor.use {
             if (it != null && it.moveToFirst()) {
                 result = it.getString(it.getColumnIndex(OpenableColumns.DISPLAY_NAME))
@@ -122,4 +142,21 @@ fun Uri.extractFilename(context: Context): String? {
 
 fun View.setVisibility(visible: Boolean) {
     visibility = if (visible) View.VISIBLE else View.GONE
+}
+
+fun TextView.setupRectRoundBackground(color: Int, dp: Float) {
+    val currentDrawable = background
+
+    if (currentDrawable is GradientDrawable) {
+        currentDrawable.setColor(color)
+        return
+    }
+
+    background = GradientDrawable().apply {
+        cornerRadius = dp
+        setColor(color)
+    }
+
+    val isDark = ColorUtils.calculateLuminance(color) < 0.5
+    setTextColor(if (isDark) Color.WHITE else Color.BLACK)
 }

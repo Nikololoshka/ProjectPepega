@@ -10,13 +10,13 @@ import com.vereshchagin.nikolay.stankinschedule.databinding.ItemRepositorySchedu
  */
 class RepositoryScheduleItemHolder(
     private val binding: ItemRepositoryScheduleBinding,
-    private val callback: (scheduleName: String, position: Int) -> Unit
+    private val clickListener: (scheduleName: String, position: Int) -> Unit,
 ) : RecyclerView.ViewHolder(binding.root) {
 
     init {
         binding.repositorySchedule.setOnClickListener {
             binding.scheduleName?.let {
-                callback.invoke(it, bindingAdapterPosition)
+                clickListener.invoke(it, bindingAdapterPosition)
             }
         }
     }

@@ -1,53 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="@dimen/default_layout_padding">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        style="@style/Text.Title"
-        android:id="@+id/discipline_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/default_layout_padding"
-        tools:text="Программная инженерия" />
+    <data>
 
-    <TextView
-        style="@style/Text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Лекции" />
+        <import type="com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type" />
+
+        <variable
+            name="discipline"
+            type="String" />
+
+        <variable
+            name="callback"
+            type="com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.viewholder.OnPairListener" />
+
+    </data>
 
     <LinearLayout
-        android:id="@+id/lectures"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        android:orientation="vertical">
 
-    <TextView
-        style="@style/Text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Семинары" />
+        <TextView
+            android:id="@+id/discipline_title"
+            style="@style/Text.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_layout_padding"
+            android:text="@{discipline}"
+            tools:text="Программная инженерия" />
 
-    <LinearLayout
-        android:id="@+id/seminars"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/default_layout_padding"
+            android:paddingEnd="@dimen/default_layout_padding">
 
-    <TextView
-        style="@style/Text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Лабораторные занятия" />
+            <TextView
+                android:id="@+id/lecturers_label"
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="4dp"
+                android:text="@string/schedule_editor_lectures"
+                tools:ignore="RelativeOverlap" />
 
-    <LinearLayout
-        android:id="@+id/labs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" />
+            <ImageButton
+                android:id="@+id/add_lecturers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="TODO"
+                android:onClick="@{() -> callback.onAddPairClicked(discipline, Type.LECTURE)}"
+                android:padding="4dp"
+                android:src="@drawable/ic_button_add" />
 
-</LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/lecturers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/default_layout_padding"
+            android:paddingEnd="@dimen/default_layout_padding">
+
+            <TextView
+                android:id="@+id/seminars_label"
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="4dp"
+                android:text="@string/schedule_editor_seminars"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageButton
+                android:id="@+id/add_seminars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="TODO"
+                android:onClick="@{() -> callback.onAddPairClicked(discipline, Type.SEMINAR)}"
+                android:padding="4dp"
+                android:src="@drawable/ic_button_add" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/seminars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/default_layout_padding"
+            android:paddingEnd="@dimen/default_layout_padding">
+
+            <TextView
+                android:id="@+id/labs_label"
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="4dp"
+                android:text="@string/schedule_editor_labs"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageButton
+                android:id="@+id/add_labs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="TODO"
+                android:onClick="@{() -> callback.onAddPairClicked(discipline, Type.LABORATORY)}"
+                android:padding="4dp"
+                android:src="@drawable/ic_button_add" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/labs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+
+</layout>

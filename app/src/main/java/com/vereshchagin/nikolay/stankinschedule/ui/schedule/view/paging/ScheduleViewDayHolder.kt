@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemScheduleDayBinding
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.PairCardView
 import java.util.*
 import kotlin.collections.ArrayList
@@ -15,7 +15,7 @@ import kotlin.collections.ArrayList
  */
 class ScheduleViewDayHolder(
     private val binding: ItemScheduleDayBinding,
-    private val callback: (pair: Pair) -> Unit
+    private val callback: (pair: PairItem) -> Unit,
 ) : RecyclerView.ViewHolder(binding.root) {
 
     private val pairCards = ArrayList<PairCardView>()
@@ -63,7 +63,7 @@ class ScheduleViewDayHolder(
         /**
          * Создает holder.
          */
-        fun create(parent: ViewGroup, callback: (pair: Pair) -> Unit): ScheduleViewDayHolder {
+        fun create(parent: ViewGroup, callback: (pair: PairItem) -> Unit): ScheduleViewDayHolder {
             return ScheduleViewDayHolder(
                 ItemScheduleDayBinding.inflate(
                     LayoutInflater.from(parent.context),

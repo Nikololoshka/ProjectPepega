@@ -7,7 +7,7 @@ import com.google.firebase.storage.ktx.storage
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.api.ScheduleRepositoryApi
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleResponse
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryCategoryItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryDescription
@@ -144,8 +144,9 @@ class ScheduleServerRepository(
             .baseUrl(FIREBASE_URL)
             .addConverterFactory(GsonConverterFactory.create(
                 GsonBuilder()
-                    .registerTypeAdapter(Schedule::class.java, Schedule.Deserializer())
-                    .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
+                    .registerTypeAdapter(ScheduleResponse::class.java,
+                        ScheduleResponse.Serializer())
+                    .registerTypeAdapter(Pair::class.java, Pair.Serializer())
                     .create()
             ))
 
@@ -161,7 +162,8 @@ class ScheduleServerRepository(
             builder.client(client)
         }
 
-        return builder.build().create(ScheduleRepositoryApi::class.java)
+        return builder.build()
+            .create(ScheduleRepositoryApi::class.java)
     }
 
     /**

@@ -1,8 +1,10 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging
 
 import android.annotation.SuppressLint
+import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
@@ -12,13 +14,12 @@ import com.vereshchagin.nikolay.stankinschedule.databinding.ItemScheduleBinding
  * Holder расписания в списке.
  */
 class ScheduleItemHolder(
-    itemView: View,
+    private val binding: ItemScheduleBinding,
     private var itemListener: SchedulesAdapter.OnScheduleItemListener,
     private val dragListener: DragToMoveCallback.OnStartDragListener,
-    private val animationController: (animate: Boolean) -> Unit
-) : RecyclerView.ViewHolder(itemView) , View.OnClickListener {
+    private val animationController: (animate: Boolean) -> Unit,
+) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
-    private val binding = ItemScheduleBinding.bind(itemView)
     private val defaultBackground = binding.root.background
 
     init {
@@ -75,7 +76,7 @@ class ScheduleItemHolder(
 
     override fun onClick(v: View?) {
         val name = binding.scheduleInfo.text.toString()
-        when(v?.id) {
+        when (v?.id) {
             R.id.schedule_item -> {
                 itemListener.onScheduleItemClicked(name, bindingAdapterPosition)
             }
@@ -85,4 +86,21 @@ class ScheduleItemHolder(
             }
         }
     }
+
+    companion object {
+        fun create(
+            parent: ViewGroup,
+            itemListener: SchedulesAdapter.OnScheduleItemListener,
+            dragListener: DragToMoveCallback.OnStartDragListener,
+            animationController: (animate: Boolean) -> Unit,
+        ): ScheduleItemHolder {
+            return ScheduleItemHolder(
+                ItemScheduleBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                ),
+                itemListener, dragListener, animationController
+            )
+        }
+    }
+
 }
