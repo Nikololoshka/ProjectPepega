@@ -2,10 +2,11 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleKt
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -19,8 +20,8 @@ class PairEditorViewModel(
     private val editablePairId: Long,
 ) : AndroidViewModel(application) {
 
-    private val repository = ScheduleRepositoryKt(application)
-    var schedule: ScheduleKt? = null
+    private val repository = ScheduleRepository(application)
+    var schedule: Schedule? = null
         get() {
             if (field == null) {
                 scheduleState.value = State.ERROR
@@ -64,12 +65,15 @@ class PairEditorViewModel(
 
             viewModelScope.launch(Dispatchers.IO) {
                 scheduleState.postValue(State.LOADING)
+
                 repository.updatePair(
                     newPair.toPairItem(
                         currentSchedule.info.id,    // id расписания
                         editablePair?.id ?: 0       // id пары (0 - новая пара)
                     )
                 )
+                WidgetUtils.updateScheduleWidget(getApplication(), scheduleName)
+
                 scheduleState.postValue(State.SUCCESSFULLY_SAVED)
             }
         }
@@ -86,7 +90,10 @@ class PairEditorViewModel(
 
         viewModelScope.launch(Dispatchers.IO) {
             scheduleState.postValue(State.LOADING)
+
             repository.removePair(editablePair)
+            WidgetUtils.updateScheduleWidget(getApplication(), scheduleName)
+
             scheduleState.postValue(State.SUCCESSFULLY_SAVED)
         }
     }

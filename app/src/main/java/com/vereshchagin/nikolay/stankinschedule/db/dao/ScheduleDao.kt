@@ -13,11 +13,11 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ScheduleDao {
 
-    @Query("SELECT * FROM schedules")
+    @Query("SELECT * FROM schedules ORDER BY position ASC")
     fun getAllSchedules(): Flow<List<ScheduleItem>>
 
     @Query("SELECT * FROM pairs WHERE schedule_id == :scheduleId")
-    suspend fun getAllPairs(scheduleId: Long): List<PairItem>
+    fun getAllPairs(scheduleId: Long): Flow<List<PairItem>>
 
     @Transaction
     @Query("SELECT * FROM schedules WHERE schedule_name == :scheduleName LIMIT 1")
@@ -45,6 +45,9 @@ interface ScheduleDao {
 
     @Update
     suspend fun updateScheduleItem(schedule: ScheduleItem)
+
+    @Update
+    suspend fun updateScheduleItems(schedules: List<ScheduleItem>)
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insertPairs(pairs: List<PairItem>)

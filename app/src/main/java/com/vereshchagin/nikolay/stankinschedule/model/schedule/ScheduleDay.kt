@@ -1,27 +1,24 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule
 
-import android.util.Log
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.PairIntersectException
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.removeIfJava7
 import org.joda.time.LocalDate
 
-
 class ScheduleDay {
 
-    val pairs = hashSetOf<Pair>()
+    internal val pairs = arrayListOf<PairItem>()
 
-    fun add(pair: Pair) {
+    fun add(pair: PairItem) {
         isAddCheck(pair)
         pairs.add(pair)
     }
 
-    fun remove(pair: Pair) {
-        val removed = pairs.removeIfJava7 {
-            Log.d("MyLog", "remove: $it, $pair -> " + (it == pair))
+    fun remove(pair: PairItem) {
+        pairs.removeIfJava7 {
             it == pair
         }
-        Log.d("MyLog", "remove: $removed")
     }
 
     fun startDate(): LocalDate? {
@@ -64,7 +61,7 @@ class ScheduleDay {
         return last
     }
 
-    private fun isAddCheck(added: Pair) {
+    private fun isAddCheck(added: PairItem) {
         for (pair in pairs) {
             if (added.intersect(pair) && !added.separate(pair)) {
                 throw PairIntersectException(
@@ -88,8 +85,8 @@ class ScheduleDay {
         }
     }
 
-    fun pairsByDate(date: LocalDate): List<Pair> {
-        val pairsDate = ArrayList<Pair>()
+    fun pairsByDate(date: LocalDate): List<PairItem> {
+        val pairsDate = ArrayList<PairItem>()
         for (pair in pairs) {
             if (pair.date.intersect(date)) {
                 pairsDate.add(pair)
@@ -98,8 +95,8 @@ class ScheduleDay {
         return pairsDate.sorted()
     }
 
-    fun pairsByDiscipline(discipline: String): List<Pair> {
-        val result = arrayListOf<Pair>()
+    fun pairsByDiscipline(discipline: String): List<PairItem> {
+        val result = arrayListOf<PairItem>()
         for (pair in pairs) {
             if (pair.title == discipline) {
                 result.add(pair)

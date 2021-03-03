@@ -2,6 +2,8 @@ package com.vereshchagin.nikolay.stankinschedule
 
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleResponse
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.PairIntersectException
 import com.vereshchagin.nikolay.stankinschedule.resources.PairResources
@@ -16,16 +18,16 @@ import java.nio.charset.StandardCharsets
  */
 class ScheduleTest {
 
-    private val pairs: ArrayList<Pair> = arrayListOf()
+    private val pairs: ArrayList<PairItem> = arrayListOf()
 
     @Before
     fun uploadPairs() {
         val gson = GsonBuilder()
-            .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
+            .registerTypeAdapter(Pair::class.java, Pair.Serializer())
             .create()
 
         for (json in PairResources.PAIRS) {
-            pairs.add(gson.fromJson(json, Pair::class.java))
+            pairs.add(gson.fromJson(json, Pair::class.java).toPairItem(-1))
         }
     }
 
@@ -34,7 +36,7 @@ class ScheduleTest {
      */
     @Test
     fun loading() {
-        val schedule = Schedule()
+        val schedule = Schedule.empty()
         schedule.add(pairs[0])
     }
 
@@ -43,7 +45,7 @@ class ScheduleTest {
      */
     @Test(expected = PairIntersectException::class)
     fun impossibleDatePairs() {
-        val schedule = Schedule()
+        val schedule = Schedule.empty()
         schedule.add(pairs[0])
         schedule.add(pairs[1])
     }
@@ -53,7 +55,7 @@ class ScheduleTest {
      */
     @Test
     fun possibleTimePairs() {
-        val schedule = Schedule()
+        val schedule = Schedule.empty()
         schedule.add(pairs[1])
         schedule.add(pairs[2])
     }
@@ -63,7 +65,7 @@ class ScheduleTest {
      */
     @Test(expected = PairIntersectException::class)
     fun impossibleSubgroupIntersect() {
-        val schedule = Schedule()
+        val schedule = Schedule.empty()
         schedule.add(pairs[3])
         schedule.add(pairs[4])
         schedule.add(pairs[5])
@@ -79,10 +81,10 @@ class ScheduleTest {
 
             val json = FileUtils.readFileToString(schedule, StandardCharsets.UTF_8)
             GsonBuilder()
-                .registerTypeAdapter(Schedule::class.java, Schedule.Deserializer())
-                .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
+                .registerTypeAdapter(ScheduleResponse::class.java, ScheduleResponse.Serializer())
+                .registerTypeAdapter(Pair::class.java, Pair.Serializer())
                 .create()
-                .fromJson(json, Schedule::class.java)
+                .fromJson(json, ScheduleResponse::class.java)
         }
     }
 }

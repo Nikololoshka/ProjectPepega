@@ -1,41 +1,42 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules
 
 import android.app.Application
-import android.util.Log
 import android.util.SparseBooleanArray
 import androidx.core.util.forEach
 import androidx.lifecycle.*
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.utils.DifferenceUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.util.*
 
 /**
  * ViewModel списка расписаний.
  */
 class ScheduleViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = ScheduleRepositoryKt(application)
+    private val repository = ScheduleRepository(application)
 
     val favorite = MutableLiveData<String>(null)
     val selectedItems = MutableLiveData(SparseBooleanArray())
-    val schedules = MutableLiveData<List<ScheduleItem>>(null)
+
+    private var currentSchedules: MutableList<ScheduleItem> = arrayListOf()
+
+    val schedules = MutableLiveData<List<ScheduleItem>>()
 
     init {
-        update()
-    }
-
-    /**
-     * Обновляет список расписаний и избранное.
-     */
-    fun update() {
-        favorite.value = ScheduleRepositoryKt.favorite(getApplication())
+        favorite.value = ScheduleRepository.favorite(getApplication())
         viewModelScope.launch(Dispatchers.IO) {
             repository.schedules()
                 .collect { list ->
-                    schedules.postValue(list)
+                    synchronized(currentSchedules) {
+                        val isDiff = DifferenceUtils.applyDifference(currentSchedules, list)
+                        if (isDiff) {
+                            schedules.postValue(list)
+                        }
+                    }
                 }
         }
     }
@@ -72,10 +73,10 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
      * False если было удалено избранное.
      */
     fun setFavorite(favorite: String): Boolean {
-        val old = ScheduleRepositoryKt.favorite(getApplication())
+        val old = ScheduleRepository.favorite(getApplication())
         val isNew = favorite != old
 
-        ScheduleRepositoryKt.setFavorite(getApplication(), if (isNew) favorite else null)
+        ScheduleRepository.setFavorite(getApplication(), if (isNew) favorite else null)
         this.favorite.value = favorite
 
         return isNew
@@ -85,9 +86,18 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
      * Переставляет расписания в списке.
      */
     fun moveSchedule(fromPosition: Int, toPosition: Int) {
-        Log.d("MyLog", "moveSchedule: $fromPosition - $toPosition")
-        TODO("")
-        SchedulePreference.move(getApplication(), fromPosition, toPosition)
+        synchronized(currentSchedules) {
+            Collections.swap(currentSchedules, fromPosition, toPosition)
+        }
+    }
+
+    fun actionModeCompleted() {
+        viewModelScope.launch(Dispatchers.IO) {
+            synchronized(currentSchedules) {
+                currentSchedules.forEachIndexed { index, item -> item.position = index }
+            }
+            repository.updateScheduleItems(currentSchedules)
+        }
     }
 
     /**

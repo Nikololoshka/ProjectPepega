@@ -11,7 +11,7 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LABORATORY_COLOR
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LECTURE_COLOR
@@ -105,7 +105,7 @@ class ScheduleWidgetRemoteFactory(
             subgroup = widgetData.subgroup
 
             try {
-                val repository = ScheduleRepositoryKt(currentContext)
+                val repository = ScheduleRepository(currentContext)
                 val schedule = runBlocking {
                     repository.schedule(scheduleName).first()
                 }

@@ -12,7 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityScheduleRepositoryBinding
 import com.vereshchagin.nikolay.stankinschedule.databinding.ViewErrorWithButtonBinding
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.RepositoryCategoryAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker
 import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
@@ -105,7 +105,7 @@ class ScheduleRepositoryActivity : AppCompatActivity() {
 
     private fun onScheduleItemClicked(scheduleName: String, categoryName: String, id: Int) {
         lifecycleScope.launch {
-            val repository = ScheduleRepositoryKt(this@ScheduleRepositoryActivity)
+            val repository = ScheduleRepository(this@ScheduleRepositoryActivity)
             if (repository.isScheduleExist(scheduleName)) {
                 Snackbar.make(binding.root, R.string.schedule_editor_exists, Snackbar.LENGTH_SHORT)
                     .show()

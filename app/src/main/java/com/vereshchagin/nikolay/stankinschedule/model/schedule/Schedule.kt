@@ -1,58 +1,51 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule
 
-import com.google.gson.*
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleWithPairs
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.DayOfWeek
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import org.joda.time.DateTimeConstants
 import org.joda.time.LocalDate
-import java.lang.reflect.Type
 
 /**
- * Модель расписания.
+ *
  */
-@Deprecated(
-    "Use ScheduleKt",
-    replaceWith = ReplaceWith("ScheduleKt",
-        "com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleKt"
-    )
-)
-class Schedule {
+class Schedule(
+    scheduleWithPairs: ScheduleWithPairs,
+) {
+    /**
+     *
+     */
+    val info = scheduleWithPairs.schedule
 
+    /**
+     *
+     */
     private val days = linkedMapOf<DayOfWeek, ScheduleDay>()
 
     init {
         for (dayOfWeek in DayOfWeek.values()) {
             days[dayOfWeek] = ScheduleDay()
         }
+
+        for (pair in scheduleWithPairs.pairs) {
+            add(pair)
+        }
     }
 
     /**
      * Добавляет пару в расписание.
      */
-    fun add(pair: Pair) {
+    fun add(pair: PairItem) {
         days[pair.date.dayOfWeek()]!!.add(pair)
     }
 
     /**
      * Удаляет пару из расписания.
      */
-    fun remove(pair: Pair?) {
-        if (pair == null) {
-            return
-        }
-
+    fun remove(pair: PairItem) {
         days[pair.date.dayOfWeek()]!!.remove(pair)
-    }
-
-    fun disciplines(): List<String> {
-        val disciplines = HashSet<String>()
-        for (day in days.values) {
-            for (pair in day.pairs) {
-                disciplines.add(pair.title)
-            }
-        }
-
-        return disciplines.toList()
     }
 
     /**
@@ -99,6 +92,17 @@ class Schedule {
         return last
     }
 
+    fun disciplines(): List<String> {
+        val disciplines = HashSet<String>()
+        for (day in days.values) {
+            for (pair in day.pairs) {
+                disciplines.add(pair.title)
+            }
+        }
+
+        return disciplines.toList()
+    }
+
     /**
      * Ограничивает дату, исходя из дат начала и конца расписания.
      */
@@ -128,7 +132,7 @@ class Schedule {
     /**
      * Возвращает список пар, которые есть в заданный день.
      */
-    fun pairsByDate(date: LocalDate): List<Pair> {
+    fun pairsByDate(date: LocalDate): List<PairItem> {
         if (date.dayOfWeek == DateTimeConstants.SUNDAY) {
             return arrayListOf()
         }
@@ -147,61 +151,27 @@ class Schedule {
     /**
      * Проверяет, можно ли заменить одну пару на другую.
      */
-    private fun possibleChangePair(old: Pair?, new: Pair) {
+    fun possibleChangePair(old: Pair?, new: Pair) {
         days[new.date.dayOfWeek()]!!.possibleChangePair(old, new)
     }
 
     /**
      * Заменяет одну пару на другую.
      */
-    fun changePair(old: Pair?, new: Pair) {
+    fun changePair(old: PairItem?, new: PairItem) {
         possibleChangePair(old, new)
 
-        remove(old)
+        if (old != null) {
+            remove(old)
+        }
         add(new)
     }
 
-    /**
-     * Сериализатор расписания.
-     */
-    class Serializer : JsonSerializer<Schedule> {
-        override fun serialize(
-            src: Schedule?,
-            typeOfSrc: Type?,
-            context: JsonSerializationContext?,
-        ): JsonElement {
-            if (src == null) return JsonArray()
-
-            val array = JsonArray()
-            for (week in src.days.values) {
-                for (pair in week.pairs) {
-                    array.add(context?.serialize(pair, Pair::class.java))
-                }
-            }
-
-            return array
-        }
-    }
-
-    /**
-     * Десериализатор расписания.
-     */
-    class Deserializer : JsonDeserializer<Schedule> {
-        override fun deserialize(
-            json: JsonElement?,
-            typeOfT: Type?,
-            context: JsonDeserializationContext?,
-        ): Schedule {
-            if (json == null) {
-                throw JsonParseException("Schedule json is null")
-            }
-
-            val schedule = Schedule()
-            for (element in json.asJsonArray) {
-                schedule.add(context!!.deserialize(element, Pair::class.java))
-            }
-
-            return schedule
+    companion object {
+        fun empty(scheduleName: String = "test"): Schedule {
+            return Schedule(
+                ScheduleWithPairs(ScheduleItem(scheduleName), emptyList())
+            )
         }
     }
 }

@@ -4,11 +4,11 @@ import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.*
 import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleData
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleKt
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.repository.NewsHomeRepository
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.filterNotNull
@@ -21,7 +21,7 @@ import org.joda.time.LocalDate
  */
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val scheduleRepository = ScheduleRepositoryKt(application)
+    private val scheduleRepository = ScheduleRepository(application)
     private val newsRepository = NewsHomeRepository(application)
 
     val scheduleData = MutableLiveData<HomeScheduleData>(null)
@@ -37,7 +37,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     @SuppressLint("DefaultLocale")
-    private fun updateDataFromSchedule(schedule: ScheduleKt) {
+    private fun updateDataFromSchedule(schedule: Schedule) {
         val count = scheduleSettings.delta * 2 + 1
         var start = LocalDate.now().minusDays(scheduleSettings.delta)
         val titles = ArrayList<String>(count)

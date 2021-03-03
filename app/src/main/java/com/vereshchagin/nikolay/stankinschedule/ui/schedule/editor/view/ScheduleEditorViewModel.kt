@@ -7,6 +7,8 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.editor.ScheduleEditorDiscipline
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.ScheduleDisciplineSource
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 
 /**
@@ -24,16 +26,17 @@ class ScheduleEditorViewModel(
     }
     private var schedule: Schedule? = null
     private var disciplineList = emptyList<String>()
+    private val repository = ScheduleRepository(application)
 
     init {
         viewModelScope.launch {
-            val repository = ScheduleRepository()
-            val newSchedule = repository.load(scheduleName, getApplication())
-
-            disciplineList = newSchedule.disciplines()
-            schedule = newSchedule
-
-            refreshTrigger.value = null
+            repository.schedule(scheduleName)
+                .filterNotNull()
+                .collect {
+                    disciplineList = it.disciplines()
+                    schedule = it
+                    refreshTrigger.value = null
+                }
         }
     }
 

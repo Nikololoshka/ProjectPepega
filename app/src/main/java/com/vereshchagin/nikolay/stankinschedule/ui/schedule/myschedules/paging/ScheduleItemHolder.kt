@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemScheduleBinding
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setVisibility
 
 /**
  * Holder расписания в списке.
@@ -62,6 +63,7 @@ class ScheduleItemHolder(
             defaultBackground
         }
         binding.root.isActivated = isActive
+        binding.movingHandle.setVisibility(isEditable)
     }
 
     @SuppressLint("ClickableViewAccessibility")

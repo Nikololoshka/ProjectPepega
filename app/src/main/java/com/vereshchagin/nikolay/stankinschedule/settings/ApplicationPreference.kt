@@ -7,6 +7,7 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleSettings
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup.Companion.of
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import org.joda.time.DateTime
 
 /**
@@ -197,8 +198,7 @@ object ApplicationPreference {
             preferences.getInt(HOME_SCHEDULE_DELTA, 2),
             preferences.getBoolean(DISPLAY_SUBGROUP, true),
             of(preferences.getString(SCHEDULE_SUBGROUP, Subgroup.COMMON.tag)!!),
-            SchedulePreference.favorite(context)
-            // TODO("07/11/20 переместить реализация избранного в настройки приложения")
+            ScheduleRepository.favorite(context)
         )
     }
 

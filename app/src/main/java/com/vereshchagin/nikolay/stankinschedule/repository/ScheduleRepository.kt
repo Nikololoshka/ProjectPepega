@@ -4,112 +4,79 @@ import android.content.Context
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
 import com.google.gson.GsonBuilder
-import com.google.gson.JsonSyntaxException
+import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleResponse
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import org.apache.commons.io.FileUtils
 import java.io.File
-import java.io.IOException
+import java.io.FileNotFoundException
 import java.nio.charset.StandardCharsets
 
-
-/**
- * Репозиторий для работы с расписанием.
- */
-@Deprecated("Use ScheduleRepositoryKt")
-class ScheduleRepository {
-
-    private val gson = GsonBuilder()
-        .registerTypeAdapter(Schedule::class.java, Schedule.Serializer())
+class ScheduleRepository(
+    context: Context,
+) {
+    val gson = GsonBuilder()
+        .registerTypeAdapter(ScheduleResponse::class.java, ScheduleResponse.Serializer())
         .registerTypeAdapter(Pair::class.java, Pair.Serializer())
-        .registerTypeAdapter(Schedule::class.java, Schedule.Deserializer())
         .create()
 
-    /**
-     * Загружает расписание.
-     */
-    @Throws(IOException::class, JsonSyntaxException::class)
-    fun load(path: String): Schedule {
-        val json = FileUtils.readFileToString(File(path), StandardCharsets.UTF_8)
-        return gson.fromJson(json, Schedule::class.java)
-    }
+    private val db = MainApplicationDatabase.database(context)
+    private val dao = db.schedules()
 
-    /**
-     * Загружает расписание по имени.
-     */
-    @Throws(IOException::class, JsonSyntaxException::class)
-    fun load(scheduleName: String, context: Context): Schedule {
-        val path = path(context, scheduleName)
-        return load(path)
-    }
+    fun schedules(): Flow<List<ScheduleItem>> = dao.getAllSchedules()
 
-    /**
-     * Возвращает список расписаний устройства.
-     */
-    fun schedules(context: Context): List<String> {
-        return SchedulePreference.schedules(context)
-    }
-
-    /**
-     * Создает расписание.
-     */
-    fun createSchedule(context: Context, scheduleName: String) {
-        val schedule = Schedule()
-        val path = SchedulePreference.createPath(context, scheduleName)
-        save(schedule, path)
-        SchedulePreference.add(context, scheduleName)
-    }
-
-    /**
-     * Переименовывает расписание.
-     */
-    fun renameSchedule(context: Context, oldName: String, newName: String) {
-        val oldFile = File(SchedulePreference.createPath(context, oldName))
-        val newFile = File(SchedulePreference.createPath(context, newName))
-
-        FileUtils.moveFile(oldFile, newFile)
-
-        // если удалось переименовать расписание
-        SchedulePreference.remove(context, oldName)
-        SchedulePreference.add(context, newName)
-
-        if (oldName == SchedulePreference.favorite(context)) {
-            SchedulePreference.setFavorite(context, newName)
+    fun schedule(scheduleName: String): Flow<Schedule?> = dao.getScheduleWithPairs(scheduleName)
+        .map {
+            if (it != null) Schedule(it) else null
         }
-    }
 
-    /**
-     * Удаляет расписание.
-     */
-    fun removeSchedule(context: Context, scheduleName: String) {
-        val path = SchedulePreference.createPath(context, scheduleName)
-        if (FileUtils.deleteQuietly(File(path))) {
-            SchedulePreference.remove(context, scheduleName)
+    fun scheduleItem(scheduleName: String) = dao.getScheduleItem(scheduleName)
+
+    fun schedule(id: Long): Flow<Schedule?> = dao.getScheduleWithPairs(id)
+        .map {
+            if (it != null) Schedule(it) else null
         }
+
+    suspend fun createSchedule(scheduleName: String) {
+        dao.insertScheduleItem(ScheduleItem(scheduleName))
     }
 
-    /**
-     * Сохраняет расписание.
-     */
-    fun save(schedule: Schedule, path: String) {
-        val json = gson.toJson(schedule)
-        FileUtils.writeStringToFile(File(path), json, StandardCharsets.UTF_8)
+    suspend fun updateScheduleItem(item: ScheduleItem) = dao.updateScheduleItem(item)
+
+    suspend fun updateScheduleItems(schedules: List<ScheduleItem>) =
+        dao.updateScheduleItems(schedules)
+
+    suspend fun removeSchedule(scheduleName: String) = dao.deleteSchedule(scheduleName)
+
+    suspend fun isScheduleExist(scheduleName: String) = dao.isScheduleExist(scheduleName)
+
+    fun pair(id: Long) = dao.getPairItem(id)
+
+    suspend fun updatePair(pair: PairItem) = dao.insertPairItem(pair)
+
+    suspend fun removePair(pair: PairItem) = dao.deletePairItem(pair)
+
+    suspend fun scheduleResponse(scheduleName: String): ScheduleResponse {
+        val item = scheduleItem(scheduleName).first()
+            ?: throw FileNotFoundException("Schedule not exist: $scheduleName")
+
+        return ScheduleResponse(dao.getAllPairs(item.id).first())
     }
 
-    /**
-     * Копирует расписание по необходимому пути.
-     */
-    @Suppress("UNUSED_PARAMETER")
-    fun copy(scheduleName: String, schedule: Schedule, uri: Uri, context: Context) {
+    @Throws(RuntimeException::class)
+    suspend fun saveToDevice(scheduleName: String, uri: Uri, context: Context) {
         // получаем объект файла по пути
         var documentFile: DocumentFile? = DocumentFile.fromTreeUri(context, uri)
 
         // регистрируем файл
-        documentFile = documentFile?.createFile(
-            "application/json",
-            scheduleName + SchedulePreference.fileExtension()
-        )
+        documentFile = documentFile?.createFile("application/json", "$scheduleName.json")
         if (documentFile == null) {
             throw RuntimeException("Failed register file on device")
         }
@@ -119,62 +86,24 @@ class ScheduleRepository {
 
         // открывает поток для записи
         val resolver = context.contentResolver
+
         val stream = resolver.openOutputStream(uriFile)
             ?: throw RuntimeException("Cannot open file stream")
 
-        FileUtils.copyFile(
-            File(path(context, scheduleName)),
-            stream
-        )
-    }
-
-    /**
-     * Сохраняет расписание.
-     */
-    fun saveNew(context: Context, schedule: Schedule, scheduleName: String) {
-        if (schedules(context).contains(scheduleName)) {
-            throw FileAlreadyExistsException(File(scheduleName))
+        stream.bufferedWriter().use {
+            val response = scheduleResponse(scheduleName)
+            val json = gson.toJson(response)
+            json.reader().copyTo(it)
         }
-
-        val path = SchedulePreference.createPath(context, scheduleName)
-        save(schedule, path)
-        SchedulePreference.add(context, scheduleName)
     }
 
-    /**
-     * Создает путь к расписанию.
-     */
-    fun path(context: Context, scheduleName: String): String {
-        return SchedulePreference.createPath(context, scheduleName)
-    }
-
-    /**
-     * Проверяет, существует ли расписание с таким именем.
-     */
-    fun exists(context: Context, scheduleName: String): Boolean {
-        return schedules(context).contains(scheduleName)
-    }
-
-    /**
-     * Загружает и сохраняет расписание с json.
-     */
-    fun loadAndSaveFromJson(context: Context, json: String, scheduleName: String) {
-        if (schedules(context).contains(scheduleName)) {
-            throw FileAlreadyExistsException(File(scheduleName))
-        }
-
-        val schedule = gson.fromJson(json, Schedule::class.java)
-        val path = SchedulePreference.createPath(context, scheduleName)
-        save(schedule, path)
-
-        SchedulePreference.add(context, scheduleName)
+    suspend fun saveResponse(scheduleName: String, json: String) {
+        val response = gson.fromJson(json, ScheduleResponse::class.java)
+        dao.insertScheduleResponse(scheduleName, response)
     }
 
     companion object {
-        /**
-         * Возвращает избранное расписание
-         */
-        @JvmStatic
+
         fun favorite(context: Context): String? {
             val scheduleName: String? = SchedulePreference.favorite(context)
             if (scheduleName == null || scheduleName.isEmpty()) {
@@ -183,9 +112,35 @@ class ScheduleRepository {
             return scheduleName
         }
 
-        @JvmStatic
-        fun updateFavorite(context: Context, scheduleName: String?) {
+        fun setFavorite(context: Context, scheduleName: String?) {
             SchedulePreference.setFavorite(context, scheduleName)
+        }
+
+        @Suppress("DEPRECATION")
+        suspend fun migrateSchedules(context: Context, db: MainApplicationDatabase) {
+            val schedules = SchedulePreference.schedules(context)
+            for (scheduleName in schedules) {
+                val path = SchedulePreference.createPath(context, scheduleName)
+
+                val json = FileUtils.readFileToString(File(path), StandardCharsets.UTF_8)
+                val gson = GsonBuilder()
+                    .registerTypeAdapter(ScheduleResponse::class.java,
+                        ScheduleResponse.Serializer())
+                    .registerTypeAdapter(Pair::class.java, Pair.Serializer())
+                    .create()
+
+                val response = gson.fromJson(json, ScheduleResponse::class.java)
+                db.schedules().insertScheduleResponse(scheduleName, response)
+            }
+        }
+
+        suspend fun saveResponse(
+            context: Context,
+            scheduleName: String,
+            response: ScheduleResponse,
+        ) {
+            val repository = ScheduleRepository(context)
+            repository.dao.insertScheduleResponse(scheduleName, response)
         }
     }
 }

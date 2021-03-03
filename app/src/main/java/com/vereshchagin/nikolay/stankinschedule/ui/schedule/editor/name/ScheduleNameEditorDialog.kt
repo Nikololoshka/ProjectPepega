@@ -13,7 +13,7 @@ import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.lifecycleScope
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.DialogScheduleNameEditorBinding
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.focusAndShowKeyboard
 import kotlinx.coroutines.launch
 
@@ -70,7 +70,7 @@ class ScheduleNameEditorDialog : DialogFragment() {
         }
 
         lifecycleScope.launch {
-            val repository = ScheduleRepositoryKt(requireContext())
+            val repository = ScheduleRepository(requireContext())
             val exist = repository.isScheduleExist(scheduleName)
             if (exist) {
                 binding.scheduleNameLayout.error = getString(R.string.schedule_editor_exists)

@@ -22,7 +22,8 @@ class SchedulesAdapter(
     /**
      * Список с расписаниями.
      */
-    private var schedules: List<ScheduleItem> = listOf()
+    var schedules: List<ScheduleItem> = listOf()
+        private set
 
     /**
      * Избранное расписание

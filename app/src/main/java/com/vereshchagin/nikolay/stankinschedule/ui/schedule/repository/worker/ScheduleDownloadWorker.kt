@@ -7,7 +7,7 @@ import androidx.navigation.NavDeepLinkBuilder
 import androidx.work.*
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleServerRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
@@ -46,7 +46,7 @@ class ScheduleDownloadWorker(
 
         try {
             val response = serverRepository.downloader().schedule(uri.toString()).await()
-            ScheduleRepositoryKt.saveResponse(applicationContext, scheduleName, response)
+            ScheduleRepository.saveResponse(applicationContext, scheduleName, response)
 
         } catch (e: Exception) {
             // ошибка загрузки

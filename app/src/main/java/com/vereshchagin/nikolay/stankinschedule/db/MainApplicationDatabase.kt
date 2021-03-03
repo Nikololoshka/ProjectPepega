@@ -5,8 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import androidx.room.migration.Migration
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.db.dao.ScheduleDao
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
@@ -64,66 +62,18 @@ abstract class MainApplicationDatabase : RoomDatabase() {
                     context.applicationContext,
                     MainApplicationDatabase::class.java,
                     "main_application_database"
-                )//.addMigrations(MIGRATION_1_2)
-                    .fallbackToDestructiveMigration()
+                ).fallbackToDestructiveMigration()
                     // .allowMainThreadQueries()
                     .build()
 
 //                runBlocking {
 //                    database.withTransaction {
-//                        val repository = ScheduleRepository()
-//                        for (scheduleName in repository.schedules(context)) {
-//                            ScheduleRepositoryKt.saveResponse(
-//                                repository.path(context, scheduleName),
-//                                scheduleName,
-//                                database
-//                            )
-//                        }
+//                        ScheduleRepository.migrateSchedules(context, database)
 //                    }
 //                }
 
                 instance = database
                 return database
-            }
-        }
-
-        val MIGRATION_1_2 = object : Migration(1, 2) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL(
-                    """
-                        CREATE TABLE schedules (
-                            schedule_name TEXT NOT NULL PRIMARY KEY,
-                            created_date TEXT NOT NULL,
-                            edit_date TEXT NOT NULL,
-                            synchronized INTEGER NOT NULL,
-                            position INTEGER NOT NULL,
-                            favorite INTEGER NOT NULL
-                        )
-                    """
-                )
-                database.execSQL(
-                    """
-                        CREATE TABLE pairs (
-                            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                            schedule_name TEXT NOT NULL,
-                            title TEXT NOT NULL,
-                            lecturer TEXT NOT NULL,
-                            classroom TEXT NOT NULL,
-                            type TEXT NOT NULL,
-                            subgroup TEXT NOT NULL,
-                            time TEXT NOT NULL,
-                            date TEXT NOT NULL,
-
-                            FOREIGN KEY (`schedule_name`) REFERENCES schedules(schedule_name) ON UPDATE NO ACTION ON DELETE CASCADE
-                        )
-                    """
-                )
-
-                database.execSQL(
-                    """
-                        CREATE INDEX index_pairs_schedule_name ON pairs(schedule_name)
-                    """
-                )
             }
         }
     }

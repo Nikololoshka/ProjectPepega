@@ -4,8 +4,8 @@ import android.app.Application
 import android.net.Uri
 import androidx.lifecycle.*
 import androidx.paging.*
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleKt
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewDaySource
@@ -48,8 +48,8 @@ class ScheduleViewViewModel(
     /**
      * Репозиторий с расписанием.
      */
-    private val repository = ScheduleRepositoryKt(application)
-    var schedule: ScheduleKt? = null
+    private val repository = ScheduleRepository(application)
+    var schedule: Schedule? = null
         private set
 
     /**

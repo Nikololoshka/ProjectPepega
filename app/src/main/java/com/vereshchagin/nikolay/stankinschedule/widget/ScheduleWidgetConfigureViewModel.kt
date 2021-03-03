@@ -2,7 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.widget
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepositoryKt
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -14,7 +14,7 @@ class ScheduleWidgetConfigureViewModel(
     application: Application,
 ) : AndroidViewModel(application) {
 
-    private val repository = ScheduleRepositoryKt(application)
+    private val repository = ScheduleRepository(application)
     val schedules = MutableLiveData<List<String>>(emptyList())
 
     init {

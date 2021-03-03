@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleR
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.extractFilename
 import org.apache.commons.io.IOUtils
 import java.io.FileNotFoundException
@@ -43,12 +45,10 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         ScheduleViewModel.Factory(activity?.application!!)
     }
 
-    private var _statefulLayout: StatefulLayout2? = null
-    private val statefulLayout get() = _statefulLayout!!
+    private var statefulLayout by FragmentDelegate<StatefulLayout2>(this)
 
-    // TODO("Memory leaks")
-    private lateinit var itemTouchHelper: ItemTouchHelper
-    private lateinit var adapter: SchedulesAdapter
+    private var itemTouchHelper by FragmentDelegate<ItemTouchHelper>(this)
+    private var adapter by FragmentDelegate<SchedulesAdapter>(this)
 
     private var actionMode: ActionMode? = null
 
@@ -79,9 +79,11 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         }
 
         override fun onDestroyActionMode(mode: ActionMode?) {
-            binding.addSchedule.show()
+            viewModel.actionModeCompleted()
             adapter.setEditable(false)
+            binding.addSchedule.show()
 
+            Log.d(TAG, "onDestroyActionMode: null")
             actionMode = null
         }
     }
@@ -99,9 +101,9 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         setHasOptionsMenu(true)
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroyView() {
         actionMode?.finish()
+        super.onDestroyView()
     }
 
     override fun onInflateView(
@@ -113,7 +115,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        _statefulLayout = StatefulLayout2.Builder(binding.schedulesContainer)
+        statefulLayout = StatefulLayout2.Builder(binding.schedulesContainer)
             .init(StatefulLayout2.CONTENT, binding.schedules)
             .addView(StatefulLayout2.EMPTY, binding.emptySchedules)
             .create()
@@ -210,13 +212,9 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         trackScreen(TAG, MainActivity.TAG)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _statefulLayout = null
-    }
-
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        Log.d(TAG, "onSaveInstanceState: " + (actionMode != null))
         outState.putBoolean(ACTION_MODE, actionMode != null)
     }
 
@@ -348,6 +346,8 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         if (actionMode == null) {
             actionMode = (activity as AppCompatActivity?)?.startSupportActionMode(actionCallback)
 
+            Log.d(TAG, "startActionMode: ")
+
             adapter.setEditable(true)
             binding.addSchedule.hide()
             updateActionModeTitle()
@@ -428,7 +428,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
     }
 
     companion object {
-        private const val TAG = "MySchedulesFragment"
+        private const val TAG = "MySchedulesFragmentLog"
         private const val ACTION_MODE = "action_mode"
     }
 }

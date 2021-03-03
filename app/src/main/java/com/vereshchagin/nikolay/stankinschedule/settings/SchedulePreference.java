@@ -3,18 +3,17 @@ package com.vereshchagin.nikolay.stankinschedule.settings;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 
 public class SchedulePreference {
+
     public static final String ROOT_PATH = "schedules";
 
     private static final String SCHEDULE_PREFERENCE = "schedule_preference";
@@ -27,46 +26,7 @@ public class SchedulePreference {
 
     private static long mChangeCount = 0;
 
-    public static void add(@NonNull Context context, String scheduleName) {
-        if (mSchedulesList == null) {
-            load(context);
-        }
-
-        mSchedulesList.add(scheduleName);
-        save(context);
-    }
-
-    public static void move(@NonNull Context context, int fromPosition, int toPosition) {
-        if (mSchedulesList == null) {
-            load(context);
-        }
-
-        Collections.swap(mSchedulesList, fromPosition, toPosition);
-        Log.d("MyLog", String.valueOf(mSchedulesList));
-        save(context);
-    }
-
-    public static void remove(@NonNull Context context, String scheduleName) {
-        if (mSchedulesList == null) {
-            load(context);
-        }
-
-        if (scheduleName.equals(mFavoriteSchedule)) {
-            setFavorite(context, "");
-        }
-
-        mSchedulesList.remove(scheduleName);
-        save(context);
-    }
-
-    public static boolean contains(@NonNull Context context, String scheduleName) {
-        if (mSchedulesList == null) {
-            load(context);
-        }
-
-        return mSchedulesList.contains(scheduleName);
-    }
-
+    @Deprecated
     public static List<String> schedules(@NonNull Context context) {
         if (mSchedulesList == null) {
             load(context);
@@ -122,15 +82,18 @@ public class SchedulePreference {
         return Arrays.asList(";", "/");
     }
 
+    @Deprecated
     @NonNull
     public static String createPath(@NonNull Context context, String scheduleName) {
         return new File(scheduleDir(context), scheduleName + fileExtension()).getAbsolutePath();
     }
 
+    @Deprecated
     public static File scheduleDir(@NonNull Context context) {
         return context.getExternalFilesDir(ROOT_PATH);
     }
 
+    @Deprecated
     public static String fileExtension() {
         return ".json";
     }

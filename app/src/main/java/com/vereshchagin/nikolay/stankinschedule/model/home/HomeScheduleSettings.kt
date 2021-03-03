@@ -9,5 +9,5 @@ data class HomeScheduleSettings(
     val delta: Int,
     val display: Boolean,
     val subgroup: Subgroup,
-    val favorite: String
+    val favorite: String?,
 )

@@ -3,14 +3,14 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging
 import android.util.Log
 import androidx.paging.PagingSource
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleKt
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import org.joda.time.LocalDate
 
 /**
  * Источник данных (дней) для просмотра расписания.
  */
 class ScheduleViewDaySource(
-    private val schedule: ScheduleKt,
+    private val schedule: Schedule,
 ) : PagingSource<LocalDate, ScheduleViewDay>() {
 
     private val startDate = schedule.startDate()
