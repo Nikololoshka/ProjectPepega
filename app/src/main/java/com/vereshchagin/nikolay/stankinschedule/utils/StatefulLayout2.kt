@@ -14,6 +14,7 @@ class StatefulLayout2(
     private val root: ViewGroup, initKey: Int, initView: View,
 ) : LifecycleObserver {
 
+    // TODO(03/03/2021 возможно необходимо синхронизировать состояния)
     private val states = HashMap<Int, View>()
     private val stubs = HashMap<Int, ViewStubProxy>()
     private var currentState: Int

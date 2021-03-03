@@ -61,7 +61,6 @@ class NewsViewerActivity : AppCompatActivity() {
             .init(StatefulLayout2.LOADING, binding.newsLoading.root)
             .addView(StatefulLayout2.ERROR, binding.newsError)
             .addView(StatefulLayout2.CONTENT, binding.newsView)
-            .setOwner(this)
             .create()
 
         setContentView(binding.root)
