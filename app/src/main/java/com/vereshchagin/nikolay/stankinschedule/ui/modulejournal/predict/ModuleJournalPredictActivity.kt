@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.animation.DecelerateInterpolator
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -14,6 +15,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityModuleJournalPredictBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.predict.paging.PredictDisciplineAdapter
+import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
+import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import java.util.*
 
@@ -83,10 +86,19 @@ class ModuleJournalPredictActivity : AppCompatActivity() {
         )
 
         viewModel.semesterMarks.observe(this) {
-            if (it == null) {
-                statefulLayout.setState(StatefulLayout2.LOADING)
-            } else {
-                adapter.submitData(lifecycle, it)
+            val state = it ?: return@observe
+
+            when (state) {
+                is State.Success -> {
+                    adapter.submitData(lifecycle, state.data)
+                }
+                is State.Loading -> {
+                    statefulLayout.setState(StatefulLayout2.LOADING)
+                }
+                is State.Failed -> {
+                    val description = ExceptionUtils.errorDescription(state.error, this)
+                    Toast.makeText(this, description, Toast.LENGTH_LONG).show()
+                }
             }
         }
 
@@ -188,7 +200,7 @@ class ModuleJournalPredictActivity : AppCompatActivity() {
                 dialog.cancel()
             }
             .setPositiveButton(R.string.ok) { dialog, _ ->
-                viewModel.updateSemesterMarks(selectedSemester)
+                viewModel.refreshSemesterMarks(selectedSemester)
                 dialog.cancel()
             }
             .show()

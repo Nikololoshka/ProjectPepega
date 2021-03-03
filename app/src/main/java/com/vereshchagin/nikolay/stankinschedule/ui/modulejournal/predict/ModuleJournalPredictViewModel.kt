@@ -8,6 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.MarkType
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.repository.ModuleJournalRepository
+import com.vereshchagin.nikolay.stankinschedule.utils.State
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
@@ -19,26 +21,39 @@ class ModuleJournalPredictViewModel(
 
     val semester = MutableLiveData<String>(null)
     val semestersArray = MutableLiveData<Array<String>>(null)
-    val semesterMarks = MutableLiveData<SemesterMarks>(null)
+    val semesterMarks = MutableLiveData<State<SemesterMarks>>(State.loading())
     val showAllDiscipline = MutableLiveData(false)
     val rating = MutableLiveData(0.0)
 
     init {
-        viewModelScope.launch {
-            val studentData = repository.loadStudentData()
-            val semesters = studentData.semesters.toTypedArray()
-            semestersArray.value = semesters
-            updateSemesterMarks(semesters.last())
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val studentData = repository.loadStudentData()
+                val semesters = studentData.semesters.toTypedArray()
+                semestersArray.postValue(semesters)
+                updateSemesterMarks(semesters.last())
+
+            } catch (e: Exception) {
+                semesterMarks.postValue(State.failed(e))
+            }
         }
     }
 
-    fun updateSemesterMarks(semester: String) {
-        this.semester.value = semester
-        viewModelScope.launch {
-            val marks = repository.loadSemesterMarks(semester)
-            semesterMarks.value = marks
-            rating.value = marks.computeRating()
+    fun refreshSemesterMarks(semester: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                updateSemesterMarks(semester)
+            } catch (e: Exception) {
+                semesterMarks.postValue(State.failed(e))
+            }
         }
+    }
+
+    private suspend fun updateSemesterMarks(semester: String) {
+        this.semester.postValue(semester)
+        val marks = repository.loadSemesterMarks(semester)
+        semesterMarks.postValue(State.success(marks))
+        rating.postValue(marks.computeRating())
     }
 
     fun updateShowDisciplines(showAll: Boolean) {
@@ -46,9 +61,10 @@ class ModuleJournalPredictViewModel(
     }
 
     fun updateMark(disciplineName: String, type: MarkType, mark: Int) {
-        semesterMarks.value?.let {
-            it.updateMark(disciplineName, type, mark)
-            rating.value = it.computeRating()
+        val marks = semesterMarks.value
+        if (marks is State.Success) {
+            marks.data.updateMark(disciplineName, type, mark)
+            rating.value = marks.data.computeRating()
         }
     }
 
