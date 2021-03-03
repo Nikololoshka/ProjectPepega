@@ -92,6 +92,14 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
                     bind(pair)
 
                 } else {
+                    val title = intent.getStringExtra(EXTRA_DISCIPLINE_NAME)
+                    if (!title.isNullOrEmpty()) {
+                        binding.editTextTitle.setText(title)
+                    }
+                    val type = intent.getStringExtra(EXTRA_PAIR_TYPE)
+                    if (!type.isNullOrEmpty()) {
+                        setCurrentType(Type.of(type))
+                    }
                     date = Date()
                 }
             }
@@ -507,6 +515,8 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
         private const val TAG = "PairEditorActivity2Log"
 
         private const val EXTRA_SCHEDULE_NAME = "extra_schedule"
+        private const val EXTRA_DISCIPLINE_NAME = "extra_discipline_name"
+        private const val EXTRA_PAIR_TYPE = "extra_pair_type"
         private const val EXTRA_PAIR_ID = "extra_pair"
         private const val EXTRA_REQUEST = "extra_request"
 
@@ -515,10 +525,17 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
         /**
          * Intent на создание новой пары.
          */
-        fun newPairIntent(context: Context, scheduleName: String): Intent {
+        fun newPairIntent(
+            context: Context,
+            scheduleName: String,
+            disciplineName: String? = null,
+            type: Type? = null,
+        ): Intent {
             val intent = Intent(context, PairEditorActivity::class.java)
             intent.putExtra(EXTRA_SCHEDULE_NAME, scheduleName)
             intent.putExtra(EXTRA_REQUEST, Request.NEW_PAIR)
+            intent.putExtra(EXTRA_DISCIPLINE_NAME, disciplineName)
+            intent.putExtra(EXTRA_PAIR_TYPE, type?.tag)
             return intent
         }
 

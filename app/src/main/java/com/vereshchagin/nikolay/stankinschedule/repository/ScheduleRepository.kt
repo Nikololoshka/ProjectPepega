@@ -122,15 +122,20 @@ class ScheduleRepository(
             for (scheduleName in schedules) {
                 val path = SchedulePreference.createPath(context, scheduleName)
 
-                val json = FileUtils.readFileToString(File(path), StandardCharsets.UTF_8)
-                val gson = GsonBuilder()
-                    .registerTypeAdapter(ScheduleResponse::class.java,
-                        ScheduleResponse.Serializer())
-                    .registerTypeAdapter(Pair::class.java, Pair.Serializer())
-                    .create()
+                try {
+                    val json = FileUtils.readFileToString(File(path), StandardCharsets.UTF_8)
+                    val gson = GsonBuilder()
+                        .registerTypeAdapter(ScheduleResponse::class.java,
+                            ScheduleResponse.Serializer())
+                        .registerTypeAdapter(Pair::class.java, Pair.Serializer())
+                        .create()
 
-                val response = gson.fromJson(json, ScheduleResponse::class.java)
-                db.schedules().insertScheduleResponse(scheduleName, response)
+                    val response = gson.fromJson(json, ScheduleResponse::class.java)
+                    db.schedules().insertScheduleResponse(scheduleName, response)
+
+                } catch (ignored: Exception) {
+
+                }
             }
         }
 

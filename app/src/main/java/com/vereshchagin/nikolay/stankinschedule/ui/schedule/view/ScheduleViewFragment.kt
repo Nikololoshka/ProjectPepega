@@ -22,9 +22,9 @@ import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleView
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.ScheduleEditorActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.ScheduleEditorActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import org.joda.time.LocalDate

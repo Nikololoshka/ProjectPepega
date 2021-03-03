@@ -16,6 +16,8 @@ public class SchedulePreference {
 
     public static final String ROOT_PATH = "schedules";
 
+    private static final String MIGRATE_SCHEDULE = "migrate_schedule";
+
     private static final String SCHEDULE_PREFERENCE = "schedule_preference";
     private static final String FAVORITE_SCHEDULE = "favorite_schedule";
     private static final String SCHEDULES = "schedules";
@@ -25,6 +27,21 @@ public class SchedulePreference {
     private static String mFavoriteSchedule = null;
 
     private static long mChangeCount = 0;
+
+    public static boolean migrateSchedule(@NonNull Context context) {
+        SharedPreferences PREFERENCES =
+                context.getSharedPreferences(SCHEDULE_PREFERENCE, Context.MODE_PRIVATE);
+        return PREFERENCES.getBoolean(MIGRATE_SCHEDULE, false);
+    }
+
+    public static void setMigrateSchedule(@NonNull Context context, boolean migrate) {
+        SharedPreferences PREFERENCES =
+                context.getSharedPreferences(SCHEDULE_PREFERENCE, Context.MODE_PRIVATE);
+        PREFERENCES.edit()
+                .putBoolean(MIGRATE_SCHEDULE, migrate)
+                .apply();
+    }
+
 
     @Deprecated
     public static List<String> schedules(@NonNull Context context) {

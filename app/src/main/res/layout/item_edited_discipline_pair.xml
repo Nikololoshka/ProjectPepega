@@ -10,7 +10,7 @@
 
         <variable
             name="pair"
-            type="com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair" />
+            type="com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem" />
 
         <variable
             name="callback"

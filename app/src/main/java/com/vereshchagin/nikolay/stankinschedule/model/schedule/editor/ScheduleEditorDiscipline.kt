@@ -1,10 +1,10 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.editor
 
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 
 data class ScheduleEditorDiscipline(
     val discipline: String,
-    val lecturers: List<Pair>,
-    val seminars: List<Pair>,
-    val labs: List<Pair>,
+    val lecturers: List<PairItem>,
+    val seminars: List<PairItem>,
+    val labs: List<PairItem>,
 )

@@ -1,16 +1,16 @@
 package com.vereshchagin.nikolay.stankinschedule.db
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
+import androidx.room.*
 import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.db.dao.ScheduleDao
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.DateTimeConverter
+import kotlinx.coroutines.runBlocking
 
 /**
  * Главная БД приложения.
@@ -58,19 +58,27 @@ abstract class MainApplicationDatabase : RoomDatabase() {
                     return currentInstance2
                 }
 
-                val database = Room.databaseBuilder(
+                val databaseBuilder = Room.databaseBuilder(
                     context.applicationContext,
                     MainApplicationDatabase::class.java,
                     "main_application_database"
                 ).fallbackToDestructiveMigration()
-                    // .allowMainThreadQueries()
-                    .build()
 
-//                runBlocking {
-//                    database.withTransaction {
-//                        ScheduleRepository.migrateSchedules(context, database)
-//                    }
-//                }
+                val migrate = SchedulePreference.migrateSchedule(context)
+                val database = if (migrate) {
+                    databaseBuilder.allowMainThreadQueries().build()
+                } else {
+                    databaseBuilder.build()
+                }
+
+                if (!migrate) {
+                    runBlocking {
+                        database.withTransaction {
+                            ScheduleRepository.migrateSchedules(context, database)
+                        }
+                    }
+                    SchedulePreference.setMigrateSchedule(context, true)
+                }
 
                 instance = database
                 return database

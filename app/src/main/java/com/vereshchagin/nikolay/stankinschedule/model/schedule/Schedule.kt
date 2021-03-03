@@ -140,8 +140,8 @@ class Schedule(
         return days[dayOfWeek]!!.pairsByDate(date)
     }
 
-    fun pairsByDiscipline(discipline: String): List<Pair> {
-        val pairs = arrayListOf<Pair>()
+    fun pairsByDiscipline(discipline: String): List<PairItem> {
+        val pairs = arrayListOf<PairItem>()
         for (day in days.values) {
             pairs.addAll(day.pairsByDiscipline(discipline))
         }

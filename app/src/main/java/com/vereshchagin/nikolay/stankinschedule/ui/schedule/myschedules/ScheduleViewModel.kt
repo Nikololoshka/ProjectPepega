@@ -24,7 +24,7 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
 
     private var currentSchedules: MutableList<ScheduleItem> = arrayListOf()
 
-    val schedules = MutableLiveData<List<ScheduleItem>>()
+    val schedules = MutableLiveData<List<ScheduleItem>>(emptyList())
 
     init {
         favorite.value = ScheduleRepository.favorite(getApplication())

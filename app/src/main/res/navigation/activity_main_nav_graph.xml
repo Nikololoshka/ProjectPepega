@@ -78,7 +78,7 @@
 
     <activity
         android:id="@+id/nav_schedule_editor_activity"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.ScheduleEditorActivity"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.ScheduleEditorActivity"
         android:label="@string/schedule_editor"
         tools:layout="@layout/activity_schedule_editor" />
 

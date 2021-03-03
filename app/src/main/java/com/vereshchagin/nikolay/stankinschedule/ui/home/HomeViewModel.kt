@@ -73,11 +73,12 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private suspend fun startUpdateSchedule() {
         scheduleSettings = ApplicationPreference.homeScheduleSettings(getApplication())
 
+        val favorite = scheduleSettings.favorite
         // нет избранного расписания
-        if (scheduleSettings.favorite.isEmpty()) {
+        if (favorite.isNullOrEmpty()) {
             scheduleData.postValue(HomeScheduleData.empty())
         } else {
-            val schedule = scheduleRepository.schedule(scheduleSettings.favorite)
+            val schedule = scheduleRepository.schedule(favorite)
                 .filterNotNull()
                 .first()
 

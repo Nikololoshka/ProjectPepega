@@ -2,8 +2,8 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging
 
 import androidx.paging.PagingSource
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.editor.ScheduleEditorDiscipline
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
 
 /**
@@ -23,9 +23,9 @@ class ScheduleDisciplineSource(
         }
 
         val discipline = disciplines[index]
-        val lecturers = arrayListOf<Pair>()
-        val seminars = arrayListOf<Pair>()
-        val labs = arrayListOf<Pair>()
+        val lecturers = arrayListOf<PairItem>()
+        val seminars = arrayListOf<PairItem>()
+        val labs = arrayListOf<PairItem>()
 
         val pairs = schedule.pairsByDiscipline(discipline)
         for (pair in pairs) {
