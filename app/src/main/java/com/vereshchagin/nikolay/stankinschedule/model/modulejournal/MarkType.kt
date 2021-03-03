@@ -45,6 +45,11 @@ enum class MarkType(val tag: String, val weight: Int) {
                     return type
                 }
             }
+
+            if (value != null && value.isEmpty()) {
+                return EXAM
+            }
+
             throw IllegalArgumentException("Unknown mark type: '$value'")
         }
     }

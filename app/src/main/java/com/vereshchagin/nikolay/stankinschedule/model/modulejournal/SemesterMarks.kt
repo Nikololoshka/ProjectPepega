@@ -33,10 +33,6 @@ data class SemesterMarks(
             return
         }
 
-        if (disciplineTitle == "Государственный экзамен" && type.trim().isEmpty()) {
-            return
-        }
-
         val markType = MarkType.of(type)
         for (discipline in disciplines) {
             if (discipline.title == disciplineTitle) {
