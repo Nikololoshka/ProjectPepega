@@ -15,7 +15,7 @@ import java.util.*
 /**
  * ViewModel списка расписаний.
  */
-class ScheduleViewModel(application: Application) : AndroidViewModel(application) {
+class MyScheduleViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = ScheduleRepository(application)
 
@@ -134,7 +134,7 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
     class Factory(val application: Application) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return ScheduleViewModel(application) as T
+            return MyScheduleViewModel(application) as T
         }
     }
 }

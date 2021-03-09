@@ -17,7 +17,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleBinding
+import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentMyScheduleBinding
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.home.ChangeSubgroupBottomSheet
@@ -38,11 +38,11 @@ import java.nio.charset.StandardCharsets
 /**
  * Фрагмент с расписаниями.
  */
-class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
+class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
     SchedulesAdapter.OnScheduleItemListener, DragToMoveCallback.OnStartDragListener {
 
-    private val viewModel by viewModels<ScheduleViewModel> {
-        ScheduleViewModel.Factory(activity?.application!!)
+    private val viewModel by viewModels<MyScheduleViewModel> {
+        MyScheduleViewModel.Factory(activity?.application!!)
     }
 
     private var statefulLayout by FragmentDelegate<StatefulLayout2>(this)
@@ -110,8 +110,8 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): FragmentScheduleBinding {
-        return FragmentScheduleBinding.inflate(inflater, container, false)
+    ): FragmentMyScheduleBinding {
+        return FragmentMyScheduleBinding.inflate(inflater, container, false)
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {

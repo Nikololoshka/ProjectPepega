@@ -17,6 +17,10 @@ class ScheduleDisciplineSource(
     override suspend fun load(
         params: LoadParams<String>,
     ): LoadResult<String, ScheduleEditorDiscipline> {
+        if (disciplines.isEmpty()) {
+            return LoadResult.Page(emptyList(), null, null)
+        }
+
         var index = disciplines.indexOf(params.key)
         if (index == -1) {
             index = 0

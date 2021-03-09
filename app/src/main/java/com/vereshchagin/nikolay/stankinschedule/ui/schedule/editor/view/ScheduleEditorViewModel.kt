@@ -19,11 +19,19 @@ class ScheduleEditorViewModel(
     application: Application,
 ) : AndroidViewModel(application) {
 
+    enum class ScheduleState {
+        SUCCESSFULLY_LOADED,
+        SUCCESSFULLY_LOADED_EMPTY,
+        LOADING,
+    }
+
     private val refreshTrigger = MutableLiveData<Unit?>()
 
     val disciplines = Transformations.switchMap(refreshTrigger) {
         update()
     }
+    val state = MutableLiveData(ScheduleState.LOADING)
+
     private var schedule: Schedule? = null
     private var disciplineList = emptyList<String>()
     private val repository = ScheduleRepository(application)
@@ -41,15 +49,20 @@ class ScheduleEditorViewModel(
     }
 
     private fun update(): LiveData<PagingData<ScheduleEditorDiscipline>> {
-        if (schedule == null) {
-            return MutableLiveData(null)
-        }
+        val currentSchedule = schedule ?: return MutableLiveData(null)
 
         val pager = Pager(PagingConfig(1)) {
             ScheduleDisciplineSource(
-                schedule!!, disciplineList
+                currentSchedule, disciplineList
             )
         }
+
+        state.postValue(if (currentSchedule.isEmpty()) {
+            ScheduleState.SUCCESSFULLY_LOADED_EMPTY
+        } else {
+            ScheduleState.SUCCESSFULLY_LOADED
+        })
+
         return pager.liveData.cachedIn(viewModelScope)
     }
 

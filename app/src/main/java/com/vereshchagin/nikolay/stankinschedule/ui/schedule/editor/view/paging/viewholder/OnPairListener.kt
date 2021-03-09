@@ -7,5 +7,5 @@ interface OnPairListener {
 
     fun onPairClicked(pair: PairItem)
 
-    fun onAddPairClicked(discipline: String, type: Type)
+    fun onAddPairClicked(discipline: String?, type: Type?)
 }
