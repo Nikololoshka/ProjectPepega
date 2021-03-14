@@ -12,6 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityScheduleRepositoryBinding
 import com.vereshchagin.nikolay.stankinschedule.databinding.ViewErrorWithButtonBinding
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRemoteRepository
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.RepositoryCategoryAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker
@@ -19,6 +20,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
@@ -43,6 +45,11 @@ class ScheduleRepositoryActivity : AppCompatActivity() {
             .addView(StatefulLayout2.CONTENT, binding.repositoryContainer)
             .addView(StatefulLayout2.ERROR, binding.repositoryError)
             .create()
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val repo = ScheduleRemoteRepository(this@ScheduleRepositoryActivity)
+            repo.loadRepositoryEntry()
+        }
 
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)

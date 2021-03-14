@@ -3,25 +3,40 @@ package com.vereshchagin.nikolay.stankinschedule.db
 import android.content.Context
 import androidx.room.*
 import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
+import com.vereshchagin.nikolay.stankinschedule.db.dao.RepositoryDao
 import com.vereshchagin.nikolay.stankinschedule.db.dao.ScheduleDao
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.CategoryEntry
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.ScheduleEntry
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.DateTimeConverter
+import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.ListConverter
 import kotlinx.coroutines.runBlocking
 
 /**
  * Главная БД приложения.
  */
 @Database(
-    entities = [NewsItem::class, ScheduleItem::class, PairItem::class],
+    entities = [
+        NewsItem::class,
+        ScheduleItem::class,
+        PairItem::class,
+        CategoryEntry::class,
+        ScheduleEntry::class
+    ],
     version = 3,
     exportSchema = true
 )
-@TypeConverters(DateTimeConverter::class)
+@TypeConverters(DateTimeConverter::class, ListConverter::class)
 abstract class MainApplicationDatabase : RoomDatabase() {
+
+    /**
+     * Dao репозитория приложения.
+     */
+    abstract fun repository(): RepositoryDao
 
     /**
      * Dao новостей приложения.
