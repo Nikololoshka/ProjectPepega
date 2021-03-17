@@ -44,6 +44,12 @@ class ScheduleRemoteRepository(
         api = builder.build().create(ScheduleRepositoryApi::class.java)
     }
 
+    fun schedules(category: Int) = dao.schedulesSource(category)
+
+    fun categories(parent: Int?) = dao.categoriesSource(parent)
+
+    suspend fun isScheduleCategory(category: Int) = dao.isScheduleCategory(category)
+
     suspend fun loadRepositoryEntry() {
         val entry = storageReference(SCHEDULES_JSON, VERSION, API_ENTRY)
         val entryUri = entry.downloadUrl.await()

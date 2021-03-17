@@ -24,7 +24,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.home.ChangeSubgroupBottomShee
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryActivity
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositoryActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
@@ -45,10 +45,10 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
         MyScheduleViewModel.Factory(activity?.application!!)
     }
 
-    private var statefulLayout by FragmentDelegate<StatefulLayout2>(this)
+    private var statefulLayout by FragmentDelegate<StatefulLayout2>()
 
-    private var itemTouchHelper by FragmentDelegate<ItemTouchHelper>(this)
-    private var adapter by FragmentDelegate<SchedulesAdapter>(this)
+    private var itemTouchHelper by FragmentDelegate<ItemTouchHelper>()
+    private var adapter by FragmentDelegate<SchedulesAdapter>()
 
     private var actionMode: ActionMode? = null
 
@@ -241,7 +241,7 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
                 }
                 R.id.from_repository -> {
                     startActivity(
-                        Intent(requireContext(), ScheduleRepositoryActivity::class.java)
+                        Intent(requireContext(), RepositoryActivity::class.java)
                     )
                 }
                 R.id.load_schedule -> {

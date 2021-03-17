@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_repository_nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_repository_nav_graph"
+    app:startDestination="@id/nav_repository_overview">
+
+    <fragment
+        android:id="@+id/nav_repository_category"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositoryCategoryFragment"
+        tools:layout="@layout/fragment_repository_category">
+
+        <action
+            android:id="@+id/to_repository_category_self"
+            app:destination="@id/nav_repository_category" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_repository_overview"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositoryOverviewFragment"
+        android:label="@string/repository"
+        tools:layout="@layout/fragment_repository_overview">
+
+        <action
+            android:id="@+id/to_repository_category"
+            app:destination="@id/nav_repository_category" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_repository_search"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositorySearchFragment"
+        tools:layout="@layout/fragment_repository_search" />
 
 </navigation>

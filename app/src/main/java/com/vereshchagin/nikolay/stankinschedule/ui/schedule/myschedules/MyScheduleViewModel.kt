@@ -46,7 +46,7 @@ class MyScheduleViewModel(application: Application) : AndroidViewModel(applicati
      */
     fun removeSelected() {
         val currentSchedules = schedules.value
-
+        // TODO("Модификация из нескольких потоков")
         viewModelScope.launch(Dispatchers.IO) {
             val removingItems = selectedItems.value
             removingItems?.forEach { key, value ->

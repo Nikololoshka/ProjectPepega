@@ -1,6 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.db.dao
 
-import android.util.Log
+import androidx.paging.PagingSource
 import androidx.room.*
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.CategoryEntry
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.RepositoryResponse
@@ -8,6 +8,15 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.Sch
 
 @Dao
 interface RepositoryDao {
+
+    @Query("SELECT * FROM category_entries WHERE parent == :parent or (parent is null and :parent is null)")
+    fun categoriesSource(parent: Int?): PagingSource<Int, CategoryEntry>
+
+    @Query("SELECT * FROM schedule_entries WHERE category == :category")
+    fun schedulesSource(category: Int): PagingSource<Int, ScheduleEntry>
+
+    @Query("SELECT EXISTS(SELECT * FROM schedule_entries WHERE category = :category)")
+    suspend fun isScheduleCategory(category: Int?): Boolean
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insertCategoryEntries(entries: List<CategoryEntry>)
@@ -26,7 +35,7 @@ interface RepositoryDao {
     suspend fun insertRepositoryResponse(response: RepositoryResponse) {
         clearCategoryEntries()
         clearScheduleEntries()
-        Log.d("MyLog", "insertRepositoryResponse: ${response.schedules.size}")
+
         insertCategoryEntries(response.categories)
         insertScheduleEntries(response.schedules)
     }

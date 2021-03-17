@@ -13,10 +13,10 @@ class RepositorySearchFragment : BaseFragment<FragmentRepositorySearchBinding>()
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): FragmentRepositorySearchBinding {
-        TODO("Not yet implemented")
+        return FragmentRepositorySearchBinding.inflate(inflater, container, false)
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        TODO("Not yet implemented")
+
     }
 }

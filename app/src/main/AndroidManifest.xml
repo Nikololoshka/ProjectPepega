@@ -108,6 +108,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+            android:name=".ui.schedule.repository.RepositoryActivity"
+            android:label="@string/repository"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".ui.news.viewer.NewsViewerActivity"
             android:label="@string/news_viewer"
             android:parentActivityName=".MainActivity"
@@ -128,7 +134,7 @@
 
         <activity
             android:name=".ui.modulejournal.predict.ModuleJournalPredictActivity"
-            android:label="Predict rating"
+            android:label="@string/predict_rating"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 

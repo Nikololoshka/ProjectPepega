@@ -11,23 +11,19 @@ import kotlin.reflect.KProperty
  * Base delegate that sets and disposes the fragment's listener when the fragment is
  * created and destroyed.
  */
-class FragmentDelegate<T>(
-    fragment: Fragment,
-) : ReadWriteProperty<Fragment, T>, LifecycleObserver {
+class FragmentDelegate<T> : ReadWriteProperty<Fragment, T>, LifecycleObserver {
 
     private var value: T? = null
 
-    init {
-        fragment.lifecycle.addObserver(this)
-    }
-
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    private fun destroy() {
+    private fun onDestroy() {
         value = null
     }
 
     override operator fun setValue(thisRef: Fragment, property: KProperty<*>, value: T) {
+        thisRef.viewLifecycleOwner.lifecycle.removeObserver(this)
         this.value = value
+        thisRef.viewLifecycleOwner.lifecycle.addObserver(this)
     }
 
     override operator fun getValue(thisRef: Fragment, property: KProperty<*>): T {

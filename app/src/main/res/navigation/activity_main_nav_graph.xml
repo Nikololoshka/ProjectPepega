@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main_nav_graph"
@@ -16,7 +15,13 @@
         android:id="@+id/nav_schedule_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.MyScheduleFragment"
         android:label="@string/nav_schedule"
-        tools:layout="@layout/fragment_my_schedule" />
+        tools:layout="@layout/fragment_my_schedule">
+
+        <action
+            android:id="@+id/to_repository_activity"
+            app:destination="@id/nav_schedule_repository_activity" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/nav_module_journal_fragment"
@@ -44,7 +49,7 @@
         android:id="@+id/nav_module_journal_login_fragment"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.login.ModuleJournalLoginFragment"
         android:label="@string/nav_module_journal"
-        tools:layout="@layout/fragment_module_journal_login"/>
+        tools:layout="@layout/fragment_module_journal_login" />
 
     <fragment
         android:id="@+id/nav_news_fragment"
@@ -66,7 +71,7 @@
 
     <activity
         android:id="@+id/nav_schedule_repository_activity"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryActivity"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositoryActivity"
         android:label="@string/repository"
         tools:layout="@layout/activity_schedule_repository" />
 
@@ -108,9 +113,9 @@
         <fragment
             android:id="@+id/nav_settings_fragment"
             android:name="com.vereshchagin.nikolay.stankinschedule.ui.settings.view.SettingsFragment"
-            android:label="@string/nav_settings" >
+            android:label="@string/nav_settings">
 
-        <action
+            <action
                 android:id="@+id/toSettingsScheduleFragment"
                 app:destination="@id/nav_settings_schedule_fragment"
                 app:enterAnim="@anim/nav_enter_anim"

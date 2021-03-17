@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
@@ -61,6 +62,13 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     ) {
         val navController = Navigation.findNavController(requireActivity(), R.id.nav_host)
         navController.navigate(destination, args, options)
+    }
+
+    /**
+     * Устанавливает название в action bar.
+     */
+    protected fun setActionBarTitle(title: String?) {
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = title
     }
 
     /**

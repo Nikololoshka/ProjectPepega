@@ -27,8 +27,8 @@ import kotlinx.coroutines.runBlocking
         CategoryEntry::class,
         ScheduleEntry::class
     ],
-    version = 3,
-    exportSchema = true
+    version = 2,
+    exportSchema = false
 )
 @TypeConverters(DateTimeConverter::class, ListConverter::class)
 abstract class MainApplicationDatabase : RoomDatabase() {
