@@ -69,11 +69,7 @@ class ScheduleRepositoryActivity : AppCompatActivity() {
         viewModel.description.observe(this) { state ->
             when (state) {
                 is State.Success -> {
-                    binding.repositoryLastUpdate.text = getString(
-                        R.string.repository_last_update, state.data.lastUpdate
-                    )
                     binding.repositoryRefresh.isRefreshing = false
-                    binding
                     statefulLayout.setState(StatefulLayout2.CONTENT)
                 }
                 is State.Loading -> {

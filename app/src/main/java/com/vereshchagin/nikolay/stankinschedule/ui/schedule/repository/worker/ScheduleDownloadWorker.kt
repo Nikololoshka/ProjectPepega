@@ -1,38 +1,38 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.NavDeepLinkBuilder
 import androidx.work.*
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleServerRepository
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRemoteRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
 import org.joda.time.DateTimeUtils
-import retrofit2.await
 
 /**
  * Worker для скачивание расписания с репозитория
  */
 class ScheduleDownloadWorker(
-    context: Context, workerParameters: WorkerParameters
+    context: Context, workerParameters: WorkerParameters,
 ) : CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork(): Result {
-        val category = inputData.getString(REPOSITORY_CATEGORY)!!
         val scheduleName = inputData.getString(SCHEDULE_NAME)!!
-        val notificationId = inputData.getInt(NOTIFICATION_ID, 1000)
+        val versionName = inputData.getString(SCHEDULE_VERSION_NAME)!!
+        val repositoryPath = inputData.getString(REPOSITORY_PATH)!!
 
-        val serverRepository = ScheduleServerRepository(applicationContext.cacheDir)
-        val uri = serverRepository.scheduleUri(category, scheduleName)
+        val scheduleId = inputData.getInt(SCHEDULE_ID, 0)
+        val versionId = inputData.getInt(SCHEDULE_VERSION_ID, 0)
+        val notificationId = NotificationUtils.MODULE_JOURNAL_IDS + scheduleId * 100 + versionId
 
         // подготовка уведомлений
         val manager = NotificationManagerCompat.from(applicationContext)
         val notificationBuilder = NotificationUtils.createCommonNotification(applicationContext)
-            .setContentTitle("$category/$scheduleName")
+            .setContentTitle("$scheduleName ($versionName)")
             .setSmallIcon(R.drawable.ic_notification_file_download)
 
         // уведомление о начале загрузки
@@ -45,8 +45,8 @@ class ScheduleDownloadWorker(
         )
 
         try {
-            val response = serverRepository.downloader().schedule(uri.toString()).await()
-            ScheduleRepository.saveResponse(applicationContext, scheduleName, response)
+            ScheduleRemoteRepository(applicationContext)
+                .downloadSchedule(scheduleName, repositoryPath)
 
         } catch (e: Exception) {
             // ошибка загрузки
@@ -59,6 +59,7 @@ class ScheduleDownloadWorker(
                     .setAutoCancel(true)
                     .build()
             )
+            Log.e(TAG, "doWork: ", e)
 
             return Result.failure()
         }
@@ -94,9 +95,53 @@ class ScheduleDownloadWorker(
 
     companion object {
 
+        private const val TAG = "SchedulWorkerLog"
+
         private const val REPOSITORY_CATEGORY = "repository_category"
-        private const val SCHEDULE_NAME = "schedule_name"
         private const val NOTIFICATION_ID = "notification_id"
+
+        private const val REPOSITORY_PATH = "repository_path"
+        private const val SCHEDULE_NAME = "schedule_name"
+        private const val SCHEDULE_ID = "schedule_id"
+        private const val SCHEDULE_VERSION_NAME = "schedule_version_name"
+        private const val SCHEDULE_VERSION_ID = "schedule_version_id"
+
+        /**
+         * Запускает worker для скачивания расписания.
+         */
+        @JvmStatic
+        fun startWorker(
+            context: Context,
+            scheduleName: String,
+            scheduleId: Int,
+            versionName: String,
+            scheduleVersionId: Int,
+            vararg paths: String,
+        ) {
+            val manager = WorkManager.getInstance(context)
+            val path = paths.joinToString("/")
+            val workerName = "Worker-$scheduleId-$scheduleVersionId"
+
+            val worker = OneTimeWorkRequest.Builder(ScheduleDownloadWorker::class.java)
+                .setConstraints(
+                    Constraints.Builder()
+                        .setRequiredNetworkType(NetworkType.CONNECTED)
+                        .build()
+                )
+                .setInputData(
+                    Data.Builder()
+                        .putString(REPOSITORY_PATH, path)
+                        .putString(SCHEDULE_NAME, scheduleName)
+                        .putString(SCHEDULE_VERSION_NAME, versionName)
+                        .putInt(SCHEDULE_ID, scheduleId)
+                        .putInt(SCHEDULE_VERSION_ID, scheduleVersionId)
+                        .build()
+                )
+                // .addTag(workerName)
+                .build()
+
+            manager.enqueueUniqueWork(workerName, ExistingWorkPolicy.KEEP, worker)
+        }
 
         /**
          * Запускает worker для скачивания расписания.
@@ -106,7 +151,7 @@ class ScheduleDownloadWorker(
         @JvmStatic
         fun startWorker(context: Context, category: String, scheduleName: String, id: Int) {
             val manager = WorkManager.getInstance(context)
-            val workerName="$category-$scheduleName"
+            val workerName = "$category-$scheduleName"
 
             val worker = OneTimeWorkRequest.Builder(ScheduleDownloadWorker::class.java)
                 .setConstraints(

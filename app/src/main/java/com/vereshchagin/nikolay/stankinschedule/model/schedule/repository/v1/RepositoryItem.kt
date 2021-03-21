@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.model.schedule.repository
+package com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1
 
 /**
  *

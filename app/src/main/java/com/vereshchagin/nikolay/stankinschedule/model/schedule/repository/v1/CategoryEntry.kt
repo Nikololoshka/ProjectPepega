@@ -3,7 +3,6 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryItem
 
 
 @Entity(tableName = "category_entries")

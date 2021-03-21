@@ -1,11 +1,20 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
 
 import android.app.Application
-import androidx.lifecycle.*
-import androidx.paging.*
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.CategoryEntry
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
+import androidx.paging.liveData
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.RepositoryDescriptionKt
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRemoteRepository
+import com.vereshchagin.nikolay.stankinschedule.utils.State
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 /**
@@ -15,29 +24,35 @@ class RepositoryOverviewViewModel(
     private val repository: ScheduleRemoteRepository,
 ) : ViewModel() {
 
-    private val refreshTrigger = MutableLiveData(null)
+    /**
+     *
+     */
+    val description = MutableLiveData<State<RepositoryDescriptionKt>>(State.loading())
 
     /**
      *
      */
-    val categories = Transformations.switchMap(refreshTrigger) {
-        updateCategories()
-    }
+    val categories = Pager(PagingConfig(40)) {
+        repository.categories(null)
+    }.liveData.cachedIn(viewModelScope)
 
     init {
-        viewModelScope.launch(Dispatchers.IO) {
-//            repository.loadRepositoryEntry()
-            refreshTrigger.postValue(null)
-        }
+        updateRepository(true)
     }
 
     /**
      *
      */
-    private fun updateCategories(): LiveData<PagingData<CategoryEntry>> {
-        return Pager(PagingConfig(40)) {
-            repository.categories(null)
-        }.liveData.cachedIn(viewModelScope)
+    fun updateRepository(useCache: Boolean = true) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.description(useCache)
+                .catch { e ->
+                    description.postValue(State.failed(e))
+                }
+                .collect { state ->
+                    description.postValue(state)
+                }
+        }
     }
 
     /**

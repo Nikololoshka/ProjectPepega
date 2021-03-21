@@ -42,7 +42,7 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
     SchedulesAdapter.OnScheduleItemListener, DragToMoveCallback.OnStartDragListener {
 
     private val viewModel by viewModels<MyScheduleViewModel> {
-        MyScheduleViewModel.Factory(activity?.application!!)
+        MyScheduleViewModel.Factory(requireActivity().application)
     }
 
     private var statefulLayout by FragmentDelegate<StatefulLayout2>()
@@ -82,8 +82,6 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
             viewModel.actionModeCompleted()
             adapter.setEditable(false)
             binding.addSchedule.show()
-
-            Log.d(TAG, "onDestroyActionMode: null")
             actionMode = null
         }
     }

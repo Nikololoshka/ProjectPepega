@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemRepositoryItemBinding
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.RepositoryItem
 
 /**
  *

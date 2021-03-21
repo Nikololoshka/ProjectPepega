@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
 import android.app.Application
 import androidx.lifecycle.*
 import androidx.paging.*
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.RepositoryItem
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRemoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -35,9 +35,10 @@ class RepositoryCategoryViewModel(
     /**
      *
      */
+    @Suppress("UNCHECKED_CAST")
     private fun updateCategories(isScheduleCategory: Boolean?): LiveData<PagingData<RepositoryItem>> {
         if (isScheduleCategory == null) {
-            return MutableLiveData(PagingData.empty())
+            return MutableLiveData(null)
         }
 
         return if (isScheduleCategory) {

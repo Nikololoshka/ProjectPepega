@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.RepositoryItem
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.holder.RepositoryItemViewHolder
 
 /**

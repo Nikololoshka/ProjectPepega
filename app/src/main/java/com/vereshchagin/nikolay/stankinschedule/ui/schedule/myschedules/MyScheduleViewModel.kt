@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * ViewModel списка расписаний.
@@ -22,9 +23,19 @@ class MyScheduleViewModel(application: Application) : AndroidViewModel(applicati
     val favorite = MutableLiveData<String>(null)
     val selectedItems = MutableLiveData(SparseBooleanArray())
 
-    private var currentSchedules: MutableList<ScheduleItem> = arrayListOf()
+    private var currentSchedules = arrayListOf<ScheduleItem>()
+    val schedules = object : MutableLiveData<List<ScheduleItem>>() {
+        override fun setValue(value: List<ScheduleItem>?) {
+            if (value != null) {
+                currentSchedules = ArrayList(value)
+                super.setValue(null)
+            }
+        }
 
-    val schedules = MutableLiveData<List<ScheduleItem>>(emptyList())
+        override fun getValue(): List<ScheduleItem> {
+            return currentSchedules
+        }
+    }
 
     init {
         favorite.value = ScheduleRepository.favorite(getApplication())
@@ -32,7 +43,7 @@ class MyScheduleViewModel(application: Application) : AndroidViewModel(applicati
             repository.schedules()
                 .collect { list ->
                     synchronized(currentSchedules) {
-                        val isDiff = DifferenceUtils.applyDifference(currentSchedules, list)
+                        val isDiff = DifferenceUtils.hasDifference(currentSchedules, list)
                         if (isDiff) {
                             schedules.postValue(list)
                         }
@@ -45,13 +56,12 @@ class MyScheduleViewModel(application: Application) : AndroidViewModel(applicati
      * Удаляет выбранные расписания.
      */
     fun removeSelected() {
-        val currentSchedules = schedules.value
-        // TODO("Модификация из нескольких потоков")
         viewModelScope.launch(Dispatchers.IO) {
+            val schedules = ArrayList(currentSchedules)
             val removingItems = selectedItems.value
             removingItems?.forEach { key, value ->
-                if (currentSchedules != null && value) {
-                    val item = currentSchedules[key]
+                if (value) {
+                    val item = schedules[key]
                     repository.removeSchedule(item.scheduleName)
                 }
             }

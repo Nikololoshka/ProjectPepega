@@ -13,6 +13,9 @@
         <action
             android:id="@+id/to_repository_category_self"
             app:destination="@id/nav_repository_category" />
+        <action
+            android:id="@+id/to_repository_schedule"
+            app:destination="@id/nav_repository_schedule" />
 
     </fragment>
 
@@ -32,5 +35,10 @@
         android:id="@+id/nav_repository_search"
         android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositorySearchFragment"
         tools:layout="@layout/fragment_repository_search" />
+
+    <fragment
+        android:id="@+id/nav_repository_schedule"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositoryScheduleFragment"
+        tools:layout="@layout/fragment_repository_schedule" />
 
 </navigation>

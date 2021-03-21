@@ -1,15 +1,14 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentRepositoryCategoryBinding
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.CategoryEntry
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.RepositoryItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.ScheduleEntry
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.RepositoryItemAdapter
@@ -34,6 +33,11 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
 
+        stateful = StatefulLayout2.Builder(binding.categoryContainer)
+            .init(StatefulLayout2.LOADING, binding.categoryLoading.root)
+            .addView(StatefulLayout2.CONTENT, binding.categoryItems)
+            .create()
+
         val arguments = requireArguments()
         val parent = arguments.getInt(EXTRA_PARENT)
         val title = arguments.getString(EXTRA_TITLE)
@@ -44,10 +48,12 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
         setActionBarTitle(title)
 
         val adapter = RepositoryItemAdapter(this::onRepositoryItemClicked)
-        binding.items.adapter = adapter
+        binding.categoryItems.adapter = adapter
 
         viewModel.categories.observe(viewLifecycleOwner) {
-            adapter.submitData(lifecycle, it)
+            val data = it ?: return@observe
+            adapter.submitData(lifecycle, data)
+            stateful.setState(StatefulLayout2.CONTENT)
         }
     }
 
@@ -57,7 +63,10 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
                 navigateTo(R.id.to_repository_category_self, createBundle(item.id, item.name))
             }
             is ScheduleEntry -> {
-                Log.d("MyLog", "onRepositoryItemClicked: ${item.name}")
+                navigateTo(
+                    R.id.to_repository_schedule,
+                    RepositoryScheduleFragment.createBundle(item.id, item.name)
+                )
             }
         }
     }
