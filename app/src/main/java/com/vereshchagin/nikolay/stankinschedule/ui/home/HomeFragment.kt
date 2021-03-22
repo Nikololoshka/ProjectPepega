@@ -8,7 +8,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
@@ -91,7 +90,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
             adapter.submitList(it)
         })
 
-        trackScreen(TAG, MainActivity.TAG)
+        trackScreen(TAG)
     }
 
     override fun onResume() {

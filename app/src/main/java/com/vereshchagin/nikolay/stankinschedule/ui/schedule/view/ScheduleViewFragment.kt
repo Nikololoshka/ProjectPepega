@@ -18,7 +18,6 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleViewBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
@@ -143,7 +142,7 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
             }
         }
 
-        trackScreen(TAG, MainActivity.TAG)
+        trackScreen(TAG)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleBinding
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
@@ -218,7 +217,7 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(),
             }
         }
 
-        trackScreen(TAG, MainActivity.TAG)
+        trackScreen(TAG)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

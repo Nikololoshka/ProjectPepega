@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayoutMediator
-import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentNewsBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
@@ -36,7 +35,7 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>() {
             }
         }.attach()
 
-        trackScreen(TAG, MainActivity.TAG)
+        trackScreen(TAG)
     }
 
     companion object {

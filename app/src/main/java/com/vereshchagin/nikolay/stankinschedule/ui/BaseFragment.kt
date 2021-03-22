@@ -86,10 +86,10 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     /**
      * Добавление информации в FirebaseAnalytics о включенном фрагменте.
      */
-    protected fun trackScreen(screenName: String, screenClass: String) {
+    protected fun trackScreen(screenName: String) {
         Firebase.analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
             param(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
-            param(FirebaseAnalytics.Param.SCREEN_CLASS, screenClass)
+            param(FirebaseAnalytics.Param.SCREEN_CLASS, screenName)
         }
     }
 
