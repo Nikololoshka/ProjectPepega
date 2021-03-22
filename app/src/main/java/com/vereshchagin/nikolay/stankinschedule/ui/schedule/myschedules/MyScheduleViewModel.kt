@@ -25,13 +25,6 @@ class MyScheduleViewModel(application: Application) : AndroidViewModel(applicati
 
     private var currentSchedules = arrayListOf<ScheduleItem>()
     val schedules = object : MutableLiveData<List<ScheduleItem>>() {
-        override fun setValue(value: List<ScheduleItem>?) {
-            if (value != null) {
-                currentSchedules = ArrayList(value)
-                super.setValue(null)
-            }
-        }
-
         override fun getValue(): List<ScheduleItem> {
             return currentSchedules
         }
@@ -45,7 +38,8 @@ class MyScheduleViewModel(application: Application) : AndroidViewModel(applicati
                     synchronized(currentSchedules) {
                         val isDiff = DifferenceUtils.hasDifference(currentSchedules, list)
                         if (isDiff) {
-                            schedules.postValue(list)
+                            currentSchedules = ArrayList(list)
+                            schedules.postValue(currentSchedules)
                         }
                     }
                 }

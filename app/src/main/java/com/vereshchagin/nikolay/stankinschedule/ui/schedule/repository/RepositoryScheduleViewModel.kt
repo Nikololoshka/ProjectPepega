@@ -65,7 +65,7 @@ class RepositoryScheduleViewModel(
                         data.id,
                         version.date.toPrettyDate(),
                         data.versions.indexOfFirst { v -> v.path == version.path },
-                        data.path, version.path
+                        data.name, version.path
                     )
                 }
             }

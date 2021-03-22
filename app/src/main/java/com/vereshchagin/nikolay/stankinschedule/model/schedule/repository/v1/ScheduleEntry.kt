@@ -24,8 +24,6 @@ class ScheduleEntry(
     val category: Int,
     @SerializedName("name")
     val name: String,
-    @SerializedName("path")
-    val path: String,
     @SerializedName("versions")
     val versions: List<ScheduleVersion>,
 ) : RepositoryItem {

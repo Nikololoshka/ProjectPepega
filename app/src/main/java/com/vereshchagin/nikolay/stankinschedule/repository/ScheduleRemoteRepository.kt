@@ -119,7 +119,7 @@ class ScheduleRemoteRepository(
     }
 
     suspend fun downloadSchedule(scheduleName: String, path: String) {
-        val scheduleRef = storageReference(SCHEDULES_JSON, VERSION, path)
+        val scheduleRef = storageReference(SCHEDULES_JSON, VERSION, ITEMS, path)
         val scheduleUri = scheduleRef.downloadUrl.await()
         val response = api.schedule(scheduleUri.toString()).await()
         db.schedules().insertScheduleResponse(scheduleName, response)
@@ -177,6 +177,7 @@ class ScheduleRemoteRepository(
 
         private const val SCHEDULES_JSON = "schedules-json"
         private const val VERSION = "v1"
+        private const val ITEMS = "items"
         private const val API_ENTRY = "api_entry.json"
     }
 }
