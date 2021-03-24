@@ -16,7 +16,7 @@
 ProjectPepega (aka Stankin Schedule) - это приложение для студентов МГТУ "СТАНКИН", в котором можно: просматривать расписания, смотреть оценки модульного журнала и читать новости университета.
 
 ## Скачивание
-Текущая версия приложения: 1.2.4
+Текущая версия приложения: 1.2.5
 
 Последняя Github версия приложения: [project-pepega-0.2.4.apk](https://github.com/Nikololoshka/ProjectPepega/releases/download/0.2.4/project-pepega-0.2.4.apk)
 
