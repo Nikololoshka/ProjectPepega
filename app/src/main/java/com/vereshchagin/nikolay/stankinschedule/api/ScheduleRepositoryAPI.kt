@@ -10,7 +10,7 @@ import retrofit2.http.Url
 /**
  * API для работы с репозиторием расписаний.
  */
-interface ScheduleRepositoryApi {
+interface ScheduleRepositoryAPI {
     /**
      * Получение расписание по ссылке.
      */

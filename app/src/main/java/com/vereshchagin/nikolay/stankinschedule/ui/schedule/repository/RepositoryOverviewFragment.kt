@@ -17,6 +17,9 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
 
+/**
+ * Фрагмент стартовой страницы удаленного репозитория.
+ */
 class RepositoryOverviewFragment : BaseFragment<FragmentRepositoryOverviewBinding>() {
 
     private lateinit var viewModel: RepositoryOverviewViewModel
@@ -79,13 +82,16 @@ class RepositoryOverviewFragment : BaseFragment<FragmentRepositoryOverviewBindin
         }
     }
 
+    /**
+     * Вызывается, когда необходимо обновить данные репозитория.
+     */
     private fun onUpdateClicked() {
         viewModel.updateRepository(false)
         binding.repositoryRefresh.isRefreshing = false
     }
 
     /**
-     *
+     * Вызывается при нажатии на категории в списке.
      */
     private fun onCategoryClicked(category: CategoryEntry) {
         navigateTo(

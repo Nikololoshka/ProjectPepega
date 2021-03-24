@@ -108,12 +108,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".ui.schedule.repository.RepositoryActivity"
-            android:label="@string/repository"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
             android:name=".ui.news.viewer.NewsViewerActivity"
             android:label="@string/news_viewer"
             android:parentActivityName=".MainActivity"

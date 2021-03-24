@@ -16,7 +16,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 
 /**
- *
+ * Фрагмент категории в удаленном репозитории.
  */
 class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBinding>() {
 
@@ -57,11 +57,16 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
         }
     }
 
+    /**
+     * Вызывается при нажатие на элемент в списке.
+     */
     private fun onRepositoryItemClicked(item: RepositoryItem) {
         when (item) {
+            // нажата категория
             is CategoryEntry -> {
                 navigateTo(R.id.to_repository_category_self, createBundle(item.id, item.name))
             }
+            // нажато расписание
             is ScheduleEntry -> {
                 navigateTo(
                     R.id.to_repository_schedule,
@@ -77,7 +82,7 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
         private const val EXTRA_TITLE = "extra_title"
 
         /**
-         *
+         * Создает bundle с параметрами, необходимых для перехода к фрагменту.
          */
         fun createBundle(parent: Int, title: String): Bundle {
             return bundleOf(EXTRA_PARENT to parent, EXTRA_TITLE to title)

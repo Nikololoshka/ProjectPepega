@@ -9,18 +9,18 @@ import org.joda.time.DateTimeConstants
 import org.joda.time.LocalDate
 
 /**
- *
+ * Модель расписания.
  */
 class Schedule(
     scheduleWithPairs: ScheduleWithPairs,
 ) {
     /**
-     *
+     * Информация о расписании (хранящиеся в БД)
      */
     val info = scheduleWithPairs.schedule
 
     /**
-     *
+     * Контейнер дней в расписании.
      */
     private val days = linkedMapOf<DayOfWeek, ScheduleDay>()
 
@@ -92,15 +92,19 @@ class Schedule(
         return last
     }
 
+    /**
+     * Возвращает список всех дисциплин в расписании.
+     */
     fun disciplines(): List<String> {
-        val disciplines = HashSet<String>()
+        val disciplines = arrayListOf<String>()
         for (day in days.values) {
             for (pair in day.pairs) {
                 disciplines.add(pair.title)
             }
         }
 
-        return disciplines.toList()
+        disciplines.sort()
+        return disciplines
     }
 
     /**
@@ -140,6 +144,9 @@ class Schedule(
         return days[dayOfWeek]!!.pairsByDate(date)
     }
 
+    /**
+     * Возвращает список всех пар по названию дисциплины.
+     */
     fun pairsByDiscipline(discipline: String): List<PairItem> {
         val pairs = arrayListOf<PairItem>()
         for (day in days.values) {
@@ -168,7 +175,11 @@ class Schedule(
     }
 
     companion object {
-        fun empty(scheduleName: String = "test"): Schedule {
+
+        /**
+         * Возвращает пустое расписание.
+         */
+        fun empty(scheduleName: String = "empty"): Schedule {
             return Schedule(
                 ScheduleWithPairs(ScheduleItem(scheduleName), emptyList())
             )

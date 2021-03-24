@@ -14,14 +14,14 @@ import retrofit2.http.POST
  * Справка по запросам:
  * https://github.com/stankin/mj/blob/master/src/main/java/ru/stankin/mj/http/HttpApi2.java
  */
-interface ModuleJournalApi2 {
+interface ModuleJournalAPI2 {
 
     @POST("/webapi/api2/semesters/")
     @Headers("Content-Type: application/x-www-form-urlencoded; charset=UTF-8")
     @FormUrlEncoded
     fun getSemesters(
         @Field("student") login: String,
-        @Field("password") password: String
+        @Field("password") password: String,
     ): Call<SemestersResponse>
 
     @POST("/webapi/api2/marks/")

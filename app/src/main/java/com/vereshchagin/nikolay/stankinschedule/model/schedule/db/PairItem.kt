@@ -40,6 +40,9 @@ class PairItem(
     date: Date,
 ) : Pair(title, lecturer, classroom, type, subgroup, time, date) {
 
+    /**
+     * ID пары.
+     */
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
 }

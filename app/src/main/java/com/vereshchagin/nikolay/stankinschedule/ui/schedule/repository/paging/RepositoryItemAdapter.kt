@@ -4,10 +4,10 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.RepositoryItem
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.holder.RepositoryItemViewHolder
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.viewholder.RepositoryItemViewHolder
 
 /**
- *
+ * Адаптер для элементов репозитория.
  */
 class RepositoryItemAdapter<T : RepositoryItem>(
     private val clickListener: (item: T) -> Unit,
@@ -23,7 +23,7 @@ class RepositoryItemAdapter<T : RepositoryItem>(
 
     companion object {
         /**
-         *
+         * Компаратор для сравнения элементов репозитория.
          */
         private fun <T : RepositoryItem> repositoryItemComparator() =
             object : DiffUtil.ItemCallback<T>() {

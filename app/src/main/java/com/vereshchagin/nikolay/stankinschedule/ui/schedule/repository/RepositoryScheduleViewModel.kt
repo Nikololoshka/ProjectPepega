@@ -15,17 +15,20 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 /**
- *
+ * ViewModel расписания с версиями в удаленном репозитории.
  */
 class RepositoryScheduleViewModel(
     application: Application,
     private val scheduleId: Int,
 ) : AndroidViewModel(application) {
 
+    /**
+     * Удаленный репозиторий.
+     */
     private val repository = ScheduleRemoteRepository(application)
 
     /**
-     *
+     * Расписание с версиями.
      */
     val scheduleEntry = MutableLiveData<State<ScheduleEntry>>(State.loading())
 
@@ -34,7 +37,7 @@ class RepositoryScheduleViewModel(
     }
 
     /**
-     *
+     * Обновляет данные расписания с версиями.
      */
     private fun updateScheduleEntry() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -48,6 +51,9 @@ class RepositoryScheduleViewModel(
         }
     }
 
+    /**
+     * Запускает скачивание расписания.
+     */
     fun downloadScheduleVersion(version: ScheduleVersionEntry) {
         val entry = scheduleEntry.value ?: return
         if (entry is State.Success) {
@@ -72,6 +78,9 @@ class RepositoryScheduleViewModel(
         }
     }
 
+    /**
+     * Фабрика для создания ViewModel.
+     */
     class Factory(
         private val application: Application,
         private val scheduleId: Int,

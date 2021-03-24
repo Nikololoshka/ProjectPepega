@@ -107,7 +107,7 @@ interface ScheduleDao {
     suspend fun deleteSchedule(scheduleName: String)
 
     /**
-     * Удаляет расписание из БД по ScheduleItemю
+     * Удаляет расписание из БД по ScheduleItem.
      */
     @Transaction
     @Delete

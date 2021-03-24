@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
- *
+ * ViewModel для категории в удаленном репозитории.
  */
 class RepositoryCategoryViewModel(
     private val repository: ScheduleRemoteRepository,
@@ -19,7 +19,7 @@ class RepositoryCategoryViewModel(
     private val refreshTrigger = MutableLiveData<Boolean>(null)
 
     /**
-     *
+     * Список категорий.
      */
     val categories = Transformations.switchMap(refreshTrigger) {
         updateCategories(it)
@@ -33,7 +33,7 @@ class RepositoryCategoryViewModel(
     }
 
     /**
-     *
+     * Обновляет источник данных с категориями расписаний.
      */
     @Suppress("UNCHECKED_CAST")
     private fun updateCategories(isScheduleCategory: Boolean?): LiveData<PagingData<RepositoryItem>> {
@@ -54,7 +54,7 @@ class RepositoryCategoryViewModel(
     }
 
     /**
-     *
+     * Фабрика для создания ViewModel.
      */
     class Factory(
         private val application: Application,

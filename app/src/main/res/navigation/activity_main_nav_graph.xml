@@ -71,7 +71,7 @@
 
     <activity
         android:id="@+id/nav_schedule_repository_activity"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositoryActivity"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryActivity"
         android:label="@string/repository"
         tools:layout="@layout/activity_schedule_repository" />
 

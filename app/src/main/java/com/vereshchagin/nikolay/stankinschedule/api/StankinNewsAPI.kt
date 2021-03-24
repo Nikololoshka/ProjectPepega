@@ -10,7 +10,7 @@ import retrofit2.http.POST
 /**
  * API для получения данных с stankin.ru
  */
-interface StankinNewsApi {
+interface StankinNewsAPI {
     /**
      * Запрос к API новостей stankin.ru.
      * @param data данные запроса.
@@ -30,8 +30,8 @@ interface StankinNewsApi {
          * @param query фильтр для новостей.
          */
         fun getNews(
-            api: StankinNewsApi, subdivision: Int, page: Int,
-            count: Int = 40, tag: String = "", query: String = ""
+            api: StankinNewsAPI, subdivision: Int, page: Int,
+            count: Int = 40, tag: String = "", query: String = "",
         ): Call<NewsResponse> {
             val data = mapOf(
                 "count" to count,

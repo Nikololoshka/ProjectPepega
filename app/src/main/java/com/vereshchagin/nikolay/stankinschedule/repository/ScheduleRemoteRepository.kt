@@ -7,11 +7,11 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.api.ScheduleRepositoryApi
+import com.vereshchagin.nikolay.stankinschedule.api.ScheduleRepositoryAPI
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleResponse
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.RepositoryDescriptionKt
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryDescription
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.ScheduleEntry
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.gson.DateTimeTypeConverter
@@ -41,7 +41,7 @@ class ScheduleRemoteRepository(
     private val dao = db.repository()
 
     private val storage = Firebase.storage
-    private val api: ScheduleRepositoryApi
+    private val api: ScheduleRepositoryAPI
 
     init {
         val builder = Retrofit.Builder()
@@ -71,7 +71,7 @@ class ScheduleRemoteRepository(
             builder.client(client)
         }
 
-        api = builder.build().create(ScheduleRepositoryApi::class.java)
+        api = builder.build().create(ScheduleRepositoryAPI::class.java)
     }
 
     fun schedules(category: Int) = dao.schedulesSource(category)
@@ -106,7 +106,7 @@ class ScheduleRemoteRepository(
         val response = api.entry(entryUri.toString()).await()
         dao.insertRepositoryResponse(response)
 
-        val description = RepositoryDescriptionKt(response.lastUpdate)
+        val description = RepositoryDescription(response.lastUpdate)
         saveDescription(description)
         emit(State.success(description))
     }
@@ -132,7 +132,7 @@ class ScheduleRemoteRepository(
     /**
      * Сохраняет описание репозитория в кэш.
      */
-    private fun saveDescription(description: RepositoryDescriptionKt) {
+    private fun saveDescription(description: RepositoryDescription) {
         try {
             val json = gson.toJson(description)
             FileUtils.writeStringToFile(
@@ -149,14 +149,14 @@ class ScheduleRemoteRepository(
     /**
      * Загружает описание репозитория из кэша.
      */
-    private fun loadDescription(): RepositoryDescriptionKt? {
+    private fun loadDescription(): RepositoryDescription? {
         try {
             return gson.fromJson(
                 FileUtils.readFileToString(
                     FileUtils.getFile(cacheFolder, REPOSITORY_FOLDER, "description.json"),
                     StandardCharsets.UTF_8
                 ),
-                RepositoryDescriptionKt::class.java
+                RepositoryDescription::class.java
             )
 
         } catch (ignored: Exception) {

@@ -4,7 +4,7 @@ import android.util.Log
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.MainApplication
-import com.vereshchagin.nikolay.stankinschedule.api.ModuleJournalApi2
+import com.vereshchagin.nikolay.stankinschedule.api.ModuleJournalAPI2
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.MarkType
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.StudentData
@@ -35,7 +35,7 @@ class ModuleJournalRepository(private val cacheDir: File) {
     private val mutex = Mutex()
 
     private var retrofit: Retrofit
-    private var api: ModuleJournalApi2
+    private var api: ModuleJournalAPI2
 
     private val gson = GsonBuilder()
         .registerTypeAdapter(DateTime::class.java, DateTimeTypeConverter())
@@ -65,7 +65,7 @@ class ModuleJournalRepository(private val cacheDir: File) {
         }
 
         retrofit = builder.build()
-        api = retrofit.create(ModuleJournalApi2::class.java)
+        api = retrofit.create(ModuleJournalAPI2::class.java)
     }
 
     /**

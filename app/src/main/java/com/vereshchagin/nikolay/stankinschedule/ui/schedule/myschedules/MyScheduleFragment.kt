@@ -24,7 +24,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.home.ChangeSubgroupBottomShee
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositoryActivity
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
@@ -239,7 +239,7 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
                 }
                 R.id.from_repository -> {
                     startActivity(
-                        Intent(requireContext(), RepositoryActivity::class.java)
+                        Intent(requireContext(), ScheduleRepositoryActivity::class.java)
                     )
                 }
                 R.id.load_schedule -> {

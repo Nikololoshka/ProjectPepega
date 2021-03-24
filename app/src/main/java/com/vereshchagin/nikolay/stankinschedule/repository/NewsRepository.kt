@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.paging.PagingSource
 import androidx.room.withTransaction
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsApi
+import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsAPI
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
@@ -26,7 +26,7 @@ class NewsRepository(
 ) {
 
     private var retrofit: Retrofit
-    private var api: StankinNewsApi
+    private var api: StankinNewsAPI
 
     private val db = MainApplicationDatabase.database(context)
     private var dao: NewsDao
@@ -51,7 +51,7 @@ class NewsRepository(
         }
 
         retrofit = builder.build()
-        api = retrofit.create(StankinNewsApi::class.java)
+        api = retrofit.create(StankinNewsAPI::class.java)
         dao = db.news()
 
         val date = NewsPreference.lastNewsUpdate(context, newsSubdivision)
@@ -90,7 +90,7 @@ class NewsRepository(
      * Возвращает список новостей по номеру страницы и количеству необходимых новостей.
      */
     suspend fun news(page: Int, count: Int = 40): NewsResponse {
-        return StankinNewsApi.getNews(api, newsSubdivision, page, count).await()
+        return StankinNewsAPI.getNews(api, newsSubdivision, page, count).await()
     }
 
     /**

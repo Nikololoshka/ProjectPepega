@@ -16,7 +16,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 
 /**
- *
+ * Фрагмент расписания с версиями в удаленном репозитории.
  */
 class RepositoryScheduleFragment : BaseFragment<FragmentRepositoryScheduleBinding>() {
 
@@ -71,6 +71,9 @@ class RepositoryScheduleFragment : BaseFragment<FragmentRepositoryScheduleBindin
         }
     }
 
+    /**
+     * Вызывается при нажатии на версию расписания.
+     */
     private fun onScheduleVersionClicked(version: ScheduleVersionEntry) {
         viewModel.downloadScheduleVersion(version)
     }
@@ -81,7 +84,7 @@ class RepositoryScheduleFragment : BaseFragment<FragmentRepositoryScheduleBindin
         private const val EXTRA_SCHEDULE_NAME = "extra_name"
 
         /**
-         *
+         * Создает bundle с параметрами для перехода к фрагменту.
          */
         fun createBundle(id: Int, scheduleName: String): Bundle {
             return bundleOf(EXTRA_SCHEDULE_ID to id, EXTRA_SCHEDULE_NAME to scheduleName)

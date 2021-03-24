@@ -14,16 +14,12 @@ import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.ktx.analytics
-import com.google.firebase.analytics.ktx.logEvent
-import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.R
 
 /**
  * Базовый фрагмент реализацией с ViewBinding.
  */
-abstract class BaseFragment<T : ViewBinding> : Fragment() {
+abstract class BaseFragment<T : ViewBinding> : Fragment(), BaseComponent {
 
     protected var _binding: T? = null
     protected val binding get() = _binding!!
@@ -89,16 +85,6 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     protected fun showSnack(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
         Snackbar.make(binding.root, message, duration)
             .show()
-    }
-
-    /**
-     * Добавление информации в FirebaseAnalytics о включенном фрагменте.
-     */
-    protected fun trackScreen(screenName: String, screenClass: String) {
-        Firebase.analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
-            param(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
-            param(FirebaseAnalytics.Param.SCREEN_CLASS, screenClass)
-        }
     }
 
     /**

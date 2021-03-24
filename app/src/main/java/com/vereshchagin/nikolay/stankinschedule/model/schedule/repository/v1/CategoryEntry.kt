@@ -4,7 +4,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-
+/**
+ * Объект категории в удаленном репозитории.
+ */
 @Entity(tableName = "category_entries")
 class CategoryEntry(
     @PrimaryKey
@@ -17,5 +19,4 @@ class CategoryEntry(
 ) : RepositoryItem {
 
     override fun data() = name
-
 }

@@ -5,6 +5,9 @@ import androidx.room.*
 import com.google.gson.annotations.SerializedName
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.ScheduleVersionConverter
 
+/**
+ * Объект расписания с версиями в удаленном репозитории.
+ */
 @Entity(
     tableName = "schedule_entries",
     foreignKeys = [
@@ -33,6 +36,9 @@ class ScheduleEntry(
 
     override fun data() = name
 
+    /**
+     * Возвращает PagingData версий расписания для загрузки.
+     */
     fun versionEntries(): PagingData<ScheduleVersionEntry> {
         return PagingData.from(versions.map { version ->
             ScheduleVersionEntry(name, version.path, version.date)

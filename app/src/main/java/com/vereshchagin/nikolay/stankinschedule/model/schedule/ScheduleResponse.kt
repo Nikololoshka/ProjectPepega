@@ -4,10 +4,15 @@ import com.google.gson.*
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import java.lang.reflect.Type
 
+/**
+ * Объект ответа расписания, который возвращается от удаленного репозитория.
+ */
 class ScheduleResponse(
     val pairs: List<Pair>,
 ) {
-
+    /**
+     * Сериализатор и десериализатор объекта расписания в JSON.
+     */
     class Serializer : JsonSerializer<ScheduleResponse>, JsonDeserializer<ScheduleResponse> {
 
         override fun serialize(

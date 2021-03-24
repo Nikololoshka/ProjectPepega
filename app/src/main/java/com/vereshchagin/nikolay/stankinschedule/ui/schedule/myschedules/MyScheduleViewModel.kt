@@ -6,7 +6,6 @@ import androidx.core.util.forEach
 import androidx.lifecycle.*
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.utils.DifferenceUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -36,14 +35,40 @@ class MyScheduleViewModel(application: Application) : AndroidViewModel(applicati
             repository.schedules()
                 .collect { list ->
                     synchronized(currentSchedules) {
-                        val isDiff = DifferenceUtils.hasDifference(currentSchedules, list)
+                        val isDiff = compareDifference(currentSchedules, list)
                         if (isDiff) {
-                            currentSchedules = ArrayList(list)
                             schedules.postValue(currentSchedules)
                         }
                     }
                 }
         }
+    }
+
+    private fun compareDifference(
+        currentList: MutableList<ScheduleItem>,
+        newList: List<ScheduleItem>,
+    ): Boolean {
+        if (currentList.isEmpty() || newList.isEmpty()) {
+            currentList.clear()
+            currentList.addAll(newList)
+            return true
+        }
+
+        if (currentList == newList) {
+            return false
+        }
+
+        val newItems = newList.filter {
+            for (item in currentList) {
+                if (it.id == item.id) {
+                    return false
+                }
+            }
+            return true
+        }
+        currentList.addAll(newItems)
+
+        return true
     }
 
     /**

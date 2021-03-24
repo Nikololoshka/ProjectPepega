@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.repository
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsPostsApi
+import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsPostsAPI
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import kotlinx.coroutines.Dispatchers
@@ -23,7 +23,7 @@ import java.io.File
 class NewsPostRepository(private val newsId: Int, private val cacheDir: File) {
 
     private var retrofit: Retrofit
-    private var api: StankinNewsPostsApi
+    private var api: StankinNewsPostsAPI
 
     init {
         val builder = Retrofit.Builder()
@@ -49,7 +49,7 @@ class NewsPostRepository(private val newsId: Int, private val cacheDir: File) {
         }
 
         retrofit = builder.build()
-        api = retrofit.create(StankinNewsPostsApi::class.java)
+        api = retrofit.create(StankinNewsPostsAPI::class.java)
     }
 
     /**
@@ -80,7 +80,7 @@ class NewsPostRepository(private val newsId: Int, private val cacheDir: File) {
      * Загружает пост из интернета.
      */
     private suspend fun loadFromNetwork(): NewsPost {
-        val post = StankinNewsPostsApi.getNewsPost(api, newsId).await().data
+        val post = StankinNewsPostsAPI.getNewsPost(api, newsId).await().data
         saveToCache(post)
         return post
     }

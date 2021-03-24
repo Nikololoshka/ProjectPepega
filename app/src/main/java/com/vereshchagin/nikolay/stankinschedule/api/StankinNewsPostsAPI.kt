@@ -11,7 +11,7 @@ import retrofit2.http.POST
 /**
  * API для получения данных с stankin.ru
  */
-interface StankinNewsPostsApi {
+interface StankinNewsPostsAPI {
 
     /**
      * Запрос к API новостей stankin.ru.
@@ -27,7 +27,7 @@ interface StankinNewsPostsApi {
          * @param api API для получения данных.
          * @param newsId ID новости.
          */
-        fun getNewsPost(api: StankinNewsPostsApi, newsId: Int): Call<NewsPostResponse> {
+        fun getNewsPost(api: StankinNewsPostsAPI, newsId: Int): Call<NewsPostResponse> {
             val data = mapOf(
                 "id" to newsId
             )
