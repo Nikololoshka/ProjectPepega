@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.CombinedLoadStates
@@ -14,6 +15,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentModuleJournalBinding
 import com.vereshchagin.nikolay.stankinschedule.databinding.ViewErrorWithButtonBinding
+import com.vereshchagin.nikolay.stankinschedule.repository.exceptions.InvalidReadLoginData
 import com.vereshchagin.nikolay.stankinschedule.settings.ModuleJournalPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.predict.ModuleJournalPredictActivity
@@ -99,6 +101,15 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
                     statefulStudentLayout.setState(StatefulLayout2.LOADING)
                 }
                 is State.Failed -> {
+                    // не удалось прочесть данные входа
+                    if (state.error is InvalidReadLoginData) {
+                        Toast.makeText(requireContext(),
+                            R.string.ex_general_security,
+                            Toast.LENGTH_LONG).show()
+                        signOut()
+                        return@observe
+                    }
+
                     statefulStudentLayout.setState(StatefulLayout2.ERROR)
                     val errorText = ExceptionUtils.errorDescription(state.error, requireContext())
                     binding.studentError.createBinding<ViewErrorWithButtonBinding>()?.let {

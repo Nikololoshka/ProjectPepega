@@ -8,6 +8,7 @@ import com.vereshchagin.nikolay.stankinschedule.api.ModuleJournalApi2
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.MarkType
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.StudentData
+import com.vereshchagin.nikolay.stankinschedule.repository.exceptions.InvalidReadLoginData
 import com.vereshchagin.nikolay.stankinschedule.settings.ModuleJournalPreference
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.gson.DateTimeTypeConverter
@@ -23,6 +24,7 @@ import retrofit2.Retrofit
 import retrofit2.await
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
+import java.io.IOException
 import java.nio.charset.StandardCharsets
 
 /**
@@ -234,22 +236,25 @@ class ModuleJournalRepository(private val cacheDir: File) {
             }
         }
 
-            return cacheMarks
-        }
+        return cacheMarks
+    }
 
     /**
      * Возвращает данные для входа в модульный журнал.
      */
+    @Throws(InvalidReadLoginData::class)
     private fun loadLoginData(): Pair<String, String> {
-        val data = userData
-        if (data == null) {
+        return userData ?: try {
+            // расшифровка данных входа
             val newUserData = ModuleJournalPreference.signInData(
                 MainApplication.instance.applicationContext
             )
             userData = newUserData
             return newUserData
+
+        } catch (e: IOException) {
+            throw InvalidReadLoginData(e)
         }
-        return data
     }
 
     /**

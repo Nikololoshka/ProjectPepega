@@ -7,6 +7,7 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import retrofit2.HttpException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
+import java.security.GeneralSecurityException
 import javax.net.ssl.HttpsURLConnection
 
 /**
@@ -26,6 +27,10 @@ object ExceptionUtils {
             // не удалось подключиться к хосту
             is UnknownHostException -> {
                 return context.getString(R.string.ex_unknown_host)
+            }
+            // ошибка получение зашифрованной информации
+            is GeneralSecurityException -> {
+                return context.getString(R.string.ex_general_security)
             }
             // HTTP ошибка (retrofit2)
             is HttpException -> {
