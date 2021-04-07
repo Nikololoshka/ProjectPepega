@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="scheduleName"
             type="String" />
@@ -16,7 +15,7 @@
         android:layout_height="match_parent">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/versions_container"
+            android:id="@+id/schedules_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"
@@ -57,15 +56,33 @@
 
             </com.google.android.material.appbar.AppBarLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/schedule_versions"
+            <FrameLayout
+                android:id="@+id/versions_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                tools:listitem="@layout/item_repository_item" />
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/schedule_versions"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_repository_item" />
+
+                <TextView
+                    style="@style/Text.Medium"
+                    android:id="@+id/schedule_synced"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/repository_schedule_synced"
+                    android:gravity="center"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/schedule_sync"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"
@@ -73,7 +90,7 @@
                 app:backgroundTint="@color/colorToolbarContent"
                 app:layout_anchor="@id/app_bar_repository"
                 app:layout_anchorGravity="bottom|end"
-                app:srcCompat="@drawable/ic_button_schedule_sync"
+                app:srcCompat="@drawable/ic_schedule_sync_enable"
                 app:tint="@android:color/white" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
@@ -83,6 +100,7 @@
             layout="@layout/view_loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_information_padding"
             android:layout_gravity="center"
             android:visibility="visible"
             tools:visibility="gone" />

@@ -9,12 +9,12 @@ import org.joda.time.DateTime
 class DateTimeConverter {
 
     @TypeConverter
-    fun fromDateTime(dateTime: DateTime): String {
-        return dateTime.toString()
+    fun fromDateTime(dateTime: DateTime?): String? {
+        return dateTime?.toString()
     }
 
     @TypeConverter
-    fun toDateTime(dateTime: String): DateTime {
-        return DateTime.parse(dateTime)
+    fun toDateTime(dateTime: String?): DateTime? {
+        return dateTime?.let { DateTime.parse(it) }
     }
 }

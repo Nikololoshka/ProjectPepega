@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityScheduleEditorBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
@@ -43,6 +44,7 @@ class ScheduleEditorActivity : BaseActivity<ActivityScheduleEditorBinding>(), On
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         scheduleName = intent.getStringExtra(EXTRA_SCHEDULE_NAME)!!
+        supportActionBar?.title = getString(R.string.schedule_editor_appbar, scheduleName)
 
         viewModel = ViewModelProvider(
             this,

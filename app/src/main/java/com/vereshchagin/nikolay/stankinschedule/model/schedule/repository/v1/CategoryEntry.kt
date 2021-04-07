@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * Объект категории в удаленном репозитории.
  */
-@Entity(tableName = "category_entries")
+@Entity(tableName = "repository_category_entries")
 class CategoryEntry(
     @PrimaryKey
     @SerializedName("id")

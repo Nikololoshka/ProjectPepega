@@ -22,6 +22,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
 import kotlinx.coroutines.flow.collectLatest
 
@@ -40,8 +41,8 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
     /**
      * Менеджер состояний.
      */
-    private lateinit var statefulStudentLayout: StatefulLayout2
-    private lateinit var statefulSemestersLayout: StatefulLayout2
+    private var statefulStudentLayout: StatefulLayout2 by FragmentDelegate()
+    private var statefulSemestersLayout: StatefulLayout2 by FragmentDelegate()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,13 +71,11 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
             .init(StatefulLayout2.LOADING, binding.studentLoading)
             .addView(StatefulLayout2.CONTENT, binding.refresh)
             .addView(StatefulLayout2.ERROR, binding.studentError)
-            .setOwner(this)
             .create()
 
         statefulSemestersLayout = StatefulLayout2.Builder(binding.semestersContainer)
             .init(StatefulLayout2.LOADING, binding.semestersLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.semestersPager)
-            .setOwner(this)
             .create()
 
         binding.appBar.addOnOffsetChangedListener(

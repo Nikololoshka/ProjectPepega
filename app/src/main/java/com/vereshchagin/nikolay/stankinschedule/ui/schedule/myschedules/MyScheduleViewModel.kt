@@ -61,10 +61,10 @@ class MyScheduleViewModel(application: Application) : AndroidViewModel(applicati
         val newItems = newList.filter {
             for (item in currentList) {
                 if (it.id == item.id) {
-                    return false
+                    return@filter false
                 }
             }
-            return true
+            return@filter true
         }
         currentList.addAll(newItems)
 

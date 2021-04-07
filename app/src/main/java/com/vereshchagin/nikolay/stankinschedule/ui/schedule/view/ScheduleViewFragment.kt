@@ -16,6 +16,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleViewBinding
@@ -27,6 +29,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEdit
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.ScheduleEditorActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 import org.joda.time.LocalDate
 
 /**
@@ -42,8 +45,7 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
     /**
      * Менеджер состояний.
      */
-    private var _statefulLayout: StatefulLayout2? = null
-    private val statefulLayout get() = _statefulLayout!!
+    private var statefulLayout: StatefulLayout2 by FragmentDelegate()
 
     /**
      * Название расписания.
@@ -83,7 +85,7 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        _statefulLayout = StatefulLayout2.Builder(binding.statefulLayout)
+        statefulLayout = StatefulLayout2.Builder(binding.statefulLayout)
             .init(StatefulLayout2.LOADING, binding.schViewLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.schViewContainer)
             .addView(StatefulLayout2.EMPTY, binding.schViewEmpty)
@@ -122,16 +124,16 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
         adapter = ScheduleViewAdapter(this::onPairClicked)
         binding.schViewContainer.adapter = adapter
 
-        viewModel.scheduleDays.observe(viewLifecycleOwner) {
+        viewModel.scheduleDays.observe(this) {
             adapter.submitData(lifecycle, it)
         }
 
-        viewModel.scheduleState.observe(viewLifecycleOwner) {
+        viewModel.scheduleState.observe(this) {
             val state = it ?: return@observe
             onScheduleStateChanged(state)
         }
 
-        viewModel.actionState.observe(viewLifecycleOwner) {
+        viewModel.actionState.observe(this) {
             val state = it ?: return@observe
             onActionStateChanged(state)
         }
@@ -139,29 +141,35 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
         trackScreen(TAG, MainActivity.TAG)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _statefulLayout = null
-    }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu_schedule_view, menu)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        val isSync = viewModel.isSynced()
+        menu.findItem(R.id.edit_schedule).isEnabled = !isSync
+        menu.findItem(R.id.rename_schedule).isEnabled = !isSync
+        menu.findItem(R.id.add_pair).isEnabled = !isSync
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             // редактирование расписания
             R.id.edit_schedule -> {
-                val intent = ScheduleEditorActivity.createIntent(requireContext(), scheduleName)
-                startActivity(intent)
+                if (canScheduleEdit()) {
+                    val intent = ScheduleEditorActivity.createIntent(requireContext(), scheduleName)
+                    startActivity(intent)
+                }
                 return true
             }
             // переименование расписания
             R.id.rename_schedule -> {
-                val dialog = ScheduleNameEditorDialog.newInstance(scheduleName)
-                dialog.show(parentFragmentManager, dialog.tag)
-
+                if (canScheduleEdit()) {
+                    val dialog = ScheduleNameEditorDialog.newInstance(scheduleName)
+                    dialog.show(parentFragmentManager, dialog.tag)
+                }
                 return true
             }
             // перейти к дню
@@ -229,13 +237,83 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
             }
             // добавить пару
             R.id.add_pair -> {
-                val intent = PairEditorActivity.newPairIntent(requireContext(), scheduleName)
-                startActivity(intent)
-
+                if (canScheduleEdit()) {
+                    val intent = PairEditorActivity.newPairIntent(requireContext(), scheduleName)
+                    startActivity(intent)
+                }
+                return true
+            }
+            // информация о расписании
+            R.id.schedule_info -> {
+                showScheduleInfo()
                 return true
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    /**
+     * Проверяет, является ли расписание редактируемым.
+     */
+    private fun canScheduleEdit(): Boolean {
+        val canEdit = !viewModel.isSynced() &&
+            viewModel.scheduleState.value != ScheduleViewViewModel.ScheduleState.LOADING
+
+        if (!canEdit) {
+            Snackbar.make(binding.root, R.string.sch_view_not_edit, Snackbar.LENGTH_SHORT)
+                .setAction(R.string.details) {
+                    showScheduleInfo()
+                }
+                .show()
+        }
+        return canEdit
+    }
+
+    /**
+     * Показывает диалог с информацией о расписании
+     */
+    private fun showScheduleInfo() {
+        val info = viewModel.info() ?: return
+
+        val builder = MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.sch_info)
+            .setMessage(
+                getString(
+                    R.string.sch_info_description,
+                    info.scheduleName,
+                    getString(if (info.synced) R.string.sch_synced else R.string.sch_not_synced)
+                )
+            )
+            .setPositiveButton(R.string.ok) { dialog, _ ->
+                dialog.dismiss()
+            }
+
+        // отключение синхронизации
+        if (info.synced) {
+            builder.setNeutralButton(R.string.sch_off_sync) { dialog, _ ->
+                showScheduleSyncDisableDialog()
+                dialog.dismiss()
+            }
+        }
+
+        builder.show()
+    }
+
+    /**
+     * Показывает диалог с возможностью отключить синхронизацию расписания.
+     */
+    private fun showScheduleSyncDisableDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.warning)
+            .setMessage(R.string.sch_off_sync_description)
+            .setPositiveButton(R.string.yes_continue) { dialog, _ ->
+                viewModel.disableScheduleSynced()
+                dialog.dismiss()
+            }
+            .setNegativeButton(R.string.cancel) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
     /**
@@ -284,8 +362,10 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
      * Вызывается, когда была нажата пара.
      */
     private fun onPairClicked(pair: PairItem) {
-        val intent = PairEditorActivity.editPairIntent(requireContext(), scheduleName, pair.id)
-        startActivity(intent)
+        if (canScheduleEdit()) {
+            val intent = PairEditorActivity.editPairIntent(requireContext(), scheduleName, pair.id)
+            startActivity(intent)
+        }
     }
 
     private fun onScheduleStateChanged(state: ScheduleViewViewModel.ScheduleState) {
@@ -306,7 +386,6 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
                     it.onBackPressed()
                 }
             }
-
         }
     }
 
@@ -373,7 +452,7 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
      * Перемещает текущую позицию просмотра расписания к начале расписания.
      */
     private fun scrollToScheduleStart() {
-        val date = viewModel.schedule?.startDate()
+        val date = viewModel.startDate()
         if (date != null) {
             scrollScheduleTo(date)
         }
@@ -383,7 +462,7 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
      * Перемещает текущую позицию просмотра расписания к концу расписания.
      */
     private fun scrollToScheduleEnd() {
-        val date = viewModel.schedule?.endDate()
+        val date = viewModel.endDate()
         if (date != null) {
             scrollScheduleTo(date)
         }

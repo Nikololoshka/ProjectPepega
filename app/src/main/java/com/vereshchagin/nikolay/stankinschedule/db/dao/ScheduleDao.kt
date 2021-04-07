@@ -6,6 +6,8 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleWithPairs
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import org.joda.time.DateTime
 
 /**
  * Интерфейс для работы с БД расписаний.
@@ -16,51 +18,57 @@ interface ScheduleDao {
     /**
      * Возвращает flow списка всех расписаний.
      */
-    @Query("SELECT * FROM schedules ORDER BY position ASC")
+    @Query("SELECT * FROM schedule_items ORDER BY position ASC")
     fun getAllSchedules(): Flow<List<ScheduleItem>>
 
     /**
      * Возвращает flow списка всех пар расписания.
      */
-    @Query("SELECT * FROM pairs WHERE schedule_id == :scheduleId")
+    @Query("SELECT * FROM schedule_pairs WHERE schedule_id = :scheduleId")
     fun getAllPairs(scheduleId: Long): Flow<List<PairItem>>
 
     /**
      * Возвращает flow расписания с парами по названию.
      */
     @Transaction
-    @Query("SELECT * FROM schedules WHERE schedule_name == :scheduleName LIMIT 1")
+    @Query("SELECT * FROM schedule_items WHERE schedule_name = :scheduleName LIMIT 1")
     fun getScheduleWithPairs(scheduleName: String): Flow<ScheduleWithPairs?>
 
     /**
      * Возвращает flow расписания с парами по ID.
      */
     @Transaction
-    @Query("SELECT * FROM schedules WHERE id == :id LIMIT 1")
+    @Query("SELECT * FROM schedule_items WHERE id == :id LIMIT 1")
     fun getScheduleWithPairs(id: Long): Flow<ScheduleWithPairs?>
 
     /**
      * Возвращает flow элемента расписания.
      */
-    @Query("SELECT * FROM schedules WHERE schedule_name == :scheduleName LIMIT 1")
+    @Query("SELECT * FROM schedule_items WHERE schedule_name = :scheduleName LIMIT 1")
     fun getScheduleItem(scheduleName: String): Flow<ScheduleItem?>
 
     /**
      * Возвращает количество расписаний в БД.
      */
-    @Query("SELECT COUNT(*) FROM schedules")
+    @Query("SELECT COUNT(*) FROM schedule_items")
     fun getScheduleCount(): Int
+
+    /**
+     * Возвращает flow списка с синхронизованными расписаниями.
+     */
+    @Query("SELECT * FROM schedule_items WHERE synced = :synced")
+    fun getScheduleSyncList(synced: Boolean = true): Flow<List<ScheduleItem>>
 
     /**
      * Проверяет, если расписания с данным названием в БД.
      */
-    @Query("SELECT EXISTS(SELECT * FROM schedules WHERE schedule_name = :scheduleName)")
+    @Query("SELECT EXISTS(SELECT * FROM schedule_items WHERE schedule_name = :scheduleName)")
     suspend fun isScheduleExist(scheduleName: String): Boolean
 
     /**
      * Возвращает flow пары расписания.
      */
-    @Query("SELECT * FROM pairs WHERE id == :id LIMIT 1")
+    @Query("SELECT * FROM schedule_pairs WHERE id == :id LIMIT 1")
     fun getPairItem(id: Long): Flow<PairItem?>
 
     /**
@@ -79,7 +87,7 @@ interface ScheduleDao {
      * Обновляет список с ScheduleItem в БД.
      */
     @Update
-    suspend fun updateScheduleItems(schedules: List<ScheduleItem>)
+    suspend fun updateScheduleItems(schedule_items: List<ScheduleItem>)
 
     /**
      * Добавляет список пар расписания в БД.
@@ -100,10 +108,16 @@ interface ScheduleDao {
     suspend fun deletePairItem(pair: PairItem)
 
     /**
+     * Удаляет все пары расписания по ID.
+     */
+    @Query("DELETE FROM schedule_pairs WHERE schedule_id = :scheduleId")
+    suspend fun deleteSchedulePairs(scheduleId: Long)
+
+    /**
      * Удаляет расписание из БД по названию.
      */
     @Transaction
-    @Query("DELETE FROM schedules WHERE schedule_name == :scheduleName")
+    @Query("DELETE FROM schedule_items WHERE schedule_name = :scheduleName")
     suspend fun deleteSchedule(scheduleName: String)
 
     /**
@@ -117,11 +131,34 @@ interface ScheduleDao {
      * Добавляет расписание из ответа от сервера в БД.
      */
     @Transaction
-    suspend fun insertScheduleResponse(scheduleName: String, response: ScheduleResponse) {
+    suspend fun insertScheduleResponse(
+        scheduleName: String,
+        response: ScheduleResponse,
+        replaceExist: Boolean = false,
+        synced: Boolean = false,
+    ) {
+        if (replaceExist) {
+            val item = getScheduleItem(scheduleName).first()
+            if (item != null) {
+                // обновляем информацию
+                item.synced = synced
+                if (synced) item.lastUpdate = DateTime.now()
+
+                updateScheduleItem(item)
+
+                // обновляем пары
+                deleteSchedulePairs(item.id)
+                insertPairs(response.pairs.map { it.toPairItem(item.id) })
+                return
+            }
+        }
+
         val lastPosition = getScheduleCount()
         val id = insertScheduleItem(
             ScheduleItem(scheduleName).apply {
-                position = lastPosition
+                this.position = lastPosition
+                this.synced = synced
+                this.lastUpdate = if (synced) DateTime.now() else null
             }
         )
         insertPairs(response.pairs.map { it.toPairItem(id) })

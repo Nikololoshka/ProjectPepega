@@ -35,9 +35,9 @@ class RoomMigrationTest {
 
         // Re-open the database with version 2 and provide
         // MIGRATION_1_2 as the migration process.
-        db = helper.runMigrationsAndValidate(
-            TEST_DB, 2, true, MainApplicationDatabase.MIGRATION_1_2
-        )
+//        db = helper.runMigrationsAndValidate(
+//            TEST_DB, 2, true, MainApplicationDatabase.MIGRATION_1_2
+//        )
 
         // MigrationTestHelper automatically verifies the schema changes,
         // but you need to validate that the data was migrated properly.

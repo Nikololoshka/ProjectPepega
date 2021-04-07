@@ -113,6 +113,18 @@ class ScheduleRepository(
     suspend fun removePair(pair: PairItem) = dao.deletePairItem(pair)
 
     /**
+     * Изменяет состояние синхронизации расписания.
+     */
+    suspend fun toggleScheduleSyncState(scheduleName: String, sync: Boolean = false) {
+        val item = scheduleItem(scheduleName).first()
+        if (item != null) {
+            item.synced = sync
+            if (!sync) item.lastUpdate = null
+            updateScheduleItem(item)
+        }
+    }
+
+    /**
      * Возвращает ScheduleResponse расписания из БД по названию.
      */
     suspend fun scheduleResponse(scheduleName: String): ScheduleResponse {
@@ -155,9 +167,25 @@ class ScheduleRepository(
     /**
      * Сохраняет ScheduleResponse в БД.
      */
-    suspend fun saveResponse(scheduleName: String, json: String) {
+    suspend fun saveResponse(
+        scheduleName: String,
+        json: String,
+        replaceExist: Boolean = false
+    ) {
         val response = gson.fromJson(json, ScheduleResponse::class.java)
-        dao.insertScheduleResponse(scheduleName, response)
+        saveResponse(scheduleName, response, replaceExist)
+    }
+
+    /**
+     * Сохраняет ScheduleResponse в БД.
+     */
+    suspend fun saveResponse(
+        scheduleName: String,
+        response: ScheduleResponse,
+        replaceExist: Boolean = false,
+        isSync: Boolean = false
+    ) {
+        dao.insertScheduleResponse(scheduleName, response, replaceExist, isSync)
     }
 
     companion object {
@@ -193,8 +221,10 @@ class ScheduleRepository(
                 try {
                     val json = FileUtils.readFileToString(File(path), StandardCharsets.UTF_8)
                     val gson = GsonBuilder()
-                        .registerTypeAdapter(ScheduleResponse::class.java,
-                            ScheduleResponse.Serializer())
+                        .registerTypeAdapter(
+                            ScheduleResponse::class.java,
+                            ScheduleResponse.Serializer()
+                        )
                         .registerTypeAdapter(Pair::class.java, Pair.Serializer())
                         .create()
 

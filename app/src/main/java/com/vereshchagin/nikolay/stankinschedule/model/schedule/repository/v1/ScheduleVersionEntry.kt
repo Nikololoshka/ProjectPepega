@@ -14,4 +14,6 @@ class ScheduleVersionEntry(
     override fun data(): String {
         return "$scheduleName (${date.toPrettyDate()})"
     }
+
+    fun toVersion() = ScheduleVersion(path, date)
 }

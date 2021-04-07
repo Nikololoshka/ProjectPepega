@@ -16,31 +16,31 @@ interface RepositoryDao {
     /**
      * Возвращает источник категорий для пагинации.
      */
-    @Query("SELECT * FROM category_entries WHERE parent == :parent or (parent is null and :parent is null)")
+    @Query("SELECT * FROM repository_category_entries WHERE parent == :parent or (parent is null and :parent is null)")
     fun categoriesSource(parent: Int?): PagingSource<Int, CategoryEntry>
 
     /**
      * Возвращает источник расписаний для пагинации.
      */
-    @Query("SELECT * FROM schedule_entries WHERE category == :category")
+    @Query("SELECT * FROM repository_schedule_entries WHERE category == :category")
     fun schedulesSource(category: Int): PagingSource<Int, ScheduleEntry>
 
     /**
      * Возвращает flow объект расписания репозитория.
      */
-    @Query("SELECT * FROM schedule_entries WHERE id == :id LIMIT 1")
+    @Query("SELECT * FROM repository_schedule_entries WHERE id == :id LIMIT 1")
     fun getScheduleEntry(id: Int): Flow<ScheduleEntry?>
 
     /**
      * Возвращает, содержит ли категория расписания.
      */
-    @Query("SELECT EXISTS(SELECT * FROM schedule_entries WHERE category = :category)")
+    @Query("SELECT EXISTS(SELECT * FROM repository_schedule_entries WHERE category = :category)")
     suspend fun isScheduleCategory(category: Int?): Boolean
 
     /**
      * Возвращает, является ли репозиторий пустым.
      */
-    @Query("SELECT NOT EXISTS(SELECT * FROM schedule_entries)")
+    @Query("SELECT NOT EXISTS(SELECT * FROM repository_schedule_entries)")
     suspend fun isRepositoryEmpty(): Boolean
 
     /**
@@ -58,13 +58,13 @@ interface RepositoryDao {
     /**
      * Удаляет все категории удаленного репозитория из БД
      */
-    @Query("DELETE FROM category_entries")
+    @Query("DELETE FROM repository_category_entries")
     suspend fun clearCategoryEntries()
 
     /**
      * Удаляет все расписания удаленного репозитория из БД.
      */
-    @Query("DELETE FROM schedule_entries")
+    @Query("DELETE FROM repository_schedule_entries")
     suspend fun clearScheduleEntries()
 
     /**

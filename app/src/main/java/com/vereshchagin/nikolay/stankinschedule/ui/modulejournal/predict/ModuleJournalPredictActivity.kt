@@ -15,6 +15,7 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityModuleJournalPredictBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.predict.paging.PredictDisciplineAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import com.vereshchagin.nikolay.stankinschedule.utils.delegates.ActivityDelegate
 import java.util.*
 
 /**
@@ -26,7 +27,7 @@ class ModuleJournalPredictActivity : AppCompatActivity() {
         ModuleJournalPredictViewModel.Factory(application)
     }
 
-    private lateinit var statefulLayout: StatefulLayout2
+    private var statefulLayout: StatefulLayout2 by ActivityDelegate()
     private lateinit var binding: ActivityModuleJournalPredictBinding
 
     /**
@@ -51,7 +52,6 @@ class ModuleJournalPredictActivity : AppCompatActivity() {
             .init(StatefulLayout2.LOADING, binding.predictLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.predictRecyclerView)
             .addView(StatefulLayout2.EMPTY, binding.predictNoDisciplines)
-            .setOwner(this)
             .create()
 
         setContentView(binding.root)

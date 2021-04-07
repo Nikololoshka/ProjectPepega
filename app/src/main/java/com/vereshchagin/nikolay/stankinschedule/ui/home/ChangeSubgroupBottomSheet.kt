@@ -1,7 +1,5 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.home
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vereshchagin.nikolay.stankinschedule.R
@@ -16,7 +16,9 @@ import com.vereshchagin.nikolay.stankinschedule.databinding.DialogChangeSubgroup
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 
-
+/**
+ * BottomSheetDialog для изменения подгруппы на главной странице.
+ */
 class ChangeSubgroupBottomSheet : BottomSheetDialogFragment(), View.OnClickListener {
 
     private var _binding: DialogChangeSubgroupBinding? = null
@@ -72,12 +74,12 @@ class ChangeSubgroupBottomSheet : BottomSheetDialogFragment(), View.OnClickListe
 
         ApplicationPreference.setSubgroup(requireContext(), subgroup)
         ApplicationPreference.setDisplaySubgroup(requireContext(), binding.showSubgroup.isChecked)
-        setResult(Intent())
 
+        setFragmentResult(REQUEST_CHANGE_SUBGROUP, bundleOf())
         dismiss()
     }
 
-    private fun setResult(intent: Intent) {
-        targetFragment?.onActivityResult(targetRequestCode, Activity.RESULT_OK, intent)
+    companion object {
+        const val REQUEST_CHANGE_SUBGROUP = "request_change_subgroup"
     }
 }

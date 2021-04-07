@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.lifecycle.*
 import androidx.paging.*
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewDay
@@ -49,8 +50,7 @@ class ScheduleViewViewModel(
      * Репозиторий с расписанием.
      */
     private val repository = ScheduleRepository(application)
-    var schedule: Schedule? = null
-        private set
+    private var schedule: Schedule? = null
 
     /**
      * LiveData с днями расписания.
@@ -151,6 +151,43 @@ class ScheduleViewViewModel(
         viewModelScope.launch {
             repository.saveToDevice(scheduleName, uri, getApplication())
         }
+    }
+
+    /**
+     * Дата начала расписания
+     */
+    fun startDate(): LocalDate? {
+        return schedule?.startDate()
+    }
+
+    /**
+     * Дата конца расписания.
+     */
+    fun endDate(): LocalDate? {
+        return schedule?.endDate()
+    }
+
+    /**
+     * Является ли текущие расписание синхронизированным.
+     */
+    fun isSynced(): Boolean {
+        return schedule?.info?.synced ?: false
+    }
+
+    /**
+     * Отключает синхронизацию расписания.
+     */
+    fun disableScheduleSynced() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.toggleScheduleSyncState(scheduleName, false)
+        }
+    }
+
+    /**
+     * Возвращает информацию о расписании.
+     */
+    fun info(): ScheduleItem? {
+        return schedule?.info
     }
 
     fun actionComplete() {

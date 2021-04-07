@@ -96,15 +96,14 @@ class Schedule(
      * Возвращает список всех дисциплин в расписании.
      */
     fun disciplines(): List<String> {
-        val disciplines = arrayListOf<String>()
+        val disciplines = mutableSetOf<String>()
         for (day in days.values) {
             for (pair in day.pairs) {
                 disciplines.add(pair.title)
             }
         }
 
-        disciplines.sort()
-        return disciplines
+        return disciplines.sorted()
     }
 
     /**

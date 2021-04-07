@@ -12,7 +12,6 @@ import org.junit.Test
 class PairTest {
 
     private val gson = GsonBuilder()
-        .registerTypeAdapter(Pair::class.java, Pair.Deserializer())
         .registerTypeAdapter(Pair::class.java, Pair.Serializer())
         .setPrettyPrinting()
         .create()

@@ -97,6 +97,12 @@
     <string name="repository_info_background">Repository information background</string>
     <string name="repository_not_result">Not result</string>
     <string name="repository_schedule_sync">Schedule synchronization button</string>
+    <string name="repository_schedule_exist">Schedule already exists</string>
+    <string name="repository_schedule_exist_description">Schedule with the name \'%1$s\' already exists</string>
+    <string name="repository_schedule_replace">Replace</string>
+    <string name="repository_schedule_change">Select name</string>
+    <string name="repository_schedule_synced">The schedule is synchronized</string>
+
 
     <!-- schedules view -->
     <string name="sch_view">Schedule View</string>
@@ -120,6 +126,14 @@
     <string name="sch_view_go_to">Go to</string>
     <string name="sch_view_go_to_schedule_start">Schedule start</string>
     <string name="sch_view_go_to_schedule_end">End of schedule</string>
+    <string name="sch_view_edit">Edit schedule</string>
+    <string name="sch_view_not_edit">Schedule cannot be edited</string>
+    <string name="sch_info">Schedule info</string>
+    <string name="sch_info_description">Name: %1$s\nStatus: %2$s</string>
+    <string name="sch_synced">synchronized</string>
+    <string name="sch_not_synced">not synchronized</string>
+    <string name="sch_off_sync">Disable synchronization</string>
+    <string name="sch_off_sync_description">Are you sure you want to turn off syncing? The schedule will not be automatically updated, however, it can be edited.</string>
 
     <!-- pair editor -->
     <string name="pair_editor_title">Title</string>
@@ -165,6 +179,7 @@
     <string name="schedule_editor_lectures">Lectures</string>
     <string name="schedule_editor_seminars">Seminars</string>
     <string name="schedule_editor_labs">Laboratory work</string>
+    <string name="schedule_editor_appbar">Edit: %1$s</string>
 
     <!-- news -->
     <string name="news">News</string>
@@ -301,5 +316,6 @@
     <string name="retry">Retry</string>
     <string name="undo">Undo</string>
     <string name="exit">Exit</string>
+    <string name="details">More details</string>
 
 </resources>

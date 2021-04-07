@@ -189,6 +189,8 @@ class MainActivity : AppCompatActivity() {
         _appUpdateManager = null
     }
 
+    // onActivityResult используется для in-app updates
+    @Suppress("DEPRECATION")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -275,7 +277,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun checkAppUpdate() {
         val lastUpdate = ApplicationPreference.updateAppTime(this)
-        if (lastUpdate != null && Hours.hoursBetween(lastUpdate, DateTime.now()).hours < 24) {
+        if (lastUpdate != null && Hours.hoursBetween(lastUpdate, DateTime.now()).hours < 48) {
             return
         }
 

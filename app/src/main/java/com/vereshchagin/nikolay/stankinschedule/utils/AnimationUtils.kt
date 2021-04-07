@@ -4,8 +4,8 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateInterpolator
 import android.view.animation.Interpolator
-import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.transition.Fade
 import androidx.transition.TransitionManager
 
@@ -16,14 +16,14 @@ object AnimationUtils {
         PROPERTY
     }
 
-    private const val DEFAULT_DURATION = 300L
+    private const val DEFAULT_DURATION = 200L
 
     fun fade(
         view: View,
         fadeIn: Boolean,
         type: Type = Type.PROPERTY,
         duration: Long = DEFAULT_DURATION,
-        interpolator: Interpolator = FastOutSlowInInterpolator()
+        interpolator: Interpolator = AccelerateInterpolator(2.0F)
     ) {
         when (type) {
             Type.TRANSITION -> fadeTransition(view, fadeIn, duration, interpolator)

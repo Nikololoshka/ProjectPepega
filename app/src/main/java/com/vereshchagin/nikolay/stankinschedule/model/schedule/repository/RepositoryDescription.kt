@@ -19,5 +19,5 @@ class RepositoryDescription(
         return lastDate.toString("dd.MM.yyyy")
     }
 
-    fun isValid() = Hours.hoursBetween(date, DateTime.now()).hours < 2
+    fun isValid() = Hours.hoursBetween(date, DateTime.now()).hours < 12
 }

@@ -11,7 +11,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.PairTypeCo
  * Пара в расписании.
  */
 @Entity(
-    tableName = "pairs",
+    tableName = "schedule_pairs",
     foreignKeys = [
         ForeignKey(
             entity = ScheduleItem::class,

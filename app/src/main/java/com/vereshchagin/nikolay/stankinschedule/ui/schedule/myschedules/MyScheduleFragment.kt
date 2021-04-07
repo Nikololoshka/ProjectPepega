@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -45,7 +44,7 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
         MyScheduleViewModel.Factory(requireActivity().application)
     }
 
-    private var statefulLayout by FragmentDelegate<StatefulLayout2>()
+    private var stateful by FragmentDelegate<StatefulLayout2>()
 
     private var itemTouchHelper by FragmentDelegate<ItemTouchHelper>()
     private var adapter by FragmentDelegate<SchedulesAdapter>()
@@ -86,10 +85,16 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
         }
     }
 
+    /**
+     * Лаунчер для получения разрешения на чтение.
+     */
     private val permissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission(), this::onReadPermission
     )
 
+    /**
+     * Лаунчер для выбора расписания с устройства.
+     */
     private val pickFileLauncher = registerForActivityResult(
         ActivityResultContracts.OpenDocument(), this::onScheduleLoadFromDevice
     )
@@ -113,8 +118,9 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        statefulLayout = StatefulLayout2.Builder(binding.schedulesContainer)
-            .init(StatefulLayout2.CONTENT, binding.schedules)
+        stateful = StatefulLayout2.Builder(binding.schedulesContainer)
+            .init(StatefulLayout2.LOADING, binding.schedulesLoading)
+            .addView(StatefulLayout2.CONTENT, binding.schedules)
             .addView(StatefulLayout2.EMPTY, binding.emptySchedules)
             .create()
 
@@ -180,22 +186,22 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
         })
 
         // расписания
-        viewModel.schedules.observe(viewLifecycleOwner) {
+        viewModel.schedules.observe(this) {
             val schedules = it ?: return@observe
 
             if (schedules.isEmpty()) {
-                statefulLayout.setState(StatefulLayout2.EMPTY)
+                stateful.setState(StatefulLayout2.EMPTY)
             } else {
                 adapter.submitList(schedules)
-                statefulLayout.setState(StatefulLayout2.CONTENT)
+                stateful.setState(StatefulLayout2.CONTENT)
             }
         }
 
-        viewModel.favorite.observe(viewLifecycleOwner) {
+        viewModel.favorite.observe(this) {
             adapter.submitFavorite(it)
         }
 
-        viewModel.selectedItems.observe(viewLifecycleOwner) {
+        viewModel.selectedItems.observe(this) {
             val selectedItems = it ?: return@observe
             adapter.setSelectedItems(selectedItems)
         }
@@ -212,7 +218,6 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Log.d(TAG, "onSaveInstanceState: " + (actionMode != null))
         outState.putBoolean(ACTION_MODE, actionMode != null)
     }
 
@@ -230,6 +235,9 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
         return super.onOptionsItemSelected(item)
     }
 
+    /**
+     * Вызывается, когда выбран способ добавления расписания.
+     */
     private fun onScheduleAddClicked(key: String, bundle: Bundle) {
         if (key == AddScheduleBottomSheet.REQUEST_ADD_SCHEDULE) {
             when (bundle.getInt(AddScheduleBottomSheet.SCHEDULE_ACTION, -1)) {
@@ -249,6 +257,9 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
         }
     }
 
+    /**
+     * Вызывается, когда необходимо создать новое расписание.
+     */
     private fun onScheduleCreateClicked(key: String, bundle: Bundle) {
         if (key == ScheduleNameEditorDialog.REQUEST_SCHEDULE_NAME) {
             val scheduleName = bundle.getString(ScheduleNameEditorDialog.SCHEDULE_NAME)
@@ -258,6 +269,9 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
         }
     }
 
+    /**
+     * Загрузка расписания с устройства.
+     */
     private fun onScheduleLoadFromDevice(uri: Uri?) {
         var scheduleName = ""
         try {
@@ -323,6 +337,9 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
         }
     }
 
+    /**
+     * Вызывается, когда получили разрешения на чтение расписания из вне.
+     */
     private fun onReadPermission(hasPermission: Boolean) {
         if (hasPermission) {
             pickFileLauncher.launch(arrayOf("application/json"))
@@ -343,8 +360,6 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
     private fun startActionMode(position: Int = -1, isRestore: Boolean = false) {
         if (actionMode == null) {
             actionMode = (activity as AppCompatActivity?)?.startSupportActionMode(actionCallback)
-
-            Log.d(TAG, "startActionMode: ")
 
             adapter.setEditable(true)
             binding.addSchedule.hide()

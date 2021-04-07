@@ -29,6 +29,7 @@ import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityNewsViewerBi
 import com.vereshchagin.nikolay.stankinschedule.databinding.ViewErrorWithButtonBinding
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.utils.*
+import com.vereshchagin.nikolay.stankinschedule.utils.delegates.ActivityDelegate
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -47,9 +48,9 @@ class NewsViewerActivity : AppCompatActivity() {
     /**
      * Glide для загрузки фото новости.
      */
-    private lateinit var glide: RequestManager
+    private var glide: RequestManager by ActivityDelegate()
 
-    private lateinit var stateful: StatefulLayout2
+    private var stateful: StatefulLayout2 by ActivityDelegate()
     private lateinit var binding: ActivityNewsViewerBinding
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -61,7 +62,6 @@ class NewsViewerActivity : AppCompatActivity() {
             .init(StatefulLayout2.LOADING, binding.newsLoading.root)
             .addView(StatefulLayout2.ERROR, binding.newsError)
             .addView(StatefulLayout2.CONTENT, binding.newsView)
-            .setOwner(this)
             .create()
 
         setContentView(binding.root)

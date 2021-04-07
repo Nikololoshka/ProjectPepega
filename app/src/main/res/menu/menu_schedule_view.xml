@@ -2,23 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/edit_schedule"
-        android:icon="@drawable/ic_menu_edit_button"
-        android:title="Edit schedule"
-        app:showAsAction="ifRoom|withText" />
-
-    <item
-        android:id="@+id/add_pair"
-        android:icon="@drawable/ic_menu_add_button"
-        android:title="@string/sch_view_add_pair"
-        app:showAsAction="ifRoom|withText" />
 
     <item
         android:id="@+id/go_to_day"
         android:icon="@drawable/ic_menu_go_to_day_button"
         android:title="@string/sch_view_go_to_day"
         app:showAsAction="ifRoom|withText" />
+
+    <item
+        android:id="@+id/edit_schedule"
+        android:icon="@drawable/ic_menu_edit_button"
+        android:title="@string/sch_view_edit" />
+
+    <item
+        android:id="@+id/add_pair"
+        android:icon="@drawable/ic_menu_add_button"
+        android:title="@string/sch_view_add_pair" />
 
     <item android:title="@string/sch_view_go_to">
 
@@ -47,5 +46,9 @@
         android:id="@+id/remove_schedule"
         android:icon="@drawable/ic_menu_delete_button"
         android:title="@string/sch_remove" />
+
+    <item
+        android:id="@+id/schedule_info"
+        android:title="@string/sch_info" />
 
 </menu>

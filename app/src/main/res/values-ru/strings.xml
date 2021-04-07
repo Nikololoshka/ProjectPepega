@@ -89,6 +89,11 @@
     <string name="repository_info_background">Фон информации репозитория</string>
     <string name="repository_not_result">Нет результата</string>
     <string name="repository_schedule_sync">Кнопка синхронизации расписания</string>
+    <string name="repository_schedule_exist">Расписание уже существует</string>
+    <string name="repository_schedule_exist_description">Расписание с данным названием \'%1$s\' уже существует</string>
+    <string name="repository_schedule_replace">Заменить</string>
+    <string name="repository_schedule_change">Выбрать название</string>
+    <string name="repository_schedule_synced">Расписание синхронизировано</string>
 
     <!-- schedules view -->
     <string name="sch_view">Просмотр расписания</string>
@@ -112,6 +117,13 @@
     <string name="sch_view_go_to">Перейти к</string>
     <string name="sch_view_go_to_schedule_start">Началу расписания</string>
     <string name="sch_view_go_to_schedule_end">Концу расписания</string>
+    <string name="sch_view_edit">Редактировать расписание</string>
+    <string name="sch_info">О расписании</string>
+    <string name="sch_info_description">Название: %1$s\nСтатус: %2$s</string>
+    <string name="sch_synced">синхронизованно</string>
+    <string name="sch_not_synced">не синхронизованно</string>
+    <string name="sch_off_sync">Отключить синхронизацию</string>
+    <string name="sch_off_sync_description">Вы уверены, что хотите отключить синхронизацию? Расписание не будет автоматически обновляться, однако, его можно будет редактировать.</string>
 
     <!-- pair editor -->
     <string name="pair_editor_title">Название</string>
@@ -157,6 +169,8 @@
     <string name="schedule_editor_lectures">Лекции</string>
     <string name="schedule_editor_seminars">Семинары</string>
     <string name="schedule_editor_labs">Лабораторные работы</string>
+    <string name="schedule_editor_appbar">Редактируется: %1$s</string>
+    <string name="sch_view_not_edit">Расписание нельзя редактировать</string>
 
     <!-- news -->
     <string name="news">Новости</string>
@@ -289,5 +303,6 @@
     <string name="retry">Повторить</string>
     <string name="undo">Отмена</string>
     <string name="exit">Выйти</string>
+    <string name="details">Подробнее</string>
 
 </resources>

@@ -1,7 +1,5 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.home
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.viewModels
@@ -18,14 +16,14 @@ import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivit
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 
 /**
  * Фрагмент главной страницы.
  */
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
 
-    private var _scheduleStateful: StatefulLayout2? = null
-    private val scheduleStateful get() = _scheduleStateful!!
+    private var scheduleStateful: StatefulLayout2 by FragmentDelegate()
 
     private val viewModel by viewModels<HomeViewModel> {
         HomeViewModel.Factory(activity?.application!!)
@@ -45,12 +43,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-        _scheduleStateful = StatefulLayout2(
-            binding.scheduleLayout,
-            StatefulLayout2.LOADING, binding.scheduleLoading.root
-        )
-        scheduleStateful.addView(StatefulLayout2.EMPTY, binding.noFavoriteSchedule)
-        scheduleStateful.addView(StatefulLayout2.CONTENT, binding.schedulePager)
+        scheduleStateful = StatefulLayout2.Builder(binding.scheduleLayout)
+            .init(StatefulLayout2.LOADING, binding.scheduleLoading.root)
+            .addView(StatefulLayout2.EMPTY, binding.noFavoriteSchedule)
+            .addView(StatefulLayout2.CONTENT, binding.schedulePager)
+            .create()
 
         // нажатие по заголовкам
         binding.scheduleName.setOnClickListener(this)
@@ -91,6 +88,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
             adapter.submitList(it)
         })
 
+        parentFragmentManager.setFragmentResultListener(
+            ChangeSubgroupBottomSheet.REQUEST_CHANGE_SUBGROUP, this, this::onScheduleSubgroupChanged
+        )
+
         trackScreen(TAG, MainActivity.TAG)
     }
 
@@ -107,7 +108,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.change_subgroup) {
             val dialog = ChangeSubgroupBottomSheet()
-            dialog.setTargetFragment(this, REQUEST_SUBGROUP)
             dialog.show(parentFragmentManager, dialog.tag)
             return true
         }
@@ -115,16 +115,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (resultCode != Activity.RESULT_OK || data == null) {
-            return
-        }
-
-        if (requestCode == REQUEST_SUBGROUP) {
-            viewModel.updateSchedule()
-        }
+    @Suppress("UNUSED_PARAMETER")
+    private fun onScheduleSubgroupChanged(key: String, bundle: Bundle) {
+        viewModel.updateSchedule()
     }
 
     override fun onClick(v: View?) {
@@ -152,11 +145,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _scheduleStateful = null
-    }
-
     private fun onNewsClick(newsId: Int, newsTitle: String?) {
         val intent = NewsViewerActivity.newsIntent(requireContext(), newsId, newsTitle)
         startActivity(intent)
@@ -164,7 +152,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
 
     companion object {
         private const val TAG = "HomeFragment"
-
-        private const val REQUEST_SUBGROUP = 1
     }
 }

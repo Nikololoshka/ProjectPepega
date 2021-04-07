@@ -50,7 +50,7 @@ class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBindin
         val adapter = RepositoryItemAdapter(this::onRepositoryItemClicked)
         binding.categoryItems.adapter = adapter
 
-        viewModel.categories.observe(viewLifecycleOwner) {
+        viewModel.categories.observe(this) {
             val data = it ?: return@observe
             adapter.submitData(lifecycle, data)
             stateful.setState(StatefulLayout2.CONTENT)

@@ -4,12 +4,13 @@ import androidx.paging.PagingData
 import androidx.room.*
 import com.google.gson.annotations.SerializedName
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.ScheduleVersionConverter
+import org.joda.time.LocalDate
 
 /**
  * Объект расписания с версиями в удаленном репозитории.
  */
 @Entity(
-    tableName = "schedule_entries",
+    tableName = "repository_schedule_entries",
     foreignKeys = [
         ForeignKey(
             entity = CategoryEntry::class,
@@ -40,8 +41,10 @@ class ScheduleEntry(
      * Возвращает PagingData версий расписания для загрузки.
      */
     fun versionEntries(): PagingData<ScheduleVersionEntry> {
-        return PagingData.from(versions.map { version ->
-            ScheduleVersionEntry(name, version.path, version.date)
-        })
+        return PagingData.from(
+            versions
+                .sortedByDescending { LocalDate.parse(it.date) }
+                .map { version -> ScheduleVersionEntry(name, version.path, version.date) }
+        )
     }
 }

@@ -118,11 +118,10 @@ class ScheduleRemoteRepository(
         dao.insertRepositoryResponse(response)
     }
 
-    suspend fun downloadSchedule(scheduleName: String, path: String) {
+    suspend fun downloadSchedule(path: String): ScheduleResponse {
         val scheduleRef = storageReference(SCHEDULES_JSON, VERSION, ITEMS, path)
         val scheduleUri = scheduleRef.downloadUrl.await()
-        val response = api.schedule(scheduleUri.toString()).await()
-        db.schedules().insertScheduleResponse(scheduleName, response)
+        return api.schedule(scheduleUri.toString()).await()
     }
 
     private fun storageReference(vararg paths: String): StorageReference {
