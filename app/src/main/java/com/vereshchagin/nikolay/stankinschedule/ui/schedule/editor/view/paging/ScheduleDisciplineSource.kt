@@ -1,13 +1,14 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging
 
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.editor.ScheduleEditorDiscipline
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
 
 /**
- *
+ * Источник данных дисциплин для редактирования в расписании.
  */
 class ScheduleDisciplineSource(
     private val schedule: Schedule,
@@ -45,5 +46,11 @@ class ScheduleDisciplineSource(
             disciplines.getOrNull(index - 1),
             disciplines.getOrNull(index + 1)
         )
+    }
+
+    override fun getRefreshKey(state: PagingState<String, ScheduleEditorDiscipline>): String? {
+        return state.anchorPosition?.let { anchorPosition ->
+            disciplines[anchorPosition]
+        }
     }
 }

@@ -4,6 +4,7 @@ import android.util.SparseBooleanArray
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.viewholder.ScheduleItemHolder
 import java.util.*
 
 /**
@@ -22,7 +23,7 @@ class SchedulesAdapter(
     /**
      * Список с расписаниями.
      */
-    var schedules: List<ScheduleItem> = listOf()
+    var schedules: MutableList<ScheduleItem> = mutableListOf()
         private set
 
     /**
@@ -50,8 +51,10 @@ class SchedulesAdapter(
 
     override fun onBindViewHolder(holder: ScheduleItemHolder, position: Int) {
         val item = schedules[position]
-        holder.bind(item.scheduleName, item.scheduleName == favorite, isAnimateFavoriteButton,
-            selectedItems.get(position, false), isEditable)
+        holder.bind(
+            item, item.scheduleName == favorite, isAnimateFavoriteButton,
+            selectedItems.get(position, false), isEditable
+        )
     }
 
     /**
@@ -75,7 +78,7 @@ class SchedulesAdapter(
      * Устанавливает новый список с расписанием.
      */
     fun submitList(schedules: List<ScheduleItem>) {
-        this.schedules = schedules
+        this.schedules = schedules.toMutableList()
         notifyDataSetChanged()
     }
 

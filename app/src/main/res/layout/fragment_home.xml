@@ -48,12 +48,34 @@
                         android:layout_height="wrap_content"
                         android:animateLayoutChanges="true">
 
-                        <include
+                        <com.facebook.shimmer.ShimmerFrameLayout
                             android:id="@+id/schedule_loading"
-                            layout="@layout/view_loading"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/default_layout_padding" />
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:divider="@drawable/divider"
+                                android:showDividers="middle"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="@dimen/shimmer_extreme"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:textSize="16sp"
+                                    android:background="@drawable/background_shimmer" />
+
+                                <include
+                                    layout="@layout/view_pair_card_shimmer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+
+                            </LinearLayout>
+
+                        </com.facebook.shimmer.ShimmerFrameLayout>
+
 
                         <com.vereshchagin.nikolay.stankinschedule.ui.home.schedule.HomePager
                             android:id="@+id/schedule_pager"

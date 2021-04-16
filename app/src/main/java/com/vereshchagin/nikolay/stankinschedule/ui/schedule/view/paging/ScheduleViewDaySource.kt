@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging
 
 import android.util.Log
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import org.joda.time.LocalDate
@@ -93,11 +94,7 @@ class ScheduleViewDaySource(
         return currentDate.minusDays(pageSize)
     }
 
-//    @ExperimentalPagingApi
-//    override fun getRefreshKey(state: PagingState<LocalDate, ScheduleViewDay>): LocalDate? {
-//        Log.d("ScheduleViewSourceLog", "getRefreshKey: $state")
-//        return state.anchorPosition?.let { anchorPosition ->
-//            state.closestItemToPosition(anchorPosition)?.day
-//        }
-//    }
+    override fun getRefreshKey(state: PagingState<LocalDate, ScheduleViewDay>): LocalDate? {
+        return null
+    }
 }

@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging
+package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.viewholder
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -9,6 +9,9 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemScheduleBinding
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setVisibility
 
 /**
@@ -40,14 +43,16 @@ class ScheduleItemHolder(
      * Устанавливает данные в holder.
      */
     fun bind(
-        name: String,
+        item: ScheduleItem,
         isFavorite: Boolean,
         isAnimateFavoriteButton: Boolean,
         isActive: Boolean,
         isEditable: Boolean
     ) {
-        binding.scheduleInfo.text = name
+        binding.scheduleInfo.text = item.scheduleName
         setActiveState(isActive, isEditable)
+
+        binding.scheduleSync.setVisibility(item.synced)
 
         val animate = isFavorite && isAnimateFavoriteButton
         binding.favoriteSchedule.setToggle(isFavorite, animate)

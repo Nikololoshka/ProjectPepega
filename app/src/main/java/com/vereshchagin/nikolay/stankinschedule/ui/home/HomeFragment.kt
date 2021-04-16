@@ -44,10 +44,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         scheduleStateful = StatefulLayout2.Builder(binding.scheduleLayout)
-            .init(StatefulLayout2.LOADING, binding.scheduleLoading.root)
+            .init(StatefulLayout2.LOADING, binding.scheduleLoading)
             .addView(StatefulLayout2.EMPTY, binding.noFavoriteSchedule)
             .addView(StatefulLayout2.CONTENT, binding.schedulePager)
             .create()
+
+        scheduleStateful.isAnimated = false
+        binding.scheduleLoading.setShimmer(DrawableUtils.createShimmer())
 
         // нажатие по заголовкам
         binding.scheduleName.setOnClickListener(this)

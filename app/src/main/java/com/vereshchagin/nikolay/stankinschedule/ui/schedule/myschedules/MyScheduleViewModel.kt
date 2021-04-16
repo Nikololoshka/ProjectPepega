@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules
 
 import android.app.Application
+import android.util.Log
 import android.util.SparseBooleanArray
 import androidx.core.util.forEach
 import androidx.lifecycle.*
@@ -36,6 +37,7 @@ class MyScheduleViewModel(application: Application) : AndroidViewModel(applicati
                 .collect { list ->
                     synchronized(currentSchedules) {
                         val isDiff = compareDifference(currentSchedules, list)
+                        Log.d("MyLog", "collect: $currentSchedules")
                         if (isDiff) {
                             schedules.postValue(currentSchedules)
                         }
@@ -116,16 +118,21 @@ class MyScheduleViewModel(application: Application) : AndroidViewModel(applicati
      */
     fun moveSchedule(fromPosition: Int, toPosition: Int) {
         synchronized(currentSchedules) {
+            Log.d("MyLog", "moveSchedule 1: $currentSchedules")
             Collections.swap(currentSchedules, fromPosition, toPosition)
+            Log.d("MyLog", "moveSchedule 2: $currentSchedules")
         }
     }
 
     fun actionModeCompleted() {
         viewModelScope.launch(Dispatchers.IO) {
+            Log.d("MyLog", "actionModeCompleted 1: $currentSchedules")
             synchronized(currentSchedules) {
                 currentSchedules.forEachIndexed { index, item -> item.position = index }
             }
+            Log.d("MyLog", "actionModeCompleted 2: $currentSchedules")
             repository.updateScheduleItems(currentSchedules)
+            Log.d("MyLog", "actionModeCompleted 3: $currentSchedules")
         }
     }
 

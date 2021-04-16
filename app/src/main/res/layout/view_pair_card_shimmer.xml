@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorCardViewBackground"
+    android:orientation="horizontal"
+    android:padding="@dimen/pair_card_padding">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pair_card_start"
+            android:layout_width="@dimen/shimmer_medium"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:textSize="18sp"
+            android:background="@drawable/background_shimmer"
+            android:layout_marginBottom="3dp" />
+
+        <TextView
+            android:id="@+id/pair_card_end"
+            android:layout_width="@dimen/shimmer_medium"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:background="@drawable/background_shimmer" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/pair_card_title"
+            android:layout_width="@dimen/shimmer_extreme"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:paddingStart="3dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="3dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="16sp"
+            android:background="@drawable/background_shimmer" />
+
+        <TextView
+            android:id="@+id/pair_card_lecturer"
+            android:layout_width="@dimen/shimmer_xx_large"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pair_card_title"
+            android:layout_alignStart="@id/pair_card_title"
+            android:layout_marginBottom="5dp"
+            android:maxWidth="180dp"
+            android:paddingStart="3dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="3dp"
+            android:paddingBottom="3dp"
+            android:textSize="14sp"
+            android:background="@drawable/background_shimmer" />
+
+        <TextView
+            android:id="@+id/pair_card_classroom"
+            android:layout_width="@dimen/shimmer_small"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pair_card_title"
+            android:layout_alignBottom="@id/pair_card_lecturer"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="3dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="3dp"
+            android:paddingBottom="3dp"
+            android:textAlignment="textEnd"
+            android:textSize="14sp"
+            android:background="@drawable/background_shimmer" />
+
+        <TextView
+            android:id="@+id/pair_card_type"
+            android:layout_width="@dimen/shimmer_xxx_large"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pair_card_lecturer"
+            android:layout_alignStart="@id/pair_card_title"
+            android:includeFontPadding="false"
+            android:padding="3dp"
+            android:textSize="14sp"
+            android:background="@drawable/background_shimmer" />
+
+    </RelativeLayout>
+
+</LinearLayout>

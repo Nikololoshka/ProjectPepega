@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging
 
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.repository.ModuleJournalRepository
 
@@ -36,9 +37,9 @@ class SemesterMarksSource(
         }
     }
 
-//    override fun getRefreshKey(state: PagingState<String, SemesterMarks>): String? {
-//        return state.anchorPosition?.let { anchorPosition ->
-//            semesters[anchorPosition]
-//        }
-//    }
+    override fun getRefreshKey(state: PagingState<String, SemesterMarks>): String? {
+        return state.anchorPosition?.let { anchorPosition ->
+            semesters[anchorPosition]
+        }
+    }
 }

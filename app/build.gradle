@@ -100,7 +100,7 @@ dependencies {
 
     // Paging and pager
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
-    implementation 'androidx.paging:paging-runtime-ktx:3.0.0-alpha12'
+    implementation 'androidx.paging:paging-runtime-ktx:3.0.0-beta03'
 
     // Work
     def work_version = "2.5.0"
