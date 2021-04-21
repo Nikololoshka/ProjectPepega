@@ -24,6 +24,8 @@ import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.appbar.AppBarLayout
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityNewsViewerBinding
 import com.vereshchagin.nikolay.stankinschedule.databinding.ViewErrorWithButtonBinding
@@ -144,7 +146,15 @@ class NewsViewerActivity : AppCompatActivity() {
         binding.newsView.webChromeClient = object : WebChromeClient() {
             override fun onConsoleMessage(consoleMessage: ConsoleMessage?): Boolean {
                 consoleMessage?.apply {
-                    Toast.makeText(this@NewsViewerActivity, message(), Toast.LENGTH_LONG).show()
+                    if (messageLevel() == ConsoleMessage.MessageLevel.ERROR) {
+                        Toast.makeText(
+                            this@NewsViewerActivity,
+                            message().take(80) + Typography.ellipsis,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        Firebase.crashlytics.recordException(IllegalArgumentException(message()))
+                    }
                 }
                 return true
             }
@@ -154,7 +164,7 @@ class NewsViewerActivity : AppCompatActivity() {
         binding.newsView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(
                 view: WebView?,
-                request: WebResourceRequest?
+                request: WebResourceRequest?,
             ): Boolean {
                 CommonUtils.openBrowser(this@NewsViewerActivity, request?.url.toString())
                 return true
@@ -162,7 +172,7 @@ class NewsViewerActivity : AppCompatActivity() {
 
             override fun shouldInterceptRequest(
                 view: WebView?,
-                request: WebResourceRequest
+                request: WebResourceRequest,
             ): WebResourceResponse? {
                 return assetLoader.shouldInterceptRequest(request.url)
             }
@@ -198,7 +208,7 @@ class NewsViewerActivity : AppCompatActivity() {
                     .into(binding.newsPreview)
 
                 binding.newsView.loadDataWithBaseURL(
-                    null,
+                    "file:///android_asset/news/filename.html",
                     state.data.quillPage(),
                     "text/html; charset=UTF-8",
                     "UTF-8",

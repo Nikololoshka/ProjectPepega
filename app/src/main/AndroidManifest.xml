@@ -105,6 +105,7 @@
             android:name=".ui.news.viewer.NewsViewerActivity"
             android:label="@string/news_viewer"
             android:parentActivityName=".MainActivity"
+            android:configChanges="orientation"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
@@ -122,7 +123,7 @@
 
         <activity
             android:name=".ui.modulejournal.predict.ModuleJournalPredictActivity"
-            android:label="Predict rating"
+            android:label="@string/predict_rating"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 

@@ -6,6 +6,8 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.NavDeepLinkBuilder
 import androidx.work.*
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.MarkType
@@ -25,6 +27,8 @@ class ModuleJournalWorker(
     override suspend fun doWork(): Result {
         val repository = ModuleJournalRepository(applicationContext.cacheDir)
         val manager = NotificationManagerCompat.from(applicationContext)
+
+        Firebase.crashlytics.log("Start module journal update")
 
         try {
             val semester = checkStudentData(repository, manager, NOTIFICATION_ID)
