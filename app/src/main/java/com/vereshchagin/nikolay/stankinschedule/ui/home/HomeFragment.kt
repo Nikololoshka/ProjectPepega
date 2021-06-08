@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.viewModels
@@ -11,6 +12,7 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.TestActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.home.news.NewsPostLatestAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
@@ -87,9 +89,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         binding.newsLatest.addItemDecoration(itemDecoration)
 
         // новости
-        viewModel.newsData.observe(viewLifecycleOwner, {
+        viewModel.newsData.observe(viewLifecycleOwner) {
             adapter.submitList(it)
-        })
+        }
 
         parentFragmentManager.setFragmentResultListener(
             ChangeSubgroupBottomSheet.REQUEST_CHANGE_SUBGROUP, this, this::onScheduleSubgroupChanged
@@ -112,6 +114,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
         if (item.itemId == R.id.change_subgroup) {
             val dialog = ChangeSubgroupBottomSheet()
             dialog.show(parentFragmentManager, dialog.tag)
+            return true
+        }
+
+        // test
+        if (item.itemId == R.id.test) {
+            startActivity(Intent(requireContext(), TestActivity::class.java))
             return true
         }
 

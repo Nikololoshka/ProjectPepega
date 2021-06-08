@@ -132,6 +132,11 @@
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".ui.TestActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>
