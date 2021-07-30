@@ -1,46 +1,59 @@
 package com.vereshchagin.nikolay.stankinschedule.settings
 
 import android.content.Context
-import android.os.Build
-import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils
-import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils.Companion.formatDate
-import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils.Companion.parseDate
-import java.util.*
+import dagger.hilt.android.qualifiers.ApplicationContext
+import org.joda.time.DateTime
+import javax.inject.Inject
 
 /**
  * Класс-обертка для доступа к настройкам новостей.
+ *
+ * @param context контекст приложения.
  */
-object NewsPreference {
-
-    private const val NEW_PREFERENCE = "news_preference"
-    private const val NEWS_DATE = "news_date"
+class NewsPreference @Inject constructor(
+    @ApplicationContext context: Context
+) {
+    /**
+     * Объект для хранения настроек новостей.
+     */
+    private val preference = context.getSharedPreferences(NEWS_PREFERENCE, Context.MODE_PRIVATE)
 
     /**
-     * Возвращает время (если оно есть) последнего обновления новостей для источника.
+     * Возвращает время последнего обновления новостей для источника.
+     * Если такого нет, то возвращается null.
+     *
+     * @param newsSubdivision номер подразделения новостей.
      */
-    fun lastNewsUpdate(context: Context, newsSubdivision: Int): Calendar? {
-        val date = context.getSharedPreferences(NEW_PREFERENCE, Context.MODE_PRIVATE)
-            .getString(NEWS_DATE + "_" + newsSubdivision, null)
-        return if (date != null) parseDate(date, supportedDateFormat()) else null
+    fun lastNewsUpdate(newsSubdivision: Int): DateTime? {
+        return try {
+            val date = preference.getString("${NEWS_DATE}_$newsSubdivision", null)
+            DateTime.parse(date)
+        } catch (ignored: Exception) {
+            return null
+        }
     }
 
     /**
      * Устанавливает последнюю дату обновления новостей для источника.
+     *
+     * @param newsSubdivision номер подразделения новостей.
+     * @param date дата и время обновления.
      */
-    fun setNewsUpdate(context: Context, newsSubdivision: Int, date: Calendar) {
-        context.getSharedPreferences(NEW_PREFERENCE, Context.MODE_PRIVATE)
-            .edit()
-            .putString(NEWS_DATE + "_" + newsSubdivision, formatDate(date, supportedDateFormat()))
+    fun setNewsUpdate(newsSubdivision: Int, date: DateTime = DateTime.now()) {
+        preference.edit()
+            .putString("${NEWS_DATE}_$newsSubdivision", date.toString())
             .apply()
     }
 
-    /**
-     * Возвращает поддерживаемый тип формата даты.
-     */
-    private fun supportedDateFormat(): String {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return DateUtils.FULL_DATE_FORMAT
-        }
-        return DateUtils.FULL_DATE_FORMAT_API_23
+    companion object {
+        /**
+         * Название настроек новостей.
+         */
+        private const val NEWS_PREFERENCE = "news_preference"
+
+        /**
+         * Настройка с датой обновления новостей.
+         */
+        private const val NEWS_DATE = "news_date"
     }
 }

@@ -35,7 +35,8 @@ import org.joda.time.LocalDate
 /**
  * Фрагмент просмотра расписания.
  */
-class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
+class ScheduleViewFragment :
+    BaseFragment<FragmentScheduleViewBinding>(FragmentScheduleViewBinding::inflate) {
 
     /**
      * ViewModel фрагмента.
@@ -76,13 +77,6 @@ class ScheduleViewFragment : BaseFragment<FragmentScheduleViewBinding>() {
         setHasOptionsMenu(true)
     }
 
-    override fun onInflateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): FragmentScheduleViewBinding {
-        return FragmentScheduleViewBinding.inflate(inflater, container, false)
-    }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         statefulLayout = StatefulLayout2.Builder(binding.statefulLayout)

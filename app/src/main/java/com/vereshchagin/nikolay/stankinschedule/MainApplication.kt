@@ -6,18 +6,22 @@ import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import dagger.hilt.android.HiltAndroidApp
 
 /**
- * Singleton класс приложения.
+ * Класс приложения Stankin Schedule.
  */
+@HiltAndroidApp
 class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
+        // включение сбора ошибок
         val isCrashlytics = ApplicationPreference.firebaseCrashlytics(this)
         Firebase.crashlytics.setCrashlyticsCollectionEnabled(!BuildConfig.DEBUG && isCrashlytics)
 
+        // включение сбора аналитики
         val isAnalytics = ApplicationPreference.firebaseAnalytics(this)
         Firebase.analytics.setAnalyticsCollectionEnabled(isAnalytics)
 
@@ -30,12 +34,15 @@ class MainApplication : Application() {
      */
     fun updateDarkMode() {
         when (ApplicationPreference.currentDarkMode(this)) {
+            // по умолчанию
             ApplicationPreference.DARK_MODE_SYSTEM_DEFAULT -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
             }
+            // с учетом  режима энергосбережения
             ApplicationPreference.DARK_MODE_BATTERY_SAVER -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
             }
+            // ручное (приложение само контролирует)
             ApplicationPreference.DARK_MODE_MANUAL -> {
                 val isDark = ApplicationPreference.currentManualMode(this)
                 AppCompatDelegate.setDefaultNightMode(

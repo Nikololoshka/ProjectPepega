@@ -9,11 +9,8 @@ import com.vereshchagin.nikolay.stankinschedule.ui.BaseActivity
 /**
  * Активность удаленного репозитория.
  */
-class ScheduleRepositoryActivity : BaseActivity<ActivityRepositoryBinding>() {
-
-    override fun onInflateView(): ActivityRepositoryBinding {
-        return ActivityRepositoryBinding.inflate(layoutInflater)
-    }
+class ScheduleRepositoryActivity :
+    BaseActivity<ActivityRepositoryBinding>(ActivityRepositoryBinding::inflate) {
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         setSupportActionBar(binding.toolbar)

@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -31,19 +32,21 @@ import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.ShortcutsUtils
+import com.vereshchagin.nikolay.stankinschedule.utils.delegates.ActivityDelegate
+import dagger.hilt.android.AndroidEntryPoint
 import org.joda.time.DateTime
 import org.joda.time.Hours
 
 /**
  * Главная активность приложения.
  */
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     /**
      * Менеджер для проверки обновлений приложения.
      */
-    private var _appUpdateManager: AppUpdateManager? = null
-    private val appUpdateManager get() = _appUpdateManager!!
+    private var appUpdateManager: AppUpdateManager by ActivityDelegate()
 
     private lateinit var binding: ActivityMainBinding
 
@@ -56,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // настройка toolbar'а
+        // настройка toolbar
         val toolbar: MaterialToolbar = findViewById(R.id.toolbar)
         toolbar.setTitle(R.string.nav_home)
         setSupportActionBar(toolbar)
@@ -89,23 +92,19 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(toolbar, navController, configuration)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
 
-        // Bottom Navigation
-        bottomNavigationView.setupWithNavController(navController)
-        // Drawer
-        binding.navView.setupWithNavController(navController)
+        bottomNavigationView.setupWithNavController(navController) // Bottom Navigation
+        binding.navView.setupWithNavController(navController) // Drawer
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
+        navController.addOnDestinationChangedListener { _, dst, _ ->
             // скрываем / показываем нижнюю навигацию
             bottomNavigationView.visibility =
-                if (destination.parent?.id == R.id.settings_nav_graph ||
-                    destination.id == R.id.nav_about_fragment
-                ) {
+                if (dst.parent?.id == R.id.settings_nav_graph || dst.id == R.id.nav_about_fragment) {
                     View.GONE
                 } else {
                     View.VISIBLE
                 }
 
-            if (destination.id == R.id.nav_schedule_view_fragment) {
+            if (dst.id == R.id.nav_schedule_view_fragment) {
                 bottomNavigationView.menu.findItem(R.id.nav_schedule_fragment)?.isChecked = true
             }
         }
@@ -116,77 +115,21 @@ class MainActivity : AppCompatActivity() {
         binding.darkModeButton.setOnClickListener(this::onDarkModeButtonClicked)
         updateDarkModeButton()
 
-        // настройка уведомлений приложения
-        // android 8.0+
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // общего назначения
-            val channelCommon = NotificationChannel(
-                NotificationUtils.CHANNEL_COMMON,
-                getString(R.string.notification_common),
-                NotificationManager.IMPORTANCE_DEFAULT
-            )
-            channelCommon.description = getString(R.string.notification_common_description)
-            channelCommon.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
-            channelCommon.enableVibration(true)
-            channelCommon.enableLights(true)
+        // настройка уведомлений
+        setupNotifications()
 
-            // модульного журнала
-            val channelModuleJournal = NotificationChannel(
-                NotificationUtils.CHANNEL_MODULE_JOURNAL,
-                getString(R.string.notification_mj),
-                NotificationManager.IMPORTANCE_DEFAULT
-            )
-            channelModuleJournal.description = getString(R.string.notification_mj_description)
-            channelModuleJournal.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
-            channelModuleJournal.enableVibration(true)
-            channelModuleJournal.enableLights(true)
+        // настройка shortcuts
+        setupShortcuts(navController)
 
-            getSystemService(NotificationManager::class.java)?.let { manager ->
-                manager.createNotificationChannel(channelCommon)
-                manager.createNotificationChannel(channelModuleJournal)
-            }
-        }
-
-        _appUpdateManager = AppUpdateManagerFactory.create(this)
+        // проверка обновлений
+        appUpdateManager = AppUpdateManagerFactory.create(this)
         checkAppUpdate()
-
-        // настройка ярлыков (shortcuts)
-        // android 7.1+
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-            when (intent.action) {
-                // избранное расписание
-                ShortcutsUtils.FAVORITE_SHORTCUT -> {
-                    val scheduleName = ScheduleRepository.favorite(this)
-                    if (scheduleName != null) {
-                        navController.navigate(
-                            R.id.to_schedule_view_fragment,
-                            ScheduleViewFragment.createBundle(scheduleName)
-                        )
-                    } else {
-                        Toast.makeText(
-                            this, R.string.shortcut_favorite_not_selected, Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-                // к модульному журналу
-                ShortcutsUtils.MODULE_JOURNAL_SHORTCUT -> {
-                    navController.navigate(R.id.to_module_journal_fragment)
-                }
-            }
-        }
-        // throw RuntimeException("Stack deobfuscation example exception");
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
         return navHostFragment.navController.navigateUp() || super.onSupportNavigateUp()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        appUpdateManager.unregisterListener(this::onUpdateState)
-        _appUpdateManager = null
     }
 
     // onActivityResult используется для in-app updates
@@ -217,45 +160,11 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        var isDark = ApplicationPreference.currentManualMode(this)
-        isDark = !isDark
+        val isDark = !ApplicationPreference.currentManualMode(this)
+        ApplicationPreference.setManualMode(this, isDark)
         AppCompatDelegate.setDefaultNightMode(
             if (isDark) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
         )
-        ApplicationPreference.setManualMode(this, isDark)
-
-        /*
-            Для анимации как в TG.
-            UPD: не работает, т.к. сейчас смена темы сделана через
-                 AppCompatDelegate.setDefaultNightMode
-
-            getWindow().setWindowAnimations(R.style.WindowAnimationTransition);
-            recreate();
-
-            int w = mDrawer.getMeasuredWidth();
-            int h = mDrawer.getMeasuredHeight();
-
-            Bitmap bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(bitmap);
-            mDrawer.draw(canvas);
-
-            mImageView.setImageBitmap(bitmap);
-            mImageView.setVisibility(View.VISIBLE);
-
-            int startRadius = 0;
-            int endRadius = (int) Math.hypot(w, h);
-
-            Animator animator = ViewAnimationUtils.createCircularReveal(mDrawer, w / 2, h / 2, startRadius, endRadius);
-            animator.setDuration(2000);
-            animator.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mImageView.setImageDrawable(null);
-                    mImageView.setVisibility(View.GONE);
-                }
-            });
-            animator.start();
-            */
     }
 
     /**
@@ -273,9 +182,74 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
+     * Устанавливает настройки уведомлений для приложения.
+     */
+    private fun setupNotifications() {
+        // android 8.0+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // общего назначения
+            val channelCommon = NotificationChannel(
+                NotificationUtils.CHANNEL_COMMON,
+                getString(R.string.notification_common),
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            channelCommon.description = getString(R.string.notification_common_description)
+            channelCommon.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
+            channelCommon.enableVibration(true)
+            channelCommon.enableLights(true)
+
+            // модульного журнала
+            val channelModuleJournal = NotificationChannel(
+                NotificationUtils.CHANNEL_MODULE_JOURNAL,
+                getString(R.string.notification_mj),
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            channelModuleJournal.description = getString(R.string.notification_mj_description)
+            channelModuleJournal.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
+            channelModuleJournal.enableVibration(true)
+            channelModuleJournal.enableLights(true)
+
+            getSystemService(NotificationManager::class.java)?.let { manager ->
+                manager.createNotificationChannel(channelCommon)
+                manager.createNotificationChannel(channelModuleJournal)
+            }
+        }
+    }
+
+    /**
+     * Устанавливает настройки shortcuts для приложения.
+     */
+    private fun setupShortcuts(navController: NavController) {
+        // android 7.1+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+            when (intent.action) {
+                // избранное расписание
+                ShortcutsUtils.FAVORITE_SHORTCUT -> {
+                    val scheduleName = ScheduleRepository.favorite(this)
+                    if (scheduleName != null) {
+                        navController.navigate(
+                            R.id.to_schedule_view_fragment,
+                            ScheduleViewFragment.createBundle(scheduleName)
+                        )
+                    } else {
+                        Toast.makeText(
+                            this, R.string.shortcut_favorite_not_selected, Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+                // к модульному журналу
+                ShortcutsUtils.MODULE_JOURNAL_SHORTCUT -> {
+                    navController.navigate(R.id.to_module_journal_fragment)
+                }
+            }
+        }
+    }
+
+    /**
      * Проверка обновлений приложения.
      */
     private fun checkAppUpdate() {
+        // время последнего обновления
         val lastUpdate = ApplicationPreference.updateAppTime(this)
         if (lastUpdate != null && Hours.hoursBetween(lastUpdate, DateTime.now()).hours < 48) {
             return

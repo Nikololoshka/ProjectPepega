@@ -1,28 +1,35 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.home
 
-import android.annotation.SuppressLint
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleData
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
-import com.vereshchagin.nikolay.stankinschedule.repository.NewsHomeRepository
+import com.vereshchagin.nikolay.stankinschedule.repository.NewsRepository
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.toTitleString
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.joda.time.LocalDate
+import javax.inject.Inject
 
 /**
  * ViewModel для фрагмента главной страницы.
  */
-class HomeViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class HomeViewModel @Inject constructor(
+    application: Application,
+    private val scheduleRepository: ScheduleRepository,
+    private val newsRepository: NewsRepository
+) : AndroidViewModel(application) {
 
-    private val scheduleRepository = ScheduleRepository(application)
-    private val newsRepository = NewsHomeRepository(application)
 
     val scheduleData = MutableLiveData<HomeScheduleData>(null)
     val newsData = newsRepository.latest()
@@ -36,7 +43,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    @SuppressLint("DefaultLocale")
     private fun updateDataFromSchedule(schedule: Schedule) {
         val count = scheduleSettings.delta * 2 + 1
         var start = LocalDate.now().minusDays(scheduleSettings.delta)
@@ -50,7 +56,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             }.toCollection(list)
 
             pairs.add(list)
-            titles.add(start.toString("EEEE, dd MMMM").capitalize())
+            titles.add(start.toString("EEEE, dd MMMM").toTitleString())
 
             start = start.plusDays(1)
         }
@@ -103,16 +109,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         val newSettings = ApplicationPreference.homeScheduleSettings(getApplication())
         if (scheduleSettings != newSettings) {
             updateSchedule()
-        }
-    }
-
-    /**
-     * Factory для создания ViewModel
-     */
-    class Factory(private val application: Application) : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return HomeViewModel(application) as T
         }
     }
 }

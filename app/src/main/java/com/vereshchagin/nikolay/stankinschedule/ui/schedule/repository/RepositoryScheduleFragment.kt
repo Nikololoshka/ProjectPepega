@@ -2,8 +2,6 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
 
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
@@ -23,7 +21,8 @@ import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 /**
  * Фрагмент расписания с версиями в удаленном репозитории.
  */
-class RepositoryScheduleFragment : BaseFragment<FragmentRepositoryScheduleBinding>() {
+class RepositoryScheduleFragment :
+    BaseFragment<FragmentRepositoryScheduleBinding>(FragmentRepositoryScheduleBinding::inflate) {
 
     private enum class ActionMode {
         SYNC_SCHEDULE,
@@ -51,14 +50,6 @@ class RepositoryScheduleFragment : BaseFragment<FragmentRepositoryScheduleBindin
      * Текущая позиция версии расписания для загрузки.
      */
     private var currentVersionPosition = RecyclerView.NO_POSITION
-
-    override fun onInflateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): FragmentRepositoryScheduleBinding {
-        return FragmentRepositoryScheduleBinding.inflate(inflater, container, false)
-    }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         statefulSchedule = StatefulLayout2.Builder(binding.repositoryContainer)

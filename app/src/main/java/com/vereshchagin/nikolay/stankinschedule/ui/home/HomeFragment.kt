@@ -17,29 +17,28 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFra
 import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Фрагмент главной страницы.
  */
-class HomeFragment : BaseFragment<FragmentHomeBinding>(), View.OnClickListener {
+@AndroidEntryPoint
+class HomeFragment
+    : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate), View.OnClickListener {
 
+    /**
+     * StatefulLayout состояний расписания.
+     */
     private var scheduleStateful: StatefulLayout2 by FragmentDelegate()
 
-    private val viewModel by viewModels<HomeViewModel> {
-        HomeViewModel.Factory(activity?.application!!)
-    }
+    /**
+     * ViewModel фрагмента.
+     */
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-    }
-
-    override fun onInflateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): FragmentHomeBinding {
-        return FragmentHomeBinding.inflate(inflater, container, false)
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {

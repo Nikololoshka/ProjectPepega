@@ -1,8 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.news.review
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayoutMediator
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
@@ -12,15 +10,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 /**
  * Фрагмент для новостей университета и деканата.
  */
-class NewsFragment : BaseFragment<FragmentNewsBinding>() {
-
-    override fun onInflateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): FragmentNewsBinding {
-        return FragmentNewsBinding.inflate(inflater, container, false)
-    }
+class NewsFragment : BaseFragment<FragmentNewsBinding>(FragmentNewsBinding::inflate) {
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         // установка адаптера

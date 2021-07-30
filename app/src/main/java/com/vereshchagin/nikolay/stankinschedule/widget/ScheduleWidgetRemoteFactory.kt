@@ -16,12 +16,11 @@ import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LABORATORY_COLOR
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LECTURE_COLOR
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SEMINAR_COLOR
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.toTitleString
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.joda.time.LocalDate
 import java.lang.ref.WeakReference
-import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * Адаптер для виджета с расписанием.
@@ -118,7 +117,7 @@ class ScheduleWidgetRemoteFactory(
                 for (i in 0 until 7) {
                     days.add(
                         ScheduleWidgetDayItem(
-                            data.toString("EE, dd MMMM").capitalize(Locale.ROOT),
+                            data.toString("EE, dd MMMM").toTitleString(),
                             schedule.pairsByDate(data),
                             data
                         )

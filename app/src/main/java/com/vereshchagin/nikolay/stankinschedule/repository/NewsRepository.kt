@@ -1,79 +1,52 @@
 package com.vereshchagin.nikolay.stankinschedule.repository
 
-import android.content.Context
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.room.withTransaction
-import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsAPI
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsResponse
 import com.vereshchagin.nikolay.stankinschedule.settings.NewsPreference
-import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
+import com.vereshchagin.nikolay.stankinschedule.utils.DateTimeUtils
+import org.joda.time.DateTime
 import retrofit2.await
-import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
+import javax.inject.Inject
 
 /**
  * Репозиторий с новостями.
  */
-class NewsRepository(
-    val newsSubdivision: Int, private val context: Context
+class NewsRepository @Inject constructor(
+    private val newsAPI: StankinNewsAPI,
+    private val db: MainApplicationDatabase,
+    private val newsDao: NewsDao,
+    private val preference: NewsPreference
 ) {
 
-    private var retrofit: Retrofit
-    private var api: StankinNewsAPI
-
-    private val db = MainApplicationDatabase.database(context)
-    private var dao: NewsDao
-
-    private var newsValid: Boolean = false
-
-    init {
-        val builder = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-
-        // включение лога
-        if (BuildConfig.DEBUG) {
-            val logger = HttpLoggingInterceptor()
-            logger.level = HttpLoggingInterceptor.Level.BODY
-
-            val client = OkHttpClient.Builder()
-                .addInterceptor(logger)
-                .build()
-
-            builder.client(client)
-        }
-
-        retrofit = builder.build()
-        api = retrofit.create(StankinNewsAPI::class.java)
-        dao = db.news()
-
-        val date = NewsPreference.lastNewsUpdate(context, newsSubdivision)
-        newsValid = date != null && DateUtils.minutesBetween(Calendar.getInstance(), date) < 30
-    }
-
     /**
-     * Добавляет новостные посты в БД.
+     * Добавляет новостные посты из ответа от сервера в БД.
+     *
+     * @param newsSubdivision номер подразделения.
+     * @param response ответ с новостями от сервера.
+     * @param fullRefresh удалять ли ранее сохраненные новости.
      */
-    suspend fun addPostsIntoDb(response: NewsResponse, refresh: Boolean) {
+    suspend fun addPostsIntoDb(
+        newsSubdivision: Int,
+        response: NewsResponse,
+        fullRefresh: Boolean = false
+    ) {
         val items = response.data.news
+
         if (items.isNotEmpty()) {
             db.withTransaction {
                 // если обновляем список
-                if (refresh) {
-                    dao.clear(newsSubdivision)
-                    NewsPreference.setNewsUpdate(context, newsSubdivision, Calendar.getInstance())
-                    newsValid = true
+                if (fullRefresh) {
+                    newsDao.clear(newsSubdivision)
                 }
 
                 // индекс по порядку
-                val start = dao.nextIndexInResponse(newsSubdivision)
+                val start = newsDao.nextIndexInResponse(newsSubdivision)
 
                 // добавление индекса и номера отдела
                 val news = items.mapIndexed { index, newsPost ->
@@ -81,51 +54,76 @@ class NewsRepository(
                     newsPost.newsSubdivision = newsSubdivision
                     newsPost
                 }
-                dao.insert(news)
+
+                newsDao.insert(news)
+                preference.setNewsUpdate(newsSubdivision)
             }
         }
     }
 
     /**
-     * Возвращает список новостей по номеру страницы и количеству необходимых новостей.
+     * Возвращает список новостей подразделения по номеру страницы
+     * и количеству необходимых новостей.
+     *
+     * @param newsSubdivision номер подразделения.
+     * @param page номер страницы.
+     * @param count количество новостей.
      */
-    suspend fun news(page: Int, count: Int = 40): NewsResponse {
-        return StankinNewsAPI.getNews(api, newsSubdivision, page, count).await()
+    suspend fun news(newsSubdivision: Int, page: Int = 1, count: Int = 40): NewsResponse {
+        return StankinNewsAPI.getNews(newsAPI, newsSubdivision, page, count).await()
     }
 
     /**
      * Возвращает источник данных новостей (из БД).
+     *
+     * @param newsSubdivision номер подразделения.
      */
-    fun pagingSource(): PagingSource<Int, NewsItem> {
+    fun pagingSource(newsSubdivision: Int): PagingSource<Int, NewsItem> {
         return db.news().all(newsSubdivision)
     }
 
     /**
-     * Обновляет новости в БД, если они больше не действительны.
+     * Обновляет новости для подразделения.
+     *
+     * @param newsSubdivision номер подразделения.
      */
-    suspend fun refresh() {
-        if (!newsValid) {
-            try {
-                val response = news(1)
-                addPostsIntoDb(response, true)
-
-            } catch (ignored: Exception) {
-
+    suspend fun refresh(newsSubdivision: Int) {
+        try {
+            val lastTime = preference.lastNewsUpdate(newsSubdivision)
+            Log.d("NewsRepositoryLog", "refresh: $newsSubdivision - $lastTime")
+            if (lastTime != null && DateTimeUtils.between(lastTime, DateTime.now()) < 30) {
+                return
             }
+
+            val response = news(newsSubdivision)
+            addPostsIntoDb(newsSubdivision, response, true)
+
+        } catch (ignored: Exception) {
+
         }
     }
 
     /**
-     * Возвращает true, если необходимо обновить новости.
+     * Обновляет все новости приложения.
      */
-    fun isRequiredRefresh(): Boolean {
-        return !newsValid
+    suspend fun updateAll() {
+        SUBDIVISIONS.forEach { newsSubdivision ->
+            refresh(newsSubdivision)
+        }
     }
+
+    /**
+     * Возвращает LiveData со списком последних новостей.
+     *
+     * @param count количество последних новостей в списке.
+     */
+    fun latest(count: Int = 3) = newsDao.latest(count)
 
     companion object {
         /**
-         * Адрес МГТУ "СТАНКИН"
+         * Подразделения новостей (для репозиториев).
          */
-        const val BASE_URL = "https://stankin.ru"
+        private val SUBDIVISIONS = listOf(0, 125)
     }
+
 }

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
+import com.bumptech.glide.request.transition.DrawableCrossFadeFactory
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemNewsPostBinding
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils.Companion.formatDate
@@ -37,7 +38,13 @@ class NewsPostItemHolder(
 
         glide.load(item?.logoUrl())
             .placeholder(shimmerDrawable)
-            .transition(withCrossFade())
+            .transition(
+                withCrossFade(
+                    DrawableCrossFadeFactory.Builder()
+                        .setCrossFadeEnabled(true)
+                        .build()
+                )
+            )
             .into(binding.newsPreview)
 
         item?.let {

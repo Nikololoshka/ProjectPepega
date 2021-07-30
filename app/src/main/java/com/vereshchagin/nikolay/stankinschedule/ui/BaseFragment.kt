@@ -17,12 +17,15 @@ import com.google.android.material.snackbar.Snackbar
 import com.vereshchagin.nikolay.stankinschedule.R
 
 /**
- * Базовый фрагмент реализацией с ViewBinding.
+ * Базовый фрагмент.
  */
-abstract class BaseFragment<T : ViewBinding> : Fragment(), BaseComponent {
+abstract class BaseFragment<T : ViewBinding>(
+    private val inflateMethod: (LayoutInflater, ViewGroup?, Boolean) -> T
+) : Fragment(), BaseComponent {
 
-    protected var _binding: T? = null
+    private var _binding: T? = null
     protected val binding get() = _binding!!
+    protected val rawBinding = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,11 +40,13 @@ abstract class BaseFragment<T : ViewBinding> : Fragment(), BaseComponent {
     /**
      * Создает объект ViewBinding.
      */
-    abstract fun onInflateView(
+    protected open fun onInflateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): T
+    ): T {
+        return inflateMethod(inflater, container, false)
+    }
 
     /**
      * Вызывается после создания View для дальнейшей инициализации.

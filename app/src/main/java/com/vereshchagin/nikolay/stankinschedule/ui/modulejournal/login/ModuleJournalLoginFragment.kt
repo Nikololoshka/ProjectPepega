@@ -2,9 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.login
 
 import android.animation.ValueAnimator
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
@@ -21,7 +19,8 @@ import com.vereshchagin.nikolay.stankinschedule.utils.State
 /**
  * Фрагмент входа в модульный журнал.
  */
-class ModuleJournalLoginFragment : BaseFragment<FragmentModuleJournalLoginBinding>(),
+class ModuleJournalLoginFragment :
+    BaseFragment<FragmentModuleJournalLoginBinding>(FragmentModuleJournalLoginBinding::inflate),
     View.OnClickListener {
 
     /**
@@ -40,14 +39,6 @@ class ModuleJournalLoginFragment : BaseFragment<FragmentModuleJournalLoginBindin
     }
 
     private var loadingHeight = 50
-
-    override fun onInflateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): FragmentModuleJournalLoginBinding {
-        return FragmentModuleJournalLoginBinding.inflate(inflater, container, false)
-    }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
 
@@ -205,7 +196,7 @@ class ModuleJournalLoginFragment : BaseFragment<FragmentModuleJournalLoginBindin
      */
     private fun loadAnimatorUpdate(animator: ValueAnimator) {
         // возможен случай, что анимация может завершиться после уничтожения binding
-        _binding?.let {
+        rawBinding?.let {
             it.mjLoginLoading.layoutParams.height = animator.animatedValue as Int
             it.mjLoginLoading.requestLayout()
         }

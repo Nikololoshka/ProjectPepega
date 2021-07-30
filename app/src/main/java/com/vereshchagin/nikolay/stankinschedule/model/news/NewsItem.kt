@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.model.news
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.vereshchagin.nikolay.stankinschedule.repository.NewsRepository
+import com.vereshchagin.nikolay.stankinschedule.utils.Constants
 
 /**
  * Данные о новости.
@@ -43,7 +43,7 @@ data class NewsItem(
     /**
      * Возвращает url к картинке новости.
      */
-    fun logoUrl() = NewsRepository.BASE_URL + logo
+    fun logoUrl() = Constants.STANKIN_URL + logo
 
     /**
      * Возвращает только дату из публикации.

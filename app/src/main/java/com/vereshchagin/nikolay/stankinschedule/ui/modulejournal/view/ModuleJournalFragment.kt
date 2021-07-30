@@ -29,7 +29,8 @@ import kotlinx.coroutines.flow.collectLatest
 /**
  * Фрагмент модульного журнала с оценками.
  */
-class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
+class ModuleJournalFragment :
+    BaseFragment<FragmentModuleJournalBinding>(FragmentModuleJournalBinding::inflate) {
 
     /**
      * ViewModel фрагмента.
@@ -47,14 +48,6 @@ class ModuleJournalFragment : BaseFragment<FragmentModuleJournalBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-    }
-
-    override fun onInflateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): FragmentModuleJournalBinding {
-        return FragmentModuleJournalBinding.inflate(inflater, container, false)
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {

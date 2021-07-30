@@ -17,16 +17,17 @@ import kotlin.math.roundToInt
  */
 @ExperimentalPagingApi
 class NewsPostRemoteMediator(
+    private val newsSubdivision: Int,
     private val repository: NewsRepository
 ) : RemoteMediator<Int, NewsItem>() {
 
-    override suspend fun initialize(): InitializeAction {
-        return if (repository.isRequiredRefresh()) {
-            InitializeAction.LAUNCH_INITIAL_REFRESH
-        } else {
-            InitializeAction.SKIP_INITIAL_REFRESH
-        }
-    }
+//    override suspend fun initialize(): InitializeAction {
+//        return if (repository.isRequiredRefresh()) {
+//            InitializeAction.LAUNCH_INITIAL_REFRESH
+//        } else {
+//            InitializeAction.SKIP_INITIAL_REFRESH
+//        }
+//    }
 
     override suspend fun load(
         loadType: LoadType,
@@ -40,13 +41,13 @@ class NewsPostRemoteMediator(
             } ?: 0.0).roundToInt() + 1
 
             val response = repository.news(page, state.config.pageSize)
-            repository.addPostsIntoDb(response, loadType == LoadType.REFRESH)
+            repository.addPostsIntoDb(newsSubdivision, response, loadType == LoadType.REFRESH)
 
             if (BuildConfig.DEBUG) {
                 Log.d(
                     "NewsPostRemoteLog",
                     "load: index=${state.lastItemOrNull()?.indexInResponse}, " +
-                        "sub=${repository.newsSubdivision}, " +
+                        "sub=${newsSubdivision}, " +
                         "page=$page, " +
                         "size=${state.config.pageSize}"
                 )

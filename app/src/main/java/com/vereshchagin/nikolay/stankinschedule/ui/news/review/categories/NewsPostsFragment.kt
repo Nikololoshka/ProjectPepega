@@ -1,8 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
@@ -17,23 +15,30 @@ import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostLoadStateAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.news.viewer.NewsViewerActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
+import javax.inject.Inject
 
 /**
  * Фрагмент для отображения списка новостей.
  */
-class NewsPostsFragment : BaseFragment<ItemNewsPostsListBinding>() {
+@ExperimentalPagingApi
+@AndroidEntryPoint
+class NewsPostsFragment :
+    BaseFragment<ItemNewsPostsListBinding>(ItemNewsPostsListBinding::inflate) {
+
+    @Inject
+    lateinit var viewModelFactory: NewsPostsViewModel.NewsPostsFactory
 
     /**
      * ViewModel фрагмента.
      */
-    @ExperimentalPagingApi
-    private val viewModel by viewModels<NewsPostsViewModel> {
-        NewsPostsViewModel.Factory(newsSubdivision, activity?.application!!)
+    private val viewModel: NewsPostsViewModel by viewModels {
+        NewsPostsViewModel.provideFactory(viewModelFactory, newsSubdivision)
     }
 
     /**
@@ -41,16 +46,7 @@ class NewsPostsFragment : BaseFragment<ItemNewsPostsListBinding>() {
      */
     private var newsSubdivision: Int = 0
 
-    override fun onInflateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): ItemNewsPostsListBinding {
-        return ItemNewsPostsListBinding.inflate(inflater, container, false)
-    }
-
     @InternalCoroutinesApi
-    @ExperimentalPagingApi
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         // glide для загрузки пред просмотра
         val glide = Glide.with(this)

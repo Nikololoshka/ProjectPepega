@@ -11,6 +11,7 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -18,12 +19,13 @@ import org.apache.commons.io.FileUtils
 import java.io.File
 import java.io.FileNotFoundException
 import java.nio.charset.StandardCharsets
+import javax.inject.Inject
 
 /**
  * Репозиторий для работы с расписаниями на устройстве.
  */
-class ScheduleRepository(
-    context: Context,
+class ScheduleRepository @Inject constructor(
+    @ApplicationContext context: Context,
 ) {
     /**
      * Gson для преобразования расписания в/из JSON.

@@ -10,11 +10,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.webkit.*
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.annotation.MainThread
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewAssetLoader
@@ -31,24 +31,37 @@ import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.utils.*
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.ActivityDelegate
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 /**
  * Активность для просмотра новостей.
  */
+@AndroidEntryPoint
 class NewsViewerActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var viewModelFactory: NewsViewerViewModel.NewsViewerFactory
 
     /**
      * ViewModel активности.
      */
-    private lateinit var viewModel: NewsViewerViewModel
+    private val viewModel: NewsViewerViewModel by viewModels {
+        NewsViewerViewModel.provideFactory(viewModelFactory, newsId)
+    }
 
     /**
      * Glide для загрузки фото новости.
      */
     private var glide: RequestManager by ActivityDelegate()
+
+    /**
+     * Номер новости
+     */
+    private var newsId = -1
 
     private var stateful: StatefulLayout2 by ActivityDelegate()
     private lateinit var binding: ActivityNewsViewerBinding
@@ -70,8 +83,6 @@ class NewsViewerActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        // номер новости
-        var newsId = -1
 
         // напрямую вызов просмотра
         if (intent.action == Intent.ACTION_VIEW) {
@@ -97,10 +108,6 @@ class NewsViewerActivity : AppCompatActivity() {
         if (newsTitle != null) {
             binding.toolbarLayout.title = newsTitle
         }
-
-        viewModel = ViewModelProvider(
-            this, NewsViewerViewModel.Factory(newsId, application)
-        ).get(NewsViewerViewModel::class.java)
 
         // поддержка темной темы
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -193,7 +200,7 @@ class NewsViewerActivity : AppCompatActivity() {
 
             // успешно загружен
             if (state is State.Success) {
-                glide.load(state.data.logoUrl())
+                glide.load(state.data.logoUrl)
                     .placeholder(DrawableUtils.createShimmerDrawable())
                     .centerCrop()
                     .into(binding.newsPreview)
@@ -209,7 +216,7 @@ class NewsViewerActivity : AppCompatActivity() {
                 binding.toolbarLayout.title = state.data.title
                 binding.newsDate.text = getString(
                     R.string.news_post_date,
-                    DateUtils.parseDate(state.data.onlyDate())?.let { date ->
+                    DateUtils.parseDate(state.data.date)?.let { date ->
                         DateUtils.formatDate(date)
                     }
                 )
@@ -229,13 +236,13 @@ class NewsViewerActivity : AppCompatActivity() {
         when (item.itemId) {
             // открыть новость в браузере
             R.id.open_in_browser -> {
-                val url = "https://stankin.ru/news/item_${viewModel.newsId}"
+                val url = "https://stankin.ru/news/item_${newsId}"
                 CommonUtils.openBrowser(this, url)
                 return true
             }
             // поделиться новостью
             R.id.news_share -> {
-                val url = "https://stankin.ru/news/item_${viewModel.newsId}"
+                val url = "https://stankin.ru/news/item_${newsId}"
                 val sendIntent = Intent().apply {
                     action = Intent.ACTION_SEND
                     putExtra(Intent.EXTRA_TEXT, url)

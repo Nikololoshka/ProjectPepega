@@ -13,9 +13,9 @@ import com.vereshchagin.nikolay.stankinschedule.databinding.WidgetScheduleConfig
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.currentPosition
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setCurrentPosition
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.toTitleString
 import com.vereshchagin.nikolay.stankinschedule.view.DropDownAdapter
 import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidget.Companion.updateAppWidget
-import java.util.*
 
 /**
  * Конфигурационная активность для виджета с расписанием.
@@ -204,7 +204,7 @@ class ScheduleWidgetConfigureActivity : AppCompatActivity(), View.OnClickListene
             val subgroup = Subgroup.of(
                 preferences.getString(
                     SCHEDULE_WIDGET + appWidgetId + SUBGROUP_SUFFIX, Subgroup.COMMON.tag
-                )!!.capitalize(Locale.ROOT)
+                )!!.toTitleString()
             )
             val display = preferences.getBoolean(
                 SCHEDULE_WIDGET + appWidgetId + DISPLAY_SUFFIX, true

@@ -1,6 +1,5 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.news.viewer
 
-import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -9,6 +8,9 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.repository.NewsPostRepository
 import com.vereshchagin.nikolay.stankinschedule.utils.State
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -19,9 +21,9 @@ import kotlinx.coroutines.launch
  * @param repository репозиторий, откуда будет загружаться новость.
  * @param newsId номер новости.
  */
-class NewsViewerViewModel(
+class NewsViewerViewModel @AssistedInject constructor(
     private val repository: NewsPostRepository,
-    val newsId: Int
+    @Assisted private val newsId: Int
 ) : ViewModel() {
 
     /**
@@ -39,7 +41,7 @@ class NewsViewerViewModel(
     fun refresh(useCache: Boolean = true) {
         if (post.value !is State.Loading) {
             viewModelScope.launch {
-                repository.loadPost(useCache)
+                repository.loadPost(newsId, useCache)
                     .catch {
                         FirebaseCrashlytics.getInstance()
                             .recordException(it)
@@ -54,19 +56,23 @@ class NewsViewerViewModel(
     /**
      * Factory для создания ViewModel.
      */
-    class Factory(
-        private val newsId: Int,
-        private val application: Application
-    ) : ViewModelProvider.Factory {
+    @AssistedFactory
+    interface NewsViewerFactory {
+        fun create(newsId: Int): NewsViewerViewModel
+    }
 
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return NewsViewerViewModel(
-                NewsPostRepository(
-                    newsId,
-                    application.cacheDir
-                ), newsId
-            ) as T
+    companion object {
+        /**
+         * Создает объект в Factory c переданными параметрами.
+         */
+        fun provideFactory(
+            factory: NewsViewerFactory,
+            newsId: Int
+        ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                return factory.create(newsId) as T
+            }
         }
     }
 }

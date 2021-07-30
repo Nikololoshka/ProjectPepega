@@ -37,7 +37,8 @@ import java.nio.charset.StandardCharsets
 /**
  * Фрагмент с расписаниями.
  */
-class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
+class MyScheduleFragment :
+    BaseFragment<FragmentMyScheduleBinding>(FragmentMyScheduleBinding::inflate),
     SchedulesAdapter.OnScheduleItemListener, DragToMoveCallback.OnStartDragListener {
 
     private val viewModel by viewModels<MyScheduleViewModel> {
@@ -107,14 +108,6 @@ class MyScheduleFragment : BaseFragment<FragmentMyScheduleBinding>(),
     override fun onDestroyView() {
         actionMode?.finish()
         super.onDestroyView()
-    }
-
-    override fun onInflateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): FragmentMyScheduleBinding {
-        return FragmentMyScheduleBinding.inflate(inflater, container, false)
     }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {

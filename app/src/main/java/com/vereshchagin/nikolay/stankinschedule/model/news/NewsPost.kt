@@ -1,14 +1,15 @@
 package com.vereshchagin.nikolay.stankinschedule.model.news
 
 import com.google.gson.*
-import com.vereshchagin.nikolay.stankinschedule.repository.NewsPostRepository
+import com.vereshchagin.nikolay.stankinschedule.utils.Constants
 import java.lang.reflect.Type
 
 
 /**
  * Новостной пост.
+ *
  * @param id номер поста.
- * @param date дата поста.
+ * @param datetime дата и время поста.
  * @param title заголовок новости.
  * @param logo относительный путь к картинке новости.
  * @param text текст новости.
@@ -16,12 +17,22 @@ import java.lang.reflect.Type
  */
 class NewsPost(
     val id: Int,
-    val date: String,
+    val datetime: String,
     val title: String,
     val logo: String,
     val text: String,
     val delta: String
 ) {
+
+    /**
+     * Url к картинке новости.
+     */
+    val logoUrl = Constants.STANKIN_URL + logo
+
+    /**
+     * Дата публикации новости.
+     */
+    val date = datetime.split(" ").first()
 
     /**
      * Возвращает HTML страницу для Quill редактора.
@@ -56,16 +67,6 @@ class NewsPost(
     }
 
     /**
-     * Возвращает url к картинке новости.
-     */
-    fun logoUrl() = NewsPostRepository.BASE_URL + logo
-
-    /**
-     * Возвращает только дату из публикации.
-     */
-    fun onlyDate() = date.split(" ").first()
-
-    /**
      * Десериализатор объекта NewsPost из JSON.
      */
     class NewsPostDeserializer: JsonDeserializer<NewsPost> {
@@ -97,7 +98,7 @@ class NewsPost(
             val delta = (find(rootObject, "ops")?.toString() ?: "")
                 // замена относительных путей файлов на абсолютные
                 .replace(Regex("(/uploads.+?)\"")) { result: MatchResult ->
-                    NewsPostRepository.BASE_URL + result.value
+                    Constants.STANKIN_URL + result.value
                 }
 
             return NewsPost(
@@ -112,6 +113,7 @@ class NewsPost(
 
         /**
          * Рекурсивный поиск элемента.
+         *
          * @param root начала поиска.
          * @param key необходимый элемент.
          * @param treeKey элемент, по котору дальше продолжает поиск.

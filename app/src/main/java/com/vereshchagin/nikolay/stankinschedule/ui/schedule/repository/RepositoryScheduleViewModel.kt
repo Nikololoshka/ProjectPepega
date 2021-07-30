@@ -7,12 +7,13 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.Sch
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRemoteRepository
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker
+import com.vereshchagin.nikolay.stankinschedule.utils.DateTimeUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State
-import com.vereshchagin.nikolay.stankinschedule.utils.extensions.toPrettyDate
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import org.joda.time.LocalDate
 
 /**
  * ViewModel расписания с версиями в удаленном репозитории.
@@ -131,7 +132,8 @@ class RepositoryScheduleViewModel(
                         replaceExist = replace,
                         scheduleName = data.name,
                         scheduleId = data.id,
-                        versionName = version.date.toPrettyDate(),
+                        versionName = LocalDate.parse(version.date)
+                            .toString(DateTimeUtils.PRETTY_DATE_PATTERN),
                         scheduleVersionId = data.versions.indexOfFirst { v -> v.path == version.path },
                         isSync = false,
                         data.name, version.path
@@ -161,7 +163,8 @@ class RepositoryScheduleViewModel(
                     replaceExist = replace,
                     scheduleName = scheduleName,
                     scheduleId = data.id,
-                    versionName = version.date.toPrettyDate(),
+                    versionName = LocalDate.parse(version.date)
+                        .toString(DateTimeUtils.PRETTY_DATE_PATTERN),
                     scheduleVersionId = data.versions.indexOfFirst { v -> v.path == version.path },
                     isSync = true,
                     data.name, version.path

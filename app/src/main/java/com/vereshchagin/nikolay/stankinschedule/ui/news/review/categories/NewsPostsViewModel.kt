@@ -1,24 +1,25 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import com.vereshchagin.nikolay.stankinschedule.repository.NewsRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging.NewsPostRemoteMediator
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 
 /**
  * ViewModel для фрагмента с списком новостей.
+ *
  * @param repository репозиторий, откуда будут загружаться новости.
- * @param application объект приложение для доступа к контексту.
  */
 @ExperimentalPagingApi
-class NewsPostsViewModel(
+class NewsPostsViewModel @AssistedInject constructor(
     private val repository: NewsRepository,
-    application: Application
-) : AndroidViewModel(application) {
+    @Assisted private val newsSubdivision: Int
+) : ViewModel() {
 
     /**
      * Новостные посты отдела.
@@ -30,30 +31,35 @@ class NewsPostsViewModel(
             enablePlaceholders = false,
             initialLoadSize = NEWS_PAGE_SIZE
         ),
-        remoteMediator = NewsPostRemoteMediator(repository)
+        remoteMediator = NewsPostRemoteMediator(newsSubdivision, repository)
     ) {
-        repository.pagingSource()
+        repository.pagingSource(newsSubdivision)
     }.liveData.cachedIn(viewModelScope)
+
 
     /**
      * Factory для создания ViewModel.
      */
-    class Factory(
-        private val newsSubdivision: Int, private val application: Application
-    ) : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return NewsPostsViewModel(
-                NewsRepository(
-                    newsSubdivision,
-                    application.applicationContext
-                ),
-                application
-            ) as T
-        }
+    @AssistedFactory
+    interface NewsPostsFactory {
+        fun create(newsSubdivision: Int): NewsPostsViewModel
     }
 
     companion object {
+
         private const val NEWS_PAGE_SIZE = 40
+
+        /**
+         * Создает объект в Factory c переданными параметрами.
+         */
+        fun provideFactory(
+            factory: NewsPostsFactory,
+            newsSubdivision: Int
+        ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                return factory.create(newsSubdivision) as T
+            }
+        }
     }
 }

@@ -1,8 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
 import com.vereshchagin.nikolay.stankinschedule.R
@@ -20,18 +18,11 @@ import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
 /**
  * Фрагмент стартовой страницы удаленного репозитория.
  */
-class RepositoryOverviewFragment : BaseFragment<FragmentRepositoryOverviewBinding>() {
+class RepositoryOverviewFragment :
+    BaseFragment<FragmentRepositoryOverviewBinding>(FragmentRepositoryOverviewBinding::inflate) {
 
     private lateinit var viewModel: RepositoryOverviewViewModel
     private var stateful: StatefulLayout2 by FragmentDelegate()
-
-    override fun onInflateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): FragmentRepositoryOverviewBinding {
-        return FragmentRepositoryOverviewBinding.inflate(inflater, container, false)
-    }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         stateful = StatefulLayout2.Builder(binding.repositoryLayout)

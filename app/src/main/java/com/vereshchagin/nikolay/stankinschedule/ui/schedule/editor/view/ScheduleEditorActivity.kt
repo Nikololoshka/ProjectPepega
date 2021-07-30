@@ -20,7 +20,9 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 /**
  * Фрагмент с списком пар для редактирования.
  */
-class ScheduleEditorActivity : BaseActivity<ActivityScheduleEditorBinding>(), OnPairListener {
+class ScheduleEditorActivity :
+    BaseActivity<ActivityScheduleEditorBinding>(ActivityScheduleEditorBinding::inflate),
+    OnPairListener {
 
     /**
      * ViewModel фрагмента.
@@ -28,10 +30,6 @@ class ScheduleEditorActivity : BaseActivity<ActivityScheduleEditorBinding>(), On
     private lateinit var viewModel: ScheduleEditorViewModel
     private lateinit var scheduleName: String
     private lateinit var statefulLayout: StatefulLayout2
-
-    override fun onInflateView(): ActivityScheduleEditorBinding {
-        return ActivityScheduleEditorBinding.inflate(layoutInflater)
-    }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         statefulLayout = StatefulLayout2.Builder(binding.disciplinesContainer)

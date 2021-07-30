@@ -1,8 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import com.vereshchagin.nikolay.stankinschedule.R
@@ -18,18 +16,12 @@ import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 /**
  * Фрагмент категории в удаленном репозитории.
  */
-class RepositoryCategoryFragment : BaseFragment<FragmentRepositoryCategoryBinding>() {
+class RepositoryCategoryFragment :
+    BaseFragment<FragmentRepositoryCategoryBinding>(FragmentRepositoryCategoryBinding::inflate) {
 
     private lateinit var viewModel: RepositoryCategoryViewModel
     private var stateful: StatefulLayout2 by FragmentDelegate()
 
-    override fun onInflateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): FragmentRepositoryCategoryBinding {
-        return FragmentRepositoryCategoryBinding.inflate(inflater, container, false)
-    }
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
 

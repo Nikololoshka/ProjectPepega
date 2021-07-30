@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemScheduleDayBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.PairCardView
-import java.util.*
-import kotlin.collections.ArrayList
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.toTitleString
 
 /**
  * Holder для в просмотре расписания.
@@ -26,7 +25,7 @@ class ScheduleViewDayHolder(
     fun bind(item: ScheduleViewDay?) {
         val data = item ?: return
 
-        val title = data.day.toString("EEEE, dd MMMM").capitalize(Locale.ROOT)
+        val title = data.day.toString("EEEE, dd MMMM").toTitleString()
         binding.scheduleDayTitle.text = title
 
         binding.scheduleDayPairs.removeAllViews()
