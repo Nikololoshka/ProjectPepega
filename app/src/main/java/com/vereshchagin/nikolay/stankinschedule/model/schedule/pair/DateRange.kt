@@ -1,37 +1,63 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
-import android.content.Context
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.JsonObject
-import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils
-import org.joda.time.DateTime
 import org.joda.time.Days
 import org.joda.time.LocalDate
 import org.joda.time.format.DateTimeFormat
+import kotlin.Pair
 
+/**
+ * Диапазон дат в расписании с определенной периодичностью.
+ */
 class DateRange : DateItem {
 
-    internal val start: DateTime
-    internal val end: DateTime
+    /**
+     * Начало диапазона.
+     */
+    val start: LocalDate
+
+    /**
+     * Конец диапазона.
+     */
+    val end: LocalDate
+
+    /**
+     * Периодичность.
+     */
     private val frequency: Frequency
+
+    /**
+     * День недели.
+     */
     private lateinit var dayOfWeek: DayOfWeek
 
     constructor(parcel: Parcel) {
-        start = parcel.readSerializable() as DateTime
-        end = parcel.readSerializable() as DateTime
+        start = parcel.readSerializable() as LocalDate
+        end = parcel.readSerializable() as LocalDate
         frequency = parcel.readSerializable() as Frequency
 
         init()
     }
 
-    constructor(firstText: String, secondText: String, frequencyDate: Frequency,
-                pattern: String = JSON_DATE_PATTERN) {
+    /**
+     * Конструктор диапазона дат.
+     * @param firstText текст первой даты диапазона.
+     * @param secondText текст второй даты диапазона.
+     * @param frequencyDate периодичность даты.
+     * @param pattern шаблон распознавания.
+     */
+    constructor(
+        firstText: String,
+        secondText: String,
+        frequencyDate: Frequency,
+        pattern: String = JSON_DATE_PATTERN_V2,
+    ) {
         try {
-            val formatter = DateTimeFormat.forPattern(pattern)
-            start = formatter.parseDateTime(firstText)
-            end = formatter.parseDateTime(secondText)
+            val (parseStart, parseEnd) = parseDates(firstText, secondText, pattern)
+            start = parseStart
+            end = parseEnd
             frequency = frequencyDate
 
         } catch (e: Exception) {
@@ -45,20 +71,31 @@ class DateRange : DateItem {
         init()
     }
 
-    constructor(text: String, frequencyDate: Frequency, pattern: String = JSON_DATE_PATTERN) {
-        val dates = text.split('-')
+    /**
+     * Конструктор диапазона дат.
+     * @param text текст с диапазоном.
+     * @param frequencyDate периодичность даты.
+     * @param pattern шаблон распознавания.
+     */
+    constructor(text: String, frequencyDate: Frequency, pattern: String = JSON_DATE_PATTERN_V2) {
+        var dates = text.split('/')
         if (dates.size != 2) {
-            throw DateParseException(
-                "Invalid date text: $text, $dates, frequency: $frequencyDate",
-                text
-            )
+            // старый формат
+            dates = text.split('-')
+            if (dates.size != 2) {
+                throw DateParseException(
+                    "Invalid date text: $text, $dates, frequency: $frequencyDate",
+                    text
+                )
+            }
         }
 
         val (firstText, secondText) = dates
+
         try {
-            val formatter = DateTimeFormat.forPattern(pattern)
-            start = formatter.parseDateTime(firstText)
-            end = formatter.parseDateTime(secondText)
+            val (parseStart, parseEnd) = parseDates(firstText, secondText, pattern)
+            start = parseStart
+            end = parseEnd
             frequency = frequencyDate
 
         } catch (e: Exception) {
@@ -72,7 +109,13 @@ class DateRange : DateItem {
         init()
     }
 
-    constructor(firstDate: DateTime, secondDate: DateTime, frequencyDate: Frequency) {
+    /**
+     * Конструктор диапазона дат.
+     * @param firstDate дата начала диапазона.
+     * @param secondDate дата конца диапазона.
+     * @param frequencyDate периодичность диапазона дат.
+     */
+    constructor(firstDate: LocalDate, secondDate: LocalDate, frequencyDate: Frequency) {
         start = firstDate
         end = secondDate
         frequency = frequencyDate
@@ -80,11 +123,46 @@ class DateRange : DateItem {
         init()
     }
 
-    constructor(obj: JsonObject) : this (
+    /**
+     * Конструктор диапазона дат.
+     * @param obj JSON с диапазоном дат.
+     */
+    constructor(obj: JsonObject) : this(
         obj[JSON_DATE].asString,
         Frequency.of(obj[JSON_FREQUENCY].asString)
     )
 
+    /**
+     * Парсит дату начала и конца из строк по шаблону.
+     * Возвращает распознанные даты.
+     */
+    private fun parseDates(
+        firstText: String,
+        secondText: String,
+        pattern: String,
+    ): Pair<LocalDate, LocalDate> {
+
+        var parseStart: LocalDate
+        var parseEnd: LocalDate
+
+        try {
+            val formatter = DateTimeFormat.forPattern(pattern)
+            parseStart = formatter.parseLocalDate(firstText)
+            parseEnd = formatter.parseLocalDate(secondText)
+
+        } catch (e: Exception) {
+            // старый формат
+            val formatter = DateTimeFormat.forPattern(JSON_DATE_PATTERN)
+            parseStart = formatter.parseLocalDate(firstText)
+            parseEnd = formatter.parseLocalDate(secondText)
+        }
+
+        return parseStart to parseEnd
+    }
+
+    /**
+     * Инициализирует до конца объект.
+     */
     private fun init() {
         if (DayOfWeek.of(start) != DayOfWeek.of(end)) {
             throw DateDayOfWeekException(
@@ -110,7 +188,7 @@ class DateRange : DateItem {
         return JsonObject().apply {
             addProperty(
                 JSON_DATE,
-                start.toString(JSON_DATE_PATTERN) + "-" + end.toString(JSON_DATE_PATTERN)
+                start.toString(JSON_DATE_PATTERN_V2) + "/" + end.toString(JSON_DATE_PATTERN_V2)
             )
             addProperty(JSON_FREQUENCY, frequency.tag)
         }
@@ -160,14 +238,6 @@ class DateRange : DateItem {
         throw IllegalArgumentException("Invalid compare object: $item")
     }
 
-    override fun startDate(): LocalDate {
-        return start.toLocalDate()
-    }
-
-    override fun endDate(): LocalDate {
-        return end.toLocalDate()
-    }
-
     override fun clone(): DateItem {
         return DateRange(start, end, frequency)
     }
@@ -195,20 +265,11 @@ class DateRange : DateItem {
     }
 
     override fun toString(): String {
-        return start.toString(DateUtils.PRETTY_FORMAT) +
-            "-" +  end.toString(DateUtils.PRETTY_FORMAT)
+        return "$start-$end"
     }
 
-    override fun toString(context: Context): String {
-        return "$this " + context.resources.getStringArray(
-            R.array.frequency_simple_list
-        )[
-            when (frequency) {
-                Frequency.EVERY -> 0
-                Frequency.THROUGHOUT -> 1
-                else -> throw RuntimeException("Unknown frequency: $frequency")
-            }
-        ]
+    fun toString(format: String, delimiter: String) : String {
+        return start.toString(format) + delimiter + end.toString(format)
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -223,7 +284,7 @@ class DateRange : DateItem {
 
     companion object {
         @JvmField
-        val CREATOR = object: Parcelable.Creator<DateRange> {
+        val CREATOR = object : Parcelable.Creator<DateRange> {
             override fun createFromParcel(parcel: Parcel): DateRange {
                 return DateRange(parcel)
             }

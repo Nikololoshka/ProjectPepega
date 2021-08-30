@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -26,9 +27,12 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.S
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
+import com.vereshchagin.nikolay.stankinschedule.utils.ScheduleUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.extractFilename
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import org.apache.commons.io.IOUtils
 import java.io.FileNotFoundException
 import java.nio.charset.StandardCharsets
@@ -37,13 +41,12 @@ import java.nio.charset.StandardCharsets
 /**
  * Фрагмент с расписаниями.
  */
+@AndroidEntryPoint
 class MyScheduleFragment :
     BaseFragment<FragmentMyScheduleBinding>(FragmentMyScheduleBinding::inflate),
     SchedulesAdapter.OnScheduleItemListener, DragToMoveCallback.OnStartDragListener {
 
-    private val viewModel by viewModels<MyScheduleViewModel> {
-        MyScheduleViewModel.Factory(requireActivity().application)
-    }
+    private val viewModel: MyScheduleListViewModel by viewModels()
 
     private var stateful by FragmentDelegate<StatefulLayout2>()
 
@@ -59,7 +62,7 @@ class MyScheduleFragment :
         override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
             when (item?.itemId) {
                 R.id.remove_schedule -> {
-                    removeSchedules()
+                    removeSelectedSchedules()
                 }
             }
             return true
@@ -178,25 +181,17 @@ class MyScheduleFragment :
             }
         })
 
-        // расписания
-        viewModel.schedules.observe(this) {
-            val schedules = it ?: return@observe
+        lifecycleScope.launchWhenStarted {
+            viewModel.myScheduleList.collect { data ->
+                val (schedules, selected) = data
 
-            if (schedules.isEmpty()) {
-                stateful.setState(StatefulLayout2.EMPTY)
-            } else {
-                adapter.submitList(schedules)
-                stateful.setState(StatefulLayout2.CONTENT)
+                if (schedules.isEmpty()) {
+                    stateful.setState(StatefulLayout2.EMPTY)
+                } else {
+                    adapter.submitList(schedules, selected)
+                    stateful.setState(StatefulLayout2.CONTENT)
+                }
             }
-        }
-
-        viewModel.favorite.observe(this) {
-            adapter.submitFavorite(it)
-        }
-
-        viewModel.selectedItems.observe(this) {
-            val selectedItems = it ?: return@observe
-            adapter.setSelectedItems(selectedItems)
         }
 
         // был активирован action mode
@@ -310,7 +305,7 @@ class MyScheduleFragment :
         if (isNew) {
             // текущая подгруппа
             val subgroup = ApplicationPreference.subgroup(requireContext())
-            var subgroupString = subgroup.toString(requireContext())
+            var subgroupString = ScheduleUtils.subgroupToString(subgroup, requireContext())
             if (subgroupString.isEmpty()) {
                 subgroupString = getString(R.string.sch_without_subgroup)
             }
@@ -372,10 +367,9 @@ class MyScheduleFragment :
      * "Выбирает" объект в режиме редактирования.
      */
     private fun selectItem(position: Int) {
-        val count = viewModel.selectItem(position)
-        adapter.notifyItemChanged(position)
+        viewModel.selectItem(position)
 
-        if (count == 0) {
+        if (viewModel.selectedItems.value.size() == 0) {
             actionMode?.finish()
         } else {
             updateActionModeTitle()
@@ -386,7 +380,7 @@ class MyScheduleFragment :
      * Обновляет число выбранных элементов в режиме редактирования.
      */
     private fun updateActionModeTitle() {
-        viewModel.selectedItems.value?.let {
+        viewModel.selectedItems.value.let {
             actionMode?.apply {
                 title = it.size().toString()
                 invalidate()
@@ -411,8 +405,8 @@ class MyScheduleFragment :
     /**
      * Удаляет выбранные расписании.
      */
-    private fun removeSchedules() {
-        viewModel.selectedItems.value?.let {
+    private fun removeSelectedSchedules() {
+        viewModel.selectedItems.value.let {
             val count = it.size()
             if (count <= 0) {
                 return

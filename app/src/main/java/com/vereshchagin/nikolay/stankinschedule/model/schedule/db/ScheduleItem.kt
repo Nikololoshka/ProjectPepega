@@ -8,6 +8,7 @@ import org.joda.time.DateTime
 
 /**
  * Сущность расписания в БД.
+ * @param scheduleName название расписания.
  */
 @Entity(
     tableName = "schedule_items",

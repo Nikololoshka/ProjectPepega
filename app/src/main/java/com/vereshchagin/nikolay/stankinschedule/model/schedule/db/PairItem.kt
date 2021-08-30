@@ -8,7 +8,15 @@ import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.PairTimeCo
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.PairTypeConvertor
 
 /**
- * Пара в расписании.
+ * Пара в расписании для хранения в БД.
+ * @param scheduleId
+ * @param title название пары.
+ * @param lecturer преподаватель.
+ * @param classroom аудитория.
+ * @param type тип пары.
+ * @param subgroup подгруппа пары.
+ * @param time время пары.
+ * @param date даты проведения пары.
  */
 @Entity(
     tableName = "schedule_pairs",
@@ -45,4 +53,28 @@ class PairItem(
      */
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
+
+    companion object {
+        /**
+         * Создает PairItem из обычной Pair для использования в БД.
+         * @param scheduleId ID расписания в БД, к которому принадлежит пара.
+         * @param pair пара.
+         * @param pairId ID пары.
+         */
+        @JvmStatic
+        fun from(scheduleId: Long, pair: Pair, pairId: Long = 0) : PairItem {
+            return PairItem(
+                scheduleId,
+                pair.title,
+                pair.lecturer,
+                pair.classroom,
+                pair.type,
+                pair.subgroup,
+                pair.time,
+                pair.date
+            ).apply {
+                id = pairId
+            }
+        }
+    }
 }

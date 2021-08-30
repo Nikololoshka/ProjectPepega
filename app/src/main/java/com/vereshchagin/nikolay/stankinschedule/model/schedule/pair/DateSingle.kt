@@ -14,14 +14,33 @@ import org.joda.time.format.DateTimeFormat
  */
 class DateSingle : DateItem {
 
-    internal val date: DateTime
+    /**
+     * Дата.
+     */
+    val date: LocalDate
+
+    /**
+     * День недели.
+     */
     private val dayOfWeek: DayOfWeek
 
-    constructor(parcel: Parcel) : this(parcel.readSerializable() as DateTime)
+    constructor(parcel: Parcel) : this(parcel.readSerializable() as LocalDate)
 
-    constructor(text: String, pattern: String = JSON_DATE_PATTERN) {
+    /**
+     * Конструктор единственной даты пары.
+     * @param text текст с датой.
+     * @param pattern шаблон распознавания.
+     */
+    constructor(text: String, pattern: String = JSON_DATE_PATTERN_V2) {
         try {
-            date = DateTimeFormat.forPattern(pattern).parseDateTime(text)
+            val parseDate: LocalDate = try {
+                DateTimeFormat.forPattern(pattern).parseLocalDate(text)
+            }  catch (e: Exception) {
+                // старый метод
+                DateTimeFormat.forPattern(JSON_DATE_PATTERN).parseLocalDate(text)
+            }
+
+            date = parseDate
             dayOfWeek = DayOfWeek.of(date)
 
         } catch (e: DateDayOfWeekException) {
@@ -32,16 +51,19 @@ class DateSingle : DateItem {
         }
     }
 
-    constructor(dateTime: DateTime) {
-        date = dateTime
-        dayOfWeek = DayOfWeek.of(date)
+    /**
+     * Конструктор единственной даты пары.
+     * @param date дата занятия.
+     */
+    constructor(date: LocalDate) {
+        this.date = date
+        dayOfWeek = DayOfWeek.of(this.date)
     }
 
-    constructor(dateTime: LocalDate) {
-        date = dateTime.toDateTimeAtStartOfDay()
-        dayOfWeek = DayOfWeek.of(date)
-    }
-
+    /**
+     * Конструктор единственной даты пары.
+     * @param obj JSON объект с датой занятия.
+     */
     constructor(obj: JsonObject) : this(obj[JSON_DATE].asString) {
         val frequency = obj[JSON_FREQUENCY].asString
         if (Frequency.of(frequency) != Frequency.ONCE) {
@@ -58,7 +80,7 @@ class DateSingle : DateItem {
 
     override fun toJson(): JsonObject {
         return JsonObject().apply {
-            addProperty(JSON_DATE, date.toString(JSON_DATE_PATTERN))
+            addProperty(JSON_DATE, date.toString(JSON_DATE_PATTERN_V2))
             addProperty(JSON_FREQUENCY, Frequency.ONCE.tag)
         }
     }
@@ -87,14 +109,6 @@ class DateSingle : DateItem {
         throw IllegalArgumentException("Invalid compare object: $item")
     }
 
-    override fun startDate(): LocalDate {
-        return date.toLocalDate()
-    }
-
-    override fun endDate(): LocalDate {
-        return date.toLocalDate()
-    }
-
     override fun clone(): DateItem {
         return DateSingle(date)
     }
@@ -118,11 +132,11 @@ class DateSingle : DateItem {
     }
 
     override fun toString(): String {
-        return date.toString(DateUtils.PRETTY_FORMAT)
+        return date.toString()
     }
 
-    override fun toString(context: Context): String {
-        return this.toString()
+    fun toString(format: String): String {
+        return date.toString(format)
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {

@@ -11,6 +11,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.State
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -21,6 +22,7 @@ import kotlinx.coroutines.launch
  * @param repository репозиторий, откуда будет загружаться новость.
  * @param newsId номер новости.
  */
+@HiltViewModel
 class NewsViewerViewModel @AssistedInject constructor(
     private val repository: NewsPostRepository,
     @Assisted private val newsId: Int

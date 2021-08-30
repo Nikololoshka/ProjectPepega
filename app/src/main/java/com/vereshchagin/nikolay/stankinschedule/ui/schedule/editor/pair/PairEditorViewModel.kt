@@ -7,6 +7,10 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -14,13 +18,14 @@ import kotlinx.coroutines.launch
 /**
  * ViewModel для редактирования пар.
  */
-class PairEditorViewModel(
+@HiltViewModel
+class PairEditorViewModel @AssistedInject constructor(
     application: Application,
-    private val scheduleName: String,
-    private val editablePairId: Long,
+    private val repository: ScheduleRepository,
+    @Assisted private val scheduleId: Long,
+    @Assisted private val editablePairId: Long,
 ) : AndroidViewModel(application) {
 
-    private val repository = ScheduleRepository(application)
     var schedule: Schedule? = null
         get() {
             if (field == null) {
@@ -50,7 +55,7 @@ class PairEditorViewModel(
     }
 
     private suspend fun loadSchedule() {
-        schedule = repository.schedule(scheduleName).first()
+        schedule = repository.schedule(scheduleId).first()
         scheduleState.postValue(State.SUCCESSFULLY_LOADED)
     }
 
@@ -67,12 +72,12 @@ class PairEditorViewModel(
                 scheduleState.postValue(State.LOADING)
 
                 repository.updatePair(
-                    newPair.toPairItem(
+                    PairItem.from(
                         currentSchedule.info.id,    // id расписания
-                        editablePair?.id ?: 0       // id пары (0 - новая пара)
+                        newPair       // id пары (0 - новая пара)
                     )
                 )
-                WidgetUtils.updateScheduleWidget(getApplication(), scheduleName)
+                WidgetUtils.updateScheduleWidget(getApplication(), scheduleId)
 
                 scheduleState.postValue(State.SUCCESSFULLY_SAVED)
             }
@@ -92,7 +97,7 @@ class PairEditorViewModel(
             scheduleState.postValue(State.LOADING)
 
             repository.removePair(editablePair)
-            WidgetUtils.updateScheduleWidget(getApplication(), scheduleName)
+            WidgetUtils.updateScheduleWidget(getApplication(), scheduleId)
 
             scheduleState.postValue(State.SUCCESSFULLY_SAVED)
         }
@@ -108,12 +113,27 @@ class PairEditorViewModel(
         ERROR
     }
 
-    class Factory(
-        val application: Application, val scheduleName: String, val editablePairId: Long,
-    ) : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return PairEditorViewModel(application, scheduleName, editablePairId) as T
+    /**
+     * Factory для создания ViewModel.
+     */
+    @AssistedFactory
+    interface PairEditorFactory {
+        fun create(scheduleId: Long, editablePairId: Long) : PairEditorViewModel
+    }
+
+    companion object {
+        /**
+         * Создает объект в Factory c переданными параметрами.
+         */
+        fun provideFactory(
+            factory: PairEditorFactory,
+            scheduleId: Long,
+            editablePairId: Long
+        ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                return factory.create(scheduleId, editablePairId) as T
+            }
         }
     }
 }

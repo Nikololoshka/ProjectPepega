@@ -87,7 +87,7 @@ class ScheduleDay {
     @Throws(PairIntersectException::class)
     private fun isAddCheck(added: PairItem) {
         for (pair in pairs) {
-            if (added.intersect(pair) && !added.separate(pair)) {
+            if (added.isIntersect(pair)) {
                 throw PairIntersectException(
                     "There can't be two pairs at the same time: '$pair' and '$added'",
                     pair,
@@ -103,7 +103,7 @@ class ScheduleDay {
     @Throws(PairIntersectException::class)
     fun possibleChangePair(old: Pair?, new: Pair) {
         for (pair in pairs) {
-            if (pair != old && new.intersect(pair) && !new.separate(pair)) {
+            if (pair != old && new.isIntersect(pair)) {
                 throw PairIntersectException(
                     "There can't be two pairs at the same time: '$pair' and '$new'",
                     pair,

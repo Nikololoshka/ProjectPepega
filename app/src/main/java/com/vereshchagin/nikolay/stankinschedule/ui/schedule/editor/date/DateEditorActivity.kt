@@ -4,8 +4,6 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -14,12 +12,15 @@ import androidx.annotation.ArrayRes
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityDateEditorBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.*
+import com.vereshchagin.nikolay.stankinschedule.utils.DateTimeUtils
+import com.vereshchagin.nikolay.stankinschedule.utils.ScheduleUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.currentPosition
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setCurrentPosition
@@ -37,53 +38,26 @@ class DateEditorActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDateEditorBinding
     private lateinit var statefulMode: StatefulLayout2
 
+    /**
+     * Все даты пары.
+     */
     private lateinit var date: Date
+
+    /**
+     * Текущий запрос в редактор (создание / редактирование).
+     */
     private lateinit var request: Request
+
+    /**
+     * Редактируемая дата.
+     */
     private var dateItem: DateItem? = null
-    
+
+    /**
+     * Режим редактирования (одиночный / диапазон).
+     */
     private var mode = Mode.SINGLE
 
-    /**
-     * Watcher для единственной даты.
-     */
-    private val SINGLE_WATCHER = object : DateWatcher() {
-        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            val isValid = commonCheck(binding.singleDate, s, before)
-            binding.singleDateLayout.error = if (isValid) {
-                null
-            } else {
-                getString(R.string.date_editor_enter_valid_date)
-            }
-        }
-    }
-
-    /**
-     * Watcher для начала диапазона дат.
-     */
-    private val START_RANGE_WATCHER = object : DateWatcher() {
-        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            val isValid = commonCheck(binding.dateStart, s, before)
-            binding.dateStartLayout.error = if (isValid) {
-                null
-            } else {
-                getString(R.string.date_editor_enter_valid_date)
-            }
-        }
-    }
-
-    /**
-     * Watcher для конца диапазона дат.
-     */
-    private val END_RANGE_WATCHER = object : DateWatcher() {
-        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            val isValid = commonCheck(binding.dateEnd, s, before)
-            binding.dateEndLayout.error = if (isValid) {
-                null
-            } else {
-                getString(R.string.date_editor_enter_valid_date)
-            }
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,15 +73,18 @@ class DateEditorActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        // получение данных
         date = intent.getParcelableExtra(EXTRA_DATE)!!
         dateItem = intent.getParcelableExtra(EXTRA_DATE_ITEM)
         request = intent.getSerializableExtra(EXTRA_REQUEST) as Request
 
         initFields()
 
+        // было сохранено состояние
         if (savedInstanceState != null) {
             mode = (savedInstanceState.getSerializable(DATE_MODE) as Mode)
             binding.dateMode.setCurrentPosition(mode.number)
+
         } else {
             dateItem?.let {
                 bind(it)
@@ -131,86 +108,15 @@ class DateEditorActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            // сохранение
+        when (item.itemId) {
+            // сохранение даты
             R.id.apply_date -> {
-                try {
-                    val newDate: DateItem = when (mode) {
-                        Mode.SINGLE -> {
-                            DateSingle(
-                                binding.singleDate.text.toString(),
-                                DATE_PATTERN
-                            )
-                        }
-                        Mode.RANGE -> {
-                            DateRange(
-                                binding.dateStart.text.toString(),
-                                binding.dateEnd.text.toString(),
-                                currentFrequency(),
-                                DATE_PATTERN
-                            )
-                        }
-                    }
-                    date.possibleChange(dateItem, newDate)
-
-                    val intent = Intent()
-                    intent.putExtra(EXTRA_DATE_OLD, dateItem)
-                    intent.putExtra(EXTRA_DATE_NEW, newDate)
-                    if (dateItem == null) {
-                        setResult(RESULT_DATE_NEW, intent)
-                    } else {
-                        setResult(RESULT_DATE_EDIT, intent)
-                    }
-                    onBackPressed()
-
-                    return true
-
-                } catch (e: DateException) {
-                    val message = when (e) {
-                        is DateFrequencyException -> {
-                            getString(R.string.date_editor_invalid_frequency)
-                        }
-                        is DateDayOfWeekException -> {
-                            getString(R.string.date_editor_invalid_day_of_week)
-                        }
-                        is DateParseException -> {
-                            getString(R.string.date_editor_invalid_date, e.parseDate)
-                        }
-                        is DateIntersectException -> {
-                            getString(R.string.date_editor_impossible_added_date) +
-                                "\n${e.first.toString(this)} <-> ${e.second.toString(this)}"
-                        }
-                        else -> {
-                            "Unknown type: $e"
-                        }
-                    }
-
-                    MaterialAlertDialogBuilder(this, R.style.AppAlertDialog)
-                        .setTitle(R.string.error)
-                        .setMessage(message)
-                        .setOkButton()
-                        .show()
-
-                    return true
-
-                } catch (e: Exception) {
-                    Log.e(TAG, "onOptionsItemSelected: Unknown error. $e")
-                    throw RuntimeException("Unknown error", e)
-                }
+                onApplyDateClicked()
+                return true
             }
-            // удаление
+            // удаление даты
             R.id.remove_date -> {
-                // даты и так нет
-                if (dateItem == null) {
-                    onBackPressed()
-                    return true
-                }
-
-                val intent = Intent()
-                intent.putExtra(EXTRA_DATE_OLD, dateItem)
-                setResult(RESULT_DATE_REMOVE, intent)
-                onBackPressed()
-
+                omRemoveDateClicked()
                 return true
             }
         }
@@ -233,26 +139,215 @@ class DateEditorActivity : AppCompatActivity() {
             })
         }
 
-        binding.singleDate.addTextChangedListener(SINGLE_WATCHER)
+        binding.singleDate.doOnTextChanged(this::onSingleDateChanged)
         binding.singleDateLayout.setEndIconOnClickListener {
             onCalendarClicked(R.id.single_date_layout)
         }
 
-        binding.dateStart.addTextChangedListener(START_RANGE_WATCHER)
+        binding.dateStart.doOnTextChanged(this::onStartDateRangeChanged)
         binding.dateStartLayout.setEndIconOnClickListener {
             onCalendarClicked(R.id.date_start_layout)
         }
 
-        binding.dateEnd.addTextChangedListener(END_RANGE_WATCHER)
+        binding.dateEnd.doOnTextChanged(this::onEndDateRangeChanged)
         binding.dateEndLayout.setEndIconOnClickListener {
             onCalendarClicked(R.id.date_end_layout)
         }
     }
 
     /**
+     * Вызывается для сохранения текущих результатов редактирования даты.
+     */
+    private fun onApplyDateClicked() {
+        try {
+            // получает финальную дату
+            val newDate: DateItem = when (mode) {
+                Mode.SINGLE -> {
+                    DateSingle(
+                        binding.singleDate.text.toString(),
+                        DateTimeUtils.PRETTY_DATE_PATTERN
+                    )
+                }
+                Mode.RANGE -> {
+                    DateRange(
+                        binding.dateStart.text.toString(),
+                        binding.dateEnd.text.toString(),
+                        currentFrequency(),
+                        DateTimeUtils.PRETTY_DATE_PATTERN
+                    )
+                }
+            }
+
+            // можно ли иметь (изменить) эту дату
+            date.possibleChange(dateItem, newDate)
+
+            // если все хорошо, то возвращает результат
+            val intent = Intent()
+            intent.putExtra(EXTRA_DATE_OLD, dateItem)
+            intent.putExtra(EXTRA_DATE_NEW, newDate)
+            if (dateItem == null) {
+                setResult(RESULT_DATE_NEW, intent)
+            } else {
+                setResult(RESULT_DATE_EDIT, intent)
+            }
+            onBackPressed()
+
+        } catch (e: DateException) {
+            val message = when (e) {
+                is DateFrequencyException -> {
+                    getString(R.string.date_editor_invalid_frequency)
+                }
+                is DateDayOfWeekException -> {
+                    getString(R.string.date_editor_invalid_day_of_week)
+                }
+                is DateParseException -> {
+                    getString(R.string.date_editor_invalid_date, e.parseDate)
+                }
+                is DateIntersectException -> {
+                    getString(R.string.date_editor_impossible_added_date) +
+                            "${
+                                ScheduleUtils.dateToString(e.first, this)
+                            } <-> ${
+                                ScheduleUtils.dateToString(e.second, this)
+                            }"
+                }
+            }
+
+            MaterialAlertDialogBuilder(this, R.style.AppAlertDialog)
+                .setTitle(R.string.error)
+                .setMessage(message)
+                .setOkButton()
+                .show()
+
+        } catch (e: Exception) {
+            Log.e(TAG, "onOptionsItemSelected: Unknown error. $e")
+            throw RuntimeException("Unknown error", e)
+        }
+    }
+
+    /**
+     * Вызывается для удаления текущей даты.
+     */
+    private fun omRemoveDateClicked() {
+        // даты и так нет
+        if (dateItem == null) {
+            onBackPressed()
+        }
+
+        val intent = Intent()
+        intent.putExtra(EXTRA_DATE_OLD, dateItem)
+        setResult(RESULT_DATE_REMOVE, intent)
+        onBackPressed()
+    }
+
+    /**
+     * Валидация поля с вводом одной даты.
+     */
+    @Suppress("UNUSED_PARAMETER")
+    private fun onSingleDateChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
+        val isValid = commonDateCheck(binding.singleDate, text, before)
+        binding.singleDateLayout.error = if (isValid) {
+            null
+        } else {
+            getString(R.string.date_editor_enter_valid_date)
+        }
+    }
+
+    /**
+     * Валидация ввода диапазона начала даты.
+     */
+    @Suppress("UNUSED_PARAMETER")
+    private fun onStartDateRangeChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
+        val isValid = commonDateCheck(binding.dateStart, text, before)
+        binding.dateStartLayout.error = if (isValid) {
+            null
+        } else {
+            getString(R.string.date_editor_enter_valid_date)
+        }
+    }
+
+    /**
+     * Валидация ввода конца диапазона даты.
+     */
+    @Suppress("UNUSED_PARAMETER")
+    private fun onEndDateRangeChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
+        val isValid = commonDateCheck(binding.dateEnd, text, before)
+        binding.dateEndLayout.error = if (isValid) {
+            null
+        } else {
+            getString(R.string.date_editor_enter_valid_date)
+        }
+    }
+
+    /**
+     * Общая проверка даты на правильность.
+     */
+    private fun commonDateCheck(
+        dateView: TextInputEditText,
+        text: CharSequence?,
+        before: Int,
+    ): Boolean {
+
+        var textDate: String = if (text.isNullOrEmpty()) {
+            return true
+        } else {
+            text.toString()
+        }
+
+        var isValid = true
+        try {
+            when {
+                textDate.length == 2 && before == 0 -> {
+                    if (textDate.toInt() !in 1..31) {
+                        isValid = false
+                    } else {
+                        textDate += "."
+                        dateView.setText(textDate)
+                        dateView.setSelection(textDate.length)
+                    }
+                }
+                textDate.length == 5 && before == 0 -> {
+                    val month = textDate.substring(3)
+                    if (month.toInt() !in 1..12) {
+                        isValid = false
+                    } else {
+                        val year = DateTime.now().year
+                        textDate += ".$year"
+
+                        dateView.setText(textDate)
+                        dateView.clearFocus()
+                    }
+                }
+                textDate.length != 10 -> {
+                    isValid = false
+                }
+            }
+        } catch (e: NumberFormatException) {
+            isValid = false
+        }
+
+        if (isValid && textDate.length == 10) {
+            try {
+                val formatter = DateTimeFormat.forPattern(DateTimeUtils.PRETTY_DATE_PATTERN)
+                formatter.parseLocalDate(textDate)
+
+            } catch (e: UnsupportedOperationException) {
+                isValid = false
+            } catch (e: IllegalArgumentException) {
+                isValid = false
+            }
+        }
+        return isValid
+    }
+
+
+    /**
      * Инициализация полей с DropDown меню.
      */
-    private fun initAutoComplete(autoComplete: MaterialAutoCompleteTextView, objects: List<String>) {
+    private fun initAutoComplete(
+        autoComplete: MaterialAutoCompleteTextView,
+        objects: List<String>,
+    ) {
         val adapter = DropDownAdapter(this, objects)
         autoComplete.setAdapter(adapter)
 
@@ -270,16 +365,18 @@ class DateEditorActivity : AppCompatActivity() {
     }
 
     /**
-     * Присоединяет данные к View.
+     * Отображает текущую редактируемую дату в View.
      */
     private fun bind(item: DateItem) {
+        // одиночная дата
         if (item is DateSingle) {
-            binding.singleDate.setText(item.date.toString(DATE_PATTERN))
+            binding.singleDate.setText(item.date.toString(DateTimeUtils.PRETTY_DATE_PATTERN))
             switchMode(Mode.SINGLE)
         }
+        // диапазон дат
         if (item is DateRange) {
-            binding.dateStart.setText(item.start.toString(DATE_PATTERN))
-            binding.dateEnd.setText(item.end.toString(DATE_PATTERN))
+            binding.dateStart.setText(item.start.toString(DateTimeUtils.PRETTY_DATE_PATTERN))
+            binding.dateEnd.setText(item.end.toString(DateTimeUtils.PRETTY_DATE_PATTERN))
             setCurrentFrequency(item.frequency())
             switchMode(Mode.RANGE)
         }
@@ -299,22 +396,37 @@ class DateEditorActivity : AppCompatActivity() {
      * @param text текущая дата.
      * @param listener callback для результата.
      */
-    private fun showDataPicker(
+    private fun showDatePicker(
         text: String,
-        listener: (view: DatePicker, year: Int, month: Int, dayOfMonth: Int) -> Unit
+        listener: (view: DatePicker, year: Int, month: Int, dayOfMonth: Int) -> Unit,
     ) {
         var showDate = LocalDate.now()
         try {
-            val formatter = DateTimeFormat.forPattern(DATE_PATTERN)
+            val formatter = DateTimeFormat.forPattern(DateTimeUtils.PRETTY_DATE_PATTERN)
             showDate = formatter.parseLocalDate(text)
 
         } catch (ignored: IllegalArgumentException) {
+
         } catch (ignored: UnsupportedOperationException) {
+
         }
 
         DatePickerDialog(
             this, listener, showDate.year, showDate.monthOfYear - 1, showDate.dayOfMonth
         ).show()
+    }
+
+    /**
+     * Создает Date Picker для установления даты в необходимое поле.
+     * @param editText поле, в которое устанавливается дата.
+     */
+    private fun createDatePicker(editText: TextInputEditText) {
+        showDatePicker(
+            editText.text.toString()
+        ) { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
+            val singleDate = LocalDate(year, month + 1, dayOfMonth)
+            editText.setText(singleDate.toString(DateTimeUtils.PRETTY_DATE_PATTERN))
+        }
     }
 
     /**
@@ -324,30 +436,15 @@ class DateEditorActivity : AppCompatActivity() {
         when (id) {
             // единственная дата
             R.id.single_date_layout -> {
-                showDataPicker(
-                    binding.singleDate.text.toString()
-                ) { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
-                    val singleDate = LocalDate(year, month + 1, dayOfMonth)
-                    binding.singleDate.setText(singleDate.toString(DATE_PATTERN))
-                }
+                createDatePicker(binding.singleDate)
             }
             // дата начала
             R.id.date_start_layout -> {
-                showDataPicker(
-                    binding.dateStart.text.toString()
-                ) { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
-                    val startDate = LocalDate(year, month + 1, dayOfMonth)
-                    binding.dateStart.setText(startDate.toString(DATE_PATTERN))
-                }
+                createDatePicker(binding.dateStart)
             }
             // дата конца
             R.id.date_end_layout -> {
-                showDataPicker(
-                    binding.dateEnd.text.toString()
-                ) { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
-                    val startDate = LocalDate(year, month + 1, dayOfMonth)
-                    binding.dateEnd.setText(startDate.toString(DATE_PATTERN))
-                }
+                createDatePicker(binding.dateEnd)
             }
         }
     }
@@ -365,7 +462,7 @@ class DateEditorActivity : AppCompatActivity() {
     /**
      * Возвращает текущую периодичность.
      */
-    private fun currentFrequency() : Frequency {
+    private fun currentFrequency(): Frequency {
         return listOf(
             Frequency.EVERY, Frequency.THROUGHOUT
         )[binding.dateFrequency.currentPosition()]
@@ -387,72 +484,6 @@ class DateEditorActivity : AppCompatActivity() {
         RANGE(1)
     }
 
-    /**
-     * Watcher для ввода даты.
-     */
-    private abstract class DateWatcher : TextWatcher {
-
-        override fun afterTextChanged(s: Editable?) {}
-
-        /**
-         * Общая проверка даты на правильность.
-         */
-        fun commonCheck(dateView: TextInputEditText, text: CharSequence?, before: Int): Boolean {
-            var textDate: String = if (text.isNullOrEmpty()) {
-                return true
-            } else {
-                text.toString()
-            }
-
-            var isValid = true
-            try {
-                when {
-                    textDate.length == 2 && before == 0 -> {
-                        if (textDate.toInt() !in 1..31) {
-                            isValid = false
-                        } else {
-                            textDate += "."
-                            dateView.setText(textDate)
-                            dateView.setSelection(textDate.length)
-                        }
-                    }
-                    textDate.length == 5 && before == 0 -> {
-                        val month = textDate.substring(3)
-                        if (month.toInt() !in 1..12) {
-                            isValid = false
-                        } else {
-                            val year = DateTime.now().year
-                            textDate += ".$year"
-
-                            dateView.setText(textDate)
-                            dateView.clearFocus()
-                        }
-                    }
-                    textDate.length != 10 -> {
-                        isValid = false
-                    }
-                }
-            } catch (e: NumberFormatException) {
-                isValid = false
-            }
-
-            if (isValid && textDate.length == 10) {
-                try {
-                    val formatter = DateTimeFormat.forPattern(DATE_PATTERN)
-                    formatter.parseLocalDate(textDate)
-
-                } catch (e: UnsupportedOperationException) {
-                    isValid = false
-                } catch (e: IllegalArgumentException) {
-                    isValid = false
-                }
-            }
-            return isValid
-        }
-
-        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-    }
-
     companion object {
 
         private val TAG = DateEditorActivity::getComponentName.name
@@ -468,7 +499,6 @@ class DateEditorActivity : AppCompatActivity() {
         private const val EXTRA_DATE_ITEM = "extra_date_item"
         private const val EXTRA_REQUEST = "extra_request"
 
-        private const val DATE_PATTERN = "dd.MM.yyyy"
         private const val DATE_MODE = "date_mode"
 
         /**

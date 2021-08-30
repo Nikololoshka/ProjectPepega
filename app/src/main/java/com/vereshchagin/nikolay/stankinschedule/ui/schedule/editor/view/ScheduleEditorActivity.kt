@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
@@ -13,9 +14,11 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorViewModel
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.ScheduleEditorAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.viewholder.OnPairListener
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import javax.inject.Inject
 
 /**
  * Фрагмент с списком пар для редактирования.
@@ -24,12 +27,19 @@ class ScheduleEditorActivity :
     BaseActivity<ActivityScheduleEditorBinding>(ActivityScheduleEditorBinding::inflate),
     OnPairListener {
 
+    @Inject
+    lateinit var viewModelFactory: ScheduleEditorViewModel.ScheduleEditorFactory
+
     /**
      * ViewModel фрагмента.
      */
-    private lateinit var viewModel: ScheduleEditorViewModel
-    private lateinit var scheduleName: String
+    private val viewModel: ScheduleEditorViewModel by viewModels {
+        ScheduleEditorViewModel.provideFactory(viewModelFactory, scheduleId)
+    }
+
     private lateinit var statefulLayout: StatefulLayout2
+
+    private var scheduleId: Long = -1
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         statefulLayout = StatefulLayout2.Builder(binding.disciplinesContainer)
@@ -41,13 +51,8 @@ class ScheduleEditorActivity :
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        scheduleName = intent.getStringExtra(EXTRA_SCHEDULE_NAME)!!
-        supportActionBar?.title = getString(R.string.schedule_editor_appbar, scheduleName)
-
-        viewModel = ViewModelProvider(
-            this,
-            ScheduleEditorViewModel.Factory(application, scheduleName)
-        ).get(ScheduleEditorViewModel::class.java)
+        // получение данных
+        scheduleId = intent.getLongExtra(EXTRA_SCHEDULE_ID, -1)
 
 
         val adapter = ScheduleEditorAdapter(this)
@@ -86,12 +91,12 @@ class ScheduleEditorActivity :
     }
 
     override fun onPairClicked(pair: PairItem) {
-        val intent = PairEditorActivity.editPairIntent(this, scheduleName, pair.id)
+        val intent = PairEditorActivity.editPairIntent(this, scheduleId, pair.id)
         startActivity(intent)
     }
 
     override fun onAddPairClicked(discipline: String?, type: Type?) {
-        val intent = PairEditorActivity.newPairIntent(this, scheduleName, discipline, type)
+        val intent = PairEditorActivity.newPairIntent(this, scheduleId, discipline, type)
         startActivity(intent)
     }
 
@@ -112,14 +117,14 @@ class ScheduleEditorActivity :
     companion object {
 
         private const val TAG = "ScheduleEditorLog"
-        private const val EXTRA_SCHEDULE_NAME = "schedule_name"
+        private const val EXTRA_SCHEDULE_ID = "extra_schedule_id"
 
         /**
          *  Создает intent для вызова редактора расписания.
          */
-        fun createIntent(context: Context, scheduleName: String): Intent {
+        fun createIntent(context: Context, scheduleId: String): Intent {
             return Intent(context, ScheduleEditorActivity::class.java).apply {
-                putExtra(EXTRA_SCHEDULE_NAME, scheduleName)
+                putExtra(EXTRA_SCHEDULE_ID, scheduleId)
             }
         }
     }

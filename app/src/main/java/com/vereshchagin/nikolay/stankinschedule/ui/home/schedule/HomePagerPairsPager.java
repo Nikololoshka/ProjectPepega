@@ -129,6 +129,7 @@ public class HomePagerPairsPager extends ViewPager {
             }
         }
 
+        /// ?????????
         if (!mIsInitialization) {
             heightMeasureSpec = MeasureSpec.makeMeasureSpec(viewHeight, MeasureSpec.EXACTLY);
         }

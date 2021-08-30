@@ -5,15 +5,16 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -23,6 +24,7 @@ import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityPairEditorBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.*
+import com.vereshchagin.nikolay.stankinschedule.ui.BaseActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.date.DateEditorActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorViewModel.State.*
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.list.PairDatesAdaptor
@@ -32,30 +34,59 @@ import com.vereshchagin.nikolay.stankinschedule.utils.extensions.currentPosition
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setCurrentPosition
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setOkButton
 import com.vereshchagin.nikolay.stankinschedule.view.DropDownAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * Активность редактирования пары.
  */
-class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClickListener {
+@AndroidEntryPoint
+class PairEditorActivity :
+    BaseActivity<ActivityPairEditorBinding>(ActivityPairEditorBinding::inflate),
+    PairDatesAdaptor.OnDateItemClickListener {
 
-    private lateinit var binding: ActivityPairEditorBinding
-    private lateinit var viewModel: PairEditorViewModel
+    @Inject
+    lateinit var viewModelFactory: PairEditorViewModel.PairEditorFactory
+
+    /**
+     * ViewModel активности.
+     */
+    private val viewModel: PairEditorViewModel by viewModels {
+        PairEditorViewModel.provideFactory(viewModelFactory, scheduleId, editablePairId)
+    }
 
     private lateinit var statefulEditor: StatefulLayout2
     private lateinit var statefulDates: StatefulLayout2
     private lateinit var adapter: PairDatesAdaptor
 
+    /**
+     * Тип запроса для редактора (создание / редактирование).
+     */
     private lateinit var request: Request
-    private lateinit var date: Date
-    private lateinit var scheduleName: String
-    private var editablePairId: Long = 0
 
+    /**
+     * Дата редактируемой пары.
+     */
+    private lateinit var date: Date
+
+    /**
+     * ID расписания в котором редактируется пара.
+     */
+    private var scheduleId: Long = -1
+
+    /**
+     * ID редактируемой пары.
+     */
+    private var editablePairId: Long = -1
+
+    /**
+     * Лаунчер для обработки результатов от редактирования дат.
+     */
     private val dateEditorLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(), this::onDateEditorResult
     )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onPostCreateView(savedInstanceState: Bundle?) {
 
         binding = ActivityPairEditorBinding.inflate(layoutInflater)
 
@@ -73,13 +104,10 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        // получение данных
         request = intent.getSerializableExtra(EXTRA_REQUEST) as Request
-        scheduleName = intent.getStringExtra(EXTRA_SCHEDULE_NAME)!!
-        editablePairId = intent.getLongExtra(EXTRA_PAIR_ID, 0)
-
-        viewModel = ViewModelProvider(
-            this, PairEditorViewModel.Factory(application, scheduleName, editablePairId)
-        ).get(PairEditorViewModel::class.java)
+        scheduleId = intent.getLongExtra(EXTRA_SCHEDULE_ID, -1)
+        editablePairId = intent.getLongExtra(EXTRA_PAIR_ID, -1)
 
         initFields()
 
@@ -200,26 +228,34 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
     }
 
     override fun onBackPressed() {
-        val title = binding.editTextTitle.text.toString()
         when (request) {
             Request.NEW_PAIR -> {
+                val title = binding.editTextTitle.text.toString()
                 if (title.isEmpty() || date.isEmpty()) {
                     super.onBackPressed()
                     return
                 }
             }
             Request.EDIT_PAIR -> {
-                val equal = viewModel.editablePair.value?.elementEqua1s(
-                    title,
-                    binding.editTextLecturer.text.toString(),
-                    binding.editTextClassroom.text.toString(),
-                    currentType(),
-                    currentSubgroup(),
-                    Time(currentStartTime(), currentEndTime()),
-                    date
-                ) ?: true
 
-                if (equal) {
+                val currentPair = viewModel.editablePair.value
+
+                val isEqual = if (currentPair != null) {
+                    val title = binding.editTextTitle.text.toString()
+                    val lecturer = binding.editTextLecturer.text.toString()
+                    val classroom = binding.editTextClassroom.text.toString()
+                    val type = currentType()
+                    val subgroup = currentSubgroup()
+                    val time = Time(currentStartTime(), currentEndTime())
+
+                    currentPair == Pair(title, lecturer, classroom, type, subgroup, time, date)
+
+                } else {
+                    true
+                }
+
+                // нет изменений, то выходим
+                if (isEqual) {
                     super.onBackPressed()
                     return
                 }
@@ -237,7 +273,7 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
                 dialog.dismiss()
             }
             .setNeutralButton(R.string.pair_editor_save) { dialog, _ ->
-                savePair()
+                onSavePairClicked()
                 dialog.dismiss()
             }
             .show()
@@ -247,12 +283,12 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
         when (item.itemId) {
             // завершить редактирование пары
             R.id.apply_pair -> {
-                savePair()
+                onSavePairClicked()
                 return true
             }
             // удалить текущую пару
             R.id.remove_pair -> {
-                removePair()
+                onRemovePairClicked()
                 return true
             }
         }
@@ -260,13 +296,14 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
         return super.onOptionsItemSelected(item)
     }
 
+    /**
+     * Вызывается при завершении редактирования даты пары.
+     */
     private fun onDateEditorResult(result: ActivityResult) {
         val data = result.data ?: return
 
         val oldDate = data.getParcelableExtra<DateItem>(DateEditorActivity.EXTRA_DATE_OLD)
         val newDate = data.getParcelableExtra<DateItem>(DateEditorActivity.EXTRA_DATE_NEW)
-
-        Log.d(TAG, "onActivityResult: $oldDate and $newDate")
 
         when (result.resultCode) {
             DateEditorActivity.RESULT_DATE_REMOVE -> {
@@ -300,14 +337,15 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
 
         initAutoComplete(binding.spinnerType2, resourcesArray(R.array.type_list))
         initAutoComplete(binding.spinnerSubgroup2, resourcesArray(R.array.subgroup_list))
-        initAutoComplete(binding.spinnerTimeStart2, Time.STARTS)
-        initAutoComplete(binding.spinnerTimeEnd2, Time.ENDS)
+        initAutoComplete(binding.spinnerTimeStart2, resourcesArray(R.array.time_start_list))
+        initAutoComplete(binding.spinnerTimeEnd2, resourcesArray(R.array.time_end_list))
 
         // Listener для ограничения списка окончания пар, при смене начала пары.
+        val endTimes = resourcesArray(R.array.time_end_list)
         binding.spinnerTimeStart2.setOnItemClickListener { _, _, position, _ ->
             var newPos = binding.spinnerTimeEnd2.currentPosition()
 
-            val times = Time.ENDS.subList(position, Time.ENDS.size)
+            val times = endTimes.subList(position, endTimes.size)
             val adapter = DropDownAdapter(this, times)
             binding.spinnerTimeEnd2.setAdapter(adapter)
 
@@ -350,8 +388,9 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
      * Восстанавливает состояние View.
      */
     private fun restoreBind() {
-        val position = Time.ENDS.indexOf(binding.spinnerTimeEnd2.text.toString())
-        val times = Time.ENDS.subList(position, Time.ENDS.size)
+        val endTimes = resourcesArray(R.array.time_end_list)
+        val position = endTimes.indexOf(binding.spinnerTimeEnd2.text.toString())
+        val times = endTimes.subList(position, endTimes.size)
         val adapter = DropDownAdapter(this, times)
         binding.spinnerTimeEnd2.setAdapter(adapter)
     }
@@ -364,7 +403,7 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
      * Сохраняет пару в расписание.
      * @return true если удалось сохранить, иначе false.
      */
-    private fun savePair(): Boolean {
+    private fun onSavePairClicked(): Boolean {
         if (!isCorrectTitleField() || !isCorrectDateField()) {
             return false
         }
@@ -397,7 +436,7 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
     /**
      * Удаляет пару из расписания.
      */
-    private fun removePair() {
+    private fun onRemovePairClicked() {
         viewModel.removePair()
     }
 
@@ -514,7 +553,7 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
 
         private const val TAG = "PairEditorActivity2Log"
 
-        private const val EXTRA_SCHEDULE_NAME = "extra_schedule"
+        private const val EXTRA_SCHEDULE_ID = "extra_schedule"
         private const val EXTRA_DISCIPLINE_NAME = "extra_discipline_name"
         private const val EXTRA_PAIR_TYPE = "extra_pair_type"
         private const val EXTRA_PAIR_ID = "extra_pair"
@@ -527,12 +566,12 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
          */
         fun newPairIntent(
             context: Context,
-            scheduleName: String,
+            scheduleId: Long,
             disciplineName: String? = null,
             type: Type? = null,
         ): Intent {
             val intent = Intent(context, PairEditorActivity::class.java)
-            intent.putExtra(EXTRA_SCHEDULE_NAME, scheduleName)
+            intent.putExtra(EXTRA_SCHEDULE_ID, scheduleId)
             intent.putExtra(EXTRA_REQUEST, Request.NEW_PAIR)
             intent.putExtra(EXTRA_DISCIPLINE_NAME, disciplineName)
             intent.putExtra(EXTRA_PAIR_TYPE, type?.tag)
@@ -542,9 +581,9 @@ class PairEditorActivity : AppCompatActivity(), PairDatesAdaptor.OnDateItemClick
         /**
          * Intent на редактирование пары.
          */
-        fun editPairIntent(context: Context, scheduleName: String, pairId: Long): Intent {
+        fun editPairIntent(context: Context, scheduleId: Long, pairId: Long): Intent {
             val intent = Intent(context, PairEditorActivity::class.java)
-            intent.putExtra(EXTRA_SCHEDULE_NAME, scheduleName)
+            intent.putExtra(EXTRA_SCHEDULE_ID, scheduleId)
             intent.putExtra(EXTRA_PAIR_ID, pairId)
             intent.putExtra(EXTRA_REQUEST, Request.EDIT_PAIR)
             return intent

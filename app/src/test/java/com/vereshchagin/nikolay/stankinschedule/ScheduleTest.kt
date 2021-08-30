@@ -27,7 +27,7 @@ class ScheduleTest {
             .create()
 
         for (json in PairResources.PAIRS) {
-            pairs.add(gson.fromJson(json, Pair::class.java).toPairItem(-1))
+            pairs.add(PairItem.from(-1, gson.fromJson(json, Pair::class.java)))
         }
     }
 

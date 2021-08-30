@@ -19,7 +19,7 @@ import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
 /**
  * BottomSheetDialog для изменения подгруппы на главной странице.
  */
-class ChangeSubgroupBottomSheet : BottomSheetDialogFragment(), View.OnClickListener {
+class ChangeSubgroupBottomSheet : BottomSheetDialogFragment() {
 
     private var _binding: DialogChangeSubgroupBinding? = null
     private val binding get() = _binding!!
@@ -40,7 +40,7 @@ class ChangeSubgroupBottomSheet : BottomSheetDialogFragment(), View.OnClickListe
             }
         )
         binding.showSubgroup.isChecked = ApplicationPreference.displaySubgroup(requireContext())
-        binding.selectButton.setOnClickListener(this)
+        binding.selectButton.setOnClickListener(this::onSubgroupSelected)
 
         binding.root.viewTreeObserver.addOnGlobalLayoutListener {
             val bottomSheet =
@@ -59,7 +59,8 @@ class ChangeSubgroupBottomSheet : BottomSheetDialogFragment(), View.OnClickListe
         _binding = null
     }
 
-    override fun onClick(v: View?) {
+    @Suppress("UNUSED_PARAMETER")
+    private fun onSubgroupSelected(ignored: View) {
         val id = binding.subgroupSelector.checkedRadioButtonId
         if (id == RadioGroup.NO_ID) {
             Toast.makeText(context, "No selected subgroup", Toast.LENGTH_SHORT).show()

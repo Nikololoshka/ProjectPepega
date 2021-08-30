@@ -2,11 +2,17 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
 import android.os.Parcelable
 import com.google.gson.*
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import kotlinx.parcelize.Parcelize
 
 /**
  * Пара в расписании.
+ * @param title название пары.
+ * @param lecturer преподаватель.
+ * @param classroom аудитория.
+ * @param type тип пары.
+ * @param subgroup подгруппа пары.
+ * @param time время пары.
+ * @param date даты проведения пары.
  */
 @Parcelize
 open class Pair(
@@ -20,37 +26,25 @@ open class Pair(
 
     ) : Parcelable, Comparable<Pair> {
 
+    constructor(
+        other: Pair,
+    ) : this(
+        other.title,
+        other.lecturer,
+        other.classroom,
+        other.type,
+        other.subgroup,
+        other.time,
+        other.date
+    )
 
-    fun separate(other: Pair): Boolean {
-        return subgroup.separate(other.subgroup)
-    }
-
-    fun intersect(other: Pair): Boolean {
-        return time.intersect(other.time) && date.intersect(other.date)
-    }
-
-    fun elementEqua1s(
-        title: String,
-        lecturer: String,
-        classroom: String,
-        type: Type,
-        subgroup: Subgroup,
-        time: Time,
-        date: Date,
-    ): Boolean {
-        return title == this.title &&
-            lecturer == this.lecturer &&
-            classroom == this.classroom &&
-            type == this.type &&
-            subgroup == this.subgroup &&
-            time == this.time &&
-            date == this.date
-    }
-
-    fun toPairItem(scheduleId: Long, pairId: Long = 0): PairItem {
-        return PairItem(scheduleId, title, lecturer, classroom, type, subgroup, time, date).apply {
-            id = pairId
-        }
+    /**
+     * Определяет, пересекаются ли пары по времени, дате и подгруппе.
+     * @param other другая пара.
+     */
+    fun isIntersect(other: Pair): Boolean {
+        return time.isIntersect(other.time) && date.intersect(other.date) &&
+                subgroup.isIntersect(other.subgroup)
     }
 
     /**

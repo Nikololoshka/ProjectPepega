@@ -1,19 +1,18 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
-import android.content.Context
 import android.os.Parcelable
 import com.google.gson.JsonObject
-import org.joda.time.LocalDate
 
 /**
  * Абстрактный класс дат пары в расписании.
  */
-abstract class DateItem : Comparable<DateItem>, Parcelable {
+sealed class DateItem : Comparable<DateItem>, Parcelable {
 
-    companion object {
+    internal companion object {
         const val JSON_DATE = "date"
         const val JSON_FREQUENCY = "frequency"
         const val JSON_DATE_PATTERN = "yyyy.MM.dd"
+        const val JSON_DATE_PATTERN_V2 = "yyyy-MM-dd"
     }
 
     /**
@@ -42,16 +41,6 @@ abstract class DateItem : Comparable<DateItem>, Parcelable {
     abstract fun isBefore(item: DateItem) : Boolean
 
     /**
-     * Возвращает начало дата.
-     */
-    abstract fun startDate() : LocalDate
-
-    /**
-     * Возвращает конец даты.
-     */
-    abstract fun endDate() : LocalDate
-
-    /**
      * Возвращает копию объекта.
      */
     abstract fun clone() : DateItem
@@ -68,6 +57,4 @@ abstract class DateItem : Comparable<DateItem>, Parcelable {
     abstract override fun hashCode(): Int
 
     abstract override fun toString(): String
-
-    abstract fun toString(context: Context) : String
 }

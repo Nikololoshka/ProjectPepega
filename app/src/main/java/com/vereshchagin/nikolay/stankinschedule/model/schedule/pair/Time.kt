@@ -11,9 +11,19 @@ import org.joda.time.format.DateTimeFormat
  * Время пары
  */
 class Time : Parcelable {
-
+    /**
+     * Начало пары.
+     */
     val start: LocalTime
+
+    /**
+     * Конец пары.
+     */
     val end: LocalTime
+
+    /**
+     * Продолжительность пары.
+     */
     val duration: Int
 
     constructor(parcel: Parcel) {
@@ -22,6 +32,11 @@ class Time : Parcelable {
         duration = parcel.readInt()
     }
 
+    /**
+     * Конструктор времени пары.
+     * @param startTime текст с началом пары.
+     * @param endTime текст с концом пары.
+     */
     constructor(startTime: String, endTime: String) {
         if (!STARTS.contains(startTime) || !ENDS.contains(endTime)) {
             throw IllegalArgumentException("Not parse time: $startTime - $endTime")
@@ -33,28 +48,42 @@ class Time : Parcelable {
         duration = ENDS.indexOf(endTime) - STARTS.indexOf(startTime) + 1
     }
 
+    /**
+     * Конструктор времени пары.
+     * @param obj JSON с временем пары.
+     */
     constructor(obj: JsonElement) : this(
         obj.asJsonObject[JSON_START].asString,
         obj.asJsonObject[JSON_END].asString
     )
 
-    fun intersect(other: Time) : Boolean {
+    /**
+     * Определяет, пересекаются времена пары.
+     */
+    fun isIntersect(other: Time): Boolean {
         return (start >= other.start && end <= other.end) ||
-            (start <= other.start && end >= other.end) ||
-            (start <= other.end && end >= other.end)
+                (start <= other.start && end >= other.end) ||
+                (start <= other.end && end >= other.end)
     }
 
-    fun toJson() : JsonElement {
+    /**
+     * Возвращает JSON времени пары.
+     */
+    fun toJson(): JsonElement {
         return JsonObject().apply {
             addProperty(JSON_START, start.toString(TIME_PATTERN))
             addProperty(JSON_END, end.toString(TIME_PATTERN))
         }
     }
 
-    fun startString() : String = start.toString(TIME_PATTERN)
+    fun startString(): String = start.toString(TIME_PATTERN)
 
-    fun endString() : String = end.toString(TIME_PATTERN)
+    fun endString(): String = end.toString(TIME_PATTERN)
 
+    /**
+     * Номер начала пары по времени.
+     * Например, 8:30 - 1 пара, 14:00 - 4.
+     */
     fun number(): Int {
         return STARTS.indexOf(start.toString(TIME_PATTERN))
     }
@@ -105,12 +134,14 @@ class Time : Parcelable {
             }
         }
 
-        const val TIME_PATTERN = "H:mm"
-        const val JSON_START = "start"
-        const val JSON_END = "end"
+        private const val TIME_PATTERN = "H:mm"
+        private const val JSON_START = "start"
+        private const val JSON_END = "end"
 
-        val STARTS = listOf("8:30", "10:20", "12:20", "14:10", "16:00", "18:00", "19:40", "21:20")
+        private val STARTS =
+            listOf("8:30", "10:20", "12:20", "14:10", "16:00", "18:00", "19:40", "21:20")
 
-        val ENDS = listOf("10:10", "12:00", "14:00", "15:50", "17:40", "19:30", "21:10", "22:50")
+        private val ENDS =
+            listOf("10:10", "12:00", "14:00", "15:50", "17:40", "19:30", "21:10", "22:50")
     }
 }

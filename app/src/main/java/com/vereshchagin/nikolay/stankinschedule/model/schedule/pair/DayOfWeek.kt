@@ -5,6 +5,7 @@ import kotlinx.parcelize.Parcelize
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
 import org.joda.time.LocalDate
+import org.joda.time.ReadableDateTime
 
 /**
  * Дни недели даты в расписании.
@@ -48,7 +49,7 @@ enum class DayOfWeek : Parcelable {
          * @return день недели.
          * @throws DateDayOfWeekException если не удалось узнать день недели.
          */
-        fun of(date: DateTime) : DayOfWeek {
+        fun of(date: LocalDate) : DayOfWeek {
             return when(date.dayOfWeek) {
                 DateTimeConstants.MONDAY -> MONDAY
                 DateTimeConstants.TUESDAY -> TUESDAY
@@ -60,10 +61,6 @@ enum class DayOfWeek : Parcelable {
                     throw DateDayOfWeekException( "Invalid day of week: $date")
                 }
             }
-        }
-
-        fun of(date: LocalDate): DayOfWeek {
-            return of(date.toDateTimeAtStartOfDay())
         }
     }
 }

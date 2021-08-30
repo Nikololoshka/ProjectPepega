@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 /**
  * Исключение, возникающие во время работы с датами.
  */
-open class DateException(
+sealed class DateException(
     message: String?, cause: Throwable? = null
 ) : RuntimeException(message, cause)
 

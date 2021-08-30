@@ -23,6 +23,10 @@ enum class Frequency(val tag: String, val period: Int) : Parcelable {
     THROUGHOUT("throughout", 14);
 
     companion object {
+
+        /**
+         * Возвращает периодичность по строке.
+         */
         fun of(value: String): Frequency {
             for (frequency in values()) {
                 if (frequency.tag == value) {

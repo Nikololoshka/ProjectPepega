@@ -11,13 +11,19 @@ import java.util.*
 
 /**
  * Дата пары.
+ * @param dates контейнер с датами пары.
+ * @param dayOfWeek день недели дат пары.
  */
 @Parcelize
 class Date(
     private val dates: TreeSet<DateItem> = sortedSetOf(),
     private var dayOfWeek: DayOfWeek? = null
-) : Parcelable, Iterable<DateItem> {
+) : Parcelable, Cloneable, Iterable<DateItem> {
 
+    /**
+     * Конструктор объекта дат пары.
+     * @param obj JSON объект с датами пары.
+     */
     constructor(obj: JsonElement) : this() {
         val dateArray = obj.asJsonArray
         for (jsonDate in dateArray) {
@@ -34,6 +40,7 @@ class Date(
 
     /**
      * Добавляет дату к датам пары.
+     * @param item добавляемая пара.
      */
     fun add(item: DateItem) {
         possibleChange(null, item)
@@ -44,14 +51,21 @@ class Date(
 
     /**
      * Удаляет дату из дат пары.
+     * @param item удаляемая пара.
      */
     fun remove(item: DateItem?) {
-        dates.remove(item)
-        if (dates.isEmpty()) {
-            dayOfWeek = null
+        if (item != null) {
+            dates.remove(item)
+            if (dates.isEmpty()) {
+                dayOfWeek = null
+            }
         }
     }
 
+    /**
+     * Удаляет дату из дат пары по позиции по порядку.
+     * @param position позиция, с которой необходимо удалить дату.
+     */
     fun remove(position: Int): DateItem {
         val item = dates.elementAt(position)
         dates.removeIfJava7 { item == it }
@@ -61,8 +75,14 @@ class Date(
         return item
     }
 
+    /**
+     * Возвращает
+     */
     fun get(position: Int): DateItem = dates.elementAt(position)
 
+    /**
+     * Дата начала из дат в паре.
+     */
     fun startDate(): LocalDate? {
         if (dates.isEmpty()) {
             return null
@@ -70,6 +90,9 @@ class Date(
         return dates.first().startDate()
     }
 
+    /**
+     * Дата конца из дат в паре.
+     */
     fun endDate(): LocalDate? {
         if (dates.isEmpty()) {
             return null
@@ -127,13 +150,19 @@ class Date(
 
     override fun iterator(): Iterator<DateItem> = dates.iterator()
 
+    /**
+     * Проверяет, является ли дата пустой.
+     */
     fun isEmpty(): Boolean = dates.isEmpty()
 
+    /**
+     * Преобразует дату в список из дат пары.
+     */
     fun toList(): MutableList<DateItem> = dates.toMutableList()
 
-    fun clone() : Date {
+    public override fun clone() : Date {
         val date = Date()
-        for (d in this) {
+        for (d in dates) {
             date.add(d.clone())
         }
         return date
@@ -146,6 +175,7 @@ class Date(
      * @throws DateDayOfWeekException если нет совпадения по дню недели.
      * @throws DateIntersectException если даты пересекаются.
      */
+    @Throws(DateDayOfWeekException::class, DateIntersectException::class)
     fun possibleChange(oldDate: DateItem?, newDate: DateItem) {
         if (!(oldDate != null && dates.size == 1)) {
             if (dayOfWeek != null && dayOfWeek != newDate.dayOfWeek()) {
@@ -188,11 +218,5 @@ class Date(
 
     override fun toString(): String {
         return "[" + dates.joinToString(", ") + "]"
-    }
-
-    fun toString(context: Context): String {
-        return dates.joinToString(", ") {
-            it.toString(context)
-        }
     }
 }

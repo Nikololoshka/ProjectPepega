@@ -26,10 +26,16 @@ enum class Subgroup(val tag: String) : Parcelable {
      */
     COMMON("Common");
 
-    fun separate(subgroup: Subgroup): Boolean {
-        return this != subgroup && this != COMMON && subgroup != COMMON
+    /**
+     * Определяет, пересекаются ли подгруппы в расписании.
+     */
+    fun isIntersect(subgroup: Subgroup): Boolean {
+        return this == subgroup || this == COMMON || subgroup == COMMON
     }
 
+    /**
+     * Определяет, должна ли подгруппа отображаться в расписании.
+     */
     fun isShow(): Boolean {
         return this != COMMON
     }
@@ -41,6 +47,7 @@ enum class Subgroup(val tag: String) : Parcelable {
     /**
      * Возвращает строку с учетом локализации.
      */
+    @Deprecated("")
     fun toString(context: Context): String {
         return context.resources.getStringArray(R.array.subgroup_simple_list).getOrNull(
             listOf(A, B).indexOf(this)

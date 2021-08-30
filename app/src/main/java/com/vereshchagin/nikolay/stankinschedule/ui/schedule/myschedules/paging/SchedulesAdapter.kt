@@ -2,6 +2,8 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging
 
 import android.util.SparseBooleanArray
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.viewholder.ScheduleItemHolder
@@ -13,7 +15,7 @@ import java.util.*
 class SchedulesAdapter(
     private val itemListener: OnScheduleItemListener,
     private val dragListener: DragToMoveCallback.OnStartDragListener,
-) : RecyclerView.Adapter<ScheduleItemHolder>() {
+) : ListAdapter<ScheduleItem, ScheduleItemHolder>(SCHEDULE_ITEM_COMPARATOR) {
 
     /**
      * Выбранные расписания (в режиме редактирования).
@@ -23,8 +25,7 @@ class SchedulesAdapter(
     /**
      * Список с расписаниями.
      */
-    var schedules: MutableList<ScheduleItem> = mutableListOf()
-        private set
+    private var schedules: List<ScheduleItem> = emptyList()
 
     /**
      * Избранное расписание
@@ -77,25 +78,11 @@ class SchedulesAdapter(
     /**
      * Устанавливает новый список с расписанием.
      */
-    fun submitList(schedules: List<ScheduleItem>) {
-        this.schedules = schedules.toMutableList()
-        notifyDataSetChanged()
-    }
-
-    /**
-     * Устанавливает избранное расписание.
-     */
-    fun submitFavorite(favorite: String?) {
-        this.favorite = favorite
-        notifyDataSetChanged()
-    }
-
-    /**
-     * Устанавливает список с расписаниями, которые "выбраны".
-     */
-    fun setSelectedItems(selectedItems: SparseBooleanArray) {
+    fun submitList(schedules: List<ScheduleItem>, selectedItems: SparseBooleanArray) {
+        this.schedules = schedules
         this.selectedItems = selectedItems
-        notifyDataSetChanged()
+
+        submitList(schedules)
     }
 
     /**
@@ -103,7 +90,7 @@ class SchedulesAdapter(
      */
     fun setEditable(editable: Boolean) {
         isEditable = editable
-        notifyDataSetChanged()
+
     }
 
     /**
@@ -129,5 +116,15 @@ class SchedulesAdapter(
          * Перемещено расписание.
          */
         fun onScheduleItemMove(fromPosition: Int, toPosition: Int)
+    }
+
+    companion object {
+        private val SCHEDULE_ITEM_COMPARATOR = object : DiffUtil.ItemCallback<ScheduleItem>() {
+            override fun areItemsTheSame(oldItem: ScheduleItem, newItem: ScheduleItem): Boolean =
+                oldItem == newItem
+
+            override fun areContentsTheSame(oldItem: ScheduleItem, newItem: ScheduleItem): Boolean =
+                oldItem == newItem
+        }
     }
 }

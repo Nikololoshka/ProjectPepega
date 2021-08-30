@@ -15,7 +15,7 @@
         <item name="android:windowActionBar">true</item>
 
         <!-- AppCompat -->
-        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialog</item>
+<!--        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialog</item>-->
         <item name="tabStyle">@style/AppTabLayout</item>
 
         <!-- ActionMode -->
@@ -41,9 +41,9 @@
     </style>
 
     <!-- Тема для BottomSheetDialog -->
-    <style name="AppBottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/AppModalStyle</item>
-    </style>
+<!--    <style name="AppBottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Light.BottomSheetDialog">-->
+<!--        <item name="bottomSheetStyle">@style/AppModalStyle</item>-->
+<!--    </style>-->
 
     <!-- Тема для AlertDialog -->
     <style name="AppAlertDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">

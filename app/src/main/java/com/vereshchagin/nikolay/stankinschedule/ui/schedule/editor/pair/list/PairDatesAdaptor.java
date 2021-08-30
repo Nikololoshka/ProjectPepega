@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Date;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.DateItem;
+import com.vereshchagin.nikolay.stankinschedule.utils.ScheduleUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -150,18 +151,7 @@ public class PairDatesAdaptor extends RecyclerView.Adapter<PairDatesAdaptor.Pair
          * @param item дата.
          */
         void bind(@NonNull DateItem item) {
-            String text = item.toString();
-
-            switch (item.frequency()) {
-                case EVERY:
-                    text += " " + mEveryWeekSuffix;
-                    break;
-                case THROUGHOUT:
-                    text += " " + mThroughWeekSuffix;
-                    break;
-            }
-
-            mDateInfo.setText(text);
+            mDateInfo.setText(ScheduleUtils.dateToString(item, mDateInfo.getContext()));
         }
 
         @Override

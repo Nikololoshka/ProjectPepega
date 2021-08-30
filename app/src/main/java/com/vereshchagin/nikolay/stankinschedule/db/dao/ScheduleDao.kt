@@ -148,7 +148,7 @@ interface ScheduleDao {
 
                 // обновляем пары
                 deleteSchedulePairs(item.id)
-                insertPairs(response.pairs.map { it.toPairItem(item.id) })
+                insertPairs(response.pairs.map { PairItem.from(item.id, it) })
                 return
             }
         }
@@ -161,6 +161,6 @@ interface ScheduleDao {
                 this.lastUpdate = if (synced) DateTime.now() else null
             }
         )
-        insertPairs(response.pairs.map { it.toPairItem(id) })
+        insertPairs(response.pairs.map { PairItem.from(id, it) })
     }
 }
