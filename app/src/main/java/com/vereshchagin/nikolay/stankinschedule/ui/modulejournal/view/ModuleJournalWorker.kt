@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.annotation.StringRes
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.hilt.work.HiltWorker
 import androidx.navigation.NavDeepLinkBuilder
 import androidx.work.*
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
@@ -13,17 +14,21 @@ import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMark
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.StudentData
 import com.vereshchagin.nikolay.stankinschedule.repository.ModuleJournalRepository
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import java.util.concurrent.TimeUnit
 
 /**
  * Worker для просмотра обновлений в модульном журнале.
  */
-class ModuleJournalWorker(
-    context: Context, workerParameters: WorkerParameters
+@HiltWorker
+class ModuleJournalWorker @AssistedInject constructor(
+    @Assisted context: Context,
+    @Assisted workerParameters: WorkerParameters,
+    private val repository: ModuleJournalRepository,
 ) : CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork(): Result {
-        val repository = ModuleJournalRepository(applicationContext.cacheDir)
         val manager = NotificationManagerCompat.from(applicationContext)
 
         try {

@@ -1,6 +1,5 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view
 
-import android.app.Application
 import androidx.lifecycle.*
 import androidx.paging.*
 import com.google.firebase.crashlytics.ktx.crashlytics
@@ -10,31 +9,40 @@ import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.StudentData
 import com.vereshchagin.nikolay.stankinschedule.repository.ModuleJournalRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.view.paging.SemesterMarksSource
 import com.vereshchagin.nikolay.stankinschedule.utils.State
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * ViewModel фрагмента модульного журнала.
  */
-class ModuleJournalViewModel(
-    private val repository: ModuleJournalRepository
+@HiltViewModel
+class ModuleJournalViewModel @Inject constructor(
+    private val repository: ModuleJournalRepository,
 ) : ViewModel() {
+
+    private val _studentData = MutableStateFlow<State<StudentData>>(State.loading())
+    private val _predictedRating = MutableStateFlow<String?>(null)
+    private val _currentRating = MutableStateFlow<String?>(null)
 
     /**
      * Информация о студенте.
      */
-    val studentData = MutableLiveData<State<StudentData>>(State.loading())
+    val studentData = _studentData.asStateFlow()
 
     /**
      * Прогнозируемый рейтинг.
      */
-    val predictedRating = MutableLiveData<String?>(null)
+    val predictedRating = _predictedRating.asStateFlow()
 
     /**
      * Текущий рейтинг.
      */
-    val currentRating = MutableLiveData<String?>(null)
+    val currentRating = _currentRating.asStateFlow()
 
     /**
      * Вспомогательная LiveData для обновления списка семестров с оценками.
@@ -67,7 +75,7 @@ class ModuleJournalViewModel(
      */
     fun refreshModuleJournal(useCache: Boolean = true, afterError: Boolean = false) {
         if (afterError) {
-            studentData.value = State.loading()
+            _studentData.value = State.loading()
         }
 
         viewModelScope.launch {
@@ -86,7 +94,7 @@ class ModuleJournalViewModel(
      * необходимо загружать список семестров с оценками.
      */
     private fun studentDateResult(state: State<StudentData>, useCache: Boolean) {
-        studentData.value = state
+        _studentData.value = state
         refreshTrigger.value = useCache
     }
 
@@ -114,11 +122,11 @@ class ModuleJournalViewModel(
         viewModelScope.launch {
             repository.currentRating()
                 .collect {
-                    currentRating.value = it
+                    _currentRating.value = it
                 }
             repository.predictedRating()
                 .collect {
-                    predictedRating.value = it
+                    _predictedRating.value = it
                 }
         }
     }
@@ -128,20 +136,6 @@ class ModuleJournalViewModel(
      */
     fun signOut() {
         repository.signOut()
-    }
-
-    /**
-     * Фабрика для создания ViewModel.
-     */
-    class Factory(
-        private val application: Application
-    ) : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return ModuleJournalViewModel(
-                ModuleJournalRepository(application.cacheDir)
-            ) as T
-        }
     }
 
     companion object {

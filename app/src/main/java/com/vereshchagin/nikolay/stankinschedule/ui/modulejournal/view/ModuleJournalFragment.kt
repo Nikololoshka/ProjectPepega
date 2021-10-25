@@ -24,20 +24,20 @@ import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
 /**
  * Фрагмент модульного журнала с оценками.
  */
+@AndroidEntryPoint
 class ModuleJournalFragment :
     BaseFragment<FragmentModuleJournalBinding>(FragmentModuleJournalBinding::inflate) {
 
     /**
      * ViewModel фрагмента.
      */
-    private val viewModel by viewModels<ModuleJournalViewModel> {
-        ModuleJournalViewModel.Factory(activity?.application!!)
-    }
+    private val viewModel: ModuleJournalViewModel by viewModels()
 
     /**
      * Менеджер состояний.
@@ -79,38 +79,46 @@ class ModuleJournalFragment :
         binding.refresh.setOnRefreshListener(this::refreshAll)
 
         // информация о студенте
-        viewModel.studentData.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is State.Success -> {
-                    binding.studentName.text = state.data.student
-                    binding.studentGroup.text = state.data.group
+        lifecycleScope.launchWhenCreated {
+            viewModel.studentData.collectLatest { state ->
+                when (state) {
+                    is State.Success -> {
+                        binding.studentName.text = state.data.student
+                        binding.studentGroup.text = state.data.group
 
-                    statefulStudentLayout.setState(StatefulLayout2.CONTENT)
-                }
-                is State.Loading -> {
-                    statefulStudentLayout.setState(StatefulLayout2.LOADING)
-                }
-                is State.Failed -> {
-                    statefulStudentLayout.setState(StatefulLayout2.ERROR)
-                    val errorText = ExceptionUtils.errorDescription(state.error, requireContext())
-                    binding.studentError.createBinding<ViewErrorWithButtonBinding>()?.let {
-                        it.errorTitle.text = errorText
-                        it.errorAction.setOnClickListener {
-                            refreshAll(true)
+                        statefulStudentLayout.setState(StatefulLayout2.CONTENT)
+                    }
+                    is State.Loading -> {
+                        statefulStudentLayout.setState(StatefulLayout2.LOADING)
+                    }
+                    is State.Failed -> {
+                        statefulStudentLayout.setState(StatefulLayout2.ERROR)
+                        val errorText =
+                            ExceptionUtils.errorDescription(state.error, requireContext())
+                        binding.studentError.createBinding<ViewErrorWithButtonBinding>()?.let {
+                            it.errorTitle.text = errorText
+                            it.errorAction.setOnClickListener {
+                                refreshAll(true)
+                            }
                         }
                     }
                 }
+                binding.refresh.isRefreshing = state is State.Loading
             }
-            binding.refresh.isRefreshing = state is State.Loading
         }
 
-        viewModel.predictedRating.observe(viewLifecycleOwner) { rating ->
-            binding.studentPredictRating.text = rating
+        lifecycleScope.launchWhenCreated {
+            viewModel.predictedRating.collectLatest { rating ->
+                binding.studentPredictRating.text = rating
+            }
         }
 
-        viewModel.currentRating.observe(viewLifecycleOwner) { rating ->
-            binding.studentRating.text = rating
+        lifecycleScope.launchWhenCreated {
+            viewModel.currentRating.collectLatest { rating ->
+                binding.studentRating.text = rating
+            }
         }
+
 
         // направление pager'а и tab layout
         val currentDirection = requireContext().resources.configuration.layoutDirection
