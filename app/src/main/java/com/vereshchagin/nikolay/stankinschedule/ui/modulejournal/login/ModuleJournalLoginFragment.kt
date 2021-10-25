@@ -4,21 +4,25 @@ import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentModuleJournalLoginBinding
-import com.vereshchagin.nikolay.stankinschedule.repository.ModuleJournalRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils
+import com.vereshchagin.nikolay.stankinschedule.utils.Constants
 import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 /**
  * Фрагмент входа в модульный журнал.
  */
+@AndroidEntryPoint
 class ModuleJournalLoginFragment :
     BaseFragment<FragmentModuleJournalLoginBinding>(FragmentModuleJournalLoginBinding::inflate),
     View.OnClickListener {
@@ -26,9 +30,7 @@ class ModuleJournalLoginFragment :
     /**
      * ViewModel фрагмента.
      */
-    private val viewModel by viewModels<ModuleJournalLoginViewModel> {
-        ModuleJournalLoginViewModel.Factory(requireActivity().application)
-    }
+    private val viewModel: ModuleJournalLoginViewModel by viewModels()
 
     /**
      * Аниматор прогресса авторизации в модульном журнале.
@@ -44,7 +46,7 @@ class ModuleJournalLoginFragment :
 
         loadingHeight = resources.getDimensionPixelOffset(R.dimen.horizontal_loading_height)
 
-        binding.mjLogin.addTextChangedListener(onTextChanged = { text: CharSequence?, _: Int, _: Int, _: Int ->
+        binding.mjLogin.doOnTextChanged { text: CharSequence?, _: Int, _: Int, _: Int ->
             if (text != null) {
                 val isError = text.isEmpty()
                 binding.mjLoginLayout.error = if (isError) {
@@ -53,9 +55,9 @@ class ModuleJournalLoginFragment :
                     null
                 }
             }
-        })
+        }
 
-        binding.mjPassword.addTextChangedListener(onTextChanged = { text: CharSequence?, _: Int, _: Int, _: Int ->
+        binding.mjPassword.doOnTextChanged { text: CharSequence?, _: Int, _: Int, _: Int ->
             if (text != null) {
                 val isError = text.isEmpty()
                 binding.mjPasswordLayout.error = if (isError) {
@@ -64,7 +66,7 @@ class ModuleJournalLoginFragment :
                     null
                 }
             }
-        })
+        }
 
         binding.mjPassword.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -79,33 +81,34 @@ class ModuleJournalLoginFragment :
         binding.mjForgotPassword.setOnClickListener(this)
 
         // статус авторизации
-        viewModel.authorizedState.observe(viewLifecycleOwner) {
-            val state = it ?: return@observe
-
-            when (state) {
-                is State.Loading -> {
-                    setLoadState(true)
-                }
-                is State.Success -> {
-                    // успешно авторизован
-                    if (state.data) {
-                        loadAnimator.end()
-                        navigateToModuleJournal()
+        lifecycleScope.launchWhenCreated {
+            viewModel.authorizedState.collectLatest { state ->
+                when (state) {
+                    is State.Loading -> {
+                        setLoadState(true)
                     }
-                    setLoadState(false)
-                }
-                is State.Failed -> {
-                    val description = ExceptionUtils.errorDescription(state.error, requireContext())
-
-                    MaterialAlertDialogBuilder(requireContext())
-                        .setTitle(R.string.error)
-                        .setMessage(description)
-                        .setNeutralButton(R.string.ok) { dialog, _ ->
-                            dialog.dismiss()
+                    is State.Success -> {
+                        // успешно авторизован
+                        if (state.data) {
+                            loadAnimator.end()
+                            navigateToModuleJournal()
                         }
-                        .show()
+                        setLoadState(false)
+                    }
+                    is State.Failed -> {
+                        val description =
+                            ExceptionUtils.errorDescription(state.error, requireContext())
 
-                    setLoadState(false)
+                        MaterialAlertDialogBuilder(requireContext())
+                            .setTitle(R.string.error)
+                            .setMessage(description)
+                            .setNeutralButton(R.string.ok) { dialog, _ ->
+                                dialog.dismiss()
+                            }
+                            .show()
+
+                        setLoadState(false)
+                    }
                 }
             }
         }
@@ -126,7 +129,7 @@ class ModuleJournalLoginFragment :
             }
             // забыт пароль
             R.id.mj_forgot_password -> {
-                CommonUtils.openBrowser(requireContext(), ModuleJournalRepository.BASE_URL)
+                CommonUtils.openBrowser(requireContext(), Constants.MODULE_JOURNAL_URL)
             }
         }
     }
