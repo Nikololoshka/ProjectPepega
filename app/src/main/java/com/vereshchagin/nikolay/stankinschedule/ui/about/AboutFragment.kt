@@ -6,6 +6,7 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentAboutBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.CommonUtils
+import com.vereshchagin.nikolay.stankinschedule.utils.Constants
 
 /**
  * Фрагмент вкладки о приложении.
@@ -16,17 +17,11 @@ class AboutFragment : BaseFragment<FragmentAboutBinding>(FragmentAboutBinding::i
         binding.appVersion.text = getString(R.string.about_version, BuildConfig.VERSION_NAME)
 
         binding.aboutPrivacyPolicy.setOnClickListener {
-            CommonUtils.openBrowser(
-                requireContext(),
-                "https://github.com/Nikololoshka/ProjectPepega/blob/master/Privacy%20Policy.md"
-            )
+            CommonUtils.openBrowser(requireContext(), Constants.PRIVACY_POLICY_URL)
         }
 
         binding.aboutTerms.setOnClickListener {
-            CommonUtils.openBrowser(
-                requireContext(),
-                "https://github.com/Nikololoshka/ProjectPepega/blob/master/Terms%20%26%20Conditions.md"
-            )
+            CommonUtils.openBrowser(requireContext(), Constants.TERMS_CONDITIONS_URL)
         }
     }
 }
