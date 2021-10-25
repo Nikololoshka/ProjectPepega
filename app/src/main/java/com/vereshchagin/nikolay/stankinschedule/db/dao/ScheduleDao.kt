@@ -48,6 +48,12 @@ interface ScheduleDao {
     fun getScheduleItem(scheduleName: String): Flow<ScheduleItem?>
 
     /**
+     * Возвращает flow элемента расписания.
+     */
+    @Query("SELECT * FROM schedule_items WHERE id = :id LIMIT 1")
+    fun getScheduleItem(id: Long): Flow<ScheduleItem?>
+
+    /**
      * Возвращает количество расписаний в БД.
      */
     @Query("SELECT COUNT(*) FROM schedule_items")
@@ -119,6 +125,13 @@ interface ScheduleDao {
     @Transaction
     @Query("DELETE FROM schedule_items WHERE schedule_name = :scheduleName")
     suspend fun deleteSchedule(scheduleName: String)
+
+    /**
+     * Удаляет расписание из БД по названию.
+     */
+    @Transaction
+    @Query("DELETE FROM schedule_items WHERE id = :scheduleId")
+    suspend fun deleteSchedule(scheduleId: Long)
 
     /**
      * Удаляет расписание из БД по ScheduleItem.

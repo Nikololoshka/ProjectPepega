@@ -11,7 +11,7 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.CategoryEntry
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.ScheduleEntry
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
+import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreferenceKt
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.DateTimeConverter
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.ListConverter
 import kotlinx.coroutines.runBlocking
@@ -79,20 +79,20 @@ abstract class MainApplicationDatabase : RoomDatabase() {
                     "main_application_database"
                 ).fallbackToDestructiveMigration()
 
-                val migrate = SchedulePreference.migrateSchedule(context)
-                val database = if (migrate) {
+                val preference = SchedulePreferenceKt(context)
+                val database = if (preference.migrateToVersion2) {
                     databaseBuilder.allowMainThreadQueries().build()
                 } else {
                     databaseBuilder.build()
                 }
 
-                if (!migrate) {
+                if (!preference.migrateToVersion2) {
                     runBlocking {
                         database.withTransaction {
                             ScheduleRepository.migrateSchedules(context, database)
                         }
                     }
-                    SchedulePreference.setMigrateSchedule(context, true)
+                    preference.migrateToVersion2 = true
                 }
 
                 instance = database

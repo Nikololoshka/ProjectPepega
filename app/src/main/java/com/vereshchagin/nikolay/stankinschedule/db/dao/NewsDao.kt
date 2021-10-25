@@ -1,12 +1,12 @@
 package com.vereshchagin.nikolay.stankinschedule.db.dao
 
-import androidx.lifecycle.LiveData
 import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
+import kotlinx.coroutines.flow.Flow
 
 /**
  * Интерфейс для работы с БД новостей.
@@ -33,7 +33,7 @@ interface NewsDao {
      * @param max максимальное количество элементов.
      */
     @Query("SELECT * FROM POSTS ORDER BY date DESC, id DESC LIMIT :max")
-    fun latest(max: Int = 3) : LiveData<List<NewsItem>>
+    fun latest(max: Int = 3): Flow<List<NewsItem>>
 
     /**
      * Очищает за кэшированные новости.
