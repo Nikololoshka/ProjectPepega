@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import kotlin.Deprecated;
 
+@Deprecated(message = "Use SchedulePreferenceKt")
 public class SchedulePreference {
 
     public static final String ROOT_PATH = "schedules";
@@ -28,22 +30,6 @@ public class SchedulePreference {
 
     private static long mChangeCount = 0;
 
-    public static boolean migrateSchedule(@NonNull Context context) {
-        SharedPreferences PREFERENCES =
-                context.getSharedPreferences(SCHEDULE_PREFERENCE, Context.MODE_PRIVATE);
-        return PREFERENCES.getBoolean(MIGRATE_SCHEDULE, false);
-    }
-
-    public static void setMigrateSchedule(@NonNull Context context, boolean migrate) {
-        SharedPreferences PREFERENCES =
-                context.getSharedPreferences(SCHEDULE_PREFERENCE, Context.MODE_PRIVATE);
-        PREFERENCES.edit()
-                .putBoolean(MIGRATE_SCHEDULE, migrate)
-                .apply();
-    }
-
-
-    @Deprecated
     public static List<String> schedules(@NonNull Context context) {
         if (mSchedulesList == null) {
             load(context);
@@ -99,18 +85,15 @@ public class SchedulePreference {
         return Arrays.asList(";", "/");
     }
 
-    @Deprecated
     @NonNull
     public static String createPath(@NonNull Context context, String scheduleName) {
         return new File(scheduleDir(context), scheduleName + fileExtension()).getAbsolutePath();
     }
 
-    @Deprecated
     public static File scheduleDir(@NonNull Context context) {
         return context.getExternalFilesDir(ROOT_PATH);
     }
 
-    @Deprecated
     public static String fileExtension() {
         return ".json";
     }

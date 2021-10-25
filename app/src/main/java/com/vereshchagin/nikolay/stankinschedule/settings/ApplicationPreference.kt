@@ -4,11 +4,6 @@ import android.content.Context
 import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleSettings
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup.Companion.of
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import org.joda.time.DateTime
 
 /**
  * Класс-обертка для доступа к настройкам приложения.
@@ -47,110 +42,12 @@ object ApplicationPreference {
     private const val MANUAL_MODE = "manual_mode"
 
     /**
-     * Возвращает текущие сохранённое значение режима темной темы.
-     */
-    @JvmStatic
-    fun currentDarkMode(context: Context): String? {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return preferences.getString(DARK_MODE, DARK_MODE_SYSTEM_DEFAULT)
-    }
-
-    /**
-     * Устанавливает значение режима темной темы.
-     */
-    @JvmStatic
-    fun setDarkMode(context: Context, darkMode: String) {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        preferences.edit()
-            .putString(DARK_MODE, darkMode)
-            .apply()
-    }
-
-    /**
-     * Возвращает текущие значение ручного переключателя темной темы.
-     */
-    @JvmStatic
-    fun currentManualMode(context: Context): Boolean {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return preferences.getBoolean(MANUAL_MODE, false)
-    }
-
-    /**
-     * Устанавливает значение ручного переключателя темной темы.
-     */
-    @JvmStatic
-    fun setManualMode(context: Context, isDarkModeEnabled: Boolean) {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        preferences.edit()
-            .putBoolean(MANUAL_MODE, isDarkModeEnabled)
-            .apply()
-    }
-
-    /**
      * Возвращает значение, должен ли использоваться встроенный браузер.
      */
     @JvmStatic
     fun useAppBrowser(context: Context): Boolean {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         return preferences.getBoolean(APP_BROWSER, true)
-    }
-
-    /**
-     * Возвращает значение, как должно отображаться расписание.
-     */
-    @JvmStatic
-    fun scheduleViewMethod(context: Context): String? {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return preferences.getString(SCHEDULE_VIEW_METHOD, SCHEDULE_VIEW_HORIZONTAL)
-    }
-
-    /**
-     * Возвращает значение, должно ли ограничиваться расписание.
-     */
-    @JvmStatic
-    fun scheduleLimit(context: Context): Boolean {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return preferences.getBoolean(SCHEDULE_LIMIT, false)
-    }
-
-    /**
-     * Возвращает true, если необходимо отображать подгруппу на главной.
-     */
-    @JvmStatic
-    fun displaySubgroup(context: Context): Boolean {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return preferences.getBoolean(DISPLAY_SUBGROUP, true)
-    }
-
-    /**
-     * Устанавливает, нужно ли отображать подгруппу на главной.
-     */
-    @JvmStatic
-    fun setDisplaySubgroup(context: Context, display: Boolean) {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        preferences.edit()
-            .putBoolean(DISPLAY_SUBGROUP, display)
-            .apply()
-    }
-
-    /**
-     * Возвращает подгруппу.
-     */
-    @JvmStatic
-    fun subgroup(context: Context): Subgroup {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return of(preferences.getString(SCHEDULE_SUBGROUP, Subgroup.COMMON.tag)!!)
-    }
-
-    /**
-     * Устанавливает подгруппу.
-     */
-    @JvmStatic
-    fun setSubgroup(context: Context, subgroup: Subgroup) {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        preferences.edit()
-            .putString(SCHEDULE_SUBGROUP, subgroup.tag)
-            .apply()
     }
 
     /**
@@ -178,42 +75,6 @@ object ApplicationPreference {
     }
 
     /**
-     * Возвращает время, когда последний раз проверялось доступность обновлений.
-     * Возвращается null, если никогда не проверялось.
-     */
-    @JvmStatic
-    fun updateAppTime(context: Context): DateTime? {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val dateTime = preferences.getString(UPDATE_APP_TIME, null) ?: return null
-        return DateTime.parse(dateTime)
-    }
-
-    /**
-     * Возвращает настройки отображения расписания на главной странице.
-     */
-    @JvmStatic
-    fun homeScheduleSettings(context: Context): HomeScheduleSettings {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return HomeScheduleSettings(
-            preferences.getInt(HOME_SCHEDULE_DELTA, 2),
-            preferences.getBoolean(DISPLAY_SUBGROUP, true),
-            of(preferences.getString(SCHEDULE_SUBGROUP, Subgroup.COMMON.tag)!!),
-            ScheduleRepository.favorite(context)
-        )
-    }
-
-    /**
-     * Устанавливает время последней проверки обновления приложения.
-     */
-    @JvmStatic
-    fun setUpdateAppTime(context: Context, dateTime: DateTime) {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        preferences.edit()
-            .putString(UPDATE_APP_TIME, dateTime.toString())
-            .apply()
-    }
-
-    /**
      * Возвращает цвет по умолчанию для расписания.
      */
     @JvmStatic
@@ -229,24 +90,4 @@ object ApplicationPreference {
             }
         }
     )
-
-    /**
-     * Возвращает true если можно ли использовать Firebase аналитику для
-     * сбора данных об использовании приложения. Иначе false.
-     */
-    @JvmStatic
-    fun firebaseAnalytics(context: Context): Boolean {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return preferences.getBoolean(FIREBASE_ANALYTICS, true)
-    }
-
-    /**
-     * Возвращает true если можно ли использовать Firebase crashlytics для
-     * сбора ошибок об использовании приложения. Иначе false.
-     */
-    @JvmStatic
-    fun firebaseCrashlytics(context: Context): Boolean {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return preferences.getBoolean(FIREBASE_CRASHLYTICS, true)
-    }
 }
