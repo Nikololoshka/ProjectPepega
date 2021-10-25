@@ -66,13 +66,22 @@ class CacheFolder(
     }
 
     /**
-     * Отчищает папку с кэшом.
+     * Отчищает папку с кэшом, если в ней больше задаваемого
+     * количества файлов.
      */
     fun clearCache(count: Int = 10) {
         val root = fileFromPaths(emptyArray())
         if (root.walkBottomUp().count() > count) {
             root.deleteRecursively()
         }
+    }
+
+    /**
+     * Отчищает всю папку с кэшом.
+     */
+    fun clearAll() {
+        val root = fileFromPaths(emptyArray())
+        root.deleteRecursively()
     }
 
     /**
