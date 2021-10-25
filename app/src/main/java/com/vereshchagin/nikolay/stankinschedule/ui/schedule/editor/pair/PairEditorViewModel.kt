@@ -10,7 +10,6 @@ import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -18,12 +17,12 @@ import kotlinx.coroutines.launch
 /**
  * ViewModel для редактирования пар.
  */
-@HiltViewModel
+// @HiltViewModel
 class PairEditorViewModel @AssistedInject constructor(
     application: Application,
     private val repository: ScheduleRepository,
-    @Assisted private val scheduleId: Long,
-    @Assisted private val editablePairId: Long,
+    @Assisted("scheduleId") private val scheduleId: Long,
+    @Assisted("editablePairId") private val editablePairId: Long,
 ) : AndroidViewModel(application) {
 
     var schedule: Schedule? = null
@@ -74,10 +73,10 @@ class PairEditorViewModel @AssistedInject constructor(
                 repository.updatePair(
                     PairItem.from(
                         currentSchedule.info.id,    // id расписания
-                        newPair       // id пары (0 - новая пара)
+                        newPair                     // id пары (0 - новая пара)
                     )
                 )
-                WidgetUtils.updateScheduleWidget(getApplication(), scheduleId)
+                WidgetUtils.updateScheduleWidgetList(getApplication(), scheduleId)
 
                 scheduleState.postValue(State.SUCCESSFULLY_SAVED)
             }
@@ -97,7 +96,7 @@ class PairEditorViewModel @AssistedInject constructor(
             scheduleState.postValue(State.LOADING)
 
             repository.removePair(editablePair)
-            WidgetUtils.updateScheduleWidget(getApplication(), scheduleId)
+            WidgetUtils.updateScheduleWidgetList(getApplication(), scheduleId)
 
             scheduleState.postValue(State.SUCCESSFULLY_SAVED)
         }
@@ -118,7 +117,10 @@ class PairEditorViewModel @AssistedInject constructor(
      */
     @AssistedFactory
     interface PairEditorFactory {
-        fun create(scheduleId: Long, editablePairId: Long) : PairEditorViewModel
+        fun create(
+            @Assisted("scheduleId") scheduleId: Long,
+            @Assisted("editablePairId") editablePairId: Long,
+        ): PairEditorViewModel
     }
 
     companion object {
@@ -128,7 +130,7 @@ class PairEditorViewModel @AssistedInject constructor(
         fun provideFactory(
             factory: PairEditorFactory,
             scheduleId: Long,
-            editablePairId: Long
+            editablePairId: Long,
         ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {

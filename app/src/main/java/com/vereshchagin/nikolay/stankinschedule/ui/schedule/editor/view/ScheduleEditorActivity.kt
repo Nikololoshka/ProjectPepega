@@ -5,24 +5,23 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityScheduleEditorBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorViewModel
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.ScheduleEditorAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.viewholder.OnPairListener
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 /**
  * Фрагмент с списком пар для редактирования.
  */
+@AndroidEntryPoint
 class ScheduleEditorActivity :
     BaseActivity<ActivityScheduleEditorBinding>(ActivityScheduleEditorBinding::inflate),
     OnPairListener {
@@ -122,7 +121,7 @@ class ScheduleEditorActivity :
         /**
          *  Создает intent для вызова редактора расписания.
          */
-        fun createIntent(context: Context, scheduleId: String): Intent {
+        fun createIntent(context: Context, scheduleId: Long): Intent {
             return Intent(context, ScheduleEditorActivity::class.java).apply {
                 putExtra(EXTRA_SCHEDULE_ID, scheduleId)
             }

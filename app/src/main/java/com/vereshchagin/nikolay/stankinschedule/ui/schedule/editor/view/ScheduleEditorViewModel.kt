@@ -10,7 +10,6 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.S
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
@@ -18,7 +17,7 @@ import kotlinx.coroutines.launch
 /**
  * ViewModel фрагмента редактирования расписания.
  */
-@HiltViewModel
+// @HiltViewModel
 class ScheduleEditorViewModel @AssistedInject constructor(
     application: Application,
     private val repository: ScheduleRepository,

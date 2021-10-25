@@ -15,12 +15,18 @@ import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.DialogScheduleNameEditorBinding
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.focusAndShowKeyboard
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class ScheduleNameEditorDialog : DialogFragment() {
 
     private var _binding: DialogScheduleNameEditorBinding? = null
     private val binding get() = _binding!!
+
+    @Inject
+    lateinit var repository: ScheduleRepository
 
     private var scheduleName: String? = null
 
@@ -32,7 +38,7 @@ class ScheduleNameEditorDialog : DialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = DialogScheduleNameEditorBinding.inflate(layoutInflater)
 
@@ -70,7 +76,6 @@ class ScheduleNameEditorDialog : DialogFragment() {
         }
 
         lifecycleScope.launch {
-            val repository = ScheduleRepository(requireContext())
             val exist = repository.isScheduleExist(scheduleName)
             if (exist) {
                 binding.scheduleNameLayout.error = getString(R.string.schedule_editor_exists)
