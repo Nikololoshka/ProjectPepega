@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.home.schedule;
+package com.vereshchagin.nikolay.stankinschedule.ui.home.schedule.pager;
 
 import android.content.Context;
 import android.util.AttributeSet;

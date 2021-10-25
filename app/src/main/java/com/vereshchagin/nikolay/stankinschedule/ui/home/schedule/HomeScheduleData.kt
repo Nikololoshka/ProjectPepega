@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.model.home
+package com.vereshchagin.nikolay.stankinschedule.ui.home.schedule
 
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 
@@ -9,18 +9,14 @@ class HomeScheduleData(
     val scheduleName: String?,
     val titles: ArrayList<String>,
     val pairs: ArrayList<ArrayList<PairItem>>,
-    val empty: Boolean = false,
 ) {
+
+    fun isEmpty(): Boolean = scheduleName == null && titles.isEmpty() && pairs.isEmpty()
+
     companion object {
         /**
          * Возвращает пустой результат.
          */
-        fun empty() =
-            HomeScheduleData(
-                "",
-                ArrayList(),
-                ArrayList(),
-                true
-            )
+        fun empty() = HomeScheduleData(null, ArrayList(), ArrayList())
     }
 }

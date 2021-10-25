@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.home.schedule;
+package com.vereshchagin.nikolay.stankinschedule.ui.home.schedule.pager;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

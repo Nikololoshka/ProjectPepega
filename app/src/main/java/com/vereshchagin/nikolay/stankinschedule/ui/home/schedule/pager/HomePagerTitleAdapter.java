@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.home.schedule;
+package com.vereshchagin.nikolay.stankinschedule.ui.home.schedule.pager;
 
 import android.view.LayoutInflater;
 import android.view.View;

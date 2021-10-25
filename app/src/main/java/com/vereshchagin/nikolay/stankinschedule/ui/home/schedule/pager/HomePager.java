@@ -1,4 +1,7 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.home.schedule;
+package com.vereshchagin.nikolay.stankinschedule.ui.home.schedule.pager;
+
+import static androidx.viewpager.widget.ViewPager.SCROLL_STATE_SETTLING;
+import static androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -16,9 +19,6 @@ import com.vereshchagin.nikolay.stankinschedule.R;
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem;
 
 import java.util.ArrayList;
-
-import static androidx.viewpager.widget.ViewPager.SCROLL_STATE_SETTLING;
-import static androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE;
 
 /**
  * Pager для просмотра пар на несколько дней вперед.
