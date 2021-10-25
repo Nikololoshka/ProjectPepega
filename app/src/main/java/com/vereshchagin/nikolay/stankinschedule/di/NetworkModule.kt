@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.di
 
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
+import com.vereshchagin.nikolay.stankinschedule.api.ModuleJournalAPI2
 import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsAPI
 import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsPostsAPI
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPost
@@ -48,6 +49,17 @@ object NetworkModule {
             .client(client)
             .build()
             .create(StankinNewsAPI::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideModuleJournalService2(client: OkHttpClient): ModuleJournalAPI2 {
+        return Retrofit.Builder()
+            .baseUrl(Constants.MODULE_JOURNAL_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+            .create(ModuleJournalAPI2::class.java)
     }
 
     @Provides

@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.di
 import android.content.Context
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
+import com.vereshchagin.nikolay.stankinschedule.db.dao.ScheduleDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,10 +18,14 @@ object DatabaseModule {
     @Singleton
     @Provides
     fun provideMainApplicationDatabase(
-        @ApplicationContext context: Context
+        @ApplicationContext context: Context,
     ): MainApplicationDatabase {
         return MainApplicationDatabase.database(context)
     }
+
+    @Singleton
+    @Provides
+    fun provideSchedulsDao(db: MainApplicationDatabase): ScheduleDao = db.schedules()
 
     @Singleton
     @Provides
