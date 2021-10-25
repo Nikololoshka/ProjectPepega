@@ -1,9 +1,12 @@
 package com.vereshchagin.nikolay.stankinschedule.utils.extensions
 
+import android.annotation.SuppressLint
+import android.app.PendingIntent
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.net.Uri
+import android.os.Build
 import android.provider.OpenableColumns
 import android.view.View
 import android.view.ViewTreeObserver
@@ -15,6 +18,14 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.vereshchagin.nikolay.stankinschedule.R
 import java.util.*
+
+
+val FLAG_MUTABLE_COMPAT: Int
+    get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        PendingIntent.FLAG_MUTABLE
+    } else {
+        0
+    }
 
 /**
  * Текущая позиция в DropDown.
@@ -113,6 +124,7 @@ fun View.focusAndShowKeyboard() {
     }
 }
 
+@SuppressLint("Range")
 fun Uri.extractFilename(context: Context): String? {
     var result: String? = null
     if (this.scheme == "content") {

@@ -7,7 +7,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -27,8 +26,8 @@ import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityMainBinding
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreferenceKt
+import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreferenceKt
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.ShortcutsUtils
@@ -36,12 +35,16 @@ import com.vereshchagin.nikolay.stankinschedule.utils.delegates.ActivityDelegate
 import dagger.hilt.android.AndroidEntryPoint
 import org.joda.time.DateTime
 import org.joda.time.Hours
+import javax.inject.Inject
 
 /**
  * Главная активность приложения.
  */
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var preference: ApplicationPreferenceKt
 
     /**
      * Менеджер для проверки обновлений приложения.
@@ -110,8 +113,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // переключатель темы приложения
-        val isDark = ApplicationPreference.currentManualMode(this)
-        binding.darkModeButton.isChecked = isDark
+        binding.darkModeButton.isChecked = preference.isManualDarkModeEnabled
         binding.darkModeButton.setOnClickListener(this::onDarkModeButtonClicked)
         updateDarkModeButton()
 
@@ -144,7 +146,7 @@ class MainActivity : AppCompatActivity() {
                 R.string.update_cancelled,
                 Snackbar.LENGTH_LONG
             ).show()
-            ApplicationPreference.setUpdateAppTime(this, DateTime.now())
+            preference.updateAppTime = DateTime.now()
         }
     }
 
@@ -154,14 +156,14 @@ class MainActivity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     private fun onDarkModeButtonClicked(ignored: View) {
         // если кнопка все равно осталась
-        val darkMode = ApplicationPreference.currentDarkMode(this)
-        if (darkMode != ApplicationPreference.DARK_MODE_MANUAL) {
+        val darkMode = preference.darkMode
+        if (darkMode != ApplicationPreferenceKt.DARK_MODE_MANUAL) {
             binding.darkModeButton.visibility = View.GONE
             return
         }
 
-        val isDark = !ApplicationPreference.currentManualMode(this)
-        ApplicationPreference.setManualMode(this, isDark)
+        val isDark = !preference.isManualDarkModeEnabled
+        preference.isManualDarkModeEnabled = isDark
         AppCompatDelegate.setDefaultNightMode(
             if (isDark) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
         )
@@ -172,9 +174,8 @@ class MainActivity : AppCompatActivity() {
      * темной темы исходя из текущих настроек.
      */
     fun updateDarkModeButton() {
-        val darkMode = ApplicationPreference.currentDarkMode(this)
         binding.darkModeButton.visibility =
-            if (darkMode == ApplicationPreference.DARK_MODE_MANUAL) {
+            if (preference.darkMode == ApplicationPreferenceKt.DARK_MODE_MANUAL) {
                 View.VISIBLE
             } else {
                 View.GONE
@@ -225,17 +226,11 @@ class MainActivity : AppCompatActivity() {
             when (intent.action) {
                 // избранное расписание
                 ShortcutsUtils.FAVORITE_SHORTCUT -> {
-                    val scheduleName = ScheduleRepository.favorite(this)
-                    if (scheduleName != null) {
-                        navController.navigate(
-                            R.id.to_schedule_view_fragment,
-                            ScheduleViewFragment.createBundle(scheduleName)
-                        )
-                    } else {
-                        Toast.makeText(
-                            this, R.string.shortcut_favorite_not_selected, Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                    val scheduleId = SchedulePreferenceKt(this).favoriteScheduleId
+                    navController.navigate(
+                        R.id.to_schedule_view_fragment,
+                        ScheduleViewFragment.createBundle(scheduleId)
+                    )
                 }
                 // к модульному журналу
                 ShortcutsUtils.MODULE_JOURNAL_SHORTCUT -> {
@@ -250,7 +245,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun checkAppUpdate() {
         // время последнего обновления
-        val lastUpdate = ApplicationPreference.updateAppTime(this)
+        val lastUpdate = preference.updateAppTime
         if (lastUpdate != null && Hours.hoursBetween(lastUpdate, DateTime.now()).hours < 48) {
             return
         }
@@ -266,10 +261,10 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     onShowUpdate(updateInfo)
                 } else {
-                    ApplicationPreference.setUpdateAppTime(this, DateTime.now())
+                    preference.updateAppTime = DateTime.now()
                 }
             }.addOnFailureListener {
-                ApplicationPreference.setUpdateAppTime(this, DateTime.now())
+                preference.updateAppTime = DateTime.now()
             }
     }
 
@@ -310,7 +305,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 show()
             }
-            ApplicationPreference.setUpdateAppTime(this, DateTime.now())
+            preference.updateAppTime = DateTime.now()
         }
     }
 
