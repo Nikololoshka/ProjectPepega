@@ -1,19 +1,20 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.predict
 
-import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.MarkType
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.repository.ModuleJournalRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * ViewModel для вычисления рейтинга студента.
  */
-class ModuleJournalPredictViewModel(
+@HiltViewModel
+class ModuleJournalPredictViewModel @Inject constructor(
     private val repository: ModuleJournalRepository,
 ) : ViewModel() {
 
@@ -49,20 +50,6 @@ class ModuleJournalPredictViewModel(
         semesterMarks.value?.let {
             it.updateMark(disciplineName, type, mark)
             rating.value = it.computeRating()
-        }
-    }
-
-    /**
-     * Фабрика для создания ViewModel.
-     */
-    class Factory(
-        private val application: Application,
-    ) : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return ModuleJournalPredictViewModel(
-                ModuleJournalRepository(application.cacheDir)
-            ) as T
         }
     }
 }

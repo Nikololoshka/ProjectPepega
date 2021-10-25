@@ -16,16 +16,16 @@ import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityModuleJourna
 import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.predict.paging.PredictDisciplineAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.ActivityDelegate
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 /**
  * Активность для вычисления рейтинга студента.
  */
+@AndroidEntryPoint
 class ModuleJournalPredictActivity : AppCompatActivity() {
 
-    private val viewModel by viewModels<ModuleJournalPredictViewModel> {
-        ModuleJournalPredictViewModel.Factory(application)
-    }
+    private val viewModel: ModuleJournalPredictViewModel by viewModels()
 
     private var statefulLayout: StatefulLayout2 by ActivityDelegate()
     private lateinit var binding: ActivityModuleJournalPredictBinding
