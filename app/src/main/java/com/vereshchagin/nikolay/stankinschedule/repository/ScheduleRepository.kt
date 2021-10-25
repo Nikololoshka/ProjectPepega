@@ -3,15 +3,18 @@ package com.vereshchagin.nikolay.stankinschedule.repository
 import android.content.Context
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
+import com.vereshchagin.nikolay.stankinschedule.db.dao.ScheduleDao
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleResponse
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
-import dagger.hilt.android.qualifiers.ApplicationContext
+import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreferenceKt
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.extractFilename
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -23,27 +26,31 @@ import javax.inject.Inject
 
 /**
  * Репозиторий для работы с расписаниями на устройстве.
+ * @param db база данных приложения.
+ * @param dao интерфейс для работы с БД.
+ * @param preference настройки расписания.
  */
 class ScheduleRepository @Inject constructor(
-    @ApplicationContext context: Context,
+    private val db: MainApplicationDatabase,
+    private val dao: ScheduleDao,
+    private val preference: SchedulePreferenceKt,
 ) {
     /**
      * Gson для преобразования расписания в/из JSON.
      */
-    val gson = GsonBuilder()
+    val gson: Gson = GsonBuilder()
         .registerTypeAdapter(ScheduleResponse::class.java, ScheduleResponse.Serializer())
         .registerTypeAdapter(Pair::class.java, Pair.Serializer())
         .create()
 
     /**
-     * База данных приложения.
+     * ID избранного расписания.
      */
-    private val db = MainApplicationDatabase.database(context)
-
-    /**
-     * Dao для работы с расписаниями.
-     */
-    private val dao = db.schedules()
+    var favoriteScheduleId
+        get() = preference.favoriteScheduleId
+        set(value) {
+            preference.favoriteScheduleId = value
+        }
 
     /**
      * Возвращает flow списка всех расписаний на устройстве.
@@ -72,6 +79,11 @@ class ScheduleRepository @Inject constructor(
     fun scheduleItem(scheduleName: String) = dao.getScheduleItem(scheduleName)
 
     /**
+     * Возвращает flow информации о расписании по ID.
+     */
+    fun scheduleItem(scheduleId: Long) = dao.getScheduleItem(scheduleId)
+
+    /**
      * Создает пустое расписание с заданным именем.
      */
     suspend fun createSchedule(scheduleName: String) {
@@ -93,6 +105,11 @@ class ScheduleRepository @Inject constructor(
      * Удаляет расписание из БД.
      */
     suspend fun removeSchedule(scheduleName: String) = dao.deleteSchedule(scheduleName)
+
+    /**
+     * Удаляет расписание из БД.
+     */
+    suspend fun removeSchedule(scheduleId: Long) = dao.deleteSchedule(scheduleId)
 
     /**
      * Проверяет, существует ли расписание с переданным названием.
@@ -117,8 +134,8 @@ class ScheduleRepository @Inject constructor(
     /**
      * Изменяет состояние синхронизации расписания.
      */
-    suspend fun toggleScheduleSyncState(scheduleName: String, sync: Boolean = false) {
-        val item = scheduleItem(scheduleName).first()
+    suspend fun toggleScheduleSyncState(scheduleId: Long, sync: Boolean) {
+        val item = scheduleItem(scheduleId).first()
         if (item != null) {
             item.synced = sync
             if (!sync) item.lastUpdate = null
@@ -129,23 +146,23 @@ class ScheduleRepository @Inject constructor(
     /**
      * Возвращает ScheduleResponse расписания из БД по названию.
      */
-    suspend fun scheduleResponse(scheduleName: String): ScheduleResponse {
-        val item = scheduleItem(scheduleName).first()
-            ?: throw FileNotFoundException("Schedule not exist: $scheduleName")
-
-        return ScheduleResponse(dao.getAllPairs(item.id).first())
+    private suspend fun scheduleResponse(scheduleId: Long): ScheduleResponse {
+        return ScheduleResponse(dao.getAllPairs(scheduleId).first())
     }
 
     /**
      * Сохраняет расписание на устройство.
      */
     @Throws(RuntimeException::class)
-    suspend fun saveToDevice(scheduleName: String, uri: Uri, context: Context) {
+    suspend fun saveToDevice(scheduleId: Long, uri: Uri, context: Context) {
+        val item = scheduleItem(scheduleId).first()
+            ?: throw RuntimeException("Schedule not found: ID - $scheduleId")
+
         // получаем объект файла по пути
         var documentFile: DocumentFile? = DocumentFile.fromTreeUri(context, uri)
 
         // регистрируем файл
-        documentFile = documentFile?.createFile("application/json", "$scheduleName.json")
+        documentFile = documentFile?.createFile("application/json", "${item.scheduleName}.json")
         if (documentFile == null) {
             throw RuntimeException("Failed register file on device")
         }
@@ -156,26 +173,31 @@ class ScheduleRepository @Inject constructor(
         // открывает поток для записи
         val resolver = context.contentResolver
 
-        val stream = resolver.openOutputStream(uriFile)
-            ?: throw RuntimeException("Cannot open file stream")
+        val stream = runCatching {
+            resolver.openOutputStream(uriFile)
+        }.getOrNull() ?: throw RuntimeException("Cannot open file stream")
 
+        val response = scheduleResponse(scheduleId)
         stream.bufferedWriter().use {
-            val response = scheduleResponse(scheduleName)
-            val json = gson.toJson(response)
-            json.reader().copyTo(it)
+            gson.toJson(response, it)
         }
     }
 
     /**
-     * Сохраняет ScheduleResponse в БД.
+     * Загружает расписание с устройства.
      */
-    suspend fun saveResponse(
-        scheduleName: String,
-        json: String,
-        replaceExist: Boolean = false
-    ) {
-        val response = gson.fromJson(json, ScheduleResponse::class.java)
-        saveResponse(scheduleName, response, replaceExist)
+    @Throws(RuntimeException::class)
+    suspend fun loadFromDevice(uri: Uri, context: Context) {
+        val scheduleName = uri.extractFilename(context) ?: throw FileNotFoundException()
+        val resolver = context.contentResolver
+
+        val response = runCatching {
+            resolver.openInputStream(uri)
+        }.getOrNull()?.bufferedReader().use { reader ->
+            gson.fromJson(reader, ScheduleResponse::class.java)
+        } ?: throw RuntimeException("Cannot load json")
+
+        saveResponse(scheduleName, response)
     }
 
     /**
@@ -185,31 +207,18 @@ class ScheduleRepository @Inject constructor(
         scheduleName: String,
         response: ScheduleResponse,
         replaceExist: Boolean = false,
-        isSync: Boolean = false
+        isSync: Boolean = false,
     ) {
         dao.insertScheduleResponse(scheduleName, response, replaceExist, isSync)
     }
 
+
     companion object {
-
         /**
-         * Возвращает текущие избранное расписание.
-         * Если избранного расписание нет, то null.
+         * ID расписания, если его нет.
          */
-        fun favorite(context: Context): String? {
-            val scheduleName: String? = SchedulePreference.favorite(context)
-            if (scheduleName == null || scheduleName.isEmpty()) {
-                return null
-            }
-            return scheduleName
-        }
+        const val NO_SCHEDULE = -1L
 
-        /**
-         * Устанавливает избранное расписание.
-         */
-        fun setFavorite(context: Context, scheduleName: String?) {
-            SchedulePreference.setFavorite(context, scheduleName)
-        }
 
         /**
          * Осуществляет миграцию расписаний из internal хранилища с расписаниями в БД.

@@ -1,14 +1,13 @@
 package com.vereshchagin.nikolay.stankinschedule.repository
 
-import android.util.Log
 import com.google.gson.GsonBuilder
-import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.MainApplication
 import com.vereshchagin.nikolay.stankinschedule.api.ModuleJournalAPI2
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.MarkType
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.model.modulejournal.StudentData
 import com.vereshchagin.nikolay.stankinschedule.settings.ModuleJournalPreference
+import com.vereshchagin.nikolay.stankinschedule.utils.CacheFolder
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.gson.DateTimeTypeConverter
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.gson.MarkTypeTypeConverter
@@ -17,30 +16,21 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import org.apache.commons.io.FileUtils
 import org.joda.time.DateTime
-import retrofit2.Retrofit
 import retrofit2.await
-import retrofit2.converter.gson.GsonConverterFactory
-import java.io.File
-import java.nio.charset.StandardCharsets
+import javax.inject.Inject
 
 /**
  * Репозиторий для работы с модульным журналом.
  */
-class ModuleJournalRepository(private val cacheDir: File) {
-
+class ModuleJournalRepository @Inject constructor(
+    private val api: ModuleJournalAPI2,
+    private val cacheFolder: CacheFolder,
+) {
+    /**
+     * Mutex для синхронизации доступа к данным.
+     */
     private val mutex = Mutex()
-
-    private var retrofit: Retrofit
-    private var api: ModuleJournalAPI2
-
-    private val gson = GsonBuilder()
-        .registerTypeAdapter(DateTime::class.java, DateTimeTypeConverter())
-        .registerTypeAdapter(MarkType::class.java, MarkTypeTypeConverter())
-        .create()
 
     /**
      * Кэш данных для входа в модульный журнал.
@@ -48,34 +38,21 @@ class ModuleJournalRepository(private val cacheDir: File) {
     private var userData: Pair<String, String>? = null
 
     init {
-        val builder = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-
-        // включение лога
-        if (BuildConfig.DEBUG) {
-            val logger = HttpLoggingInterceptor()
-            logger.level = HttpLoggingInterceptor.Level.BODY
-
-            val client = OkHttpClient.Builder()
-                .addInterceptor(logger)
-                .build()
-
-            builder.client(client)
-        }
-
-        retrofit = builder.build()
-        api = retrofit.create(ModuleJournalAPI2::class.java)
+        cacheFolder.addStartedPath(STUDENT_FOLDER)
+        cacheFolder.gson = GsonBuilder()
+            .registerTypeAdapter(DateTime::class.java, DateTimeTypeConverter())
+            .registerTypeAdapter(MarkType::class.java, MarkTypeTypeConverter())
+            .create()
     }
 
     /**
      * Возвращает flow авторизации в модульном журнале.
      */
-    fun signIn(userLogin: String, userPassword: String) = flow<State<Boolean>> {
+    fun signIn(userLogin: String, userPassword: String) = flow {
         emit(State.loading())
         try {
             val response = api.getSemesters(userLogin, userPassword).await()
-            saveCacheStudentData(StudentData.fromResponse(response))
+            cacheFolder.saveToCache(StudentData.fromResponse(response), STUDENT_FILE)
             ModuleJournalPreference.signIn(
                 MainApplication.instance.applicationContext,
                 userLogin,
@@ -93,13 +70,13 @@ class ModuleJournalRepository(private val cacheDir: File) {
      */
     fun signOut() {
         ModuleJournalPreference.signOut(MainApplication.instance.applicationContext)
-        clearCache()
+        cacheFolder.clearAll()
     }
 
     /**
      * Возвращает flow информации о студенте.
      */
-    fun studentData(useCache: Boolean = true) = flow<State<StudentData>> {
+    fun studentData(useCache: Boolean = true) = flow {
         try {
             val studentData = loadStudentData(!useCache)
             emit(State.success(studentData))
@@ -130,15 +107,15 @@ class ModuleJournalRepository(private val cacheDir: File) {
     suspend fun loadStudentData(refresh: Boolean = false): StudentData = mutex.withLock {
         if (refresh) {
             val networkData = loadNetworkStudentData()
-            saveCacheStudentData(networkData)
+            cacheFolder.saveToCache(networkData, STUDENT_FILE)
             return networkData
         }
 
-        val cacheData = loadCacheStudentData()
+        val cacheData = cacheFolder.loadFromCache(StudentData::class.java, STUDENT_FILE)
         if (cacheData == null || !cacheData.isValid()) {
             return try {
                 val networkData = loadNetworkStudentData()
-                saveCacheStudentData(networkData)
+                cacheFolder.saveToCache(networkData, STUDENT_FILE)
                 networkData
 
             } catch (e: Exception) {
@@ -216,16 +193,16 @@ class ModuleJournalRepository(private val cacheDir: File) {
         last: Boolean = false,
     ): SemesterMarks = mutex.withLock {
         if (refresh) {
-            val networkMarks = loadNetworkSemesterMarks(semester)
-            saveCacheSemesterMarks(networkMarks, semester)
+            val networkMarks = loadNetworkSemesterMarks("$semester.json")
+            cacheFolder.saveToCache(networkMarks, "$semester.json")
             return networkMarks
         }
 
-        val cacheMarks = loadCacheSemesterMarks(semester)
+        val cacheMarks = cacheFolder.loadFromCache(SemesterMarks::class.java, "$semester.json")
         if (cacheMarks == null || !cacheMarks.isValid(last)) {
             return try {
                 val networkMarks = loadNetworkSemesterMarks(semester)
-                saveCacheSemesterMarks(networkMarks, semester)
+                cacheFolder.saveToCache(networkMarks, "$semester.json")
                 networkMarks
 
             } catch (e: Exception) {
@@ -236,8 +213,8 @@ class ModuleJournalRepository(private val cacheDir: File) {
             }
         }
 
-            return cacheMarks
-        }
+        return cacheMarks
+    }
 
     /**
      * Возвращает данные для входа в модульный журнал.
@@ -274,88 +251,18 @@ class ModuleJournalRepository(private val cacheDir: File) {
         return StudentData.fromResponse(response)
     }
 
-    /**
-     * Загружает данные семестра из кэша.
-     */
-    fun loadCacheSemesterMarks(semester: String): SemesterMarks? {
-        val file = FileUtils.getFile(cacheDir, SEMESTERS_FOLDER, "$semester.json")
-        if (!file.exists()) {
-            return null
-        }
-
-        try {
-            val json = FileUtils.readFileToString(file, StandardCharsets.UTF_8)
-            return gson.fromJson(json, SemesterMarks::class.java)
-        } catch (ignored: Exception) {
-            ignored.printStackTrace()
-        }
-
-        return null
-    }
-
-    /**
-     * Загружает данные о студенте из кэша.
-     */
     fun loadCacheStudentData(): StudentData? {
-        val file = FileUtils.getFile(cacheDir, STUDENT_FOLDER, STUDENT_FILE)
-        if (!file.exists()) {
-            return null
-        }
-
-        try {
-            val json = FileUtils.readFileToString(file, StandardCharsets.UTF_8)
-            return gson.fromJson(json, StudentData::class.java)
-        } catch (ignored: Exception) {
-
-        }
-
-        return null
+        return cacheFolder.loadFromCache(StudentData::class.java, STUDENT_FILE)
     }
 
-    /**
-     * Сохраняет в кэш семестр с оценками.
-     */
-    private fun saveCacheSemesterMarks(marks: SemesterMarks, semester: String) {
-        val file = FileUtils.getFile(cacheDir, SEMESTERS_FOLDER, "$semester.json")
-        try {
-            val json = gson.toJson(marks)
-            Log.d(TAG, "saveCacheSemesterMarks: $json")
-            FileUtils.writeStringToFile(file, json, StandardCharsets.UTF_8, false)
-        } catch (ignored: Exception) {
-
-        }
-    }
-
-    /**
-     * Сохраняет в кэш данные о студенте.
-     */
-    private fun saveCacheStudentData(data: StudentData) {
-        val file = FileUtils.getFile(cacheDir, STUDENT_FOLDER, STUDENT_FILE)
-        try {
-            val json = gson.toJson(data)
-            FileUtils.writeStringToFile(file, json, StandardCharsets.UTF_8, false)
-        } catch (ignored: Exception) {
-
-        }
-    }
-
-    /**
-     * Очищает весь кэш модульного журнала.
-     */
-    private fun clearCache() {
-        val cacheStudent = FileUtils.getFile(cacheDir, STUDENT_FOLDER, STUDENT_FILE)
-        cacheStudent.deleteRecursively()
+    fun loadCacheSemesterMarks(semester: String): SemesterMarks? {
+        return cacheFolder.loadFromCache(SemesterMarks::class.java, "$semester.json")
     }
 
     companion object {
-        /**
-         * Адрес модульного журнала.
-         */
-        const val BASE_URL = "https://lk.stankin.ru"
 
         private const val STUDENT_FOLDER = "student_data"
         private const val STUDENT_FILE = "student.json"
-        private const val SEMESTERS_FOLDER = "semesters_data"
 
         private const val TAG = "ModuleJournalRepoLog"
     }
