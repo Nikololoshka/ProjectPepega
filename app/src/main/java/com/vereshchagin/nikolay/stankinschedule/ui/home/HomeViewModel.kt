@@ -2,19 +2,20 @@ package com.vereshchagin.nikolay.stankinschedule.ui.home
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.vereshchagin.nikolay.stankinschedule.model.home.HomeScheduleData
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.repository.NewsRepository
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreferenceKt
+import com.vereshchagin.nikolay.stankinschedule.ui.home.schedule.HomeScheduleData
+import com.vereshchagin.nikolay.stankinschedule.utils.ScheduleUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.toTitleString
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.joda.time.LocalDate
@@ -27,14 +28,27 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     application: Application,
     private val scheduleRepository: ScheduleRepository,
-    private val newsRepository: NewsRepository
+    private val newsRepository: NewsRepository,
+    private val preference: ApplicationPreferenceKt,
 ) : AndroidViewModel(application) {
 
 
-    val scheduleData = MutableLiveData<HomeScheduleData>(null)
+    private val _scheduleData = MutableStateFlow<HomeScheduleData?>(null)
+
+    /**
+     * Данные для расписания на главной.
+     */
+    val scheduleData = _scheduleData.asStateFlow()
+
+    /**
+     * Данные для списка новостей на главной.
+     */
     val newsData = newsRepository.latest()
 
-    private var scheduleSettings = ApplicationPreference.homeScheduleSettings(application)
+    /**
+     * Текущие настройки отображаемого расписания.
+     */
+    private var currentScheduleSettings: ScheduleSettings? = null
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
@@ -43,16 +57,24 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private fun updateDataFromSchedule(schedule: Schedule) {
-        val count = scheduleSettings.delta * 2 + 1
-        var start = LocalDate.now().minusDays(scheduleSettings.delta)
+    /**
+     * Обновляет данные для Pager с расписанием.
+     * @param schedule текущие расписание.
+     * @param settings настройки отображения.
+     */
+    private fun updateDataFromSchedule(
+        schedule: Schedule,
+        settings: ScheduleSettings,
+    ): HomeScheduleData {
+        val count = settings.delta * 2 + 1
+        var start = LocalDate.now().minusDays(settings.delta)
         val titles = ArrayList<String>(count)
         val pairs = ArrayList<ArrayList<PairItem>>(count)
 
         for (i in 0 until count) {
             val list = ArrayList<PairItem>()
             schedule.pairsByDate(start).filter {
-                it.isCurrently(scheduleSettings.subgroup)
+                it.isCurrently(settings.subgroup)
             }.toCollection(list)
 
             pairs.add(list)
@@ -61,34 +83,45 @@ class HomeViewModel @Inject constructor(
             start = start.plusDays(1)
         }
 
-        var scheduleName = scheduleSettings.favorite
+        var scheduleName = schedule.info.scheduleName
+
         // добавление подгруппы к названию
-        if (scheduleSettings.subgroup != Subgroup.COMMON && scheduleSettings.display) {
-            scheduleName += " ${scheduleSettings.subgroup.toString(getApplication())}"
+        if (settings.subgroup != Subgroup.COMMON && settings.isDisplaySubgroup) {
+            scheduleName += " " + ScheduleUtils.subgroupToString(
+                settings.subgroup, getApplication()
+            )
         }
 
-        scheduleData.postValue(
-            HomeScheduleData(
-                scheduleName,
-                titles,
-                pairs
-            )
-        )
+        return HomeScheduleData(scheduleName, titles, pairs)
     }
 
+    /**
+     * Запускает обновления данных для Pager с расписанием.
+     */
     private suspend fun startUpdateSchedule() {
-        scheduleSettings = ApplicationPreference.homeScheduleSettings(getApplication())
+        val settings = ScheduleSettings(
+            scheduleRepository.favoriteScheduleId,
+            preference.scheduleSubgroup,
+            preference.isSubgroupDisplay,
+            preference.scheduleDelta
+        )
 
-        val favorite = scheduleSettings.favorite
+        // изменились ли настройки отображения
+        if (currentScheduleSettings == settings) return
+        currentScheduleSettings = settings
+
         // нет избранного расписания
-        if (favorite.isNullOrEmpty()) {
-            scheduleData.postValue(HomeScheduleData.empty())
-        } else {
-            val schedule = scheduleRepository.schedule(favorite)
-                .filterNotNull()
-                .first()
+        _scheduleData.value = if (settings.favoriteId == ScheduleRepository.NO_SCHEDULE) {
+            HomeScheduleData.empty()
 
-            updateDataFromSchedule(schedule)
+        } else {
+            val schedule = scheduleRepository.schedule(settings.favoriteId).first()
+            if (schedule == null) {
+                HomeScheduleData.empty()
+
+            } else {
+                updateDataFromSchedule(schedule, settings)
+            }
         }
     }
 
@@ -102,13 +135,17 @@ class HomeViewModel @Inject constructor(
     }
 
     /**
-     * Проверяет, правильное количество дней загружено и отображается ли нужная подгруппа.
-     * Если нет, то обновляем данные расписания.
+     * Возвращает ID избранного расписания.
      */
-    fun checkScheduleData() {
-        val newSettings = ApplicationPreference.homeScheduleSettings(getApplication())
-        if (scheduleSettings != newSettings) {
-            updateSchedule()
-        }
-    }
+    fun favoriteScheduleId() = scheduleRepository.favoriteScheduleId
+
+    /**
+     * Настройки pager с расписанием для отображения.
+     */
+    private class ScheduleSettings(
+        val favoriteId: Long,
+        val subgroup: Subgroup,
+        val isDisplaySubgroup: Boolean,
+        val delta: Int,
+    )
 }

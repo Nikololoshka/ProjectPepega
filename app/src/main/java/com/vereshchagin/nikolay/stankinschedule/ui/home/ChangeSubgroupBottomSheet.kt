@@ -14,12 +14,18 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.DialogChangeSubgroupBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
-import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreferenceKt
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * BottomSheetDialog для изменения подгруппы на главной странице.
  */
+@AndroidEntryPoint
 class ChangeSubgroupBottomSheet : BottomSheetDialogFragment() {
+
+    @Inject
+    lateinit var preference: ApplicationPreferenceKt
 
     private var _binding: DialogChangeSubgroupBinding? = null
     private val binding get() = _binding!!
@@ -27,19 +33,18 @@ class ChangeSubgroupBottomSheet : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = DialogChangeSubgroupBinding.inflate(inflater, container, false)
 
-        val subgroup = ApplicationPreference.subgroup(requireContext())
         binding.subgroupSelector.check(
-            when (subgroup) {
+            when (preference.scheduleSubgroup) {
                 Subgroup.COMMON -> R.id.subgroup_common
                 Subgroup.A -> R.id.subgroup_a
                 Subgroup.B -> R.id.subgroup_b
             }
         )
-        binding.showSubgroup.isChecked = ApplicationPreference.displaySubgroup(requireContext())
+        binding.showSubgroup.isChecked = preference.isSubgroupDisplay
         binding.selectButton.setOnClickListener(this::onSubgroupSelected)
 
         binding.root.viewTreeObserver.addOnGlobalLayoutListener {
@@ -73,8 +78,8 @@ class ChangeSubgroupBottomSheet : BottomSheetDialogFragment() {
             else -> Subgroup.COMMON
         }
 
-        ApplicationPreference.setSubgroup(requireContext(), subgroup)
-        ApplicationPreference.setDisplaySubgroup(requireContext(), binding.showSubgroup.isChecked)
+        preference.scheduleSubgroup = subgroup
+        preference.isSubgroupDisplay = binding.showSubgroup.isChecked
 
         setFragmentResult(REQUEST_CHANGE_SUBGROUP, bundleOf())
         dismiss()

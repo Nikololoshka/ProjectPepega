@@ -1,9 +1,12 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.home
 
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
@@ -18,6 +21,8 @@ import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.filterNotNull
 
 /**
  * Фрагмент главной страницы.
@@ -35,6 +40,7 @@ class HomeFragment
      * ViewModel фрагмента.
      */
     private val viewModel: HomeViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,24 +62,20 @@ class HomeFragment
         // binding.mjName.setOnClickListener(this)
         binding.newsName.setOnClickListener(this)
 
-        // установка названия расписания
-        val favorite = ScheduleRepository.favorite(requireContext())
-        if (favorite != null && favorite.isNotEmpty()) {
-            binding.scheduleName.text = favorite
-        }
-
         // установка данных в pager
-        viewModel.scheduleData.observe(viewLifecycleOwner, Observer {
-            val data = it ?: return@Observer
+        lifecycleScope.launchWhenCreated {
+            viewModel.scheduleData.filterNotNull().collectLatest { data ->
+                if (data.isEmpty()) {
+                    scheduleStateful.setState(StatefulLayout2.EMPTY)
 
-            if (data.empty) {
-                scheduleStateful.setState(StatefulLayout2.EMPTY)
-            } else {
-                binding.scheduleName.text = data.scheduleName
-                binding.schedulePager.update(data.titles, data.pairs)
-                scheduleStateful.setState(StatefulLayout2.CONTENT)
+                } else {
+                    binding.scheduleName.text = data.scheduleName
+                    binding.schedulePager.update(data.titles, data.pairs)
+
+                    scheduleStateful.setState(StatefulLayout2.CONTENT)
+                }
             }
-        })
+        }
 
         val glide = DrawableUtils.createGlide(this)
         val adapter = NewsPostLatestAdapter(this::onNewsClick, glide)
@@ -86,20 +88,21 @@ class HomeFragment
         binding.newsLatest.addItemDecoration(itemDecoration)
 
         // новости
-        viewModel.newsData.observe(viewLifecycleOwner, {
-            adapter.submitList(it)
-        })
+        lifecycleScope.launchWhenCreated {
+            viewModel.newsData.collectLatest {
+                adapter.submitList(it)
+            }
+        }
 
         parentFragmentManager.setFragmentResultListener(
             ChangeSubgroupBottomSheet.REQUEST_CHANGE_SUBGROUP, this, this::onScheduleSubgroupChanged
         )
-
-        trackScreen(TAG, MainActivity.TAG)
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.checkScheduleData()
+    override fun onStart() {
+        super.onStart()
+        viewModel.updateSchedule()
+        trackScreen(TAG, MainActivity.TAG)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -126,14 +129,15 @@ class HomeFragment
         when (v?.id) {
             // расписание
             R.id.schedule_name -> {
-                val favorite = ScheduleRepository.favorite(requireContext())
-                if (favorite != null && favorite.isNotEmpty()) {
+                val favorite = viewModel.favoriteScheduleId()
+                if (favorite == ScheduleRepository.NO_SCHEDULE) {
                     navigateTo(
-                        R.id.to_schedule_view_fragment,
-                        ScheduleViewFragment.createBundle(favorite)
+                        R.id.nav_schedule_fragment
                     )
                 } else {
-                    navigateTo(R.id.nav_schedule_fragment)
+                    navigateTo(
+                        R.id.to_schedule_view_fragment, ScheduleViewFragment.createBundle(favorite)
+                    )
                 }
             }
             // модульный журнал
