@@ -12,7 +12,7 @@ class NewsAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = 2
 
-    @ExperimentalPagingApi
+    @OptIn(ExperimentalPagingApi::class)
     override fun createFragment(position: Int): Fragment {
         val newsSubdivision: Int = when (position) {
             UNIVERSITY_NEWS -> 0

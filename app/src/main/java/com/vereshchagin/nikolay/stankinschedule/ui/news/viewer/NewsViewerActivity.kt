@@ -14,7 +14,6 @@ import androidx.activity.viewModels
 import androidx.annotation.MainThread
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewAssetLoader
@@ -33,6 +32,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.delegates.ActivityDelegate
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -195,36 +195,36 @@ class NewsViewerActivity : AppCompatActivity() {
         }
 
         // пост
-        viewModel.post.observe(this, Observer {
-            val state = it ?: return@Observer
+        lifecycleScope.launchWhenCreated {
+            viewModel.post.collectLatest { state ->
+                // успешно загружен
+                if (state is State.Success) {
+                    glide.load(state.data.logoUrl)
+                        .placeholder(DrawableUtils.createShimmerDrawable())
+                        .centerCrop()
+                        .into(binding.newsPreview)
 
-            // успешно загружен
-            if (state is State.Success) {
-                glide.load(state.data.logoUrl)
-                    .placeholder(DrawableUtils.createShimmerDrawable())
-                    .centerCrop()
-                    .into(binding.newsPreview)
+                    binding.newsView.loadDataWithBaseURL(
+                        null,
+                        state.data.quillPage(),
+                        "text/html; charset=UTF-8",
+                        "UTF-8",
+                        null
+                    )
 
-                binding.newsView.loadDataWithBaseURL(
-                    null,
-                    state.data.quillPage(),
-                    "text/html; charset=UTF-8",
-                    "UTF-8",
-                    null
-                )
+                    binding.toolbarLayout.title = state.data.title
+                    binding.newsDate.text = getString(
+                        R.string.news_post_date,
+                        DateUtils.parseDate(state.data.date)?.let { date ->
+                            DateUtils.formatDate(date)
+                        }
+                    )
 
-                binding.toolbarLayout.title = state.data.title
-                binding.newsDate.text = getString(
-                    R.string.news_post_date,
-                    DateUtils.parseDate(state.data.date)?.let { date ->
-                        DateUtils.formatDate(date)
-                    }
-                )
-
-            } else {
-                showProgressView(state)
+                } else {
+                    showProgressView(state)
+                }
             }
-        })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

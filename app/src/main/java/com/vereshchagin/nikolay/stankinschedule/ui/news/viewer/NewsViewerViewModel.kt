@@ -1,6 +1,5 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.news.viewer
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -11,7 +10,8 @@ import com.vereshchagin.nikolay.stankinschedule.utils.State
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -22,16 +22,20 @@ import kotlinx.coroutines.launch
  * @param repository репозиторий, откуда будет загружаться новость.
  * @param newsId номер новости.
  */
-@HiltViewModel
+// @HiltViewModel
 class NewsViewerViewModel @AssistedInject constructor(
     private val repository: NewsPostRepository,
-    @Assisted private val newsId: Int
+    @Assisted private val newsId: Int,
 ) : ViewModel() {
+
+
+    private val _post = MutableStateFlow<State<NewsPost>?>(null)
 
     /**
      * Пост с новостью.
      */
-    val post = MutableLiveData<State<NewsPost>>(null)
+    val post = _post.asStateFlow()
+
 
     init {
         refresh()
@@ -41,7 +45,7 @@ class NewsViewerViewModel @AssistedInject constructor(
      * Обновляет новость.
      */
     fun refresh(useCache: Boolean = true) {
-        if (post.value !is State.Loading) {
+        if (_post.value !is State.Loading) {
             viewModelScope.launch {
                 repository.loadPost(newsId, useCache)
                     .catch {
@@ -49,7 +53,7 @@ class NewsViewerViewModel @AssistedInject constructor(
                             .recordException(it)
                     }
                     .collect {
-                        post.value = it
+                        _post.value = it
                     }
             }
         }
@@ -69,7 +73,7 @@ class NewsViewerViewModel @AssistedInject constructor(
          */
         fun provideFactory(
             factory: NewsViewerFactory,
-            newsId: Int
+            newsId: Int,
         ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {

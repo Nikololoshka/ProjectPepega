@@ -9,7 +9,6 @@ import com.vereshchagin.nikolay.stankinschedule.ui.news.review.categories.paging
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 /**
  * ViewModel для фрагмента с списком новостей.
@@ -17,7 +16,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
  * @param repository репозиторий, откуда будут загружаться новости.
  */
 @ExperimentalPagingApi
-@HiltViewModel
+// @HiltViewModel
 class NewsPostsViewModel @AssistedInject constructor(
     private val repository: NewsRepository,
     @Assisted private val newsSubdivision: Int

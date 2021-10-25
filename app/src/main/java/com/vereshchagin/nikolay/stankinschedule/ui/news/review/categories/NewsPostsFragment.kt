@@ -46,7 +46,7 @@ class NewsPostsFragment :
      */
     private var newsSubdivision: Int = 0
 
-    @InternalCoroutinesApi
+    @OptIn(InternalCoroutinesApi::class)
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         // glide для загрузки пред просмотра
         val glide = Glide.with(this)
