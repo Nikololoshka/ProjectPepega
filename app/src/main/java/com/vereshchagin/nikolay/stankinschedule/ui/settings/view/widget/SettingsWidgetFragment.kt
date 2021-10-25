@@ -5,79 +5,78 @@ import android.app.PendingIntent.CanceledException
 import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.FrameLayout
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
-import com.vereshchagin.nikolay.stankinschedule.ui.settings.view.widget.SettingsWidgetAdapter.OnWidgetClickListener
+import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentWidgetSettingsBinding
+import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.view.widget.paging.SettingsWidgetAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.settings.view.widget.paging.SettingsWidgetItem
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
-import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils.Companion.scheduleWidgets
+import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.FLAG_MUTABLE_COMPAT
 import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidgetConfigureActivity
-import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidgetConfigureActivity.Companion.loadPref
-import java.util.*
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Категория настроек виджетов приложения.
  */
-class SettingsWidgetFragment : Fragment(), OnWidgetClickListener {
+@AndroidEntryPoint
+class SettingsWidgetFragment :
+    BaseFragment<FragmentWidgetSettingsBinding>(FragmentWidgetSettingsBinding::inflate) {
 
-    private var mStatefulLayout: StatefulLayout2 by FragmentDelegate()
-    private var mWidgetAdapter: SettingsWidgetAdapter by FragmentDelegate()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_widget_settings, container, false)
-        val widgetsContainer = view.findViewById<FrameLayout>(R.id.stateful_layout)
+    private var statefulLayout: StatefulLayout2 by FragmentDelegate()
 
-        mStatefulLayout = StatefulLayout2.Builder(widgetsContainer)
-            .init(StatefulLayout2.LOADING, view.findViewById(R.id.widgets_loading))
-            .addView(StatefulLayout2.CONTENT, view.findViewById<View>(R.id.schedule_widgets))
-            .addView(StatefulLayout2.EMPTY, view.findViewById<View>(R.id.not_widgets))
+    private var adapter: SettingsWidgetAdapter by FragmentDelegate()
+
+
+    override fun onPostCreateView(savedInstanceState: Bundle?) {
+        statefulLayout = StatefulLayout2.Builder(binding.statefulLayout)
+            .init(StatefulLayout2.LOADING, binding.widgetsLoading.root)
+            .addView(StatefulLayout2.CONTENT, binding.scheduleWidgets)
+            .addView(StatefulLayout2.EMPTY, binding.notWidgets)
             .create()
 
-        val widgetsRecyclerView: RecyclerView = view.findViewById(R.id.recycler_widgets)
-        mWidgetAdapter = SettingsWidgetAdapter(this)
-        widgetsRecyclerView.adapter = mWidgetAdapter
-
-        return view
+        adapter = SettingsWidgetAdapter(this::onWidgetItemClicked)
+        binding.recyclerWidgets.adapter = adapter
     }
 
 
     override fun onStart() {
         super.onStart()
 
-        // обновляем список текущих виджетов с расписаниями
-        val context = requireContext()
-        val ids = scheduleWidgets(context)
-        val names: MutableList<String> = ArrayList(ids.size)
-        for (id in ids) {
-            val data = loadPref(context, id)
-            var scheduleName = data.scheduleName
-            if (scheduleName != null) {
-                if (data.display && data.subgroup !== Subgroup.COMMON) {
-                    scheduleName += " " + data.subgroup.toString(context)
-                }
-                names.add(scheduleName)
-            }
-        }
-
-        if (names.isEmpty()) {
-            mStatefulLayout.setState(StatefulLayout2.EMPTY)
+        val widgets = updateWidgetList()
+        if (widgets.isEmpty()) {
+            statefulLayout.setState(StatefulLayout2.EMPTY)
             return
         }
 
-        mWidgetAdapter.submitList(names, ids)
-        mStatefulLayout.setState(StatefulLayout2.CONTENT)
+        adapter.submitList(widgets)
+        statefulLayout.setState(StatefulLayout2.CONTENT)
     }
 
-    override fun OnWidgetClicked(widgetID: Int) {
+    /**
+     * Обновляет список текущих виджетов с расписаниями.
+     */
+    private fun updateWidgetList(): List<SettingsWidgetItem> {
+        val widgets = arrayListOf<SettingsWidgetItem>()
+
+        val context = requireContext()
+        WidgetUtils.scheduleWidgets(context).forEach { id ->
+            val widgetData = ScheduleWidgetConfigureActivity.loadPref(context, id)
+            if (widgetData.scheduleName.isNotEmpty()) {
+                widgets += SettingsWidgetItem(widgetData.scheduleName, id)
+            }
+        }
+
+        return widgets
+    }
+
+    /**
+     * Вызывается когда был нажат элемент из списка с виджетами расписаний.
+     * @param widgetID ID виджета расписания.
+     */
+    private fun onWidgetItemClicked(widgetID: Int) {
         // вызываем конфигурационное окно виджета
         val configIntent = Intent(context, ScheduleWidgetConfigureActivity::class.java).apply {
             action = AppWidgetManager.ACTION_APPWIDGET_CONFIGURE
@@ -89,11 +88,15 @@ class SettingsWidgetFragment : Fragment(), OnWidgetClickListener {
         }
 
         val configurationPendingIntent = PendingIntent.getActivity(
-            context, widgetID, configIntent, PendingIntent.FLAG_UPDATE_CURRENT
+            context,
+            widgetID,
+            configIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or FLAG_MUTABLE_COMPAT
         )
 
         try {
             configurationPendingIntent.send()
+
         } catch (ignored: CanceledException) {
 
         }
