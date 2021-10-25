@@ -19,7 +19,9 @@
         android:icon="@drawable/ic_menu_add_button"
         android:title="@string/sch_view_add_pair" />
 
-    <item android:title="@string/sch_view_go_to">
+    <item
+        android:title="@string/sch_view_go_to"
+        android:id="@+id/go_to">
 
         <menu>
             <item

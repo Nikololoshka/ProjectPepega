@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_schedule_fragment"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.MyScheduleFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.MySchedulesFragment"
         android:label="@string/nav_schedule"
         tools:layout="@layout/fragment_my_schedule">
 

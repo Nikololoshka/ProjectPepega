@@ -36,7 +36,8 @@
         <!--   Widgets   -->
         <receiver
             android:name=".widget.ScheduleWidget"
-            android:label="@string/widget_schedule_name">
+            android:label="@string/widget_schedule_name"
+            android:exported="false">
 
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -52,9 +53,10 @@
             android:name=".widget.ScheduleWidgetConfigureActivity"
             android:label="@string/widget_configurator"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false">
 
-        <intent-filter>
+            <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
 
@@ -62,7 +64,7 @@
 
         <!-- Services -->
         <service
-            android:name=".widget.ScheduleWidgetRemoteFactory$Service"
+            android:name=".widget.paging.ScheduleWidgetListService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <!-- Activities -->
@@ -70,7 +72,8 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.Splash"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true">
             <nav-graph android:value="@navigation/activity_main_nav_graph" />
 
             <intent-filter>
@@ -112,7 +115,8 @@
             android:name=".ui.news.viewer.NewsViewerActivity"
             android:label="@string/news_viewer"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 

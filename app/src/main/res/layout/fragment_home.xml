@@ -76,7 +76,7 @@
 
                         </com.facebook.shimmer.ShimmerFrameLayout>
 
-                        <com.vereshchagin.nikolay.stankinschedule.ui.home.schedule.HomePager
+                        <com.vereshchagin.nikolay.stankinschedule.ui.home.schedule.pager.HomePager
                             android:id="@+id/schedule_pager"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

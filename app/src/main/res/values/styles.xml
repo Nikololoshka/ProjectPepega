@@ -1,53 +1,18 @@
 <resources>
-    <!-- Основная тема приложения -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorOnPrimary">@color/colorOnPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
 
-        <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="colorOnSecondary">@color/colorOnSecondary</item>
-        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
-
-        <item name="colorSurface">@color/colorSurface</item>
-        <item name="colorOnSurface">@color/colorOnSurface</item>
-
-        <item name="android:windowActionBar">true</item>
-
-        <!-- AppCompat -->
-<!--        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialog</item>-->
-        <item name="tabStyle">@style/AppTabLayout</item>
-
-        <!-- ActionMode -->
-        <item name="windowActionModeOverlay">true</item>
-        <item name="actionModeCloseDrawable">@drawable/ic_action_bar_close</item>
-    </style>
-
-    <!-- Основная тема приложения без бара -->
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.DayNight" />
-
-    <!-- Тема для загрузочного экрана -->
-    <style name="AppTheme.Splash" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowBackground">@drawable/background_splash_light</item>
+    <style name="ScheduleWidget.Container" parent="android:Widget">
+        <item name="android:id">@android:id/background</item>
+        <item name="android:background">?android:attr/colorBackground</item>
     </style>
 
     <!-- Тема для BottomSheetDialog -->
-<!--    <style name="AppBottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Light.BottomSheetDialog">-->
-<!--        <item name="bottomSheetStyle">@style/AppModalStyle</item>-->
-<!--    </style>-->
+    <!--    <style name="AppBottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Light.BottomSheetDialog">-->
+    <!--        <item name="bottomSheetStyle">@style/AppModalStyle</item>-->
+    <!--    </style>-->
 
     <!-- Тема для AlertDialog -->
     <style name="AppAlertDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
-<!--        <item name="android:background">?android:attr/colorBackground</item>-->
+        <!--        <item name="android:background">?android:attr/colorBackground</item>-->
 <!--        <item name="android:buttonBarNegativeButtonStyle">@style/AlertButtonStyle</item>-->
 <!--        <item name="android:buttonBarNeutralButtonStyle">@style/AlertButtonStyle</item>-->
 <!--        <item name="android:buttonBarPositiveButtonStyle">@style/AlertButtonStyle</item>-->

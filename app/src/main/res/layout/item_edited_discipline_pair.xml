@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text='@{@string/pair_editor_subgroup + ": " + pair.subgroup.toString(context) }'
+            android:text='@{@string/pair_editor_subgroup + ": "}'
             android:textColor="?android:attr/textColorPrimary"
             android:visibility="@{pair.subgroup.isShow() ? View.VISIBLE : View.GONE}"
             tools:text="Подгруппа: (А)" />
@@ -55,7 +55,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text='@{@string/pair_editor_date + ": " + pair.date.toString(context)}'
+            android:text='@{@string/pair_editor_date + ": "}'
             android:textColor="?android:attr/textColorPrimary"
             tools:text="Дата: 19.02.21" />
 

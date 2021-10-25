@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Тема для загрузочного экрана -->
+    <style name="AppTheme.Splash" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/background_splash_dark</item>
+    </style>
+
+</resources>
