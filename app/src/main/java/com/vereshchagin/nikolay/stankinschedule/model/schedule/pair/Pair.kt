@@ -61,11 +61,13 @@ open class Pair(
         return time.start.compareTo(other.time.start)
     }
 
+    override fun toString(): String {
+        return "$title. $lecturer. $classroom. $type. $subgroup. $time. $date"
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as Pair
+        if (other !is Pair) return false
 
         if (title != other.title) return false
         if (lecturer != other.lecturer) return false
@@ -87,10 +89,6 @@ open class Pair(
         result = 31 * result + time.hashCode()
         result = 31 * result + date.hashCode()
         return result
-    }
-
-    override fun toString(): String {
-        return "$title. $lecturer. $classroom. $type. $subgroup. $time. $date"
     }
 
     /**

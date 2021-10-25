@@ -61,7 +61,7 @@ enum class Subgroup(val tag: String) : Parcelable {
         @JvmStatic
         fun of(value: String): Subgroup {
             for (subgroup in values()) {
-                if (subgroup.tag == value) {
+                if (subgroup.tag.equals(value, ignoreCase = true)) {
                     return subgroup
                 }
             }

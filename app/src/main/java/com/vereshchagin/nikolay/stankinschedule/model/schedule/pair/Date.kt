@@ -1,6 +1,5 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
-import android.content.Context
 import android.os.Parcelable
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
@@ -87,7 +86,11 @@ class Date(
         if (dates.isEmpty()) {
             return null
         }
-        return dates.first().startDate()
+
+        return when (val startDate = dates.first()) {
+            is DateSingle -> startDate.date
+            is DateRange -> startDate.start
+        }
     }
 
     /**
@@ -97,7 +100,11 @@ class Date(
         if (dates.isEmpty()) {
             return null
         }
-        return dates.last().endDate()
+
+        return when (val startDate = dates.last()) {
+            is DateSingle -> startDate.date
+            is DateRange -> startDate.end
+        }
     }
 
     /**

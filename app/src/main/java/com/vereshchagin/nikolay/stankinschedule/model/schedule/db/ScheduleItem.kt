@@ -16,7 +16,7 @@ import org.joda.time.DateTime
         Index("schedule_name", unique = true)
     ]
 )
-data class ScheduleItem(
+open class ScheduleItem(
     @ColumnInfo(name = "schedule_name")
     var scheduleName: String,
 ) {
@@ -44,4 +44,34 @@ data class ScheduleItem(
      */
     @ColumnInfo(name = "position")
     var position: Int = 0
+
+
+    constructor(item: ScheduleItem) : this(item.scheduleName) {
+        id = item.id
+        lastUpdate = item.lastUpdate
+        synced = item.synced
+        position = item.position
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is ScheduleItem) return false
+
+        if (scheduleName != other.scheduleName) return false
+        if (id != other.id) return false
+        if (lastUpdate != other.lastUpdate) return false
+        if (synced != other.synced) return false
+        if (position != other.position) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = scheduleName.hashCode()
+        result = 31 * result + id.hashCode()
+        result = 31 * result + (lastUpdate?.hashCode() ?: 0)
+        result = 31 * result + synced.hashCode()
+        result = 31 * result + position
+        return result
+    }
 }
