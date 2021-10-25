@@ -1,14 +1,14 @@
-package com.vereshchagin.nikolay.stankinschedule.widget
+package com.vereshchagin.nikolay.stankinschedule.widget.paging
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
-import android.widget.RemoteViewsService
 import android.widget.RemoteViewsService.RemoteViewsFactory
 import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
@@ -17,6 +17,8 @@ import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.L
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LECTURE_COLOR
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SEMINAR_COLOR
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.toTitleString
+import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidget
+import com.vereshchagin.nikolay.stankinschedule.widget.ScheduleWidgetConfigureActivity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.joda.time.LocalDate
@@ -25,8 +27,10 @@ import java.lang.ref.WeakReference
 /**
  * Адаптер для виджета с расписанием.
  */
-class ScheduleWidgetRemoteFactory(
-    context: Context, intent: Intent
+class ScheduleWidgetListRemoteFactory(
+    context: Context,
+    intent: Intent,
+    private val repository: ScheduleRepository,
 ) : RemoteViewsFactory {
 
     /**
@@ -49,12 +53,17 @@ class ScheduleWidgetRemoteFactory(
     /**
      * Список дней.
      */
-    private val days = ArrayList<ScheduleWidgetDayItem>()
+    private val days = ArrayList<ScheduleWidgetListItem>()
 
     /**
      * Название расписание.
      */
     private var scheduleName = ""
+
+    /**
+     * ID расписания.
+     */
+    private var scheduleId = -1L
 
     /**
      * Подгруппа в расписании.
@@ -63,7 +72,7 @@ class ScheduleWidgetRemoteFactory(
 
     /**
      * Ошибка при загрузке.
-      */
+     */
     private var loadingError = false
     private val errorMessage = context.getString(R.string.widget_schedule_error)
 
@@ -73,6 +82,7 @@ class ScheduleWidgetRemoteFactory(
     private var lectureColor = 0
     private var seminarColor = 0
     private var laboratoryColor = 0
+
 
     override fun onCreate() {
 
@@ -94,29 +104,28 @@ class ScheduleWidgetRemoteFactory(
             lectureColor = lecture; seminarColor = seminar; laboratoryColor = laboratory
 
             // загрузка данных
-            val widgetData =
-                ScheduleWidgetConfigureActivity.loadPref(currentContext, scheduleAppWidgetId)
-            if (widgetData.scheduleName == null) {
-                loadingError = true
-                return
-            }
-            scheduleName = widgetData.scheduleName
-            subgroup = widgetData.subgroup
+            val widgetData = ScheduleWidgetConfigureActivity.loadPref(
+                currentContext, scheduleAppWidgetId
+            )
 
             try {
-                val repository = ScheduleRepository(currentContext)
                 val schedule = runBlocking {
-                    repository.schedule(scheduleName).first()
+                    repository.schedule(widgetData.scheduleId).first()
                 }
+
                 if (schedule == null) {
                     loadingError = true
                     return
                 }
 
+                scheduleName = schedule.info.scheduleName
+                scheduleId = schedule.info.id
+                subgroup = widgetData.subgroup
+
                 var data = LocalDate.now()
                 for (i in 0 until 7) {
                     days.add(
-                        ScheduleWidgetDayItem(
+                        ScheduleWidgetListItem(
                             data.toString("EE, dd MMMM").toTitleString(),
                             schedule.pairsByDate(data),
                             data
@@ -144,6 +153,12 @@ class ScheduleWidgetRemoteFactory(
     }
 
     override fun getViewAt(position: Int): RemoteViews {
+        /**
+         * Нет обновления ScheduleName!!!
+         *
+         * RemoteViews#setEmptyView
+         */
+
         try {
             // отображаем ошибку
             if (loadingError) {
@@ -196,13 +211,13 @@ class ScheduleWidgetRemoteFactory(
             // для обратного вызова приложения с расписанием на определенном дне
             dayView.setOnClickFillInIntent(
                 R.id.widget_item_schedule_app,
-                ScheduleWidget.createDayIntent(scheduleName, item.dayTime)
+                ScheduleWidget.createDayIntent(scheduleId, item.dayTime)
             )
 
             return dayView
 
         } catch (t: Throwable) {
-            FirebaseCrashlytics.getInstance().recordException(t)
+            Firebase.crashlytics.recordException(t)
             throw t
         }
     }
@@ -223,28 +238,7 @@ class ScheduleWidgetRemoteFactory(
         return true
     }
 
-    /**
-     * Сервис, который создает адаптер по обновлению данных виджета.
-     */
-    class Service : RemoteViewsService() {
-        override fun onGetViewFactory(intent: Intent): RemoteViewsFactory {
-            return ScheduleWidgetRemoteFactory(applicationContext, intent)
-        }
-    }
-
-    /**
-     * Информация о дне виджета с расписанием.
-     * @param dayTitle заголовок дня.
-     * @param pairs пары дня.
-     * @param dayTime дата дня.
-     */
-    private class ScheduleWidgetDayItem(
-        var dayTitle: String,
-        var pairs: List<Pair>,
-        var dayTime: LocalDate
-    )
-
     companion object {
-        private const val TAG = "ScheduleAppWgtFactoryLog"
+        private const val TAG = "ScheduleWidgetLog"
     }
 }

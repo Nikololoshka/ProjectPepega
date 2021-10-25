@@ -1,40 +1,38 @@
 package com.vereshchagin.nikolay.stankinschedule.widget
 
-import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
- *
+ * ViewModel для активности по созданию виджета с расписанием.
  */
-class ScheduleWidgetConfigureViewModel(
-    application: Application,
-) : AndroidViewModel(application) {
+@HiltViewModel
+class ScheduleWidgetConfigureViewModel @Inject constructor(
+    val repository: ScheduleRepository,
+) : ViewModel() {
 
-    private val repository = ScheduleRepository(application)
-    val schedules = MutableLiveData<List<String>>(emptyList())
+    private val _schedules = MutableStateFlow<List<ScheduleItem>>(emptyList())
+
+    /**
+     * Список с расписаниями в приложении.
+     */
+    val schedules = _schedules.asStateFlow()
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
             repository.schedules()
-                .collect {
-                    schedules.postValue(it.map { item -> item.scheduleName })
+                .collect { list ->
+                    _schedules.value = list
                 }
-        }
-    }
-
-    /**
-     *
-     */
-    class Factory(
-        private val application: Application,
-    ) : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return ScheduleWidgetConfigureViewModel(application) as T
         }
     }
 }

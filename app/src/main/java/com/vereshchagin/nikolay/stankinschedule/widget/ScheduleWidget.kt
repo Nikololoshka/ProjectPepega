@@ -13,8 +13,13 @@ import androidx.navigation.NavDeepLinkBuilder
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.FLAG_MUTABLE_COMPAT
+import com.vereshchagin.nikolay.stankinschedule.widget.paging.ScheduleWidgetListService
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.withContext
 import org.joda.time.LocalDate
 
 /**
@@ -28,25 +33,26 @@ class ScheduleWidget : AppWidgetProvider() {
         val action = intent.action
         if (action != null && action.equals(ACTION_SCHEDULE_DAY_CLICKED, ignoreCase = true)) {
 
-            val date = intent.getSerializableExtra(SCHEDULE_DAY_TIME) as LocalDate
-            val scheduleName = intent.getStringExtra(SCHEDULE_NAME) ?: return
+            Log.d(TAG, "onReceive: $intent")
+            Log.d(TAG, "onReceive: ${intent.extras}")
 
-            Log.d("MyLog", "onReceive: $date")
+            val date = intent.getSerializableExtra(SCHEDULE_DAY_TIME) as LocalDate? ?: return
+            val scheduleId = intent.getLongExtra(SCHEDULE_ID, -1)
 
             // создание intent'а на открытие расписание на определенном дне
-            val scheduleDayBundle = ScheduleViewFragment.createBundle(
-                scheduleName, date
-            )
+            val scheduleDayBundle = ScheduleViewFragment.createBundle(scheduleId, date)
 
             val scheduleDayPendingIntent = NavDeepLinkBuilder(context)
                 .setComponentName(MainActivity::class.java)
                 .setGraph(R.navigation.activity_main_nav_graph)
                 .setDestination(R.id.nav_schedule_view_fragment)
                 .setArguments(scheduleDayBundle)
-                .createPendingIntent()
+                .createTaskStackBuilder()
+                .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT or FLAG_MUTABLE_COMPAT)
 
             try {
-                scheduleDayPendingIntent.send()
+                scheduleDayPendingIntent?.send()
+
             } catch (ignored: CanceledException) {
 
             }
@@ -56,12 +62,12 @@ class ScheduleWidget : AppWidgetProvider() {
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
-        appWidgetIds: IntArray
+        appWidgetIds: IntArray,
     ) {
         try {
             // Обновить все виджеты
             for (appWidgetId in appWidgetIds) {
-                updateAppWidget(context, appWidgetManager, appWidgetId)
+                updateScheduleWidget(context, appWidgetManager, appWidgetId)
             }
         } catch (t: Throwable) {
             FirebaseCrashlytics.getInstance().recordException(t)
@@ -86,9 +92,12 @@ class ScheduleWidget : AppWidgetProvider() {
     }
 
     companion object {
+
         private const val SCHEDULE_DAY_TIME = "widget_schedule_day_time"
-        private const val SCHEDULE_NAME = "widget_schedule_name"
+        private const val SCHEDULE_ID = "widget_schedule_id"
         private const val ACTION_SCHEDULE_DAY_CLICKED = "action_schedule_day_clicked"
+
+        private const val TAG = "ScheduleWidgetLog"
 
         /**
          * Обновляет данные на виджете с расписанием.
@@ -96,49 +105,100 @@ class ScheduleWidget : AppWidgetProvider() {
          * @param appWidgetManager менеджер виджетов.
          * @param appWidgetId ID виджета.
          */
-        @JvmStatic
-        fun updateAppWidget(
-            context: Context, appWidgetManager: AppWidgetManager,
-            appWidgetId: Int
+        fun updateScheduleWidget(
+            context: Context,
+            appWidgetManager: AppWidgetManager,
+            appWidgetId: Int,
         ) {
-            // загрузка данных о виджете
             val widgetData = ScheduleWidgetConfigureActivity.loadPref(context, appWidgetId)
-            var scheduleName = widgetData.scheduleName
-            if (scheduleName == null) {
-                scheduleName = context.getString(R.string.widget_schedule_name)
-            }
+            updateScheduleWidgetData(context, appWidgetManager, appWidgetId, widgetData)
+        }
 
-            // для открытия приложения на распиании
-            val scheduleBundle = ScheduleViewFragment.createBundle(
-                scheduleName
+        /**
+         * Обновляет данные на виджете с помощью репозитория расписаний.
+         * @param context контекст.
+         * @param appWidgetManager менеджер виджетов.
+         * @param appWidgetId ID виджета.
+         * @param scheduleId ID расписания.
+         * @param repository репозиторий с расписаниями.
+         */
+        suspend fun updateScheduleWidget(
+            context: Context,
+            appWidgetManager: AppWidgetManager,
+            appWidgetId: Int,
+            scheduleId: Long,
+            repository: ScheduleRepository,
+        ) {
+            // получение новых данных
+            val scheduleItem = withContext(Dispatchers.IO) {
+                repository.scheduleItem(scheduleId).first()
+            } ?: return
+
+            // обновление настроек
+            var widgetData = ScheduleWidgetConfigureActivity.loadPref(context, appWidgetId)
+            widgetData = ScheduleWidgetData(
+                scheduleItem.scheduleName,
+                widgetData.scheduleId,
+                widgetData.subgroup,
+                widgetData.display
             )
+            ScheduleWidgetConfigureActivity.savePref(context, appWidgetId, widgetData)
+
+            updateScheduleWidgetData(context, appWidgetManager, appWidgetId, widgetData)
+        }
+
+        /**
+         * Обновляет только список в виджете с расписанием
+         * @param appWidgetManager менеджер виджетов.
+         * @param appWidgetId ID виджета.
+         */
+        fun updateScheduleWidgetList(appWidgetManager: AppWidgetManager, appWidgetId: Int) {
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.widget_schedule_list)
+        }
+
+        /**
+         * Обновляет данные в виджете с расписанием.
+         * @param context контекст.
+         * @param appWidgetManager менеджер виджетов.
+         * @param appWidgetId ID виджета.
+         * @param widgetData новые данные.
+         */
+        private fun updateScheduleWidgetData(
+            context: Context,
+            appWidgetManager: AppWidgetManager,
+            appWidgetId: Int,
+            widgetData: ScheduleWidgetData,
+        ) {
+            // для открытия приложения на расписании
             val schedulePendingIntent = NavDeepLinkBuilder(context)
                 .setComponentName(MainActivity::class.java)
                 .setGraph(R.navigation.activity_main_nav_graph)
                 .setDestination(R.id.nav_schedule_view_fragment)
-                .setArguments(scheduleBundle)
-                .createPendingIntent()
-
-            // подгруппа виджета
-            if (widgetData.display && widgetData.subgroup != Subgroup.COMMON) {
-                scheduleName += " ${widgetData.subgroup.toString(context)}"
-            }
+                .setArguments(
+                    ScheduleViewFragment.createBundle(widgetData.scheduleId)
+                )
+                .createTaskStackBuilder()
+                .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT or FLAG_MUTABLE_COMPAT)
 
             // установка имени
+            val scheduleName = widgetData.displayName(context)
             val views = RemoteViews(context.packageName, R.layout.widget_schedule)
             views.setTextViewText(R.id.widget_schedule_name, scheduleName)
             views.setOnClickPendingIntent(R.id.widget_schedule_name, schedulePendingIntent)
 
             // для открытия приложения на расписании на определенном дне
             val scheduleDayPendingIntent = PendingIntent.getBroadcast(
-                context, appWidgetId, Intent(context, ScheduleWidget::class.java).also {
+                context,
+                appWidgetId,
+                Intent(context, ScheduleWidget::class.java).also {
                     it.action = ACTION_SCHEDULE_DAY_CLICKED
-                }, 0
+                },
+                PendingIntent.FLAG_UPDATE_CURRENT or FLAG_MUTABLE_COMPAT
             )
             views.setPendingIntentTemplate(R.id.widget_schedule_list, scheduleDayPendingIntent)
 
             // установка адаптера
-            val dataIntent = Intent(context, ScheduleWidgetRemoteFactory.Service::class.java)
+            val dataIntent = Intent(context, ScheduleWidgetListService::class.java)
             dataIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
 
             // уникальный адаптер для каждого виджета
@@ -154,9 +214,8 @@ class ScheduleWidget : AppWidgetProvider() {
         /**
          * Создает intent для обратного вызова приложения с расписанием на определенном дне.
          */
-        @JvmStatic
-        fun createDayIntent(scheduleName: String, date: LocalDate) = Intent().apply {
-            putExtra(SCHEDULE_NAME, scheduleName)
+        fun createDayIntent(scheduleId: Long, date: LocalDate) = Intent().apply {
+            putExtra(SCHEDULE_ID, scheduleId)
             putExtra(SCHEDULE_DAY_TIME, date)
         }
     }
