@@ -2,28 +2,39 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.view
 
 import android.app.Application
 import android.net.Uri
+import android.os.Bundle
 import androidx.lifecycle.*
-import androidx.paging.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import androidx.savedstate.SavedStateRegistryOwner
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewDaySource
+import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.joda.time.LocalDate
 
 /**
  * ViewModel для просмотра расписания.
  */
-class ScheduleViewViewModel(
-    private var scheduleName: String,
-    private val startDate: LocalDate?,
+// @HiltViewModel
+class ScheduleViewViewModel @AssistedInject constructor(
     application: Application,
+    private val repository: ScheduleRepository,
+    @Assisted private val scheduleId: Long,
+    @Assisted private val handle: SavedStateHandle,
+    @Assisted startScheduleDate: LocalDate,
 ) : AndroidViewModel(application) {
 
     enum class ScheduleState {
@@ -34,113 +45,146 @@ class ScheduleViewViewModel(
     }
 
     enum class ScheduleActionState {
-        NONE,
         RENAMED,
         REMOVED,
         EXPORTED
     }
 
+    private val _actionState = MutableSharedFlow<ScheduleActionState>()
+    private val _scheduleState = MutableStateFlow(ScheduleState.LOADING)
+    private val _scheduleItem = MutableStateFlow<ScheduleItem?>(null)
+
+
+    /**
+     * Состояние действия над расписания.
+     */
+    val actionState = _actionState.asSharedFlow()
+
     /**
      * Состояние загрузки расписания.
      */
-    val scheduleState = MutableLiveData(ScheduleState.LOADING)
-    val actionState = MutableLiveData(ScheduleActionState.NONE)
+    val scheduleState = _scheduleState.asStateFlow()
 
     /**
-     * Репозиторий с расписанием.
+     * Информация о текущем расписании.
      */
-    private val repository = ScheduleRepository(application)
-    private var schedule: Schedule? = null
+    val scheduleItem = _scheduleItem.asStateFlow()
 
     /**
-     * LiveData с днями расписания.
+     * Текущая начальная дата для Pager.
      */
-    private val refreshTrigger = MutableLiveData<LocalDate>()
-    val scheduleDays = Transformations.switchMap(refreshTrigger) { refresh(it) }
+    private val currentPagerDate = MutableStateFlow(
+        handle.get<LocalDate>(CURRENT_PAGER_DATE) ?: startScheduleDate
+    )
+
+    /**
+     * Текущие расписание.
+     */
+    private val currentSchedule = MutableStateFlow<Schedule?>(null)
+    val scheduleStartDate get() = currentSchedule.value?.startDate()
+    val scheduleEndDate get() = currentSchedule.value?.endDate()
+
+    private val clearListCh = Channel<Unit>(Channel.CONFLATED)
+
+    /**
+     * Pager с днями расписания для отображения.
+     */
+    @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
+    val scheduleDays = flowOf(
+        clearListCh.receiveAsFlow().map { PagingData.empty() },
+        combine(currentPagerDate, currentSchedule) { date, schedule -> date to schedule }
+            .flatMapLatest { (date, schedule) ->
+                Pager(
+                    config = PagingConfig(
+                        pageSize = PAGE_SIZE,
+                        prefetchDistance = PAGE_SIZE / 2,
+                        initialLoadSize = PAGE_SIZE,
+                        maxSize = PAGE_SIZE * 50
+                    ),
+                    initialKey = date,
+                    pagingSourceFactory = {
+                        ScheduleViewDaySource(schedule)
+                    }
+                ).flow
+            }.cachedIn(viewModelScope)
+    ).flattenMerge(2)
 
     init {
+        // информация о расписании
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.scheduleItem(scheduleId)
+                .collect { item ->
+                    if (item != null) {
+                        _scheduleItem.value = item
+                    } else {
+                        _scheduleState.value = ScheduleState.NOT_EXIST
+                    }
+                }
+        }
+
+        // расписание
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.schedule(scheduleId)
+                .filterNotNull()
+                .collect { schedule ->
+                    showPagerForSchedule(schedule)
+                }
+        }
+    }
+
+    private suspend fun showPagerForSchedule(schedule: Schedule) {
+        _scheduleState.value = ScheduleState.LOADING
+
+        clearListCh.send(Unit)
+        handle.get<LocalDate>(CURRENT_PAGER_DATE)?.let {
+            currentPagerDate.value = it
+        }
+        currentSchedule.value = schedule
+
+        _scheduleState.value = ScheduleState.SUCCESSFULLY_LOADED
+    }
+
+    fun showPagerForDate(date: LocalDate) {
+        _scheduleState.value = ScheduleState.LOADING
+
         viewModelScope.launch {
-            loadSchedule(startDate ?: LocalDate.now())
+            clearListCh.send(Unit)
+            currentPagerDate.value = date
+
+            _scheduleState.value = ScheduleState.SUCCESSFULLY_LOADED
         }
     }
 
     /**
-     * Загружает расписание для просмотра.
+     * Устанавливает текущую дату, которая отображается в pager, для
+     * ее последующего отображения, если расписание обновится.
      */
-    private suspend fun loadSchedule(initKey: LocalDate) {
-        scheduleState.postValue(ScheduleState.LOADING)
-        val item = repository.scheduleItem(scheduleName).first()
-        if (item == null) {
-            scheduleState.postValue(ScheduleState.NOT_EXIST)
-            return
-        }
-
-        repository.schedule(item.id)
-            .filterNotNull()
-            .collect {
-                this.schedule = it
-                refreshTrigger.value = initKey
-            }
+    fun updatePagingDate(currentPagingDate: LocalDate?) {
+        handle.set(CURRENT_PAGER_DATE, currentPagingDate)
     }
 
     /**
-     * Обновляет pager с днями расписания.
+     * Переименовывает текущие расписание.
      */
-    private fun refresh(
-        initKey: LocalDate = LocalDate.now(),
-    ): LiveData<PagingData<ScheduleViewDay>> {
-        val currentSchedule = schedule
-        if (currentSchedule == null) {
-            scheduleState.value = ScheduleState.SUCCESSFULLY_LOADED
-            return MutableLiveData(PagingData.empty())
-        }
-
-        val limit = ApplicationPreference.scheduleLimit(getApplication())
-        val pager = Pager(
-            PagingConfig(
-                pageSize = PAGE_SIZE,
-                prefetchDistance = PAGE_SIZE / 2,
-                initialLoadSize = PAGE_SIZE,
-                maxSize = PAGE_SIZE * 8
-            ),
-            if (limit) schedule?.limitDate(initKey) else initKey,
-        ) {
-            ScheduleViewDaySource(currentSchedule)
-        }
-
-        scheduleState.value = if (currentSchedule.isEmpty()) {
-            ScheduleState.SUCCESSFULLY_LOADED_EMPTY
-        } else {
-            ScheduleState.SUCCESSFULLY_LOADED
-        }
-
-        return pager.liveData.cachedIn(viewModelScope)
-    }
-
-    /**
-     * Обновляет pager, где изначальной позицией будет передаваемая дата.
-     */
-    fun updatePagerView(scrollDate: LocalDate) {
-        scheduleState.value = ScheduleState.LOADING
-        refreshTrigger.value = scrollDate
-    }
-
     fun renameSchedule(newScheduleName: String) {
-        val currentScheduleItem = schedule?.info ?: return
+        val currentScheduleItem = _scheduleItem.value ?: return
 
         viewModelScope.launch(Dispatchers.IO) {
             currentScheduleItem.scheduleName = newScheduleName
-            scheduleName = newScheduleName
             repository.updateScheduleItem(currentScheduleItem)
+            WidgetUtils.updateScheduleWidget(getApplication(), currentScheduleItem.id, repository)
 
-            actionState.postValue(ScheduleActionState.RENAMED)
+            _actionState.emit(ScheduleActionState.RENAMED)
         }
     }
 
+    /**
+     * Удаляет расписание с устройства пользователя.
+     */
     fun removeSchedule() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.removeSchedule(scheduleName)
-            actionState.postValue(ScheduleActionState.REMOVED)
+            repository.removeSchedule(scheduleId)
+            _actionState.emit(ScheduleActionState.REMOVED)
         }
     }
 
@@ -148,30 +192,14 @@ class ScheduleViewViewModel(
      * Сохраняет расписание на устройство по заданному пути.
      */
     fun saveScheduleToDevice(uri: Uri) {
-        viewModelScope.launch {
-            repository.saveToDevice(scheduleName, uri, getApplication())
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                repository.saveToDevice(scheduleId, uri, getApplication())
+                _actionState.emit(ScheduleActionState.EXPORTED)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
-    }
-
-    /**
-     * Дата начала расписания
-     */
-    fun startDate(): LocalDate? {
-        return schedule?.startDate()
-    }
-
-    /**
-     * Дата конца расписания.
-     */
-    fun endDate(): LocalDate? {
-        return schedule?.endDate()
-    }
-
-    /**
-     * Является ли текущие расписание синхронизированным.
-     */
-    fun isSynced(): Boolean {
-        return schedule?.info?.synced ?: false
     }
 
     /**
@@ -179,39 +207,53 @@ class ScheduleViewViewModel(
      */
     fun disableScheduleSynced() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.toggleScheduleSyncState(scheduleName, false)
+            repository.toggleScheduleSyncState(scheduleId, false)
         }
-    }
-
-    /**
-     * Возвращает информацию о расписании.
-     */
-    fun info(): ScheduleItem? {
-        return schedule?.info
-    }
-
-    fun actionComplete() {
-        actionState.value = ScheduleActionState.NONE
     }
 
     /**
      * Factory для создания ViewModel.
      */
-    class Factory(
-        private val scheduleName: String,
-        private val startDate: LocalDate?,
-        private val application: Application,
-    ) : ViewModelProvider.NewInstanceFactory() {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return ScheduleViewViewModel(scheduleName, startDate, application) as T
-        }
+    @AssistedFactory
+    interface ScheduleViewFactory {
+        fun create(
+            scheduleId: Long,
+            handle: SavedStateHandle,
+            startScheduleDate: LocalDate,
+        ): ScheduleViewViewModel
     }
 
     companion object {
         /**
          * Размер страницы погрузки.
          */
-        private const val PAGE_SIZE = 10
+        const val PAGE_SIZE = 20
+
+        private const val CURRENT_PAGER_DATE = "current_pager_date"
+
+        /**
+         * Создает объект в Factory c переданными параметрами.
+         */
+        fun provideFactory(
+            factory: ScheduleViewFactory,
+            scheduleId: Long,
+            startScheduleDate: LocalDate,
+            owner: SavedStateRegistryOwner,
+            defaultArgs: Bundle? = null,
+        ): ViewModelProvider.Factory =
+            object : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
+                @Suppress("UNCHECKED_CAST")
+                override fun <T : ViewModel?> create(
+                    key: String,
+                    modelClass: Class<T>,
+                    handle: SavedStateHandle,
+                ): T {
+                    return factory.create(
+                        scheduleId,
+                        handle,
+                        startScheduleDate
+                    ) as T
+                }
+            }
     }
 }

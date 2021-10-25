@@ -7,12 +7,16 @@ import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.view.*
+import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +26,8 @@ import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentScheduleViewBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
-import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreferenceKt
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorActivity
@@ -30,18 +35,32 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.Schedule
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.paging.ScheduleViewAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.filterNotNull
+import org.joda.time.Days
 import org.joda.time.LocalDate
+import javax.inject.Inject
 
 /**
  * Фрагмент просмотра расписания.
  */
+@AndroidEntryPoint
 class ScheduleViewFragment :
     BaseFragment<FragmentScheduleViewBinding>(FragmentScheduleViewBinding::inflate) {
+
+    @Inject
+    lateinit var viewModelFactory: ScheduleViewViewModel.ScheduleViewFactory
+
+    @Inject
+    lateinit var preference: ApplicationPreferenceKt
 
     /**
      * ViewModel фрагмента.
      */
-    private lateinit var viewModel: ScheduleViewViewModel
+    private val viewModel: ScheduleViewViewModel by viewModels {
+        ScheduleViewViewModel.provideFactory(viewModelFactory, scheduleId, startScheduleDate, this)
+    }
 
     /**
      * Менеджер состояний.
@@ -49,14 +68,19 @@ class ScheduleViewFragment :
     private var statefulLayout: StatefulLayout2 by FragmentDelegate()
 
     /**
-     * Название расписания.
+     * ID расписания.
      */
-    private lateinit var scheduleName: String
+    private var scheduleId: Long = -1
+
+    /**
+     * Начальная дата для отображение расписания.
+     */
+    private var startScheduleDate: LocalDate = LocalDate.now()
 
     /**
      * Адаптер расписания.
      */
-    private lateinit var adapter: ScheduleViewAdapter
+    private var adapter: ScheduleViewAdapter by FragmentDelegate()
 
     /**
      * Лаунчер для запросы разрешения на запись на устройство.
@@ -66,7 +90,7 @@ class ScheduleViewFragment :
     )
 
     /**
-     *Лаунчер для выбора места для сохранения расписания.
+     * Лаунчер для выбора места для сохранения расписания.
      */
     private val saveLauncher = registerForActivityResult(
         ActivityResultContracts.OpenDocumentTree(), this::onScheduleSaveResult
@@ -86,22 +110,14 @@ class ScheduleViewFragment :
             .create()
 
         // получение отображаемых данных
-        scheduleName = arguments?.getString(SCHEDULE_NAME)!!
-        val startDate = arguments?.getSerializable(SCHEDULE_START_DATE) as LocalDate?
-        updateActionBar()
-
-        viewModel = ViewModelProvider(
-            this,
-            ScheduleViewViewModel.Factory(
-                scheduleName,
-                startDate,
-                activity?.application!!
-            )
-        ).get(ScheduleViewViewModel::class.java)
+        val currentArguments = requireArguments()
+        scheduleId = currentArguments.getLong(SCHEDULE_ID, -1)
+        startScheduleDate = currentArguments.getSerializable(SCHEDULE_START_DATE) as LocalDate?
+            ?: LocalDate.now()
 
         // отображение расписания (горизонтально / вертикально)
-        val method = ApplicationPreference.scheduleViewMethod(requireContext())
-        if (method == ApplicationPreference.SCHEDULE_VIEW_HORIZONTAL) {
+        val method = preference.scheduleViewMethod
+        if (method == ApplicationPreferenceKt.SCHEDULE_VIEW_HORIZONTAL) {
             (binding.schViewContainer.layoutManager as LinearLayoutManager).let {
                 it.orientation = RecyclerView.HORIZONTAL
                 val snapHelper = LinearSnapHelper()
@@ -118,20 +134,45 @@ class ScheduleViewFragment :
         adapter = ScheduleViewAdapter(this::onPairClicked)
         binding.schViewContainer.adapter = adapter
 
-        viewModel.scheduleDays.observe(this) {
-            adapter.submitData(lifecycle, it)
+        // определение текущей позиции для сохранения ее в последующих обновлениях
+        binding.schViewContainer.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
+                    //Dragging
+                } else if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    viewModel.updatePagingDate(currentPagerDay())
+                }
+            }
+        })
+
+        // информация о расписании
+        lifecycleScope.launchWhenStarted {
+            viewModel.scheduleItem
+                .filterNotNull()
+                .collect(::onScheduleItemChanged)
         }
 
-        viewModel.scheduleState.observe(this) {
-            val state = it ?: return@observe
-            onScheduleStateChanged(state)
+        // состояние загрузки расписания
+        lifecycleScope.launchWhenStarted {
+            viewModel.scheduleState.collect(::onScheduleStateChanged)
         }
 
-        viewModel.actionState.observe(this) {
-            val state = it ?: return@observe
-            onActionStateChanged(state)
+        // отображение списка с занятиями в расписании
+        lifecycleScope.launchWhenStarted {
+            viewModel.scheduleDays.collect { data ->
+                adapter.submitData(data)
+            }
         }
 
+        // состояние действий над расписаниями
+        lifecycleScope.launchWhenCreated {
+            viewModel.actionState.collect(::onActionStateChanged)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
         trackScreen(TAG, MainActivity.TAG)
     }
 
@@ -142,99 +183,59 @@ class ScheduleViewFragment :
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
-        val isSync = viewModel.isSynced()
+
+        // расписание синхронизировано
+        val isSync = isScheduleSynced()
         menu.findItem(R.id.edit_schedule).isEnabled = !isSync
         menu.findItem(R.id.rename_schedule).isEnabled = !isSync
         menu.findItem(R.id.add_pair).isEnabled = !isSync
+
+        // расписание пустое
+        val isEmpty = isScheduleEmpty()
+        menu.findItem(R.id.go_to).isEnabled = !isEmpty
+        menu.findItem(R.id.go_to_day).isEnabled = !isEmpty
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             // редактирование расписания
             R.id.edit_schedule -> {
-                if (canScheduleEdit()) {
-                    val intent = ScheduleEditorActivity.createIntent(requireContext(), scheduleName)
-                    startActivity(intent)
-                }
+                onScheduleEditClicked()
                 return true
             }
             // переименование расписания
             R.id.rename_schedule -> {
-                if (canScheduleEdit()) {
-                    val dialog = ScheduleNameEditorDialog.newInstance(scheduleName)
-                    dialog.show(parentFragmentManager, dialog.tag)
-                }
+                onScheduleRenameClicked()
                 return true
             }
             // перейти к дню
             R.id.go_to_day -> {
-                val currentDay = currentDay()
-
-                // picker даты
-                DatePickerDialog(
-                    requireContext(),
-                    { _, year, month, dayOfMonth ->
-                        scrollScheduleTo(LocalDate(year, month + 1, dayOfMonth))
-                    },
-                    currentDay.year,
-                    currentDay.monthOfYear - 1,
-                    currentDay.dayOfMonth
-                ).apply {
-                    setButton(
-                        DialogInterface.BUTTON_NEUTRAL, getString(R.string.sch_view_today)
-                    ) { _, _ ->
-                        scrollScheduleTo(LocalDate.now())
-                    }
-                    show()
-                }
-
+                onScheduleGoToDayClicked()
                 return true
             }
             // перейти к началу расписания
             R.id.to_start_schedule -> {
-                scrollToScheduleStart()
+                onScrollToStartClicked()
                 return true
             }
             // перейти к концу расписания
             R.id.to_end_schedule -> {
-                scrollToScheduleEnd()
+                onScrollToEndClicked()
                 return true
             }
             // сохранить расписание на устройство
             R.id.save_schedule -> {
-                // проверка возможности записи
-                val permissionStatus = ContextCompat.checkSelfPermission(
-                    requireContext(),
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                )
-                if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
-                    onSavePermissionResult(true)
-                } else {
-                    permissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                }
-
+                onScheduleSaveClicked()
                 return true
             }
             // удалить расписания
             R.id.remove_schedule -> {
-                AlertDialog.Builder(requireContext())
-                    .setTitle(R.string.warning)
-                    .setMessage(getString(R.string.sch_view_will_be_deleted))
-                    .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
-                        dialog.cancel()
-                    }
-                    .setPositiveButton(getString(R.string.yes_continue)) { _, _ ->
-                        removeSchedule()
-                    }.show()
-
+                onScheduleRemoveClicked()
                 return true
             }
             // добавить пару
             R.id.add_pair -> {
-                if (canScheduleEdit()) {
-                    val intent = PairEditorActivity.newPairIntent(requireContext(), scheduleName)
-                    startActivity(intent)
-                }
+                onAddPairClicked()
                 return true
             }
             // информация о расписании
@@ -247,27 +248,178 @@ class ScheduleViewFragment :
     }
 
     /**
+     * Вызывает активность для редактирования расписания.
+     */
+    private fun onScheduleEditClicked() {
+        if (canScheduleEdit()) {
+            val intent = ScheduleEditorActivity.createIntent(requireContext(), scheduleId)
+            startActivity(intent)
+        } else {
+            showScheduleNotEditDialog()
+        }
+    }
+
+    /**
+     * Вызывает редактор названия расписания.
+     */
+    private fun onScheduleRenameClicked() {
+        if (canScheduleEdit()) {
+            val scheduleName = viewModel.scheduleItem.value?.scheduleName
+            if (scheduleName != null) {
+                val dialog = ScheduleNameEditorDialog.newInstance(scheduleName)
+                dialog.show(parentFragmentManager, dialog.tag)
+            }
+        } else {
+            showScheduleNotEditDialog()
+        }
+    }
+
+    /**
+     * Вызывает перемещение в определенной дате при просмотре расписания.
+     */
+    private fun onScheduleGoToDayClicked() {
+        val currentDay = currentPagerDay() ?: LocalDate.now()
+
+        // picker даты
+        DatePickerDialog(
+            requireContext(),
+            { _, year, month, dayOfMonth ->
+                tryScrollToDate(LocalDate(year, month + 1, dayOfMonth))
+            },
+            currentDay.year,
+            currentDay.monthOfYear - 1,
+            currentDay.dayOfMonth
+        ).apply {
+            setButton(
+                DialogInterface.BUTTON_NEUTRAL, getString(R.string.sch_view_today)
+            ) { _, _ ->
+                tryScrollToDate(LocalDate.now())
+            }
+            show()
+        }
+    }
+
+    /**
+     * Вызывает окно для добавление новой пары в расписание.
+     */
+    private fun onAddPairClicked() {
+        if (canScheduleEdit()) {
+            val intent = PairEditorActivity.newPairIntent(requireContext(), scheduleId)
+            startActivity(intent)
+        } else {
+            showScheduleNotEditDialog()
+        }
+    }
+
+
+    /**
+     * Перемещает текущую позицию просмотра расписания к начале расписания.
+     */
+    private fun onScrollToStartClicked() {
+        val date = viewModel.scheduleStartDate
+        if (date != null) {
+            tryScrollToDate(date)
+        }
+    }
+
+    /**
+     * Перемещает текущую позицию просмотра расписания к концу расписания.
+     */
+    private fun onScrollToEndClicked() {
+        val date = viewModel.scheduleEndDate
+        if (date != null) {
+            tryScrollToDate(date)
+        }
+    }
+
+    /**
+     * Обрабатывает сохранение расписания на устройство.
+     */
+    private fun onScheduleSaveClicked() {
+        // проверка возможности записи на устройство
+        val permissionStatus = ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
+        if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
+            onSavePermissionResult(true)
+        } else {
+            permissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        }
+    }
+
+    /**
+     * Обрабатывает запрос на предоставление прав на сохранения расписания.
+     *
+     * Если hasPermission - true, то запускает активность с выбором пути
+     * для сохранения расписания на устройство.
+     */
+    private fun onSavePermissionResult(hasPermission: Boolean) {
+        if (hasPermission) {
+            saveLauncher.launch(Uri.EMPTY)
+        }
+    }
+
+    /**
+     * Удаляет текущие расписание.
+     */
+    private fun onScheduleRemoveClicked() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.warning)
+            .setMessage(getString(R.string.sch_view_will_be_deleted))
+            .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
+                dialog.cancel()
+            }
+            .setPositiveButton(getString(R.string.yes_continue)) { _, _ ->
+                viewModel.removeSchedule()
+            }.show()
+    }
+
+    /**
      * Проверяет, является ли расписание редактируемым.
      */
     private fun canScheduleEdit(): Boolean {
-        val canEdit = !viewModel.isSynced() &&
-            viewModel.scheduleState.value != ScheduleViewViewModel.ScheduleState.LOADING
+        return !isScheduleSynced() && !isScheduleLoading()
+    }
 
-        if (!canEdit) {
-            Snackbar.make(binding.root, R.string.sch_view_not_edit, Snackbar.LENGTH_SHORT)
-                .setAction(R.string.details) {
-                    showScheduleInfo()
-                }
-                .show()
-        }
-        return canEdit
+    /**
+     * В процессе загрузки ли текущие расписание.
+     */
+    private fun isScheduleLoading(): Boolean {
+        return viewModel.scheduleState.value == ScheduleViewViewModel.ScheduleState.LOADING
+    }
+
+    /**
+     * Является ли текущие расписание синхронизированным.
+     */
+    private fun isScheduleSynced(): Boolean {
+        return viewModel.scheduleItem.value?.synced ?: false
+    }
+
+    /**
+     * Проверяет, является ли текущие расписание пустым.
+     */
+    private fun isScheduleEmpty(): Boolean {
+        return viewModel.scheduleState.value ==
+                ScheduleViewViewModel.ScheduleState.SUCCESSFULLY_LOADED_EMPTY
+    }
+
+    /**
+     * Показывает диалог о том, что текущие расписание нельзя редактировать.
+     */
+    private fun showScheduleNotEditDialog() {
+        Snackbar.make(binding.root, R.string.sch_view_not_edit, Snackbar.LENGTH_SHORT)
+            .setAction(R.string.details) {
+                showScheduleInfo()
+            }
+            .show()
     }
 
     /**
      * Показывает диалог с информацией о расписании
      */
     private fun showScheduleInfo() {
-        val info = viewModel.info() ?: return
+        val info = viewModel.scheduleItem.value ?: return
 
         val builder = MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.sch_info)
@@ -318,8 +470,6 @@ class ScheduleViewFragment :
             val newScheduleName = result.getString(ScheduleNameEditorDialog.SCHEDULE_NAME)
             if (newScheduleName != null) {
                 viewModel.renameSchedule(newScheduleName)
-                scheduleName = newScheduleName
-                updateActionBar()
             }
         }
     }
@@ -334,22 +484,10 @@ class ScheduleViewFragment :
     }
 
     /**
-     * Обрабатывает запрос на предоставление прав на сохранения расписания.
-     *
-     * Если hasPermission - true, то запускает активность с выбором пути
-     * для сохранения расписания на устройство.
+     * Вызывается при обновлении информации о расписании.
      */
-    private fun onSavePermissionResult(hasPermission: Boolean) {
-        if (hasPermission) {
-            saveLauncher.launch(Uri.EMPTY)
-        }
-    }
-
-    /**
-     * Устанавливает название расписания в action bar.
-     */
-    private fun updateActionBar() {
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = scheduleName
+    private fun onScheduleItemChanged(item: ScheduleItem) {
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = item.scheduleName
     }
 
     /**
@@ -357,25 +495,30 @@ class ScheduleViewFragment :
      */
     private fun onPairClicked(pair: PairItem) {
         if (canScheduleEdit()) {
-            val intent = PairEditorActivity.editPairIntent(requireContext(), scheduleName, pair.id)
+            val intent = PairEditorActivity.editPairIntent(requireContext(), scheduleId, pair.id)
             startActivity(intent)
         }
     }
 
+    /**
+     * Обрабатывает состояние отображаемого расписания.
+     */
     private fun onScheduleStateChanged(state: ScheduleViewViewModel.ScheduleState) {
+        Log.d(TAG, "onScheduleStateChanged: $state")
         when (state) {
             ScheduleViewViewModel.ScheduleState.LOADING -> {
                 statefulLayout.setState(StatefulLayout2.LOADING)
             }
             ScheduleViewViewModel.ScheduleState.SUCCESSFULLY_LOADED -> {
                 statefulLayout.setState(StatefulLayout2.CONTENT)
+                adapter.refresh()
             }
             ScheduleViewViewModel.ScheduleState.SUCCESSFULLY_LOADED_EMPTY -> {
                 statefulLayout.setState(StatefulLayout2.EMPTY)
             }
             ScheduleViewViewModel.ScheduleState.NOT_EXIST -> {
                 requireActivity().also {
-                    Toast.makeText(it, "Schedule not exist: $scheduleName", Toast.LENGTH_SHORT)
+                    Toast.makeText(it, "Schedule not exist: $scheduleId", Toast.LENGTH_SHORT)
                         .show()
                     it.onBackPressed()
                 }
@@ -383,6 +526,9 @@ class ScheduleViewFragment :
         }
     }
 
+    /**
+     * Отображает состояние, связанное с действиями над расписанием.
+     */
     private fun onActionStateChanged(state: ScheduleViewViewModel.ScheduleActionState) {
         when (state) {
             ScheduleViewViewModel.ScheduleActionState.RENAMED -> {
@@ -393,13 +539,35 @@ class ScheduleViewFragment :
                 requireActivity().onBackPressed()
             }
             ScheduleViewViewModel.ScheduleActionState.EXPORTED -> {
-
-            }
-            ScheduleViewViewModel.ScheduleActionState.NONE -> {
-                return
+                showSnack(R.string.sch_view_saved)
             }
         }
-        viewModel.actionComplete()
+    }
+
+    private fun tryScrollToDate(date: LocalDate) {
+        val position = currentPosition()
+        if (position == RecyclerView.NO_POSITION) {
+            viewModel.showPagerForDate(date)
+        } else {
+            val currentDay = adapter.item(position)?.day
+            if (currentDay == null) {
+                viewModel.showPagerForDate(date)
+            } else {
+                val delta = Days.daysBetween(date, currentDay).days
+                val newPosition = position - delta
+                val totalCount = adapter.itemCount
+                if (newPosition in 0 until totalCount) {
+                    val prefetchDistance = ScheduleViewViewModel.PAGE_SIZE / 2
+                    if (newPosition > prefetchDistance && newPosition < (totalCount - prefetchDistance - 1)) {
+                        binding.schViewContainer.smoothScrollToPosition(newPosition)
+                    } else {
+                        binding.schViewContainer.scrollToPosition(newPosition)
+                    }
+                } else {
+                    viewModel.showPagerForDate(date)
+                }
+            }
+        }
     }
 
     /**
@@ -407,82 +575,32 @@ class ScheduleViewFragment :
      * Если не удалось получить, то возвращает RecyclerView.NO_POSITION.
      */
     private fun currentPosition(): Int {
-        return (binding.schViewContainer.layoutManager as LinearLayoutManager?)
-            ?.findFirstCompletelyVisibleItemPosition() ?: RecyclerView.NO_POSITION
+        return (binding.schViewContainer.layoutManager as LinearLayoutManager)
+            .findFirstCompletelyVisibleItemPosition()
     }
 
     /**
      * Возвращает текущий отображаемый день.
+     * Если не удалось определить день, то возвращается null.
      */
-    private fun currentDay(): LocalDate {
-        val position = currentPosition()
-        return if (position != RecyclerView.NO_POSITION) {
-            adapter.item(position)?.day ?: LocalDate.now()
-        } else {
-            LocalDate.now()
-        }
-    }
-
-    /**
-     * Перемещает текущую позицию просмотра расписания к нужной дате.
-     */
-    private fun scrollScheduleTo(scrollDate: LocalDate) {
-        var scrollIndex = RecyclerView.NO_POSITION
-        for ((index, item) in adapter.snapshot().items.withIndex()) {
-            if (item.day == scrollDate) {
-                scrollIndex = index
-                break
-            }
-        }
-
-        if (scrollIndex != RecyclerView.NO_POSITION) {
-            binding.schViewContainer.scrollToPosition(scrollIndex)
-        } else {
-            viewModel.updatePagerView(scrollDate)
-        }
-    }
-
-    /**
-     * Перемещает текущую позицию просмотра расписания к начале расписания.
-     */
-    private fun scrollToScheduleStart() {
-        val date = viewModel.startDate()
-        if (date != null) {
-            scrollScheduleTo(date)
-        }
-    }
-
-    /**
-     * Перемещает текущую позицию просмотра расписания к концу расписания.
-     */
-    private fun scrollToScheduleEnd() {
-        val date = viewModel.endDate()
-        if (date != null) {
-            scrollScheduleTo(date)
-        }
-    }
-
-    /**
-     * Удаляет текущие расписание.
-     */
-    private fun removeSchedule() {
-        viewModel.removeSchedule()
+    private fun currentPagerDay(): LocalDate? {
+        return adapter.item(currentPosition())?.day
     }
 
     companion object {
 
         private const val TAG = "ScheduleViewFragment"
 
-        private const val SCHEDULE_NAME = "schedule_name"
+        private const val SCHEDULE_ID = "schedule_id"
         private const val SCHEDULE_START_DATE = "schedule_start_date"
 
         /**
          * Создает bundle с данными, требуемыми для фрагмента.
          */
         @JvmStatic
-        fun createBundle(scheduleName: String, startDate: LocalDate = LocalDate.now()): Bundle {
+        fun createBundle(scheduleId: Long, startDate: LocalDate = LocalDate.now()): Bundle {
             return Bundle().apply {
-                putString(SCHEDULE_NAME, scheduleName)
+                putLong(SCHEDULE_ID, scheduleId)
                 putSerializable(SCHEDULE_START_DATE, startDate)
             }
         }

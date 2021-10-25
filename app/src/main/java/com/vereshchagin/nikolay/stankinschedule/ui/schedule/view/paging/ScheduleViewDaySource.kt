@@ -11,14 +11,14 @@ import org.joda.time.LocalDate
  * Источник данных (дней) для просмотра расписания.
  */
 class ScheduleViewDaySource(
-    private val schedule: Schedule,
+    private val schedule: Schedule?,
 ) : PagingSource<LocalDate, ScheduleViewDay>() {
 
-    private val startDate = schedule.startDate()
-    private val endDate = schedule.endDate()
+    private val startDate = schedule?.startDate()
+    private val endDate = schedule?.endDate()
 
     override suspend fun load(
-        params: LoadParams<LocalDate>
+        params: LoadParams<LocalDate>,
     ): LoadResult<LocalDate, ScheduleViewDay> {
         val date = params.key ?: LocalDate.now()
         val loadSize = params.loadSize
@@ -36,7 +36,7 @@ class ScheduleViewDaySource(
                 "Load view data: " +
                     "${prevDay?.toString("dd.MM.yyyy")} " +
                     "<- ${date.toString("dd.MM.yyyy")} -> " +
-                    "${nextDay?.toString("dd.MM.yyyy")}"
+                        "${nextDay?.toString("dd.MM.yyyy")}. Total: $loadSize"
             )
         }
 
@@ -66,7 +66,7 @@ class ScheduleViewDaySource(
         while (begin < end) {
             result.add(
                 ScheduleViewDay(
-                    schedule.pairsByDate(begin),
+                    schedule!!.pairsByDate(begin),
                     begin
                 )
             )
@@ -95,6 +95,11 @@ class ScheduleViewDaySource(
     }
 
     override fun getRefreshKey(state: PagingState<LocalDate, ScheduleViewDay>): LocalDate? {
+        Log.d("ScheduleViewSourceLog", "getRefreshKey: $state")
+        val position = state.anchorPosition
+        if (position != null) {
+            state.pages.getOrNull(position)
+        }
         return null
     }
 }

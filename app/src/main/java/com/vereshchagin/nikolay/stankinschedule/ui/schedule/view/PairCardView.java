@@ -27,11 +27,6 @@ import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LABORATORY_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.LECTURE_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SEMINAR_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SUBGROUP_A_COLOR;
-import static com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference.SUBGROUP_B_COLOR;
 
 /**
  * Карточка пары в расписании.
@@ -99,11 +94,11 @@ public class PairCardView extends CardView {
 
         mClassroomView.setPaintFlags(mClassroomView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-        mLectureColor = ApplicationPreference.pairColor(context, LECTURE_COLOR);
-        mSeminarColor = ApplicationPreference.pairColor(context, SEMINAR_COLOR);
-        mLaboratoryColor = ApplicationPreference.pairColor(context, LABORATORY_COLOR);
-        mSubgroupAColor = ApplicationPreference.pairColor(context, SUBGROUP_A_COLOR);
-        mSubgroupBColor = ApplicationPreference.pairColor(context, SUBGROUP_B_COLOR);
+        mLectureColor = ApplicationPreference.pairColor(context, ApplicationPreference.LECTURE_COLOR);
+        mSeminarColor = ApplicationPreference.pairColor(context, ApplicationPreference.SEMINAR_COLOR);
+        mLaboratoryColor = ApplicationPreference.pairColor(context, ApplicationPreference.LABORATORY_COLOR);
+        mSubgroupAColor = ApplicationPreference.pairColor(context, ApplicationPreference.SUBGROUP_A_COLOR);
+        mSubgroupBColor = ApplicationPreference.pairColor(context, ApplicationPreference.SUBGROUP_B_COLOR);
 
         mTypes = Arrays.asList(getResources().getStringArray(R.array.type_list));
         mSubgroups = Arrays.asList(getResources().getStringArray(R.array.subgroup_simple_list));

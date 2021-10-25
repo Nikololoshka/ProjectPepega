@@ -25,7 +25,7 @@ class ScheduleViewAdapter(
      * Если позиция не верная, то null.
      */
     fun item(position: Int): ScheduleViewDay? {
-        return if (itemCount <= position) null else getItem(position)
+        return if (position in 0 until itemCount) getItem(position) else null
     }
 
     companion object {
