@@ -3,21 +3,26 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker
 import android.content.Context
 import androidx.annotation.StringRes
 import androidx.core.app.NotificationManagerCompat
+import androidx.hilt.work.HiltWorker
 import androidx.navigation.NavDeepLinkBuilder
 import androidx.work.*
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRemoteRepository
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import org.joda.time.DateTimeUtils
 
 /**
  * Worker для скачивание расписания с репозитория
  */
-class ScheduleDownloadWorker(
-    context: Context, workerParameters: WorkerParameters,
+@HiltWorker
+class ScheduleDownloadWorker @AssistedInject constructor(
+    @Assisted context: Context,
+    @Assisted workerParameters: WorkerParameters,
+    private val repository: ScheduleRepository,
 ) : CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork(): Result {
@@ -53,8 +58,7 @@ class ScheduleDownloadWorker(
             val remoteRepository = ScheduleRemoteRepository(applicationContext)
             val response = remoteRepository.downloadSchedule(repositoryPath)
 
-            val scheduleRepository = ScheduleRepository(applicationContext)
-            scheduleRepository.saveResponse(saveScheduleName, response, replaceExist, isSync)
+            repository.saveResponse(saveScheduleName, response, replaceExist, isSync)
 
         } catch (e: Exception) {
             // ошибка загрузки
@@ -76,7 +80,7 @@ class ScheduleDownloadWorker(
             .setComponentName(MainActivity::class.java)
             .setGraph(R.navigation.activity_main_nav_graph)
             .setDestination(R.id.nav_schedule_view_fragment)
-            .setArguments(ScheduleViewFragment.createBundle(scheduleName))
+//            .setArguments(ScheduleViewFragment.createBundle(scheduleName))
             .createPendingIntent()
 
         // уведомление о окончании загрузки

@@ -5,15 +5,11 @@ import androidx.lifecycle.*
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.ScheduleEntry
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.ScheduleVersion
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRemoteRepository
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker
-import com.vereshchagin.nikolay.stankinschedule.utils.DateTimeUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import org.joda.time.LocalDate
 
 /**
  * ViewModel расписания с версиями в удаленном репозитории.
@@ -45,7 +41,9 @@ class RepositoryScheduleViewModel(
     /**
      * Локальный репозиторий с расписаниями.
      */
-    private val scheduleRepository = ScheduleRepository(application)
+//    private val scheduleRepository = ScheduleRepository(
+//        application
+//    )
 
     /**
      * Расписание с версиями.
@@ -84,11 +82,11 @@ class RepositoryScheduleViewModel(
 
     private fun updateScheduleSyncInfo() {
         viewModelScope.launch(Dispatchers.IO) {
-            scheduleRepository.scheduleItem(scheduleName)
-                .collect {
-                    val isSync = it?.synced ?: false
-                    syncState.postValue(if (isSync) SyncState.SYNCED else SyncState.NOT_SYNCED)
-                }
+//            scheduleRepository.scheduleItem(scheduleName)
+//                .collect {
+//                    val isSync = it?.synced ?: false
+//                    syncState.postValue(if (isSync) SyncState.SYNCED else SyncState.NOT_SYNCED)
+//                }
         }
     }
 
@@ -123,23 +121,23 @@ class RepositoryScheduleViewModel(
                 val data = entry.data
 
                 // существует расписание с таким именем
-                if (!replace && scheduleRepository.isScheduleExist(saveScheduleName)) {
-                    downloadState.postValue(DownloadState.EXIST)
-                } else {
-                    ScheduleDownloadWorker.startWorker(
-                        getApplication(),
-                        saveScheduleName = saveScheduleName,
-                        replaceExist = replace,
-                        scheduleName = data.name,
-                        scheduleId = data.id,
-                        versionName = LocalDate.parse(version.date)
-                            .toString(DateTimeUtils.PRETTY_DATE_PATTERN),
-                        scheduleVersionId = data.versions.indexOfFirst { v -> v.path == version.path },
-                        isSync = false,
-                        data.name, version.path
-                    )
-                    downloadState.postValue(DownloadState.START)
-                }
+//                if (!replace && scheduleRepository.isScheduleExist(saveScheduleName)) {
+//                    downloadState.postValue(DownloadState.EXIST)
+//                } else {
+//                    ScheduleDownloadWorker.startWorker(
+//                        getApplication(),
+//                        saveScheduleName = saveScheduleName,
+//                        replaceExist = replace,
+//                        scheduleName = data.name,
+//                        scheduleId = data.id,
+//                        versionName = LocalDate.parse(version.date)
+//                            .toString(DateTimeUtils.PRETTY_DATE_PATTERN),
+//                        scheduleVersionId = data.versions.indexOfFirst { v -> v.path == version.path },
+//                        isSync = false,
+//                        data.name, version.path
+//                    )
+//                    downloadState.postValue(DownloadState.START)
+//                }
             }
         }
     }
@@ -149,28 +147,28 @@ class RepositoryScheduleViewModel(
      */
     private suspend fun syncSchedule(replace: Boolean) {
         // существует расписание с таким именем
-        if (!replace && scheduleRepository.isScheduleExist(scheduleName)) {
-            syncState.postValue(SyncState.EXIST)
-        } else {
-            val entry = scheduleEntry.value
-            if (entry is State.Success) {
-                val data = entry.data
-                val version = entry.data.versions.lastOrNull() ?: return
-
-                ScheduleDownloadWorker.startWorker(
-                    getApplication(),
-                    saveScheduleName = scheduleName,
-                    replaceExist = replace,
-                    scheduleName = scheduleName,
-                    scheduleId = data.id,
-                    versionName = LocalDate.parse(version.date)
-                        .toString(DateTimeUtils.PRETTY_DATE_PATTERN),
-                    scheduleVersionId = data.versions.indexOfFirst { v -> v.path == version.path },
-                    isSync = true,
-                    data.name, version.path
-                )
-            }
-        }
+//        if (!replace && scheduleRepository.isScheduleExist(scheduleName)) {
+//            syncState.postValue(SyncState.EXIST)
+//        } else {
+//            val entry = scheduleEntry.value
+//            if (entry is State.Success) {
+//                val data = entry.data
+//                val version = entry.data.versions.lastOrNull() ?: return
+//
+//                ScheduleDownloadWorker.startWorker(
+//                    getApplication(),
+//                    saveScheduleName = scheduleName,
+//                    replaceExist = replace,
+//                    scheduleName = scheduleName,
+//                    scheduleId = data.id,
+//                    versionName = LocalDate.parse(version.date)
+//                        .toString(DateTimeUtils.PRETTY_DATE_PATTERN),
+//                    scheduleVersionId = data.versions.indexOfFirst { v -> v.path == version.path },
+//                    isSync = true,
+//                    data.name, version.path
+//                )
+//            }
+//        }
     }
 
     /**
@@ -181,7 +179,7 @@ class RepositoryScheduleViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             // отключение синхронизации
             if (currentSyncState == SyncState.SYNCED) {
-                scheduleRepository.toggleScheduleSyncState(scheduleName, false)
+//                scheduleRepository.toggleScheduleSyncState(scheduleName, false)
             }
             // включение синхронизации
             else if (currentSyncState == SyncState.NOT_SYNCED || currentSyncState == SyncState.EXIST) {
