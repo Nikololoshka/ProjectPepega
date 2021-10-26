@@ -20,7 +20,6 @@ class AddScheduleBottomSheet : BottomSheetDialogFragment(), View.OnClickListener
     private var _binding: DialogAddScheduleBinding? = null
     private val binding get() = _binding!!
 
-    @Suppress("UNRESOLVED")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,8 +33,9 @@ class AddScheduleBottomSheet : BottomSheetDialogFragment(), View.OnClickListener
 
         // для исправления "сворачивания" диалога
         binding.root.viewTreeObserver.addOnGlobalLayoutListener {
-            val bottomSheet =
-                dialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+            val bottomSheet = dialog?.findViewById<FrameLayout>(
+                com.google.android.material.R.id.design_bottom_sheet
+            )
             bottomSheet?.let {
                 val behavior = BottomSheetBehavior.from(it)
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED

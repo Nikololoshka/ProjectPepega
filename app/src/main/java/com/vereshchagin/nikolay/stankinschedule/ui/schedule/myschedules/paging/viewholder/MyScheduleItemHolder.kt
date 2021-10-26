@@ -9,29 +9,33 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemScheduleBinding
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.MyScheduleItem
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.MySchedulesAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setVisibility
 
 /**
  * Holder расписания в списке.
  */
-class ScheduleItemHolder(
+class MyScheduleItemHolder(
     private val binding: ItemScheduleBinding,
-    private var itemListener: SchedulesAdapter.OnScheduleItemListener,
+    private var itemListener: MySchedulesAdapter.OnScheduleItemListener,
     private val dragListener: DragToMoveCallback.OnStartDragListener,
     private val animationController: (animate: Boolean) -> Unit,
 ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
     private val defaultBackground = binding.root.background
 
+    private var currentItem: MyScheduleItem? = null
+
     init {
         binding.scheduleItem.setOnClickListener(this)
+
         binding.scheduleItem.setOnLongClickListener {
-            itemListener.onScheduleItemLongClicked(
-                binding.scheduleInfo.text.toString(), bindingAdapterPosition
-            )
+            val scheduleId = currentItem?.id
+            if (scheduleId != null) {
+                itemListener.onScheduleItemLongClicked(scheduleId, bindingAdapterPosition)
+            }
             true
         }
 
@@ -43,14 +47,14 @@ class ScheduleItemHolder(
      * Устанавливает данные в holder.
      */
     fun bind(
-        item: ScheduleItem,
+        item: MyScheduleItem,
         isFavorite: Boolean,
         isAnimateFavoriteButton: Boolean,
-        isActive: Boolean,
-        isEditable: Boolean
+        isEditable: Boolean,
     ) {
+        currentItem = item
         binding.scheduleInfo.text = item.scheduleName
-        setActiveState(isActive, isEditable)
+        setActiveState(item.isSelected, isEditable)
 
         binding.scheduleSync.setVisibility(item.synced)
 
@@ -61,18 +65,18 @@ class ScheduleItemHolder(
         }
     }
 
-    private fun setActiveState(isActive: Boolean, isEditable: Boolean) {
-        binding.root.background = if(isActive && isEditable) {
+    private fun setActiveState(isSelected: Boolean, isEditable: Boolean) {
+        binding.root.background = if (isSelected && isEditable) {
             ContextCompat.getDrawable(binding.root.context, R.drawable.selector_schedule_item)
         } else {
             defaultBackground
         }
-        binding.root.isActivated = isActive
+        binding.root.isActivated = isSelected
         binding.movingHandle.setVisibility(isEditable)
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun setOnTouchListener(holder: ScheduleItemHolder) {
+    private fun setOnTouchListener(holder: MyScheduleItemHolder) {
         binding.movingHandle.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_DOWN) {
                 dragListener.onStartDrag(holder)
@@ -82,13 +86,13 @@ class ScheduleItemHolder(
     }
 
     override fun onClick(v: View?) {
-        val name = binding.scheduleInfo.text.toString()
+        val scheduleId = currentItem?.id ?: return
         when (v?.id) {
             R.id.schedule_item -> {
-                itemListener.onScheduleItemClicked(name, bindingAdapterPosition)
+                itemListener.onScheduleItemClicked(scheduleId, bindingAdapterPosition)
             }
             R.id.favorite_schedule -> {
-                itemListener.onScheduleFavoriteSelected(name)
+                itemListener.onScheduleFavoriteSelected(scheduleId)
                 animationController.invoke(true)
             }
         }
@@ -97,11 +101,11 @@ class ScheduleItemHolder(
     companion object {
         fun create(
             parent: ViewGroup,
-            itemListener: SchedulesAdapter.OnScheduleItemListener,
+            itemListener: MySchedulesAdapter.OnScheduleItemListener,
             dragListener: DragToMoveCallback.OnStartDragListener,
             animationController: (animate: Boolean) -> Unit,
-        ): ScheduleItemHolder {
-            return ScheduleItemHolder(
+        ): MyScheduleItemHolder {
+            return MyScheduleItemHolder(
                 ItemScheduleBinding.inflate(
                     LayoutInflater.from(parent.context), parent, false
                 ),

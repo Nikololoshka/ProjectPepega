@@ -4,11 +4,14 @@ import android.Manifest
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -18,40 +21,41 @@ import com.google.android.material.snackbar.Snackbar
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentMyScheduleBinding
-import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreferenceKt
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.home.ChangeSubgroupBottomSheet
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.name.ScheduleNameEditorDialog
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.DragToMoveCallback
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.SchedulesAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.MySchedulesAdapter
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.ScheduleRepositoryActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.PermissionsUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.ScheduleUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
-import com.vereshchagin.nikolay.stankinschedule.utils.extensions.extractFilename
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
-import org.apache.commons.io.IOUtils
-import java.io.FileNotFoundException
-import java.nio.charset.StandardCharsets
+import javax.inject.Inject
 
 
 /**
  * Фрагмент с расписаниями.
  */
 @AndroidEntryPoint
-class MyScheduleFragment :
+class MySchedulesFragment :
     BaseFragment<FragmentMyScheduleBinding>(FragmentMyScheduleBinding::inflate),
-    SchedulesAdapter.OnScheduleItemListener, DragToMoveCallback.OnStartDragListener {
+    MySchedulesAdapter.OnScheduleItemListener,
+    DragToMoveCallback.OnStartDragListener {
 
-    private val viewModel: MyScheduleListViewModel by viewModels()
+    @Inject
+    lateinit var preference: ApplicationPreferenceKt
+
+    private val viewModel: MySchedulesViewModel by viewModels()
 
     private var stateful by FragmentDelegate<StatefulLayout2>()
 
     private var itemTouchHelper by FragmentDelegate<ItemTouchHelper>()
-    private var adapter by FragmentDelegate<SchedulesAdapter>()
+    private var adapter by FragmentDelegate<MySchedulesAdapter>()
 
     private var actionMode: ActionMode? = null
 
@@ -82,9 +86,11 @@ class MyScheduleFragment :
         }
 
         override fun onDestroyActionMode(mode: ActionMode?) {
-            viewModel.actionModeCompleted()
-            adapter.setEditable(false)
-            binding.addSchedule.show()
+            if (lifecycle.currentState != Lifecycle.State.CREATED) {
+                adapter.isEditable = false
+                binding.addSchedule.show()
+            }
+            viewModel.completeActionMode()
             actionMode = null
         }
     }
@@ -93,7 +99,7 @@ class MyScheduleFragment :
      * Лаунчер для получения разрешения на чтение.
      */
     private val permissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission(), this::onReadPermission
+        ActivityResultContracts.RequestPermission(), this::onReadPermissionForLoad
     )
 
     /**
@@ -135,7 +141,7 @@ class MyScheduleFragment :
             ScheduleNameEditorDialog.REQUEST_SCHEDULE_NAME, this, this::onScheduleCreateClicked
         )
 
-        adapter = SchedulesAdapter(this, this)
+        adapter = MySchedulesAdapter(this, this)
         binding.schedules.adapter = adapter
 
         // drag для расписаний
@@ -158,16 +164,13 @@ class MyScheduleFragment :
         itemTouchHelper.attachToRecyclerView(binding.schedules)
 
         binding.schedules.addItemDecoration(
-            DividerItemDecoration(
-                requireContext(),
-                DividerItemDecoration.VERTICAL
-            )
+            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
         )
 
         // скрытие кнопки при прокрутке
         binding.schedules.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && actionMode == null) {
                     binding.addSchedule.show()
                 }
                 super.onScrollStateChanged(recyclerView, newState)
@@ -181,26 +184,41 @@ class MyScheduleFragment :
             }
         })
 
-        lifecycleScope.launchWhenStarted {
-            viewModel.myScheduleList.collect { data ->
-                val (schedules, selected) = data
+        // избранное расписание
+        lifecycleScope.launchWhenCreated {
+            viewModel.favorite.collect { favorite ->
+                adapter.favorite = favorite
+            }
+        }
 
+        // список с расписаниями
+        lifecycleScope.launchWhenStarted {
+            viewModel.schedules.collect { schedules ->
                 if (schedules.isEmpty()) {
                     stateful.setState(StatefulLayout2.EMPTY)
+
                 } else {
-                    adapter.submitList(schedules, selected)
+                    adapter.updateSchedule(schedules)
                     stateful.setState(StatefulLayout2.CONTENT)
                 }
             }
         }
 
+        // действия над списком расписаний
+        lifecycleScope.launchWhenCreated {
+            viewModel.actionState.collect(::onActionStateChanged)
+        }
+
         // был активирован action mode
-        savedInstanceState?.getBoolean(ACTION_MODE)?.let {
-            if (it) {
+        savedInstanceState?.getBoolean(ACTION_MODE)?.let { hasMode ->
+            if (hasMode) {
                 startActionMode(isRestore = true)
             }
         }
+    }
 
+    override fun onStart() {
+        super.onStart()
         trackScreen(TAG, MainActivity.TAG)
     }
 
@@ -261,50 +279,32 @@ class MyScheduleFragment :
      * Загрузка расписания с устройства.
      */
     private fun onScheduleLoadFromDevice(uri: Uri?) {
-        var scheduleName = ""
-        try {
-            if (uri == null) {
-                return
-            }
-
-            val resolver = requireContext().contentResolver
-            val json = resolver.openInputStream(uri)?.use { stream ->
-                IOUtils.toString(stream, StandardCharsets.UTF_8)
-            } ?: throw RuntimeException("Cannot load json")
-
-            scheduleName =
-                uri.extractFilename(requireContext()) ?: throw FileNotFoundException()
-
-            viewModel.loadScheduleFromJson(json, scheduleName)
-            showSnack(R.string.sch_successfully_added, args = arrayOf(scheduleName))
-
-        } catch (e: Exception) {
-            e.printStackTrace()
-            showSnack(R.string.sch_failed_add, args = arrayOf(scheduleName))
+        if (uri != null) {
+            viewModel.loadScheduleFromDevice(uri)
         }
     }
 
-    override fun onScheduleItemClicked(schedule: String, position: Int) {
+    override fun onScheduleItemClicked(scheduleId: Long, position: Int) {
         if (actionMode != null) {
             selectItem(position)
             return
         }
 
         navigateTo(
-            R.id.to_schedule_view_fragment, ScheduleViewFragment.createBundle(schedule)
+            R.id.to_schedule_view_fragment, ScheduleViewFragment.createBundle(scheduleId)
         )
     }
 
-    override fun onScheduleItemLongClicked(schedule: String, position: Int) {
+    override fun onScheduleItemLongClicked(scheduleId: Long, position: Int) {
         startActionMode(position)
     }
 
-    override fun onScheduleFavoriteSelected(favorite: String) {
-        val isNew = viewModel.setFavorite(favorite)
+    override fun onScheduleFavoriteSelected(favoriteId: Long) {
+        val isNew = viewModel.setFavorite(favoriteId)
 
         if (isNew) {
             // текущая подгруппа
-            val subgroup = ApplicationPreference.subgroup(requireContext())
+            val subgroup = preference.scheduleSubgroup
             var subgroupString = ScheduleUtils.subgroupToString(subgroup, requireContext())
             if (subgroupString.isEmpty()) {
                 subgroupString = getString(R.string.sch_without_subgroup)
@@ -328,7 +328,7 @@ class MyScheduleFragment :
     /**
      * Вызывается, когда получили разрешения на чтение расписания из вне.
      */
-    private fun onReadPermission(hasPermission: Boolean) {
+    private fun onReadPermissionForLoad(hasPermission: Boolean) {
         if (hasPermission) {
             pickFileLauncher.launch(arrayOf("application/json"))
         }
@@ -344,12 +344,15 @@ class MyScheduleFragment :
 
     /**
      * Запускает режим редактирования.
+     * @param position позиция, с которой начался режим.
+     * @param isRestore восстанавливаем ли предыдущий режим редактирования.
      */
     private fun startActionMode(position: Int = -1, isRestore: Boolean = false) {
         if (actionMode == null) {
-            actionMode = (activity as AppCompatActivity?)?.startSupportActionMode(actionCallback)
+            actionMode = (requireActivity() as AppCompatActivity)
+                .startSupportActionMode(actionCallback)
 
-            adapter.setEditable(true)
+            adapter.isEditable = true
             binding.addSchedule.hide()
             updateActionModeTitle()
 
@@ -368,8 +371,9 @@ class MyScheduleFragment :
      */
     private fun selectItem(position: Int) {
         viewModel.selectItem(position)
+        adapter.notifyItemChanged(position)
 
-        if (viewModel.selectedItems.value.size() == 0) {
+        if (viewModel.selectedItems() == 0) {
             actionMode?.finish()
         } else {
             updateActionModeTitle()
@@ -380,16 +384,16 @@ class MyScheduleFragment :
      * Обновляет число выбранных элементов в режиме редактирования.
      */
     private fun updateActionModeTitle() {
-        viewModel.selectedItems.value.let {
-            actionMode?.apply {
-                title = it.size().toString()
-                invalidate()
-            }
+        val count = viewModel.selectedItems()
+        actionMode?.apply {
+            title = count.toString()
+            invalidate()
         }
     }
 
     /**
-     * Загружает расписание с устройства.
+     * Запускает загрузку расписание с устройства, если есть разрешение.
+     * Иначе запрашивает его.
      */
     private fun loadScheduleFromDevice() {
         // проверка разрешения
@@ -398,7 +402,7 @@ class MyScheduleFragment :
             permissionLauncher.launch(permission)
             return
         } else {
-            onReadPermission(true)
+            onReadPermissionForLoad(true)
         }
     }
 
@@ -406,24 +410,39 @@ class MyScheduleFragment :
      * Удаляет выбранные расписании.
      */
     private fun removeSelectedSchedules() {
-        viewModel.selectedItems.value.let {
-            val count = it.size()
-            if (count <= 0) {
-                return
-            }
+        val count = viewModel.selectedItems()
+        if (count <= 0) {
+            return
+        }
 
-            MaterialAlertDialogBuilder(requireContext())
-                .setTitle(R.string.warning)
-                .setMessage(getString(R.string.sch_remove_schedules, count.toString()))
-                .setNegativeButton(R.string.cancel) { dialog, _ ->
-                    dialog.dismiss()
-                }
-                .setPositiveButton(R.string.yes_continue) { dialog, _ ->
-                    viewModel.removeSelected()
-                    actionMode?.finish()
-                    dialog.dismiss()
-                }
-                .show()
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.warning)
+            .setMessage(getString(R.string.sch_remove_schedules, count.toString()))
+            .setNegativeButton(R.string.cancel) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton(R.string.yes_continue) { dialog, _ ->
+                viewModel.removeSelected()
+                actionMode?.finish()
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    /**
+     * Отображает состояние, связанное с действиями над списком расписаний.
+     */
+    private fun onActionStateChanged(action: MySchedulesViewModel.ScheduleAction) {
+        when (action) {
+            MySchedulesViewModel.ScheduleAction.IMPORTED -> {
+                showSnack(R.string.sch_successfully_added)
+            }
+            MySchedulesViewModel.ScheduleAction.IMPORTED_FAILED -> {
+                showSnack(R.string.sch_failed_add)
+            }
+            MySchedulesViewModel.ScheduleAction.REMOVED_SELECTED -> {
+                showSnack(R.string.sch_remove_selected)
+            }
         }
     }
 
