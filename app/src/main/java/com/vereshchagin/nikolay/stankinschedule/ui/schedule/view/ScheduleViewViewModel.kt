@@ -141,7 +141,11 @@ class ScheduleViewViewModel @AssistedInject constructor(
         }
         currentSchedule.value = schedule
 
-        _scheduleState.value = ScheduleState.SUCCESSFULLY_LOADED
+        _scheduleState.value = if (schedule.isEmpty()) {
+            ScheduleState.SUCCESSFULLY_LOADED_EMPTY
+        } else {
+            ScheduleState.SUCCESSFULLY_LOADED
+        }
     }
 
     fun showPagerForDate(date: LocalDate) {
