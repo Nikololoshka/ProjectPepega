@@ -1,16 +1,24 @@
 package com.vereshchagin.nikolay.stankinschedule.utils
 
+import android.content.Context
+import android.util.Log
 import com.google.gson.Gson
+import com.vereshchagin.nikolay.stankinschedule.BuildConfig
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
+import javax.inject.Inject
 
 /**
  * Класс для работы с кэшом приложения.
- *
- * @param cacheDir корневая папка кэша приложения.
  */
-class CacheFolder(
-    private val cacheDir: File
+class CacheFolder @Inject constructor(
+    @ApplicationContext context: Context,
 ) {
+    /**
+     * Корневая папка кэша приложения.
+     */
+    private val cacheDir: File = context.cacheDir
+
     /**
      * Gson для сохранения в JSON файлы.
      */
@@ -38,13 +46,15 @@ class CacheFolder(
      */
     fun saveToCache(data: Any, vararg paths: String) {
         try {
-            val writer = fileFromPaths(paths).writer()
-            gson.toJson(data, writer)
+            fileFromPaths(paths).bufferedWriter().use { writer ->
+                gson.toJson(data, writer)
+            }
 
         } catch (ignored: Exception) {
-
+            if (BuildConfig.DEBUG) {
+                Log.e(TAG, "saveToCache: ", ignored)
+            }
         }
-
     }
 
     /**
@@ -56,12 +66,21 @@ class CacheFolder(
      */
     fun <T> loadFromCache(type: Class<T>, vararg paths: String): T? {
         try {
-            val reader = fileFromPaths(paths).reader()
-            return gson.fromJson(reader, type)
+            val filePath = fileFromPaths(paths)
+            if (!filePath.exists()) {
+                return null
+            }
+
+            return filePath.reader().use { reader ->
+                gson.fromJson(reader, type)
+            }
 
         } catch (ignored: Exception) {
-
+            if (BuildConfig.DEBUG) {
+                Log.e(TAG, "saveToCache: ", ignored)
+            }
         }
+
         return null
     }
 
@@ -94,9 +113,16 @@ class CacheFolder(
         for (i in startedPaths.indices) {
             file = File(file, startedPaths[i])
         }
+        file.mkdirs()
+
         for (i in paths.indices) {
             file = File(file, if (i == paths.size - 1) "${paths[i]}.json" else paths[i])
         }
+
         return file
+    }
+
+    companion object {
+        private val TAG = "CacheFolderLog"
     }
 }
