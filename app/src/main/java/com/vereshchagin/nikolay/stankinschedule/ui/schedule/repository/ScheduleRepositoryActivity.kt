@@ -5,10 +5,12 @@ import androidx.navigation.fragment.NavHostFragment
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityRepositoryBinding
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Активность удаленного репозитория.
  */
+@AndroidEntryPoint
 class ScheduleRepositoryActivity :
     BaseActivity<ActivityRepositoryBinding>(ActivityRepositoryBinding::inflate) {
 

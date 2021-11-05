@@ -1,28 +1,37 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
+package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.overview
 
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.appbar.AppBarLayout
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentRepositoryOverviewBinding
 import com.vereshchagin.nikolay.stankinschedule.databinding.ViewErrorWithButtonBinding
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.CategoryEntry
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleCategoryEntry
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.category.RepositoryCategoryFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.RepositoryItemAdapter
 import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
-import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 /**
  * Фрагмент стартовой страницы удаленного репозитория.
  */
+@AndroidEntryPoint
 class RepositoryOverviewFragment :
     BaseFragment<FragmentRepositoryOverviewBinding>(FragmentRepositoryOverviewBinding::inflate) {
 
-    private lateinit var viewModel: RepositoryOverviewViewModel
+    /**
+     * ViewModel фрагмента.
+     */
+    private val viewModel: RepositoryOverviewViewModel by viewModels()
+
     private var stateful: StatefulLayout2 by FragmentDelegate()
+
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         stateful = StatefulLayout2.Builder(binding.repositoryLayout)
@@ -30,10 +39,6 @@ class RepositoryOverviewFragment :
             .addView(StatefulLayout2.CONTENT, binding.repositoryContainer)
             .addView(StatefulLayout2.ERROR, binding.repositoryError)
             .create()
-
-        viewModel = ViewModelProvider(
-            this, RepositoryOverviewViewModel.Factory(requireActivity().application)
-        ).get(RepositoryOverviewViewModel::class.java)
         setActionBarTitle(getString(R.string.repository))
 
         binding.appBarRepository.addOnOffsetChangedListener(
@@ -44,23 +49,29 @@ class RepositoryOverviewFragment :
         binding.repositoryRefresh.setOnRefreshListener(this::onUpdateClicked)
 
         // описание репозитория
-        viewModel.description.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is State.Loading -> {
-                    stateful.setState(StatefulLayout2.LOADING)
-                }
-                is State.Success -> {
-                    binding.lastUpdate = state.data.lastUpdateString()
-                    stateful.setState(StatefulLayout2.CONTENT)
-                }
-                is State.Failed -> {
-                    val description = ExceptionUtils.errorDescription(state.error, requireContext())
-                    binding.repositoryError.createBinding<ViewErrorWithButtonBinding>()?.let {
-                        it.errorTitle.text = description
-                        it.errorAction.setOnClickListener { onUpdateClicked() }
+        lifecycleScope.launchWhenStarted {
+            viewModel.description.collectLatest { state ->
+                when (state) {
+                    is State.Loading -> {
+                        stateful.setState(StatefulLayout2.LOADING)
                     }
-                    stateful.setState(StatefulLayout2.ERROR)
+                    is State.Success -> {
+                        binding.lastUpdate = state.data.lastUpdate
+                        stateful.setState(StatefulLayout2.CONTENT)
+                    }
+                    is State.Failed -> {
+                        val description =
+                            ExceptionUtils.errorDescription(state.error, requireContext())
+
+                        binding.repositoryError.createBinding<ViewErrorWithButtonBinding>()?.let {
+                            it.errorTitle.text = description
+                            it.errorAction.setOnClickListener { onUpdateClicked() }
+                        }
+
+                        stateful.setState(StatefulLayout2.ERROR)
+                    }
                 }
+                binding.repositoryRefresh.isRefreshing = false
             }
         }
 
@@ -68,8 +79,10 @@ class RepositoryOverviewFragment :
         binding.repositoryCategories.adapter = adapter
 
         // корневые категории
-        viewModel.categories.observe(viewLifecycleOwner) { data ->
-            adapter.submitData(lifecycle, data)
+        lifecycleScope.launchWhenCreated {
+            viewModel.categories.collectLatest { data ->
+                adapter.submitData(data)
+            }
         }
     }
 
@@ -78,16 +91,18 @@ class RepositoryOverviewFragment :
      */
     private fun onUpdateClicked() {
         viewModel.updateRepository(false)
-        binding.repositoryRefresh.isRefreshing = false
     }
 
     /**
      * Вызывается при нажатии на категории в списке.
      */
-    private fun onCategoryClicked(category: CategoryEntry) {
+    private fun onCategoryClicked(category: ScheduleCategoryEntry) {
         navigateTo(
             R.id.to_repository_category,
-            RepositoryCategoryFragment.createBundle(category.id, category.name)
+            RepositoryCategoryFragment.createBundle(
+                category.id,
+                category.name
+            )
         )
     }
 }

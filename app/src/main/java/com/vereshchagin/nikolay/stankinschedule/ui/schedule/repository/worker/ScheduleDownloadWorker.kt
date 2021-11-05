@@ -8,7 +8,6 @@ import androidx.navigation.NavDeepLinkBuilder
 import androidx.work.*
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRemoteRepository
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
 import dagger.assisted.Assisted
@@ -55,10 +54,7 @@ class ScheduleDownloadWorker @AssistedInject constructor(
         )
 
         try {
-            val remoteRepository = ScheduleRemoteRepository(applicationContext)
-            val response = remoteRepository.downloadSchedule(repositoryPath)
 
-            repository.saveResponse(saveScheduleName, response, replaceExist, isSync)
 
         } catch (e: Exception) {
             // ошибка загрузки

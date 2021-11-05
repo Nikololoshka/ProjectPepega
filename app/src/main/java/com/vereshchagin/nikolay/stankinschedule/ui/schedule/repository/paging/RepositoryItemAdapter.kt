@@ -3,13 +3,13 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.RepositoryItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleRepositoryItem
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.viewholder.RepositoryItemViewHolder
 
 /**
  * Адаптер для элементов репозитория.
  */
-class RepositoryItemAdapter<T : RepositoryItem>(
+class RepositoryItemAdapter<T : ScheduleRepositoryItem>(
     private val clickListener: (item: T) -> Unit,
 ) : PagingDataAdapter<T, RepositoryItemViewHolder<T>>(repositoryItemComparator()) {
 
@@ -25,7 +25,7 @@ class RepositoryItemAdapter<T : RepositoryItem>(
         /**
          * Компаратор для сравнения элементов репозитория.
          */
-        private fun <T : RepositoryItem> repositoryItemComparator() =
+        private fun <T : ScheduleRepositoryItem> repositoryItemComparator() =
             object : DiffUtil.ItemCallback<T>() {
 
                 override fun areItemsTheSame(oldItem: T, newItem: T) =

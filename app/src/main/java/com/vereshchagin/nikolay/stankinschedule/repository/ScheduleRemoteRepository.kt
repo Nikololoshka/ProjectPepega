@@ -1,182 +1,176 @@
 package com.vereshchagin.nikolay.stankinschedule.repository
 
-import android.content.Context
-import android.util.Log
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.ktx.storage
+import androidx.paging.PagingSource
 import com.google.gson.GsonBuilder
-import com.vereshchagin.nikolay.stankinschedule.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.api.ScheduleRepositoryAPI
-import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleResponse
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryDescription
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.ScheduleEntry
+import com.vereshchagin.nikolay.stankinschedule.api.ScheduleRemoteRepositoryAPI
+import com.vereshchagin.nikolay.stankinschedule.db.dao.RepositoryDao
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleCategoryEntry
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleRepositoryInfo
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleRepositoryItem
+import com.vereshchagin.nikolay.stankinschedule.utils.CacheFolder
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.gson.DateTimeTypeConverter
-import com.vereshchagin.nikolay.stankinschedule.utils.extensions.await
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import org.apache.commons.io.FileUtils
 import org.joda.time.DateTime
-import retrofit2.Retrofit
 import retrofit2.await
-import retrofit2.converter.gson.GsonConverterFactory
-import java.nio.charset.StandardCharsets
+import javax.inject.Inject
 
-class ScheduleRemoteRepository(
-    context: Context,
+/**
+ * Репозиторий по работе с удаленном репозиторием расписаний.
+ * @param cacheFolder папка с кэшом.
+ * @param api API удаленного репозитория расписаний.
+ * @param dao интерфейс для кэширования данных в БД.
+ */
+class ScheduleRemoteRepository @Inject constructor(
+    private val cacheFolder: CacheFolder,
+    private val api: ScheduleRemoteRepositoryAPI,
+    private val dao: RepositoryDao,
 ) {
 
-    private val cacheFolder = context.cacheDir
-    private val gson = GsonBuilder()
-        .registerTypeAdapter(DateTime::class.java, DateTimeTypeConverter())
-        .create()
-
-    private val db = MainApplicationDatabase.database(context)
-    private val dao = db.repository()
-
-    private val storage = Firebase.storage
-    private val api: ScheduleRepositoryAPI
-
     init {
-        val builder = Retrofit.Builder()
-            .baseUrl(FIREBASE_URL)
-            .addConverterFactory(
-                GsonConverterFactory.create(
-                    GsonBuilder()
-                        .registerTypeAdapter(
-                            ScheduleResponse::class.java, ScheduleResponse.Serializer()
-                        )
-                        .registerTypeAdapter(
-                            Pair::class.java, Pair.Serializer()
-                        )
-                        .create()
-                )
-            )
+        cacheFolder.addStartedPath(REPOSITORY_FOLDER)
+        cacheFolder.gson = GsonBuilder()
+            .registerTypeAdapter(DateTime::class.java, DateTimeTypeConverter())
+            .create()
+    }
 
-        // включение лога
-        if (BuildConfig.DEBUG) {
-            val logger = HttpLoggingInterceptor()
-            logger.level = HttpLoggingInterceptor.Level.BODY
+    /**
+     * Возвращает flow обновлений (версий) для расписания.
+     */
+    fun scheduleUpdates(scheduleId: Int) = flow {
+        val entry = dao.getScheduleEntry(scheduleId).first()
 
-            val client = OkHttpClient.Builder()
-                .addInterceptor(logger)
-                .build()
-
-            builder.client(client)
+        // есть ли такое расписание
+        if (entry == null) {
+            emit(State.failed(NullPointerException("Entry $scheduleId is null")))
+            return@flow
         }
 
-        api = builder.build().create(ScheduleRepositoryAPI::class.java)
+        // действителен ли кэш
+        val updates = if (entry.isValid()) {
+            dao.getScheduleUpdates(entry.id)
+        } else {
+            val newUpdates = api.updates(scheduleId).await()
+            dao.updateScheduleUpdateEntries(entry, newUpdates)
+            newUpdates
+        }
+        emit(State.success(updates))
     }
 
-    fun schedules(category: Int) = dao.schedulesSource(category)
-
-    fun categories(parent: Int?) = dao.categoriesSource(parent)
-
-    suspend fun isScheduleCategory(category: Int) = dao.isScheduleCategory(category)
-
-    suspend fun getScheduleEntry(scheduleId: Int): Flow<ScheduleEntry> {
-        return dao.getScheduleEntry(scheduleId)
-            .filterNotNull()
+    suspend fun schedules(parentCategory: Int) {
+        val category = dao.getScheduleCategory(parentCategory).first()
+        if (category == null || !category.isValid()) {
+            val schedules = api.schedules(parentCategory).await()
+            dao.insertScheduleEntries(schedules)
+        }
     }
 
+    fun rootCategorySource() = dao.categoriesSource(null)
+
+    suspend fun isScheduleCategory(parentCategory: Int) = dao.isScheduleCategory(parentCategory)
+
+    @Suppress("UNCHECKED_CAST")
+    fun categorySource(
+        isNode: Boolean,
+        parentCategory: Int,
+    ): PagingSource<Int, ScheduleRepositoryItem> {
+        return if (isNode) {
+            dao.schedulesSource(parentCategory)
+        } else {
+            dao.categoriesSource(parentCategory)
+        } as PagingSource<Int, ScheduleRepositoryItem>
+    }
+
+    fun refreshCategory(parentCategory: Int) = flow {
+        emit(State.loading())
+        val parentCategoryEntry = dao.getScheduleCategory(parentCategory).first()
+        if (parentCategoryEntry == null) {
+            emit(State.failed(
+                NullPointerException("ScheduleRepositoryItem(id=$parentCategory) is null")
+            ))
+            return@flow
+        }
+
+        if (parentCategoryEntry.isValid()) {
+            emit(State.success(parentCategoryEntry))
+
+        } else {
+            val updatedCategoryEntry = if (parentCategoryEntry.isNode) {
+                refreshScheduleItemEntry(parentCategoryEntry)
+            } else {
+                refreshScheduleCategoryEntry(parentCategoryEntry)
+            }
+            emit(State.success(updatedCategoryEntry))
+        }
+    }
+
+    /**
+     * Обновляет список категорий для родительской категории.
+     */
+    private suspend fun refreshScheduleCategoryEntry(
+        parentCategoryEntry: ScheduleCategoryEntry,
+    ): ScheduleCategoryEntry {
+        val categoryEntries = api.categories(parentCategoryEntry.id).await()
+        dao.insertCategoryEntries(categoryEntries)
+
+        val updatedCategoryEntry = ScheduleCategoryEntry(parentCategoryEntry, DateTime.now())
+        dao.updateScheduleCategoryEntry(updatedCategoryEntry)
+        return updatedCategoryEntry
+    }
+
+    /**
+     * Обновляет список расписаний для родительской категории.
+     */
+    private suspend fun refreshScheduleItemEntry(
+        parentCategoryEntry: ScheduleCategoryEntry,
+    ): ScheduleCategoryEntry {
+        val scheduleEntries = api.schedules(parentCategoryEntry.id).await()
+        dao.insertScheduleEntries(scheduleEntries)
+
+        val updatedCategoryEntry = ScheduleCategoryEntry(parentCategoryEntry, DateTime.now())
+        dao.updateScheduleCategoryEntry(updatedCategoryEntry)
+        return updatedCategoryEntry
+    }
+
+    /**
+     * Возвращает описание репозитория с расписаниями.
+     */
     fun description(useCache: Boolean = true) = flow {
         emit(State.loading())
 
         // проверка кэша
         if (useCache) {
-            val cache = loadDescription()
-            if (cache != null && cache.isValid() && !dao.isRepositoryEmpty()) {
-                Log.d("MyLog", "description: cache")
+            val cache = cacheFolder.loadFromCache(
+                ScheduleRepositoryInfo.Description::class.java, REPOSITORY_INFO
+            )
+
+            if (cache != null && cache.isValid()) {
                 emit(State.success(cache))
                 return@flow
             }
         }
 
-        Log.d("MyLog", "description: update")
+        val info = api.info().await()
+        info.description.time = DateTime.now()
 
-        // обновление репозитория
-        val entryRef = storageReference(SCHEDULES_JSON, VERSION, API_ENTRY)
-        val entryUri = entryRef.downloadUrl.await()
-        val response = api.entry(entryUri.toString()).await()
-        dao.insertRepositoryResponse(response)
+        cacheFolder.saveToCache(info.description, REPOSITORY_INFO)
+        dao.updateScheduleCategotyEntries(info.categories.map { item ->
+            if (!item.isNode) {
+                ScheduleCategoryEntry(item, DateTime.now())
+            } else {
+                item
+            }
+        })
 
-        val description = RepositoryDescription(response.lastUpdate)
-        saveDescription(description)
-        emit(State.success(description))
-    }
-
-    suspend fun loadRepositoryEntry() {
-        val entry = storageReference(SCHEDULES_JSON, VERSION, API_ENTRY)
-        val entryUri = entry.downloadUrl.await()
-        val response = api.entry(entryUri.toString()).await()
-        dao.insertRepositoryResponse(response)
-    }
-
-    suspend fun downloadSchedule(path: String): ScheduleResponse {
-        val scheduleRef = storageReference(SCHEDULES_JSON, VERSION, ITEMS, path)
-        val scheduleUri = scheduleRef.downloadUrl.await()
-        return api.schedule(scheduleUri.toString()).await()
-    }
-
-    private fun storageReference(vararg paths: String): StorageReference {
-        return storage.getReference(paths.joinToString("/"))
-    }
-
-    /**
-     * Сохраняет описание репозитория в кэш.
-     */
-    private fun saveDescription(description: RepositoryDescription) {
-        try {
-            val json = gson.toJson(description)
-            FileUtils.writeStringToFile(
-                FileUtils.getFile(cacheFolder, REPOSITORY_FOLDER, "description.json"),
-                json,
-                StandardCharsets.UTF_8
-            )
-
-        } catch (ignored: Exception) {
-
-        }
-    }
-
-    /**
-     * Загружает описание репозитория из кэша.
-     */
-    private fun loadDescription(): RepositoryDescription? {
-        try {
-            return gson.fromJson(
-                FileUtils.readFileToString(
-                    FileUtils.getFile(cacheFolder, REPOSITORY_FOLDER, "description.json"),
-                    StandardCharsets.UTF_8
-                ),
-                RepositoryDescription::class.java
-            )
-
-        } catch (ignored: Exception) {
-
-        }
-
-        return null
+        emit(State.success(info.description))
     }
 
 
     companion object {
         private const val TAG = "ScheduleRepositoryLog"
 
-        private const val FIREBASE_URL =
-            "https://firebasestorage.googleapis.com/v0/b/stankinschedule.appspot.com/o/"
-
-        private const val REPOSITORY_FOLDER = "repository"
-
-        private const val SCHEDULES_JSON = "schedules-json"
-        private const val VERSION = "v1"
-        private const val ITEMS = "items"
-        private const val API_ENTRY = "api_entry.json"
+        private const val REPOSITORY_FOLDER = "schedule_remote_repository"
+        private const val REPOSITORY_INFO = "info"
     }
 }

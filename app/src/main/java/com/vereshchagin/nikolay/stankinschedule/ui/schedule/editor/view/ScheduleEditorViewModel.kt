@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.*
 import androidx.paging.*
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.editor.ScheduleEditorDiscipline
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.ScheduleDisciplineSource
 import dagger.assisted.Assisted

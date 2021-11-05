@@ -1,65 +1,100 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
+package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.category
 
 import android.os.Bundle
 import androidx.core.os.bundleOf
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentRepositoryCategoryBinding
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.CategoryEntry
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.RepositoryItem
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.ScheduleEntry
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleCategoryEntry
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleItemEntry
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleRepositoryItem
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.paging.RepositoryItemAdapter
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.updates.RepositoryScheduleFragment
+import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import javax.inject.Inject
 
 /**
  * Фрагмент категории в удаленном репозитории.
  */
+@AndroidEntryPoint
 class RepositoryCategoryFragment :
     BaseFragment<FragmentRepositoryCategoryBinding>(FragmentRepositoryCategoryBinding::inflate) {
 
-    private lateinit var viewModel: RepositoryCategoryViewModel
+    @Inject
+    lateinit var viewModelFactory: RepositoryCategoryViewModel.RepositoryCategoryFactory
+
+    /**
+     * ViewModel фрагмента.
+     */
+    private val viewModel: RepositoryCategoryViewModel by viewModels {
+        RepositoryCategoryViewModel.provideFactory(viewModelFactory, parentCategory)
+    }
+
+    /**
+     * ID родительской категории.
+     */
+    private var parentCategory: Int = -1
+
     private var stateful: StatefulLayout2 by FragmentDelegate()
 
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
-
         stateful = StatefulLayout2.Builder(binding.categoryContainer)
             .init(StatefulLayout2.LOADING, binding.categoryLoading.root)
             .addView(StatefulLayout2.CONTENT, binding.categoryItems)
             .create()
 
+        // получение аргументов
         val arguments = requireArguments()
-        val parent = arguments.getInt(EXTRA_PARENT)
+        parentCategory = arguments.getInt(EXTRA_PARENT)
         val title = arguments.getString(EXTRA_TITLE)
 
-        viewModel = ViewModelProvider(
-            this, RepositoryCategoryViewModel.Factory(requireActivity().application, parent)
-        ).get(RepositoryCategoryViewModel::class.java)
         setActionBarTitle(title)
 
         val adapter = RepositoryItemAdapter(this::onRepositoryItemClicked)
         binding.categoryItems.adapter = adapter
 
-        viewModel.categories.observe(this) {
-            val data = it ?: return@observe
-            adapter.submitData(lifecycle, data)
-            stateful.setState(StatefulLayout2.CONTENT)
+        // список с элементами
+        lifecycleScope.launchWhenStarted {
+            viewModel.entries.collectLatest { data ->
+                adapter.submitData(lifecycle, data)
+                stateful.setState(StatefulLayout2.CONTENT)
+            }
+        }
+
+        // категория
+        lifecycleScope.launchWhenStarted {
+            viewModel.categoryState.collectLatest { state ->
+                when (state) {
+                    is State.Success -> {
+                        setActionBarTitle(state.data.name)
+                        stateful.setState(StatefulLayout2.CONTENT)
+                    }
+                    is State.Loading -> {
+                        stateful.setState(StatefulLayout2.LOADING)
+                    }
+                }
+            }
         }
     }
 
     /**
      * Вызывается при нажатие на элемент в списке.
      */
-    private fun onRepositoryItemClicked(item: RepositoryItem) {
+    private fun onRepositoryItemClicked(item: ScheduleRepositoryItem) {
         when (item) {
             // нажата категория
-            is CategoryEntry -> {
+            is ScheduleCategoryEntry -> {
                 navigateTo(R.id.to_repository_category_self, createBundle(item.id, item.name))
             }
             // нажато расписание
-            is ScheduleEntry -> {
+            is ScheduleItemEntry -> {
                 navigateTo(
                     R.id.to_repository_schedule,
                     RepositoryScheduleFragment.createBundle(item.id, item.name)

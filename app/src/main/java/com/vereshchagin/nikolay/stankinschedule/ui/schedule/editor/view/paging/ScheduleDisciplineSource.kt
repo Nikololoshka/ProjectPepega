@@ -4,8 +4,8 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.editor.ScheduleEditorDiscipline
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.ScheduleEditorDiscipline
 
 /**
  * Источник данных дисциплин для редактирования в расписании.

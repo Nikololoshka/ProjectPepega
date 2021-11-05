@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemRepositoryItemBinding
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.RepositoryItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleRepositoryItem
 
 /**
  * Элемент для отображения объекта репозитория.
  */
-class RepositoryItemViewHolder<T : RepositoryItem>(
+class RepositoryItemViewHolder<T : ScheduleRepositoryItem>(
     private val binding: ItemRepositoryItemBinding,
     private val clickListener: (item: T) -> Unit,
 ) : RecyclerView.ViewHolder(binding.root) {
@@ -38,7 +38,7 @@ class RepositoryItemViewHolder<T : RepositoryItem>(
         /**
          * Создает holder элемент.
          */
-        fun <T : RepositoryItem> create(
+        fun <T : ScheduleRepositoryItem> create(
             parent: ViewGroup,
             clickListener: (item: T) -> Unit,
         ): RepositoryItemViewHolder<T> {

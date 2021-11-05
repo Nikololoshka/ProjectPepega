@@ -16,6 +16,12 @@ object Constants {
     const val MODULE_JOURNAL_URL = "https://lk.stankin.ru"
 
     /**
+     * Адрес удаленного репозитория с расписаниями.
+     */
+    const val SCHEDULE_REMOTE_REPOSITORY_URL =
+        "https://nikololoshka.pythonanywhere.com/"
+
+    /**
      * Адрес на политику конфиденциальности.
      */
     const val PRIVACY_POLICY_URL =

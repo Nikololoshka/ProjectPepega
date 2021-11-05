@@ -1,9 +1,9 @@
-package com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1
+package com.vereshchagin.nikolay.stankinschedule.model.schedule.remote
 
 /**
  * Интерфейс объекта в удаленном расписании.
  */
-interface RepositoryItem {
+interface ScheduleRepositoryItem {
     /**
      * Возвращает данные, для отображения их в UI.
      */

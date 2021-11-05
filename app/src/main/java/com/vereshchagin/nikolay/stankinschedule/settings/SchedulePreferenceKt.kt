@@ -1,13 +1,17 @@
 package com.vereshchagin.nikolay.stankinschedule.settings
 
 import android.content.Context
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
 /**
  * Класс-обертка для доступа к настройкам расписания.
  *
  * @param context контекст приложения.
  */
-class SchedulePreferenceKt(context: Context) {
+class SchedulePreferenceKt @Inject constructor(
+    @ApplicationContext context: Context,
+) {
     /**
      * Объект для хранения настроек расписания.
      */

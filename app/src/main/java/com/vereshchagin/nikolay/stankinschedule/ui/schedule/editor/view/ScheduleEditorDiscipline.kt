@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.model.schedule.editor
+package com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view
 
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 

@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemEditedDisciplineBinding
 import com.vereshchagin.nikolay.stankinschedule.databinding.ItemEditedDisciplinePairBinding
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.editor.ScheduleEditorDiscipline
 import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.ScheduleEditorDiscipline
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setupRectRoundBackground
 
 

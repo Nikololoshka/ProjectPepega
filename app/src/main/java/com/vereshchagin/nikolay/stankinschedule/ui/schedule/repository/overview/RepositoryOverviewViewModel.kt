@@ -1,43 +1,47 @@
-package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository
+package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.overview
 
-import android.app.Application
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
-import androidx.paging.liveData
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.RepositoryDescription
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleRepositoryInfo
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRemoteRepository
 import com.vereshchagin.nikolay.stankinschedule.utils.State
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * ViewModel стартовой страницы удаленного репозитория.
  */
-class RepositoryOverviewViewModel(
+@HiltViewModel
+class RepositoryOverviewViewModel @Inject constructor(
     private val repository: ScheduleRemoteRepository,
 ) : ViewModel() {
 
     /**
      * Описание репозитория.
      */
-    val description = MutableLiveData<State<RepositoryDescription>>(State.loading())
+    private val _description = MutableStateFlow<State<ScheduleRepositoryInfo.Description>>(
+        State.loading()
+    )
+    val description = _description.asStateFlow()
 
     /**
      * Список категорий.
      */
     val categories = Pager(PagingConfig(40)) {
-        repository.categories(null)
-    }.liveData.cachedIn(viewModelScope)
+        repository.rootCategorySource()
+    }.flow.cachedIn(viewModelScope)
 
     init {
-        updateRepository(true)
+        updateRepository(useCache = true)
     }
 
     /**
@@ -47,25 +51,11 @@ class RepositoryOverviewViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             repository.description(useCache)
                 .catch { e ->
-                    description.postValue(State.failed(e))
+                    _description.value = State.failed(e)
                 }
                 .collect { state ->
-                    description.postValue(state)
+                    _description.value = state
                 }
-        }
-    }
-
-    /**
-     * Фабрика для создания ViewModel.
-     */
-    class Factory(
-        private val application: Application,
-    ) : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return RepositoryOverviewViewModel(
-                ScheduleRemoteRepository(application)
-            ) as T
         }
     }
 }

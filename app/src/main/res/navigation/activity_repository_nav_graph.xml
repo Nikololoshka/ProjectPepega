@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_repository_category"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositoryCategoryFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.category.RepositoryCategoryFragment"
         tools:layout="@layout/fragment_repository_category">
 
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/nav_repository_overview"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositoryOverviewFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.overview.RepositoryOverviewFragment"
         android:label="@string/repository"
         tools:layout="@layout/fragment_repository_overview">
 
@@ -38,7 +38,7 @@
 
     <fragment
         android:id="@+id/nav_repository_schedule"
-        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.RepositoryScheduleFragment"
+        android:name="com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.updates.RepositoryScheduleFragment"
         tools:layout="@layout/fragment_repository_schedule" />
 
 </navigation>

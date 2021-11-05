@@ -3,15 +3,17 @@ package com.vereshchagin.nikolay.stankinschedule.settings
 import android.content.Context
 import androidx.preference.PreferenceManager
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
+import dagger.hilt.android.qualifiers.ApplicationContext
 import org.joda.time.DateTime
+import javax.inject.Inject
 
 /**
  * Класс-обертка для доступа к настройкам приложения.
  *
  * @param context контекст приложения.
  */
-class ApplicationPreferenceKt(
-    context: Context,
+class ApplicationPreferenceKt @Inject constructor(
+    @ApplicationContext context: Context,
 ) {
     private val preferences = PreferenceManager.getDefaultSharedPreferences(context)
 

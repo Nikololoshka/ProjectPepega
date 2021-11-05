@@ -3,9 +3,12 @@ package com.vereshchagin.nikolay.stankinschedule.di
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.api.ModuleJournalAPI2
+import com.vereshchagin.nikolay.stankinschedule.api.ScheduleRemoteRepositoryAPI
 import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsAPI
 import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsPostsAPI
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleResponse
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -15,13 +18,11 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    @Singleton
     @Provides
     fun provideNewsPostsService(client: OkHttpClient): StankinNewsPostsAPI {
         return Retrofit.Builder()
@@ -40,7 +41,6 @@ object NetworkModule {
             .create(StankinNewsPostsAPI::class.java)
     }
 
-    @Singleton
     @Provides
     fun provideNewsService(client: OkHttpClient): StankinNewsAPI {
         return Retrofit.Builder()
@@ -51,7 +51,6 @@ object NetworkModule {
             .create(StankinNewsAPI::class.java)
     }
 
-    @Singleton
     @Provides
     fun provideModuleJournalService2(client: OkHttpClient): ModuleJournalAPI2 {
         return Retrofit.Builder()
@@ -60,6 +59,27 @@ object NetworkModule {
             .client(client)
             .build()
             .create(ModuleJournalAPI2::class.java)
+    }
+
+    @Provides
+    fun provideScheduleRemoteService(client: OkHttpClient): ScheduleRemoteRepositoryAPI {
+        return Retrofit.Builder()
+            .baseUrl(Constants.SCHEDULE_REMOTE_REPOSITORY_URL)
+            .addConverterFactory(
+                GsonConverterFactory.create(
+                    GsonBuilder()
+                        .registerTypeAdapter(
+                            ScheduleResponse::class.java, ScheduleResponse.Serializer()
+                        )
+                        .registerTypeAdapter(
+                            Pair::class.java, Pair.Serializer()
+                        )
+                        .create()
+                )
+            )
+            .client(client)
+            .build()
+            .create(ScheduleRemoteRepositoryAPI::class.java)
     }
 
     @Provides

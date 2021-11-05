@@ -8,8 +8,9 @@ import com.vereshchagin.nikolay.stankinschedule.db.dao.ScheduleDao
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.CategoryEntry
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.repository.v1.ScheduleEntry
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleCategoryEntry
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleItemEntry
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleUpdateEntry
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreferenceKt
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.DateTimeConverter
@@ -22,10 +23,13 @@ import kotlinx.coroutines.runBlocking
 @Database(
     entities = [
         NewsItem::class,
+
         ScheduleItem::class,
         PairItem::class,
-        CategoryEntry::class,
-        ScheduleEntry::class
+
+        ScheduleCategoryEntry::class,
+        ScheduleItemEntry::class,
+        ScheduleUpdateEntry::class
     ],
     version = 2,
     exportSchema = false

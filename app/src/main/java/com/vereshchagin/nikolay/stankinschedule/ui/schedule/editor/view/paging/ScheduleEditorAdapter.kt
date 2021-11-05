@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.editor.ScheduleEditorDiscipline
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.ScheduleEditorDiscipline
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.viewholder.OnPairListener
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.viewholder.ScheduleDisciplineViewHolder
 
