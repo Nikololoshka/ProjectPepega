@@ -87,6 +87,7 @@ dependencies {
     kapt deps.glide.compiler
     kapt deps.databinding.compiler
     kapt deps.hilt.compiler
+    kapt deps.hilt.work_compiler
 
 
     implementation platform(deps.firebase.bom)

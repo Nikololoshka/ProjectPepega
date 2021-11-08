@@ -8,7 +8,7 @@ ext.deps = [:]
 // версии зависимостей
 def versions = [:]
 versions.activity = "1.3.1"
-versions.android_gradle_plugin = "7.0.2"
+versions.android_gradle_plugin = "7.0.3"
 versions.appсompat = "1.3.1"
 versions.chrome_browser = "1.3.0"
 versions.commons = "2.7"
@@ -23,7 +23,7 @@ versions.google_services = "4.3.10"
 versions.glide = "4.12.0"
 versions.grid_layout = "1.0.0"
 versions.gson = "2.8.7"
-versions.hilt = "2.39.1"
+versions.hilt = "2.40"
 versions.hilt_work = "1.0.0"
 versions.holo_color_picker = "1.5"
 versions.joda_time = "2.10.10"
@@ -43,8 +43,9 @@ versions.retrofit = "2.9.0"
 versions.room = "2.3.0"
 versions.security_crypto = "1.1.0-alpha03"
 versions.shimmer = "0.5.0"
+versions.startup = "1.1.0"
 versions.webkit = "1.4.0"
-versions.work = "2.7.0-rc01"
+versions.work = "2.7.0"
 ext.versions = versions
 
 // версии сборки
@@ -109,6 +110,7 @@ hilt.hilt_android = "com.google.dagger:hilt-android:$versions.hilt"
 hilt.compiler = "com.google.dagger:hilt-android-compiler:$versions.hilt"
 hilt.plugin = "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
 hilt.work = "androidx.hilt:hilt-work:$versions.hilt_work"
+hilt.work_compiler = "androidx.hilt:hilt-compiler:$versions.hilt_work"
 deps.hilt = hilt
 
 deps.holo_color_picker = "com.larswerkman:HoloColorPicker:$versions.holo_color_picker"
@@ -171,6 +173,8 @@ deps.room = room
 deps.security_crypto = "androidx.security:security-crypto:$versions.security_crypto"
 
 deps.shimmer = "com.facebook.shimmer:shimmer:$versions.shimmer"
+
+deps.startup = "androidx.startup:startup-runtime:$versions.startup"
 
 deps.webkit = "androidx.webkit:webkit:$versions.webkit"
 

@@ -1,11 +1,10 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
 import android.os.Parcelable
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.DateDayOfWeekException
 import kotlinx.parcelize.Parcelize
-import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
 import org.joda.time.LocalDate
-import org.joda.time.ReadableDateTime
 
 /**
  * Дни недели даты в расписании.

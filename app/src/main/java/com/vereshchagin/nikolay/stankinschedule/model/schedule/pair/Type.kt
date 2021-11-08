@@ -29,7 +29,7 @@ enum class Type(val tag: String) : Parcelable {
          */
         fun of(value: String): Type {
             for (type in values()) {
-                if (type.tag == value) {
+                if (type.tag.equals(value, ignoreCase = true)) {
                     return type
                 }
             }

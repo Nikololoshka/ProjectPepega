@@ -5,17 +5,17 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleItemEntry
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleUpdateEntry
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRemoteRepository
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker.ScheduleDownloadWorker
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 /**
@@ -25,49 +25,44 @@ import kotlinx.coroutines.launch
 class RepositoryScheduleViewModel @AssistedInject constructor(
     application: Application,
     private val remoteRepository: ScheduleRemoteRepository,
+    private val scheduleRepository: ScheduleRepository,
     @Assisted private val scheduleId: Int,
 ) : AndroidViewModel(application) {
 
-    enum class SyncState {
-        SYNCED,
-        SYNCING,
-        NOT_SYNCED,
-        EXIST
-    }
 
     enum class DownloadState {
         START,
-        EXIST,
-        IDLE
+        EXIST
     }
 
-    /**
-     * Локальный репозиторий с расписаниями.
-     */
-//    private val scheduleRepository = ScheduleRepository(
-//        application
-//    )
 
-    /**
-     * Расписание с версиями.
-     */
-    // val scheduleEntry = MutableLiveData<State<ScheduleItemEntry>>(State.loading())
-
-    /**
-     * Статус синхронизации расписания.
-     */
-    // val syncState = MutableLiveData(SyncState.NOT_SYNCED)
+    private val _downloadState = MutableSharedFlow<Pair<DownloadState, String>>()
+    private val _updatesState =
+        MutableStateFlow<State<Pair<ScheduleItemEntry, List<ScheduleUpdateEntry>>>>(State.loading())
 
     /**
      * Статус загрузки расписания.
      */
-    // val downloadState = MutableLiveData(DownloadState.IDLE)
+    val downloadState = _downloadState.asSharedFlow()
 
-    private val _updatesState = MutableStateFlow<State<List<ScheduleUpdateEntry>>>(State.loading())
+    /**
+     * Версии расписания.
+     */
     val updatesState = _updatesState.asStateFlow()
 
     init {
         updateScheduleUpdates()
+
+//        viewModelScope.launch {
+//            WorkManager.getInstance(getApplication())
+//                .getWorkInfosByTagLiveData(ScheduleDownloadWorker.WORKER_TAG)
+//                .asFlow()
+//                .collect { infoList ->
+//                    infoList.forEach { workInfo ->
+//                        Log.d("MyLog", "${workInfo.id} - $workInfo")
+//                    }
+//                }
+//        }
     }
 
     /**
@@ -78,7 +73,6 @@ class RepositoryScheduleViewModel @AssistedInject constructor(
             remoteRepository.scheduleUpdates(scheduleId)
                 .catch { e ->
                     _updatesState.value = State.failed(e)
-                    e.printStackTrace()
                 }
                 .collect { state ->
                     _updatesState.value = state
@@ -96,19 +90,38 @@ class RepositoryScheduleViewModel @AssistedInject constructor(
 //        }
 //    }
 
-//    /**
-//     * Запускает скачивание расписания.
-//     */
-//    fun downloadScheduleVersion(
-//        saveScheduleName: String,
-//        position: Int,
-//        replace: Boolean = false
-//    ) {
-//        val entry = scheduleEntry.value ?: return
-//        if (entry is State.Success) {
-//
-//        }
-//    }
+    fun currentScheduleName(): String? {
+        val currentState = _updatesState.value
+        if (currentState is State.Success) {
+            return currentState.data.first.name
+        }
+        return null
+    }
+
+    /**
+     * Запускает скачивание расписания.
+     */
+    fun downloadScheduleUpdate(
+        scheduleName: String,
+        scheduleEntry: ScheduleUpdateEntry,
+        replaceExist: Boolean,
+    ) {
+        viewModelScope.launch {
+            val isExist = scheduleRepository.isScheduleExist(scheduleName)
+            if (isExist) {
+                _downloadState.emit(DownloadState.EXIST to scheduleName)
+            } else {
+                ScheduleDownloadWorker.startWorker(
+                    getApplication(),
+                    scheduleName,
+                    replaceExist,
+                    scheduleEntry.item,
+                    scheduleEntry.updateId
+                )
+                _downloadState.emit(DownloadState.START to scheduleName)
+            }
+        }
+    }
 
 //    /**
 //     * Запускает скачивание расписания.

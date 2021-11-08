@@ -4,6 +4,7 @@ import androidx.paging.PagingSource
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.api.ScheduleRemoteRepositoryAPI
 import com.vereshchagin.nikolay.stankinschedule.db.dao.RepositoryDao
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleCategoryEntry
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleRepositoryInfo
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleRepositoryItem
@@ -55,7 +56,7 @@ class ScheduleRemoteRepository @Inject constructor(
             dao.updateScheduleUpdateEntries(entry, newUpdates)
             newUpdates
         }
-        emit(State.success(updates))
+        emit(State.success(entry to updates))
     }
 
     suspend fun schedules(parentCategory: Int) {
@@ -164,6 +165,10 @@ class ScheduleRemoteRepository @Inject constructor(
         })
 
         emit(State.success(info.description))
+    }
+
+    suspend fun downloadSchedule(scheduleId: Int, scheduleUpdateId: Int): JsonScheduleItem {
+        return api.schedulePairs(scheduleId, scheduleUpdateId).await()
     }
 
 

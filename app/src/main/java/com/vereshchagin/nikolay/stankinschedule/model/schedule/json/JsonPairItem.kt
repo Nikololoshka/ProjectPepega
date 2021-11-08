@@ -1,9 +1,10 @@
-package com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.response
+package com.vereshchagin.nikolay.stankinschedule.model.schedule.json
 
 import com.google.gson.annotations.SerializedName
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 
 
-class PairResponse(
+class JsonPairItem(
     @SerializedName("title")
     val title: String,
     @SerializedName("lecturer")
@@ -15,18 +16,31 @@ class PairResponse(
     @SerializedName("subgroup")
     var subgroup: String,
     @SerializedName("time")
-    var time: TimeResponse,
+    var time: JsonTimeItem,
     @SerializedName("dates")
-    var dates: List<DateResponse>,
+    var dates: List<JsonDateItem>,
 ) {
-    class TimeResponse(
+
+    constructor(
+        pair: PairItem,
+    ) : this(
+        pair.title,
+        pair.lecturer,
+        pair.classroom,
+        pair.type.tag,
+        pair.subgroup.tag,
+        pair.time.toJson(),
+        pair.date.toJsonItems()
+    )
+
+    class JsonTimeItem(
         @SerializedName("start")
         val start: String,
         @SerializedName("end")
         val end: String,
     )
 
-    class DateResponse(
+    class JsonDateItem(
         @SerializedName("date")
         val date: String,
         @SerializedName("frequency")

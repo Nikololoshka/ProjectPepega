@@ -1,6 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.widget.paging
 
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import org.joda.time.LocalDate
 
 /**
@@ -11,6 +11,6 @@ import org.joda.time.LocalDate
  */
 class ScheduleWidgetListItem(
     var dayTitle: String,
-    var pairs: List<Pair>,
+    var pairs: List<PairItem>,
     var dayTime: LocalDate,
 )

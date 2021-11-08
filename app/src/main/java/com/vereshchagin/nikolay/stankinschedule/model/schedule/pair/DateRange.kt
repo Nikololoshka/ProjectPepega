@@ -3,10 +3,13 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.JsonObject
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.DateDayOfWeekException
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.DateFrequencyException
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.DateParseException
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonPairItem
 import org.joda.time.Days
 import org.joda.time.LocalDate
 import org.joda.time.format.DateTimeFormat
-import kotlin.Pair
 
 /**
  * Диапазон дат в расписании с определенной периодичностью.
@@ -194,6 +197,13 @@ class DateRange : DateItem {
         }
     }
 
+    override fun toJsonItem(): JsonPairItem.JsonDateItem {
+        return JsonPairItem.JsonDateItem(
+            start.toString(JSON_DATE_PATTERN_V2) + "/" + end.toString(JSON_DATE_PATTERN_V2),
+            frequency.tag
+        )
+    }
+
     override fun intersect(item: DateItem): Boolean {
         if (item is DateSingle) {
             var it = start
@@ -268,7 +278,7 @@ class DateRange : DateItem {
         return "$start-$end"
     }
 
-    fun toString(format: String, delimiter: String) : String {
+    fun toString(format: String, delimiter: String): String {
         return start.toString(format) + delimiter + end.toString(format)
     }
 

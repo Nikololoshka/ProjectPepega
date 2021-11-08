@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.JsonElement
-import com.google.gson.JsonObject
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonPairItem
 import org.joda.time.LocalTime
 import org.joda.time.format.DateTimeFormat
 
@@ -38,13 +38,16 @@ class Time : Parcelable {
      * @param endTime текст с концом пары.
      */
     constructor(startTime: String, endTime: String) {
-        if (!STARTS.contains(startTime) || !ENDS.contains(endTime)) {
-            throw IllegalArgumentException("Not parse time: $startTime - $endTime")
-        }
-
         val formatter = DateTimeFormat.forPattern(TIME_PATTERN)
         start = LocalTime.parse(startTime, formatter)
         end = LocalTime.parse(endTime, formatter)
+
+        if (!STARTS.contains(start.toString(TIME_PATTERN))
+            || !ENDS.contains(end.toString(TIME_PATTERN))
+        ) {
+            throw IllegalArgumentException("Not parse time: $startTime - $endTime")
+        }
+
         duration = ENDS.indexOf(endTime) - STARTS.indexOf(startTime) + 1
     }
 
@@ -58,6 +61,14 @@ class Time : Parcelable {
     )
 
     /**
+     * Конструктор времени пары.
+     * @param jsonResponse JSON с временем пары.
+     */
+    constructor(
+        jsonResponse: JsonPairItem.JsonTimeItem,
+    ) : this(jsonResponse.start, jsonResponse.end)
+
+    /**
      * Определяет, пересекаются времена пары.
      */
     fun isIntersect(other: Time): Boolean {
@@ -69,11 +80,8 @@ class Time : Parcelable {
     /**
      * Возвращает JSON времени пары.
      */
-    fun toJson(): JsonElement {
-        return JsonObject().apply {
-            addProperty(JSON_START, start.toString(TIME_PATTERN))
-            addProperty(JSON_END, end.toString(TIME_PATTERN))
-        }
+    fun toJson(): JsonPairItem.JsonTimeItem {
+        return JsonPairItem.JsonTimeItem(start.toString(TIME_PATTERN), end.toString(TIME_PATTERN))
     }
 
     fun startString(): String = start.toString(TIME_PATTERN)

@@ -15,6 +15,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.ExceptionUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.State
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.createBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 

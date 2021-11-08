@@ -64,7 +64,6 @@ class RepositoryCategoryFragment :
         lifecycleScope.launchWhenStarted {
             viewModel.entries.collectLatest { data ->
                 adapter.submitData(lifecycle, data)
-                stateful.setState(StatefulLayout2.CONTENT)
             }
         }
 

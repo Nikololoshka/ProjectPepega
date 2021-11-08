@@ -5,14 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -23,6 +21,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityPairEditorBinding
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.PairIntersectException
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.*
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.date.DateEditorActivity
@@ -248,7 +248,7 @@ class PairEditorActivity :
                     val subgroup = currentSubgroup()
                     val time = Time(currentStartTime(), currentEndTime())
 
-                    currentPair == Pair(title, lecturer, classroom, type, subgroup, time, date)
+                    currentPair.equalData(title, lecturer, classroom, type, subgroup, time, date)
 
                 } else {
                     true
@@ -375,7 +375,7 @@ class PairEditorActivity :
     /**
      * Присоединяет данные к View.
      */
-    private fun bind(pair: Pair) {
+    private fun bind(pair: PairItem) {
         binding.editTextTitle.setText(pair.title)
         binding.editTextLecturer.setText(pair.lecturer)
         binding.editTextClassroom.setText(pair.classroom)
@@ -416,7 +416,7 @@ class PairEditorActivity :
             val subgroup = currentSubgroup()
             val time = Time(currentStartTime(), currentEndTime())
 
-            val newPair = Pair(title, lecturer, classroom, type, subgroup, time, date)
+            val newPair = PairItem(title, lecturer, classroom, type, subgroup, time, date)
             viewModel.changePair(newPair)
 
         } catch (e: PairIntersectException) {

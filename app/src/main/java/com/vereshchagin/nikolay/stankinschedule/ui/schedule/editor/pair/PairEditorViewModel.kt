@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.utils.WidgetUtils
 import dagger.assisted.Assisted
@@ -58,7 +57,7 @@ class PairEditorViewModel @AssistedInject constructor(
         scheduleState.postValue(State.SUCCESSFULLY_LOADED)
     }
 
-    fun changePair(newPair: Pair) {
+    fun changePair(newPair: PairItem) {
         val editablePair = editablePair.value
         val currentSchedule = schedule
 
@@ -71,7 +70,7 @@ class PairEditorViewModel @AssistedInject constructor(
                 scheduleState.postValue(State.LOADING)
 
                 repository.updatePair(
-                    PairItem.from(
+                    PairItem(
                         currentSchedule.info.id,    // id расписания
                         newPair                     // id пары (0 - новая пара)
                     )

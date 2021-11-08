@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -35,6 +36,7 @@ import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.FragmentDelegate
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
 
 
@@ -193,7 +195,8 @@ class MySchedulesFragment :
 
         // список с расписаниями
         lifecycleScope.launchWhenStarted {
-            viewModel.schedules.collect { schedules ->
+            viewModel.schedules.collectLatest { schedules ->
+                Log.d(TAG, "onPostCreateView: $schedules")
                 if (schedules.isEmpty()) {
                     stateful.setState(StatefulLayout2.EMPTY)
 

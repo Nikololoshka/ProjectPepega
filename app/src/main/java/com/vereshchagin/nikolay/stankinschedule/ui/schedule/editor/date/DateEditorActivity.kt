@@ -18,6 +18,7 @@ import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityDateEditorBinding
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.*
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.*
 import com.vereshchagin.nikolay.stankinschedule.utils.DateTimeUtils
 import com.vereshchagin.nikolay.stankinschedule.utils.ScheduleUtils

@@ -1,6 +1,8 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.schedule.repository.worker
 
+import android.app.PendingIntent
 import android.content.Context
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.core.app.NotificationManagerCompat
 import androidx.hilt.work.HiltWorker
@@ -8,8 +10,11 @@ import androidx.navigation.NavDeepLinkBuilder
 import androidx.work.*
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
+import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRemoteRepository
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
+import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
 import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
+import com.vereshchagin.nikolay.stankinschedule.utils.extensions.FLAG_MUTABLE_COMPAT
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import org.joda.time.DateTimeUtils
@@ -21,27 +26,22 @@ import org.joda.time.DateTimeUtils
 class ScheduleDownloadWorker @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted workerParameters: WorkerParameters,
-    private val repository: ScheduleRepository,
+    private val remoteRepository: ScheduleRemoteRepository,
+    private val scheduleRepository: ScheduleRepository,
 ) : CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork(): Result {
         val saveScheduleName = inputData.getString(SCHEDULE_SAVE_NAME)!!
         val replaceExist = inputData.getBoolean(SCHEDULE_REPLACE_EXIST, false)
 
-        val scheduleName = inputData.getString(SCHEDULE_NAME)!!
-        val versionName = inputData.getString(SCHEDULE_VERSION_NAME)!!
-        val repositoryPath = inputData.getString(REPOSITORY_PATH)!!
-
         val scheduleId = inputData.getInt(SCHEDULE_ID, 0)
-        val versionId = inputData.getInt(SCHEDULE_VERSION_ID, 0)
-        val notificationId = NotificationUtils.MODULE_JOURNAL_IDS + scheduleId * 100 + versionId
-
-        val isSync = inputData.getBoolean(SCHEDULE_SYNC, false)
+        val scheduleUpdateId = inputData.getInt(SCHEDULE_UPDATE_ID, 0)
+        val notificationId = NotificationUtils.COMMON_IDS + scheduleId * 1000 + scheduleUpdateId
 
         // подготовка уведомлений
         val manager = NotificationManagerCompat.from(applicationContext)
         val notificationBuilder = NotificationUtils.createCommonNotification(applicationContext)
-            .setContentTitle("$scheduleName ($versionName)")
+            .setContentTitle(saveScheduleName)
             .setSmallIcon(R.drawable.ic_notification_file_download)
 
         // уведомление о начале загрузки
@@ -54,12 +54,37 @@ class ScheduleDownloadWorker @AssistedInject constructor(
         )
 
         try {
+            val scheduleResponse = remoteRepository.downloadSchedule(scheduleId, scheduleUpdateId)
+            val savedScheduleId = scheduleRepository.saveResponse(
+                saveScheduleName, scheduleResponse, replaceExist, false
+            )
 
+            val scheduleViewPendingIntent = NavDeepLinkBuilder(applicationContext)
+                .setComponentName(MainActivity::class.java)
+                .setGraph(R.navigation.activity_main_nav_graph)
+                .setDestination(R.id.nav_schedule_view_fragment)
+                .setArguments(ScheduleViewFragment.createBundle(savedScheduleId))
+                .createTaskStackBuilder()
+                .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT or FLAG_MUTABLE_COMPAT)
+
+            // уведомление о окончании загрузки
+            NotificationUtils.notifyCommon(
+                applicationContext, manager, notificationId,
+                notificationBuilder
+                    .setWhen(DateTimeUtils.currentTimeMillis())
+                    .setProgress(0, 0, false)
+                    .setContentText(getString(R.string.repository_schedule_loaded))
+                    .setAutoCancel(true)
+                    .setContentIntent(scheduleViewPendingIntent)
+                    .build()
+            )
 
         } catch (e: Exception) {
             // ошибка загрузки
             NotificationUtils.notifyCommon(
-                applicationContext, manager, notificationId,
+                applicationContext,
+                manager,
+                notificationId,
                 notificationBuilder
                     .setWhen(DateTimeUtils.currentTimeMillis())
                     .setProgress(0, 0, false)
@@ -67,36 +92,11 @@ class ScheduleDownloadWorker @AssistedInject constructor(
                     .setAutoCancel(true)
                     .build()
             )
-            e.printStackTrace()
+
+            Log.e(TAG, "doWork: ", e)
 
             return Result.failure()
         }
-
-        val scheduleViewPendingIntent = NavDeepLinkBuilder(applicationContext)
-            .setComponentName(MainActivity::class.java)
-            .setGraph(R.navigation.activity_main_nav_graph)
-            .setDestination(R.id.nav_schedule_view_fragment)
-//            .setArguments(ScheduleViewFragment.createBundle(scheduleName))
-            .createPendingIntent()
-
-        // уведомление о окончании загрузки
-        NotificationUtils.notifyCommon(
-            applicationContext, manager, notificationId,
-            notificationBuilder
-                .setWhen(DateTimeUtils.currentTimeMillis())
-                .setProgress(0, 0, false)
-                .setContentText(
-                    getString(
-                        if (isSync)
-                            R.string.repository_schedule_synced
-                        else
-                            R.string.repository_schedule_loaded
-                    )
-                )
-                .setAutoCancel(true)
-                .setContentIntent(scheduleViewPendingIntent)
-                .build()
-        )
 
         return Result.success()
     }
@@ -112,44 +112,32 @@ class ScheduleDownloadWorker @AssistedInject constructor(
 
         private const val TAG = "ScheduleWorkerLog"
 
-        private const val REPOSITORY_PATH = "repository_path"
+        const val WORKER_TAG = "schedule_download_worker_tag"
+
         private const val SCHEDULE_REPLACE_EXIST = "schedule_replace_exist"
         private const val SCHEDULE_SAVE_NAME = "schedule_save_name"
-        private const val SCHEDULE_NAME = "schedule_name"
         private const val SCHEDULE_ID = "schedule_id"
-        private const val SCHEDULE_VERSION_NAME = "schedule_version_name"
-        private const val SCHEDULE_VERSION_ID = "schedule_version_id"
-        private const val SCHEDULE_SYNC = "schedule_sync"
+        private const val SCHEDULE_UPDATE_ID = "schedule_update_id"
 
         /**
          * Запускает worker для скачивания расписания.
          * @param context контекст приложения.
          * @param saveScheduleName имя, под которым будет сохранено расписание.
          * @param replaceExist заменять ли существующие расписание.
-         * @param scheduleName названия расписания.
          * @param scheduleId уникальный ID расписания.
-         * @param versionName название версии расписания.
-         * @param scheduleVersionId уникальный ID версии.
-         * @param isSync будет ли расписание синхронизироваться.
-         * @param paths путь к расписанию в удаленном репозитории.
+         * @param scheduleUpdateId уникальный ID версии.
          */
-        @JvmStatic
         fun startWorker(
             context: Context,
             saveScheduleName: String,
             replaceExist: Boolean,
-            scheduleName: String,
             scheduleId: Int,
-            versionName: String,
-            scheduleVersionId: Int,
-            isSync: Boolean,
-            vararg paths: String,
+            scheduleUpdateId: Int,
         ) {
             val manager = WorkManager.getInstance(context)
-            val path = paths.joinToString("/")
 
             // уникальное имя worker'а
-            val workerName = "Worker-$scheduleId-$scheduleVersionId"
+            val workerName = "Worker-$scheduleId-$scheduleUpdateId"
 
             val worker = OneTimeWorkRequest.Builder(ScheduleDownloadWorker::class.java)
                 .setConstraints(
@@ -159,17 +147,13 @@ class ScheduleDownloadWorker @AssistedInject constructor(
                 )
                 .setInputData(
                     Data.Builder()
-                        .putBoolean(SCHEDULE_REPLACE_EXIST, replaceExist)
-                        .putString(REPOSITORY_PATH, path)
                         .putString(SCHEDULE_SAVE_NAME, saveScheduleName)
-                        .putString(SCHEDULE_NAME, scheduleName)
-                        .putString(SCHEDULE_VERSION_NAME, versionName)
+                        .putBoolean(SCHEDULE_REPLACE_EXIST, replaceExist)
                         .putInt(SCHEDULE_ID, scheduleId)
-                        .putInt(SCHEDULE_VERSION_ID, scheduleVersionId)
-                        .putBoolean(SCHEDULE_SYNC, isSync)
+                        .putInt(SCHEDULE_UPDATE_ID, scheduleUpdateId)
                         .build()
                 )
-                // .addTag(workerName)
+                .addTag(WORKER_TAG)
                 .build()
 
             manager.enqueueUniqueWork(workerName, ExistingWorkPolicy.KEEP, worker)

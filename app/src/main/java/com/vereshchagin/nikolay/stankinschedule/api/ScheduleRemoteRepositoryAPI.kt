@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.api
 
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleCategoryEntry
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleItemEntry
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleRepositoryInfo
@@ -28,8 +29,11 @@ interface ScheduleRemoteRepositoryAPI {
     fun updates(@Path("id") scheduleId: Int): Call<List<ScheduleUpdateEntry>>
 
 
-//    @GET("${API_ROOT}/schedules/{id}")
-//    fun schedulePairs(@Query("id") scheduleUpdateId: Int)
+    @GET("${API_ROOT}/schedules/{id}")
+    fun schedulePairs(
+        @Path("id") scheduleId: Int,
+        @Query("update") scheduleUpdateId: Int,
+    ): Call<JsonScheduleItem>
 
 
     companion object {

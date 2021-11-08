@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
 import android.os.Parcelable
 import com.google.gson.JsonObject
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonPairItem
 
 /**
  * Абстрактный класс дат пары в расписании.
@@ -26,19 +27,24 @@ sealed class DateItem : Comparable<DateItem>, Parcelable {
     abstract fun frequency(): Frequency
 
     /**
-     * Возвращает JsonObject даты.
+     * Возвращает JsonObject дату.
      */
-    abstract fun toJson() : JsonObject
+    abstract fun toJson(): JsonObject
+
+    /**
+     * Возвращает Json дату.
+     */
+    abstract fun toJsonItem(): JsonPairItem.JsonDateItem
 
     /**
      * Определяет, пересекаются ли даты между собой.
      */
-    abstract fun intersect(item: DateItem) : Boolean
+    abstract fun intersect(item: DateItem): Boolean
 
     /**
      * Определяет, находиться ли дата раньше другой.
      */
-    abstract fun isBefore(item: DateItem) : Boolean
+    abstract fun isBefore(item: DateItem): Boolean
 
     /**
      * Возвращает копию объекта.

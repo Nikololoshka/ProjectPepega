@@ -8,10 +8,10 @@ import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.dao.ScheduleDao
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.Schedule
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleResponse
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonPairItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreferenceKt
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.extractFilename
@@ -39,8 +39,9 @@ class ScheduleRepository @Inject constructor(
      * Gson для преобразования расписания в/из JSON.
      */
     val gson: Gson = GsonBuilder()
-        .registerTypeAdapter(ScheduleResponse::class.java, ScheduleResponse.Serializer())
-        .registerTypeAdapter(Pair::class.java, Pair.Serializer())
+        .registerTypeAdapter(
+            JsonScheduleItem::class.java, JsonScheduleItem.ScheduleResponseSerializer()
+        )
         .create()
 
     /**
@@ -74,9 +75,9 @@ class ScheduleRepository @Inject constructor(
         }
 
     /**
-     * Возвращает flow информации о расписании по названию.
+     * Возвращает информации о расписании по названию.
      */
-    fun scheduleItem(scheduleName: String) = dao.getScheduleItem(scheduleName)
+//    fun scheduleItem(scheduleName: String) = dao.getScheduleItem(scheduleName)
 
     /**
      * Возвращает flow информации о расписании по ID.
@@ -146,8 +147,10 @@ class ScheduleRepository @Inject constructor(
     /**
      * Возвращает ScheduleResponse расписания из БД по названию.
      */
-    private suspend fun scheduleResponse(scheduleId: Long): ScheduleResponse {
-        return ScheduleResponse(dao.getAllPairs(scheduleId).first())
+    private suspend fun scheduleResponse(scheduleId: Long): JsonScheduleItem {
+        return JsonScheduleItem(dao.getAllPairs(scheduleId).first().map { pair ->
+            JsonPairItem(pair)
+        })
     }
 
     /**
@@ -194,7 +197,7 @@ class ScheduleRepository @Inject constructor(
         val response = runCatching {
             resolver.openInputStream(uri)
         }.getOrNull()?.bufferedReader().use { reader ->
-            gson.fromJson(reader, ScheduleResponse::class.java)
+            gson.fromJson(reader, JsonScheduleItem::class.java)
         } ?: throw RuntimeException("Cannot load json")
 
         saveResponse(scheduleName, response)
@@ -205,11 +208,11 @@ class ScheduleRepository @Inject constructor(
      */
     suspend fun saveResponse(
         scheduleName: String,
-        response: ScheduleResponse,
+        response: JsonScheduleItem,
         replaceExist: Boolean = false,
         isSync: Boolean = false,
-    ) {
-        dao.insertScheduleResponse(scheduleName, response, replaceExist, isSync)
+    ): Long {
+        return dao.insertScheduleResponse(scheduleName, response, replaceExist, isSync)
     }
 
 
@@ -233,13 +236,12 @@ class ScheduleRepository @Inject constructor(
                     val json = FileUtils.readFileToString(File(path), StandardCharsets.UTF_8)
                     val gson = GsonBuilder()
                         .registerTypeAdapter(
-                            ScheduleResponse::class.java,
-                            ScheduleResponse.Serializer()
+                            JsonScheduleItem::class.java,
+                            JsonScheduleItem.ScheduleResponseSerializer()
                         )
-                        .registerTypeAdapter(Pair::class.java, Pair.Serializer())
                         .create()
 
-                    val response = gson.fromJson(json, ScheduleResponse::class.java)
+                    val response = gson.fromJson(json, JsonScheduleItem::class.java)
                     db.schedules().insertScheduleResponse(scheduleName, response)
 
                 } catch (ignored: Exception) {

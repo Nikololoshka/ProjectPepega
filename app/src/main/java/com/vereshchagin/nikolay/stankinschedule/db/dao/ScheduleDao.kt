@@ -1,12 +1,11 @@
 package com.vereshchagin.nikolay.stankinschedule.db.dao
 
 import androidx.room.*
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleResponse
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleWithPairs
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonScheduleItem
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import org.joda.time.DateTime
 
 /**
@@ -45,7 +44,7 @@ interface ScheduleDao {
      * Возвращает flow элемента расписания.
      */
     @Query("SELECT * FROM schedule_items WHERE schedule_name = :scheduleName LIMIT 1")
-    fun getScheduleItem(scheduleName: String): Flow<ScheduleItem?>
+    fun getScheduleItem(scheduleName: String): ScheduleItem?
 
     /**
      * Возвращает flow элемента расписания.
@@ -57,7 +56,7 @@ interface ScheduleDao {
      * Возвращает количество расписаний в БД.
      */
     @Query("SELECT COUNT(*) FROM schedule_items")
-    fun getScheduleCount(): Int
+    suspend fun getScheduleCount(): Int
 
     /**
      * Возвращает flow списка с синхронизованными расписаниями.
@@ -146,12 +145,12 @@ interface ScheduleDao {
     @Transaction
     suspend fun insertScheduleResponse(
         scheduleName: String,
-        response: ScheduleResponse,
+        response: JsonScheduleItem,
         replaceExist: Boolean = false,
         synced: Boolean = false,
-    ) {
+    ): Long {
         if (replaceExist) {
-            val item = getScheduleItem(scheduleName).first()
+            val item = getScheduleItem(scheduleName)
             if (item != null) {
                 // обновляем информацию
                 item.synced = synced
@@ -161,19 +160,20 @@ interface ScheduleDao {
 
                 // обновляем пары
                 deleteSchedulePairs(item.id)
-                insertPairs(response.pairs.map { PairItem.from(item.id, it) })
-                return
+                insertPairs(response.map { pair -> PairItem(item.id, pair) })
+                return item.id
             }
         }
 
         val lastPosition = getScheduleCount()
-        val id = insertScheduleItem(
+        val scheduleId = insertScheduleItem(
             ScheduleItem(scheduleName).apply {
                 this.position = lastPosition
                 this.synced = synced
                 this.lastUpdate = if (synced) DateTime.now() else null
             }
         )
-        insertPairs(response.pairs.map { PairItem.from(id, it) })
+        insertPairs(response.map { pair -> PairItem(scheduleId, pair) })
+        return scheduleId
     }
 }

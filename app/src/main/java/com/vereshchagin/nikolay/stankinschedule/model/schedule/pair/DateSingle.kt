@@ -1,11 +1,12 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 
-import android.content.Context
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.JsonObject
-import com.vereshchagin.nikolay.stankinschedule.utils.DateUtils
-import org.joda.time.DateTime
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.DateDayOfWeekException
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.DateFrequencyException
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.DateParseException
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonPairItem
 import org.joda.time.LocalDate
 import org.joda.time.format.DateTimeFormat
 
@@ -83,6 +84,10 @@ class DateSingle : DateItem {
             addProperty(JSON_DATE, date.toString(JSON_DATE_PATTERN_V2))
             addProperty(JSON_FREQUENCY, Frequency.ONCE.tag)
         }
+    }
+
+    override fun toJsonItem(): JsonPairItem.JsonDateItem {
+        return JsonPairItem.JsonDateItem(date.toString(JSON_DATE_PATTERN_V2), Frequency.ONCE.tag)
     }
 
     override fun intersect(item: DateItem): Boolean {

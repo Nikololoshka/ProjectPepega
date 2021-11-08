@@ -10,6 +10,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.myschedules.paging.M
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.swap
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -18,6 +19,7 @@ import javax.inject.Inject
 /**
  * ViewModel списка расписаний.
  */
+@OptIn(ExperimentalCoroutinesApi::class)
 @HiltViewModel
 class MySchedulesViewModel @Inject constructor(
     application: Application,
@@ -33,10 +35,7 @@ class MySchedulesViewModel @Inject constructor(
 
     private val _favorite = MutableStateFlow<ScheduleItem?>(null)
     private var _schedules: MutableList<MyScheduleItem> = arrayListOf()
-    private val _schedulesChannel = MutableSharedFlow<MutableList<MyScheduleItem>>(
-        replay = 1,
-        onBufferOverflow = BufferOverflow.DROP_LATEST
-    )
+    private val _schedulesChannel = MutableStateFlow(_schedules)
     private val _actionState = MutableSharedFlow<ScheduleAction>(
         replay = 1,
         onBufferOverflow = BufferOverflow.DROP_LATEST
@@ -50,7 +49,7 @@ class MySchedulesViewModel @Inject constructor(
     /**
      * Список с расписаниями.
      */
-    val schedules = _schedulesChannel.asSharedFlow()
+    val schedules = _schedulesChannel.asSharedFlow().distinctUntilChanged()
 
     /**
      * Состояние действия над расписания.

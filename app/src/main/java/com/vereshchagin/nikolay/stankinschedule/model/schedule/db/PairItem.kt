@@ -1,7 +1,11 @@
 package com.vereshchagin.nikolay.stankinschedule.model.schedule.db
 
 import androidx.room.*
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.*
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonPairItem
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Date
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Subgroup
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Time
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Type
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.PairDateConvertor
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.PairSubgroupConvertor
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.PairTimeConvertor
@@ -36,17 +40,17 @@ import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.PairTypeCo
     PairTimeConvertor::class,
     PairDateConvertor::class
 )
-class PairItem(
+data class PairItem(
     @ColumnInfo(name = "schedule_id", index = true)
-    var scheduleId: Long,
-    title: String,
-    lecturer: String,
-    classroom: String,
-    type: Type,
-    subgroup: Subgroup,
-    time: Time,
-    date: Date,
-) : Pair(title, lecturer, classroom, type, subgroup, time, date) {
+    val scheduleId: Long,
+    val title: String,
+    val lecturer: String,
+    val classroom: String,
+    val type: Type,
+    val subgroup: Subgroup,
+    val time: Time,
+    val date: Date,
+) : Comparable<PairItem> {
 
     /**
      * ID пары.
@@ -54,27 +58,100 @@ class PairItem(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
 
-    companion object {
-        /**
-         * Создает PairItem из обычной Pair для использования в БД.
-         * @param scheduleId ID расписания в БД, к которому принадлежит пара.
-         * @param pair пара.
-         * @param pairId ID пары.
-         */
-        @JvmStatic
-        fun from(scheduleId: Long, pair: Pair, pairId: Long = 0) : PairItem {
-            return PairItem(
-                scheduleId,
-                pair.title,
-                pair.lecturer,
-                pair.classroom,
-                pair.type,
-                pair.subgroup,
-                pair.time,
-                pair.date
-            ).apply {
-                id = pairId
-            }
+    /**
+     * Конструктор пары из json.
+     */
+    constructor(
+        scheduleId: Long,
+        jsonResponse: JsonPairItem,
+    ) : this(
+        scheduleId,
+        jsonResponse.title,
+        jsonResponse.lecturer,
+        jsonResponse.classroom,
+        Type.of(jsonResponse.type),
+        Subgroup.of(jsonResponse.subgroup),
+        Time(jsonResponse.time),
+        Date(jsonResponse.dates)
+    )
+
+    constructor(
+        title: String,
+        lecturer: String,
+        classroom: String,
+        type: Type,
+        subgroup: Subgroup,
+        time: Time,
+        date: Date,
+    ) : this(
+        -1L,
+        title,
+        lecturer,
+        classroom,
+        type,
+        subgroup,
+        time,
+        date
+    )
+
+    constructor(
+        scheduleId: Long,
+        pair: PairItem,
+    ) : this(
+        scheduleId,
+        pair.title,
+        pair.lecturer,
+        pair.classroom,
+        pair.type,
+        pair.subgroup,
+        pair.time,
+        pair.date
+    )
+
+    /**
+     * Определяет, пересекаются ли пары по времени, дате и подгруппе.
+     * @param other другая пара.
+     */
+    fun isIntersect(other: PairItem): Boolean {
+        return time.isIntersect(other.time) && date.intersect(other.date) &&
+                subgroup.isIntersect(other.subgroup)
+    }
+
+    /**
+     * Возвращает true, если пара может быть у этой подгруппы, иначе false.
+     */
+    fun isCurrently(subgroup: Subgroup): Boolean {
+        return this.subgroup == Subgroup.COMMON || subgroup == Subgroup.COMMON || this.subgroup == subgroup
+    }
+
+    override fun compareTo(other: PairItem): Int {
+        if (time.start == other.time.start) {
+            return subgroup.compareTo(other.subgroup)
         }
+        return time.start.compareTo(other.time.start)
+    }
+
+    fun equalData(
+        otherTitle: String,
+        otherLecturer: String,
+        otherClassroom: String,
+        otherType: Type,
+        otherSubgroup: Subgroup,
+        otherTime: Time,
+        otherDate: Date,
+    ): Boolean {
+        if (title != otherTitle) return false
+        if (lecturer != otherLecturer) return false
+        if (classroom != otherClassroom) return false
+        if (type != otherType) return false
+        if (subgroup != otherSubgroup) return false
+        if (time != otherTime) return false
+        if (date != otherDate) return false
+
+        return true
+    }
+
+    override fun toString(): String {
+        return "$title. $lecturer. $classroom. $type. $subgroup. $time. $date"
     }
 }

@@ -7,6 +7,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentRepositoryScheduleBinding
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleUpdateEntry
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
@@ -27,12 +29,6 @@ import javax.inject.Inject
 class RepositoryScheduleFragment :
     BaseFragment<FragmentRepositoryScheduleBinding>(FragmentRepositoryScheduleBinding::inflate) {
 
-    private enum class ActionMode {
-        SYNC_SCHEDULE,
-        DOWNLOAD_SCHEDULE,
-        NOTING
-    }
-
     @Inject
     lateinit var viewModelFactory: RepositoryScheduleViewModel.RepositoryScheduleFactory
 
@@ -44,7 +40,6 @@ class RepositoryScheduleFragment :
     }
 
     private var statefulSchedule: StatefulLayout2 by FragmentDelegate()
-    private var statefulVersions: StatefulLayout2 by FragmentDelegate()
 
     private var adapter: RepositoryItemAdapter<ScheduleUpdateEntry> by FragmentDelegate()
 
@@ -54,14 +49,10 @@ class RepositoryScheduleFragment :
     private var scheduleId: Int = -1
 
     /**
-     * Текущие выполняемое действие.
-     */
-    private var actionMode = ActionMode.NOTING
-
-    /**
      * Текущая позиция версии расписания для загрузки.
      */
     private var currentVersionPosition = RecyclerView.NO_POSITION
+
 
     override fun onPostCreateView(savedInstanceState: Bundle?) {
         statefulSchedule = StatefulLayout2.Builder(binding.repositoryContainer)
@@ -69,21 +60,10 @@ class RepositoryScheduleFragment :
             .addView(StatefulLayout2.CONTENT, binding.schedulesContainer)
             .create()
 
-        statefulVersions = StatefulLayout2.Builder(binding.versionsContainer)
-            .init(StatefulLayout2.CONTENT, binding.scheduleVersions)
-            .addView(StatefulLayout2.EMPTY, binding.scheduleSynced)
-            .create()
-
         val arguments = requireArguments()
         scheduleId = arguments.getInt(EXTRA_SCHEDULE_ID)
         val scheduleName = arguments.getString(EXTRA_SCHEDULE_NAME)
-        binding.scheduleName = scheduleName
         setActionBarTitle(scheduleName)
-
-        val savedMode = savedInstanceState?.getSerializable(ACTION_MODE) as ActionMode?
-        if (savedMode != null) {
-            actionMode = savedMode
-        }
 
         val savedPos = savedInstanceState?.getInt(CURRENT_VERSION_POS, RecyclerView.NO_POSITION)
         if (savedPos != null) {
@@ -98,8 +78,11 @@ class RepositoryScheduleFragment :
             viewModel.updatesState.collectLatest { state ->
                 when (state) {
                     is State.Success -> {
-                        val data = state.data
+                        val (entry, data) = state.data
                         adapter.submitData(PagingData.from(data))
+                        binding.scheduleName = entry.name
+                        setActionBarTitle(entry.name)
+
                         statefulSchedule.setState(StatefulLayout2.CONTENT)
                     }
                     is State.Loading -> {
@@ -114,99 +97,62 @@ class RepositoryScheduleFragment :
             }
         }
 
-
         // статус загрузки расписания
-//        viewModel.downloadState.observe(this) { state ->
-//            // расписание уже существует
-//            if (state == RepositoryScheduleViewModel.DownloadState.EXIST) {
-//                actionMode = ActionMode.DOWNLOAD_SCHEDULE
-//                selectScheduleName(true)
-//            }
-//            // начата загрузка
-//            else if (state == RepositoryScheduleViewModel.DownloadState.START) {
-//                showSnack(R.string.repository_start_loading, args = arrayOf(scheduleName))
-//            }
-//
-//            if (state != RepositoryScheduleViewModel.DownloadState.IDLE) {
-//                viewModel.downloadStateComplete()
-//            }
-//        }
-
-        // статус синхронизации расписания
-//        viewModel.syncState.observe(this) {
-//            val state = it ?: return@observe
-//
-//            when (state) {
-//                RepositoryScheduleViewModel.SyncState.NOT_SYNCED -> {
-//                    binding.scheduleSync.setImageResource(R.drawable.ic_schedule_sync_enable)
-//                    statefulVersions.setState(StatefulLayout2.CONTENT)
-//                }
-//                RepositoryScheduleViewModel.SyncState.SYNCED -> {
-//                    binding.scheduleSync.setImageResource(R.drawable.ic_schedule_sync_disable)
-//                    statefulVersions.setState(StatefulLayout2.EMPTY)
-//                }
-//                RepositoryScheduleViewModel.SyncState.SYNCING -> {
-//                    binding.scheduleSync.setImageResource(R.drawable.avd_schedule_sync)
-//                    val drawable = binding.scheduleSync.drawable
-//                    if (drawable is AnimatedVectorDrawable) {
-//                        drawable.start()
-//                    }
-//                }
-//                RepositoryScheduleViewModel.SyncState.EXIST -> {
-//                    actionMode = ActionMode.SYNC_SCHEDULE
-//                    binding.scheduleSync.setImageResource(R.drawable.ic_schedule_sync_problem)
-//                    selectScheduleName(false)
-//                }
-//            }
-//        }
+        lifecycleScope.launchWhenStarted {
+            viewModel.downloadState.collectLatest { data ->
+                val (state, currentScheduleName) = data
+                when (state) {
+                    // расписание уже существует
+                    RepositoryScheduleViewModel.DownloadState.EXIST -> {
+                        selectScheduleName(currentScheduleName)
+                    }
+                    // начата загрузка
+                    RepositoryScheduleViewModel.DownloadState.START -> {
+                        showSnack(
+                            R.string.repository_start_loading, args = arrayOf(currentScheduleName)
+                        )
+                    }
+                }
+            }
+        }
 
         parentFragmentManager.setFragmentResultListener(
             ScheduleNameEditorDialog.REQUEST_SCHEDULE_NAME, this, this::onScheduleNameSelected
         )
-
-//        binding.scheduleSync.setOnClickListener {
-//            viewModel.toggleSyncSchedule(false)
-//        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putSerializable(ACTION_MODE, actionMode)
         outState.putInt(CURRENT_VERSION_POS, currentVersionPosition)
     }
 
     /**
      * Вызывает диалог, для выбора названия расписания.
      */
-    private fun selectScheduleName(customName: Boolean) {
-//        val builder = MaterialAlertDialogBuilder(requireContext())
-//            .setTitle(R.string.repository_schedule_exist)
-//            .setMessage(getString(R.string.repository_schedule_exist_description, scheduleName))
-//            // заменить существующее
-//            .setPositiveButton(R.string.repository_schedule_replace) { dialog, _ ->
-//                if (actionMode == ActionMode.DOWNLOAD_SCHEDULE) {
-//                    viewModel.downloadScheduleVersion(scheduleName, currentVersionPosition, true)
-//                } else if (actionMode == ActionMode.SYNC_SCHEDULE) {
-//                    viewModel.toggleSyncSchedule(true)
-//                }
-//                dialog.dismiss()
-//            }
-//            // отмена
-//            .setNegativeButton(R.string.cancel) { dialog, _ ->
-//                actionMode = ActionMode.NOTING
-//                dialog.dismiss()
-//            }
-//
-//        // выбор нового имени
-//        if (customName) {
-//            builder.setNeutralButton(R.string.repository_schedule_change) { dialog, _ ->
-//                val nameDialog = ScheduleNameEditorDialog.newInstance(scheduleName)
-//                nameDialog.show(parentFragmentManager, nameDialog.tag)
-//                dialog.dismiss()
-//            }
-//        }
-//
-//        builder.show()
+    private fun selectScheduleName(scheduleName: String) {
+        val builder = MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.repository_schedule_exist)
+            .setMessage(getString(R.string.repository_schedule_exist_description, scheduleName))
+            // заменить существующее
+            .setPositiveButton(R.string.repository_schedule_replace) { dialog, _ ->
+                val entry = adapter.snapshot().getOrNull(currentVersionPosition)
+                if (entry != null) {
+                    viewModel.downloadScheduleUpdate(scheduleName, entry, true)
+                }
+                dialog.dismiss()
+            }
+            // выбор нового имени
+            .setNeutralButton(R.string.repository_schedule_change) { dialog, _ ->
+                val nameDialog = ScheduleNameEditorDialog.newInstance(scheduleName)
+                nameDialog.show(parentFragmentManager, nameDialog.tag)
+                dialog.dismiss()
+            }
+            // отмена
+            .setNegativeButton(R.string.cancel) { dialog, _ ->
+                dialog.dismiss()
+            }
+
+        builder.show()
     }
 
     /**
@@ -216,7 +162,10 @@ class RepositoryScheduleFragment :
         if (key == ScheduleNameEditorDialog.REQUEST_SCHEDULE_NAME) {
             val newScheduleName = bundle.getString(ScheduleNameEditorDialog.SCHEDULE_NAME)
             if (!newScheduleName.isNullOrEmpty() && currentVersionPosition != RecyclerView.NO_POSITION) {
-//                viewModel.downloadScheduleVersion(newScheduleName, currentVersionPosition)
+                val entry = adapter.snapshot().getOrNull(currentVersionPosition)
+                if (entry != null) {
+                    viewModel.downloadScheduleUpdate(newScheduleName, entry, false)
+                }
             }
         }
     }
@@ -225,13 +174,16 @@ class RepositoryScheduleFragment :
      * Вызывается при нажатии на версию расписания.
      */
     private fun onScheduleVersionClicked(entry: ScheduleUpdateEntry) {
-        currentVersionPosition = adapter.snapshot().indexOf(entry)
-//        viewModel.downloadScheduleVersion(scheduleName, entry.toVersion())
+        val currentScheduleName = viewModel.currentScheduleName()
+        if (currentScheduleName != null) {
+            currentVersionPosition = adapter.snapshot().indexOf(entry)
+            viewModel.downloadScheduleUpdate(currentScheduleName, entry, false)
+        }
+
     }
 
     companion object {
 
-        private const val ACTION_MODE = "action_mode"
         private const val CURRENT_VERSION_POS = "current_version_position"
 
         private const val EXTRA_SCHEDULE_ID = "extra_id"

@@ -7,8 +7,7 @@ import com.vereshchagin.nikolay.stankinschedule.api.ScheduleRemoteRepositoryAPI
 import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsAPI
 import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsPostsAPI
 import com.vereshchagin.nikolay.stankinschedule.model.news.NewsPost
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.ScheduleResponse
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -69,10 +68,8 @@ object NetworkModule {
                 GsonConverterFactory.create(
                     GsonBuilder()
                         .registerTypeAdapter(
-                            ScheduleResponse::class.java, ScheduleResponse.Serializer()
-                        )
-                        .registerTypeAdapter(
-                            Pair::class.java, Pair.Serializer()
+                            JsonScheduleItem::class.java,
+                            JsonScheduleItem.ScheduleResponseSerializer()
                         )
                         .create()
                 )

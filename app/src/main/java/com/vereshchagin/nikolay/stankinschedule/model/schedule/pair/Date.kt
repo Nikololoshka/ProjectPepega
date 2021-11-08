@@ -3,6 +3,9 @@ package com.vereshchagin.nikolay.stankinschedule.model.schedule.pair
 import android.os.Parcelable
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.DateDayOfWeekException
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.DateIntersectException
+import com.vereshchagin.nikolay.stankinschedule.model.schedule.json.JsonPairItem
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.removeIfJava7
 import kotlinx.parcelize.Parcelize
 import org.joda.time.LocalDate
@@ -16,7 +19,7 @@ import java.util.*
 @Parcelize
 class Date(
     private val dates: TreeSet<DateItem> = sortedSetOf(),
-    private var dayOfWeek: DayOfWeek? = null
+    private var dayOfWeek: DayOfWeek? = null,
 ) : Parcelable, Cloneable, Iterable<DateItem> {
 
     /**
@@ -33,6 +36,17 @@ class Date(
                 add(DateSingle(json))
             } else {
                 add(DateRange(json))
+            }
+        }
+    }
+
+    constructor(jsonResponse: List<JsonPairItem.JsonDateItem>) : this() {
+        for (jsomDate in jsonResponse) {
+            val frequency = Frequency.of(jsomDate.frequency)
+            if (frequency == Frequency.ONCE) {
+                add(DateSingle(jsomDate.date))
+            } else {
+                add(DateRange(jsomDate.date, frequency))
             }
         }
     }
@@ -110,7 +124,7 @@ class Date(
     /**
      * Определяет, пересекается ли даты пары с сравниваемой датой.
      */
-    fun intersect(item: DateItem) : Boolean {
+    fun intersect(item: DateItem): Boolean {
         for (date in dates) {
             if (date.intersect(item)) {
                 return true
@@ -122,7 +136,7 @@ class Date(
     /**
      * Определяет, пересекается ли даты пары с сравниваемой датой.
      */
-    fun intersect(other: Date) : Boolean {
+    fun intersect(other: Date): Boolean {
         for (date in other.dates) {
             if (intersect(date)) {
                 return true
@@ -134,7 +148,7 @@ class Date(
     /**
      * Определяет, пересекается ли даты пары с сравниваемой датой.
      */
-    fun intersect(item: LocalDate) : Boolean {
+    fun intersect(item: LocalDate): Boolean {
         val dateItem = DateSingle(item)
         return intersect(dateItem)
     }
@@ -145,14 +159,21 @@ class Date(
     fun dayOfWeek() = dayOfWeek!!
 
     /**
-     * Возвращает Json даты.
+     * Возвращает Json дату.
      */
-    fun toJson() : JsonElement {
+    fun toJson(): JsonElement {
         val json = JsonArray()
         for (date in dates) {
             json.add(date.toJson())
         }
         return json
+    }
+
+    /**
+     * Возвращает Json даты.
+     */
+    fun toJsonItems(): List<JsonPairItem.JsonDateItem> {
+        return dates.map { date -> date.toJsonItem() }
     }
 
     override fun iterator(): Iterator<DateItem> = dates.iterator()
@@ -167,7 +188,7 @@ class Date(
      */
     fun toList(): MutableList<DateItem> = dates.toMutableList()
 
-    public override fun clone() : Date {
+    public override fun clone(): Date {
         val date = Date()
         for (d in dates) {
             date.add(d.clone())

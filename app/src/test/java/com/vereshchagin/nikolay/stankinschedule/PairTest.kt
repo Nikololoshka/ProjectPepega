@@ -1,7 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule
 
 import com.google.gson.GsonBuilder
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.pair.Pair
 import com.vereshchagin.nikolay.stankinschedule.resources.PairResources
 import org.junit.Assert
 import org.junit.Test
@@ -12,7 +11,6 @@ import org.junit.Test
 class PairTest {
 
     private val gson = GsonBuilder()
-        .registerTypeAdapter(Pair::class.java, Pair.Serializer())
         .setPrettyPrinting()
         .create()
 

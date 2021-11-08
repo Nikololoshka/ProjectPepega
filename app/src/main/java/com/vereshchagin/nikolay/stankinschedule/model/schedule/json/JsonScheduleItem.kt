@@ -1,19 +1,19 @@
-package com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.response
+package com.vereshchagin.nikolay.stankinschedule.model.schedule.json
 
 import com.google.gson.*
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
 
-class ScheduleResponse(
-    val pairs: List<PairResponse>,
-) : Iterable<PairResponse> {
+class JsonScheduleItem(
+    val jsonPairs: List<JsonPairItem>,
+) : Iterable<JsonPairItem> {
 
-    class ScheduleResponseSerializer : JsonSerializer<ScheduleResponse>,
-        JsonDeserializer<ScheduleResponse> {
+    class ScheduleResponseSerializer : JsonSerializer<JsonScheduleItem>,
+        JsonDeserializer<JsonScheduleItem> {
 
         override fun serialize(
-            src: ScheduleResponse?,
+            src: JsonScheduleItem?,
             typeOfSrc: Type?,
             context: JsonSerializationContext?,
         ): JsonElement {
@@ -21,22 +21,22 @@ class ScheduleResponse(
                 return JsonArray()
             }
 
-            return context.serialize(src.pairs).asJsonArray
+            return context.serialize(src.jsonPairs).asJsonArray
         }
 
         override fun deserialize(
             json: JsonElement?,
             typeOfT: Type?,
             context: JsonDeserializationContext?,
-        ): ScheduleResponse {
+        ): JsonScheduleItem {
             if (json == null || context == null) {
                 throw JsonParseException("Schedule json is null")
             }
 
-            val type = object : TypeToken<List<PairResponse>>() {}.type
-            return ScheduleResponse(context.deserialize(json, type))
+            val type = object : TypeToken<List<JsonPairItem>>() {}.type
+            return JsonScheduleItem(context.deserialize(json, type))
         }
     }
 
-    override fun iterator(): Iterator<PairResponse> = pairs.iterator()
+    override fun iterator(): Iterator<JsonPairItem> = jsonPairs.iterator()
 }
