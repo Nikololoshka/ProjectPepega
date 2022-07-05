@@ -22,7 +22,9 @@ import kotlin.math.roundToInt
 /**
  * View таблицы с оценками.
  */
-class MarksTable : View {
+class MarksTable @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttrs: Int = 0, defStyleRes: Int = 0,
+) : View(context, attrs, defStyleAttrs, defStyleRes) {
 
     private val minCellSize = CommonUtils.dpToPx(25F, context.resources)
     private val textCellMargin = CommonUtils.dpToPx(4F, context.resources)
@@ -55,45 +57,11 @@ class MarksTable : View {
     private val linePainter = Paint(Paint.ANTI_ALIAS_FLAG)
     private val drawablePainter = Paint(Paint.ANTI_ALIAS_FLAG)
 
-    constructor(
-        context: Context
-    ) : super(context) {
-        initialize(context, null, 0, 0)
-    }
-
-    constructor(
-        context: Context,
-        attrs: AttributeSet
-    ) : super(context, attrs) {
-        initialize(context, attrs, 0, 0)
-    }
-
-    constructor(
-        context: Context,
-        attrs: AttributeSet,
-        defStyleAttrs: Int
-    ) : super(context, attrs, defStyleAttrs) {
-        initialize(context, attrs, defStyleAttrs, 0)
-    }
-
-    constructor(
-        context: Context,
-        attrs: AttributeSet,
-        defStyleAttrs: Int,
-        defStyleRes: Int
-    ) : super(context, attrs, defStyleAttrs, defStyleRes) {
-        initialize(context, attrs, defStyleAttrs, defStyleRes)
-    }
 
     /**
      * Инициализация атрибутов таблицы с оценками.
      */
-    private fun initialize(
-        context: Context,
-        attrs: AttributeSet?,
-        defStyleAttrs: Int,
-        defStyleRes: Int
-    ) {
+    init {
         val typedArray = context.obtainStyledAttributes(
             attrs, R.styleable.MarksTable, defStyleAttrs, defStyleRes
         )

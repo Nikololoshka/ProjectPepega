@@ -10,36 +10,18 @@ import com.vereshchagin.nikolay.stankinschedule.utils.DrawableUtils
  * Стандартный TextView с заглушкой с shimmer эффектом,
  * если не установлен текст.
  */
-class ShimmerTextView : AppCompatTextView {
+class ShimmerTextView @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttrs: Int = 0,
+) : AppCompatTextView(context, attrs, defStyleAttrs) {
 
     private val shimmerDrawable = DrawableUtils.createShimmerDrawable()
     private var placeholderCount = 0
 
-    constructor(
-        context: Context
-    ) : super(context) {
-        initialize(context, null, 0)
-    }
-
-    constructor(
-        context: Context,
-        attrs: AttributeSet
-    ) : super(context, attrs) {
-        initialize(context, attrs, 0)
-    }
-
-    constructor(
-        context: Context,
-        attrs: AttributeSet,
-        defStyleAttrs: Int
-    ) : super(context, attrs, defStyleAttrs) {
-        initialize(context, attrs, defStyleAttrs)
-    }
 
     /**
      * Инициализация TextView.
      */
-    private fun initialize(context: Context, attrs: AttributeSet?, defStyleAttrs: Int) {
+    init {
         val typedArray = context.obtainStyledAttributes(
             attrs, R.styleable.ShimmerTextView, defStyleAttrs, 0
         )

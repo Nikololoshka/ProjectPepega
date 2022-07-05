@@ -15,7 +15,7 @@ import com.vereshchagin.nikolay.stankinschedule.R
  */
 class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceClickListener {
 
-    override fun onCreatePreferences(savedInstanceState: Bundle, rootKey: String) {
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preferences_root, rootKey)
 
         findPreference<Preference>(SETTINGS_GENERAL_FRAGMENT)?.onPreferenceClickListener = this

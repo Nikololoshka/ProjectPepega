@@ -1,9 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.view
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import android.util.Log
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.content.ContextCompat
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
@@ -12,35 +10,23 @@ import com.vereshchagin.nikolay.stankinschedule.R
 /**
  * Кнопка "избранное" с анимацией.
  */
-class FavoriteButton : AppCompatImageButton {
-    var mIsFavorite = false
-    var mNotFavorite: Drawable? = null
-    var mFavorite: Drawable? = null
-    var mFavoriteActivated: AnimatedVectorDrawableCompat? = null
+class FavoriteButton @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0,
+) : AppCompatImageButton(context, attrs, defStyleAttr) {
 
-    constructor(context: Context) : super(context) {
-        initialization()
-    }
+    private var isFavorite = false
 
-    constructor(context: Context, attrs: AttributeSet) : super(
-        context, attrs
-    ) {
-        initialization()
-    }
+    private val notFavoriteDrawable =
+        ContextCompat.getDrawable(context, R.drawable.ic_favorite_star_unchecked)!!
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
-        context, attrs, defStyleAttr
-    ) {
-        initialization()
-    }
+    private val favoriteDrawable =
+        ContextCompat.getDrawable(context, R.drawable.ic_favorite_star_checked)!!
 
-    private fun initialization() {
-        mIsFavorite = false
-        mNotFavorite = ContextCompat.getDrawable(context, R.drawable.ic_favorite_star_unchecked)
-        mFavorite = ContextCompat.getDrawable(context, R.drawable.ic_favorite_star_checked)
-        mFavoriteActivated =
-            AnimatedVectorDrawableCompat.create(context, R.drawable.avd_favorite_button)
-        setImageDrawable(mNotFavorite)
+    private val favoriteActivatedDrawable =
+        AnimatedVectorDrawableCompat.create(context, R.drawable.avd_favorite_button)!!
+
+    init {
+        setImageDrawable(notFavoriteDrawable)
     }
 
     /**
@@ -49,24 +35,18 @@ class FavoriteButton : AppCompatImageButton {
      * @param animate - включить с анимацией.
      */
     fun setToggle(toggle: Boolean, animate: Boolean) {
-        if (toggle == mIsFavorite) {
+        if (toggle == isFavorite) {
             return
         }
-        if (DEBUG) {
-            Log.d(TAG, "setToggle: $toggle")
-        }
-        mIsFavorite = toggle
-        if (animate) {
-            setImageDrawable(mFavoriteActivated)
-            mFavoriteActivated!!.start()
-            return
-        }
-        val drawable = if (mIsFavorite) mFavorite else mNotFavorite
-        setImageDrawable(drawable)
-    }
 
-    companion object {
-        private const val TAG = "FavoriteButtonLog"
-        private const val DEBUG = false
+        isFavorite = toggle
+        if (animate) {
+            setImageDrawable(favoriteActivatedDrawable)
+            favoriteActivatedDrawable.start()
+            return
+        }
+
+        val drawable = if (isFavorite) favoriteDrawable else notFavoriteDrawable
+        setImageDrawable(drawable)
     }
 }

@@ -9,30 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
  * Аналогичен LinearLayoutManager, но можно задать
  * фиксированное количество отображаемых элементов.
  */
-class FixedLayoutManager : LinearLayoutManager {
+class FixedLayoutManager @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0,
+) : LinearLayoutManager(context, attrs, defStyleAttr, defStyleRes) {
 
     /**
      * Максимально количество отображаемых элементов.
      */
     var fixedCount = 3
         set(value) {
-            field = if (value < 0)  0 else value
+            field = if (value < 0) 0 else value
         }
-
-    constructor(
-        context: Context
-    ) : super(context)
-
-    constructor(
-        context: Context?, orientation: Int = RecyclerView.VERTICAL, reverseLayout: Boolean = false
-    ) : super(context, orientation, reverseLayout)
-
-    constructor(
-        context: Context?,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int
-    ) : super(context, attrs, defStyleAttr, defStyleRes)
 
     override fun setMeasuredDimension(widthSize: Int, heightSize: Int) {
         val maxHeight = computeHeight()

@@ -18,10 +18,8 @@ import com.vereshchagin.nikolay.stankinschedule.utils.extensions.extractFilename
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
-import org.apache.commons.io.FileUtils
 import java.io.File
 import java.io.FileNotFoundException
-import java.nio.charset.StandardCharsets
 import javax.inject.Inject
 
 /**
@@ -233,7 +231,7 @@ class ScheduleRepository @Inject constructor(
                 val path = SchedulePreference.createPath(context, scheduleName)
 
                 try {
-                    val json = FileUtils.readFileToString(File(path), StandardCharsets.UTF_8)
+                    val json = File(path).bufferedReader().use { it.readText() }
                     val gson = GsonBuilder()
                         .registerTypeAdapter(
                             JsonScheduleItem::class.java,

@@ -9,36 +9,19 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * Реализация RecyclerView, которая будет скрывать клавиатуру при прокрутке.
  */
-class KeyboardDismissingRecyclerView : RecyclerView {
+class KeyboardDismissingRecyclerView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttrs: Int = 0,
+) : RecyclerView(context, attrs, defStyleAttrs) {
 
     private var scrollListener: OnScrollListener? = null
+
     private val inputMethodManager = ContextCompat.getSystemService(
         context, InputMethodManager::class.java
     )
 
-    constructor(
-        context: Context,
-    ) : super(context) {
-        initialize()
-    }
-
-    constructor(
-        context: Context,
-        attrs: AttributeSet,
-    ) : super(context, attrs) {
-        initialize()
-    }
-
-    constructor(
-        context: Context,
-        attrs: AttributeSet,
-        defStyleAttrs: Int,
-    ) : super(context, attrs, defStyleAttrs) {
-        initialize()
-    }
-
-
-    private fun initialize() {
+    init {
         scrollListener = object : OnScrollListener() {
             var isKeyboardDismissedByScroll = false
             override fun onScrollStateChanged(recyclerView: RecyclerView, state: Int) {
