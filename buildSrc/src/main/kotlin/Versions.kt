@@ -3,11 +3,16 @@ import org.gradle.api.JavaVersion
 object Versions {
 
     val java = JavaVersion.VERSION_1_8
+    val kotlinLevel = "1.8"
+
+    const val compose = "1.1.1"
+    const val composeCompiler = "1.2.0"
+    const val composeActivity = "1.5.0"
 
     const val ksp = "1.6.20-1.0.4"
 
     const val agp = "7.2.1"
-    const val kotlin = "1.6.20"
+    const val kotlin = "1.7.0"
 
     const val activity = "1.3.1"
     const val appcompat = "1.3.1"

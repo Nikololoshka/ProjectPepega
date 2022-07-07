@@ -4,6 +4,24 @@ object AppDependencies {
     const val coreKtx = "androidx.core:core-ktx:${Versions.core_ktx}"
     const val ksp = "com.google.devtools.ksp:symbol-processing-api:${Versions.ksp}"
 
+    // Compose
+    const val composeRuntime = "androidx.compose.runtime:runtime:${Versions.compose}"
+    const val composeUI = "androidx.compose.ui:ui:${Versions.compose}"
+    const val composeUITooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
+    const val composeFoundation = "androidx.compose.foundation:foundation:${Versions.compose}"
+    const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
+    const val composeLivedata = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
+    val compose = listOf(
+        composeRuntime,
+        composeUI,
+        composeUITooling,
+        composeFoundation,
+        composeMaterial,
+        composeLivedata
+    )
+    const val composeActivity = "androidx.activity:activity-compose:1.5.0"
+
+
     // Kotlin
     const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val kotlinReflect = "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin}"
@@ -25,7 +43,10 @@ object AppDependencies {
     const val gridLayout = "androidx.gridlayout:gridlayout:${Versions.gridLayout}"
     const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     const val pager = "androidx.viewpager2:viewpager2:${Versions.pager}"
+
     const val paging = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
+    const val pagingCompose = "androidx.paging:paging-compose:1.0.0-alpha14"
+
     const val material = "com.google.android.material:material:${Versions.material}"
 
 
