@@ -2,6 +2,7 @@
 
 buildscript {
 
+    val compose_version by extra("1.1.0-beta01")
     repositories {
         mavenCentral()
         mavenLocal()
@@ -19,6 +20,8 @@ buildscript {
         classpath(AppDependencies.firebaseGradle)
         classpath(AppDependencies.hiltPlugin)
         classpath(AppDependencies.navigationSafeArgsPlugin)
+
+        classpath(kotlin("serialization", version = Versions.kotlin))
     }
 }
 
@@ -27,6 +30,8 @@ plugins {
     id("com.android.library") version Versions.agp apply false
     // id("com.google.devtools.ksp") version Versions.ksp apply false
     kotlin("android") version Versions.kotlin apply false
+
+
 }
 
 allprojects {
