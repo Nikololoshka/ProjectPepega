@@ -11,15 +11,18 @@ object AppDependencies {
     const val composeFoundation = "androidx.compose.foundation:foundation:${Versions.compose}"
     const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
     const val composeLivedata = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
+    const val composeViewmodel = "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
     val compose = listOf(
         composeRuntime,
         composeUI,
         composeUITooling,
         composeFoundation,
         composeMaterial,
-        composeLivedata
+        composeLivedata,
+        composeViewmodel
     )
     const val composeActivity = "androidx.activity:activity-compose:1.5.0"
+    const val composeNavigation = "androidx.navigation:navigation-compose:2.5.0"
 
 
     // Kotlin

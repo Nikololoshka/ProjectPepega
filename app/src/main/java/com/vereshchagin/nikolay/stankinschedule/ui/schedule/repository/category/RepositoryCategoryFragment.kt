@@ -78,6 +78,7 @@ class RepositoryCategoryFragment :
                     is State.Loading -> {
                         stateful.setState(StatefulLayout2.LOADING)
                     }
+                    else -> {}
                 }
             }
         }

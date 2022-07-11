@@ -1,7 +1,8 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -10,8 +11,6 @@ android {
     defaultConfig {
         minSdk = AppConfig.minSdk
         targetSdk = AppConfig.targetSdk
-        versionCode = AppConfig.versionCode
-        versionName = AppConfig.versionName
 
         testInstrumentationRunner = AppConfig.androidTestInstrumentation
         vectorDrawables { useSupportLibrary = true }
@@ -50,7 +49,12 @@ kapt {
     correctErrorTypes = true
 }
 
+hilt {
+    enableAggregatingTask = true
+}
+
 dependencies {
+    implementation(project(":core"))
 
     implementation(AppDependencies.kotlin)
 
@@ -58,18 +62,33 @@ dependencies {
     implementation(AppDependencies.compose)
     implementation(AppDependencies.composeActivity)
     implementation(AppDependencies.appComponents)
+    implementation(AppDependencies.appcompat)
 
     implementation(AppDependencies.retrofitRuntime)
+    implementation(AppDependencies.retrofitGson)
     implementation(AppDependencies.gson)
     implementation("io.coil-kt:coil-compose:2.1.0")
 
     implementation(AppDependencies.paging)
     implementation(AppDependencies.pagingCompose)
 
+    val accompanist = "0.23.1"
+    implementation("com.google.accompanist:accompanist-pager:$accompanist")
+    implementation("com.google.accompanist:accompanist-pager-indicators:$accompanist")
+    implementation("com.google.accompanist:accompanist-webview:0.24.13-rc")
+    implementation(AppDependencies.webkit)
+
+    // Dagger & Hilt
+    implementation(AppDependencies.hiltAndroid)
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    kapt(AppDependencies.hiltCompiler)
+
     // Room DB
     implementation(AppDependencies.roomRuntime)
     implementation(AppDependencies.roomKtx)
     kapt(AppDependencies.roomCompiler)
+
+    implementation(AppDependencies.shimmer)
 
     debugImplementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
 

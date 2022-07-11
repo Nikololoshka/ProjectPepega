@@ -229,7 +229,7 @@ class RepositoryScheduleViewModel @AssistedInject constructor(
             scheduleId: Int,
         ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 return factory.create(scheduleId) as T
             }
         }

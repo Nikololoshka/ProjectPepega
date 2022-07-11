@@ -49,14 +49,6 @@ android {
 
     }
 
-    compileOptions {
-        sourceCompatibility = Versions.java
-        targetCompatibility = Versions.java
-    }
-
-    kotlinOptions {
-        jvmTarget = Versions.java.toString()
-    }
 
     buildTypes {
         debug {
@@ -79,9 +71,23 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility = Versions.java
+        targetCompatibility = Versions.java
+    }
+
+    kotlinOptions {
+        jvmTarget = Versions.java.toString()
+    }
+
     buildFeatures {
         dataBinding = true
         viewBinding = true
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.composeCompiler
     }
 
     packagingOptions {
@@ -102,6 +108,8 @@ kapt {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
+    implementation(project(":feature_news"))
+
     // App core
     implementation(AppDependencies.coreKtx)
     implementation(AppDependencies.ksp)
@@ -117,6 +125,11 @@ dependencies {
     implementation(AppDependencies.firebaseModules)
 
     // UI
+    implementation(AppDependencies.compose)
+    implementation(AppDependencies.composeActivity)
+    implementation(AppDependencies.composeNavigation)
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
     implementation(AppDependencies.appcompat)
     implementation(AppDependencies.legacySupport)
     implementation(AppDependencies.constraintLayout)

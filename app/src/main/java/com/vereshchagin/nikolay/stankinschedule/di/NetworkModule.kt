@@ -1,7 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.di
 
 import com.google.gson.GsonBuilder
-import com.vereshchagin.nikolay.stankinschedule.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.api.ModuleJournalAPI2
 import com.vereshchagin.nikolay.stankinschedule.api.ScheduleRemoteRepositoryAPI
 import com.vereshchagin.nikolay.stankinschedule.api.StankinNewsAPI
@@ -14,7 +13,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -78,7 +76,7 @@ object NetworkModule {
             .build()
             .create(ScheduleRemoteRepositoryAPI::class.java)
     }
-
+    /*
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
         // включение лога в DEBUG
@@ -91,5 +89,5 @@ object NetworkModule {
                 .build()
         }
         return OkHttpClient()
-    }
+    }*/
 }

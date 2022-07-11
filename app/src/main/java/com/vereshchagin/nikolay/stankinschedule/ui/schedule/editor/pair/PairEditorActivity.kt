@@ -29,7 +29,7 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.date.DateEdit
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.PairEditorViewModel.State.*
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.list.PairDatesAdaptor
 import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.pair.list.SwipeToDeleteCallback
-import com.vereshchagin.nikolay.stankinschedule.utils.*
+import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.currentPosition
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setCurrentPosition
 import com.vereshchagin.nikolay.stankinschedule.utils.extensions.setOkButton
@@ -207,7 +207,7 @@ class PairEditorActivity :
         itemTouchHelper.attachToRecyclerView(binding.recyclerDates)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_pair_editor, menu)
         return true
     }

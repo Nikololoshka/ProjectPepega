@@ -11,6 +11,12 @@ interface NewsRepository {
 
     fun lastNews(newsCount: Int = 3): Flow<List<NewsEntity>>
 
+    suspend fun addPostsIntoDb(
+        newsSubdivision: Int,
+        response: NewsResponse,
+        refresh: Boolean = false,
+    )
+
     suspend fun loadPage(newsSubdivision: Int, page: Int, count: Int = 40): NewsResponse
 
     suspend fun update(newsSubdivision: Int)

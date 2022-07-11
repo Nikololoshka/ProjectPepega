@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.MainActivity
 import com.vereshchagin.nikolay.stankinschedule.R
+import com.vereshchagin.nikolay.stankinschedule.TestingActivity
 import com.vereshchagin.nikolay.stankinschedule.databinding.FragmentHomeBinding
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.ui.BaseFragment
@@ -97,6 +99,11 @@ class HomeFragment
         parentFragmentManager.setFragmentResultListener(
             ChangeSubgroupBottomSheet.REQUEST_CHANGE_SUBGROUP, this, this::onScheduleSubgroupChanged
         )
+
+        binding.testBtn.setOnClickListener {
+            val intent = Intent(requireContext(), TestingActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStart() {

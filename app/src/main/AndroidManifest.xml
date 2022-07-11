@@ -158,6 +158,12 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="false" />
 
+        <activity
+            android:name=".TestingActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false" />
+
     </application>
 
 </manifest>

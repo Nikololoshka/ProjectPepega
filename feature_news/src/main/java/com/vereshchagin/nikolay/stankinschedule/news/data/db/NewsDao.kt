@@ -24,34 +24,34 @@ interface NewsDao {
      * Возвращает список (DataSource) за кэшированных новостей.
      * @param newsSubdivision номер отдела новостей.
      */
-    @Query("SELECT * FROM posts WHERE newsSubdivision = :newsSubdivision ORDER BY indexOrder ASC")
+    @Query("SELECT * FROM news_posts WHERE news_subdivision = :newsSubdivision ORDER BY index_order ASC")
     fun all(newsSubdivision: Int): PagingSource<Int, NewsEntity>
 
     /**
      * Возвращает список (DataSource) из последних нескольких элементов.
      * @param max максимальное количество элементов.
      */
-    @Query("SELECT * FROM POSTS ORDER BY date DESC, id DESC LIMIT :max")
+    @Query("SELECT * FROM news_posts ORDER BY date DESC, id DESC LIMIT :max")
     fun latest(max: Int = 3): Flow<List<NewsEntity>>
 
     /**
      * Очищает за кэшированные новости.
      * @param newsSubdivision номер отдела новостей.
      */
-    @Query("DELETE FROM posts WHERE newsSubdivision = :newsSubdivision")
+    @Query("DELETE FROM news_posts WHERE news_subdivision = :newsSubdivision")
     fun clear(newsSubdivision: Int)
 
     /**
      * Количество новостей в кэше.
      * @param newsSubdivision номер отдела новостей.
      */
-    @Query("SELECT COUNT(*) FROM posts WHERE newsSubdivision = :newsSubdivision")
+    @Query("SELECT COUNT(*) FROM news_posts WHERE news_subdivision = :newsSubdivision")
     fun count(newsSubdivision: Int): Int
 
     /**
      * Возвращает следующий порядковый индекс для новостей.
      * @param newsSubdivision номер отдела новостей.
      */
-    @Query("SELECT MAX(indexOrder) + 1 FROM posts WHERE newsSubdivision = :newsSubdivision")
+    @Query("SELECT MAX(index_order) + 1 FROM news_posts WHERE news_subdivision = :newsSubdivision")
     fun nextIndexInResponse(newsSubdivision: Int): Int
 }

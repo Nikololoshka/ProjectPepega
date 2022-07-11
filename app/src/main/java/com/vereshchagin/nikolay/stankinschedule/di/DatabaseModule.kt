@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.di
 
 import android.content.Context
+import androidx.room.RoomDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.db.dao.RepositoryDao
@@ -23,6 +24,15 @@ object DatabaseModule {
     ): MainApplicationDatabase {
         return MainApplicationDatabase.database(context)
     }
+
+    @Singleton
+    @Provides
+    fun provideRoomDatabase(db: MainApplicationDatabase): RoomDatabase = db
+
+    @Singleton
+    @Provides
+    fun provideNewssDao(db: MainApplicationDatabase): com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDao =
+        db.featureNews()
 
     @Singleton
     @Provides

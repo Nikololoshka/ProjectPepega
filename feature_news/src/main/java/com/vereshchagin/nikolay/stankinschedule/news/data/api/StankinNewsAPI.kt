@@ -15,9 +15,19 @@ interface StankinNewsAPI {
      * @param data данные запроса.
      */
     @POST("/api_entry.php")
-    fun getData(@Body data: PostData): Call<NewsResponse>
+    fun getNewsResponse(@Body data: PostData): Call<NewsResponse>
+
+    /**
+     * Запрос к API новостей stankin.ru.
+     * @param data данные запроса.
+     */
+    @POST("/api_entry.php")
+    fun getPostResponse(@Body data: PostData): Call<PostResponse>
 
     companion object {
+
+        const val BASE_URL = "https://stankin.ru"
+
         /**
          * Запрос к API новостей stankin.ru.
          * @param api API для получения данных.
@@ -44,13 +54,34 @@ interface StankinNewsAPI {
                 "tag" to tag,
                 "query_search" to query
             )
-            return api.getData(
+            return api.getNewsResponse(
                 PostData(
                     "getNews",
                     data
                 )
             )
         }
+
+        /**
+         * Запрос новости с stankin.ru
+         * @param api API для получения данных.
+         * @param newsId ID новости.
+         */
+        fun getNewsPost(
+            api: StankinNewsAPI,
+            newsId: Int,
+        ): Call<PostResponse> {
+            val data = mapOf(
+                "id" to newsId
+            )
+            return api.getPostResponse(
+                PostData(
+                    "getNewsItem",
+                    data
+                )
+            )
+        }
+
 
         /**
          * Объект для POST запроса.

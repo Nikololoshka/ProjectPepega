@@ -11,6 +11,8 @@ import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleCategoryEntry
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleItemEntry
 import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleUpdateEntry
+import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDatabaseDao
+import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsEntity
 import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
 import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreferenceKt
 import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.DateTimeConverter
@@ -29,13 +31,15 @@ import kotlinx.coroutines.runBlocking
 
         ScheduleCategoryEntry::class,
         ScheduleItemEntry::class,
-        ScheduleUpdateEntry::class
+        ScheduleUpdateEntry::class,
+
+        NewsEntity::class
     ],
     version = 2,
     exportSchema = false
 )
 @TypeConverters(DateTimeConverter::class, ListConverter::class)
-abstract class MainApplicationDatabase : RoomDatabase() {
+abstract class MainApplicationDatabase : RoomDatabase(), NewsDatabaseDao {
 
     /**
      * Dao репозитория приложения.
@@ -52,6 +56,7 @@ abstract class MainApplicationDatabase : RoomDatabase() {
      */
     abstract fun schedules(): ScheduleDao
 
+    abstract override fun featureNews(): com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDao
 
     companion object {
 

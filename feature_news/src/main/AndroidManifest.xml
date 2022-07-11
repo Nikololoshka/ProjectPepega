@@ -4,8 +4,8 @@
 
     <application>
         <activity
-            android:name=".NewsActivity"
-            android:exported="true"></activity>
+            android:name=".ui.NewsViewerActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

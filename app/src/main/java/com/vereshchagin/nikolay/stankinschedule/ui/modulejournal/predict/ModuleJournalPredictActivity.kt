@@ -17,7 +17,6 @@ import com.vereshchagin.nikolay.stankinschedule.ui.modulejournal.predict.paging.
 import com.vereshchagin.nikolay.stankinschedule.utils.StatefulLayout2
 import com.vereshchagin.nikolay.stankinschedule.utils.delegates.ActivityDelegate
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 /**
  * Активность для вычисления рейтинга студента.
@@ -99,12 +98,12 @@ class ModuleJournalPredictActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_module_journal_predict, menu)
         return true
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         menu?.findItem(R.id.show_all_disciplines)?.isChecked =
             viewModel.showAllDiscipline.value == true
 

@@ -9,7 +9,6 @@ import com.vereshchagin.nikolay.stankinschedule.ui.schedule.editor.view.paging.S
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 
@@ -86,7 +85,7 @@ class ScheduleEditorViewModel @AssistedInject constructor(
             scheduleId: Long,
         ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 return factory.create(scheduleId) as T
             }
         }

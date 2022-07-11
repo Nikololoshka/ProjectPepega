@@ -227,7 +227,7 @@ class NewsViewerActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_news_viewer, menu)
         return true
     }
@@ -285,6 +285,7 @@ class NewsViewerActivity : AppCompatActivity() {
                     stateful.setState(StatefulLayout2.ERROR)
                 }
             }
+            else -> {}
         }
 
         if (state !is State.Loading) {
