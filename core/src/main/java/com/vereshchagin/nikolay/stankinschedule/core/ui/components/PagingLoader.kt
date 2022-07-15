@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.ui.components
+package com.vereshchagin.nikolay.stankinschedule.core.ui.components
 
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.paging.CombinedLoadStates

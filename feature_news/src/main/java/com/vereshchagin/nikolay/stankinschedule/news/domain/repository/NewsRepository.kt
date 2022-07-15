@@ -19,5 +19,5 @@ interface NewsRepository {
 
     suspend fun loadPage(newsSubdivision: Int, page: Int, count: Int = 40): NewsResponse
 
-    suspend fun update(newsSubdivision: Int)
+    suspend fun refresh(newsSubdivision: Int, force: Boolean = false)
 }

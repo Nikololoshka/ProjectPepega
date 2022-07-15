@@ -65,4 +65,10 @@ dependencies {
     // Dagger & Hilt
     implementation(AppDependencies.hiltAndroid)
     kapt(AppDependencies.hiltCompiler)
+
+    implementation(AppDependencies.paging)
+    implementation(AppDependencies.pagingCompose)
+
+    implementation(AppDependencies.preference)
+    api(AppDependencies.jodaTime)
 }

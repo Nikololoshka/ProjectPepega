@@ -49,7 +49,7 @@ fun NewsPost(
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .size(100.dp, 60.dp)
+                .size(100.dp, 56.dp)
                 .align(Alignment.CenterVertically)
         )
         Column(

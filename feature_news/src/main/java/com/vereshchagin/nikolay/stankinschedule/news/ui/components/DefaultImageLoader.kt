@@ -17,11 +17,7 @@ fun defaultImageLoader(
             ShimmerDrawable().apply {
                 setShimmer(
                     Shimmer.AlphaHighlightBuilder()
-                        .setDuration(2000)
-                        .setBaseAlpha(0.7f)
-                        .setHighlightAlpha(0.6f)
-                        .setDirection(Shimmer.Direction.LEFT_TO_RIGHT)
-                        .setAutoStart(true)
+                        .setAutoStart(false)
                         .build()
                 )
             }

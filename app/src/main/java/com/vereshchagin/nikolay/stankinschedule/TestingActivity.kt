@@ -4,14 +4,25 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Phone
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.ApplicationTheme
 import com.vereshchagin.nikolay.stankinschedule.news.ui.screen.NewsReviewScreen
 import com.vereshchagin.nikolay.stankinschedule.news.ui.screen.NewsViewerScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,32 +31,115 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class TestingActivity : AppCompatActivity() {
 
+    class Screen(
+        val name: String,
+        val icon: ImageVector,
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            MaterialTheme {
+            ApplicationTheme {
                 val navController = rememberNavController()
+                val screens = listOf(
+                    Screen("test", Icons.Filled.Phone),
+                    Screen("news", Icons.Filled.Favorite)
+                )
+                val navBackStackEntry by navController.currentBackStackEntryAsState()
+                val canPop = navBackStackEntry != null
 
-                NavHost(
-                    navController = navController,
-                    startDestination = "news"
-                ) {
-                    composable("news") {
-                        NewsReviewScreen(
-                            navController = navController,
-                            modifier = Modifier.fillMaxSize()
+                Scaffold(
+                    topBar = {
+                        TopAppBar(
+                            title = { Text(text = "AppBar") },
+                            navigationIcon = {
+                                IconButton(
+                                    onClick = {
+                                        if (canPop) {
+                                            navController.popBackStack()
+                                        }
+                                    }
+                                ) {
+                                    Icon(
+                                        imageVector = if (canPop) {
+                                            Icons.Filled.ArrowBack
+                                        } else {
+                                            Icons.Filled.Menu
+                                        },
+                                        contentDescription = null
+                                    )
+                                }
+                            }
                         )
-                    }
-                    composable(
-                        route = "viewer/{newsId}",
-                        arguments = listOf(navArgument("newsId") { type = NavType.IntType })
-                    ) { backStackEntry ->
-                        NewsViewerScreen(
-                            newsId = backStackEntry.arguments?.getInt("newsId") ?: -1,
-                            viewModel = hiltViewModel(),
-                            modifier = Modifier.fillMaxSize()
-                        )
+                    },
+                    bottomBar = {
+                        BottomNavigation {
+                            val currentDestination = navBackStackEntry?.destination
+
+                            screens.forEach { screen ->
+                                BottomNavigationItem(
+                                    icon = {
+                                        Icon(
+                                            imageVector = screen.icon,
+                                            contentDescription = null
+                                        )
+                                    },
+                                    label = {
+                                        Text(
+                                            text = screen.name
+                                        )
+                                    },
+                                    selected = currentDestination?.hierarchy?.any { it.route == screen.name } == true,
+                                    onClick = {
+                                        navController.navigate(screen.name) {
+                                            // Pop up to the start destination of the graph to
+                                            // avoid building up a large stack of destinations
+                                            // on the back stack as users select items
+//                                            popUpTo(navController.graph.findStartDestination().id) {
+//                                                saveState = true
+//                                            }
+//                                            // Avoid multiple copies of the same destination when
+//                                            // reselecting the same item
+//                                            launchSingleTop = true
+//                                            // Restore state when reselecting a previously selected item
+//                                            restoreState = true
+                                        }
+                                    }
+                                )
+                            }
+                        }
+                    },
+                ) { innerPadding ->
+                    NavHost(
+                        navController = navController,
+                        startDestination = "news",
+                        modifier = Modifier
+                            .padding(innerPadding)
+                    ) {
+                        composable("test") {
+                            Text(text = "Test screen")
+                        }
+
+                        composable("news") {
+                            NewsReviewScreen(
+                                viewModel = hiltViewModel(),
+                                navigateToViewer = {
+                                    navController.navigate("viewer/$it")
+                                },
+                                modifier = Modifier.fillMaxSize()
+                            )
+                        }
+                        composable(
+                            route = "viewer/{newsId}",
+                            arguments = listOf(navArgument("newsId") { type = NavType.IntType })
+                        ) { backStackEntry ->
+                            NewsViewerScreen(
+                                newsId = backStackEntry.arguments?.getInt("newsId") ?: -1,
+                                viewModel = hiltViewModel(),
+                                modifier = Modifier.fillMaxSize()
+                            )
+                        }
                     }
                 }
             }

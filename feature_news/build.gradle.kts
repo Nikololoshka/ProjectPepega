@@ -72,10 +72,12 @@ dependencies {
     implementation(AppDependencies.paging)
     implementation(AppDependencies.pagingCompose)
 
-    val accompanist = "0.23.1"
+    val accompanist = "0.24.13-rc"
     implementation("com.google.accompanist:accompanist-pager:$accompanist")
     implementation("com.google.accompanist:accompanist-pager-indicators:$accompanist")
-    implementation("com.google.accompanist:accompanist-webview:0.24.13-rc")
+    implementation("com.google.accompanist:accompanist-webview:$accompanist")
+    implementation("com.google.accompanist:accompanist-swiperefresh:$accompanist")
+    implementation("com.google.accompanist:accompanist-placeholder-material:$accompanist")
     implementation(AppDependencies.webkit)
 
     // Dagger & Hilt
