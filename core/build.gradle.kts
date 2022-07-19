@@ -69,6 +69,8 @@ dependencies {
     implementation(AppDependencies.paging)
     implementation(AppDependencies.pagingCompose)
 
+    implementation(AppDependencies.chromeBrowser)
+
     implementation(AppDependencies.preference)
     api(AppDependencies.jodaTime)
 }

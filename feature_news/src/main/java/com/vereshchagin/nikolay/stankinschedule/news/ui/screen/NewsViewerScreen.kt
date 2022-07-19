@@ -9,10 +9,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import com.vereshchagin.nikolay.stankinschedule.core.R
+import com.vereshchagin.nikolay.stankinschedule.core.ui.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.news.ui.components.NewsRenderer
-import com.vereshchagin.nikolay.stankinschedule.news.util.State
+import com.vereshchagin.nikolay.stankinschedule.core.ui.State
 
 
 @SuppressLint("SetJavaScriptEnabled")
@@ -22,6 +24,7 @@ fun NewsViewerScreen(
     viewModel: NewsViewerViewModel,
     modifier: Modifier = Modifier,
 ) {
+    val context = LocalContext.current
     val newsContent = viewModel.newsContent.collectAsState()
 
     LaunchedEffect(newsId) {
@@ -32,11 +35,8 @@ fun NewsViewerScreen(
         is State.Success -> {
             NewsRenderer(
                 content = content.data,
-                onRedirect = {
-
-                },
+                onRedirect = { uri -> BrowserUtils.openLink(context, uri) },
                 modifier = modifier
-                    .padding(dimensionResource(R.dimen.screen_padding))
             )
         }
         else -> {

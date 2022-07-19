@@ -7,6 +7,8 @@ interface PostRepository {
 
     suspend fun saveNewsContent(news: NewsContent)
 
-    suspend fun loadNewsContent(postId: Int): PostResponse
+    suspend fun loadNewsContent(postId: Int): NewsContent?
+
+    suspend fun loadPost(postId: Int): PostResponse
 
 }

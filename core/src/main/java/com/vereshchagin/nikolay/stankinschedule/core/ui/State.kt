@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.util
+package com.vereshchagin.nikolay.stankinschedule.core.ui
 
 /**
  * Вспомогательный класс для отслеживания состояния загрузки ресурса.

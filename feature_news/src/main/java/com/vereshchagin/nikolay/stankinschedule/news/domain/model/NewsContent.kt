@@ -21,7 +21,7 @@ data class NewsContent(
             <body>
                 <div id="raw-text"> $text </div>
                 <div id="editor" style="display: none;"></div>
-                <div id="viewer"></div>        
+                <div id="viewer" style="padding: 0.8rem;"></div>        
                 <script>
                     var delta = $deltaFormat
                     var quill = new Quill('#editor', { readOnly: true });

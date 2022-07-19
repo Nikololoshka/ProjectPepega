@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vereshchagin.nikolay.stankinschedule.news.domain.model.NewsContent
 import com.vereshchagin.nikolay.stankinschedule.news.domain.usecase.NewsViewerUseCase
-import com.vereshchagin.nikolay.stankinschedule.news.util.State
+import com.vereshchagin.nikolay.stankinschedule.core.ui.State
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
