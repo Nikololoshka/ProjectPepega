@@ -110,6 +110,7 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":feature_news"))
+    implementation(project(":feature_modulejournal"))
 
     // App core
     implementation(AppDependencies.coreKtx)

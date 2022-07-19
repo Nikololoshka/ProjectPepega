@@ -1,3 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
+    <!-- Login screen -->
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="password_hide">Hide password</string>
+    <string name="password_show">Show password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forget_password">Forget password?</string>
+    <string name="field_is_empty">Field is empty</string>
+
 </resources>
