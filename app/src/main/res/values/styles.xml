@@ -37,11 +37,6 @@
         <item name="tabIndicatorColor">@color/colorAccent</item>
     </style>
 
-    <!-- Тема для модального окна -->
-    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/background_bottom_sheet</item>
-    </style>
-
     <!--  Стиль PreferenceCategory  -->
     <style name="Preference.CustomCategory" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">14sp</item>

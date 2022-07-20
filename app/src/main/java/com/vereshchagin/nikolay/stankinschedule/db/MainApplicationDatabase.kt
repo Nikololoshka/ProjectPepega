@@ -1,65 +1,32 @@
 package com.vereshchagin.nikolay.stankinschedule.db
 
 import android.content.Context
-import androidx.room.*
-import com.vereshchagin.nikolay.stankinschedule.db.dao.NewsDao
-import com.vereshchagin.nikolay.stankinschedule.db.dao.RepositoryDao
-import com.vereshchagin.nikolay.stankinschedule.db.dao.ScheduleDao
-import com.vereshchagin.nikolay.stankinschedule.model.news.NewsItem
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.PairItem
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.db.ScheduleItem
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleCategoryEntry
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleItemEntry
-import com.vereshchagin.nikolay.stankinschedule.model.schedule.remote.ScheduleUpdateEntry
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDatabaseDao
 import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsEntity
-import com.vereshchagin.nikolay.stankinschedule.repository.ScheduleRepository
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreferenceKt
-import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.DateTimeConverter
-import com.vereshchagin.nikolay.stankinschedule.utils.convertors.room.ListConverter
-import kotlinx.coroutines.runBlocking
 
 /**
  * Главная БД приложения.
  */
 @Database(
     entities = [
-        NewsItem::class,
-
-        ScheduleItem::class,
-        PairItem::class,
-
-        ScheduleCategoryEntry::class,
-        ScheduleItemEntry::class,
-        ScheduleUpdateEntry::class,
-
         NewsEntity::class
     ],
     version = 2,
     exportSchema = false
 )
-@TypeConverters(DateTimeConverter::class, ListConverter::class)
+// @TypeConverters(DateTimeConverter::class, ListConverter::class)
 abstract class MainApplicationDatabase : RoomDatabase(), NewsDatabaseDao {
-
-    /**
-     * Dao репозитория приложения.
-     */
-    abstract fun repository(): RepositoryDao
-
-    /**
-     * Dao новостей приложения.
-     */
-    abstract fun news(): NewsDao
 
     /**
      * Dao расписаний приложений.
      */
-    abstract fun schedules(): ScheduleDao
-
-    abstract override fun featureNews(): com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDao
+    abstract override fun featureNews(): NewsDao
 
     companion object {
-
         /**
          * Singleton БД.
          */
@@ -88,6 +55,7 @@ abstract class MainApplicationDatabase : RoomDatabase(), NewsDatabaseDao {
                     "main_application_database"
                 ).fallbackToDestructiveMigration()
 
+                /*
                 val preference = SchedulePreferenceKt(context)
                 val database = if (preference.migrateToVersion2) {
                     databaseBuilder.allowMainThreadQueries().build()
@@ -103,7 +71,9 @@ abstract class MainApplicationDatabase : RoomDatabase(), NewsDatabaseDao {
                     }
                     preference.migrateToVersion2 = true
                 }
+                */
 
+                val database = databaseBuilder.build()
                 instance = database
                 return database
             }

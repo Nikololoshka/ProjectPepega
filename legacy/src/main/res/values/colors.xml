@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Цвета приложения -->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorPrimaryVariant">#303F9F</color>
+
+    <color name="colorSecondary">#FF9800</color>
+    <color name="colorOnSecondary">#000000</color>
+    <color name="colorSecondaryVariant">#cf7b00</color>
+
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnSurface">#000000</color>
+
+    <color name="colorToolbarContent">@color/colorPrimary</color>
+
+    <!-- AppCompat -->
+    <color name="colorAccent">#FF9800</color>
+
+    <!-- Цвет текста, если ссылки на тему не поддерживаются -->
+    <color name="colorTextPrimary">#000000</color>
+    <color name="colorTextSecondary">#8a000000</color>
+    <color name="colorTextLight">#FFFFFF</color>
+
+    <color name="colorTextHint">#808080</color>
+    <color name="colorDivider">#e8e8e8</color>
+
+    <color name="colorToolBarText">#FFFFFF</color>
+    <color name="colorTabLayoutBackground">#EEEEEE</color>
+
+    <!--  Цвет отсутствия оценки  -->
+    <color name="colorDrawableNoMarks">#26000000</color>
+
+    <!-- Цвета иконки -->
+    <color name="ic_launcher_background">#FFFFFF</color>
+
+    <!-- Цвета для загрузочных экранов -->
+    <color name="colorBackgroundSplash">#FFFFFF</color>
+    <color name="colorBackgroundShimmer">#dddddd</color>
+
+    <!-- Цвет карточки -->
+    <color name="colorCardViewBackground">#FFFFFFFF</color>
+
+    <!-- Цвет фона "просмотра расписания" -->
+    <color name="colorScheduleViewBackground">#F0F0F0</color>
+
+    <!-- Цвет drawable объектов -->
+    <color name="colorDrawableLight">#FFFFFFFF</color>
+    <color name="colorDrawableDark">#FF000000</color>
+    <color name="colorDrawableMenu">#FFFFFFFF</color>
+    <color name="colorDrawableFloatingButton">#FFFFFFFF</color>
+
+    <!-- Цвет фона для новостей -->
+    <color name="colorNewsBackgroundLight">#FFFFFF</color>
+    <color name="colorNewsBackgroundDark">#141414</color>
+
+    <!-- Цвета карточки с расписанием -->
+    <color name="colorCardLecture">#80DEEA</color>
+    <color name="colorCardSeminar">#FFF59D</color>
+    <color name="colorCardLaboratory">#C5E1A5</color>
+    <color name="colorCardSubgroupA">#FFCC80</color>
+    <color name="colorCardSubgroupB">#D1C4E9</color>
+
+    <!-- Цвета виджета расписания -->
+    <color name="widgetColorTitleBackground">#3F51B5</color>
+    <color name="widgetColorTitleText">#FFFFFF</color>
+    <color name="widgetColorBodyBackground">#FFFFFF</color>
+
+</resources>

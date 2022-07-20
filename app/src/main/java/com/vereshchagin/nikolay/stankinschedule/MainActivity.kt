@@ -1,318 +1,175 @@
 package com.vereshchagin.nikolay.stankinschedule
 
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.appbar.MaterialToolbar
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.play.core.appupdate.AppUpdateInfo
-import com.google.android.play.core.appupdate.AppUpdateManager
-import com.google.android.play.core.appupdate.AppUpdateManagerFactory
-import com.google.android.play.core.install.InstallState
-import com.google.android.play.core.install.model.AppUpdateType
-import com.google.android.play.core.install.model.InstallStatus
-import com.google.android.play.core.install.model.UpdateAvailability
-import com.vereshchagin.nikolay.stankinschedule.databinding.ActivityMainBinding
-import com.vereshchagin.nikolay.stankinschedule.settings.ApplicationPreferenceKt
-import com.vereshchagin.nikolay.stankinschedule.settings.SchedulePreferenceKt
-import com.vereshchagin.nikolay.stankinschedule.ui.schedule.view.ScheduleViewFragment
-import com.vereshchagin.nikolay.stankinschedule.utils.NotificationUtils
-import com.vereshchagin.nikolay.stankinschedule.utils.ShortcutsUtils
-import com.vereshchagin.nikolay.stankinschedule.utils.delegates.ActivityDelegate
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.ApplicationTheme
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen.JournalLoginScreen
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen.JournalScreen
+import com.vereshchagin.nikolay.stankinschedule.news.ui.screen.NewsReviewScreen
+import com.vereshchagin.nikolay.stankinschedule.news.ui.screen.NewsViewerScreen
 import dagger.hilt.android.AndroidEntryPoint
-import org.joda.time.DateTime
-import org.joda.time.Hours
-import javax.inject.Inject
 
-/**
- * Главная активность приложения.
- */
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var preference: ApplicationPreferenceKt
-
-    /**
-     * Менеджер для проверки обновлений приложения.
-     */
-    private var appUpdateManager: AppUpdateManager by ActivityDelegate()
-
-    private lateinit var binding: ActivityMainBinding
+    class Screen(
+        val name: String,
+        val route: String,
+        val icon: ImageVector,
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // установка основной темы приложения, вместо splash темы
-        setTheme(R.style.AppTheme_NoActionBar)
-
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        // настройка toolbar
-        val toolbar: MaterialToolbar = findViewById(R.id.toolbar)
-        toolbar.setTitle(R.string.nav_home)
-        setSupportActionBar(toolbar)
-
-        // синхронизация toolbar и drawer
-        val toggle = ActionBarDrawerToggle(
-            this,
-            binding.drawerLayout,
-            toolbar,
-            R.string.nav_drawer_open,
-            R.string.nav_drawer_close
-        )
-        binding.drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        // конфигурирования навигации
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
-        val navController = navHostFragment.navController
-
-        val configuration = AppBarConfiguration.Builder(
-            R.id.nav_home_fragment,
-            R.id.nav_schedule_fragment,
-            R.id.nav_module_journal_fragment,
-            R.id.nav_news_fragment,
-            R.id.nav_module_journal_login_fragment
-        ).setOpenableLayout(binding.drawerLayout)
-            .build()
-
-        NavigationUI.setupWithNavController(toolbar, navController, configuration)
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
-
-        bottomNavigationView.setupWithNavController(navController) // Bottom Navigation
-        binding.navView.setupWithNavController(navController) // Drawer
-
-        navController.addOnDestinationChangedListener { _, dst, _ ->
-            // скрываем / показываем нижнюю навигацию
-            bottomNavigationView.visibility =
-                if (dst.parent?.id == R.id.settings_nav_graph || dst.id == R.id.nav_about_fragment) {
-                    View.GONE
-                } else {
-                    View.VISIBLE
-                }
-
-            if (dst.id == R.id.nav_schedule_view_fragment) {
-                bottomNavigationView.menu.findItem(R.id.nav_schedule_fragment)?.isChecked = true
-            }
-        }
-
-        // переключатель темы приложения
-        binding.darkModeButton.isChecked = preference.isManualDarkModeEnabled
-        binding.darkModeButton.setOnClickListener(this::onDarkModeButtonClicked)
-        updateDarkModeButton()
-
-        // настройка уведомлений
-        setupNotifications()
-
-        // настройка shortcuts
-        setupShortcuts(navController)
-
-        // проверка обновлений
-        appUpdateManager = AppUpdateManagerFactory.create(this)
-        checkAppUpdate()
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
-        return navHostFragment.navController.navigateUp() || super.onSupportNavigateUp()
-    }
-
-    // onActivityResult используется для in-app updates
-    @Suppress("DEPRECATION")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        // отмена обновления
-        if (requestCode == UPDATE_REQUEST && resultCode == RESULT_CANCELED) {
-            Snackbar.make(
-                binding.containerMain,
-                R.string.update_cancelled,
-                Snackbar.LENGTH_LONG
-            ).show()
-            preference.updateAppTime = DateTime.now()
-        }
-    }
-
-    /**
-     * Вызывается при нажатию на переключатель по смене темы приложения.
-     */
-    @Suppress("UNUSED_PARAMETER")
-    private fun onDarkModeButtonClicked(ignored: View) {
-        // если кнопка все равно осталась
-        val darkMode = preference.darkMode
-        if (darkMode != ApplicationPreferenceKt.DARK_MODE_MANUAL) {
-            binding.darkModeButton.visibility = View.GONE
-            return
-        }
-
-        val isDark = !preference.isManualDarkModeEnabled
-        preference.isManualDarkModeEnabled = isDark
-        AppCompatDelegate.setDefaultNightMode(
-            if (isDark) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
-        )
-    }
-
-    /**
-     * Обновляет отображение кнопки ручного переключение
-     * темной темы исходя из текущих настроек.
-     */
-    fun updateDarkModeButton() {
-        binding.darkModeButton.visibility =
-            if (preference.darkMode == ApplicationPreferenceKt.DARK_MODE_MANUAL) {
-                View.VISIBLE
-            } else {
-                View.GONE
-            }
-    }
-
-    /**
-     * Устанавливает настройки уведомлений для приложения.
-     */
-    private fun setupNotifications() {
-        // android 8.0+
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // общего назначения
-            val channelCommon = NotificationChannel(
-                NotificationUtils.CHANNEL_COMMON,
-                getString(R.string.notification_common),
-                NotificationManager.IMPORTANCE_DEFAULT
-            )
-            channelCommon.description = getString(R.string.notification_common_description)
-            channelCommon.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
-            channelCommon.enableVibration(true)
-            channelCommon.enableLights(true)
-
-            // модульного журнала
-            val channelModuleJournal = NotificationChannel(
-                NotificationUtils.CHANNEL_MODULE_JOURNAL,
-                getString(R.string.notification_mj),
-                NotificationManager.IMPORTANCE_DEFAULT
-            )
-            channelModuleJournal.description = getString(R.string.notification_mj_description)
-            channelModuleJournal.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
-            channelModuleJournal.enableVibration(true)
-            channelModuleJournal.enableLights(true)
-
-            getSystemService(NotificationManager::class.java)?.let { manager ->
-                manager.createNotificationChannel(channelCommon)
-                manager.createNotificationChannel(channelModuleJournal)
-            }
-        }
-    }
-
-    /**
-     * Устанавливает настройки shortcuts для приложения.
-     */
-    private fun setupShortcuts(navController: NavController) {
-        // android 7.1+
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-            when (intent.action) {
-                // избранное расписание
-                ShortcutsUtils.FAVORITE_SHORTCUT -> {
-                    val scheduleId = SchedulePreferenceKt(this).favoriteScheduleId
-                    navController.navigate(
-                        R.id.to_schedule_view_fragment,
-                        ScheduleViewFragment.createBundle(scheduleId)
-                    )
-                }
-                // к модульному журналу
-                ShortcutsUtils.MODULE_JOURNAL_SHORTCUT -> {
-                    navController.navigate(R.id.to_module_journal_fragment)
-                }
-            }
-        }
-    }
-
-    /**
-     * Проверка обновлений приложения.
-     */
-    private fun checkAppUpdate() {
-        // время последнего обновления
-        val lastUpdate = preference.updateAppTime
-        if (lastUpdate != null && Hours.hoursBetween(lastUpdate, DateTime.now()).hours < 48) {
-            return
-        }
-
-        appUpdateManager.registerListener(this::onUpdateState)
-        appUpdateManager.appUpdateInfo
-            .addOnSuccessListener { updateInfo ->
-                val stalenessDays = updateInfo.clientVersionStalenessDays()
-                if (updateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                    && updateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)
-                    && stalenessDays != null
-                    && stalenessDays >= DAYS_FOR_FLEXIBLE_UPDATE
-                ) {
-                    onShowUpdate(updateInfo)
-                } else {
-                    preference.updateAppTime = DateTime.now()
-                }
-            }.addOnFailureListener {
-                preference.updateAppTime = DateTime.now()
-            }
-    }
-
-    /**
-     * Показывает диалог, что доступно обновление приложения.
-     */
-    private fun onShowUpdate(updateInfo: AppUpdateInfo) {
-        Snackbar.make(
-            binding.containerMain,
-            R.string.update_available,
-            Snackbar.LENGTH_INDEFINITE
-        ).apply {
-            setAction(R.string.update_start_update) {
-                appUpdateManager.startUpdateFlowForResult(
-                    updateInfo,
-                    AppUpdateType.FLEXIBLE,
-                    this@MainActivity,
-                    UPDATE_REQUEST
+        setContent {
+            ApplicationTheme {
+                val navController = rememberNavController()
+                val screens = listOf(
+                    Screen("Module journal", "journal_login", Icons.Filled.List),
+                    Screen("News", "news", Icons.Filled.Favorite)
                 )
-            }
-            show()
-        }
-    }
+                val navBackStackEntry by navController.currentBackStackEntryAsState()
+                val canPop by remember { derivedStateOf { navBackStackEntry != null } }
 
-    /**
-     * Вызывается, если статус обновления изменен.
-     */
-    private fun onUpdateState(state: InstallState) {
-        // обновление загружено
-        if (state.installStatus() == InstallStatus.DOWNLOADED) {
-            Snackbar.make(
-                binding.containerMain,
-                R.string.update_downloaded,
-                Snackbar.LENGTH_INDEFINITE
-            ).apply {
-                setAction(R.string.update_restart) {
-                    appUpdateManager.completeUpdate()
+                Scaffold(
+                    topBar = {
+                        TopAppBar(
+                            title = { Text(text = "AppBar") },
+                            navigationIcon = {
+                                IconButton(
+                                    onClick = {
+                                        if (canPop) {
+                                            navController.popBackStack()
+                                        }
+                                    }
+                                ) {
+                                    Icon(
+                                        imageVector = if (canPop) {
+                                            Icons.Filled.ArrowBack
+                                        } else {
+                                            Icons.Filled.Menu
+                                        },
+                                        contentDescription = null
+                                    )
+                                }
+                            }
+                        )
+                    },
+                    bottomBar = {
+                        BottomNavigation {
+                            val currentDestination = navBackStackEntry?.destination
+
+                            screens.forEach { screen ->
+                                BottomNavigationItem(
+                                    icon = {
+                                        Icon(
+                                            imageVector = screen.icon,
+                                            contentDescription = null
+                                        )
+                                    },
+                                    label = {
+                                        Text(
+                                            text = screen.name
+                                        )
+                                    },
+                                    selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+                                    onClick = {
+                                        navController.navigate(screen.route) {
+                                            // Pop up to the start destination of the graph to
+                                            // avoid building up a large stack of destinations
+                                            // on the back stack as users select items
+                                            popUpTo(navController.graph.findStartDestination().id) {
+                                                saveState = true
+                                            }
+                                            // Avoid multiple copies of the same destination when
+                                            // reselecting the same item
+                                            launchSingleTop = true
+                                            // Restore state when reselecting a previously selected item
+                                            restoreState = true
+                                        }
+                                    }
+                                )
+                            }
+                        }
+                    },
+                ) { innerPadding ->
+                    NavHost(
+                        navController = navController,
+                        startDestination = "journal_login",
+                        modifier = Modifier
+                            .padding(innerPadding)
+                    ) {
+                        composable("test") {
+                            Text(text = "Test screen")
+                        }
+
+                        composable("journal_login") {
+                            JournalLoginScreen(
+                                viewModel = hiltViewModel(),
+                                navigateToJournal = {
+                                    navController.navigate("journal_content") {
+                                        popUpTo(navController.graph.findStartDestination().id) {
+                                            saveState = true
+                                        }
+                                    }
+                                },
+                                modifier = Modifier.fillMaxSize()
+                            )
+                        }
+
+                        composable("journal_content") {
+                            JournalScreen(
+                                viewModel = hiltViewModel(),
+                                modifier = Modifier.fillMaxSize()
+                            )
+                        }
+
+                        composable("news") {
+                            NewsReviewScreen(
+                                viewModel = hiltViewModel(),
+                                navigateToViewer = {
+                                    navController.navigate("viewer/$it")
+                                },
+                                modifier = Modifier.fillMaxSize()
+                            )
+                        }
+                        composable(
+                            route = "viewer/{newsId}",
+                            arguments = listOf(navArgument("newsId") { type = NavType.IntType })
+                        ) { backStackEntry ->
+                            NewsViewerScreen(
+                                newsId = backStackEntry.arguments?.getInt("newsId") ?: -1,
+                                viewModel = hiltViewModel(),
+                                modifier = Modifier.fillMaxSize()
+                            )
+                        }
+                    }
                 }
-                show()
             }
-            preference.updateAppTime = DateTime.now()
         }
-    }
-
-    companion object {
-        const val UPDATE_REQUEST = 1
-        const val DAYS_FOR_FLEXIBLE_UPDATE = 3
-
-        const val TAG = "MainActivity"
     }
 }

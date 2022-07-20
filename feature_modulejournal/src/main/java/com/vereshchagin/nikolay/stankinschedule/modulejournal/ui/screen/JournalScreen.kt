@@ -1,29 +1,24 @@
 package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen
 
 import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.scrollable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.State
-import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.Student
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components.StudentInfo
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components.StudentInfoDefault
 import kotlinx.coroutines.launch
@@ -49,8 +44,6 @@ fun JournalScreen(
 
     val pagerState = rememberPagerState()
     val pagerScroller = rememberCoroutineScope()
-
-    val nestedSCroll = rememberNestedScrollInteropConnection()
 
     Column(
         modifier = modifier
