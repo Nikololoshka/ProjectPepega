@@ -1,27 +1,18 @@
-package com.vereshchagin.nikolay.stankinschedule.news.ui.components
+package com.vereshchagin.nikolay.stankinschedule.news.utils
 
 import android.content.Context
 import coil.ImageLoader
 import coil.disk.DiskCache
-import com.facebook.shimmer.Shimmer
-import com.facebook.shimmer.ShimmerDrawable
+import com.vereshchagin.nikolay.stankinschedule.news.R
 
-fun defaultImageLoader(
+fun newsImageLoader(
     context: Context,
     cacheName: String = "image_cache",
 ): ImageLoader {
     return ImageLoader(context).newBuilder()
         .crossfade(true)
         .crossfade(300)
-        .placeholder(
-            ShimmerDrawable().apply {
-                setShimmer(
-                    Shimmer.AlphaHighlightBuilder()
-                        .setAutoStart(false)
-                        .build()
-                )
-            }
-        )
+        .placeholder(R.drawable.news_preview_placeholder)
         .diskCache(
             DiskCache.Builder()
                 .directory(context.cacheDir.resolve(cacheName))

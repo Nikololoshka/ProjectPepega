@@ -13,7 +13,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.ImageLoader
 import coil.compose.AsyncImage
+import com.vereshchagin.nikolay.stankinschedule.core.ui.formatDate
 import com.vereshchagin.nikolay.stankinschedule.news.domain.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.utils.newsImageLoader
 
 @Preview(showBackground = true)
 @Composable
@@ -22,7 +24,7 @@ fun NewsPostPreview() {
         post = NewsPost(
             0, "Example title.", "", "07.07.22",
         ),
-        imageLoader = defaultImageLoader(LocalContext.current),
+        imageLoader = newsImageLoader(LocalContext.current),
         onClick = {},
         modifier = Modifier
             .fillMaxWidth()
@@ -64,7 +66,7 @@ fun NewsPost(
                 maxLines = 2
             )
             Text(
-                text = post.date,
+                text = formatDate(post.date),
                 modifier = Modifier
                     .align(Alignment.End)
             )

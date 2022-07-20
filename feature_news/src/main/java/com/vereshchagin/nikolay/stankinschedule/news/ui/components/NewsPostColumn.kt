@@ -20,6 +20,7 @@ import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.PagingLoader
 import com.vereshchagin.nikolay.stankinschedule.news.domain.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.utils.newsImageLoader
 import kotlinx.coroutines.flow.Flow
 
 
@@ -30,7 +31,7 @@ fun NewsPostColumn(
     isNewsRefreshing: Boolean,
     onRefresh: () -> Unit,
     modifier: Modifier = Modifier,
-    imageLoader: ImageLoader = defaultImageLoader(LocalContext.current),
+    imageLoader: ImageLoader = newsImageLoader(LocalContext.current),
 ) {
     val lazyPostItems: LazyPagingItems<NewsPost> = posts.collectAsLazyPagingItems()
     val lazyColumnState = rememberLazyListState()

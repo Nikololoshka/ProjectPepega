@@ -8,6 +8,7 @@ import com.vereshchagin.nikolay.stankinschedule.news.data.source.NewsRemoteSourc
 import com.vereshchagin.nikolay.stankinschedule.news.domain.model.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.news.domain.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -62,6 +63,7 @@ class NewsReviewViewModel @Inject constructor(
             val isRefreshing = stateForNewsRefreshing(newsSubdivision)
 
             isRefreshing.value = true
+            delay(timeMillis = 500) // TODO("Задержка на отображение загрузки")
             repository.refresh(newsSubdivision, force = true)
             isRefreshing.value = false
         }
