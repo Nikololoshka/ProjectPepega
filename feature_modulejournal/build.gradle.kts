@@ -61,7 +61,7 @@ dependencies {
     implementation(AppDependencies.compose)
     implementation(AppDependencies.composeActivity)
     // implementation(AppDependencies.composeMaterial3)
-    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    implementation(AppDependencies.securityCrypto)
 
     implementation(AppDependencies.appComponents)
     implementation(AppDependencies.appcompat)

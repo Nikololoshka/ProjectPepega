@@ -2,8 +2,10 @@ package com.vereshchagin.nikolay.stankinschedule.modulejournal.di
 
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.data.api.ModuleJournalAPI
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.data.repository.JournalSecureRepositoryImpl
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.data.repository.JournalServiceRepositoryImpl
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.data.repository.JournalStorageRepositoryImpl
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.repository.JournalSecureRepository
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.repository.JournalServiceRepository
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.repository.JournalStorageRepository
 import dagger.Module
@@ -41,4 +43,10 @@ object ModuleJournalModule {
     fun provideStorageRepository(
         repository: JournalStorageRepositoryImpl,
     ): JournalStorageRepository = repository
+
+    @Provides
+    @ViewModelScoped
+    fun provideSecuryRepository(
+        repository: JournalSecureRepositoryImpl,
+    ): JournalSecureRepository = repository
 }

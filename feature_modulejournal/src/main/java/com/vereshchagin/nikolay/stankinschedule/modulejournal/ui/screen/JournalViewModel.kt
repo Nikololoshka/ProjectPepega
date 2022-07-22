@@ -16,8 +16,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class JournalViewModel @Inject constructor(
-    private val useCase: JournalUseCase
+    private val useCase: JournalUseCase,
 ) : ViewModel() {
+
+    private val _isSignIn = MutableStateFlow(true)
+    val isSignIn = _isSignIn.asStateFlow()
 
     private val _student = MutableStateFlow<State<Student>>(State.loading())
     val student = _student.asStateFlow()
@@ -26,9 +29,17 @@ class JournalViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            useCase.student().collect {
-                _student.value = State.success(it)
-            }
+            useCase.student()
+                .catch { e ->
+                    _student.value = State.failed(e)
+                }
+                .collect { student ->
+                    if (student == null) {
+                        _isSignIn.value = false
+                    } else {
+                        _student.value = State.success(student)
+                    }
+                }
         }
     }
 

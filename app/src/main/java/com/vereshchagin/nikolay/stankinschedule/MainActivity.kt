@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                 ) { innerPadding ->
                     NavHost(
                         navController = navController,
-                        startDestination = "journal_login",
+                        startDestination = "journal_content",
                         modifier = Modifier
                             .padding(innerPadding)
                     ) {
@@ -116,6 +116,9 @@ class MainActivity : AppCompatActivity() {
                         composable("journal_content") {
                             JournalScreen(
                                 viewModel = hiltViewModel(),
+                                navigateToLogging = {
+                                    navController.navigate("journal_login")
+                                },
                                 modifier = Modifier.fillMaxSize()
                             )
                         }

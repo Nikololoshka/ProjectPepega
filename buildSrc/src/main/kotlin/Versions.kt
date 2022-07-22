@@ -29,7 +29,7 @@ object Versions {
     const val glide = "4.12.0"
     const val gridLayout = "1.0.0"
     const val gson = "2.8.7"
-    const val hilt = "2.42"
+    const val hilt = "2.43"
     const val hilt_work = "1.0.0"
     const val holo_color_picker = "1.5"
     const val joda_time = "2.10.10"

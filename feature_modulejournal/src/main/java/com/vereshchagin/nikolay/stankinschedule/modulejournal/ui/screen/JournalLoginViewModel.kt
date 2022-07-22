@@ -24,11 +24,6 @@ class JournalLoginViewModel @Inject constructor(
     private val _loginError = MutableStateFlow<String?>(null)
     val loginError = _loginError.asStateFlow()
 
-    init {
-        viewModelScope.launch {
-            _loginState.value = loginUseCase.isLogging()
-        }
-    }
 
     fun login(login: String, password: String) {
         viewModelScope.launch {

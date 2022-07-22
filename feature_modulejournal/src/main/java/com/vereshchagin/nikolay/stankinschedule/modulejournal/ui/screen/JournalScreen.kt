@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -28,8 +29,16 @@ import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components.Stud
 @Composable
 fun JournalScreen(
     viewModel: JournalViewModel,
+    navigateToLogging: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val isSignIn by viewModel.isSignIn.collectAsState()
+    LaunchedEffect(isSignIn) {
+        if (!isSignIn) {
+            navigateToLogging()
+        }
+    }
+
     val student = viewModel.student.collectAsState()
 
     val pagerState = rememberPagerState()
