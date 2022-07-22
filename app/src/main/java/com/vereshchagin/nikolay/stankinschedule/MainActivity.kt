@@ -6,16 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -28,6 +22,7 @@ import androidx.navigation.navArgument
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.ApplicationTheme
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen.JournalLoginScreen
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen.JournalScreen
+import com.vereshchagin.nikolay.stankinschedule.navigation.BottomNavigationEntry
 import com.vereshchagin.nikolay.stankinschedule.news.ui.screen.NewsReviewScreen
 import com.vereshchagin.nikolay.stankinschedule.news.ui.screen.NewsViewerScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,47 +31,30 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    class Screen(
-        val name: String,
-        val route: String,
-        val icon: ImageVector,
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
             ApplicationTheme {
                 val navController = rememberNavController()
-                val screens = listOf(
-                    Screen("Module journal", "journal_login", Icons.Filled.List),
-                    Screen("News", "news", Icons.Filled.Favorite)
+                val screens: List<BottomNavigationEntry> = listOf(
+                    BottomNavigationEntry(
+                        route = "journal_login",
+                        nameRes = R.string.nav_journal,
+                        iconRes = R.drawable.nav_journal
+                    ),
+                    BottomNavigationEntry(
+                        route = "news",
+                        nameRes = R.string.nav_news,
+                        iconRes = R.drawable.nav_news
+                    )
                 )
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
-                val canPop by remember { derivedStateOf { navBackStackEntry != null } }
 
                 Scaffold(
                     topBar = {
                         TopAppBar(
                             title = { Text(text = "AppBar") },
-                            navigationIcon = {
-                                IconButton(
-                                    onClick = {
-                                        if (canPop) {
-                                            navController.popBackStack()
-                                        }
-                                    }
-                                ) {
-                                    Icon(
-                                        imageVector = if (canPop) {
-                                            Icons.Filled.ArrowBack
-                                        } else {
-                                            Icons.Filled.Menu
-                                        },
-                                        contentDescription = null
-                                    )
-                                }
-                            }
                         )
                     },
                     bottomBar = {
@@ -87,14 +65,12 @@ class MainActivity : AppCompatActivity() {
                                 BottomNavigationItem(
                                     icon = {
                                         Icon(
-                                            imageVector = screen.icon,
+                                            painter = painterResource(screen.iconRes),
                                             contentDescription = null
                                         )
                                     },
                                     label = {
-                                        Text(
-                                            text = screen.name
-                                        )
+                                        Text(text = stringResource(screen.nameRes))
                                     },
                                     selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
                                     onClick = {
@@ -123,10 +99,6 @@ class MainActivity : AppCompatActivity() {
                         modifier = Modifier
                             .padding(innerPadding)
                     ) {
-                        composable("test") {
-                            Text(text = "Test screen")
-                        }
-
                         composable("journal_login") {
                             JournalLoginScreen(
                                 viewModel = hiltViewModel(),
