@@ -2,10 +2,8 @@ package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vereshchagin.nikolay.stankinschedule.core.ui.State
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.usecase.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
@@ -14,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class JournalLoginViewModel @Inject constructor(
-    private val loginUseCase: LoginUseCase
+    private val loginUseCase: LoginUseCase,
 ) : ViewModel() {
 
     private val _loginState = MutableStateFlow(false)

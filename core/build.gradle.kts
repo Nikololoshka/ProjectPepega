@@ -59,6 +59,7 @@ dependencies {
 
     implementation(AppDependencies.coreKtx)
     implementation(AppDependencies.compose)
+    implementation(AppDependencies.composeNavigation)
 
     implementation(AppDependencies.network)
 
