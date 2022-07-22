@@ -1,8 +1,8 @@
 package com.vereshchagin.nikolay.stankinschedule.news.domain.usecase
 
+import com.vereshchagin.nikolay.stankinschedule.core.ui.State
 import com.vereshchagin.nikolay.stankinschedule.news.data.mapper.toNewsContent
 import com.vereshchagin.nikolay.stankinschedule.news.domain.repository.PostRepository
-import com.vereshchagin.nikolay.stankinschedule.core.ui.State
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
@@ -13,9 +13,9 @@ class NewsViewerUseCase @Inject constructor(
     fun loadNewsContent(postId: Int) = flow {
         emit(State.loading())
 
-        val cachedPost = repository.loadNewsContent(postId)
-        if (cachedPost != null) {
-            emit(State.success(cachedPost))
+        val cache = repository.loadNewsContent(postId)
+        if (cache != null) {
+            emit(State.success(cache.data))
             return@flow
         }
 

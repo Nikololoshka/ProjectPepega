@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.news.data.repository
 
-import com.vereshchagin.nikolay.stankinschedule.core.ui.CacheManager
+import com.vereshchagin.nikolay.stankinschedule.core.cache.CacheContainer
+import com.vereshchagin.nikolay.stankinschedule.core.cache.CacheManager
 import com.vereshchagin.nikolay.stankinschedule.news.data.api.PostResponse
 import com.vereshchagin.nikolay.stankinschedule.news.data.api.StankinNewsAPI
 import com.vereshchagin.nikolay.stankinschedule.news.domain.model.NewsContent
@@ -21,7 +22,7 @@ class PostRepositoryImpl @Inject constructor(
         cache.saveToCache(news, generateName(postId = news.id))
     }
 
-    override suspend fun loadNewsContent(postId: Int): NewsContent? {
+    override suspend fun loadNewsContent(postId: Int): CacheContainer<NewsContent>? {
         return cache.loadFromCache(NewsContent::class.java, generateName(postId = postId))
     }
 

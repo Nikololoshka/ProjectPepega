@@ -1,7 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.modulejournal.data.repository
 
-import com.google.gson.GsonBuilder
-import com.vereshchagin.nikolay.stankinschedule.core.ui.CacheManager
+import com.vereshchagin.nikolay.stankinschedule.core.cache.CacheContainer
+import com.vereshchagin.nikolay.stankinschedule.core.cache.CacheManager
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.MarkType
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.Student
@@ -15,16 +15,16 @@ class JournalStorageRepositoryImpl @Inject constructor(
 
     init {
         cache.addStartedPath("module_journal")
-        cache.gson = GsonBuilder()
-            .registerTypeAdapter(MarkType::class.java, MarkTypeTypeConverter())
-            .create()
+        cache.configurateParser {
+            registerTypeAdapter(MarkType::class.java, MarkTypeTypeConverter())
+        }
     }
 
     override suspend fun saveStudent(student: Student) {
         cache.saveToCache(student, "student")
     }
 
-    override suspend fun loadStudent(): Student? {
+    override suspend fun loadStudent(): CacheContainer<Student>? {
         return cache.loadFromCache(Student::class.java, "student")
     }
 
@@ -32,7 +32,7 @@ class JournalStorageRepositoryImpl @Inject constructor(
         cache.saveToCache(marks, semester)
     }
 
-    override suspend fun loadSemester(semester: String): SemesterMarks? {
+    override suspend fun loadSemester(semester: String): CacheContainer<SemesterMarks>? {
         return cache.loadFromCache(SemesterMarks::class.java, semester)
     }
 }

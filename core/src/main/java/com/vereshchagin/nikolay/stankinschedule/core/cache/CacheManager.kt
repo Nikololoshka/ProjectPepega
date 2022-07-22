@@ -1,15 +1,17 @@
-package com.vereshchagin.nikolay.stankinschedule.core.ui
+package com.vereshchagin.nikolay.stankinschedule.core.cache
 
 import android.content.Context
 import android.util.Log
-import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.core.BuildConfig
+import com.vereshchagin.nikolay.stankinschedule.core.utils.DateTimeTypeConverter
 import dagger.hilt.android.qualifiers.ApplicationContext
+import org.joda.time.DateTime
 import java.io.File
 import javax.inject.Inject
 
 class CacheManager @Inject constructor(
-    @ApplicationContext context: Context
+    @ApplicationContext context: Context,
 ) {
 
     /**
@@ -20,7 +22,9 @@ class CacheManager @Inject constructor(
     /**
      * Gson для сохранения в JSON файлы.
      */
-    var gson = Gson()
+    private var gson = GsonBuilder()
+        .registerTypeAdapter(DateTime::class.java, DateTimeTypeConverter())
+        .create()
 
     /**
      * Начальный путь (корневой). Откуда начинают сохраняться данные в кэш.
@@ -36,6 +40,16 @@ class CacheManager @Inject constructor(
     }
 
     /**
+     * Настраивает внутренний Gson парсер.
+     */
+    fun configurateParser(parserBuilder: GsonBuilder.() -> GsonBuilder) {
+        gson = GsonBuilder()
+            .registerTypeAdapter(DateTime::class.java, DateTimeTypeConverter())
+            .parserBuilder()
+            .create()
+    }
+
+    /**
      * Сохраняет данные в кэш.
      * @param data данные для сохранения.
      * @param paths путь для сохранения.
@@ -43,7 +57,7 @@ class CacheManager @Inject constructor(
     fun saveToCache(data: Any, vararg paths: String) {
         try {
             fileFromPaths(paths).bufferedWriter().use { writer ->
-                gson.toJson(data, writer)
+                gson.toJson(CacheContainer(data, DateTime.now()), writer)
             }
 
         } catch (ignored: Exception) {
@@ -56,18 +70,27 @@ class CacheManager @Inject constructor(
     /**
      * Загружает данные из кэша. Если не удалось или данные не были найдены,
      * то возвращается null.
-     * @param type тип данных для загрузки.
+     *
      * @param paths путь для загрузки.
      */
-    fun <T> loadFromCache(type: Class<T>, vararg paths: String): T? {
+    fun <T : Any> loadFromCache(type: Class<T>, vararg paths: String): CacheContainer<T>? {
         try {
             val filePath = fileFromPaths(paths)
             if (!filePath.exists()) {
                 return null
             }
 
-            return filePath.reader().use { reader ->
-                gson.fromJson(reader, type)
+            val raw = filePath.reader().use { reader ->
+                gson.fromJson(reader, CacheObject::class.java)
+            }
+
+            return if (raw.data != null && raw.time != null) {
+                CacheContainer(
+                    data = gson.fromJson(raw.data, type),
+                    cacheTime = raw.time
+                )
+            } else {
+                null
             }
 
         } catch (ignored: Exception) {

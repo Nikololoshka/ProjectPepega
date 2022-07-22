@@ -13,30 +13,31 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class JournalUseCase @Inject constructor(
-    private val serviceRepository: JournalServiceRepository,
-    private val storageRepository: JournalStorageRepository
+    private val service: JournalServiceRepository,
+    private val storage: JournalStorageRepository,
 ) {
 
     fun student(): Flow<Student> = flow {
 
-        val student = storageRepository.loadStudent()
-        if (student != null) {
-            emit(student)
+        val cache = storage.loadStudent()
+        if (cache != null) {
+            emit(cache.data)
         }
 
     }.flowOn(Dispatchers.IO)
 
     fun semesterMarks(semester: String): Flow<SemesterMarks> = flow {
 
-        val cached = storageRepository.loadSemester(semester)
-        if (cached != null) {
-            emit(cached)
+        val cache = storage.loadSemester(semester)
+        if (cache != null) {
+            emit(cache.data)
+
         } else {
-            val marks = serviceRepository.loadMarks("621522", "stankin621522", semester)
+            val marks = service.loadMarks("621522", "stankin621522", semester)
                 .toSemesterMarks()
 
             Log.d("JournalUseCase", marks.toString())
-            storageRepository.saveSemester(semester, marks)
+            storage.saveSemester(semester, marks)
             Log.d("JournalUseCase", "Saved")
 
             emit(marks)
