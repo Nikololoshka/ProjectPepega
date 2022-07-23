@@ -1,20 +1,24 @@
 package com.vereshchagin.nikolay.stankinschedule.news.ui.screen
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Tab
+import androidx.compose.material.TabPosition
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.pagerTabIndicatorOffset
 import com.google.accompanist.pager.rememberPagerState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppTabIndicator
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppTabRowInverted
 import com.vereshchagin.nikolay.stankinschedule.news.R
 import com.vereshchagin.nikolay.stankinschedule.news.ui.components.NewsPostColumn
 import com.vereshchagin.nikolay.stankinschedule.news.utils.newsImageLoader
@@ -36,18 +40,19 @@ fun NewsReviewScreen(
     val pagerScroller = rememberCoroutineScope()
     val imageLoader = newsImageLoader(LocalContext.current)
 
-    Column(
+    Box(
         modifier = modifier
     ) {
-        val indicator = @Composable { tabPositions: List<TabPosition> ->
-            AppTabIndicator(
-                modifier = Modifier.pagerTabIndicatorOffset(pagerState, tabPositions)
-            )
-        }
-
-        TabRow(
+        AppTabRowInverted(
             selectedTabIndex = pagerState.currentPage,
-            indicator = indicator
+            indicator = { tabPositions: List<TabPosition> ->
+                AppTabIndicator(
+                    modifier = Modifier.pagerTabIndicatorOffset(pagerState, tabPositions)
+                )
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(48.dp)
         ) {
             newsSubdivisions.forEachIndexed { index, subdivision ->
                 Tab(
@@ -60,7 +65,7 @@ fun NewsReviewScreen(
                     text = {
                         Text(
                             text = stringResource(id = subdivision.nameId),
-                            style = MaterialTheme.typography.body2
+                            style = MaterialTheme.typography.body1
                         )
                     }
                 )
@@ -69,7 +74,9 @@ fun NewsReviewScreen(
         HorizontalPager(
             count = newsSubdivisions.size,
             state = pagerState,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = 48.dp)
         ) { page ->
             val subdivisionsId = newsSubdivisions[page].subdivisionsId
             val isRefreshing = viewModel.newsRefreshing(subdivisionsId).collectAsState()
@@ -79,8 +86,8 @@ fun NewsReviewScreen(
                 onClick = { post -> navigateToViewer(post.id) },
                 isNewsRefreshing = isRefreshing.value,
                 onRefresh = { viewModel.refreshNews(subdivisionsId) },
-                imageLoader = imageLoader,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
+                imageLoader = imageLoader
             )
         }
     }

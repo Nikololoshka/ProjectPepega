@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 val navController = rememberNavController()
                 val screens: List<BottomNavigationEntry> = listOf(
                     BottomNavigationEntry(
-                        route = "journal_login",
+                        route = "journal_content",
                         nameRes = R.string.nav_journal,
                         iconRes = R.drawable.nav_journal
                     ),
@@ -137,7 +137,7 @@ class MainActivity : AppCompatActivity() {
                             arguments = listOf(navArgument("newsId") { type = NavType.IntType })
                         ) { backStackEntry ->
                             NewsViewerScreen(
-                                newsId = backStackEntry.arguments?.getInt("newsId") ?: -1,
+                                postId = backStackEntry.arguments?.getInt("newsId") ?: -1,
                                 viewModel = hiltViewModel(),
                                 modifier = Modifier.fillMaxSize()
                             )

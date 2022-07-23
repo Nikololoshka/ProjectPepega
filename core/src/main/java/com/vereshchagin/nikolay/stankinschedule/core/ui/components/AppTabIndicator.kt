@@ -14,12 +14,18 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun AppTabIndicator(
     modifier: Modifier = Modifier,
-    color: Color = MaterialTheme.colors.onSurface,
+    color: Color = MaterialTheme.colors.primary,
 ) {
     Spacer(
         modifier
             .padding(horizontal = 24.dp)
             .height(4.dp)
-            .background(color, RoundedCornerShape(topStartPercent = 100, topEndPercent = 100))
+            .background(
+                color = color,
+                shape = RoundedCornerShape(
+                    topStartPercent = 100,
+                    topEndPercent = 100
+                )
+            )
     )
 }
