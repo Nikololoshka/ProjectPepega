@@ -6,6 +6,8 @@ import android.os.Build
 import android.webkit.*
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -38,51 +40,55 @@ fun NewsRenderer(
             .build()
     }
 
-    WebView(
-        state = webViewState,
-        modifier = modifier,
-        captureBackPresses = false,
-        onCreated = { webView ->
-            webView.apply {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    supportDarkMode(isDarkTheme = isDarkTheme)
+    Box(
+        modifier = modifier
+    ) {
+        WebView(
+            state = webViewState,
+            modifier = Modifier.fillMaxSize(),
+            captureBackPresses = false,
+            onCreated = { webView ->
+                webView.apply {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        supportDarkMode(isDarkTheme = isDarkTheme)
+                    }
+
+                    settings.apply {
+                        allowFileAccess = true
+                        loadsImagesAutomatically = true
+                        javaScriptEnabled = true // Suppressed!!!
+                    }
+
+                    addJavascriptInterface(NewsViewInterface {
+                        // Callback from js
+                    }, "Android")
+                }
+            },
+            client = object : AccompanistWebViewClient() {
+                override fun shouldOverrideUrlLoading(
+                    view: WebView?,
+                    request: WebResourceRequest?,
+                ): Boolean {
+                    // opening link
+                    if (request != null) onRedirect(request.url)
+                    return true
                 }
 
-                settings.apply {
-                    allowFileAccess = true
-                    loadsImagesAutomatically = true
-                    javaScriptEnabled = true // Suppressed!!!
+                override fun shouldInterceptRequest(
+                    view: WebView?,
+                    request: WebResourceRequest,
+                ): WebResourceResponse? {
+                    return webViewAssert.shouldInterceptRequest(request.url)
                 }
-
-                addJavascriptInterface(NewsViewInterface {
-                    // Callback from js
-                }, "Android")
+            },
+            chromeClient = object : AccompanistWebChromeClient() {
+                override fun onConsoleMessage(consoleMessage: ConsoleMessage?): Boolean {
+                    // webview console
+                    return super.onConsoleMessage(consoleMessage)
+                }
             }
-        },
-        client = object : AccompanistWebViewClient() {
-            override fun shouldOverrideUrlLoading(
-                view: WebView?,
-                request: WebResourceRequest?,
-            ): Boolean {
-                // opening link
-                if (request != null) onRedirect(request.url)
-                return true
-            }
-
-            override fun shouldInterceptRequest(
-                view: WebView?,
-                request: WebResourceRequest,
-            ): WebResourceResponse? {
-                return webViewAssert.shouldInterceptRequest(request.url)
-            }
-        },
-        chromeClient = object : AccompanistWebChromeClient() {
-            override fun onConsoleMessage(consoleMessage: ConsoleMessage?): Boolean {
-                // webview console
-                return super.onConsoleMessage(consoleMessage)
-            }
-        }
-    )
+        )
+    }
 }
 
 @RequiresApi(Build.VERSION_CODES.Q)
