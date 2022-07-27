@@ -2,15 +2,16 @@ package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.vereshchagin.nikolay.stankinschedule.core.ui.State
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.Student
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.usecase.JournalUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -25,11 +26,36 @@ class JournalViewModel @Inject constructor(
     private val _student = MutableStateFlow<State<Student>>(State.loading())
     val student = _student.asStateFlow()
 
-    private val _semesters = mutableMapOf<String, MutableStateFlow<State<SemesterMarks>>>()
+    private val _rating = MutableStateFlow<String?>(null)
+    val rating = _rating.asStateFlow()
+
+    private val _predictedRating = MutableStateFlow<String?>(null)
+    val predictedRating = _predictedRating.asStateFlow()
+
+    private val _isForceRefreshing = MutableStateFlow(false)
+    val isForceRefreshing = _isForceRefreshing.asStateFlow()
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val semesters: Flow<PagingData<SemesterMarks>> = _student.flatMapLatest { state ->
+        if (state is State.Success) useCase.createPager(state.data).flow else emptyFlow()
+    }.flowOn(Dispatchers.IO).cachedIn(viewModelScope)
+
 
     init {
+        updateStudentInfo()
+    }
+
+    private fun setupStudent(student: Student) {
+        _student.value = State.success(student)
+        _isForceRefreshing.value = false
+
+        updateRating(student)
+        updatePredictRating(student)
+    }
+
+    private fun updateStudentInfo(useCache: Boolean = true) {
         viewModelScope.launch {
-            useCase.student()
+            useCase.student(useCache = useCache)
                 .catch { e ->
                     _student.value = State.failed(e)
                 }
@@ -37,39 +63,45 @@ class JournalViewModel @Inject constructor(
                     if (student == null) {
                         _isSignIn.value = false
                     } else {
-                        _student.value = State.success(student)
+                        setupStudent(student)
                     }
                 }
         }
     }
 
-    private fun updateSemester(
-        semester: String,
-        state: MutableStateFlow<State<SemesterMarks>>,
-        force: Boolean = false,
-    ) {
-        if (state is State.Failed<*> || force) {
-            viewModelScope.launch {
-                useCase.semesterMarks(semester)
-                    .catch { e ->
-                        e.printStackTrace()
-                    }
-                    .collect { marks ->
-                        state.value = State.success(marks)
-                    }
-            }
+    private fun updateRating(student: Student) {
+        viewModelScope.launch {
+            useCase.rating(student)
+                .catch {
+                    _rating.value = null
+                }
+                .collect { currentRating ->
+                    _rating.value = currentRating
+                }
         }
     }
 
-    fun updateSemesterMarks(semester: String) {
-
+    private fun updatePredictRating(student: Student) {
+        viewModelScope.launch {
+            useCase.predictRating(student)
+                .catch {
+                    _predictedRating.value = null
+                }
+                .collect { currentRating ->
+                    _predictedRating.value = currentRating
+                }
+        }
     }
 
-    fun semesterMarks(semester: String): StateFlow<State<SemesterMarks>> {
-        return _semesters.getOrPut(semester) {
-            val state = MutableStateFlow<State<SemesterMarks>>(State.loading())
-            updateSemester(semester, state, force = true)
-            state
+    fun refreshStudentInfo(useCache: Boolean) {
+        if (_student.value !is State.Loading) {
+
+            _isForceRefreshing.value = true
+            if (useCache) {
+                _student.value = State.loading()
+            }
+
+            updateStudentInfo(useCache = useCache)
         }
     }
 }

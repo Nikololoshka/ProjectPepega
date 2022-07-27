@@ -6,21 +6,28 @@ import com.google.gson.annotations.SerializedName
  * Оценки студента за семестр.
  */
 data class SemesterMarks(
-    @SerializedName("disciplines") val disciplines: ArrayList<Discipline> = arrayListOf(),
-    @SerializedName("rating") var rating: Int? = null,
-    @SerializedName("accumulatedRating") var accumulatedRating: Int? = null,
-    // @SerializedName("time") val time: DateTime = DateTime.now(),
-) {
+    @SerializedName("disciplines")
+    private val disciplines: ArrayList<Discipline> = arrayListOf(),
+    @SerializedName("rating")
+    private var _rating: Int? = null,
+    @SerializedName("accumulatedRating")
+    private var _accumulatedRating: Int? = null,
+) : Iterable<Discipline> {
+
+    val rating: Int? get() = _rating
+
+    val accumulatedRating: Int? get() = _accumulatedRating
+
     /**
      * Добавляет оценку в список оценок за семестр.
      */
     fun addMark(disciplineTitle: String, type: String, value: Int, factor: Double) {
         if (disciplineTitle == RATING) {
-            rating = value
+            _rating = value
             return
         }
         if (disciplineTitle == ACCUMULATED_RATING) {
-            accumulatedRating = value
+            _accumulatedRating = value
             return
         }
 
@@ -51,68 +58,6 @@ data class SemesterMarks(
     }
 
     /**
-     * Рассчитывает рейтинг для данного семестра.
-     */
-    fun computeRating(): Double {
-        try {
-            var ratingSum = 0.0
-            var ratingCount = 0.0
-            for (discipline in disciplines) {
-                ratingSum += discipline.computeRating()
-                ratingCount += discipline.factor
-            }
-
-            val rating: Double = ratingSum / ratingCount
-            return if (rating.isFinite()) rating else 0.0
-
-        } catch (e: Exception) {
-
-        }
-
-        return 0.0
-    }
-
-    fun computePredictedRating(averageRating: Int): Double {
-        try {
-            var ratingSum = 0.0
-            var ratingCount = 0.0
-            for (discipline in disciplines) {
-                ratingSum += discipline.computePredictedRating(averageRating)
-                ratingCount += discipline.factor
-            }
-
-            val rating: Double = ratingSum / ratingCount
-            return if (rating.isFinite()) rating else 0.0
-
-        } catch (e: Exception) {
-
-        }
-
-        return 0.0
-    }
-
-    /**
-     * Вычисляет среднюю оценку в семестре.
-     */
-    fun average(): Int {
-        try {
-            var ratingSum = 0
-            var ratingCount = 0
-            for (discipline in disciplines) {
-                val (disciplineSum, disciplineCount) = discipline.prepareAverage()
-                ratingSum += disciplineSum
-                ratingCount += disciplineCount
-            }
-            return ratingSum / ratingCount
-
-        } catch (e: Exception) {
-
-        }
-
-        return 0
-    }
-
-    /**
      * Проверяет, является ли семестр завершенным (есть все оценки).
      */
     fun isCompleted(): Boolean {
@@ -124,13 +69,7 @@ data class SemesterMarks(
         return true
     }
 
-    /**
-     * Проверяет, действительны ли оценки.
-     */
-//    fun isValid(last: Boolean = false): Boolean {
-//        return Minutes.minutesBetween(time, DateTime.now()).minutes < 60 +
-//                if (last) 0 else 60 * 24 * 7
-//    }
+    override fun iterator(): Iterator<Discipline> = disciplines.iterator()
 
     companion object {
 

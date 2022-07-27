@@ -1,32 +1,31 @@
 package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen
 
-import androidx.compose.animation.*
+import androidx.annotation.DrawableRes
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Error
-import androidx.compose.material.icons.filled.Visibility
-import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.vereshchagin.nikolay.stankinschedule.core.ui.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.R
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components.LoginError
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.util.Constants
 
 
@@ -85,8 +84,8 @@ fun JournalLoginScreen(
         ) {
 
             if (loginError != null) {
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(Dimen.ContentPadding),
+                LoginError(
+                    error = loginError,
                     modifier = Modifier
                         .fillMaxWidth()
                         .border(
@@ -95,38 +94,17 @@ fun JournalLoginScreen(
                             shape = RoundedCornerShape(size = 4.dp)
                         )
                         .padding(16.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.Error,
-                        contentDescription = null,
-                        tint = MaterialTheme.colors.error,
-                        modifier = Modifier.align(Alignment.CenterVertically)
-                    )
-                    Text(
-                        text = loginError ?: "Unknown exception",
-                        color = MaterialTheme.colors.error,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .align(Alignment.CenterVertically)
-                            .weight(1f)
-                    )
-                }
+                )
             }
 
-            OutlinedTextField(
-                value = login,
-                onValueChange = {
+            LoginField(
+                login = login,
+                onLoginChanged = {
                     login = it
                     isLoginError = login.isEmpty()
                 },
-                enabled = !isLogging,
-                singleLine = true,
-                isError = isLoginError,
-                label = { Text(text = stringResource(R.string.login)) },
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
-                    imeAction = ImeAction.Next
-                ),
+                isLogging = isLogging,
+                isLoginError = isLoginError,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = Dimen.ContentPadding)
@@ -141,52 +119,15 @@ fun JournalLoginScreen(
                 )
             }
 
-            var passwordVisible by remember { mutableStateOf(false) }
-
-            OutlinedTextField(
-                value = password,
-                onValueChange = {
+            PasswordField(
+                password = password,
+                onPasswordChanged = {
                     password = it
                     isPasswordError = password.isEmpty()
                 },
-                enabled = !isLogging,
-                singleLine = true,
-                isError = isPasswordError,
-                label = { Text(text = stringResource(R.string.password)) },
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Password,
-                    imeAction = ImeAction.Done
-                ),
-                keyboardActions = KeyboardActions(
-                    onDone = { submitForm() }
-                ),
-                visualTransformation = if (passwordVisible) {
-                    VisualTransformation.None
-                } else {
-                    PasswordVisualTransformation()
-                },
-                trailingIcon = {
-                    val image = if (passwordVisible) {
-                        Icons.Filled.Visibility
-                    } else {
-                        Icons.Filled.VisibilityOff
-                    }
-
-                    val description = if (passwordVisible) {
-                        stringResource(id = R.string.password_hide)
-                    } else {
-                        stringResource(id = R.string.password_show)
-                    }
-
-                    IconButton(
-                        onClick = {
-                            passwordVisible = !passwordVisible
-                        },
-                        enabled = !isLogging,
-                    ) {
-                        Icon(imageVector = image, description)
-                    }
-                },
+                isLogging = isLogging,
+                isPasswordError = isPasswordError,
+                onFormSubmit = { submitForm() },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = Dimen.ContentPadding)
@@ -221,4 +162,88 @@ fun JournalLoginScreen(
             }
         }
     }
+}
+
+
+@Composable
+fun LoginField(
+    login: String,
+    onLoginChanged: (login: String) -> Unit,
+    isLogging: Boolean,
+    isLoginError: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    OutlinedTextField(
+        value = login,
+        onValueChange = onLoginChanged,
+        enabled = !isLogging,
+        singleLine = true,
+        isError = isLoginError,
+        label = { Text(text = stringResource(R.string.login)) },
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Text,
+            imeAction = ImeAction.Next
+        ),
+        modifier = modifier
+    )
+}
+
+@Composable
+fun PasswordField(
+    password: String,
+    onPasswordChanged: (password: String) -> Unit,
+    isLogging: Boolean,
+    isPasswordError: Boolean,
+    onFormSubmit: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    var passwordVisible by remember { mutableStateOf(false) }
+
+    OutlinedTextField(
+        value = password,
+        onValueChange = onPasswordChanged,
+        enabled = !isLogging,
+        singleLine = true,
+        isError = isPasswordError,
+        label = { Text(text = stringResource(R.string.password)) },
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Password,
+            imeAction = ImeAction.Done
+        ),
+        keyboardActions = KeyboardActions(
+            onDone = { onFormSubmit() }
+        ),
+        visualTransformation = if (passwordVisible) {
+            VisualTransformation.None
+        } else {
+            PasswordVisualTransformation()
+        },
+        trailingIcon = {
+            @DrawableRes
+            val image = if (passwordVisible) {
+                R.drawable.ic_password_visibility
+            } else {
+                R.drawable.ic_password_visibility_off
+            }
+
+            val description = if (passwordVisible) {
+                stringResource(id = R.string.password_hide)
+            } else {
+                stringResource(id = R.string.password_show)
+            }
+
+            IconButton(
+                onClick = {
+                    passwordVisible = !passwordVisible
+                },
+                enabled = !isLogging,
+            ) {
+                Icon(
+                    painter = painterResource(image),
+                    contentDescription = description
+                )
+            }
+        },
+        modifier = modifier
+    )
 }

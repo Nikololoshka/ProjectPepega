@@ -6,12 +6,16 @@ import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.StudentCredentials
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.repository.JournalSecureRepository
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.util.StudentAuthorizedException
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 class JournalSecureRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context,
 ) : JournalSecureRepository {
+
+    // Кэш данных для учетной записи
+    private var cachedCredentials: StudentCredentials? = null
 
     // TODO("Возможно исключение при создании preferences")
     private val masterKey = MasterKey.Builder(context)
@@ -39,15 +43,21 @@ class JournalSecureRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun signCredentials(): StudentCredentials? {
+    override suspend fun signCredentials(): StudentCredentials {
+        val cache = cachedCredentials
+        if (cache != null) return cache
+
         val login = preferences.getString(LOGIN, null)
         val password = preferences.getString(PASSWORD, null)
 
         if (login == null || password == null) {
-            return null
+            throw StudentAuthorizedException("Credentials is null")
         }
 
-        return StudentCredentials(login, password)
+        val credentials = StudentCredentials(login, password)
+        cachedCredentials = credentials
+
+        return credentials
     }
 
     companion object {

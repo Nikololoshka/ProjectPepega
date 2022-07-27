@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.repository
 
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.StudentCredentials
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.util.StudentAuthorizedException
 import java.security.GeneralSecurityException
 
 interface JournalSecureRepository {
@@ -10,6 +11,6 @@ interface JournalSecureRepository {
 
     suspend fun signOut()
 
-    @Throws(GeneralSecurityException::class)
-    suspend fun signCredentials(): StudentCredentials?
+    @Throws(StudentAuthorizedException::class)
+    suspend fun signCredentials(): StudentCredentials
 }

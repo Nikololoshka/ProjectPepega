@@ -124,7 +124,7 @@ class MarksTable @JvmOverloads constructor(
         }
 
         // ячейки с оценками и коэффициентом
-        for (discipline in marksData.disciplines) {
+        for (discipline in marksData) {
             // оценки
             for ((j, type) in MarkType.values().withIndex()) {
                 val mark = discipline[type]
@@ -147,7 +147,7 @@ class MarksTable @JvmOverloads constructor(
         totalDisciplineSize = (widthSize - totalHeaderSize)
         val maxDisciplineTextSize = (totalDisciplineSize - horTextMargin).toInt()
 
-        for (discipline in marksData.disciplines) {
+        for (discipline in marksData) {
             val title = discipline.title
             val layout = StaticLayout.Builder
                 .obtain(title, 0, title.length, disciplinePainter, maxDisciplineTextSize)
@@ -195,7 +195,7 @@ class MarksTable @JvmOverloads constructor(
         canvas.translate(textCellMargin, textCellMargin)
 
         // рисование дисциплин, их оценок и коэффициент
-        for ((layout, discipline) in disciplineLayouts.zip(marksData.disciplines)) {
+        for ((layout, discipline) in disciplineLayouts.zip(marksData)) {
             layout.draw(canvas)
 
             // оценки дисциплины

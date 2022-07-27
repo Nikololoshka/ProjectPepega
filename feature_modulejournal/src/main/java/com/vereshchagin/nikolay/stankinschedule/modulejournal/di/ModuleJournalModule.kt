@@ -2,12 +2,8 @@ package com.vereshchagin.nikolay.stankinschedule.modulejournal.di
 
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.data.api.ModuleJournalAPI
-import com.vereshchagin.nikolay.stankinschedule.modulejournal.data.repository.JournalSecureRepositoryImpl
-import com.vereshchagin.nikolay.stankinschedule.modulejournal.data.repository.JournalServiceRepositoryImpl
-import com.vereshchagin.nikolay.stankinschedule.modulejournal.data.repository.JournalStorageRepositoryImpl
-import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.repository.JournalSecureRepository
-import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.repository.JournalServiceRepository
-import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.repository.JournalStorageRepository
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.data.repository.*
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.repository.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -46,7 +42,19 @@ object ModuleJournalModule {
 
     @Provides
     @ViewModelScoped
-    fun provideSecuryRepository(
+    fun provideSecureRepository(
         repository: JournalSecureRepositoryImpl,
     ): JournalSecureRepository = repository
+
+    @Provides
+    @ViewModelScoped
+    fun providePredictRepository(
+        repository: JournalPredictRepositoryImpl,
+    ): JournalPredictRepository = repository
+
+    @Provides
+    @ViewModelScoped
+    fun provideJournalRepository(
+        repository: JournalRepositoryImpl,
+    ): JournalRepository = repository
 }

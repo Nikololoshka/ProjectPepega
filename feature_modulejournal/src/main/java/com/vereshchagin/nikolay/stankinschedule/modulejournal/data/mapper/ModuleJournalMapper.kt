@@ -9,13 +9,13 @@ fun SemestersResponse.toStudent(): Student {
     return Student(
         name = "$surname $initials",
         group = group,
-        semesters = semesters
+        semesters = semesters.reversed()
     )
 }
 
 fun List<MarkResponse>.toSemesterMarks(): SemesterMarks {
     return SemesterMarks().apply {
-        forEach { mark ->
+        this@toSemesterMarks.forEach { mark ->
             addMark(mark.title, mark.type, mark.value, mark.factor)
         }
     }

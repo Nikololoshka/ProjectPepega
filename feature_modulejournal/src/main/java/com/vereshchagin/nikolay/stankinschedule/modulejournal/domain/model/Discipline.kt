@@ -6,65 +6,17 @@ import com.google.gson.annotations.SerializedName
  * Дисциплина в модульном журнале.
  */
 data class Discipline(
-    @SerializedName("title") val title: String = "",
-    @SerializedName("marks") val marks: LinkedHashMap<MarkType, Int> = linkedMapOf(),
-    @SerializedName("factor") val factor: Double = NO_FACTOR,
-) {
+    @SerializedName("title")
+    val title: String = "",
+    @SerializedName("marks")
+    private val marks: LinkedHashMap<MarkType, Int> = linkedMapOf(),
+    @SerializedName("factor")
+    val factor: Double = NO_FACTOR,
+) : Iterable<Pair<MarkType, Int>> {
     /**
      * Строковое представление коэффициента.
      */
     val factorHolder get() = if (factor == NO_FACTOR) " " else factor.toString()
-
-    /**
-     * Вычисляет рейтинг для дисциплины.
-     */
-    fun computeRating(): Double {
-        var disciplineSum = 0.0
-        var disciplineCount = 0.0
-        for (type in MarkType.values()) {
-            marks[type]?.let { mark ->
-                disciplineSum += mark * type.weight
-                disciplineCount += type.weight
-            }
-        }
-        return (disciplineSum / disciplineCount) * factor
-    }
-
-    /**
-     * Вычисляет прогнозируемый рейтинг для дисциплины.
-     * @param averageRating средний рейтинг для отсутствующих оценок.
-     */
-    fun computePredictedRating(averageRating: Int): Double {
-        var disciplineSum = 0.0
-        var disciplineCount = 0.0
-        for (type in MarkType.values()) {
-            marks[type]?.let { mark ->
-                disciplineSum += if (mark == NO_MARK) {
-                    averageRating * type.weight
-                } else {
-                    mark * type.weight
-                }
-                disciplineCount += type.weight
-            }
-        }
-        return (disciplineSum / disciplineCount) * factor
-    }
-
-    /**
-     * Возвращает сумму и количество проставленных оценок для
-     * вычисления средней оценки.
-     */
-    fun prepareAverage(): Pair<Int, Int> {
-        var disciplineSum = 0
-        var disciplineCount = 0
-        for (mark in marks) {
-            if (mark.value != NO_MARK) {
-                disciplineSum += mark.value
-                disciplineCount++
-            }
-        }
-        return disciplineSum to disciplineCount
-    }
 
     /**
      * Проверяет, является ли дисциплина завершенной (есть все оценки).
@@ -94,6 +46,10 @@ data class Discipline(
     operator fun set(type: MarkType, value: Int) {
         marks[type] = value
     }
+
+    override fun iterator(): Iterator<Pair<MarkType, Int>> = marks
+        .map { (key, value) -> (key to value) }
+        .iterator()
 
     override fun toString(): String {
         return "Discipline(title='$title', marks=$marks, factor=$factor)"

@@ -1,8 +1,9 @@
-package com.vereshchagin.nikolay.stankinschedule.core.ui.components
+package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.FractionalThreshold
 import androidx.compose.material.rememberSwipeableState
@@ -30,8 +31,8 @@ enum class SwipingStates {
 @Composable
 fun CollapseLayout(
     headerHeight: Dp,
-    header: @Composable (progress: Float) -> Unit,
-    content: @Composable () -> Unit,
+    header: @Composable ColumnScope.(progress: Float) -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val swipingState = rememberSwipeableState(
