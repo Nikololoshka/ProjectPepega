@@ -37,7 +37,7 @@ object Versions {
     const val junit = "4.13"
     const val legacy_support = "1.0.0"
     const val lifecycle = "2.3.1"
-    const val material = "1.4.0"
+    const val material = "1.6.1"
     const val navigation = "2.3.5"
     const val okhttpLoggingInterceptor = "4.8.0"
     const val pager = "1.0.0"

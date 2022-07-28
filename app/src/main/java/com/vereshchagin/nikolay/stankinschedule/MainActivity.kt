@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -19,7 +20,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.ApplicationTheme
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppScaffold
+import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen.JournalLoginScreen
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen.JournalScreen
 import com.vereshchagin.nikolay.stankinschedule.navigation.BottomNavigationEntry
@@ -31,11 +33,12 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            ApplicationTheme {
+            AppTheme {
                 val navController = rememberNavController()
                 val screens: List<BottomNavigationEntry> = listOf(
                     BottomNavigationEntry(
@@ -51,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                 )
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
 
-                Scaffold(
+                AppScaffold(
                     topBar = {
                         TopAppBar(
                             title = { Text(text = "AppBar") },

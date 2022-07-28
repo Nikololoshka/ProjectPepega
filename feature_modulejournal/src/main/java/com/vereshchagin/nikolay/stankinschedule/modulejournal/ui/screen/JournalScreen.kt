@@ -1,15 +1,19 @@
 package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen
 
+import android.content.Intent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -22,6 +26,7 @@ import com.google.accompanist.pager.rememberPagerState
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.Stateful
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.PredictActivity
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components.*
 
 
@@ -88,6 +93,19 @@ fun JournalScreen(
                                 .fillMaxWidth()
                                 .height(tabsHeight)
                         )
+                    }
+                    item {
+                        val context = LocalContext.current
+
+                        Button(
+                            onClick = {
+                                context.startActivity(
+                                    Intent(context, PredictActivity::class.java)
+                                )
+                            }
+                        ) {
+                            Text(text = "Predict")
+                        }
                     }
 
                     item {

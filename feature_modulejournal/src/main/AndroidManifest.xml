@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.vereshchagin.nikolay.stankinschedule.modulejournal" />
+<manifest package="com.vereshchagin.nikolay.stankinschedule.modulejournal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name=".ui.PredictActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+    </application>
+
+</manifest>

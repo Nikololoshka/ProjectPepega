@@ -53,7 +53,7 @@ object AppDependencies {
     const val paging = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
     const val pagingCompose = "androidx.paging:paging-compose:1.0.0-alpha14"
 
-    const val material = "com.google.android.material:material:${Versions.material}"
+    const val material3 = "com.google.android.material:material:${Versions.material}"
 
 
     // Integration

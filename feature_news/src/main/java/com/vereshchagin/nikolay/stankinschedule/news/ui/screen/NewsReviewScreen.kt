@@ -4,7 +4,6 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Tab
-import androidx.compose.material.TabPosition
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -15,10 +14,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.pagerTabIndicatorOffset
 import com.google.accompanist.pager.rememberPagerState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppTabIndicator
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppTabRowInverted
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.pagerTabIndicatorOffset
 import com.vereshchagin.nikolay.stankinschedule.news.R
 import com.vereshchagin.nikolay.stankinschedule.news.ui.components.NewsPostColumn
 import com.vereshchagin.nikolay.stankinschedule.news.utils.newsImageLoader
@@ -45,7 +44,7 @@ fun NewsReviewScreen(
     ) {
         AppTabRowInverted(
             selectedTabIndex = pagerState.currentPage,
-            indicator = { tabPositions: List<TabPosition> ->
+            indicator = { tabPositions ->
                 AppTabIndicator(
                     modifier = Modifier.pagerTabIndicatorOffset(pagerState, tabPositions)
                 )

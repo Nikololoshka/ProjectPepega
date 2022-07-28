@@ -1,20 +1,21 @@
 package com.vereshchagin.nikolay.stankinschedule.core.ui.components
 
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.TabPosition
-import androidx.compose.material.TabRow
 import androidx.compose.material.TabRowDefaults
-import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.TabPosition
+import androidx.compose.material3.TabRow
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+
 
 @Composable
 fun AppTabRowInverted(
     selectedTabIndex: Int,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = MaterialTheme.colors.background,
-    contentColor: Color = MaterialTheme.colors.primary,
+    containerColor: Color = MaterialTheme.colorScheme.background,
+    contentColor: Color = MaterialTheme.colorScheme.primary,
     indicator: @Composable (tabPositions: List<TabPosition>) -> Unit = @Composable { tabPositions ->
         TabRowDefaults.Indicator(
             Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex])
@@ -28,7 +29,7 @@ fun AppTabRowInverted(
     TabRow(
         selectedTabIndex = selectedTabIndex,
         modifier = modifier,
-        backgroundColor = backgroundColor,
+        containerColor = containerColor,
         contentColor = contentColor,
         indicator = indicator,
         divider = divider,

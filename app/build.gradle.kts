@@ -130,6 +130,7 @@ dependencies {
     implementation(AppDependencies.compose)
     implementation(AppDependencies.composeActivity)
     implementation(AppDependencies.composeNavigation)
+    implementation(AppDependencies.composeMaterial3)
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
     implementation(AppDependencies.appcompat)
@@ -139,7 +140,7 @@ dependencies {
     implementation(AppDependencies.recyclerview)
     implementation(AppDependencies.pager)
     implementation(AppDependencies.paging)
-    implementation(AppDependencies.material)
+    implementation(AppDependencies.material3)
     implementation(AppDependencies.preference)
 
     // Lifecycle

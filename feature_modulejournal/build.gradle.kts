@@ -60,7 +60,10 @@ dependencies {
     implementation(AppDependencies.coreKtx)
     implementation(AppDependencies.compose)
     implementation(AppDependencies.composeActivity)
-    // implementation(AppDependencies.composeMaterial3)
+
+    implementation(AppDependencies.composeMaterial3)
+    implementation(AppDependencies.material3)
+
     implementation(AppDependencies.securityCrypto)
 
     implementation(AppDependencies.appComponents)

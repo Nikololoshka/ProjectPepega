@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.BlendMode
@@ -55,9 +55,9 @@ fun StudentInfo(
             contentScale = ContentScale.Crop,
             colorFilter = ColorFilter.tint(
                 color = if (isSystemInDarkTheme()) {
-                    MaterialTheme.colors.background.copy(alpha = 0.75f)
+                    MaterialTheme.colorScheme.background.copy(alpha = 0.75f)
                 } else {
-                    MaterialTheme.colors.primary.copy(alpha = 0.5f)
+                    MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
                 },
                 blendMode = BlendMode.Multiply
             ),
@@ -75,13 +75,13 @@ fun StudentInfo(
             Text(
                 text = student.name,
                 color = Color.White,
-                style = MaterialTheme.typography.h5,
+                style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.fillMaxWidth()
             )
             Text(
                 text = student.group,
                 color = Color.White,
-                style = MaterialTheme.typography.body1,
+                style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.fillMaxWidth()
             )
             Text(
