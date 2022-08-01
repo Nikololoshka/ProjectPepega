@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components
+package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.login.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

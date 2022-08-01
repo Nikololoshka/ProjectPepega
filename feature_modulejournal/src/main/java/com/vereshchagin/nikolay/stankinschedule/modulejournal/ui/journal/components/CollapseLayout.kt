@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components
+package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.components
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.gestures.Orientation

@@ -21,7 +21,7 @@ class JournalPredictRepositoryImpl @Inject constructor() : JournalPredictReposit
         return (disciplineSum / disciplineCount) * discipline.factor
     }
 
-    private fun computeRating(marks: SemesterMarks): Double {
+    override fun computeRating(marks: SemesterMarks): Double {
         var ratingSum = 0.0
         var ratingCount = 0.0
 

@@ -1,11 +1,11 @@
-package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components
+package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.components
 
 import android.view.ViewGroup
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.SemesterMarks
-import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.view.MarksTable as MarksTableView
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.view.MarksTableView
 
 @Composable
 fun MarksTable(
@@ -14,7 +14,9 @@ fun MarksTable(
 ) {
     AndroidView(
         factory = { context ->
-            MarksTableView(context).apply {
+            MarksTableView(
+                context = context
+            ).apply {
                 layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT

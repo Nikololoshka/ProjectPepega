@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen
+package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

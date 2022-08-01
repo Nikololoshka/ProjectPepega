@@ -1,10 +1,10 @@
-package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components
+package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Text
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier

@@ -5,8 +5,7 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.*
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -22,8 +21,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppScaffold
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
-import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen.JournalLoginScreen
-import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen.JournalScreen
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.JournalScreen
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.login.JournalLoginScreen
 import com.vereshchagin.nikolay.stankinschedule.navigation.BottomNavigationEntry
 import com.vereshchagin.nikolay.stankinschedule.news.ui.screen.NewsReviewScreen
 import com.vereshchagin.nikolay.stankinschedule.news.ui.screen.NewsViewerScreen
@@ -54,18 +53,14 @@ class MainActivity : AppCompatActivity() {
                 )
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
 
+
                 AppScaffold(
-                    topBar = {
-                        TopAppBar(
-                            title = { Text(text = "AppBar") },
-                        )
-                    },
                     bottomBar = {
-                        BottomNavigation {
+                        NavigationBar {
                             val currentDestination = navBackStackEntry?.destination
 
                             screens.forEach { screen ->
-                                BottomNavigationItem(
+                                NavigationBarItem(
                                     icon = {
                                         Icon(
                                             painter = painterResource(screen.iconRes),

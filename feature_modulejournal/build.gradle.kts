@@ -1,8 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
 }
 
 android {
@@ -31,6 +31,8 @@ android {
         jvmTarget = Versions.kotlinLevel
     }
     buildFeatures {
+        dataBinding = true
+        viewBinding = true
         compose = true
     }
     composeOptions {

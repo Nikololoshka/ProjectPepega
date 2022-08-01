@@ -2,9 +2,9 @@ package com.vereshchagin.nikolay.stankinschedule.news.ui.screen
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Tab
-import androidx.compose.material.Text
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
@@ -16,7 +16,6 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppTabIndicator
-import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppTabRowInverted
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.pagerTabIndicatorOffset
 import com.vereshchagin.nikolay.stankinschedule.news.R
 import com.vereshchagin.nikolay.stankinschedule.news.ui.components.NewsPostColumn
@@ -42,7 +41,7 @@ fun NewsReviewScreen(
     Box(
         modifier = modifier
     ) {
-        AppTabRowInverted(
+        TabRow(
             selectedTabIndex = pagerState.currentPage,
             indicator = { tabPositions ->
                 AppTabIndicator(
@@ -62,10 +61,7 @@ fun NewsReviewScreen(
                         }
                     },
                     text = {
-                        Text(
-                            text = stringResource(id = subdivision.nameId),
-                            style = MaterialTheme.typography.body1
-                        )
+                        Text(text = stringResource(id = subdivision.nameId))
                     }
                 )
             }

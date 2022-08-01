@@ -1,8 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
 }
 
 android {
@@ -63,6 +63,9 @@ dependencies {
     implementation(AppDependencies.composeActivity)
     implementation(AppDependencies.appComponents)
     implementation(AppDependencies.appcompat)
+
+    implementation(AppDependencies.composeMaterial3)
+    implementation(AppDependencies.material3)
 
     implementation(AppDependencies.retrofitRuntime)
     implementation(AppDependencies.retrofitGson)

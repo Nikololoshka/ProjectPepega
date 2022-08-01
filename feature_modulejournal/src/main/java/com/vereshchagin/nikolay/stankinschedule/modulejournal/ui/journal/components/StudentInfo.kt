@@ -1,17 +1,15 @@
-package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components
+package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.BlendMode
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -54,11 +52,7 @@ fun StudentInfo(
             contentDescription = null,
             contentScale = ContentScale.Crop,
             colorFilter = ColorFilter.tint(
-                color = if (isSystemInDarkTheme()) {
-                    MaterialTheme.colorScheme.background.copy(alpha = 0.75f)
-                } else {
-                    MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
-                },
+                color = MaterialTheme.colorScheme.background,
                 blendMode = BlendMode.Multiply
             ),
             modifier = Modifier.fillMaxWidth()
@@ -66,33 +60,25 @@ fun StudentInfo(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(
-                    top = Dimen.ContentPadding,
-                    start = Dimen.ContentPadding,
-                    end = Dimen.ContentPadding
-                )
+                .padding(Dimen.ContentPadding * 2)
         ) {
             Text(
                 text = student.name,
-                color = Color.White,
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.fillMaxWidth()
             )
             Text(
                 text = student.group,
-                color = Color.White,
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.fillMaxWidth()
             )
             Text(
                 text = stringResource(R.string.predict_rating, predictRating ?: "--"),
-                color = Color.White,
                 textAlign = TextAlign.End,
                 modifier = Modifier.fillMaxWidth()
             )
             Text(
                 text = stringResource(R.string.current_rating, rating ?: "--"),
-                color = Color.White,
                 textAlign = TextAlign.End,
                 modifier = Modifier.fillMaxWidth()
             )

@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.view
+package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.view
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -23,7 +23,7 @@ import kotlin.math.roundToInt
 /**
  * View таблицы с оценками.
  */
-class MarksTable @JvmOverloads constructor(
+class MarksTableView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttrs: Int = 0, defStyleRes: Int = 0,
 ) : View(context, attrs, defStyleAttrs, defStyleRes) {
 
@@ -188,6 +188,8 @@ class MarksTable @JvmOverloads constructor(
             canvas.drawLine(offset, 0F, offset, maxWrapHeight, linePainter)
             offset += size
         }
+
+        canvas.drawLine(0F, 0F, measuredWidth.toFloat(), 0F, linePainter)
 
         // подводящая линия заголовка таблицы
         canvas.translate(0F, headerHeight + textCellMargin * 2)

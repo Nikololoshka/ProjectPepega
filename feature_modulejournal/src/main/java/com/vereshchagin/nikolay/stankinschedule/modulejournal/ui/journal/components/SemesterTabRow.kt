@@ -1,8 +1,8 @@
-package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components
+package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.components
 
-import androidx.compose.material.ScrollableTabRow
-import androidx.compose.material.Tab
-import androidx.compose.material.Text
+import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.Tab
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -21,6 +21,7 @@ fun SemesterTabRow(
     ScrollableTabRow(
         selectedTabIndex = currentPage,
         edgePadding = 0.dp,
+        divider = {},
         modifier = modifier
     ) {
         semesters.forEachIndexed { index, semester ->

@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.screen
+package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.login
 
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.AnimatedVisibility
@@ -9,7 +9,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.LinearProgressIndicator
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
@@ -25,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import com.vereshchagin.nikolay.stankinschedule.core.ui.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.R
-import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.components.LoginError
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.login.components.LoginError
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.util.Constants
 
 

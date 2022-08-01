@@ -9,9 +9,16 @@
     <string name="forget_password">Forget password?</string>
     <string name="field_is_empty">Field is empty</string>
 
-
+    <!-- Journal screen -->
+    <string name="journal_title">Journal</string>
     <string name="journal_retry">Retry</string>
     <string name="predict_rating">Predict rating: %1$s</string>
     <string name="current_rating">Rating: %1$s</string>
+
+    <!-- Predict screen -->
+    <string name="predict_title">Predict rating</string>
+    <string name="selected_semester">Selected semester: %1$s</string>
+    <string name="maybe_rating">Rating</string>
+    <string name="no_disciplines">No disciplines without grades</string>
 
 </resources>

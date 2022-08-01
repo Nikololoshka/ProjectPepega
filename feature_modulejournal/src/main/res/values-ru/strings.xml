@@ -9,8 +9,16 @@
     <string name="forget_password">Забыли пароль?</string>
     <string name="field_is_empty">Поле пустое</string>
 
+    <!-- Journal screen -->
+    <string name="journal_title">Мод. журнал</string>
     <string name="journal_retry">Повторить</string>
     <string name="current_rating">Текущий рейтиг: %1$s</string>
     <string name="predict_rating">Прогнозируемый рейтинг: %1$s</string>
+
+    <!-- Predict screen -->
+    <string name="predict_title">Прогнозирование рейтинга</string>
+    <string name="selected_semester">Выбранный семестр: %1$s</string>
+    <string name="maybe_rating">Рейтинг</string>
+    <string name="no_disciplines">Нет дисциплин без выставленных оценок</string>
 
 </resources>
