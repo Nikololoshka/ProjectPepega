@@ -26,7 +26,9 @@ import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.login.JournalLo
 import com.vereshchagin.nikolay.stankinschedule.navigation.BottomNavigationEntry
 import com.vereshchagin.nikolay.stankinschedule.news.ui.review.NewsReviewScreen
 import com.vereshchagin.nikolay.stankinschedule.news.ui.viewer.NewsViewerScreen
+import com.vereshchagin.nikolay.stankinschedule.ui.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint
+import com.vereshchagin.nikolay.stankinschedule.core.R as R_core
 
 
 @AndroidEntryPoint
@@ -34,12 +36,24 @@ class MainActivity : AppCompatActivity() {
 
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R_core.style.AppTheme)
+
         super.onCreate(savedInstanceState)
 
         setContent {
             AppTheme {
                 val navController = rememberNavController()
                 val screens: List<BottomNavigationEntry> = listOf(
+                    BottomNavigationEntry(
+                        route = "home",
+                        nameRes = R.string.nav_home,
+                        iconRes = R.drawable.nav_home
+                    ),
+                    BottomNavigationEntry(
+                        route = "schedule",
+                        nameRes = R.string.nav_schedule,
+                        iconRes = R.drawable.nav_schedule
+                    ),
                     BottomNavigationEntry(
                         route = "journal_content",
                         nameRes = R.string.nav_journal,
@@ -93,10 +107,19 @@ class MainActivity : AppCompatActivity() {
                 ) { innerPadding ->
                     NavHost(
                         navController = navController,
-                        startDestination = "journal_content",
+                        startDestination = "home",
                         modifier = Modifier
                             .padding(innerPadding)
                     ) {
+                        composable("home") {
+                            HomeScreen(
+                                modifier = Modifier.fillMaxSize()
+                            )
+                        }
+                        composable("schedule") {
+
+                        }
+
                         composable("journal_login") {
                             JournalLoginScreen(
                                 viewModel = hiltViewModel(),
