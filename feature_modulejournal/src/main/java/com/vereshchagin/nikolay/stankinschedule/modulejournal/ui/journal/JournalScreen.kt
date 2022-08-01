@@ -30,6 +30,7 @@ import com.google.accompanist.pager.rememberPagerState
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.Stateful
+import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.components.*
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.predict.PredictActivity
 
@@ -101,7 +102,8 @@ fun JournalScreen(
                                 predictRating = predictRating,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(140.dp)
+                                    .padding(Dimen.ContentPadding)
+                                    .defaultMinSize(minHeight = 140.dp)
                             )
                         }
 

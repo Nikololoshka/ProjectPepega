@@ -1,42 +1,22 @@
 package com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.components
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.R
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.Student
 
-/*
-@Preview(showSystemUi = true, showBackground = true)
-@Composable
-fun StudentInfoPreview() {
-    StudentInfo(
-        student = Student(
-            name = "Nikolay",
-            group = "ИДБ-17-09",
-            semesters = listOf(
-                "2022-Весна", "2021-Осень"
-            )
-        ),
-        modifier = Modifier.fillMaxSize()
-    )
-}
-*/
 
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StudentInfo(
     student: Student,
@@ -44,23 +24,13 @@ fun StudentInfo(
     predictRating: String?,
     modifier: Modifier = Modifier,
 ) {
-    Box(
-        modifier = modifier
+    ElevatedCard(
+        modifier = modifier,
     ) {
-        Image(
-            painter = painterResource(R.drawable.background_mj),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            colorFilter = ColorFilter.tint(
-                color = MaterialTheme.colorScheme.background,
-                blendMode = BlendMode.Multiply
-            ),
-            modifier = Modifier.fillMaxWidth()
-        )
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(Dimen.ContentPadding * 2)
+                .padding(Dimen.ContentPadding)
         ) {
             Text(
                 text = student.name,
