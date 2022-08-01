@@ -64,9 +64,8 @@ dependencies {
     implementation(AppDependencies.composeMaterial3)
     implementation(AppDependencies.material3)
 
-    val accompanist = "0.24.13-rc"
-    implementation("com.google.accompanist:accompanist-pager:$accompanist")
-    implementation("com.google.accompanist:accompanist-pager-indicators:$accompanist")
+    implementation(AppDependencies.accompanistPager)
+    implementation(AppDependencies.accompanistPagerIndicators)
 
     implementation(AppDependencies.network)
 

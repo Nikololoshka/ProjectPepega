@@ -131,7 +131,7 @@ dependencies {
     implementation(AppDependencies.composeActivity)
     implementation(AppDependencies.composeNavigation)
     implementation(AppDependencies.composeMaterial3)
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
 
     implementation(AppDependencies.appcompat)
     implementation(AppDependencies.legacySupport)
@@ -148,6 +148,7 @@ dependencies {
 
     // Dagger & Hilt
     implementation(AppDependencies.hiltAndroid)
+    implementation(AppDependencies.hiltNavigation)
     kapt(AppDependencies.hiltCompiler)
 
     implementation(AppDependencies.hiltWork)
@@ -190,72 +191,4 @@ dependencies {
     implementation(AppDependencies.shimmer)
     implementation(AppDependencies.startup)
     implementation(AppDependencies.webkit)
-
-    /*
-    kapt deps.room.compiler
-    kapt deps.glide.compiler
-    kapt deps.databinding.compiler
-    kapt deps.hilt.compiler
-    kapt deps.hilt.work_compiler
-
-
-    implementation platform(deps.firebase.bom)
-
-    implementation deps.activity.activity_ktx
-    implementation deps.appcompat
-    implementation deps.chrome_browser
-    implementation deps.commons
-    implementation deps.constraint_layout
-    implementation deps.core_google_play
-    implementation deps.core_ktx
-    implementation deps.firebase.analytics
-    implementation deps.firebase.crashlytics
-    implementation deps.firebase.storage
-    implementation deps.fragment.runtime_ktx
-    implementation deps.glide.runtime
-    implementation deps.grid_layout
-    implementation deps.gson
-    implementation deps.hilt.hilt_android
-    implementation deps.hilt.work
-    implementation deps.holo_color_picker
-    implementation deps.joda_time
-    implementation deps.kotlin.reflect
-    implementation deps.kotlin.stdlib
-    implementation deps.legacy_support
-    implementation deps.lifecycle.java8
-    implementation deps.lifecycle.livedata_ktx
-    implementation deps.lifecycle.runtime
-    implementation deps.lifecycle.viewmodel_ktx
-    implementation deps.material
-    implementation deps.navigation.fragment_ktx
-    implementation deps.navigation.runtime_ktx
-    implementation deps.navigation.ui_ktx
-    implementation deps.okhttp_logging_interceptor
-    implementation deps.pager
-    implementation deps.paging
-    implementation deps.preference
-    implementation deps.recyclerview
-    implementation deps.retrofit.gson
-    implementation deps.retrofit.runtime
-    implementation deps.room.ktx
-    implementation deps.room.runtime
-    implementation deps.security_crypto
-    implementation deps.shimmer
-    implementation deps.webkit
-    implementation deps.work.runtime
-    implementation deps.work.runtime_ktx
-
-
-    androidTestImplementation deps.room.testing
-    androidTestImplementation 'androidx.test:runner:1.3.0'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    androidTestImplementation 'androidx.test:rules:1.4.0-alpha05'
-
-//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
-
-    testImplementation deps.junit
-    testImplementation deps.json
-    testImplementation deps.kotlin.test
-    */
 }

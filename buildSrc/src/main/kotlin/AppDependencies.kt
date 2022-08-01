@@ -23,10 +23,23 @@ object AppDependencies {
         composeViewmodel,
         composeIcons
     )
+
     const val composeActivity = "androidx.activity:activity-compose:1.5.0"
     const val composeNavigation = "androidx.navigation:navigation-compose:2.5.0"
     const val composeMaterial3 = "androidx.compose.material3:material3:1.0.0-alpha14"
 
+    const val accompanistPager =
+        "com.google.accompanist:accompanist-pager:${Versions.accompanist}"
+    const val accompanistPagerIndicators =
+        "com.google.accompanist:accompanist-pager-indicators:${Versions.accompanist}"
+    const val accompanistWebview =
+        "com.google.accompanist:accompanist-webview:${Versions.accompanist}"
+    const val accompanistSwipeRefresh =
+        "com.google.accompanist:accompanist-swiperefresh:${Versions.accompanist}"
+    const val accompanistPlaceholder =
+        "com.google.accompanist:accompanist-placeholder-material:${Versions.accompanist}"
+
+    const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
 
     // Kotlin
     const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
@@ -84,6 +97,7 @@ object AppDependencies {
     const val hiltPlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
     const val hiltWork = "androidx.hilt:hilt-work:${Versions.hilt_work}"
     const val hiltWorkCompiler = "androidx.hilt:hilt-compiler:${Versions.hilt_work}"
+    const val hiltNavigation = "androidx.hilt:hilt-navigation-compose:${Versions.hilt_nav}"
 
     // Firebase
     const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebase}"

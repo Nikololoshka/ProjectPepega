@@ -74,21 +74,19 @@ dependencies {
     implementation(AppDependencies.retrofitRuntime)
     implementation(AppDependencies.retrofitGson)
     implementation(AppDependencies.gson)
-    implementation("io.coil-kt:coil-compose:2.1.0")
+    implementation(AppDependencies.coil)
 
     implementation(AppDependencies.paging)
     implementation(AppDependencies.pagingCompose)
 
-    val accompanist = "0.24.13-rc"
-    implementation("com.google.accompanist:accompanist-pager:$accompanist")
-    implementation("com.google.accompanist:accompanist-pager-indicators:$accompanist")
-    implementation("com.google.accompanist:accompanist-webview:$accompanist")
-    implementation("com.google.accompanist:accompanist-swiperefresh:$accompanist")
-    implementation("com.google.accompanist:accompanist-placeholder-material:$accompanist")
+    implementation(AppDependencies.accompanistPager)
+    implementation(AppDependencies.accompanistPagerIndicators)
+    implementation(AppDependencies.accompanistSwipeRefresh)
+    implementation(AppDependencies.accompanistPlaceholder)
 
     // Dagger & Hilt
     implementation(AppDependencies.hiltAndroid)
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation(AppDependencies.hiltNavigation)
     kapt(AppDependencies.hiltCompiler)
 
     debugImplementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
