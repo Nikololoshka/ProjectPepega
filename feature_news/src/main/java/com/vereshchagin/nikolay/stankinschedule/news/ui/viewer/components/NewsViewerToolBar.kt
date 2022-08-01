@@ -5,9 +5,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.outlined.OpenInBrowser
-import androidx.compose.material.icons.outlined.Share
-import androidx.compose.material.icons.outlined.Update
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -58,43 +55,31 @@ fun NewsViewerToolBar(
                 onDismissRequest = { showMenu = false }
             ) {
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.news_open_in_browser)) },
+                    text = {
+                        Text(text = stringResource(R.string.news_open_in_browser))
+                    },
                     onClick = {
                         onOpenInBrowser()
                         showMenu = false
-                    },
-                    leadingIcon = {
-                        Icon(
-                            Icons.Outlined.OpenInBrowser,
-                            contentDescription = null
-                        )
                     }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.news_share)) },
+                    text = {
+                        Text(text = stringResource(R.string.news_share))
+                    },
                     onClick = {
                         onShareNews()
                         showMenu = false
                     },
-                    leadingIcon = {
-                        Icon(
-                            Icons.Outlined.Share,
-                            contentDescription = null
-                        )
-                    }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.news_update)) },
+                    text = {
+                        Text(text = stringResource(R.string.news_update))
+                    },
                     onClick = {
                         onUpdateNews()
                         showMenu = false
                     },
-                    leadingIcon = {
-                        Icon(
-                            Icons.Outlined.Update,
-                            contentDescription = null
-                        )
-                    }
                 )
             }
         },
