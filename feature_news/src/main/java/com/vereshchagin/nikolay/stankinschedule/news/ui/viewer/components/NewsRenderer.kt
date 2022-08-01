@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.ui.components
+package com.vereshchagin.nikolay.stankinschedule.news.ui.viewer.components
 
 import android.annotation.SuppressLint
 import android.net.Uri

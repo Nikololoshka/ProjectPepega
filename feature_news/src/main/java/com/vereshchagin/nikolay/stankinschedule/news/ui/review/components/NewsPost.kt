@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.ui.components
+package com.vereshchagin.nikolay.stankinschedule.news.ui.review.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*

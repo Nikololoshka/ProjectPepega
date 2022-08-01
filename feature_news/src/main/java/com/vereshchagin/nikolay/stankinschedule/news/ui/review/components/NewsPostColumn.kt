@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.ui.components
+package com.vereshchagin.nikolay.stankinschedule.news.ui.review.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.padding
@@ -17,6 +17,8 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.PagingLazyColumn
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.news.domain.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.ui.components.NewsError
+import com.vereshchagin.nikolay.stankinschedule.news.ui.components.NewsLoading
 import com.vereshchagin.nikolay.stankinschedule.news.utils.newsImageLoader
 import kotlinx.coroutines.flow.Flow
 

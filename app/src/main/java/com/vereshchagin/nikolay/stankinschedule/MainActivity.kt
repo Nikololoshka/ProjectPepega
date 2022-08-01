@@ -24,8 +24,8 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.JournalScreen
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.login.JournalLoginScreen
 import com.vereshchagin.nikolay.stankinschedule.navigation.BottomNavigationEntry
-import com.vereshchagin.nikolay.stankinschedule.news.ui.screen.NewsReviewScreen
-import com.vereshchagin.nikolay.stankinschedule.news.ui.screen.NewsViewerScreen
+import com.vereshchagin.nikolay.stankinschedule.news.ui.review.NewsReviewScreen
+import com.vereshchagin.nikolay.stankinschedule.news.ui.viewer.NewsViewerScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -124,19 +124,29 @@ class MainActivity : AppCompatActivity() {
                         composable("news") {
                             NewsReviewScreen(
                                 viewModel = hiltViewModel(),
-                                navigateToViewer = {
-                                    navController.navigate("viewer/$it")
+                                navigateToViewer = { title, newsId ->
+                                    navController.navigate("viewer/$newsId?title=$title")
                                 },
                                 modifier = Modifier.fillMaxSize()
                             )
                         }
                         composable(
-                            route = "viewer/{newsId}",
-                            arguments = listOf(navArgument("newsId") { type = NavType.IntType })
+                            route = "viewer/{newsId}?title={newsTitle}",
+                            arguments = listOf(
+                                navArgument("newsId") {
+                                    type = NavType.IntType
+                                },
+                                navArgument("newsTitle") {
+                                    type = NavType.StringType
+                                    nullable = true
+                                }
+                            )
                         ) { backStackEntry ->
                             NewsViewerScreen(
+                                title = backStackEntry.arguments?.getString("newsTitle"),
                                 postId = backStackEntry.arguments?.getInt("newsId") ?: -1,
                                 viewModel = hiltViewModel(),
+                                onBackPressed = { navController.navigateUp() },
                                 modifier = Modifier.fillMaxSize()
                             )
                         }

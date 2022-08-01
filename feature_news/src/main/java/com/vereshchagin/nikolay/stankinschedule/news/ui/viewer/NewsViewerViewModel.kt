@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.ui.screen
+package com.vereshchagin.nikolay.stankinschedule.news.ui.viewer
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
