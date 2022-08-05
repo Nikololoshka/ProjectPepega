@@ -58,23 +58,29 @@ fun NewsPostColumn(
                 Divider()
             },
             onContentLoading = {
-                NewsLoading(modifier = Modifier.fillParentMaxSize())
+                NewsLoading(modifier = Modifier.fillParentMaxWidth())
             },
             onContentError = { throwable ->
                 NewsError(
                     error = throwable,
                     onRetry = { lazyPostItems.retry() },
-                    modifier = Modifier.fillParentMaxSize()
+                    modifier = Modifier.fillParentMaxWidth()
                 )
             },
             onAppendLoading = {
-                NewsLoading(modifier = Modifier.padding(Dimen.ContentPadding))
+                NewsLoading(
+                    modifier = Modifier
+                        .fillParentMaxWidth()
+                        .padding(Dimen.ContentPadding)
+                )
             },
             onAppendError = { throwable ->
                 NewsError(
                     error = throwable,
                     onRetry = { lazyPostItems.retry() },
-                    modifier = Modifier.padding(Dimen.ContentPadding)
+                    modifier = Modifier
+                        .fillParentMaxWidth()
+                        .padding(Dimen.ContentPadding)
                 )
             }
         )
