@@ -38,6 +38,10 @@ object AppDependencies {
         "com.google.accompanist:accompanist-swiperefresh:${Versions.accompanist}"
     const val accompanistPlaceholder =
         "com.google.accompanist:accompanist-placeholder-material:${Versions.accompanist}"
+    const val accompanistNavigation =
+        "com.google.accompanist:accompanist-navigation-material:${Versions.accompanist}"
+    const val accompanistFlowLayout =
+        "com.google.accompanist:accompanist-flowlayout:${Versions.accompanist}"
 
     const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
 

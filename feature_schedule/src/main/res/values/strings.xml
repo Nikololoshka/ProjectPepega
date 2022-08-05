@@ -1,3 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
+
+
+    <string name="schedule_list_title">Schedule</string>
+
+    <string name="schedule_creator">Add schedule</string>
+    <string name="schedule_create_new">Create new</string>
+    <string name="schedule_from_device">From device</string>
+    <string name="schedule_from_repository">From repository</string>
+
+
+    <string name="repository_title_category">Schedule category</string>
+    <string name="repository_title_degree">Schedule degree</string>
+    <string name="repository_title_course">Schedule course</string>
+    <string name="repository_bachelor">Bachelor</string>
+    <string name="repository_magistracy">Magistracy</string>
+    <string name="repository_specialist">Specialist</string>
+    <string name="repository_postgraduate">Postgraduate</string>
+    <string name="repository_course">%1$s course</string>
+    <string name="repository_schedules_filter">Schedules: %1$s</string>
+    <string name="repository_no_schedules_found">No schedules found</string>
+    <string name="repository_retry">Retry</string>
+
 </resources>

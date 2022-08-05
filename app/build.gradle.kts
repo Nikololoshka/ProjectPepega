@@ -111,6 +111,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":feature_news"))
     implementation(project(":feature_modulejournal"))
+    implementation(project(":feature_schedule"))
 
     // App core
     implementation(AppDependencies.coreKtx)
@@ -131,6 +132,8 @@ dependencies {
     implementation(AppDependencies.composeActivity)
     implementation(AppDependencies.composeNavigation)
     implementation(AppDependencies.composeMaterial3)
+
+    implementation(AppDependencies.accompanistNavigation)
 
 
     implementation(AppDependencies.appcompat)

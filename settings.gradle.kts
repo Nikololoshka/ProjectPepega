@@ -12,5 +12,5 @@ pluginManagement {
 include(":core")
 include(":feature_news")
 include(":feature_modulejournal")
-// include(":feature_schedule")
+include(":feature_schedule")
 // include(":legacy")

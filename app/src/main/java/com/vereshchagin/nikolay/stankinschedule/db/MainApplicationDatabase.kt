@@ -7,24 +7,40 @@ import androidx.room.RoomDatabase
 import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDatabaseDao
 import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsEntity
+import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.*
 
 /**
  * Главная БД приложения.
  */
 @Database(
     entities = [
-        NewsEntity::class
+        NewsEntity::class,
+
+        ScheduleEntity::class,
+        PairEntity::class,
+
+        RepositoryEntity::class
     ],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 // @TypeConverters(DateTimeConverter::class, ListConverter::class)
-abstract class MainApplicationDatabase : RoomDatabase(), NewsDatabaseDao {
+abstract class MainApplicationDatabase : RoomDatabase(), NewsDatabaseDao, ScheduleDatabaseDao {
+
+    /**
+     * Dao новостей приложения.
+     */
+    abstract override fun featureNews(): NewsDao
 
     /**
      * Dao расписаний приложений.
      */
-    abstract override fun featureNews(): NewsDao
+    abstract override fun schedule(): ScheduleDao
+
+    /**
+     * Dao репозитория приложения.
+     */
+    abstract override fun repository(): RepositoryDao
 
     companion object {
         /**

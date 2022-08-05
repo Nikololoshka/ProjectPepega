@@ -19,13 +19,18 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppScaffold
+import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
+import com.google.accompanist.navigation.material.ModalBottomSheetLayout
+import com.google.accompanist.navigation.material.bottomSheet
+import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.journal.JournalScreen
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.login.JournalLoginScreen
 import com.vereshchagin.nikolay.stankinschedule.navigation.BottomNavigationEntry
 import com.vereshchagin.nikolay.stankinschedule.news.ui.review.NewsReviewScreen
 import com.vereshchagin.nikolay.stankinschedule.news.ui.viewer.NewsViewerScreen
+import com.vereshchagin.nikolay.stankinschedule.schedule.ui.list.ScheduleCreatorSheet
+import com.vereshchagin.nikolay.stankinschedule.schedule.ui.list.ScheduleScreen
 import com.vereshchagin.nikolay.stankinschedule.ui.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 import com.vereshchagin.nikolay.stankinschedule.core.R as R_core
@@ -34,7 +39,7 @@ import com.vereshchagin.nikolay.stankinschedule.core.R as R_core
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    @OptIn(ExperimentalMaterial3Api::class)
+    @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialNavigationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R_core.style.AppTheme)
 
@@ -42,7 +47,9 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             AppTheme {
-                val navController = rememberNavController()
+                val bottomSheetNavigator = rememberBottomSheetNavigator()
+                val navController = rememberNavController(bottomSheetNavigator)
+
                 val screens: List<BottomNavigationEntry> = listOf(
                     BottomNavigationEntry(
                         route = "home",
@@ -67,111 +74,128 @@ class MainActivity : AppCompatActivity() {
                 )
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
 
+                ModalBottomSheetLayout(
+                    bottomSheetNavigator = bottomSheetNavigator,
+                    sheetBackgroundColor = MaterialTheme.colorScheme.background,
+                ) {
+                    Scaffold(
+                        bottomBar = {
+                            NavigationBar {
+                                val currentDestination = navBackStackEntry?.destination
 
-                AppScaffold(
-                    bottomBar = {
-                        NavigationBar {
-                            val currentDestination = navBackStackEntry?.destination
-
-                            screens.forEach { screen ->
-                                NavigationBarItem(
-                                    icon = {
-                                        Icon(
-                                            painter = painterResource(screen.iconRes),
-                                            contentDescription = null
-                                        )
-                                    },
-                                    label = {
-                                        Text(text = stringResource(screen.nameRes))
-                                    },
-                                    selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
-                                    onClick = {
-                                        navController.navigate(screen.route) {
-                                            // Pop up to the start destination of the graph to
-                                            // avoid building up a large stack of destinations
-                                            // on the back stack as users select items
-                                            popUpTo(navController.graph.findStartDestination().id) {
-                                                saveState = true
+                                screens.forEach { screen ->
+                                    NavigationBarItem(
+                                        icon = {
+                                            Icon(
+                                                painter = painterResource(screen.iconRes),
+                                                contentDescription = null
+                                            )
+                                        },
+                                        label = {
+                                            Text(text = stringResource(screen.nameRes))
+                                        },
+                                        selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+                                        onClick = {
+                                            navController.navigate(screen.route) {
+                                                // Pop up to the start destination of the graph to
+                                                // avoid building up a large stack of destinations
+                                                // on the back stack as users select items
+                                                popUpTo(navController.graph.findStartDestination().id) {
+                                                    saveState = true
+                                                }
+                                                // Avoid multiple copies of the same destination when
+                                                // reselecting the same item
+                                                launchSingleTop = true
+                                                // Restore state when reselecting a previously selected item
+                                                restoreState = true
                                             }
-                                            // Avoid multiple copies of the same destination when
-                                            // reselecting the same item
-                                            launchSingleTop = true
-                                            // Restore state when reselecting a previously selected item
-                                            restoreState = true
                                         }
+                                    )
+                                }
+                            }
+                        },
+                    ) { innerPadding ->
+                        NavHost(
+                            navController = navController,
+                            startDestination = "home",
+                            modifier = Modifier
+                                .padding(innerPadding)
+                        ) {
+                            composable("home") {
+                                HomeScreen(
+                                    modifier = Modifier.fillMaxSize()
+                                )
+                            }
+                            composable("schedule") {
+                                ScheduleScreen(
+                                    onScheduleCreate = {
+                                        navController.navigate("sheet")
+                                    },
+                                    modifier = Modifier.fillMaxSize()
+                                )
+                            }
+
+                            bottomSheet("sheet") {
+                                ScheduleCreatorSheet(
+                                    onNavigateBack = {
+                                        navController.popBackStack()
                                     }
                                 )
                             }
-                        }
-                    },
-                ) { innerPadding ->
-                    NavHost(
-                        navController = navController,
-                        startDestination = "home",
-                        modifier = Modifier
-                            .padding(innerPadding)
-                    ) {
-                        composable("home") {
-                            HomeScreen(
-                                modifier = Modifier.fillMaxSize()
-                            )
-                        }
-                        composable("schedule") {
 
-                        }
-
-                        composable("journal_login") {
-                            JournalLoginScreen(
-                                viewModel = hiltViewModel(),
-                                navigateToJournal = {
-                                    navController.navigate("journal_content") {
-                                        popUpTo(navController.graph.findStartDestination().id) {
-                                            saveState = true
+                            composable("journal_login") {
+                                JournalLoginScreen(
+                                    viewModel = hiltViewModel(),
+                                    navigateToJournal = {
+                                        navController.navigate("journal_content") {
+                                            popUpTo(navController.graph.findStartDestination().id) {
+                                                saveState = true
+                                            }
                                         }
+                                    },
+                                    modifier = Modifier.fillMaxSize()
+                                )
+                            }
+
+                            composable("journal_content") {
+                                JournalScreen(
+                                    viewModel = hiltViewModel(),
+                                    navigateToLogging = {
+                                        navController.navigate("journal_login")
+                                    },
+                                    modifier = Modifier.fillMaxSize()
+                                )
+                            }
+
+                            composable("news") {
+                                NewsReviewScreen(
+                                    viewModel = hiltViewModel(),
+                                    navigateToViewer = { title, newsId ->
+                                        navController.navigate("viewer/$newsId?title=$title")
+                                    },
+                                    modifier = Modifier.fillMaxSize()
+                                )
+                            }
+                            composable(
+                                route = "viewer/{newsId}?title={newsTitle}",
+                                arguments = listOf(
+                                    navArgument("newsId") {
+                                        type = NavType.IntType
+                                    },
+                                    navArgument("newsTitle") {
+                                        type = NavType.StringType
+                                        nullable = true
                                     }
-                                },
-                                modifier = Modifier.fillMaxSize()
-                            )
-                        }
-
-                        composable("journal_content") {
-                            JournalScreen(
-                                viewModel = hiltViewModel(),
-                                navigateToLogging = {
-                                    navController.navigate("journal_login")
-                                },
-                                modifier = Modifier.fillMaxSize()
-                            )
-                        }
-
-                        composable("news") {
-                            NewsReviewScreen(
-                                viewModel = hiltViewModel(),
-                                navigateToViewer = { title, newsId ->
-                                    navController.navigate("viewer/$newsId?title=$title")
-                                },
-                                modifier = Modifier.fillMaxSize()
-                            )
-                        }
-                        composable(
-                            route = "viewer/{newsId}?title={newsTitle}",
-                            arguments = listOf(
-                                navArgument("newsId") {
-                                    type = NavType.IntType
-                                },
-                                navArgument("newsTitle") {
-                                    type = NavType.StringType
-                                    nullable = true
-                                }
-                            )
-                        ) { backStackEntry ->
-                            NewsViewerScreen(
-                                title = backStackEntry.arguments?.getString("newsTitle"),
-                                postId = backStackEntry.arguments?.getInt("newsId") ?: -1,
-                                viewModel = hiltViewModel(),
-                                onBackPressed = { navController.navigateUp() },
-                                modifier = Modifier.fillMaxSize()
-                            )
+                                )
+                            ) { backStackEntry ->
+                                NewsViewerScreen(
+                                    title = backStackEntry.arguments?.getString("newsTitle"),
+                                    postId = backStackEntry.arguments?.getInt("newsId") ?: -1,
+                                    viewModel = hiltViewModel(),
+                                    onBackPressed = { navController.navigateUp() },
+                                    modifier = Modifier.fillMaxSize()
+                                )
+                            }
                         }
                     }
                 }

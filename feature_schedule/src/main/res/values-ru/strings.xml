@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="schedule_list_title">Расписания</string>
+
+    <string name="schedule_creator">Добавить расписание</string>
+    <string name="schedule_create_new">Новое (пустое)</string>
+    <string name="schedule_from_device">С устройства</string>
+    <string name="schedule_from_repository">Из репозитория</string>
+
+    <string name="repository_title_category">Категория расписания</string>
+    <string name="repository_title_degree">Академическая степень</string>
+    <string name="repository_title_course">Номер курса</string>
+    <string name="repository_bachelor">Бакалавриат</string>
+    <string name="repository_magistracy">Магистратура</string>
+    <string name="repository_specialist">Специалитет</string>
+    <string name="repository_postgraduate">Аспирантура</string>
+    <string name="repository_course">%1$s курс</string>
+    <string name="repository_schedules_filter">Расписаний: %1$s</string>
+    <string name="repository_no_schedules_found">Не найдено подходящих расписаний</string>
+    <string name="repository_retry">Повторить</string>
+
+</resources>

@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.RoomDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDao
+import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.RepositoryDao
+import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.ScheduleDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,4 +30,12 @@ object DatabaseModule {
     @Singleton
     @Provides
     fun provideNewsDao(db: MainApplicationDatabase): NewsDao = db.featureNews()
+
+    @Singleton
+    @Provides
+    fun provideScheduleDao(db: MainApplicationDatabase): ScheduleDao = db.schedule()
+
+    @Singleton
+    @Provides
+    fun provideRepositoryDao(db: MainApplicationDatabase): RepositoryDao = db.repository()
 }

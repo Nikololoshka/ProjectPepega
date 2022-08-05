@@ -1,22 +1,19 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
 }
 
 android {
-    compileSdk = 32
+    compileSdk = AppConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.vereshchagin.nikolay.stankinschedule.schedule"
-        minSdk = 23
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = AppConfig.minSdk
+        targetSdk = AppConfig.targetSdk
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        testInstrumentationRunner = AppConfig.androidTestInstrumentation
+        vectorDrawables { useSupportLibrary = true }
     }
 
     buildTypes {
@@ -27,17 +24,19 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Versions.java
+        targetCompatibility = Versions.java
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Versions.kotlinLevel
     }
     buildFeatures {
+        dataBinding = true
+        viewBinding = true
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = rootProject.extra["compose_version"] as String
+        kotlinCompilerExtensionVersion = Versions.composeCompiler
     }
     packagingOptions {
         resources {
@@ -46,18 +45,61 @@ android {
     }
 }
 
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
+}
+
+hilt {
+    enableAggregatingTask = true
+}
+
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.compose.ui:ui:${rootProject.extra["compose_version"]}")
-    implementation("androidx.compose.material3:material3:1.0.0-alpha01")
-    implementation("androidx.compose.ui:ui-tooling-preview:${rootProject.extra["compose_version"]}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation("androidx.activity:activity-compose:1.3.1")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
-    debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}")
+    implementation(project(":core"))
+
+    implementation(AppDependencies.kotlin)
+
+    implementation(AppDependencies.coreKtx)
+    implementation(AppDependencies.compose)
+    implementation(AppDependencies.composeActivity)
+
+    implementation(AppDependencies.composeMaterial3)
+    implementation(AppDependencies.material3)
+
+    implementation(AppDependencies.securityCrypto)
+
+    implementation(AppDependencies.appComponents)
+    implementation(AppDependencies.appcompat)
+
+    implementation(AppDependencies.retrofitRuntime)
+    implementation(AppDependencies.retrofitGson)
+    implementation(AppDependencies.gson)
+    implementation(AppDependencies.coil)
+
+    implementation(AppDependencies.paging)
+    implementation(AppDependencies.pagingCompose)
+
+    // Firebase
+    implementation(platform(AppDependencies.firebaseBom))
+    implementation(AppDependencies.firebaseModules)
+
+    implementation(AppDependencies.accompanistPager)
+    implementation(AppDependencies.accompanistPagerIndicators)
+    implementation(AppDependencies.accompanistSwipeRefresh)
+    implementation(AppDependencies.accompanistPlaceholder)
+    implementation(AppDependencies.accompanistNavigation)
+    implementation(AppDependencies.accompanistFlowLayout)
+
+    // Dagger & Hilt
+    implementation(AppDependencies.hiltAndroid)
+    implementation(AppDependencies.hiltNavigation)
+    kapt(AppDependencies.hiltCompiler)
+
+    // Room DB
+    implementation(AppDependencies.roomRuntime)
+    implementation(AppDependencies.roomKtx)
+    kapt(AppDependencies.roomCompiler)
+
+    debugImplementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
 }
