@@ -20,4 +20,14 @@
     <string name="repository_no_schedules_found">Не найдено подходящих расписаний</string>
     <string name="repository_retry">Повторить</string>
 
+    <string name="repository_schedule_loaded">Расписание загружено</string>
+    <string name="repository_loading_failure">Сбой загрузки расписания</string>
+    <string name="repository_start_download">Загрузка расписания: %1$s</string>
+    <string name="repository_schedule_exist">Расписание уже существует</string>
+    <string name="repository_schedule_exist_text">Расписание с таким названием уже существует: %1$s. Сохранить под другим названием?</string>
+    <string name="repository_rename">Переименовать</string>
+    <string name="repository_cancel">Отмена</string>
+    <string name="repository_ok">ОК</string>
+    <string name="repository_choose_name">Выбор названия</string>
+
 </resources>

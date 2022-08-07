@@ -1,14 +1,9 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.data.db
 
-import androidx.room.*
-import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.convertors.PairDateConvertor
-import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.convertors.PairSubgroupConvertor
-import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.convertors.PairTimeConvertor
-import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.convertors.PairTypeConvertor
-import com.vereshchagin.nikolay.stankinschedule.schedule.domain.model.DateModel
-import com.vereshchagin.nikolay.stankinschedule.schedule.domain.model.Subgroup
-import com.vereshchagin.nikolay.stankinschedule.schedule.domain.model.Time
-import com.vereshchagin.nikolay.stankinschedule.schedule.domain.model.Type
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
 
 /**
  * Пара в расписании для хранения в БД.
@@ -25,12 +20,6 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.domain.model.Type
         )
     ]
 )
-@TypeConverters(
-    PairTypeConvertor::class,
-    PairSubgroupConvertor::class,
-    PairTimeConvertor::class,
-    PairDateConvertor::class
-)
 data class PairEntity(
     @ColumnInfo(name = "schedule_id", index = true)
     val scheduleId: Long,
@@ -41,13 +30,13 @@ data class PairEntity(
     @ColumnInfo(name = "classroom")
     val classroom: String,
     @ColumnInfo(name = "type")
-    val type: Type,
+    val type: String,
     @ColumnInfo(name = "subgroup")
-    val subgroup: Subgroup,
+    val subgroup: String,
     @ColumnInfo(name = "time")
-    val time: Time,
+    val time: String,
     @ColumnInfo(name = "date")
-    val date: DateModel,
+    val date: String,
 ) {
 
     /**

@@ -39,13 +39,13 @@ interface ScheduleDao {
      * Возвращает flow элемента расписания.
      */
     @Query("SELECT * FROM schedule_entities WHERE schedule_name = :scheduleName LIMIT 1")
-    fun getScheduleEntiry(scheduleName: String): Flow<ScheduleEntity?>
+    fun getScheduleEntity(scheduleName: String): ScheduleEntity?
 
     /**
      * Возвращает flow элемента расписания.
      */
     @Query("SELECT * FROM schedule_entities WHERE id = :id LIMIT 1")
-    fun getScheduleEntiry(id: Long): Flow<ScheduleEntity?>
+    fun getScheduleEntity(id: Long): Flow<ScheduleEntity?>
 
     /**
      * Возвращает количество расписаний в БД.

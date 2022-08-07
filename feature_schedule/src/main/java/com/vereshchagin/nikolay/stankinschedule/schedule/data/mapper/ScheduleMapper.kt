@@ -1,10 +1,9 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.data.mapper
 
 import com.vereshchagin.nikolay.stankinschedule.schedule.data.api.DescriptionResponse
+import com.vereshchagin.nikolay.stankinschedule.schedule.data.api.PairResponse
 import com.vereshchagin.nikolay.stankinschedule.schedule.data.api.ScheduleItemResponse
-import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.PairEntity
 import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.RepositoryEntity
-import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.ScheduleWithPairs
 import com.vereshchagin.nikolay.stankinschedule.schedule.domain.model.*
 
 
@@ -24,7 +23,7 @@ fun RepositoryEntity.toItem(): RepositoryItem {
     )
 }
 
-fun RepositoryItem.toEntiry(): RepositoryEntity {
+fun RepositoryItem.toEntity(): RepositoryEntity {
     return RepositoryEntity(
         name = name,
         path = path,
@@ -39,31 +38,31 @@ fun DescriptionResponse.toDescription(): RepositoryDescription {
     )
 }
 
-fun ScheduleWithPairs.toScheduleModel(): ScheduleModel {
-    val info = ScheduleInfo(
-        id = schedule.id,
-        scheduleName = schedule.scheduleName,
-        lastUpdate = schedule.lastUpdate,
-        position = schedule.position,
-        synced = schedule.synced
-    )
-
-    val model = ScheduleModel(info)
-    for (pair in pairs) {
-        model.add(pair.toPairModel())
+fun List<PairResponse>.toScheduleModel(scheduleName: String): ScheduleModel {
+    val model = ScheduleModel(ScheduleInfo(scheduleName = scheduleName))
+    this.forEach { response ->
+        model.add(response.toPairModel())
     }
-
     return model
 }
 
-fun PairEntity.toPairModel(): PairModel {
+fun PairResponse.toPairModel(): PairModel {
     return PairModel(
         title = title,
         lecturer = lecturer,
         classroom = classroom,
-        type = type,
-        subgroup = subgroup,
-        time = time,
-        date = date
+        type = Type.of(type),
+        subgroup = Subgroup.of(subgroup),
+        time = Time(time.start, time.end),
+        date = DateModel().apply { date.forEach { add(it.toDateItem()) } }
     )
+}
+
+fun PairResponse.DateResponse.toDateItem(): DateItem {
+    val f = Frequency.of(frequency)
+    if (f == Frequency.ONCE) {
+        return DateSingle(date)
+    }
+    return DateRange(date, f)
+
 }

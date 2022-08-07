@@ -8,7 +8,7 @@ import org.joda.time.LocalDate
 /**
  * Модель расписания.
  */
-class ScheduleModel(val info: ScheduleInfo) {
+class ScheduleModel(val info: ScheduleInfo) : Iterable<PairModel> {
 
     /**
      * Контейнер дней в расписании.
@@ -160,4 +160,6 @@ class ScheduleModel(val info: ScheduleInfo) {
     private fun dayFor(pair: PairModel): ScheduleDayModel {
         return days.getOrPut(pair.date.dayOfWeek()) { ScheduleDayModel() }
     }
+
+    override fun iterator(): Iterator<PairModel> = days.values.flatten().iterator()
 }

@@ -25,6 +25,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.domain.model.Repository
 @Composable
 fun FrontLayerContent(
     repositoryItems: List<RepositoryItem>,
+    onItemClicked: (item: RepositoryItem) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val currentSchedules by animateIntAsState(targetValue = repositoryItems.size)
@@ -75,9 +76,7 @@ fun FrontLayerContent(
             items(repositoryItems) { item ->
                 RepositorySchedule(
                     item = item,
-                    onItemClicked = {
-
-                    },
+                    onItemClicked = onItemClicked,
                     modifier = Modifier.fillMaxWidth()
                 )
             }

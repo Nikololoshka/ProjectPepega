@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.schedule.utils
+package com.vereshchagin.nikolay.stankinschedule.schedule.data.mapper
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement

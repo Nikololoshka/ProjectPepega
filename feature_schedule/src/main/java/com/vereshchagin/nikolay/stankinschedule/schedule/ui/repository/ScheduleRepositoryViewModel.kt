@@ -5,10 +5,10 @@ import androidx.lifecycle.viewModelScope
 import com.vereshchagin.nikolay.stankinschedule.core.ui.State
 import com.vereshchagin.nikolay.stankinschedule.schedule.domain.model.*
 import com.vereshchagin.nikolay.stankinschedule.schedule.domain.usecase.RepositoryUseCase
+import com.vereshchagin.nikolay.stankinschedule.schedule.ui.repository.components.DownloadEvent
+import com.vereshchagin.nikolay.stankinschedule.schedule.ui.repository.components.DownloadState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -23,6 +23,9 @@ class ScheduleRepositoryViewModel @Inject constructor(
     private var _repositoryItemsCache: List<RepositoryItem>? = null
     private val _repositoryItems = MutableStateFlow<State<List<RepositoryItem>>>(State.loading())
     val repositoryItems = _repositoryItems.asStateFlow()
+
+    private val _download = MutableSharedFlow<DownloadState?>()
+    val download = _download.asSharedFlow()
 
     private val _category = MutableStateFlow<RepositoryCategory?>(null)
     val category = _category.asStateFlow()
@@ -117,6 +120,21 @@ class ScheduleRepositoryViewModel @Inject constructor(
         }
     }
 
+    fun onDownloadEvent(event: DownloadEvent) {
+        viewModelScope.launch {
+            when (event) {
+                is DownloadEvent.StartDownload -> {
+                    val isExist = useCase.isScheduleExist(event.scheduleName)
+                    if (isExist) {
+                        _download.emit(DownloadState.RequiredName(event.scheduleName, event.item))
+                    } else {
+                        _download.emit(DownloadState.StartDownload(event.scheduleName, event.item))
+                    }
+                }
+            }
+        }
+    }
+
     private fun courseFilter(item: RepositoryItem, currentCourse: Course?, year: Int?): Boolean {
         if (currentCourse == null || year == null) {
             return true
@@ -152,3 +170,4 @@ class ScheduleRepositoryViewModel @Inject constructor(
         }
     }
 }
+

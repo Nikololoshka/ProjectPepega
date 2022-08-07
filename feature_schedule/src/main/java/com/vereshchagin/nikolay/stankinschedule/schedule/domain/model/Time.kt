@@ -81,8 +81,6 @@ class Time(startTime: String, endTime: String) {
 
     companion object {
         private const val TIME_PATTERN = "H:mm"
-        private const val JSON_START = "start"
-        private const val JSON_END = "end"
 
         fun fromString(time: String): Time {
             val (start, end) = time.split('-')

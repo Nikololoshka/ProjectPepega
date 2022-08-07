@@ -96,10 +96,17 @@ dependencies {
     implementation(AppDependencies.hiltNavigation)
     kapt(AppDependencies.hiltCompiler)
 
+    implementation(AppDependencies.hiltWork)
+    kapt(AppDependencies.hiltWorkCompiler)
+
     // Room DB
     implementation(AppDependencies.roomRuntime)
     implementation(AppDependencies.roomKtx)
     kapt(AppDependencies.roomCompiler)
+
+    // Work
+    implementation(AppDependencies.workRuntime)
+    implementation(AppDependencies.workRuntimeKtx)
 
     debugImplementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
 }
