@@ -15,7 +15,7 @@ import org.joda.time.DateTime
     ]
 )
 @TypeConverters(DateTimeConverter::class)
-open class ScheduleEntity(
+class ScheduleEntity(
     @ColumnInfo(name = "schedule_name")
     var scheduleName: String,
 ) {

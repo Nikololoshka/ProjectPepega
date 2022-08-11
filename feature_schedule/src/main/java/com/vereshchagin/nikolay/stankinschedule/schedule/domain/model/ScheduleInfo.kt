@@ -8,4 +8,19 @@ class ScheduleInfo(
     var synced: Boolean = false,
     var position: Int = 0,
     val id: Long = 0,
-)
+) {
+    fun copy(
+        scheduleName: String = this.scheduleName,
+        lastUpdate: DateTime? = this.lastUpdate,
+        synced: Boolean = this.synced,
+        position: Int = this.position,
+    ): ScheduleInfo {
+        return ScheduleInfo(
+            scheduleName = scheduleName,
+            lastUpdate = lastUpdate,
+            synced = synced,
+            position = position,
+            id = id
+        )
+    }
+}

@@ -86,6 +86,7 @@ object AppDependencies {
     const val junit = "junit:junit:${Versions.junit}"
     const val securityCrypto = "androidx.security:security-crypto:${Versions.security_crypto}"
     const val preference = "androidx.preference:preference-ktx:${Versions.preference}"
+    const val datastore = "androidx.datastore:datastore-preferences:1.0.0"
 
     const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
     const val startup = "androidx.startup:startup-runtime:${Versions.startup}"

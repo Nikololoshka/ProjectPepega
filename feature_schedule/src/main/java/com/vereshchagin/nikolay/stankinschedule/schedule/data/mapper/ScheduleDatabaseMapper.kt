@@ -24,6 +24,25 @@ fun ScheduleWithPairs.toScheduleModel(): ScheduleModel {
     return model
 }
 
+fun ScheduleEntity.toInfo(): ScheduleInfo {
+    return ScheduleInfo(
+        id = id,
+        scheduleName = scheduleName,
+        lastUpdate = lastUpdate,
+        position = position,
+        synced = synced
+    )
+}
+
+fun ScheduleInfo.toEntity(): ScheduleEntity {
+    return ScheduleEntity(scheduleName = scheduleName).apply {
+        this.id = this@toEntity.id
+        this.lastUpdate = this@toEntity.lastUpdate
+        this.position = this@toEntity.position
+        this.synced = this@toEntity.synced
+    }
+}
+
 fun PairEntity.toPairModel(): PairModel {
     return PairModel(
         title = title,

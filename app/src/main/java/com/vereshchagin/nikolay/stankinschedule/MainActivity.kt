@@ -137,6 +137,7 @@ class MainActivity : AppCompatActivity() {
                                     onScheduleCreate = {
                                         navController.navigate("sheet")
                                     },
+                                    viewModel = hiltViewModel(),
                                     modifier = Modifier.fillMaxSize()
                                 )
                             }

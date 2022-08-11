@@ -8,25 +8,37 @@ import androidx.compose.ui.res.stringResource
 import com.vereshchagin.nikolay.stankinschedule.schedule.R
 
 @Composable
-fun ScheduleToolBar(
-    onActionMode: () -> Unit,
+fun ScheduleActionToolbar(
+    selectedCount: Int,
+    onActionClose: () -> Unit,
+    onRemoveSelected: (selected: Int) -> Unit,
     modifier: Modifier = Modifier,
-    title: String = stringResource(R.string.schedule_list_title),
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
     SmallTopAppBar(
         title = {
             Text(
-                text = title,
+                text = stringResource(R.string.schedule_count_selected, selectedCount),
                 style = MaterialTheme.typography.titleLarge
             )
         },
-        actions = {
+        navigationIcon = {
             IconButton(
-                onClick = onActionMode
+                onClick = onActionClose
             ) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_edit),
+                    painter = painterResource(R.drawable.ic_action_close),
+                    contentDescription = null
+                )
+            }
+        },
+        actions = {
+            IconButton(
+                onClick = { onRemoveSelected(selectedCount) },
+                enabled = selectedCount > 0
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_clear_all),
                     contentDescription = null
                 )
             }

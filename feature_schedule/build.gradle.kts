@@ -108,5 +108,8 @@ dependencies {
     implementation(AppDependencies.workRuntime)
     implementation(AppDependencies.workRuntimeKtx)
 
+    implementation(AppDependencies.datastore)
+    implementation("org.burnoutcrew.composereorderable:reorderable:0.9.2")
+
     debugImplementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
 }
