@@ -24,7 +24,10 @@ class SchedulePreference @Inject constructor(
         .map { preferences -> preferences[FAVORITE_SCHEDULE_ID] ?: -1 }
 
     suspend fun setFavorite(id: Long) {
-        context.dataStore.edit { preferences -> preferences[FAVORITE_SCHEDULE_ID] = id }
+        context.dataStore.edit { preferences ->
+            val lastId = preferences[FAVORITE_SCHEDULE_ID]
+            preferences[FAVORITE_SCHEDULE_ID] = if (lastId != id) id else -1
+        }
     }
 
     companion object {

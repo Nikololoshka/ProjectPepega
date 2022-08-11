@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
@@ -90,7 +91,13 @@ fun ScheduleItem(
                         showMenu = false
                     },
                     text = {
-                        Text(text = "Set favorite")
+                        Text(
+                            text = if (isFavorite) {
+                                stringResource(R.string.schedule_unset_favorite)
+                            } else {
+                                stringResource(R.string.schedule_set_favorite)
+                            }
+                        )
                     }
                 )
                 DropdownMenuItem(
@@ -99,7 +106,7 @@ fun ScheduleItem(
                         showMenu = false
                     },
                     text = {
-                        Text(text = "Remove schedule")
+                        Text(text = stringResource(R.string.schedule_remove_schedule))
                     }
                 )
             }
