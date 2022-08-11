@@ -54,6 +54,7 @@ class JournalUseCase @Inject constructor(
         emit(student)
     }.flowOn(Dispatchers.IO)
 
+    suspend fun signOut() = journal.signOut()
 
     companion object {
         private const val TAG = "JournalUseCase"

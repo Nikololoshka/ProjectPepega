@@ -13,4 +13,7 @@ interface JournalStorageRepository {
     suspend fun loadSemester(semester: String): CacheContainer<SemesterMarks>?
 
     suspend fun saveSemester(semester: String, marks: SemesterMarks)
+
+    suspend fun clear()
+
 }

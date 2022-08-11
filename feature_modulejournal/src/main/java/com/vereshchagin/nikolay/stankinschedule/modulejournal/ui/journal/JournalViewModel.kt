@@ -104,4 +104,11 @@ class JournalViewModel @Inject constructor(
             updateStudentInfo(useCache = useCache)
         }
     }
+
+    fun signOut() {
+        viewModelScope.launch {
+            useCase.signOut()
+            _isSignIn.value = false
+        }
+    }
 }

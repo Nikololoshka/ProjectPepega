@@ -35,4 +35,8 @@ class JournalStorageRepositoryImpl @Inject constructor(
     override suspend fun loadSemester(semester: String): CacheContainer<SemesterMarks>? {
         return cache.loadFromCache(SemesterMarks::class.java, semester)
     }
+
+    override suspend fun clear() {
+        cache.clearAll()
+    }
 }

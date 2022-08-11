@@ -12,4 +12,6 @@ interface JournalRepository {
         semesterExpireHours: Int = 2,
         useCache: Boolean = true,
     ): SemesterMarks
+
+    suspend fun signOut()
 }

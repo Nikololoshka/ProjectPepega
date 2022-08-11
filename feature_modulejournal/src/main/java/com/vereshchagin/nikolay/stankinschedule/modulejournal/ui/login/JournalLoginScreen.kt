@@ -6,9 +6,11 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Icon
 import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.MaterialTheme
@@ -16,6 +18,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
@@ -29,9 +32,11 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.R
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.login.components.LoginError
+import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.login.components.LoginToolBar
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.util.Constants
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun JournalLoginScreen(
     viewModel: JournalLoginViewModel,
@@ -68,99 +73,115 @@ fun JournalLoginScreen(
         focusManager.clearFocus()
     }
 
-    Box(
-        modifier = modifier
-    ) {
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(
+        state = rememberTopAppBarScrollState()
+    )
 
-        AnimatedVisibility(
-            visible = isLogging,
-            enter = slideInVertically(),
-            exit = slideOutVertically()
-        ) {
-            LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
-        }
-
-        Column(
+    Scaffold(
+        topBar = {
+            LoginToolBar(
+                scrollBehavior = scrollBehavior
+            )
+        },
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
+    ) { innerPadding ->
+        Box(
             modifier = Modifier
-                .padding(top = 4.dp)
-                .padding(Dimen.ContentPadding)
+                .fillMaxSize()
+                .padding(innerPadding)
         ) {
-
-            if (loginError != null) {
-                LoginError(
-                    error = loginError,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .border(
-                            width = 1.dp,
-                            color = MaterialTheme.colors.error,
-                            shape = RoundedCornerShape(size = 4.dp)
-                        )
-                        .padding(16.dp)
-                )
-            }
-
-            LoginField(
-                login = login,
-                onLoginChanged = {
-                    login = it
-                    isLoginError = login.isEmpty()
-                },
-                isLogging = isLogging,
-                isLoginError = isLoginError,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = Dimen.ContentPadding)
-            )
-
-            AnimatedVisibility(visible = isLoginError) {
-                Text(
-                    text = stringResource(R.string.field_is_empty),
-                    style = MaterialTheme.typography.caption,
-                    color = MaterialTheme.colors.error,
-                    modifier = Modifier.padding(start = 16.dp)
-                )
-            }
-
-            PasswordField(
-                password = password,
-                onPasswordChanged = {
-                    password = it
-                    isPasswordError = password.isEmpty()
-                },
-                isLogging = isLogging,
-                isPasswordError = isPasswordError,
-                onFormSubmit = { submitForm() },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = Dimen.ContentPadding)
-            )
-
-            AnimatedVisibility(visible = isPasswordError) {
-                Text(
-                    text = stringResource(R.string.field_is_empty),
-                    style = MaterialTheme.typography.caption,
-                    color = MaterialTheme.colors.error,
-                    modifier = Modifier.padding(start = 16.dp)
-                )
-            }
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
+            AnimatedVisibility(
+                visible = isLogging,
+                enter = slideInVertically(),
+                exit = slideOutVertically()
             ) {
-                TextButton(
-                    onClick = { BrowserUtils.openLink(context, Constants.MODULE_JOURNAL_URL) },
-                    enabled = !isLogging
-                ) {
-                    Text(text = stringResource(R.string.forget_password))
+                LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+            }
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 4.dp)
+                    .verticalScroll(rememberScrollState())
+                    .padding(Dimen.ContentPadding)
+            ) {
+
+                if (loginError != null) {
+                    LoginError(
+                        error = loginError,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .border(
+                                width = 1.dp,
+                                color = MaterialTheme.colors.error,
+                                shape = RoundedCornerShape(size = 4.dp)
+                            )
+                            .padding(16.dp)
+                    )
                 }
 
-                Button(
-                    onClick = { submitForm() },
-                    enabled = !isLogging && !(isLoginError || isPasswordError)
+                LoginField(
+                    login = login,
+                    onLoginChanged = {
+                        login = it
+                        isLoginError = login.isEmpty()
+                    },
+                    isLogging = isLogging,
+                    isLoginError = isLoginError,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = Dimen.ContentPadding)
+                )
+
+                AnimatedVisibility(visible = isLoginError) {
+                    Text(
+                        text = stringResource(R.string.field_is_empty),
+                        style = MaterialTheme.typography.caption,
+                        color = MaterialTheme.colors.error,
+                        modifier = Modifier.padding(start = 16.dp)
+                    )
+                }
+
+                PasswordField(
+                    password = password,
+                    onPasswordChanged = {
+                        password = it
+                        isPasswordError = password.isEmpty()
+                    },
+                    isLogging = isLogging,
+                    isPasswordError = isPasswordError,
+                    onFormSubmit = { submitForm() },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = Dimen.ContentPadding)
+                )
+
+                AnimatedVisibility(visible = isPasswordError) {
+                    Text(
+                        text = stringResource(R.string.field_is_empty),
+                        style = MaterialTheme.typography.caption,
+                        color = MaterialTheme.colors.error,
+                        modifier = Modifier.padding(start = 16.dp)
+                    )
+                }
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text(text = stringResource(R.string.sign_in))
+                    TextButton(
+                        onClick = { BrowserUtils.openLink(context, Constants.MODULE_JOURNAL_URL) },
+                        enabled = !isLogging
+                    ) {
+                        Text(text = stringResource(R.string.forget_password))
+                    }
+
+                    Button(
+                        onClick = { submitForm() },
+                        enabled = !isLogging && !(isLoginError || isPasswordError)
+                    ) {
+                        Text(text = stringResource(R.string.sign_in))
+                    }
                 }
             }
         }

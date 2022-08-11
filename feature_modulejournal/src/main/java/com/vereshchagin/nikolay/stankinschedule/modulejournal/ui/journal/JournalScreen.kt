@@ -74,6 +74,9 @@ fun JournalScreen(
                 onPredictAction = {
                     context.startActivity(Intent(context, PredictActivity::class.java))
                 },
+                onSignOutAction = {
+                    viewModel.signOut()
+                },
                 scrollBehavior = scrollBehavior
             )
         },

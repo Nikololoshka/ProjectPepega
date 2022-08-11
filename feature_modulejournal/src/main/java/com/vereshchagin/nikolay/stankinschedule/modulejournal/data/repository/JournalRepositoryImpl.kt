@@ -73,6 +73,11 @@ class JournalRepositoryImpl @Inject constructor(
         return marks
     }
 
+    override suspend fun signOut() {
+        storage.clear()
+        secure.signOut()
+    }
+
     companion object {
         private const val TAG = "JournalRepositoryImpl"
     }
