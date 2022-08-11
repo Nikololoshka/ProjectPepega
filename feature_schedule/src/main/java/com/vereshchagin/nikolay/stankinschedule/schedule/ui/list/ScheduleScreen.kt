@@ -10,13 +10,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.R
@@ -145,13 +146,22 @@ fun ScheduleScreen(
                     .fillMaxSize()
                     .reorderable(reorderState)
             ) {
-
-                if (schedules == null) {
-                    // Loading
-                }
-
                 schedules?.let { data ->
-                    itemsIndexed(data, key = { _, value -> value.id }) { index, schedule ->
+                    // Если нет расписаний
+                    if (data.isEmpty()) {
+                        item {
+                            Text(
+                                text = stringResource(R.string.no_schedules),
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .fillParentMaxWidth()
+                                    .padding(Dimen.ContentPadding)
+                            )
+                        }
+                    }
+
+                    // Список с расписаниями
+                    items(data, key = { it.id }) { schedule ->
                         if (editableMode) {
                             ReorderableItem(
                                 reorderableState = reorderState,
