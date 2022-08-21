@@ -6,6 +6,9 @@
         <activity
             android:name=".ui.repository.ScheduleRepositoryActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.editor.PairEditorActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

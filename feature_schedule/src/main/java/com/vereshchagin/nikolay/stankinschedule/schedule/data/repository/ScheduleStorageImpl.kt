@@ -5,6 +5,7 @@ import androidx.room.withTransaction
 import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.ScheduleDao
 import com.vereshchagin.nikolay.stankinschedule.schedule.data.mapper.toEntity
 import com.vereshchagin.nikolay.stankinschedule.schedule.data.mapper.toInfo
+import com.vereshchagin.nikolay.stankinschedule.schedule.data.mapper.toScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.domain.model.ScheduleInfo
 import com.vereshchagin.nikolay.stankinschedule.schedule.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.domain.repository.ScheduleStorage
@@ -19,6 +20,14 @@ class ScheduleStorageImpl @Inject constructor(
 
     override fun schedules(): Flow<List<ScheduleInfo>> {
         return dao.getAllSchedules().map { data -> data.map { it.toInfo() } }
+    }
+
+    override fun schedule(scheduleId: Long): Flow<ScheduleInfo?> {
+        return dao.getScheduleEntity(scheduleId).map { it?.toInfo() }
+    }
+
+    override fun scheduleModel(scheduleId: Long): Flow<ScheduleModel?> {
+        return dao.getScheduleWithPairs(scheduleId).map { it?.toScheduleModel() }
     }
 
     override suspend fun saveSchedule(model: ScheduleModel, replaceExist: Boolean) {

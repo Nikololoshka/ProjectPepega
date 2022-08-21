@@ -121,7 +121,7 @@ class ScheduleModel(val info: ScheduleInfo) : Iterable<PairModel> {
             return arrayListOf()
         }
         val dayOfWeek = DayOfWeek.of(date)
-        return days[dayOfWeek]!!.pairsByDate(date)
+        return dayFor(dayOfWeek).pairsByDate(date)
     }
 
     /**
@@ -158,7 +158,14 @@ class ScheduleModel(val info: ScheduleInfo) : Iterable<PairModel> {
      * Возвращает день расписания для пары.
      */
     private fun dayFor(pair: PairModel): ScheduleDayModel {
-        return days.getOrPut(pair.date.dayOfWeek()) { ScheduleDayModel() }
+        return dayFor(pair.date.dayOfWeek())
+    }
+
+    /**
+     * Возвращает день расписания для пары.
+     */
+    private fun dayFor(dayOfWeek: DayOfWeek): ScheduleDayModel {
+        return days.getOrPut(dayOfWeek) { ScheduleDayModel() }
     }
 
     override fun iterator(): Iterator<PairModel> = days.values.flatten().iterator()

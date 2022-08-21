@@ -87,10 +87,10 @@ class Time(startTime: String, endTime: String) {
             return Time(start, end)
         }
 
-        private val STARTS =
+        val STARTS =
             listOf("8:30", "10:20", "12:20", "14:10", "16:00", "18:00", "19:40", "21:20")
 
-        private val ENDS =
+        val ENDS =
             listOf("10:10", "12:00", "14:00", "15:50", "17:40", "19:30", "21:10", "22:50")
     }
 }

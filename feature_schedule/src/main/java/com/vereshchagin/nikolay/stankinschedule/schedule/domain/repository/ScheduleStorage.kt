@@ -8,6 +8,10 @@ interface ScheduleStorage {
 
     fun schedules(): Flow<List<ScheduleInfo>>
 
+    fun schedule(scheduleId: Long): Flow<ScheduleInfo?>
+
+    fun scheduleModel(scheduleId: Long): Flow<ScheduleModel?>
+
     suspend fun saveSchedule(model: ScheduleModel, replaceExist: Boolean = false)
 
     suspend fun isScheduleExist(scheduleName: String): Boolean

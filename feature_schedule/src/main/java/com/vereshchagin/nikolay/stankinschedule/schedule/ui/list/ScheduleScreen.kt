@@ -32,6 +32,7 @@ import org.burnoutcrew.reorderable.reorderable
 @Composable
 fun ScheduleScreen(
     onScheduleCreate: () -> Unit,
+    onScheduleClicked: (scheduleId: Long) -> Unit,
     viewModel: ScheduleScreenViewModel,
     modifier: Modifier = Modifier,
 ) {
@@ -184,7 +185,7 @@ fun ScheduleScreen(
                                 schedule = schedule,
                                 isFavorite = favorite == schedule.id,
                                 onClicked = {
-
+                                    onScheduleClicked(schedule.id)
                                 },
                                 onLongClicked = {
                                     viewModel.setEditable(true)

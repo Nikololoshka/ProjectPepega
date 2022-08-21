@@ -1,6 +1,9 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.ui.list
 
 import android.content.Intent
+import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable
@@ -9,9 +12,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,7 +24,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.R
+import com.vereshchagin.nikolay.stankinschedule.schedule.ui.list.components.CreateState
+import com.vereshchagin.nikolay.stankinschedule.schedule.ui.list.components.ScheduleCreateDialog
 import com.vereshchagin.nikolay.stankinschedule.schedule.ui.repository.ScheduleRepositoryActivity
+import java.io.File
 
 
 @Composable
@@ -32,39 +36,29 @@ fun ScheduleCreatorSheet(
     modifier: Modifier = Modifier,
 ) {
 
-    val openDialog = remember { mutableStateOf(false) }
+    var createDialog by remember { mutableStateOf<CreateState?>(null) }
 
-    if (openDialog.value) {
-        AlertDialog(
-            onDismissRequest = {
-                openDialog.value = false
+    createDialog?.let {
+        ScheduleCreateDialog(
+            state = it,
+            onDismiss = {
+                createDialog = null
+                onNavigateBack()
             },
-            title = {
-                Text(text = "Dialog Title")
-            },
-            text = {
-                Text("Here is a text ")
-            },
-            confirmButton = {
-                Button(
+            onCreate = {
 
-                    onClick = {
-                        openDialog.value = false
-                    }) {
-                    Text("This is the Confirm Button")
-                }
-            },
-            dismissButton = {
-                Button(
-
-                    onClick = {
-                        openDialog.value = false
-                    }) {
-                    Text("This is the dismiss Button")
-                }
             }
         )
     }
+
+    val openScheduleLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.OpenDocument(),
+        onResult = {
+            if (it != null) {
+                Log.d("ScheduleCreatorSheet", File(it.toString()).readText())
+            }
+        }
+    )
 
     Column(
         verticalArrangement = Arrangement.spacedBy(Dimen.ContentPadding),
@@ -91,12 +85,12 @@ fun ScheduleCreatorSheet(
                 ScheduleCreatorItem(
                     title = R.string.schedule_create_new,
                     icon = R.drawable.ic_schedule_new,
-                    onItemClicked = { openDialog.value = true }
+                    onItemClicked = { createDialog = CreateState.New }
                 ),
                 ScheduleCreatorItem(
                     title = R.string.schedule_from_device,
                     icon = R.drawable.ic_schedule_from_device,
-                    onItemClicked = {}
+                    onItemClicked = { openScheduleLauncher.launch(arrayOf("application/json")) }
                 ),
                 ScheduleCreatorItem(
                     title = R.string.schedule_from_repository,

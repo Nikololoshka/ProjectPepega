@@ -36,6 +36,7 @@ import com.vereshchagin.nikolay.stankinschedule.news.ui.review.NewsReviewScreen
 import com.vereshchagin.nikolay.stankinschedule.news.ui.viewer.NewsViewerScreen
 import com.vereshchagin.nikolay.stankinschedule.schedule.ui.list.ScheduleCreatorSheet
 import com.vereshchagin.nikolay.stankinschedule.schedule.ui.list.ScheduleScreen
+import com.vereshchagin.nikolay.stankinschedule.schedule.ui.viewer.ScheduleViewerScreen
 import com.vereshchagin.nikolay.stankinschedule.ui.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 import com.vereshchagin.nikolay.stankinschedule.core.R as R_core
@@ -137,7 +138,25 @@ class MainActivity : AppCompatActivity() {
                                     onScheduleCreate = {
                                         navController.navigate("sheet")
                                     },
+                                    onScheduleClicked = { id ->
+                                        navController.navigate("schedule/$id")
+                                    },
                                     viewModel = hiltViewModel(),
+                                    modifier = Modifier.fillMaxSize()
+                                )
+                            }
+
+                            composable(
+                                route = "schedule/{scheduleId}",
+                                arguments = listOf(
+                                    navArgument("scheduleId") { type = NavType.LongType }
+                                )
+                            ) { backStackEntry ->
+                                ScheduleViewerScreen(
+                                    scheduleId = backStackEntry.arguments?.getLong("scheduleId") ?: -1,
+                                    scheduleName = null,
+                                    viewModel = hiltViewModel(),
+                                    onBackPressed = { navController.navigateUp() },
                                     modifier = Modifier.fillMaxSize()
                                 )
                             }
