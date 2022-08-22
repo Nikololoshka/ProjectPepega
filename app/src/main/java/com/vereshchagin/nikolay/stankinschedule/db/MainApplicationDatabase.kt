@@ -7,7 +7,10 @@ import androidx.room.RoomDatabase
 import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDatabaseDao
 import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsEntity
-import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.*
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.*
+import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.db.RepositoryDao
+import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.db.RepositoryDatabaseDao
+import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.db.RepositoryEntity
 
 /**
  * Главная БД приложения.
@@ -25,7 +28,8 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.*
     exportSchema = false
 )
 // @TypeConverters(DateTimeConverter::class, ListConverter::class)
-abstract class MainApplicationDatabase : RoomDatabase(), NewsDatabaseDao, ScheduleDatabaseDao {
+abstract class MainApplicationDatabase : RoomDatabase(), NewsDatabaseDao, RepositoryDatabaseDao,
+    ScheduleDatabaseDao {
 
     /**
      * Dao новостей приложения.

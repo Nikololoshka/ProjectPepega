@@ -111,7 +111,15 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":feature_news"))
     implementation(project(":feature_modulejournal"))
-    implementation(project(":feature_schedule"))
+
+    // implementation(project(":feature_schedule"))
+
+    implementation(project(":schedule:schedule-core"))
+    implementation(project(":schedule:schedule-editor"))
+    implementation(project(":schedule:schedule-list"))
+    implementation(project(":schedule:schedule-repository"))
+    implementation(project(":schedule:schedule-viewer"))
+
 
     // App core
     implementation(AppDependencies.coreKtx)

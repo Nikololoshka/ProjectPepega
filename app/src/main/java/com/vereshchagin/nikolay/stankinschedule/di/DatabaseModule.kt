@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.RoomDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
 import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDao
-import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.RepositoryDao
-import com.vereshchagin.nikolay.stankinschedule.schedule.data.db.ScheduleDao
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.ScheduleDao
+import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.db.RepositoryDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

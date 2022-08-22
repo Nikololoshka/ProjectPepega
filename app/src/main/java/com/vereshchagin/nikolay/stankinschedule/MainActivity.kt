@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -34,9 +36,11 @@ import com.vereshchagin.nikolay.stankinschedule.modulejournal.ui.login.JournalLo
 import com.vereshchagin.nikolay.stankinschedule.navigation.BottomNavigationEntry
 import com.vereshchagin.nikolay.stankinschedule.news.ui.review.NewsReviewScreen
 import com.vereshchagin.nikolay.stankinschedule.news.ui.viewer.NewsViewerScreen
-import com.vereshchagin.nikolay.stankinschedule.schedule.ui.list.ScheduleCreatorSheet
-import com.vereshchagin.nikolay.stankinschedule.schedule.ui.list.ScheduleScreen
-import com.vereshchagin.nikolay.stankinschedule.schedule.ui.viewer.ScheduleViewerScreen
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.PairEditorActivity
+import com.vereshchagin.nikolay.stankinschedule.schedule.list.ui.ScheduleCreatorSheet
+import com.vereshchagin.nikolay.stankinschedule.schedule.list.ui.ScheduleScreen
+import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.ScheduleRepositoryActivity
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.ScheduleViewerScreen
 import com.vereshchagin.nikolay.stankinschedule.ui.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 import com.vereshchagin.nikolay.stankinschedule.core.R as R_core
@@ -152,18 +156,35 @@ class MainActivity : AppCompatActivity() {
                                     navArgument("scheduleId") { type = NavType.LongType }
                                 )
                             ) { backStackEntry ->
+
+                                val context = LocalContext.current
+
                                 ScheduleViewerScreen(
                                     scheduleId = backStackEntry.arguments?.getLong("scheduleId") ?: -1,
                                     scheduleName = null,
                                     viewModel = hiltViewModel(),
                                     onBackPressed = { navController.navigateUp() },
+                                    onEditorClicked = {
+                                        context.startActivity(
+                                            Intent(context, PairEditorActivity::class.java)
+                                        )
+                                    },
                                     modifier = Modifier.fillMaxSize()
                                 )
                             }
 
                             bottomSheet("sheet") {
+
+                                val context = LocalContext.current
+
                                 ScheduleCreatorSheet(
                                     onNavigateBack = {
+                                        navController.popBackStack()
+                                    },
+                                    onRepositoryClicked = {
+                                        context.startActivity(
+                                            Intent(context, ScheduleRepositoryActivity::class.java)
+                                        )
                                         navController.popBackStack()
                                     }
                                 )

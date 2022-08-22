@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="repository_title_category">Категория расписания</string>
+    <string name="repository_title_degree">Академическая степень</string>
+    <string name="repository_title_course">Номер курса</string>
+    <string name="repository_bachelor">Бакалавриат</string>
+    <string name="repository_magistracy">Магистратура</string>
+    <string name="repository_specialist">Специалитет</string>
+    <string name="repository_postgraduate">Аспирантура</string>
+    <string name="repository_course">%1$s курс</string>
+    <string name="repository_schedules_filter">Расписаний: %1$s</string>
+    <string name="repository_no_schedules_found">Не найдено подходящих расписаний</string>
+    <string name="repository_retry">Повторить</string>
+
+    <string name="repository_schedule_loaded">Расписание загружено</string>
+    <string name="repository_loading_failure">Сбой загрузки расписания</string>
+    <string name="repository_start_download">Загрузка расписания: %1$s</string>
+    <string name="repository_schedule_exist">Расписание уже существует</string>
+    <string name="repository_schedule_exist_text">Расписание с таким названием уже существует: %1$s. Сохранить под другим названием?</string>
+    <string name="repository_rename">Переименовать</string>
+    <string name="repository_choose_name">Выбор названия</string>
+
+</resources>
