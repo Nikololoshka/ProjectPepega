@@ -31,7 +31,7 @@ fun ScheduleViewerScreen(
     scheduleName: String?,
     viewModel: ScheduleViewerViewModel,
     onBackPressed: () -> Unit,
-    onEditorClicked: (id: Int?) -> Unit,
+    onEditorClicked: (id: Long?) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     LaunchedEffect(scheduleId) {
@@ -78,9 +78,7 @@ fun ScheduleViewerScreen(
                     ScheduleDayCard(
                         scheduleDay = day,
                         pairColors = colors,
-                        onPairClicked = {
-                                        onEditorClicked(null)
-                        },
+                        onPairClicked = { onEditorClicked(it.info.id) },
                         modifier = Modifier.fillParentMaxSize()
                     )
                 }

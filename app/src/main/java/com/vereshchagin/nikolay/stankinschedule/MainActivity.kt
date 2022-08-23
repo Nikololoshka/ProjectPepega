@@ -165,9 +165,8 @@ class MainActivity : AppCompatActivity() {
                                     viewModel = hiltViewModel(),
                                     onBackPressed = { navController.navigateUp() },
                                     onEditorClicked = {
-                                        context.startActivity(
-                                            Intent(context, PairEditorActivity::class.java)
-                                        )
+                                        val intent = PairEditorActivity.createIntent(context, it)
+                                        context.startActivity(intent)
                                     },
                                     modifier = Modifier.fillMaxSize()
                                 )

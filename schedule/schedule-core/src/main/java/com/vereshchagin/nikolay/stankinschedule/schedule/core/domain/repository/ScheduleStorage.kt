@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository
 
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.PairModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleInfo
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import kotlinx.coroutines.flow.Flow
@@ -11,6 +12,8 @@ interface ScheduleStorage {
     fun schedule(scheduleId: Long): Flow<ScheduleInfo?>
 
     fun scheduleModel(scheduleId: Long): Flow<ScheduleModel?>
+
+    fun schedulePair(pairId: Long): Flow<PairModel?>
 
     suspend fun saveSchedule(model: ScheduleModel, replaceExist: Boolean = false)
 

@@ -20,6 +20,7 @@ data class PairModel(
     val subgroup: Subgroup,
     val time: Time,
     val date: DateModel,
+    val info: PairInfo = PairInfo()
 ) : Comparable<PairModel> {
 
     /**
