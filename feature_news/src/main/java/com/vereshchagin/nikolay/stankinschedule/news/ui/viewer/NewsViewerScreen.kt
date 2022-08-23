@@ -19,7 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.BrowserUtils
-import com.vereshchagin.nikolay.stankinschedule.core.ui.State
+import com.vereshchagin.nikolay.stankinschedule.core.ui.UIState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.Stateful
 import com.vereshchagin.nikolay.stankinschedule.news.ui.components.NewsError
 import com.vereshchagin.nikolay.stankinschedule.news.ui.components.NewsLoading
@@ -39,7 +39,7 @@ fun NewsViewerScreen(
 ) {
     val context = LocalContext.current
     val newsContent by viewModel.newsContent.collectAsState()
-    val refreshState = rememberSwipeRefreshState(isRefreshing = newsContent is State.Loading)
+    val refreshState = rememberSwipeRefreshState(isRefreshing = newsContent is UIState.Loading)
 
     LaunchedEffect(postId) {
         viewModel.loadNewsContent(postId)

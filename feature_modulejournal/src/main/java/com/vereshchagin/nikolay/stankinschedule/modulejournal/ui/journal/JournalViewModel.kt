@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.vereshchagin.nikolay.stankinschedule.core.ui.State
+import com.vereshchagin.nikolay.stankinschedule.core.ui.UIState
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.model.Student
 import com.vereshchagin.nikolay.stankinschedule.modulejournal.domain.usecase.JournalUseCase
@@ -23,7 +23,7 @@ class JournalViewModel @Inject constructor(
     private val _isSignIn = MutableStateFlow(true)
     val isSignIn = _isSignIn.asStateFlow()
 
-    private val _student = MutableStateFlow<State<Student>>(State.loading())
+    private val _student = MutableStateFlow<UIState<Student>>(UIState.loading())
     val student = _student.asStateFlow()
 
     private val _rating = MutableStateFlow<String?>(null)
@@ -37,7 +37,7 @@ class JournalViewModel @Inject constructor(
 
     @OptIn(ExperimentalCoroutinesApi::class)
     val semesters: Flow<PagingData<SemesterMarks>> = _student.flatMapLatest { state ->
-        if (state is State.Success) useCase.createPager(state.data).flow else emptyFlow()
+        if (state is UIState.Success) useCase.createPager(state.data).flow else emptyFlow()
     }.flowOn(Dispatchers.IO).cachedIn(viewModelScope)
 
 
@@ -46,7 +46,7 @@ class JournalViewModel @Inject constructor(
     }
 
     private fun setupStudent(student: Student) {
-        _student.value = State.success(student)
+        _student.value = UIState.success(student)
         _isForceRefreshing.value = false
 
         updateRating(student)
@@ -57,7 +57,7 @@ class JournalViewModel @Inject constructor(
         viewModelScope.launch {
             useCase.student(useCache = useCache)
                 .catch { e ->
-                    _student.value = State.failed(e)
+                    _student.value = UIState.failed(e)
                 }
                 .collect { student ->
                     if (student == null) {
@@ -94,11 +94,11 @@ class JournalViewModel @Inject constructor(
     }
 
     fun refreshStudentInfo(useCache: Boolean) {
-        if (_student.value !is State.Loading) {
+        if (_student.value !is UIState.Loading) {
 
             _isForceRefreshing.value = true
             if (useCache) {
-                _student.value = State.loading()
+                _student.value = UIState.loading()
             }
 
             updateStudentInfo(useCache = useCache)

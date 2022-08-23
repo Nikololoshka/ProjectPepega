@@ -1,6 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.news.domain.usecase
 
-import com.vereshchagin.nikolay.stankinschedule.core.ui.State
+import com.vereshchagin.nikolay.stankinschedule.core.ui.UIState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.subHours
 import com.vereshchagin.nikolay.stankinschedule.news.data.mapper.toNewsContent
 import com.vereshchagin.nikolay.stankinschedule.news.domain.repository.PostRepository
@@ -13,11 +13,11 @@ class NewsViewerUseCase @Inject constructor(
 ) {
 
     fun loadNewsContent(postId: Int, force: Boolean = false) = flow {
-        emit(State.loading())
+        emit(UIState.loading())
 
         val cache = repository.loadNewsContent(postId)
         if (cache != null && !force && (cache.cacheTime subHours DateTime.now() < 24)) {
-            emit(State.success(cache.data))
+            emit(UIState.success(cache.data))
             return@flow
         }
 
@@ -25,6 +25,6 @@ class NewsViewerUseCase @Inject constructor(
         val newsContent = response.data.toNewsContent()
         repository.saveNewsContent(newsContent)
 
-        emit(State.success(newsContent))
+        emit(UIState.success(newsContent))
     }
 }

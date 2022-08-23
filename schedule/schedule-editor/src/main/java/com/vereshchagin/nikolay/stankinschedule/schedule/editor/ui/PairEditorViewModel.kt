@@ -2,7 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vereshchagin.nikolay.stankinschedule.core.ui.State
+import com.vereshchagin.nikolay.stankinschedule.core.ui.UIState
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.DateModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.PairModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.domain.usecase.PairEditorUseCase
@@ -33,7 +33,7 @@ class PairEditorViewModel @Inject constructor(
     )
     val pickerRequests = _pickerRequests.receiveAsFlow()
 
-    private val _pair = MutableStateFlow<State<PairModel?>>(State.loading())
+    private val _pair = MutableStateFlow<UIState<PairModel?>>(UIState.loading())
     val pair = _pair.asStateFlow()
 
     private val _date = MutableStateFlow(DateModel())
@@ -52,7 +52,7 @@ class PairEditorViewModel @Inject constructor(
         viewModelScope.launch {
             val newPair = useCase.pair(pairId)
 
-            _pair.value = State.success(newPair)
+            _pair.value = UIState.success(newPair)
             if (newPair != null) {
                 _date.value = newPair.date
             }

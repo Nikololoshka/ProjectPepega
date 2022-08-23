@@ -2,7 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vereshchagin.nikolay.stankinschedule.core.ui.State
+import com.vereshchagin.nikolay.stankinschedule.core.ui.UIState
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.model.*
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.usecase.RepositoryUseCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.components.DownloadEvent
@@ -17,11 +17,11 @@ class ScheduleRepositoryViewModel @Inject constructor(
     private val useCase: RepositoryUseCase,
 ) : ViewModel() {
 
-    private val _description = MutableStateFlow<State<RepositoryDescription>>(State.loading())
+    private val _description = MutableStateFlow<UIState<RepositoryDescription>>(UIState.loading())
     val description = _description.asStateFlow()
 
     private var _repositoryItemsCache: List<RepositoryItem>? = null
-    private val _repositoryItems = MutableStateFlow<State<List<RepositoryItem>>>(State.loading())
+    private val _repositoryItems = MutableStateFlow<UIState<List<RepositoryItem>>>(UIState.loading())
     val repositoryItems = _repositoryItems.asStateFlow()
 
     private val _download = MutableSharedFlow<DownloadState?>()
@@ -41,12 +41,12 @@ class ScheduleRepositoryViewModel @Inject constructor(
     }
 
     private fun loadCategory(category: RepositoryCategory) {
-        _repositoryItems.value = State.loading()
+        _repositoryItems.value = UIState.loading()
 
         viewModelScope.launch {
             useCase.repositoryItems(category.name)
                 .catch { e ->
-                    _repositoryItems.value = State.failed(e)
+                    _repositoryItems.value = UIState.failed(e)
                 }
                 .collect {
                     _repositoryItemsCache = it
@@ -78,17 +78,17 @@ class ScheduleRepositoryViewModel @Inject constructor(
     }
 
     fun reloadDescription() {
-        _description.value = State.loading()
+        _description.value = UIState.loading()
 
         viewModelScope.launch {
             useCase.repositoryDescription()
                 .catch { e ->
-                    _description.value = State.failed(e)
+                    _description.value = UIState.failed(e)
                 }
                 .collect { description ->
                     val item = description.categories.first()
                     _category.value = item
-                    _description.value = State.success(description)
+                    _description.value = UIState.success(description)
 
                     loadCategory(item)
                 }
@@ -166,7 +166,7 @@ class ScheduleRepositoryViewModel @Inject constructor(
                     courseFilter(item, currentCourse, currentYear)
                 }
 
-            _repositoryItems.value = State.success(filterItems)
+            _repositoryItems.value = UIState.success(filterItems)
         }
     }
 }

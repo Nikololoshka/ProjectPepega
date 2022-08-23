@@ -3,21 +3,21 @@ package com.vereshchagin.nikolay.stankinschedule.core.ui
 /**
  * Вспомогательный класс для отслеживания состояния загрузки ресурса.
  */
-sealed class State<T> {
+sealed class UIState<T> {
     /**
      * Ресурс загружается.
      */
-    class Loading<T> : State<T>()
+    class Loading<T> : UIState<T>()
 
     /**
      * Ресурс успешно загружен.
      */
-    data class Success<T>(val data: T) : State<T>()
+    data class Success<T>(val data: T) : UIState<T>()
 
     /**
      * При загрузке ресурса возникла ошибка.
      */
-    data class Failed<T>(val error: Throwable) : State<T>()
+    data class Failed<T>(val error: Throwable) : UIState<T>()
 
     companion object {
         /**
@@ -38,4 +38,11 @@ sealed class State<T> {
         @JvmStatic
         fun <T> failed(error: Throwable) = Failed<T>(error)
     }
+}
+
+fun <T> UIState<T>.getOrNull(): T? {
+    if (this is UIState.Success) {
+        return data
+    }
+    return null
 }

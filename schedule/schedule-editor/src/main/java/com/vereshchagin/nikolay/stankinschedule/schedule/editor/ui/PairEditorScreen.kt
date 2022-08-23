@@ -2,7 +2,6 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
@@ -19,7 +18,6 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.solver.state.State
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Time
@@ -108,7 +106,7 @@ fun PairEditorScreen(
 
                 LaunchedEffect(pairState) {
                     val currentState = pairState
-                    if (currentState is com.vereshchagin.nikolay.stankinschedule.core.ui.State.Success) {
+                    if (currentState is com.vereshchagin.nikolay.stankinschedule.core.ui.UIState.Success) {
                         if (currentState.data != null && !viewModel.isInitial) {
                             val initial = currentState.data!!
 
