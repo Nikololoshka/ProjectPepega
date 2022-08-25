@@ -75,4 +75,10 @@ class ScheduleStorageImpl @Inject constructor(
             schedules.forEach { schedule -> dao.deleteSchedule(schedule.id) }
         }
     }
+
+    override suspend fun removeSchedulePair(pair: PairModel) {
+        db.withTransaction {
+            dao.deletePairEntity(pair.info.id)
+        }
+    }
 }

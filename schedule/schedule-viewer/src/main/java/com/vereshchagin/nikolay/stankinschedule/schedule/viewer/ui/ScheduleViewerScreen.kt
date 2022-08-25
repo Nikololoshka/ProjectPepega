@@ -1,6 +1,5 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
-import android.content.Intent
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -10,7 +9,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -31,7 +29,7 @@ fun ScheduleViewerScreen(
     scheduleName: String?,
     viewModel: ScheduleViewerViewModel,
     onBackPressed: () -> Unit,
-    onEditorClicked: (id: Long?) -> Unit,
+    onEditorClicked: (scheduleId: Long, pairId: Long?) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     LaunchedEffect(scheduleId) {
@@ -40,7 +38,6 @@ fun ScheduleViewerScreen(
 
     val context = LocalContext.current
     val scheduleInfo by viewModel.scheduleInfo.collectAsState()
-
 
     Scaffold(
         topBar = {
@@ -78,7 +75,9 @@ fun ScheduleViewerScreen(
                     ScheduleDayCard(
                         scheduleDay = day,
                         pairColors = colors,
-                        onPairClicked = { onEditorClicked(it.info.id) },
+                        onPairClicked = { pair ->
+                            onEditorClicked(scheduleId, pair.info.id)
+                        },
                         modifier = Modifier.fillParentMaxSize()
                     )
                 }

@@ -102,10 +102,10 @@ interface ScheduleDao {
     suspend fun insertPairEntity(pair: PairEntity)
 
     /**
-     * Удаляет пару расписания по PairItem.
+     * Удаляет пару расписания по ID.
      */
-    @Delete
-    suspend fun deletePairEntity(pair: PairEntity)
+    @Query("DELETE FROM schedule_pair_entities WHERE id = :pairId")
+    suspend fun deletePairEntity(pairId: Long)
 
     /**
      * Удаляет все пары расписания по ID.

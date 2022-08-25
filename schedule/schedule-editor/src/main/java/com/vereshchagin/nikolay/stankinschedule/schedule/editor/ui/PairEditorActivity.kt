@@ -26,13 +26,15 @@ class PairEditorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Получение ID пары
+        // Получение ID пары и расписания
+        val scheduleId: Long = intent.getLongExtra(SCHEDULE_ID, -1L)
         var pairId: Long? = intent.getLongExtra(PAIR_ID, -1L)
         if (pairId == -1L) pairId = null
 
         setContent {
             AppTheme {
                 PairEditorScreen(
+                    scheduleId = scheduleId,
                     pairId = pairId,
                     onBackClicked = {
                         onBackPressed()
@@ -70,10 +72,12 @@ class PairEditorActivity : AppCompatActivity() {
         private const val DATE_PICKER_TAG = "date_picker_tag"
 
         private const val PAIR_ID = "pair_id"
+        private const val SCHEDULE_ID = "schedule_id"
 
-        fun createIntent(context: Context, pairId: Long?): Intent {
+        fun createIntent(context: Context, scheduleId: Long, pairId: Long?): Intent {
             return Intent(context, PairEditorActivity::class.java).apply {
                 putExtra(PAIR_ID, pairId)
+                putExtra(SCHEDULE_ID, scheduleId)
             }
         }
     }

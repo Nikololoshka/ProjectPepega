@@ -164,8 +164,10 @@ class MainActivity : AppCompatActivity() {
                                     scheduleName = null,
                                     viewModel = hiltViewModel(),
                                     onBackPressed = { navController.navigateUp() },
-                                    onEditorClicked = {
-                                        val intent = PairEditorActivity.createIntent(context, it)
+                                    onEditorClicked = { scheduleId, pairId ->
+                                        val intent = PairEditorActivity.createIntent(
+                                            context, scheduleId, pairId
+                                        )
                                         context.startActivity(intent)
                                     },
                                     modifier = Modifier.fillMaxSize()

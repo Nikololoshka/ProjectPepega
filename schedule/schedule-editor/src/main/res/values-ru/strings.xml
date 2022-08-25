@@ -26,6 +26,18 @@
     <string name="editor_start_date">Дата начала</string>
     <string name="editor_end_date">Дата конца</string>
     <string name="editor_single_date">Дата</string>
+    <string name="editor_add_date">Добавить дату</string>
+    <string name="editor_edit_date">Редактировать дату</string>
+    <string name="editor_dates">Даты</string>
+    <string name="editor_new_date">Добавить дату</string>
+    <string name="editor_remove_date">Удалить дату</string>
+    <string name="editor_delete_pair">Удалить</string>
+
+    <string name="editor_invalid_date">Невозможно создать дату. Проверьте правильность даты.</string>
+    <string name="editor_invalid_day_of_week">Невозможно создать дату с этим днём недели</string>
+    <string name="editor_invalid_frequency">Диапазон даты не кратен указанной периодичности.</string>
+    <string name="editor_impossible_added_date">Вы не можите добавить дату, т.к. будет пересечение дат / не совпадение по дню недели.</string>
+    <string name="editor_conflict_pair">Невозможно добавить пару. Конфликтует с \"%1$s\".</string>
 
     <string name="frequency">Периодичность</string>
     <string name="frequency_every_week">Каждую неделю</string>

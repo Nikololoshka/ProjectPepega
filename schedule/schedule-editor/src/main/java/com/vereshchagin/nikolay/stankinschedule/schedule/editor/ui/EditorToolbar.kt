@@ -10,6 +10,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.editor.R
 @Composable
 fun EditorToolbar(
     onApplyClicked: () -> Unit,
+    onDeleteClicked: () -> Unit,
     onBackClicked: () -> Unit,
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
@@ -21,6 +22,12 @@ fun EditorToolbar(
             BackButton(onClick = onBackClicked)
         },
         actions = {
+            IconButton(onClick = onDeleteClicked) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_delete_pair),
+                    contentDescription = null
+                )
+            }
             IconButton(onClick = onApplyClicked) {
                 Icon(
                     painter = painterResource(R.drawable.ic_done),

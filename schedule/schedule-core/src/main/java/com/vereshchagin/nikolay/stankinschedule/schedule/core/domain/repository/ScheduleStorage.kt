@@ -23,4 +23,6 @@ interface ScheduleStorage {
 
     suspend fun removeSchedules(schedules: List<ScheduleInfo>)
 
+    suspend fun removeSchedulePair(pair: PairModel)
+
 }
