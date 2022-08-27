@@ -1,17 +1,17 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components
 
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.SmallTopAppBar
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarScrollBehavior
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.BackButton
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.R
 
 @Composable
 fun ScheduleViewerToolBar(
     scheduleName: String,
     onBackClicked: () -> Unit,
+    onDayChangeClicked: () -> Unit,
     modifier: Modifier = Modifier,
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
@@ -26,7 +26,14 @@ fun ScheduleViewerToolBar(
             BackButton(onClick = onBackClicked)
         },
         actions = {
-
+            IconButton(
+                onClick = onDayChangeClicked
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_date_picker),
+                    contentDescription = null
+                )
+            }
         },
         scrollBehavior = scrollBehavior,
         modifier = modifier

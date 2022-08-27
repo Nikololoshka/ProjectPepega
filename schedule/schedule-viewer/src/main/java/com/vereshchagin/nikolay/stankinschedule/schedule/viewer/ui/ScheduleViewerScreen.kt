@@ -9,18 +9,17 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.PairColors
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleDayCard
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleViewerToolBar
+import org.joda.time.LocalDate
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -37,16 +36,28 @@ fun ScheduleViewerScreen(
     }
 
     val scheduleInfo by viewModel.scheduleInfo.collectAsState()
+    var isDaySelector by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
             ScheduleViewerToolBar(
                 scheduleName = scheduleInfo?.scheduleName ?: scheduleName ?: "",
-                onBackClicked = onBackPressed
+                onBackClicked = onBackPressed,
+                onDayChangeClicked = { isDaySelector = true }
             )
         },
         modifier = modifier
     ) { innerPadding ->
+
+        if (isDaySelector) {
+            CalendarDialog(
+                onDateSelected = {
+                    viewModel.selectDate(it)
+                    isDaySelector = false
+                },
+                onDismissRequest = { isDaySelector = false }
+            )
+        }
 
         val scheduleDays = viewModel.scheduleDays.collectAsLazyPagingItems()
         val scheduleState = rememberLazyListState()

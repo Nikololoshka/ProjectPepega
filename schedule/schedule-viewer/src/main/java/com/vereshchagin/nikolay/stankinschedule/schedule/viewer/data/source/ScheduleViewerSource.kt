@@ -14,7 +14,7 @@ class ScheduleViewerSource(
 
     private val startDate = schedule.startDate()
     private val endDate = schedule.endDate()
-
+    
     override fun getRefreshKey(state: PagingState<LocalDate, ScheduleViewDay>): LocalDate? {
         if (BuildConfig.DEBUG) {
             Log.d("ScheduleViewSourceLog", "getRefreshKey: $state")

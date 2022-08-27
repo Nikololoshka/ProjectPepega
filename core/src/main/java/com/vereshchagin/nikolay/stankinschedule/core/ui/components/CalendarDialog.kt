@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.core.ui.components
 import android.view.ContextThemeWrapper
 import android.widget.CalendarView
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -18,6 +19,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.vereshchagin.nikolay.stankinschedule.core.R
 import org.joda.time.LocalDate
+import java.util.*
 
 @Composable
 fun CalendarDialog(
@@ -46,13 +48,17 @@ fun CalendarDialog(
                     .defaultMinSize(minHeight = 72.dp)
                     .fillMaxWidth()
                     .background(
-                        color = MaterialTheme.colorScheme.primary,
+                        color = if (isSystemInDarkTheme()) {
+                            MaterialTheme.colorScheme.onSecondary
+                        } else {
+                            MaterialTheme.colorScheme.primary
+                        },
                         shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
                     )
                     .padding(16.dp)
             ) {
                 Text(
-                    text = "Select date",
+                    text = stringResource(R.string.calendar_select_date),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onPrimary
                 )
@@ -60,7 +66,7 @@ fun CalendarDialog(
                 Spacer(modifier = Modifier.size(24.dp))
 
                 Text(
-                    text = currentDate.toString("MMM d, yyyy"),
+                    text = currentDate.toString("MMM d, yyyy").toTitleCase(),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onPrimary
                 )
@@ -99,6 +105,10 @@ fun CalendarDialog(
     }
 }
 
+private fun String.toTitleCase(locale: Locale = Locale.ROOT): String {
+    return replaceFirstChar { if (it.isLowerCase()) it.titlecase(locale) else it.toString() }
+}
+
 @Composable
 private fun CustomCalendarView(
     selectedDate: LocalDate = LocalDate.now(),
@@ -108,14 +118,16 @@ private fun CustomCalendarView(
 ) {
     AndroidView(
         factory = { context ->
-            CalendarView(ContextThemeWrapper(context, R.style.CustomCalendarDialog))
+            CalendarView(ContextThemeWrapper(context, R.style.CustomCalendarDialog)).apply {
+                date = selectedDate.toDateTimeAtCurrentTime().millis
+            }
         },
         update = { view ->
             if (minDate != null) view.minDate = minDate
             if (maxDate != null) view.maxDate = maxDate
 
             view.setOnDateChangeListener { _, year, month, dayOfMonth ->
-                onDateSelected(LocalDate(year, month, dayOfMonth))
+                onDateSelected(LocalDate(year, month + 1, dayOfMonth))
             }
         },
         modifier = Modifier.wrapContentSize()

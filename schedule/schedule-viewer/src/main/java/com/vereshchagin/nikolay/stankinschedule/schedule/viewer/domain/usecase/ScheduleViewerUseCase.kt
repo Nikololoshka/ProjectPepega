@@ -25,10 +25,9 @@ class ScheduleViewerUseCase @Inject constructor(
                 pageSize = 30,
                 initialLoadSize = 30,
                 prefetchDistance = 10,
-                enablePlaceholders = false,
-                maxSize = 30 * 20
+                enablePlaceholders = false
             ),
-            initialKey = LocalDate(2022, 2, 24),
+            initialKey = initialDay,
             pagingSourceFactory = {
                 ScheduleViewerSource(schedule = schedule)
             }

@@ -35,9 +35,9 @@
     </style>
 
     <style name="CustomCalendarDialog" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
-        <item name="colorAccent">@color/md_theme_dark_tertiary</item>
-        <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
-        <item name="colorSurface">@color/md_theme_dark_onTertiary</item>
+        <item name="colorAccent">@color/md_theme_light_tertiary</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <item name="colorSurface">@color/md_theme_light_surface</item>
     </style>
 
 </resources>
