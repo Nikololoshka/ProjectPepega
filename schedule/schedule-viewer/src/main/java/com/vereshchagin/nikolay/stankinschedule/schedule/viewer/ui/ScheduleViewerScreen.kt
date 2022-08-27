@@ -36,7 +36,6 @@ fun ScheduleViewerScreen(
         viewModel.loadSchedule(scheduleId)
     }
 
-    val context = LocalContext.current
     val scheduleInfo by viewModel.scheduleInfo.collectAsState()
 
     Scaffold(

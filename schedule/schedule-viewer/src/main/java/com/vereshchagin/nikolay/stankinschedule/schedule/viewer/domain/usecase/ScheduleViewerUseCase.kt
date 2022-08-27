@@ -22,9 +22,11 @@ class ScheduleViewerUseCase @Inject constructor(
     ): Pager<LocalDate, ScheduleViewDay> {
         return Pager(
             config = PagingConfig(
-                pageSize = 20,
-                initialLoadSize = 20,
-                prefetchDistance = 20 / 2
+                pageSize = 30,
+                initialLoadSize = 30,
+                prefetchDistance = 10,
+                enablePlaceholders = false,
+                maxSize = 30 * 20
             ),
             initialKey = LocalDate(2022, 2, 24),
             pagingSourceFactory = {

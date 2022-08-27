@@ -33,6 +33,7 @@ import java.io.File
 fun ScheduleCreatorSheet(
     onNavigateBack: () -> Unit,
     onRepositoryClicked: () -> Unit,
+    viewModel: ScheduleCreatorViewModel,
     modifier: Modifier = Modifier,
 ) {
 

@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -18,6 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ScheduleViewerViewModel @Inject constructor(
     private val useCase: ScheduleViewerUseCase,
+    private val handle: SavedStateHandle
 ) : ViewModel() {
 
     private val _scheduleInfo = MutableStateFlow<ScheduleInfo?>(null)
@@ -31,6 +33,8 @@ class ScheduleViewerViewModel @Inject constructor(
     }.flowOn(Dispatchers.IO).cachedIn(viewModelScope)
 
     fun loadSchedule(scheduleId: Long) {
+        if (_scheduleInfo.value != null) return
+
         viewModelScope.launch {
             useCase.scheduleInfo(scheduleId)
                 .collect {
