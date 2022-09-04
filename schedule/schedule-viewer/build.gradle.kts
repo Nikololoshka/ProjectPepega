@@ -76,6 +76,9 @@ dependencies {
     // Flow layout
     implementation(AppDependencies.accompanistFlowLayout)
 
+    // Snapper
+    implementation("dev.chrisbanes.snapper:snapper:0.3.0")
+
     // Dagger & Hilt
     implementation(AppDependencies.hiltAndroid)
     kapt(AppDependencies.hiltCompiler)

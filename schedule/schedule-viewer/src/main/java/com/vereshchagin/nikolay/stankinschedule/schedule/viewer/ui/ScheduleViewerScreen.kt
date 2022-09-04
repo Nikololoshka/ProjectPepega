@@ -12,16 +12,17 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.PairColors
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleDayCard
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleViewerToolBar
-import org.joda.time.LocalDate
+import dev.chrisbanes.snapper.ExperimentalSnapperApi
+import dev.chrisbanes.snapper.SnapOffsets
+import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalSnapperApi::class)
 @Composable
 fun ScheduleViewerScreen(
     scheduleId: Long,
@@ -61,7 +62,25 @@ fun ScheduleViewerScreen(
 
         val scheduleDays = viewModel.scheduleDays.collectAsLazyPagingItems()
         val scheduleState = rememberLazyListState()
-        // val scheduleSnapper = rememberSnapperFlingBehavior(lazyListState = scheduleState)
+        val scheduleSnapper = rememberSnapperFlingBehavior(
+            lazyListState = scheduleState,
+            snapOffsetForItem = SnapOffsets.Center,
+            snapIndex = { info, start, target ->
+                if (start == target) {
+                    val distance = info.distanceToIndexSnap(target)
+
+                    when {
+                        distance < -120 -> {
+                            return@rememberSnapperFlingBehavior target + 1
+                        }
+                        distance > 120 -> {
+                            return@rememberSnapperFlingBehavior target - 1
+                        }
+                    }
+                }
+                return@rememberSnapperFlingBehavior target
+            }
+        )
 
         val colors = PairColors(
             Color.Blue,
@@ -73,7 +92,7 @@ fun ScheduleViewerScreen(
 
         LazyRow(
             state = scheduleState,
-            // flingBehavior = scheduleSnapper,
+            flingBehavior = scheduleSnapper,
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
