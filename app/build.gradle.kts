@@ -110,8 +110,8 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":feature_news"))
-    implementation(project(":feature_modulejournal"))
 
+    // implementation(project(":feature_modulejournal"))
     // implementation(project(":feature_schedule"))
 
     implementation(project(":schedule:schedule-core"))
@@ -119,6 +119,11 @@ dependencies {
     implementation(project(":schedule:schedule-list"))
     implementation(project(":schedule:schedule-repository"))
     implementation(project(":schedule:schedule-viewer"))
+
+    implementation(project(":journal:journal-core"))
+    implementation(project(":journal:journal-login"))
+    implementation(project(":journal:journal-predict"))
+    implementation(project(":journal:journal-viewer"))
 
 
     // App core

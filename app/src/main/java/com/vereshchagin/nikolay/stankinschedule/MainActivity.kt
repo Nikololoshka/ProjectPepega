@@ -9,13 +9,11 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -26,7 +24,6 @@ import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import com.vereshchagin.nikolay.stankinschedule.core.utils.NotificationUtils
 import com.vereshchagin.nikolay.stankinschedule.navigation.*
-import com.vereshchagin.nikolay.stankinschedule.navigation.entry.BottomNavEntry
 import com.vereshchagin.nikolay.stankinschedule.ui.AppNavigationBar
 import com.vereshchagin.nikolay.stankinschedule.ui.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint

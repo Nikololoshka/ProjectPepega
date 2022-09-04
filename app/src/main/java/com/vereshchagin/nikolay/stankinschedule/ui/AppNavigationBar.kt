@@ -1,19 +1,16 @@
 package com.vereshchagin.nikolay.stankinschedule.ui
 
-import android.util.Log
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import com.vereshchagin.nikolay.stankinschedule.navigation.entry.BottomNavEntry
 
@@ -35,7 +32,7 @@ fun AppNavigationBar(
             icon = {
                 Icon(
                     painter = painterResource(screen.iconRes),
-                    contentDescription = stringResource(screen.nameRes)
+                    contentDescription = null
                 )
             },
             label = { Text(text = stringResource(screen.nameRes)) },
