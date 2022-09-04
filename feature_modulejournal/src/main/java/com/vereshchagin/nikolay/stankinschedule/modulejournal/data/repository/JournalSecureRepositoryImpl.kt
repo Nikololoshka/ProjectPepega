@@ -18,11 +18,11 @@ class JournalSecureRepositoryImpl @Inject constructor(
     private var cachedCredentials: StudentCredentials? = null
 
     // TODO("Возможно исключение при создании preferences")
-    private val masterKey = MasterKey.Builder(context)
+    private val masterKey get() = MasterKey.Builder(context)
         .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
         .build()
 
-    private val preferences = EncryptedSharedPreferences.create(
+    private val preferences get() = EncryptedSharedPreferences.create(
         context,
         MODULE_JOURNAL_SECURE_PREFERENCE,
         masterKey,
