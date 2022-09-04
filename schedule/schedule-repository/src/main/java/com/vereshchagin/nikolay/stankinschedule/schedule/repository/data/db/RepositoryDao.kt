@@ -13,6 +13,6 @@ interface RepositoryDao {
     @Query("SELECT * FROM repository_entries WHERE category = :category ORDER BY name")
     fun getAll(category: String): List<RepositoryEntity>
 
-    @Query("DELETE FROM repository_entries WHERE category = :category")
-    fun deleteAll(category: String)
+    @Query("DELETE FROM repository_entries")
+    fun deleteAll()
 }

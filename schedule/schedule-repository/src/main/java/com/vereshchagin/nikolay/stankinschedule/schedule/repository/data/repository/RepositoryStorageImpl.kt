@@ -29,15 +29,14 @@ class RepositoryStorageImpl @Inject constructor(
     }
 
     override suspend fun insertRepositoryEntries(entries: List<RepositoryEntity>) {
-        db.withTransaction { dao.insertAll(entries) }
+        db.withTransaction {
+            dao.deleteAll()
+            dao.insertAll(entries)
+        }
     }
 
     override suspend fun getRepositoryEntries(category: String): List<RepositoryEntity> {
         return db.withTransaction { dao.getAll(category) }
-    }
-
-    override suspend fun deleteAll(category: String) {
-        db.withTransaction { dao.deleteAll(category) }
     }
 
     companion object {

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="repository_title">Репозиторий</string>
+
     <string name="repository_title_category">Категория расписания</string>
     <string name="repository_title_degree">Академическая степень</string>
     <string name="repository_title_course">Номер курса</string>
@@ -14,6 +16,7 @@
     <string name="repository_retry">Повторить</string>
 
     <string name="repository_schedule_loaded">Расписание загружено</string>
+    <string name="repository_refresh">Обновить</string>
     <string name="repository_loading_failure">Сбой загрузки расписания</string>
     <string name="repository_start_download">Загрузка расписания: %1$s</string>
     <string name="repository_schedule_exist">Расписание уже существует</string>

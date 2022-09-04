@@ -40,11 +40,11 @@ class ScheduleRepositoryViewModel @Inject constructor(
         reloadDescription()
     }
 
-    private fun loadCategory(category: RepositoryCategory) {
+    private fun loadCategory(category: RepositoryCategory, useCache: Boolean = true) {
         _repositoryItems.value = UIState.loading()
 
         viewModelScope.launch {
-            useCase.repositoryItems(category.name)
+            useCase.repositoryItems(category.name, useCache)
                 .catch { e ->
                     _repositoryItems.value = UIState.failed(e)
                 }
@@ -77,11 +77,15 @@ class ScheduleRepositoryViewModel @Inject constructor(
         loadCategory(currentCategory)
     }
 
-    fun reloadDescription() {
+    fun refresh() {
+        reloadDescription(useCache = false)
+    }
+
+    fun reloadDescription(useCache: Boolean = true) {
         _description.value = UIState.loading()
 
         viewModelScope.launch {
-            useCase.repositoryDescription()
+            useCase.repositoryDescription(useCache)
                 .catch { e ->
                     _description.value = UIState.failed(e)
                 }
@@ -90,7 +94,7 @@ class ScheduleRepositoryViewModel @Inject constructor(
                     _category.value = item
                     _description.value = UIState.success(description)
 
-                    loadCategory(item)
+                    loadCategory(item, useCache)
                 }
         }
     }

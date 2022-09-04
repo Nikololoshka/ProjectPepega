@@ -13,7 +13,4 @@ interface RepositoryStorage {
     suspend fun insertRepositoryEntries(entries: List<RepositoryEntity>)
 
     suspend fun getRepositoryEntries(category: String): List<RepositoryEntity>
-
-    suspend fun deleteAll(category: String)
-
 }

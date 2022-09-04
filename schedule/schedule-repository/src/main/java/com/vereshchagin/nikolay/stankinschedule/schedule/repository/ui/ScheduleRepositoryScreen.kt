@@ -83,7 +83,8 @@ fun ScheduleRepositoryScreen(
         appBar = {
             RepositoryToolBar(
                 scaffoldState = scaffoldState,
-                onBackPressed = onBackPressed
+                onBackPressed = onBackPressed,
+                onRefreshRepository = { viewModel.refresh() }
             )
         },
         frontLayerBackgroundColor = MaterialTheme.colorScheme.surface,

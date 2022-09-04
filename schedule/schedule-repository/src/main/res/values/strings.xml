@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="repository_title">Repository</string>
+
     <string name="repository_title_category">Schedule category</string>
     <string name="repository_title_degree">Schedule degree</string>
     <string name="repository_title_course">Schedule course</string>
@@ -14,6 +16,7 @@
     <string name="repository_retry">Retry</string>
 
     <string name="repository_schedule_loaded">Schedule loaded</string>
+    <string name="repository_refresh">Refresh repository</string>
     <string name="repository_loading_failure">Failure of loading the schedule</string>
     <string name="repository_start_download">Downloading the schedule: %1$s</string>
     <string name="repository_schedule_exist">A schedule already exists</string>
