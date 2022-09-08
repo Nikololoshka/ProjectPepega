@@ -13,7 +13,7 @@ object Versions {
 
     const val ksp = "1.6.20-1.0.4"
 
-    const val agp = "7.2.1"
+    const val agp = "7.2.2"
     const val kotlin = "1.7.0"
 
     const val activity = "1.3.1"
