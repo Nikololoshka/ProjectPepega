@@ -23,6 +23,9 @@ class JournalSecureRepositoryImpl @Inject constructor(
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
 
+    /**
+     * java.io.FileNotFoundException: can't read keyset; the pref value __androidx_security_crypto_encrypted_prefs_key_keyset__ does not exist
+     */
     private val preferences
         get() = EncryptedSharedPreferences.create(
             context,
