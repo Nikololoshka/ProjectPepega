@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDao
-import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDatabaseDao
-import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsEntity
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.*
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.db.NewsDao
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.db.NewsDatabaseDao
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.db.NewsEntity
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.PairEntity
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.ScheduleDao
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.ScheduleDatabaseDao
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.ScheduleEntity
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.db.RepositoryDao
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.db.RepositoryDatabaseDao
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.db.RepositoryEntity
@@ -34,7 +37,7 @@ abstract class MainApplicationDatabase : RoomDatabase(), NewsDatabaseDao, Reposi
     /**
      * Dao новостей приложения.
      */
-    abstract override fun featureNews(): NewsDao
+    abstract override fun news(): NewsDao
 
     /**
      * Dao расписаний приложений.

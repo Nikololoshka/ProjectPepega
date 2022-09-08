@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="NewsTitleAppearance" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:shadowColor">#FFFFFF</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+    <style name="NewsSubtitleAppearance" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:shadowColor">#FFFFFF</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+</resources>

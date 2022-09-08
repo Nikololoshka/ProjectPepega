@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.di
 import android.content.Context
 import androidx.room.RoomDatabase
 import com.vereshchagin.nikolay.stankinschedule.db.MainApplicationDatabase
-import com.vereshchagin.nikolay.stankinschedule.news.data.db.NewsDao
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.db.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.ScheduleDao
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.db.RepositoryDao
 import dagger.Module
@@ -29,7 +29,7 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideNewsDao(db: MainApplicationDatabase): NewsDao = db.featureNews()
+    fun provideNewsDao(db: MainApplicationDatabase): NewsDao = db.news()
 
     @Singleton
     @Provides

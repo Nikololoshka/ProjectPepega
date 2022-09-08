@@ -109,10 +109,6 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation(project(":core"))
-    implementation(project(":feature_news"))
-
-    // implementation(project(":feature_modulejournal"))
-    // implementation(project(":feature_schedule"))
 
     implementation(project(":schedule:schedule-core"))
     implementation(project(":schedule:schedule-editor"))
@@ -125,6 +121,9 @@ dependencies {
     implementation(project(":journal:journal-predict"))
     implementation(project(":journal:journal-viewer"))
 
+    implementation(project(":news:news-core"))
+    implementation(project(":news:news-review"))
+    implementation(project(":news:news-viewer"))
 
     // App core
     implementation(AppDependencies.coreKtx)
