@@ -102,6 +102,7 @@ fun ScheduleCreatorSheet(
                 )
             )
             items.forEach { item ->
+                // TODO("Может вылазить текст")
                 Column(
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally,
