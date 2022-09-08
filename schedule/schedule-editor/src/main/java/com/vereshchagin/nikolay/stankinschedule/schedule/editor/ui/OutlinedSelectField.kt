@@ -35,6 +35,7 @@ fun <T> OutlinedSelectField(
         ExposedDropdownMenu(
             expanded = isExposed,
             onDismissRequest = { isExposed = false },
+            modifier = Modifier.exposedDropdownSize()
         ) {
             items.forEach { item ->
                 DropdownMenuItem(
