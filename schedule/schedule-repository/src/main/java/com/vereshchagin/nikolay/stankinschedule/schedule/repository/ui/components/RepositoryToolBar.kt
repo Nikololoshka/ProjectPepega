@@ -5,6 +5,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.TopAppBar
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.BackButton
@@ -18,6 +19,7 @@ fun RepositoryToolBar(
     scaffoldState: BackdropScaffoldState,
     onBackPressed: () -> Unit,
     onRefreshRepository: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     var showMenu by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
@@ -88,6 +90,7 @@ fun RepositoryToolBar(
             },
             backgroundColor = MaterialTheme.colorScheme.secondaryContainer,
             contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+            modifier = modifier
         )
     }
 }

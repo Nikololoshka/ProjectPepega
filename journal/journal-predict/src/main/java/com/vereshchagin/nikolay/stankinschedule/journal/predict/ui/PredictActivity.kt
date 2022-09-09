@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.journal.predict.ui
 
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -34,7 +35,9 @@ class PredictActivity : AppCompatActivity() {
         binding = ActivityPredictBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbar.setNavigationOnClickListener { onBackPressed() }
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.addCallback(this) { finish() }
+        }
         binding.toolbar.setOnClickListener { showSemesterSelector() }
         // setSupportActionBar(binding.toolbar)
 

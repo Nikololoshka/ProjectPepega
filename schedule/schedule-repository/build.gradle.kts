@@ -69,6 +69,9 @@ dependencies {
     implementation(AppDependencies.composeMaterial3)
     implementation(AppDependencies.material3)
 
+    implementation(AppDependencies.activity)
+    implementation(AppDependencies.appcompat)
+
     // Network and Json
     implementation(AppDependencies.retrofitRuntime)
     implementation(AppDependencies.retrofitGson)

@@ -40,7 +40,7 @@ fun NewsReviewScreen(
     val tabRowHeight = 48.dp
 
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(
-        state = rememberTopAppBarScrollState()
+        state = rememberTopAppBarState()
     )
 
     Scaffold(

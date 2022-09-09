@@ -69,7 +69,9 @@ dependencies {
     implementation(AppDependencies.composeMaterial3)
     implementation(AppDependencies.material3)
 
-    implementation(AppDependencies.appComponents)
+    implementation(AppDependencies.activity)
+    implementation(AppDependencies.fragment)
+    implementation(AppDependencies.appcompat)
 
     // Dagger & Hilt
     implementation(AppDependencies.hiltAndroid)

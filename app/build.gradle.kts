@@ -127,13 +127,10 @@ dependencies {
 
     // App core
     implementation(AppDependencies.coreKtx)
-    implementation(AppDependencies.ksp)
+    // implementation(AppDependencies.ksp)
 
     // Kotlin
     implementation(AppDependencies.kotlin)
-
-    // Components
-    implementation(AppDependencies.appComponents)
 
     // Firebase
     implementation(platform(AppDependencies.firebaseBom))
@@ -149,17 +146,16 @@ dependencies {
 
 
     implementation(AppDependencies.appcompat)
-    implementation(AppDependencies.legacySupport)
-    implementation(AppDependencies.constraintLayout)
-    implementation(AppDependencies.gridLayout)
-    implementation(AppDependencies.recyclerview)
-    implementation(AppDependencies.pager)
-    implementation(AppDependencies.paging)
+    // implementation(AppDependencies.legacySupport)
+    // implementation(AppDependencies.constraintLayout)
+    // implementation(AppDependencies.gridLayout)
+    // implementation(AppDependencies.recyclerview)
+    // implementation(AppDependencies.pager)
     implementation(AppDependencies.material3)
-    implementation(AppDependencies.preference)
+    // implementation(AppDependencies.preference)
 
     // Lifecycle
-    implementation(AppDependencies.lifecycle)
+    // implementation(AppDependencies.lifecycle)
 
     // Dagger & Hilt
     implementation(AppDependencies.hiltAndroid)
@@ -170,40 +166,42 @@ dependencies {
     kapt(AppDependencies.hiltWorkCompiler)
 
     // Integration
-    implementation(AppDependencies.chromeBrowser)
+    // implementation(AppDependencies.chromeBrowser)
     implementation(AppDependencies.coreGooglePlay)
     implementation(AppDependencies.googleServices)
 
     // Glide
-    implementation(AppDependencies.glideRuntime)
-    kapt(AppDependencies.glideCompiler)
+    // implementation(AppDependencies.glideRuntime)
+    // kapt(AppDependencies.glideCompiler)
 
     // Utils
-    implementation(AppDependencies.securityCrypto)
-    implementation(AppDependencies.dataBinding)
+    // implementation(AppDependencies.securityCrypto)
+    // implementation(AppDependencies.dataBinding)
 
     // Navigation
     implementation(AppDependencies.navigation)
 
     // Network
-    implementation(AppDependencies.network)
+    // implementation(AppDependencies.network)
 
     // Room DB
     implementation(AppDependencies.roomRuntime)
     implementation(AppDependencies.roomKtx)
     kapt(AppDependencies.roomCompiler)
 
+    implementation(AppDependencies.paging)
+
     // Work
     implementation(AppDependencies.workRuntime)
     implementation(AppDependencies.workRuntimeKtx)
 
     // Other
-    implementation(AppDependencies.gson)
-    implementation(AppDependencies.holoColorPicker)
-    implementation(AppDependencies.jodaTime)
-    implementation(AppDependencies.json)
-    implementation(AppDependencies.junit)
-    implementation(AppDependencies.shimmer)
+    // implementation(AppDependencies.gson)
+    // implementation(AppDependencies.holoColorPicker)
+    // implementation(AppDependencies.jodaTime)
+    // implementation(AppDependencies.json)
+    // implementation(AppDependencies.junit)
+    // implementation(AppDependencies.shimmer)
     implementation(AppDependencies.startup)
-    implementation(AppDependencies.webkit)
+    // implementation(AppDependencies.webkit)
 }

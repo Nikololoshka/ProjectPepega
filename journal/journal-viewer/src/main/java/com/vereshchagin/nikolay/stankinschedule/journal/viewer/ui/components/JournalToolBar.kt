@@ -8,6 +8,7 @@ import androidx.compose.ui.res.stringResource
 import com.vereshchagin.nikolay.stankinschedule.journal.viewer.R
 import com.vereshchagin.nikolay.stankinschedule.core.R as R_core
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun JournalToolBar(
     onPredictAction: () -> Unit,
@@ -18,7 +19,7 @@ fun JournalToolBar(
 ) {
     var showMenu by remember { mutableStateOf(false) }
 
-    SmallTopAppBar(
+    TopAppBar(
         title = {
             Text(
                 text = title,

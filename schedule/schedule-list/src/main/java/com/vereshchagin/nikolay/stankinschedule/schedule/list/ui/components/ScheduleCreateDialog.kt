@@ -7,6 +7,7 @@ import androidx.compose.ui.res.stringResource
 import com.vereshchagin.nikolay.stankinschedule.schedule.list.R
 import com.vereshchagin.nikolay.stankinschedule.core.R as R_core
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScheduleCreateDialog(
     state: CreateState,

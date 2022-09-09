@@ -77,6 +77,7 @@ dependencies {
     implementation(AppDependencies.accompanistPager)
     implementation(AppDependencies.accompanistPagerIndicators)
     implementation(AppDependencies.accompanistSwipeRefresh)
+    // implementation("com.google.accompanist:accompanist-systemuicontroller:${Versions.accompanist}")
 
     // Dagger & Hilt
     implementation(AppDependencies.hiltAndroid)

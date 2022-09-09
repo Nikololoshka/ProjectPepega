@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.webkit.*
+import androidx.activity.addCallback
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -50,7 +51,9 @@ class NewsViewerActivity : AppCompatActivity() {
         newsId = intent.getIntExtra(NEWS_ID, -1)
 
         binding.toolbar.title = newsTitle
-        binding.toolbar.setNavigationOnClickListener { onBackPressed() }
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.addCallback(this) { finish() }
+        }
         binding.toolbar.setOnMenuItemClickListener(this::onMenuItemClickListener)
 
         binding.newsRefresh.setOnRefreshListener { viewModel.loadNewsContent(newsId, force = true) }
@@ -176,7 +179,9 @@ class NewsViewerActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun WebView.supportDarkMode(isDarkTheme: Boolean) {
         if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK) && isDarkTheme) {
-            WebSettingsCompat.setForceDark(settings, WebSettingsCompat.FORCE_DARK_ON)
+            // Old API
+            // WebSettingsCompat.setForceDark(settings, WebSettingsCompat.FORCE_DARK_ON)
+            WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, true)
         }
     }
 

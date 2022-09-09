@@ -69,6 +69,9 @@ dependencies {
     implementation(AppDependencies.composeMaterial3)
     implementation(AppDependencies.material3)
 
+    implementation(AppDependencies.activity)
+    implementation(AppDependencies.appcompat)
+
     implementation(AppDependencies.accompanistFlowLayout)
 
     // Dagger & Hilt

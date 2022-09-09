@@ -7,6 +7,7 @@ import androidx.compose.ui.res.painterResource
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.BackButton
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.R
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScheduleViewerToolBar(
     scheduleName: String,
@@ -15,7 +16,7 @@ fun ScheduleViewerToolBar(
     modifier: Modifier = Modifier,
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
-    SmallTopAppBar(
+    TopAppBar(
         title = {
             Text(
                 text = scheduleName,

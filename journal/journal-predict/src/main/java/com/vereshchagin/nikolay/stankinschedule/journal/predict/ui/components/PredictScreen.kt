@@ -128,6 +128,7 @@ fun PredictScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PredictToolBar(
     subTitle: String,
@@ -218,7 +219,7 @@ fun SemesterSelectorBottomSheet(
 
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class,
-    ExperimentalLayoutApi::class)
+    ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun PredictDisciplines(
     predictMarks: Map<String, List<PredictMark>>,

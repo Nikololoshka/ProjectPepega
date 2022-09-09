@@ -7,6 +7,7 @@ import androidx.compose.ui.res.stringResource
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.BackButton
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.R
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditorToolbar(
     onApplyClicked: () -> Unit,
@@ -14,7 +15,7 @@ fun EditorToolbar(
     onBackClicked: () -> Unit,
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
-    SmallTopAppBar(
+    TopAppBar(
         title = {
             Text(text = stringResource(R.string.editor_title))
         },

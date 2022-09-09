@@ -29,8 +29,6 @@ plugins {
     id("com.android.library") version Versions.agp apply false
     // id("com.google.devtools.ksp") version Versions.ksp apply false
     kotlin("android") version Versions.kotlin apply false
-
-
 }
 
 allprojects {

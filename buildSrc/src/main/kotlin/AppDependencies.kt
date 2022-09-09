@@ -24,9 +24,9 @@ object AppDependencies {
         composeIcons
     )
 
-    const val composeActivity = "androidx.activity:activity-compose:1.5.0"
-    const val composeNavigation = "androidx.navigation:navigation-compose:2.5.0"
-    const val composeMaterial3 = "androidx.compose.material3:material3:1.0.0-alpha14"
+    const val composeActivity = "androidx.activity:activity-compose:1.5.1"
+    const val composeNavigation = "androidx.navigation:navigation-compose:2.5.2"
+    const val composeMaterial3 = "androidx.compose.material3:material3:1.0.0-beta02"
 
     const val accompanistPager =
         "com.google.accompanist:accompanist-pager:${Versions.accompanist}"
@@ -56,7 +56,6 @@ object AppDependencies {
     const val activity = "androidx.activity:activity-ktx:${Versions.activity}"
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
     const val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.fragment}"
-    val appComponents = listOf(activity, fragment)
 
     // UI
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
@@ -67,9 +66,9 @@ object AppDependencies {
     const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     const val pager = "androidx.viewpager2:viewpager2:${Versions.pager}"
 
-    const val paging = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
-    const val pagingCompose = "androidx.paging:paging-compose:1.0.0-alpha14"
 
+    const val paging = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
+    const val pagingCompose = "androidx.paging:paging-compose:1.0.0-alpha16"
     const val material3 = "com.google.android.material:material:${Versions.material}"
 
 

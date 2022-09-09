@@ -71,7 +71,7 @@ fun JournalLoginScreen(
     }
 
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(
-        state = rememberTopAppBarScrollState()
+        state = rememberTopAppBarState()
     )
 
     Scaffold(
@@ -186,6 +186,7 @@ fun JournalLoginScreen(
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginField(
     login: String,
@@ -209,6 +210,7 @@ fun LoginField(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PasswordField(
     password: String,

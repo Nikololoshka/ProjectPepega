@@ -37,7 +37,7 @@ fun ScheduleScreen(
     modifier: Modifier = Modifier,
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(
-        state = rememberTopAppBarScrollState()
+        state = rememberTopAppBarState()
     )
 
     val editableMode by viewModel.editableMode.collectAsState()

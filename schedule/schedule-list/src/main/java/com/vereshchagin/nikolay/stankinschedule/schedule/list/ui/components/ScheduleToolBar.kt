@@ -7,6 +7,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.vereshchagin.nikolay.stankinschedule.schedule.list.R
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScheduleToolBar(
     onActionMode: () -> Unit,
@@ -14,7 +15,7 @@ fun ScheduleToolBar(
     title: String = stringResource(R.string.schedule_list_title),
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
-    SmallTopAppBar(
+    TopAppBar(
         title = {
             Text(
                 text = title,

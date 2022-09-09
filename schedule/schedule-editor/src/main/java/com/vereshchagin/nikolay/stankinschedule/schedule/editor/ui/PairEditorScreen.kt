@@ -37,7 +37,7 @@ fun PairEditorScreen(
     modifier: Modifier = Modifier,
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(
-        state = rememberTopAppBarScrollState()
+        state = rememberTopAppBarState()
     )
 
     val sheetState = rememberModalBottomSheetState(

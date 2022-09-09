@@ -36,11 +36,15 @@ fun <T> FilterRow(
             FilterChip(
                 selected = selected == item,
                 onClick = { onItemSelected(item) },
-                selectedIcon = {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_chip_selected),
-                        contentDescription = null
-                    )
+                leadingIcon = if (selected == item) {
+                    {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_chip_selected),
+                            contentDescription = null
+                        )
+                    }
+                } else {
+                    null
                 },
                 label = {
                     Text(

@@ -3,11 +3,13 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -26,6 +28,8 @@ class PairEditorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         // Получение ID пары и расписания
         val scheduleId: Long = intent.getLongExtra(SCHEDULE_ID, -1L)
         var pairId: Long? = intent.getLongExtra(PAIR_ID, -1L)
@@ -37,7 +41,7 @@ class PairEditorActivity : AppCompatActivity() {
                     scheduleId = scheduleId,
                     pairId = pairId,
                     onBackClicked = {
-                        onBackPressed()
+                        onBackPressedDispatcher.addCallback(this) { finish() }
                     },
                     viewModel = viewModel,
                     modifier = Modifier.fillMaxSize()
