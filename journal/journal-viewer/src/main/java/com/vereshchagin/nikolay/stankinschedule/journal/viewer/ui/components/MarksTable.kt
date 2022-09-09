@@ -10,6 +10,7 @@ import com.vereshchagin.nikolay.stankinschedule.journal.viewer.ui.view.MarksTabl
 @Composable
 fun MarksTable(
     semesterMarks: SemesterMarks,
+    textColor: Int,
     modifier: Modifier = Modifier,
 ) {
     AndroidView(
@@ -24,6 +25,7 @@ fun MarksTable(
             }
         },
         update = {
+            it.setTextColor(textColor)
             it.setSemesterMarks(semesterMarks)
         },
         modifier = modifier

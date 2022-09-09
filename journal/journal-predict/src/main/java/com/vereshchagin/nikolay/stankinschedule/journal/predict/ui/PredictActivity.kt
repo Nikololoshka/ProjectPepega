@@ -10,6 +10,7 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.RecyclerView
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import com.vereshchagin.nikolay.stankinschedule.core.utils.setVisibility
 import com.vereshchagin.nikolay.stankinschedule.journal.predict.databinding.ActivityPredictBinding
@@ -34,6 +35,20 @@ class PredictActivity : AppCompatActivity() {
         // WindowCompat.setDecorFitsSystemWindows(window, false)
         binding = ActivityPredictBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // TODO("Нет fitSystemWindow, из-за особенностей layout")
+        binding.appBar.setLiftableOverrideEnabled(true)
+        binding.appBar.setLiftable(true)
+        binding.appBar.isLifted = false
+
+        binding.predictMarks.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val offset = recyclerView.computeVerticalScrollOffset()
+                binding.appBar.isLifted = offset > 0
+            }
+        })
 
         binding.toolbar.setNavigationOnClickListener {
             onBackPressedDispatcher.addCallback(this) { finish() }

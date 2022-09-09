@@ -290,6 +290,15 @@ class MarksTableView @JvmOverloads constructor(
     }
 
     /**
+     * Устанавливает цвет текста.
+     */
+    fun setTextColor(color: Int) {
+        contentPainter.color = color
+        disciplinePainter.color = color
+        ratingPainter.color = color
+    }
+
+    /**
      * Пустые данные.
      */
     private fun emptyData() = SemesterMarks(arrayListOf(), null, null)

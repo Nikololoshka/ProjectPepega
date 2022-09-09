@@ -1,22 +1,21 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui
 
 import androidx.annotation.StringRes
-import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material3.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -24,8 +23,6 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.*
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.R
 import kotlinx.coroutines.launch
-import org.joda.time.LocalDate
-import org.joda.time.format.DateTimeFormat
 
 
 private const val SINGLE_DATE_ID = "single_date"
@@ -107,6 +104,7 @@ fun DateEditorBottomSheet(
         Text(
             text = stringResource(R.string.editor_date_title),
             textAlign = TextAlign.Center,
+            color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(Dimen.ContentPadding * 2)
@@ -141,7 +139,7 @@ fun DateEditorBottomSheet(
                     .fillMaxWidth()
                     .border(
                         width = 1.dp,
-                        color = MaterialTheme.colors.error,
+                        color = MaterialTheme.colorScheme.error,
                         shape = RoundedCornerShape(size = 4.dp)
                     )
                     .padding(16.dp)

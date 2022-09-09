@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.journal.predict.ui.components.SemesterSelectorBottomSheet
 
@@ -31,12 +32,14 @@ class SemesterSelectorDialog : BottomSheetDialogFragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
 
             setContent {
-                SemesterSelectorBottomSheet(
-                    currentSemester = currentSemester,
-                    semesters = semesters,
-                    onSemesterSelected = ::semesterSelected,
-                    modifier = Modifier.padding(vertical = Dimen.ContentPadding * 2)
-                )
+                AppTheme {
+                    SemesterSelectorBottomSheet(
+                        currentSemester = currentSemester,
+                        semesters = semesters,
+                        onSemesterSelected = ::semesterSelected,
+                        modifier = Modifier.padding(vertical = Dimen.ContentPadding * 2)
+                    )
+                }
             }
         }
     }

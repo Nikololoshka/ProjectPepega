@@ -186,6 +186,7 @@ fun SemesterSelectorBottomSheet(
             text = stringResource(R.string.selected_semester, currentSemester),
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = Dimen.ContentPadding * 2)
@@ -210,6 +211,7 @@ fun SemesterSelectorBottomSheet(
                 )
                 Text(
                     text = semester,
+                    color = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.fillMaxWidth()
                 )
             }
