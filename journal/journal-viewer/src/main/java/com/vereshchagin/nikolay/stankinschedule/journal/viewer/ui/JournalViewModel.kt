@@ -107,7 +107,11 @@ class JournalViewModel @Inject constructor(
 
     fun signOut() {
         viewModelScope.launch {
-            useCase.signOut()
+            try {
+                useCase.signOut()
+            } catch (ignored: Exception) {
+
+            }
             _isSignIn.value = false
         }
     }

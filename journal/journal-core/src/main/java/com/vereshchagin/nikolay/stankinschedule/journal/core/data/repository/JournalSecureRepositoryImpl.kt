@@ -17,24 +17,26 @@ class JournalSecureRepositoryImpl @Inject constructor(
     // Кэш данных для учетной записи
     private var cachedCredentials: StudentCredentials? = null
 
-    // TODO("Возможно исключение при создании preferences")
     private val masterKey
         get() = MasterKey.Builder(context)
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
 
-    /**
-     * java.io.FileNotFoundException: can't read keyset; the pref value __androidx_security_crypto_encrypted_prefs_key_keyset__ does not exist
-     */
     private val preferences
-        get() = EncryptedSharedPreferences.create(
-            context,
-            MODULE_JOURNAL_SECURE_PREFERENCE,
-            masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
+        get() = try {
+            EncryptedSharedPreferences.create(
+                context,
+                MODULE_JOURNAL_SECURE_PREFERENCE,
+                masterKey,
+                EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            )
+        } catch (e: Exception) {
+            throw StudentAuthorizedException(e)
+        }
 
+
+    @kotlin.jvm.Throws(StudentAuthorizedException::class)
     override suspend fun signIn(credentials: StudentCredentials) {
         preferences.edit {
             putString(LOGIN, credentials.login)
@@ -42,12 +44,14 @@ class JournalSecureRepositoryImpl @Inject constructor(
         }
     }
 
+    @kotlin.jvm.Throws(StudentAuthorizedException::class)
     override suspend fun signOut() {
         preferences.edit {
             clear()
         }
     }
 
+    @kotlin.jvm.Throws(StudentAuthorizedException::class)
     override suspend fun signCredentials(): StudentCredentials {
         val cache = cachedCredentials
         if (cache != null) return cache
