@@ -3,7 +3,6 @@ package com.vereshchagin.nikolay.stankinschedule.core.ui.components
 import android.view.ContextThemeWrapper
 import android.widget.CalendarView
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -48,11 +47,7 @@ fun CalendarDialog(
                     .defaultMinSize(minHeight = 72.dp)
                     .fillMaxWidth()
                     .background(
-                        color = if (isSystemInDarkTheme()) {
-                            MaterialTheme.colorScheme.onSecondary
-                        } else {
-                            MaterialTheme.colorScheme.primary
-                        },
+                        color = MaterialTheme.colorScheme.primary,
                         shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
                     )
                     .padding(16.dp)

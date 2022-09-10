@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.navigation
 
 import android.content.Intent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -87,7 +88,8 @@ fun NavGraphBuilder.schedule(navController: NavController) {
                 )
                 navController.navigateUp()
             },
-            viewModel = hiltViewModel()
+            viewModel = hiltViewModel(),
+            modifier = Modifier.navigationBarsPadding()
         )
     }
 }

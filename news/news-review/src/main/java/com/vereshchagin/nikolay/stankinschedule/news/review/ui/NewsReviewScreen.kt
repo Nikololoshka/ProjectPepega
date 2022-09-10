@@ -16,6 +16,7 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppTabIndicator
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.pagerTabIndicatorOffset
+import com.vereshchagin.nikolay.stankinschedule.core.utils.Zero
 import com.vereshchagin.nikolay.stankinschedule.news.core.utils.newsImageLoader
 import com.vereshchagin.nikolay.stankinschedule.news.review.R
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.components.NewsPostColumn
@@ -49,6 +50,7 @@ fun NewsReviewScreen(
                 scrollBehavior = scrollBehavior
             )
         },
+        contentWindowInsets = WindowInsets.Zero,
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
     ) { innerPadding ->
         Box(

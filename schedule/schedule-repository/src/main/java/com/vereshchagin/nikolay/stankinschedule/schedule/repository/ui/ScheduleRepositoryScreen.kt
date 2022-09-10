@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
@@ -12,6 +13,7 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.R
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.worker.ScheduleDownloadWorker
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.components.*
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -29,6 +31,11 @@ fun ScheduleRepositoryScreen(
 
     var isRequiredName by remember { mutableStateOf<DownloadState.RequiredName?>(null) }
     var isChooseName by remember { mutableStateOf<DownloadState.RequiredName?>(null) }
+
+    val scope = rememberCoroutineScope()
+    BackHandler(scaffoldState.isRevealed) {
+        scope.launch { scaffoldState.conceal() }
+    }
 
     LaunchedEffect(download.value) {
         when (val state = download.value) {

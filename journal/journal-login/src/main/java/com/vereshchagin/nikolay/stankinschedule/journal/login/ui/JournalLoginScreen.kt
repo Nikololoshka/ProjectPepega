@@ -27,6 +27,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.vereshchagin.nikolay.stankinschedule.core.ui.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
+import com.vereshchagin.nikolay.stankinschedule.core.utils.Zero
 import com.vereshchagin.nikolay.stankinschedule.journal.core.utils.Constants
 import com.vereshchagin.nikolay.stankinschedule.journal.login.R
 import com.vereshchagin.nikolay.stankinschedule.journal.login.ui.components.LoginError
@@ -80,6 +81,7 @@ fun JournalLoginScreen(
                 scrollBehavior = scrollBehavior
             )
         },
+        contentWindowInsets = WindowInsets.Zero,
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
     ) { innerPadding ->
         Box(

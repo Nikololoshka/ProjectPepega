@@ -3,7 +3,6 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.addCallback
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -41,7 +40,7 @@ class PairEditorActivity : AppCompatActivity() {
                     scheduleId = scheduleId,
                     pairId = pairId,
                     onBackClicked = {
-                        onBackPressedDispatcher.addCallback(this) { finish() }
+                        onBackPressedDispatcher.onBackPressed()
                     },
                     viewModel = viewModel,
                     modifier = Modifier.fillMaxSize()

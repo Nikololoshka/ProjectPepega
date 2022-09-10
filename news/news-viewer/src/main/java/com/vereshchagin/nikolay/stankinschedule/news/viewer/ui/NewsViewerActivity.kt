@@ -7,7 +7,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.webkit.*
-import androidx.activity.addCallback
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -52,7 +51,7 @@ class NewsViewerActivity : AppCompatActivity() {
 
         binding.toolbar.title = newsTitle
         binding.toolbar.setNavigationOnClickListener {
-            onBackPressedDispatcher.addCallback(this) { finish() }
+            onBackPressedDispatcher.onBackPressed()
         }
         binding.toolbar.setOnMenuItemClickListener(this::onMenuItemClickListener)
 

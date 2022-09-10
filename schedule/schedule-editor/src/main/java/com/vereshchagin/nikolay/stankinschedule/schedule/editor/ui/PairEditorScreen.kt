@@ -225,9 +225,9 @@ fun PairEditorScreen(
                         },
                         modifier = Modifier
                             .padding(innerPadding)
-                            .padding(Dimen.ContentPadding)
                             .fillMaxSize()
                             .verticalScroll(rememberScrollState())
+                            .padding(Dimen.ContentPadding)
                     )
                 }
                 else -> {

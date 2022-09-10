@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
@@ -15,11 +16,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
+import com.vereshchagin.nikolay.stankinschedule.core.utils.Zero
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.PairColors
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleDayCard
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleViewerToolBar
 import dev.chrisbanes.snapper.ExperimentalSnapperApi
 import dev.chrisbanes.snapper.SnapOffsets
+import dev.chrisbanes.snapper.SnapperLayoutInfo
 import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalSnapperApi::class)
@@ -47,6 +50,7 @@ fun ScheduleViewerScreen(
                 onDayChangeClicked = { isDaySelector = true }
             )
         },
+        contentWindowInsets = WindowInsets.Zero,
         modifier = modifier
     ) { innerPadding ->
 
@@ -66,19 +70,9 @@ fun ScheduleViewerScreen(
             lazyListState = scheduleState,
             snapOffsetForItem = SnapOffsets.Center,
             snapIndex = { info, start, target ->
-                if (start == target) {
-                    val distance = info.distanceToIndexSnap(target)
-
-                    when {
-                        distance < -120 -> {
-                            return@rememberSnapperFlingBehavior target + 1
-                        }
-                        distance > 120 -> {
-                            return@rememberSnapperFlingBehavior target - 1
-                        }
-                    }
-                }
-                return@rememberSnapperFlingBehavior target
+                val index = computeScheduleIndex(info, start, target)
+                viewModel.updatePagingDate(scheduleDays.peek(index)?.day)
+                index
             }
         )
 
@@ -113,4 +107,26 @@ fun ScheduleViewerScreen(
             }
         }
     }
+}
+
+@OptIn(ExperimentalSnapperApi::class)
+private fun computeScheduleIndex(
+    info: SnapperLayoutInfo,
+    start: Int,
+    target: Int,
+    delta: Int = 120,
+): Int {
+    if (start == target) {
+        val distance = info.distanceToIndexSnap(target)
+
+        when {
+            distance < -delta -> {
+                return target + 1
+            }
+            distance > delta -> {
+                return target - 1
+            }
+        }
+    }
+    return target
 }

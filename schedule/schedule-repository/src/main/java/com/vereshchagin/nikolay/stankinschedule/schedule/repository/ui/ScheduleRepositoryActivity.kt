@@ -1,11 +1,11 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui
 
 import android.os.Bundle
-import androidx.activity.addCallback
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
@@ -26,12 +26,13 @@ class ScheduleRepositoryActivity : AppCompatActivity() {
             AppTheme {
                 ScheduleRepositoryScreen(
                     onBackPressed = {
-                        onBackPressedDispatcher.addCallback(this) { finish() }
+                        onBackPressedDispatcher.onBackPressed()
                     },
                     viewModel = viewModel,
                     modifier = Modifier
                         .fillMaxSize()
                         .statusBarsPadding()
+                        .navigationBarsPadding()
                 )
             }
         }
