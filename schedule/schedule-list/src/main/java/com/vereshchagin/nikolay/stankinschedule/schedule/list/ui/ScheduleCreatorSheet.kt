@@ -8,7 +8,7 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -17,11 +17,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.list.R
@@ -64,26 +64,19 @@ fun ScheduleCreatorSheet(
 
     Column(
         verticalArrangement = Arrangement.spacedBy(Dimen.ContentPadding),
-        modifier = modifier.padding(
-            vertical = Dimen.ContentPadding * 2,
-            horizontal = Dimen.ContentPadding
-        )
+        modifier = modifier.padding(top = Dimen.ContentPadding * 2)
     ) {
         Text(
             text = stringResource(R.string.schedule_creator),
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = Dimen.ContentPadding * 2)
+            modifier = Modifier.fillMaxWidth()
         )
         Row(
             horizontalArrangement = Arrangement.spacedBy(2.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
-            val context = LocalContext.current
-
             val items = listOf(
                 ScheduleCreatorItem(
                     title = R.string.schedule_create_new,
@@ -102,36 +95,51 @@ fun ScheduleCreatorSheet(
                 )
             )
             items.forEach { item ->
-                // TODO("Может вылазить текст")
-                Column(
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally,
+                CreateScheduleItem(
+                    item = item,
                     modifier = Modifier
                         .weight(1f)
-                        .clip(CircleShape)
-                        .clickable(
-                            interactionSource = remember { MutableInteractionSource() },
-                            indication = rememberRipple(bounded = true),
-                            onClick = item.onItemClicked
-                        )
-                ) {
-                    Icon(
-                        painter = painterResource(item.icon),
-                        contentDescription = null,
-                        modifier = Modifier.size(64.dp),
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                    Text(
-                        text = stringResource(item.title),
-                        textAlign = TextAlign.Center,
-                        style = MaterialTheme.typography.bodySmall,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        color = MaterialTheme.colorScheme.onSurface,
-                    )
-                }
+                        .padding(Dimen.ContentPadding),
+                    contentPadding = PaddingValues(vertical = Dimen.ContentPadding)
+                )
             }
         }
+    }
+}
+
+@Composable
+private fun CreateScheduleItem(
+    item: ScheduleCreatorItem,
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(),
+    iconSize: Dp = 64.dp,
+) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+            .clip(RoundedCornerShape(Dimen.ContentPadding))
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = rememberRipple(bounded = true),
+                onClick = item.onItemClicked
+            )
+            .padding(contentPadding)
+    ) {
+        Icon(
+            painter = painterResource(item.icon),
+            contentDescription = null,
+            modifier = Modifier.size(iconSize),
+            tint = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Text(
+            text = stringResource(item.title),
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.bodySmall,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            color = MaterialTheme.colorScheme.onSurface,
+        )
     }
 }
 

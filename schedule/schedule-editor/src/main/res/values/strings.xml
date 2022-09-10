@@ -16,6 +16,9 @@
     <string name="editor_time_start">Start</string>
     <string name="editor_time_end">End</string>
 
+    <string name="editor_removing_pair">Removing a pair</string>
+    <string name="editor_removing_pair_detail">Are you sure you want to remove a pair from the schedule?</string>
+
     <string name="editor_date_mode">Date type</string>
     <string name="editor_date_single_mode">Single</string>
     <string name="editor_date_range_mode">Range</string>
@@ -32,7 +35,6 @@
     <string name="editor_new_date">New date</string>
     <string name="editor_remove_date">Remove date</string>
     <string name="editor_delete_pair">Delete</string>
-
 
     <string name="editor_invalid_date">Unable to create date. Check the correct date.</string>
     <string name="editor_invalid_day_of_week">You cannot create a date with this day of the week.</string>

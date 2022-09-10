@@ -121,11 +121,10 @@ fun PairEditorScreen(
                 AlertDialog(
                     onDismissRequest = { isDeletePair = false },
                     title = {
-                        // TODO("Hardcode text)
-                        Text(text = "Удаление пары")
+                        Text(text = stringResource(R.string.editor_removing_pair))
                     },
                     text = {
-                        Text(text = "Вы уверены, что хотите удалить пару из расписания?")
+                        Text(text = stringResource(R.string.editor_removing_pair_detail))
                     },
                     confirmButton = {
                         TextButton(

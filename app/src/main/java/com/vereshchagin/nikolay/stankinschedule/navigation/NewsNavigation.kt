@@ -19,7 +19,7 @@ object NewsNavEntry : BottomNavEntry(
     hierarchy = listOf("news")
 )
 
-
+@Suppress("UNUSED_PARAMETER")
 fun NavGraphBuilder.news(navController: NavController) {
     // Новости
     composable(route = NewsNavEntry.route) {
