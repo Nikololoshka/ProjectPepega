@@ -4,8 +4,8 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.api.PairJson
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.api.DescriptionResponse
-import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.api.PairResponse
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.api.ScheduleItemResponse
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.api.ScheduleRepositoryAPI
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.repository.ScheduleRemoteService
@@ -38,7 +38,7 @@ class FirebaseRemoteService @Inject constructor(
         }
     }
 
-    override suspend fun schedule(category: String, schedule: String): List<PairResponse> {
+    override suspend fun schedule(category: String, schedule: String): List<PairJson> {
         val ref = createRef(SCHEDULES_ROOT, category, schedule)
         val scheduleUrl = ref.downloadUrl.await().toString()
         return api.schedule(scheduleUrl).await()

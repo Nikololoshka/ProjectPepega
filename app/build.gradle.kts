@@ -111,6 +111,7 @@ dependencies {
     implementation(project(":core"))
 
     implementation(project(":schedule:schedule-core"))
+    implementation(project(":schedule:schedule-creator"))
     implementation(project(":schedule:schedule-editor"))
     implementation(project(":schedule:schedule-list"))
     implementation(project(":schedule:schedule-repository"))

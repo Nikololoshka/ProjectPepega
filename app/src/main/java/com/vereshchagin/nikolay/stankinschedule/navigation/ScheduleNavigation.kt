@@ -13,8 +13,8 @@ import com.google.accompanist.navigation.material.bottomSheet
 import com.vereshchagin.nikolay.stankinschedule.R
 import com.vereshchagin.nikolay.stankinschedule.navigation.entry.BottomNavEntry
 import com.vereshchagin.nikolay.stankinschedule.navigation.entry.DestinationNavEntry
+import com.vereshchagin.nikolay.stankinschedule.schedule.creator.ui.ScheduleCreatorSheet
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.PairEditorActivity
-import com.vereshchagin.nikolay.stankinschedule.schedule.list.ui.ScheduleCreatorSheet
 import com.vereshchagin.nikolay.stankinschedule.schedule.list.ui.ScheduleScreen
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.ScheduleRepositoryActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.ScheduleViewerScreen
@@ -41,7 +41,10 @@ object ScheduleCreatorNavEntry : DestinationNavEntry(
 )
 
 @OptIn(ExperimentalMaterialNavigationApi::class)
-fun NavGraphBuilder.schedule(navController: NavController) {
+fun NavGraphBuilder.schedule(
+    navController: NavController,
+    showSnackBarState: (message: String) -> Unit
+) {
     // Мои расписания
     composable(route = ScheduleNavEntry.route) {
         ScheduleScreen(
@@ -88,6 +91,7 @@ fun NavGraphBuilder.schedule(navController: NavController) {
                 )
                 navController.navigateUp()
             },
+            onShowSnackBar = showSnackBarState,
             viewModel = hiltViewModel(),
             modifier = Modifier.navigationBarsPadding()
         )

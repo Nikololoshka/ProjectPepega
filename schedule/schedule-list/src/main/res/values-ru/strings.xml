@@ -3,11 +3,6 @@
 
     <string name="schedule_list_title">Расписания</string>
 
-    <string name="schedule_creator">Добавить расписание</string>
-    <string name="schedule_create_new">Новое (пустое)</string>
-    <string name="schedule_from_device">С устройства</string>
-    <string name="schedule_from_repository">Из репозитория</string>
-
     <string name="schedule_my_list">Мои расписания</string>
     <string name="no_schedules">Нет расписаний</string>
     <string name="schedule_count_selected">%1$s выбрано</string>
@@ -15,12 +10,8 @@
     <string name="schedule_remove_schedule">Удалить расписание</string>
     <string name="schedule_unset_favorite">Снять избранное</string>
     <string name="schedule_remove_title">Удаление</string>
-    <string name="schedule_single_remove">Вы уверены, что хотите удалить расписание: %1$s?</string>
+    <string name="schedule_single_remove">Вы уверены, что хотите удалить расписание: \"%1$s\"?</string>
     <string name="schedule_selected_remove">Вы уверены, что хотите удалить выбранные расписания: %1$s?</string>
     <string name="schedule_remove">Удалить</string>
-
-    <string name="new_schedule">Новое расписание</string>
-    <string name="create_schedule">Создать расписание</string>
-    <string name="create">Создать</string>
 
 </resources>

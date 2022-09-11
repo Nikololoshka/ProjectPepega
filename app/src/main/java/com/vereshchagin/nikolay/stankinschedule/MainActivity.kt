@@ -8,11 +8,10 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.ScaffoldDefaults
+import androidx.compose.material3.*
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
 import androidx.navigation.compose.NavHost
@@ -28,6 +27,7 @@ import com.vereshchagin.nikolay.stankinschedule.navigation.*
 import com.vereshchagin.nikolay.stankinschedule.ui.AppNavigationBar
 import com.vereshchagin.nikolay.stankinschedule.ui.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import com.vereshchagin.nikolay.stankinschedule.core.R as R_core
 
 
@@ -46,6 +46,13 @@ class MainActivity : AppCompatActivity() {
         setContent {
             AppTheme {
                 val bottomSheetNavigator = rememberBottomSheetNavigator()
+
+                val snackBarHostState = remember { SnackbarHostState() }
+                val scope = rememberCoroutineScope()
+                val showSnackBarState: (message: String) -> Unit = { message ->
+                    scope.launch { snackBarHostState.showSnackbar(message) }
+                }
+
                 val navController = rememberNavController(bottomSheetNavigator)
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
 
@@ -66,6 +73,7 @@ class MainActivity : AppCompatActivity() {
                                 )
                             )
                         },
+                        snackbarHost = { SnackbarHost(snackBarHostState) },
                         contentWindowInsets = ScaffoldDefaults.contentWindowInsets
                             .exclude(WindowInsets.statusBars)
                     ) { innerPadding ->
@@ -80,7 +88,7 @@ class MainActivity : AppCompatActivity() {
                                 )
                             }
 
-                            schedule(navController)
+                            schedule(navController, showSnackBarState)
                             moduleJournal(navController)
                             news(navController)
                         }

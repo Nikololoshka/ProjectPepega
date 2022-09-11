@@ -42,6 +42,8 @@ object AppDependencies {
         "com.google.accompanist:accompanist-navigation-material:${Versions.accompanist}"
     const val accompanistFlowLayout =
         "com.google.accompanist:accompanist-flowlayout:${Versions.accompanist}"
+    const val accompanistPermission =
+        "com.google.accompanist:accompanist-permissions:${Versions.accompanist}"
 
     const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
 

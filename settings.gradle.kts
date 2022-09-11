@@ -12,6 +12,7 @@ pluginManagement {
 include(":core")
 
 include(":schedule:schedule-core")
+include(":schedule:schedule-creator")
 include(":schedule:schedule-editor")
 include(":schedule:schedule-list")
 include(":schedule:schedule-repository")
