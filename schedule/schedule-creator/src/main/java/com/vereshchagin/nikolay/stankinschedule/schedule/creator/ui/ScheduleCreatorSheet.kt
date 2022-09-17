@@ -15,9 +15,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -32,7 +34,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.creator.R
 import com.vereshchagin.nikolay.stankinschedule.schedule.creator.ui.components.*
 
 
-@OptIn(ExperimentalPermissionsApi::class)
+@OptIn(ExperimentalPermissionsApi::class, ExperimentalComposeUiApi::class)
 @Composable
 fun ScheduleCreatorSheet(
     onNavigateBack: () -> Unit,
@@ -42,6 +44,7 @@ fun ScheduleCreatorSheet(
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     val createState by viewModel.createState.collectAsState()
     LaunchedEffect(createState) {
@@ -58,6 +61,9 @@ fun ScheduleCreatorSheet(
             },
             onCreate = { scheduleName ->
                 viewModel.createSchedule(scheduleName)
+            },
+            onShowKeyBoard = {
+                keyboardController?.show()
             }
         )
     }
