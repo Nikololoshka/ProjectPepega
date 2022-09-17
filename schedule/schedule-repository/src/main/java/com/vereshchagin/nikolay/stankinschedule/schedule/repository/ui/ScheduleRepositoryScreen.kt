@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
@@ -143,14 +144,15 @@ fun ScheduleRepositoryScreen(
                         onItemClicked = { item ->
                             viewModel.onDownloadEvent(DownloadEvent.StartDownload(item.name, item))
                         },
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .fillMaxSize()
                     )
                 },
                 onLoading = {
                     RepositoryLoading(
                         modifier = Modifier
                             .padding(Dimen.ContentPadding)
-                            .fillMaxWidth()
+                            .fillMaxSize()
                     )
                 },
                 onFailed = {
@@ -159,7 +161,7 @@ fun ScheduleRepositoryScreen(
                         onRetryClicked = { viewModel.reloadCategory() },
                         modifier = Modifier
                             .padding(Dimen.ContentPadding)
-                            .fillMaxWidth()
+                            .fillMaxSize()
                     )
                 }
             )
