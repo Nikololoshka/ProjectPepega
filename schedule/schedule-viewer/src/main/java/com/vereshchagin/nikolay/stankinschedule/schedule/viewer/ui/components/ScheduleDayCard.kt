@@ -9,16 +9,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.PairModel
+import com.vereshchagin.nikolay.stankinschedule.core.ui.toTitleCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.R
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
-import java.util.*
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewPair
 
 @Composable
 fun ScheduleDayCard(
     scheduleDay: ScheduleViewDay,
     pairColors: PairColors,
-    onPairClicked: (pair: PairModel) -> Unit,
+    onPairClicked: (pair: ScheduleViewPair) -> Unit,
     modifier: Modifier = Modifier,
 ) {
 
@@ -54,8 +54,4 @@ fun ScheduleDayCard(
             )
         }
     }
-}
-
-private fun String.toTitleCase(locale: Locale = Locale.ROOT): String {
-    return replaceFirstChar { if (it.isLowerCase()) it.titlecase(locale) else it.toString() }
 }

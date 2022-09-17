@@ -1,11 +1,15 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.data.source
 
+import android.net.Uri
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.PairModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.BuildConfig
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewPair
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ViewContent
 import org.joda.time.LocalDate
 
 class ScheduleViewerSource(
@@ -14,7 +18,7 @@ class ScheduleViewerSource(
 
     private val startDate = schedule.startDate()
     private val endDate = schedule.endDate()
-    
+
     override fun getRefreshKey(state: PagingState<LocalDate, ScheduleViewDay>): LocalDate? {
         if (BuildConfig.DEBUG) {
             Log.d("ScheduleViewSourceLog", "getRefreshKey: $state")
@@ -42,7 +46,8 @@ class ScheduleViewerSource(
         val prevDay = prevDay(date, loadSize)
 
         if (BuildConfig.DEBUG) {
-            Log.d("ScheduleViewSourceLog",
+            Log.d(
+                "ScheduleViewSourceLog",
                 "Load view data: " +
                         "${prevDay?.toString("dd.MM.yyyy")} " +
                         "<- ${date.toString("dd.MM.yyyy")} -> " +
@@ -76,8 +81,8 @@ class ScheduleViewerSource(
         while (begin < end) {
             result.add(
                 ScheduleViewDay(
-                    schedule.pairsByDate(begin),
-                    begin
+                    pairs = schedule.pairsByDate(begin).map { it.toViewPair() },
+                    day = begin
                 )
             )
             begin = begin.plusDays(1)
@@ -88,6 +93,31 @@ class ScheduleViewerSource(
         }
 
         return result
+    }
+
+    private fun PairModel.toViewPair(): ScheduleViewPair {
+        return ScheduleViewPair(
+            id = info.id,
+            title = title,
+            lecturer = lecturer,
+            classroom = classroomViewContent(classroom),
+            subgroup = subgroup,
+            type = type,
+            startTime = time.startString(),
+            endTime = time.endString()
+        )
+    }
+
+    private fun classroomViewContent(classroom: String): ViewContent {
+        val uri = Uri.parse(classroom)
+        val host = uri.host ?: return ViewContent.TextContent(classroom)
+
+        return ViewContent.LinkContent(
+            name = host
+                .removePrefix(prefix = "www.")
+                .substringBeforeLast(delimiter = '.'),
+            link = classroom
+        )
     }
 
     /**

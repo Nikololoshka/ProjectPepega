@@ -5,10 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleInfo
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.usecase.ScheduleViewerUseCase
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -25,49 +25,57 @@ class ScheduleViewerViewModel @Inject constructor(
     private val handle: SavedStateHandle,
 ) : ViewModel() {
 
-    private val _scheduleInfo = MutableStateFlow<ScheduleInfo?>(null)
-    val scheduleInfo = _scheduleInfo.asStateFlow()
+    private val _scheduleState = MutableStateFlow<ScheduleState>(ScheduleState.Loading)
+    val scheduleState = _scheduleState.asStateFlow()
+
+    private val clearPager = Channel<Unit>(Channel.CONFLATED)
+
+    val currentDay: LocalDate get() = handle.get<LocalDate>(CURRENT_PAGER_DATE) ?: LocalDate.now()
+    private val _scheduleStartDay = MutableStateFlow(currentDay)
 
     private val _schedule = MutableStateFlow<ScheduleModel?>(null)
-    private val _scheduleStartDay = MutableStateFlow(
-        handle.get<LocalDate>(CURRENT_PAGER_DATE) ?: LocalDate.now()
-    )
-
-    private val clearListCh = Channel<Unit>(Channel.CONFLATED)
 
     @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
     val scheduleDays: Flow<PagingData<ScheduleViewDay>> =
         flowOf(
-            clearListCh.receiveAsFlow().map { PagingData.empty() },
-            combine(_schedule, _scheduleStartDay) { model, day -> model to day }
-                .flatMapLatest { (model, day) ->
-                    if (model != null) useCase.createPager(model, day).flow else emptyFlow()
+            clearPager.receiveAsFlow().map { PagingData.empty() },
+            combine(_schedule, _scheduleStartDay) { model, _ -> model }
+                .flatMapLatest { model ->
+                    if (model != null) useCase.createPager(model, currentDay).flow else emptyFlow()
                 }
                 .flowOn(Dispatchers.IO).cachedIn(viewModelScope)
         ).flattenMerge(2)
 
     fun loadSchedule(scheduleId: Long) {
-        if (_scheduleInfo.value != null) return
-
-        viewModelScope.launch {
-            useCase.scheduleInfo(scheduleId)
-                .collect {
-                    _scheduleInfo.value = it
-                }
-        }
+        // Расписание с таким ID уже загружено
+        if (_schedule.value?.info?.id == scheduleId) return
 
         viewModelScope.launch {
             useCase.scheduleModel(scheduleId)
-                .collect {
-                    clearListCh.send(Unit)
-                    _schedule.value = it
+                .collect { model ->
+                    // нет такого расписания
+                    if (model == null) {
+                        _scheduleState.value = ScheduleState.NotFound
+                    } else {
+                        _scheduleState.value = ScheduleState.Success(
+                            scheduleName = model.info.scheduleName,
+                            isEmpty = model.isEmpty()
+                        )
+
+                        clearPager.send(Unit)
+                        _schedule.value = model
+                    }
                 }
         }
     }
 
     fun selectDate(date: LocalDate) {
+        if (date == currentDay) return
+
         viewModelScope.launch {
-            clearListCh.send(Unit)
+            updatePagingDate(date)
+
+            clearPager.send(Unit)
             _scheduleStartDay.value = date
         }
     }
