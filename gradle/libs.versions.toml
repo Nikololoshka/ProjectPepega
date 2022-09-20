@@ -70,7 +70,9 @@ android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 # Main
 androidGradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 kotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+googleServicesPlugin = { module = "com.google.gms:google-services", version.ref = "googleServices" }
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "core" }
+
 ksp = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
 
 # Compose

@@ -12,6 +12,7 @@ buildscript {
     dependencies {
         classpath(libs.androidGradlePlugin)
         classpath(libs.kotlinPlugin)
+        classpath(libs.googleServicesPlugin)
         classpath(libs.firebase.plugin)
         classpath(libs.hilt.plugin)
     }
