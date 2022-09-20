@@ -1,29 +1,22 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
 import com.vereshchagin.nikolay.stankinschedule.core.utils.Zero
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.PairColors
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleDayCard
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleState
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleViewerToolBar
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.R
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.*
 import dev.chrisbanes.snapper.ExperimentalSnapperApi
 import dev.chrisbanes.snapper.SnapOffsets
 import dev.chrisbanes.snapper.SnapperLayoutInfo
@@ -51,14 +44,24 @@ fun ScheduleViewerScreen(
         }
     }
 
+    val currentScheduleName by derivedStateOf {
+        (scheduleState.scheduleName ?: scheduleName) ?: ""
+    }
+
     var isDaySelector by remember { mutableStateOf(false) }
+    var isRemoveSchedule by remember { mutableStateOf(false) }
+    val renameState by viewModel.renameState.collectAsState()
 
     Scaffold(
         topBar = {
             ScheduleViewerToolBar(
-                scheduleName = (scheduleState.scheduleName ?: scheduleName) ?: "",
+                scheduleName = currentScheduleName,
                 onBackClicked = onBackPressed,
-                onDayChangeClicked = { isDaySelector = true }
+                onDayChangeClicked = { isDaySelector = true },
+                onAddClicked = { onEditorClicked(scheduleId, null) },
+                onRenameSchedule = { viewModel.onRenameEvent(RenameEvent.Rename) },
+                onRemoveSchedule = { isRemoveSchedule = true },
+                onSaveToDevice = {}
             )
         },
         contentWindowInsets = WindowInsets.Zero,
@@ -68,11 +71,25 @@ fun ScheduleViewerScreen(
         if (isDaySelector) {
             CalendarDialog(
                 selectedDate = viewModel.currentDay,
-                onDateSelected = {
-                    viewModel.selectDate(it)
-                    isDaySelector = false
-                },
+                onDateSelected = { viewModel.selectDate(it);isDaySelector = false },
                 onDismissRequest = { isDaySelector = false }
+            )
+        }
+
+        if (isRemoveSchedule) {
+            ScheduleRemoveDialog(
+                scheduleName = currentScheduleName,
+                onRemove = { viewModel.removeSchedule(); isRemoveSchedule = false },
+                onDismiss = { isRemoveSchedule = false }
+            )
+        }
+
+        renameState?.let {
+            ScheduleRenameDialog(
+                currentScheduleName = currentScheduleName,
+                state = it,
+                onDismiss = { viewModel.onRenameEvent(RenameEvent.Cancel) },
+                onRename = { newName -> viewModel.renameSchedule(newName) }
             )
         }
 
@@ -100,17 +117,6 @@ fun ScheduleViewerScreen(
             }
         }
 
-        if (scheduleState.isEmpty) {
-            Box(
-                modifier = Modifier.fillMaxSize()
-            ) {
-                Text(
-                    text = "Schedule is empty",
-                    modifier = Modifier.align(Alignment.Center)
-                )
-            }
-        }
-
         LazyRow(
             state = scheduleListState,
             flingBehavior = scheduleSnapper,
@@ -129,6 +135,26 @@ fun ScheduleViewerScreen(
                             onEditorClicked(scheduleId, pair.id)
                         },
                         modifier = Modifier.fillParentMaxSize()
+                    )
+                }
+            }
+        }
+
+        if (scheduleState.isEmpty) {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+            ) {
+                Text(
+                    text = stringResource(R.string.schedule_is_empty),
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
+                TextButton(
+                    onClick = { onEditorClicked(scheduleId, null) },
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                ) {
+                    Text(
+                        text = stringResource(R.string.schedule_add_pair)
                     )
                 }
             }

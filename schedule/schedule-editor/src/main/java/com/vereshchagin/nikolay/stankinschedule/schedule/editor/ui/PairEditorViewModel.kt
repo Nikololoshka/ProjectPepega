@@ -2,7 +2,6 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vereshchagin.nikolay.stankinschedule.core.ui.UIState
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.*
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.domain.usecase.PairEditorUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -54,10 +53,15 @@ class PairEditorViewModel @Inject constructor(
     var isInitial: Boolean = false
         private set
 
-    fun loadPair(scheduleId: Long, pairId: Long?) {
+    fun loadPair(scheduleId: Long, pairId: Long?, mode: EditorMode) {
         this.scheduleId = scheduleId
 
-        if (pairId == null || isInitial) return
+        if (isInitial) return
+
+        if (mode == EditorMode.Create || pairId == null) {
+            _pair.value = PairEditorState.Content(null)
+            return
+        }
 
         viewModelScope.launch {
             val newPair = useCase.pair(pairId)

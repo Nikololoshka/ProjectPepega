@@ -13,6 +13,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Sched
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.ScheduleStorage
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -70,6 +71,12 @@ class ScheduleStorageImpl @Inject constructor(
         }
     }
 
+    override suspend fun removeSchedule(id: Long) {
+        db.withTransaction {
+            dao.deleteSchedule(id)
+        }
+    }
+
     override suspend fun removeSchedules(schedules: List<ScheduleInfo>) {
         db.withTransaction {
             schedules.forEach { schedule -> dao.deleteSchedule(schedule.id) }
@@ -79,6 +86,16 @@ class ScheduleStorageImpl @Inject constructor(
     override suspend fun removeSchedulePair(pair: PairModel) {
         db.withTransaction {
             dao.deletePairEntity(pair.info.id)
+        }
+    }
+
+    override suspend fun renameSchedule(id: Long, scheduleName: String) {
+        val entity = dao.getScheduleEntity(id).firstOrNull()
+        db.withTransaction {
+            if (entity != null) {
+                val newEntity = entity.copy(scheduleName = scheduleName)
+                dao.updateScheduleItem(newEntity)
+            }
         }
     }
 }

@@ -37,6 +37,7 @@ class PairEditorActivity : AppCompatActivity() {
         setContent {
             AppTheme {
                 PairEditorScreen(
+                    mode = if (pairId == null) EditorMode.Create else EditorMode.Edit,
                     scheduleId = scheduleId,
                     pairId = pairId,
                     onBackClicked = {

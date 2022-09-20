@@ -7,9 +7,11 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Sched
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.ScheduleStorage
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.data.source.ScheduleViewerSource
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.withContext
 import org.joda.time.LocalDate
 import javax.inject.Inject
 
@@ -37,4 +39,19 @@ class ScheduleViewerUseCase @Inject constructor(
     fun scheduleInfo(scheduleId: Long): Flow<ScheduleInfo?> = storage.schedule(scheduleId)
 
     fun scheduleModel(scheduleId: Long): Flow<ScheduleModel?> = storage.scheduleModel(scheduleId)
+
+    suspend fun removeSchedule(scheduleId: Long) = withContext(Dispatchers.IO) {
+        storage.removeSchedule(scheduleId)
+    }
+
+    fun renameSchedule(scheduleId: Long, scheduleName: String): Flow<Boolean> = flow {
+        if (storage.isScheduleExist(scheduleName)) {
+            emit(false)
+            return@flow
+        }
+
+        storage.renameSchedule(scheduleId, scheduleName)
+        emit(true)
+
+    }.flowOn(Dispatchers.IO)
 }

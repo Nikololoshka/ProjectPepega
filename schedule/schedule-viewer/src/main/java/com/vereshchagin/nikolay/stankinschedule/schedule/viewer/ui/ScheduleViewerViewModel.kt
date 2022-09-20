@@ -8,6 +8,8 @@ import androidx.paging.cachedIn
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.usecase.ScheduleViewerUseCase
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.RenameEvent
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.RenameState
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -33,7 +35,11 @@ class ScheduleViewerViewModel @Inject constructor(
     val currentDay: LocalDate get() = handle.get<LocalDate>(CURRENT_PAGER_DATE) ?: LocalDate.now()
     private val _scheduleStartDay = MutableStateFlow(currentDay)
 
+    private var _scheduleId: Long = -1
     private val _schedule = MutableStateFlow<ScheduleModel?>(null)
+
+    private val _renameState = MutableStateFlow<RenameState?>(null)
+    val renameState = _renameState.asStateFlow()
 
     @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
     val scheduleDays: Flow<PagingData<ScheduleViewDay>> =
@@ -48,7 +54,7 @@ class ScheduleViewerViewModel @Inject constructor(
 
     fun loadSchedule(scheduleId: Long) {
         // Расписание с таким ID уже загружено
-        if (_schedule.value?.info?.id == scheduleId) return
+        if (_scheduleId == scheduleId) return
 
         viewModelScope.launch {
             useCase.scheduleModel(scheduleId)
@@ -64,6 +70,7 @@ class ScheduleViewerViewModel @Inject constructor(
 
                         clearPager.send(Unit)
                         _schedule.value = model
+                        _scheduleId = model.info.id
                     }
                 }
         }
@@ -86,6 +93,37 @@ class ScheduleViewerViewModel @Inject constructor(
      */
     fun updatePagingDate(currentPagingDate: LocalDate?) {
         handle[CURRENT_PAGER_DATE] = currentPagingDate
+    }
+
+    fun onRenameEvent(event: RenameEvent) {
+        _renameState.value = when (event) {
+            is RenameEvent.Rename -> RenameState.Rename
+            is RenameEvent.Cancel -> null
+        }
+    }
+
+    fun removeSchedule() {
+        viewModelScope.launch {
+            useCase.removeSchedule(_scheduleId)
+            _scheduleState.value = ScheduleState.NotFound
+        }
+    }
+
+    fun renameSchedule(newName: String) {
+        viewModelScope.launch {
+            useCase.renameSchedule(_scheduleId, newName)
+                .catch { e ->
+                    _renameState.value = RenameState.Error(e)
+                    e.printStackTrace()
+                }
+                .collect { isRename ->
+                    _renameState.value = if (isRename) {
+                        RenameState.Success
+                    } else {
+                        RenameState.AlreadyExist()
+                    }
+                }
+        }
     }
 
     companion object {

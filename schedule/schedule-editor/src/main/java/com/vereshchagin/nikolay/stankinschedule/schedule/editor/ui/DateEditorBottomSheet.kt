@@ -41,6 +41,7 @@ fun DateEditorBottomSheet(
     request: DateEditorRequest,
     viewModel: PairEditorViewModel,
     onDismissClicked: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val resources = LocalContext.current.resources
 
@@ -95,7 +96,7 @@ fun DateEditorBottomSheet(
     Column(
         verticalArrangement = Arrangement.spacedBy(4.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(Dimen.ContentPadding)
             .padding(bottom = Dimen.ContentPadding)

@@ -30,6 +30,7 @@ import com.vereshchagin.nikolay.stankinschedule.core.R as R_core
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 @Composable
 fun PairEditorScreen(
+    mode: EditorMode,
     scheduleId: Long,
     pairId: Long?,
     onBackClicked: () -> Unit,
@@ -80,8 +81,8 @@ fun PairEditorScreen(
 
     val pairState by viewModel.pair.collectAsState()
 
-    LaunchedEffect(scheduleId, pairId) {
-        viewModel.loadPair(scheduleId, pairId)
+    LaunchedEffect(scheduleId, pairId, mode) {
+        viewModel.loadPair(scheduleId, pairId, mode)
     }
 
     ModalBottomSheetLayout(
@@ -91,7 +92,8 @@ fun PairEditorScreen(
             DateEditorBottomSheet(
                 request = request,
                 viewModel = viewModel,
-                onDismissClicked = { sheetScope.launch { sheetState.hide() } }
+                onDismissClicked = { sheetScope.launch { sheetState.hide() } },
+                modifier = Modifier.navigationBarsPadding()
             )
         }
     ) {

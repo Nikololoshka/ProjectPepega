@@ -42,4 +42,17 @@ class ScheduleEntity(
      */
     @ColumnInfo(name = "position")
     var position: Int = 0
+
+    fun copy(
+        scheduleName: String = this.scheduleName,
+        id: Long = this.id,
+        lastUpdate: DateTime? = this.lastUpdate,
+        synced: Boolean = this.synced,
+        position: Int = this.position
+    ): ScheduleEntity = ScheduleEntity(scheduleName).apply {
+        this.id = id
+        this.lastUpdate = lastUpdate
+        this.synced = synced
+        this.position = position
+    }
 }
