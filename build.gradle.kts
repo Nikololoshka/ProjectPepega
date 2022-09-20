@@ -10,29 +10,23 @@ buildscript {
     }
 
     dependencies {
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-
-        classpath(AppDependencies.androidGradlePlugin)
-        classpath(AppDependencies.kotlinPlugin)
-        classpath(AppDependencies.googleServices)
-        classpath(AppDependencies.firebaseGradle)
-        classpath(AppDependencies.hiltPlugin)
-        classpath(AppDependencies.navigationSafeArgsPlugin)
-
-        classpath(kotlin("serialization", version = Versions.kotlin))
+        classpath(libs.androidGradlePlugin)
+        classpath(libs.kotlinPlugin)
+        classpath(libs.firebase.plugin)
+        classpath(libs.hilt.plugin)
     }
 }
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("com.android.application") version Versions.agp apply false
-    id("com.android.library") version Versions.agp apply false
-    // id("com.google.devtools.ksp") version Versions.ksp apply false
-    kotlin("android") version Versions.kotlin apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.android.kotlin) apply false
 }
 
 allprojects {
-    repositories {
+
+repositories {
         mavenCentral()
         google()
         maven("https://oss.sonatype.org/content/repositories/snapshots/")

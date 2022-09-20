@@ -12,7 +12,7 @@ android {
         minSdk = AppConfig.minSdk
         targetSdk = AppConfig.targetSdk
 
-        testInstrumentationRunner = AppConfig.androidTestInstrumentation
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
     }
 
@@ -23,26 +23,25 @@ android {
                 "proguard-rules.pro")
         }
     }
+
     compileOptions {
-        sourceCompatibility = Versions.java
-        targetCompatibility = Versions.java
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
-        jvmTarget = Versions.kotlinLevel
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
     buildFeatures {
-        dataBinding = true
-        viewBinding = true
         compose = true
     }
+
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.composeCompiler
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
-    packagingOptions {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
+
+    namespace = "com.vereshchagin.nikolay.stankinschedule.schedule.editor"
 }
 
 // Allow references to generated code
@@ -59,22 +58,24 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":schedule:schedule-core"))
 
-    // Kotlin
-    implementation(AppDependencies.kotlin)
-    implementation(AppDependencies.coreKtx)
+    // Core
+    implementation(libs.androidx.core)
 
     // Jetpack Compose & Material 3
-    implementation(AppDependencies.compose)
-    implementation(AppDependencies.composeActivity)
-    implementation(AppDependencies.composeMaterial3)
-    implementation(AppDependencies.material3)
+    implementation(libs.bundles.compose)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.activity)
 
-    implementation(AppDependencies.activity)
-    implementation(AppDependencies.appcompat)
+    implementation(libs.accompanist.flowLayout)
 
-    implementation(AppDependencies.accompanistFlowLayout)
+    // Components
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.java8)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.ui.material)
 
-    // Dagger & Hilt
-    implementation(AppDependencies.hiltAndroid)
-    kapt(AppDependencies.hiltCompiler)
+    // DI
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }

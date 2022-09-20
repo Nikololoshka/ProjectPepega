@@ -12,7 +12,7 @@ android {
         minSdk = AppConfig.minSdk
         targetSdk = AppConfig.targetSdk
 
-        testInstrumentationRunner = AppConfig.androidTestInstrumentation
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
     }
 
@@ -23,25 +23,25 @@ android {
                 "proguard-rules.pro")
         }
     }
+
     compileOptions {
-        sourceCompatibility = Versions.java
-        targetCompatibility = Versions.java
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
-        jvmTarget = Versions.kotlinLevel
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
     buildFeatures {
         compose = true
     }
+
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.composeCompiler
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
-    packagingOptions {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
+    namespace = "com.vereshchagin.nikolay.stankinschedule.core"
 }
 
 // Allow references to generated code
@@ -54,30 +54,30 @@ hilt {
 }
 
 dependencies {
+    // Core
+    implementation(libs.androidx.core)
 
-    implementation(AppDependencies.kotlin)
+    // Compose
+    implementation(libs.bundles.compose)
+    implementation(libs.compose.navigation)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.paging)
+    implementation(libs.accompanist.pager)
+    implementation(libs.accompanist.indicators)
 
-    implementation(AppDependencies.coreKtx)
-    implementation(AppDependencies.compose)
-    implementation(AppDependencies.composeNavigation)
+    // UI
+    implementation(libs.ui.material)
 
-    implementation(AppDependencies.composeMaterial3)
-    implementation(AppDependencies.material3)
+    // Components
+    implementation(libs.androidx.paging)
+    implementation(libs.androidx.preference)
+    implementation(libs.integration.browser)
+    api(libs.other.joda)
 
-    implementation(AppDependencies.accompanistPager)
-    implementation(AppDependencies.accompanistPagerIndicators)
+    // Network
+    implementation(libs.bundles.network)
 
-    implementation(AppDependencies.network)
-
-    // Dagger & Hilt
-    implementation(AppDependencies.hiltAndroid)
-    kapt(AppDependencies.hiltCompiler)
-
-    implementation(AppDependencies.paging)
-    implementation(AppDependencies.pagingCompose)
-
-    implementation(AppDependencies.chromeBrowser)
-
-    implementation(AppDependencies.preference)
-    api(AppDependencies.jodaTime)
+    // DI
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }

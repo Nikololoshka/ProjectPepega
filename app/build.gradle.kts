@@ -1,20 +1,6 @@
-/*
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-parcelize'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.google.firebase.crashlytics'
-apply plugin: 'dagger.hilt.android.plugin'
-*/
-
 plugins {
     id("com.android.application")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
-    id("kotlin-parcelize")
-    //  id("com.google.devtools.ksp")
-    kotlin("android")
+    id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
 }
@@ -34,7 +20,7 @@ android {
         versionName = AppConfig.versionName
 
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner = AppConfig.androidTestInstrumentation
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
 
         javaCompileOptions {
@@ -46,7 +32,6 @@ android {
                 )
             }
         }
-
     }
 
 
@@ -72,12 +57,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = Versions.java
-        targetCompatibility = Versions.java
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = Versions.java.toString()
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
     buildFeatures {
@@ -87,7 +72,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.composeCompiler
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
     packagingOptions {
@@ -98,6 +83,7 @@ android {
             )
         )
     }
+    namespace = "com.vereshchagin.nikolay.stankinschedule"
 }
 
 // Allow references to generated code
@@ -126,83 +112,42 @@ dependencies {
     implementation(project(":news:news-review"))
     implementation(project(":news:news-viewer"))
 
-    // App core
-    implementation(AppDependencies.coreKtx)
-    // implementation(AppDependencies.ksp)
+    // Core
+    implementation(libs.androidx.core)
 
-    // Kotlin
-    implementation(AppDependencies.kotlin)
+    // Jetpack Compose & Material 3
+    implementation(libs.bundles.compose)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.activity)
+
+    implementation(libs.accompanist.navigation)
+
+    // Components
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.java8)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.paging)
+    implementation(libs.androidx.startup)
+    implementation(libs.ui.material)
+
+    implementation(libs.integration.coreGooglePlay)
+    implementation(libs.integration.googleServices)
 
     // Firebase
-    implementation(platform(AppDependencies.firebaseBom))
-    implementation(AppDependencies.firebaseModules)
-
-    // UI
-    implementation(AppDependencies.compose)
-    implementation(AppDependencies.composeActivity)
-    implementation(AppDependencies.composeNavigation)
-    implementation(AppDependencies.composeMaterial3)
-
-    implementation(AppDependencies.accompanistNavigation)
-
-
-    implementation(AppDependencies.appcompat)
-    // implementation(AppDependencies.legacySupport)
-    // implementation(AppDependencies.constraintLayout)
-    // implementation(AppDependencies.gridLayout)
-    // implementation(AppDependencies.recyclerview)
-    // implementation(AppDependencies.pager)
-    implementation(AppDependencies.material3)
-    // implementation(AppDependencies.preference)
-
-    // Lifecycle
-    // implementation(AppDependencies.lifecycle)
-
-    // Dagger & Hilt
-    implementation(AppDependencies.hiltAndroid)
-    implementation(AppDependencies.hiltNavigation)
-    kapt(AppDependencies.hiltCompiler)
-
-    implementation(AppDependencies.hiltWork)
-    kapt(AppDependencies.hiltWorkCompiler)
-
-    // Integration
-    // implementation(AppDependencies.chromeBrowser)
-    implementation(AppDependencies.coreGooglePlay)
-    implementation(AppDependencies.googleServices)
-
-    // Glide
-    // implementation(AppDependencies.glideRuntime)
-    // kapt(AppDependencies.glideCompiler)
-
-    // Utils
-    // implementation(AppDependencies.securityCrypto)
-    // implementation(AppDependencies.dataBinding)
-
-    // Navigation
-    implementation(AppDependencies.navigation)
-
-    // Network
-    // implementation(AppDependencies.network)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.storage)
 
     // Room DB
-    implementation(AppDependencies.roomRuntime)
-    implementation(AppDependencies.roomKtx)
-    kapt(AppDependencies.roomCompiler)
+    implementation(libs.bundles.room)
+    kapt(libs.room.compiler)
 
-    implementation(AppDependencies.paging)
+    // Worker
+    implementation(libs.work.runtime)
+    implementation(libs.work.hilt)
+    kapt(libs.work.hiltCompiler)
 
-    // Work
-    implementation(AppDependencies.workRuntime)
-    implementation(AppDependencies.workRuntimeKtx)
-
-    // Other
-    // implementation(AppDependencies.gson)
-    // implementation(AppDependencies.holoColorPicker)
-    // implementation(AppDependencies.jodaTime)
-    // implementation(AppDependencies.json)
-    // implementation(AppDependencies.junit)
-    // implementation(AppDependencies.shimmer)
-    implementation(AppDependencies.startup)
-    // implementation(AppDependencies.webkit)
+    // DI
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation)
+    kapt(libs.hilt.compiler)
 }
