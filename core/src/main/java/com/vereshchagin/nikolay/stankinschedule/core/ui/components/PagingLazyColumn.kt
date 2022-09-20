@@ -14,6 +14,7 @@ fun <T : Any> PagingLazyColumn(
     state: LazyListState,
     pagingItems: LazyPagingItems<T>,
     modifier: Modifier = Modifier,
+    key: ((item: T) -> Any)? = null,
     onContent: @Composable LazyItemScope.(value: T?) -> Unit,
     onContentLoading: @Composable LazyItemScope.() -> Unit,
     onContentError: @Composable LazyItemScope.(error: Throwable) -> Unit,
@@ -26,6 +27,7 @@ fun <T : Any> PagingLazyColumn(
     ) {
         items(
             items = pagingItems,
+            key = key,
             itemContent = onContent
         )
         val loadState = pagingItems.loadState

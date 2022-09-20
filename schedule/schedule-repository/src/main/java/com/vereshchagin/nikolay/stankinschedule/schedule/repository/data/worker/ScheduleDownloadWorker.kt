@@ -7,11 +7,11 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.hilt.work.HiltWorker
 import androidx.room.RoomDatabase
 import androidx.work.*
-import com.vereshchagin.nikolay.stankinschedule.schedule.repository.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.core.utils.NotificationUtils
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.ScheduleDao
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.repository.ScheduleStorageImpl
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.ScheduleStorage
+import com.vereshchagin.nikolay.stankinschedule.schedule.repository.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.R
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.api.ScheduleRepositoryAPI
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.mapper.toScheduleModel

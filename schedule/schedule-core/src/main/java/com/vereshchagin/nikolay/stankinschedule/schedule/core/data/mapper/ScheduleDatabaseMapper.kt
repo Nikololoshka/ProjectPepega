@@ -2,7 +2,9 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.core.data.mapper
 
 import com.google.gson.Gson
 import com.google.gson.JsonElement
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.*
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.PairEntity
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.ScheduleEntity
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.db.ScheduleWithPairs
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.*
 
 fun ScheduleWithPairs.toScheduleModel(): ScheduleModel {

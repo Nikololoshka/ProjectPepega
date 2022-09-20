@@ -73,11 +73,13 @@ fun FrontLayerContent(
                 }
             }
 
-            items(repositoryItems) { item ->
+            items(repositoryItems, key = { it.name }) { item ->
                 RepositorySchedule(
                     item = item,
                     onItemClicked = onItemClicked,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .animateItemPlacement()
                 )
             }
         }
