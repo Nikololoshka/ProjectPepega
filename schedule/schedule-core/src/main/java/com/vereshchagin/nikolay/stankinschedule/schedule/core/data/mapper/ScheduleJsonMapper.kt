@@ -22,3 +22,25 @@ fun PairJson.DateJson.toDateItem(): DateItem {
     }
     return DateRange(date, f)
 }
+
+fun DateModel.toJson(): List<PairJson.DateJson> {
+    return this.map { date ->
+        PairJson.DateJson(date.frequency().tag, date.toString())
+    }
+}
+
+fun PairModel.toJson() : PairJson {
+    return PairJson(
+        title = title,
+        lecturer = lecturer,
+        classroom = classroom,
+        type = type.tag,
+        subgroup = subgroup.tag,
+        time = PairJson.TimeJson(time.startString(), time.endString()),
+        date = date.toJson()
+    )
+}
+
+fun ScheduleModel.toJson() : List<PairJson> {
+    return this.map { pair -> pair.toJson() }
+}

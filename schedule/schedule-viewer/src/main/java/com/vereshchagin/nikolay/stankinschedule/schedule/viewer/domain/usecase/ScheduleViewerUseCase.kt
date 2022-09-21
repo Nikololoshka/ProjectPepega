@@ -1,7 +1,11 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.usecase
 
+import android.content.Context
+import android.net.Uri
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
+import com.google.gson.Gson
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.mapper.toJson
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleInfo
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.ScheduleStorage
@@ -9,10 +13,12 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.data.source.Sche
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import org.joda.time.LocalDate
+import java.io.FileNotFoundException
 import javax.inject.Inject
 
 class ScheduleViewerUseCase @Inject constructor(
@@ -53,5 +59,24 @@ class ScheduleViewerUseCase @Inject constructor(
         storage.renameSchedule(scheduleId, scheduleName)
         emit(true)
 
+    }.flowOn(Dispatchers.IO)
+
+    fun saveToDevice(context: Context, scheduleId: Long, uri: Uri): Flow<Boolean> = flow {
+
+        val schedule = storage.scheduleModel(scheduleId).firstOrNull()
+            ?: throw RuntimeException("Schedule not found")
+
+        val json = schedule.toJson()
+
+        val contentResolver = context.contentResolver
+        contentResolver.openOutputStream(uri).use { stream ->
+            if (stream == null) throw IllegalAccessException("Failed to get file descriptor")
+
+            stream.bufferedWriter().use { writer ->
+                Gson().toJson(json, writer)
+            }
+        }
+
+        emit(true)
     }.flowOn(Dispatchers.IO)
 }

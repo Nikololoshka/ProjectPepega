@@ -66,7 +66,9 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.compose.material3)
     implementation(libs.compose.paging)
+    implementation(libs.compose.activity)
 
+    implementation(libs.accompanist.permission)
     implementation(libs.accompanist.flowLayout)
 
     // Components
@@ -77,6 +79,9 @@ dependencies {
 
     // Snapper
     implementation(libs.other.snapper)
+
+    // Network
+    implementation(libs.network.gson)
 
     // DI
     implementation(libs.hilt.android)

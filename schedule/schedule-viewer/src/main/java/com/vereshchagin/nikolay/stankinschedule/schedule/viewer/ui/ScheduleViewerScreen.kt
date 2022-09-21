@@ -1,5 +1,9 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
+import android.os.Build
+import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
@@ -10,9 +14,13 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.isGranted
+import com.google.accompanist.permissions.rememberPermissionState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
 import com.vereshchagin.nikolay.stankinschedule.core.utils.Zero
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.R
@@ -22,7 +30,9 @@ import dev.chrisbanes.snapper.SnapOffsets
 import dev.chrisbanes.snapper.SnapperLayoutInfo
 import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalSnapperApi::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalSnapperApi::class,
+    ExperimentalPermissionsApi::class
+)
 @Composable
 fun ScheduleViewerScreen(
     scheduleId: Long,
@@ -48,6 +58,25 @@ fun ScheduleViewerScreen(
         (scheduleState.scheduleName ?: scheduleName) ?: ""
     }
 
+    val context = LocalContext.current
+    val writeScheduleLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.CreateDocument("application/json"),
+        onResult =  {
+            if (it != null) {
+                viewModel.saveToDevice(context, it)
+            }
+        }
+    )
+
+    val writePermission = rememberPermissionState(
+        permission = android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        onPermissionResult = { isGrand ->
+            if (isGrand) {
+                writeScheduleLauncher.launch(currentScheduleName)
+            }
+        }
+    )
+
     var isDaySelector by remember { mutableStateOf(false) }
     var isRemoveSchedule by remember { mutableStateOf(false) }
     val renameState by viewModel.renameState.collectAsState()
@@ -61,7 +90,16 @@ fun ScheduleViewerScreen(
                 onAddClicked = { onEditorClicked(scheduleId, null) },
                 onRenameSchedule = { viewModel.onRenameEvent(RenameEvent.Rename) },
                 onRemoveSchedule = { isRemoveSchedule = true },
-                onSaveToDevice = {}
+                onSaveToDevice = {
+                    // TODO(Доделать окна по показу доступа к записи)
+                    writeScheduleLauncher.launch(currentScheduleName)
+
+                    if (writePermission.status.isGranted || Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        writeScheduleLauncher.launch(currentScheduleName)
+                    } else {
+                        writePermission.launchPermissionRequest()
+                    }
+                }
             )
         },
         contentWindowInsets = WindowInsets.Zero,

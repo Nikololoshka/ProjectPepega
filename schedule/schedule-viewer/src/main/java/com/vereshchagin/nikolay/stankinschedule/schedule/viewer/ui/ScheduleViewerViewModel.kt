@@ -1,5 +1,8 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
+import android.content.Context
+import android.net.Uri
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -106,6 +109,18 @@ class ScheduleViewerViewModel @Inject constructor(
         viewModelScope.launch {
             useCase.removeSchedule(_scheduleId)
             _scheduleState.value = ScheduleState.NotFound
+        }
+    }
+
+    fun saveToDevice(context: Context, uri: Uri) {
+        viewModelScope.launch {
+            useCase.saveToDevice(context, _scheduleId, uri)
+                .catch { e ->
+                    Log.d("MyLog", "saveToDevice: $e")
+                }
+                .collect { isSave ->
+                    Log.d("MyLog", "saveToDevice: $isSave")
+                }
         }
     }
 
