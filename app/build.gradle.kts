@@ -123,6 +123,9 @@ dependencies {
 
     implementation(libs.accompanist.navigation)
 
+    // temp 
+    implementation(libs.accompanist.pager)
+
     // Components
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.lifecycle.java8)
