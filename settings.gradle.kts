@@ -15,8 +15,10 @@ include(
     ":core",
 
     ":schedule:schedule-core",
+    ":schedule:schedule-core-ui",
     ":schedule:schedule-creator",
     ":schedule:schedule-editor",
+    ":schedule:schedule-home",
     ":schedule:schedule-list",
     ":schedule:schedule-repository",
     ":schedule:schedule-viewer",
@@ -27,6 +29,7 @@ include(
     ":journal:journal-viewer",
 
     ":news:news-core",
+    ":news:news-home",
     ":news:news-review",
     ":news:news-viewer",
 )

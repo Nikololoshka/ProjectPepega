@@ -98,6 +98,8 @@ dependencies {
     implementation(project(":core"))
 
     implementation(project(":schedule:schedule-core"))
+    implementation(project(":schedule:schedule-core-ui"))
+    implementation(project(":schedule:schedule-home"))
     implementation(project(":schedule:schedule-creator"))
     implementation(project(":schedule:schedule-editor"))
     implementation(project(":schedule:schedule-list"))
@@ -110,6 +112,7 @@ dependencies {
     implementation(project(":journal:journal-viewer"))
 
     implementation(project(":news:news-core"))
+    implementation(project(":news:news-home"))
     implementation(project(":news:news-review"))
     implementation(project(":news:news-viewer"))
 
@@ -120,11 +123,9 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.compose.material3)
     implementation(libs.compose.activity)
+    implementation(libs.compose.coil)
 
     implementation(libs.accompanist.navigation)
-
-    // temp 
-    implementation(libs.accompanist.pager)
 
     // Components
     implementation(libs.androidx.lifecycle.viewmodel)

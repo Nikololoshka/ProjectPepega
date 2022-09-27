@@ -13,7 +13,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.core.view.WindowCompat
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -24,6 +27,7 @@ import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import com.vereshchagin.nikolay.stankinschedule.core.utils.NotificationUtils
 import com.vereshchagin.nikolay.stankinschedule.navigation.*
+import com.vereshchagin.nikolay.stankinschedule.news.viewer.ui.NewsViewerActivity
 import com.vereshchagin.nikolay.stankinschedule.ui.AppNavigationBar
 import com.vereshchagin.nikolay.stankinschedule.ui.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -83,7 +87,38 @@ class MainActivity : AppCompatActivity() {
                             modifier = Modifier.padding(innerPadding)
                         ) {
                             composable(route = HomeNavEntry.route) {
+
+                                val context = LocalContext.current
+
                                 HomeScreen(
+                                    viewModel = hiltViewModel(),
+                                    navigateToSchedule = { scheduleId ->
+                                        navController.navigate(
+                                            route = ScheduleViewerNavEntry.routeWithArgs(
+                                                scheduleId
+                                            )
+                                        ) {
+                                            popUpTo(navController.graph.findStartDestination().id) {
+                                                saveState = true
+                                            }
+                                        }
+                                    },
+                                    navigateToNews = {
+                                        navController.navigate(route = NewsNavEntry.route) {
+                                            popUpTo(navController.graph.findStartDestination().id) {
+                                                saveState = true
+                                            }
+                                        }
+                                    },
+                                    navigateToNewsPost = { newsTitle, newsId ->
+                                        context.startActivity(
+                                            NewsViewerActivity.createIntent(
+                                                context,
+                                                newsTitle,
+                                                newsId
+                                            )
+                                        )
+                                    },
                                     modifier = Modifier.fillMaxSize()
                                 )
                             }
