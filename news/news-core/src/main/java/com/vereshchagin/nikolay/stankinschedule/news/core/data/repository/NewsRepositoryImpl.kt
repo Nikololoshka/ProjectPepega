@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.review.data.repository
+package com.vereshchagin.nikolay.stankinschedule.news.core.data.repository
 
 import androidx.paging.PagingSource
 import androidx.room.RoomDatabase
@@ -10,7 +10,7 @@ import com.vereshchagin.nikolay.stankinschedule.news.core.data.api.StankinNewsAP
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.db.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.db.NewsEntity
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.mapper.toEntity
-import com.vereshchagin.nikolay.stankinschedule.news.review.domain.repository.NewsRepository
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
 import org.joda.time.DateTime
 import retrofit2.await

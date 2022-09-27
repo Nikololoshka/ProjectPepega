@@ -6,8 +6,8 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.db.NewsEntity
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsRepository
 import com.vereshchagin.nikolay.stankinschedule.news.review.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.news.review.domain.repository.NewsRepository
 import kotlin.math.roundToInt
 
 @OptIn(ExperimentalPagingApi::class)

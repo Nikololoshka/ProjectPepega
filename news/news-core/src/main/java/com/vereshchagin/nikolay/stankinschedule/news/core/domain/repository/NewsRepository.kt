@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.news.review.domain.repository
+package com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository
 
 import androidx.paging.PagingSource
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.api.NewsResponse

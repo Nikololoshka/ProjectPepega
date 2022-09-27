@@ -3,6 +3,8 @@ package com.vereshchagin.nikolay.stankinschedule.news.core.di
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.api.PostResponse
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.api.StankinNewsAPI
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.repository.NewsRepositoryImpl
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,4 +36,8 @@ object NewsModule {
             .build()
             .create(StankinNewsAPI::class.java)
     }
+
+    @Provides
+    @ViewModelScoped
+    fun provideNewsRepository(repository: NewsRepositoryImpl): NewsRepository = repository
 }

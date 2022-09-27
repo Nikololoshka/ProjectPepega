@@ -5,8 +5,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.mapper.toPost
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsRepository
 import com.vereshchagin.nikolay.stankinschedule.news.review.data.source.NewsRemoteSource
-import com.vereshchagin.nikolay.stankinschedule.news.review.domain.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
