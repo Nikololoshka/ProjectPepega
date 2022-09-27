@@ -1,15 +1,12 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.data.source
 
-import android.net.Uri
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.PairModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.ScheduleViewDay
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.toViewPair
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewPair
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ViewContent
 import org.joda.time.LocalDate
 
 class ScheduleViewerSource(
@@ -93,31 +90,6 @@ class ScheduleViewerSource(
         }
 
         return result
-    }
-
-    private fun PairModel.toViewPair(): ScheduleViewPair {
-        return ScheduleViewPair(
-            id = info.id,
-            title = title,
-            lecturer = lecturer,
-            classroom = classroomViewContent(classroom),
-            subgroup = subgroup,
-            type = type,
-            startTime = time.startString(),
-            endTime = time.endString()
-        )
-    }
-
-    private fun classroomViewContent(classroom: String): ViewContent {
-        val uri = Uri.parse(classroom)
-        val host = uri.host ?: return ViewContent.TextContent(classroom)
-
-        return ViewContent.LinkContent(
-            name = host
-                .removePrefix(prefix = "www.")
-                .substringBeforeLast(delimiter = '.'),
-            link = classroom
-        )
     }
 
     /**

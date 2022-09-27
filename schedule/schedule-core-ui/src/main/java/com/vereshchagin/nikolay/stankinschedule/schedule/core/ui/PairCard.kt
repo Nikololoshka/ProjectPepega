@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components
+package com.vereshchagin.nikolay.stankinschedule.schedule.core.ui
 
 import android.widget.Toast
 import androidx.compose.foundation.*
@@ -30,9 +30,8 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Type
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.R
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewPair
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ViewContent
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.ScheduleViewPair
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.ViewContent
 
 @Composable
 fun PairCard(
@@ -41,6 +40,7 @@ fun PairCard(
     onClicked: () -> Unit,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(Dimen.ContentPadding),
+    enabled: Boolean = true,
     itemSpacing: Dp = 4.dp
 ) {
     Card(modifier = modifier) {
@@ -49,7 +49,7 @@ fun PairCard(
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable(
-                    enabled = true,
+                    enabled = enabled,
                     onClick = onClicked
                 )
                 .padding(contentPadding)

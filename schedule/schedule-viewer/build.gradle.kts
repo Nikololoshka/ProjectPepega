@@ -57,6 +57,7 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":schedule:schedule-core"))
+    implementation(project(":schedule:schedule-core-ui"))
     implementation(project(":schedule:schedule-editor"))
 
     // Kotlin
@@ -69,7 +70,6 @@ dependencies {
     implementation(libs.compose.activity)
 
     implementation(libs.accompanist.permission)
-    implementation(libs.accompanist.flowLayout)
 
     // Components
     implementation(libs.androidx.lifecycle.viewmodel)

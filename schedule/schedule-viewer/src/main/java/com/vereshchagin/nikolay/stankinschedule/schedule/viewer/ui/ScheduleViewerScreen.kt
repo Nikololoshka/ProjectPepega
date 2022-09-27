@@ -1,7 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
 import android.os.Build
-import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.animateContentSize
@@ -23,6 +22,8 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
 import com.vereshchagin.nikolay.stankinschedule.core.utils.Zero
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.PairColors
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.ScheduleDayCard
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.R
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.*
 import dev.chrisbanes.snapper.ExperimentalSnapperApi

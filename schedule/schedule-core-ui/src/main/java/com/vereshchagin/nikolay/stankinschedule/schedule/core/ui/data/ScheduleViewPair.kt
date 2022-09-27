@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model
+package com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data
 
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Type

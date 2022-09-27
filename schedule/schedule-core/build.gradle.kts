@@ -66,6 +66,7 @@ dependencies {
 
     // Components
     implementation(libs.ui.material)
+    implementation(libs.androidx.datastore)
 
     // Json
     implementation(libs.network.gson)

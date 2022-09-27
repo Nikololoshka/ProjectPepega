@@ -1,8 +1,8 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.list.domain.usecase
 
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.repository.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleInfo
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.ScheduleStorage
-import com.vereshchagin.nikolay.stankinschedule.schedule.list.data.repository.SchedulePreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn

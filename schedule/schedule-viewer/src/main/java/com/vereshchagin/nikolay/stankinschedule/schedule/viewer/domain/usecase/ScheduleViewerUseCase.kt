@@ -9,8 +9,8 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.mapper.toJson
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleInfo
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.ScheduleStorage
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.data.source.ScheduleViewerSource
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.firstOrNull
@@ -18,7 +18,6 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import org.joda.time.LocalDate
-import java.io.FileNotFoundException
 import javax.inject.Inject
 
 class ScheduleViewerUseCase @Inject constructor(

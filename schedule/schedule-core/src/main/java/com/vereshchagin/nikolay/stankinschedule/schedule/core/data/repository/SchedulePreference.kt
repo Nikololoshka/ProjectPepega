@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.schedule.list.data.repository
+package com.vereshchagin.nikolay.stankinschedule.schedule.core.data.repository
 
 import android.content.Context
 import androidx.datastore.preferences.core.edit

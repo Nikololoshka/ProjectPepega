@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.usecase.ScheduleViewerUseCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.RenameEvent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.RenameState

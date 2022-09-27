@@ -19,8 +19,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -41,7 +43,7 @@ android {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
-    namespace = "com.vereshchagin.nikolay.stankinschedule.schedule.list"
+    namespace = "com.vereshchagin.nikolay.stankinschedule.schedule.home"
 }
 
 // Allow references to generated code
@@ -57,22 +59,22 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":schedule:schedule-core"))
+    implementation(project(":schedule:schedule-core-ui"))
 
-    // Core
+    // Kotlin
     implementation(libs.androidx.core)
 
     // Jetpack Compose & Material 3
     implementation(libs.bundles.compose)
     implementation(libs.compose.material3)
-    implementation(libs.compose.activity)
+
+    implementation(libs.accompanist.pager)
 
     // Components
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.lifecycle.java8)
     implementation(libs.ui.material)
 
-    // Reorder
-    implementation(libs.other.reorderable)
 
     // DI
     implementation(libs.hilt.android)
