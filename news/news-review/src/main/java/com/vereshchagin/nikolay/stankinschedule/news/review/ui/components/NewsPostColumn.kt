@@ -44,6 +44,7 @@ fun NewsPostColumn(
             state = lazyColumnState,
             pagingItems = lazyPostItems,
             modifier = modifier,
+            key = { it.id },
             onContent = { post ->
                 NewsPost(
                     post = post,

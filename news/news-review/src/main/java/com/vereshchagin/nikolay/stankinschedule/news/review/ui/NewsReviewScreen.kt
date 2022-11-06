@@ -81,9 +81,11 @@ fun NewsReviewScreen(
                     )
                 }
             }
+
             HorizontalPager(
                 count = newsSubdivisions.size,
                 state = pagerState,
+                key = { it },
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(top = tabRowHeight)
@@ -96,8 +98,8 @@ fun NewsReviewScreen(
                     onClick = { post -> navigateToViewer(post.title, post.id) },
                     isNewsRefreshing = isRefreshing.value,
                     onRefresh = { viewModel.refreshNews(subdivisionsId) },
-                    modifier = Modifier.fillMaxSize(),
-                    imageLoader = imageLoader
+                    imageLoader = imageLoader,
+                    modifier = Modifier.fillMaxSize()
                 )
             }
         }
