@@ -4,6 +4,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.toViewPair
 import com.vereshchagin.nikolay.stankinschedule.schedule.home.domain.model.ScheduleHomeInfo
+import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.repository.SchedulePreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -17,6 +18,8 @@ class ScheduleHomeUseCase @Inject constructor(
     private val storage: ScheduleStorage,
     private val preference: SchedulePreference
 ) {
+
+    fun pairColorGroup(): Flow<PairColorGroup> = preference.scheduleColorGroup()
 
     fun favoriteSchedule(
         from: LocalDate,
@@ -45,5 +48,4 @@ class ScheduleHomeUseCase @Inject constructor(
             )
         }
         .flowOn(Dispatchers.IO)
-
 }

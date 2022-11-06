@@ -46,7 +46,7 @@ fun NewsPostColumn(
             modifier = modifier,
             onContent = { post ->
                 NewsPost(
-                    post = post!!, // null - placeholder support
+                    post = post,
                     imageLoader = imageLoader,
                     onClick = onClick,
                     modifier = Modifier

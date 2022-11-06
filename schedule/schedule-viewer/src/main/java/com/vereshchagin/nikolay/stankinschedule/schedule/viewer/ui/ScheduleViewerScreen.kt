@@ -1,7 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
 import android.os.Build
-import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.animateContentSize
@@ -158,7 +157,6 @@ fun ScheduleViewerScreen(
         }
 
         LaunchedEffect(visibleItem) {
-            Log.d("MyLog", "ScheduleViewerScreen: $visibleItem")
             if (scheduleDays.itemCount > 0 && visibleItem < scheduleDays.itemCount) {
                 viewModel.updatePagingDate(scheduleDays.peek(visibleItem)?.day)
             }

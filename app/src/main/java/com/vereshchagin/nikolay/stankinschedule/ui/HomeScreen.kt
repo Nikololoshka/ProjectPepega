@@ -5,11 +5,8 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -17,15 +14,20 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.ImageLoader
 import com.vereshchagin.nikolay.stankinschedule.R
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.Stateful
+import com.vereshchagin.nikolay.stankinschedule.core.ui.getOrNull
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.core.utils.Zero
 import com.vereshchagin.nikolay.stankinschedule.news.core.utils.newsImageLoader
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.components.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.toColor
 import com.vereshchagin.nikolay.stankinschedule.schedule.home.ui.ScheduleHome
+import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 import com.vereshchagin.nikolay.stankinschedule.settings.ui.SettingsActivity
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -67,22 +69,26 @@ fun HomeScreen(
     ) { innerPadding ->
 
         val scheduleHome by viewModel.days.collectAsState()
+        val pairColorGroup by viewModel.pairColorGroup.collectAsState(PairColorGroup.default())
+        val pairColors by remember(pairColorGroup) { derivedStateOf { pairColorGroup.toColor() } }
+
         val news by viewModel.news.collectAsState()
 
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
+                .padding(innerPadding),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
             item {
                 HomeText(
-                    text = scheduleHome?.scheduleName
+                    text = scheduleHome.getOrNull()?.scheduleName
                         ?: stringResource(R.string.section_favorite_schedule),
                     modifier = Modifier
                         .fillParentMaxWidth()
                         .clickable {
-                            val info = scheduleHome
+                            val info = scheduleHome.getOrNull()
                             if (info != null) {
                                 navigateToSchedule(info.scheduleId)
                             }
@@ -92,14 +98,36 @@ fun HomeScreen(
             }
 
             item {
-                scheduleHome?.let {
-                    ScheduleHome(
-                        days = it.days,
-                        modifier = Modifier
-                            .fillParentMaxWidth()
-                            .animateContentSize()
-                    )
-                }
+                Stateful(
+                    state = scheduleHome,
+                    onSuccess = {
+                        if (it != null) {
+                            ScheduleHome(
+                                days = it.days,
+                                colors = pairColors,
+                                modifier = Modifier
+                                    .fillParentMaxWidth()
+                                    .animateContentSize()
+                            )
+                        } else {
+                            Text(
+                                text = stringResource(R.string.favorite_not_selected),
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .fillParentMaxWidth()
+                                    .padding(
+                                        horizontal = Dimen.ContentPadding,
+                                        vertical = Dimen.ContentPadding * 2
+                                    )
+                            )
+                        }
+                    },
+                    onLoading = {
+                        CircularProgressIndicator(
+                            modifier = Modifier.padding(Dimen.ContentPadding * 2)
+                        )
+                    }
+                )
             }
 
             item {
@@ -112,12 +140,15 @@ fun HomeScreen(
                 )
             }
 
-            items(news, key = { it.id }) { post ->
+            items(
+                count = HomeViewModel.NEWS_COUNT,
+                key = { it }
+            ) { index ->
                 NewsPost(
-                    post = post,
+                    post = news.getOrNull(index),
                     imageLoader = imageLoader,
                     onClick = {
-                        navigateToNewsPost(post.title, post.id)
+                        navigateToNewsPost(it.title, it.id)
                     },
                     modifier = Modifier.padding(8.dp)
                 )

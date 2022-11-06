@@ -16,3 +16,15 @@ inline fun <T : Any> Stateful(
         is UIState.Loading -> onLoading()
     }
 }
+
+@Composable
+inline fun <T : Any?> Stateful(
+    state: UIState<T>,
+    onSuccess: @Composable (data: T) -> Unit,
+    onLoading: @Composable () -> Unit,
+) {
+    when (state) {
+        is UIState.Success -> onSuccess(state.data)
+        else -> onLoading()
+    }
+}
