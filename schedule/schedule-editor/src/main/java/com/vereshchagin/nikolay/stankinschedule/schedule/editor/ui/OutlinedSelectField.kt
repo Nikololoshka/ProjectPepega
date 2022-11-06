@@ -29,7 +29,7 @@ fun <T> OutlinedSelectField(
             singleLine = true,
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = isExposed) },
             colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
-            modifier = modifier
+            modifier = modifier.menuAnchor()
         )
 
         ExposedDropdownMenu(
