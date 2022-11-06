@@ -13,6 +13,14 @@ class PreferenceManager @Inject constructor(
 
     private val preferences = PreferenceManager.getDefaultSharedPreferences(context)
 
+    fun getString(key: String): String? {
+        return preferences.getString(key, null)
+    }
+
+    fun saveString(key: String, value: String) {
+        preferences.edit { putString(key, value) }
+    }
+
     fun getDateTime(key: String): DateTime? {
         val dateString = preferences.getString(key, null) ?: return null
         return DateTime.parse(dateString)

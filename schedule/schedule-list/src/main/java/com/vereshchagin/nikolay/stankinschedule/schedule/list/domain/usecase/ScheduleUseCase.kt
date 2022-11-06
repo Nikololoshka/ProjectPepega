@@ -1,6 +1,5 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.list.domain.usecase
 
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.repository.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleInfo
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.ScheduleStorage
 import kotlinx.coroutines.Dispatchers
@@ -10,7 +9,7 @@ import javax.inject.Inject
 
 class ScheduleUseCase @Inject constructor(
     private val storage: ScheduleStorage,
-    private val preference: SchedulePreference,
+    private val preference: com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.repository.SchedulePreference,
 ) {
 
     fun schedules(): Flow<List<ScheduleInfo>> = storage.schedules().flowOn(Dispatchers.IO)

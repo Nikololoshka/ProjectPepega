@@ -60,6 +60,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":schedule:schedule-core"))
     implementation(project(":schedule:schedule-core-ui"))
+    implementation(project(":schedule:schedule-settings"))
 
     // Kotlin
     implementation(libs.androidx.core)

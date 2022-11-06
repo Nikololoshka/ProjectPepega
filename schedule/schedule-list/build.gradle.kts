@@ -57,6 +57,7 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":schedule:schedule-core"))
+    implementation(project(":schedule:schedule-settings"))
 
     // Core
     implementation(libs.androidx.core)

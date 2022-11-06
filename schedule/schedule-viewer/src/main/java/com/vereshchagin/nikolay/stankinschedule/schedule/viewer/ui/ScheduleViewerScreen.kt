@@ -4,9 +4,10 @@ import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.gestures.FlingBehavior
+import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.lazy.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
@@ -22,8 +23,9 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
 import com.vereshchagin.nikolay.stankinschedule.core.utils.Zero
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.PairColors
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.ScheduleDayCard
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.toColor
+import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.R
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.*
 import dev.chrisbanes.snapper.ExperimentalSnapperApi
@@ -144,7 +146,9 @@ fun ScheduleViewerScreen(
             }
         )
 
-        val colors = PairColors.defaults()
+        val isVerticalViewer by viewModel.isVerticalViewer.collectAsState(false)
+        val pairColorGroup by viewModel.pairColorGroup.collectAsState(PairColorGroup.default())
+        val pairColors by derivedStateOf { pairColorGroup.toColor() }
 
         if (scheduleState.isLoading) {
             Box(
@@ -156,24 +160,23 @@ fun ScheduleViewerScreen(
             }
         }
 
-        LazyRow(
+        PairsList(
             state = scheduleListState,
+            isVertical = isVerticalViewer,
             flingBehavior = scheduleSnapper,
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .animateContentSize()
         ) {
             items(scheduleDays, key = { it.day }) { day ->
                 if (day != null) {
                     ScheduleDayCard(
                         scheduleDay = day,
-                        pairColors = colors,
+                        pairColors = pairColors,
                         onPairClicked = { pair ->
                             onEditorClicked(scheduleId, pair.id)
                         },
-                        modifier = Modifier.fillParentMaxSize()
+                        modifier = Modifier.fillParentMaxWidth()
                     )
                 }
             }
@@ -198,6 +201,33 @@ fun ScheduleViewerScreen(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun PairsList(
+    state: LazyListState,
+    isVertical: Boolean,
+    modifier: Modifier = Modifier,
+    flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),
+    content: LazyListScope.() -> Unit
+) {
+    if (isVertical) {
+        LazyColumn(
+            state = state,
+            flingBehavior = flingBehavior,
+            modifier = modifier,
+            content = content
+        )
+    } else {
+        LazyRow(
+            state = state,
+            flingBehavior = flingBehavior,
+            modifier = modifier
+                .verticalScroll(rememberScrollState())
+                .animateContentSize(),
+            content = content
+        )
     }
 }
 

@@ -1,0 +1,57 @@
+<resources>
+    <string name="settings_title">Settings</string>
+
+    <string name="pref_dark_mode">Dark mode</string>
+    <string name="dark_mode_default">System default</string>
+    <string name="dark_mode_dark">On</string>
+    <string name="dark_mode_light">Off</string>
+
+    <string name="pref_schedule">Schedule</string>
+    <string name="pref_schedule_summary">Customize the schedule</string>
+
+    <string name="pref_widget">Widget</string>
+    <string name="pref_widget_summary">Configuring app widgets</string>
+
+    <string name="pref_notification">Notification</string>
+    <string name="pref_notification_summary">Setting up notifications</string>
+
+    <string name="terms_and_conditions">Terms &amp; Conditions</string>
+    <string name="terms_and_conditions_summary">Rules that app users must follow</string>
+
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_summary">Collection and processing of personal data</string>
+
+    <string name="about_description_developer">Developer: Vereshchagin Nikolay</string>
+    <string name="about_description_text">
+        \tThanks for the closed beta: \n
+        \t\t - Bogodaiko S.     \n
+        \t\t - Binniatov R.     \n
+        \t\t - Odintsova E.     \n
+        \t\t - Alekseev S.      \n
+        \t\t - Altunin A.       \n
+        \t\t - Matveychuk P.    \n
+        \t\t - Lopatin D.       \n
+        \t\t - Arkhipova D.     \n
+        \t\t - Elovikov A.      \n
+        \t\t - Duma A.          \n
+        \t\t - Dobrovolsky D.   \n
+        \t\t - Belova E.        \n
+    </string>
+
+    <string name="setting_schedule_title">Schedule settings</string>
+
+    <string name="schedule_view_ver">Vertical view of the schedule</string>
+    <string name="schedule_view_ver_summary">When viewing, use vertical scrolling instead of horizontal</string>
+
+    <string name="schedule_pair_settings">Pair</string>
+
+    <string name="lecture_color">Lecture color</string>
+    <string name="seminar_color">Seminar color</string>
+    <string name="laboratory_color">Laboratory color</string>
+    <string name="subgroup_a_color">Subgroup A color</string>
+    <string name="subgroup_b_color">Subgroup B color</string>
+    <string name="color_summary">Color displayed in the schedule</string>
+
+    <string name="default_color">Default</string>
+
+</resources>

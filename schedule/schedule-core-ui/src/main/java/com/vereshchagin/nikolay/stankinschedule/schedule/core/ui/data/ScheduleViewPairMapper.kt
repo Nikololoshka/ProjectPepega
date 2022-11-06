@@ -1,7 +1,11 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data
 
 import android.net.Uri
+import androidx.compose.ui.graphics.Color
+import com.vereshchagin.nikolay.stankinschedule.core.utils.parse
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.PairModel
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.PairColors
+import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 
 fun PairModel.toViewPair(): ScheduleViewPair {
     return ScheduleViewPair(
@@ -25,5 +29,15 @@ private fun classroomViewContent(classroom: String): ViewContent {
             .removePrefix(prefix = "www.")
             .substringBeforeLast(delimiter = '.'),
         link = classroom
+    )
+}
+
+fun PairColorGroup.toColor(): PairColors {
+    return PairColors(
+        lectureColor = Color.parse(lectureColor),
+        seminarColor = Color.parse(seminarColor),
+        laboratoryColor = Color.parse(laboratoryColor),
+        subgroupAColor = Color.parse(subgroupAColor),
+        subgroupBColor = Color.parse(subgroupBColor)
     )
 }

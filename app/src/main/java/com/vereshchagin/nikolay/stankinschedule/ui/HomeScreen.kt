@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.ui
 
+import android.content.Intent
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -25,6 +26,7 @@ import com.vereshchagin.nikolay.stankinschedule.core.utils.Zero
 import com.vereshchagin.nikolay.stankinschedule.news.core.utils.newsImageLoader
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.components.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.schedule.home.ui.ScheduleHome
+import com.vereshchagin.nikolay.stankinschedule.settings.ui.SettingsActivity
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,9 +47,10 @@ fun HomeScreen(
             TopAppBar(
                 title = { Text(text = stringResource(R.string.nav_home)) },
                 actions = {
+                    val context = LocalContext.current
                     IconButton(
                         onClick = {
-
+                            context.startActivity(Intent(context, SettingsActivity::class.java))
                         }
                     ) {
                         Icon(

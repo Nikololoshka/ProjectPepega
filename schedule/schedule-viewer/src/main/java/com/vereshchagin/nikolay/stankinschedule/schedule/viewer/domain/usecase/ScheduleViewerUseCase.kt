@@ -10,6 +10,8 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Sched
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.ScheduleStorage
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.ScheduleViewDay
+import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
+import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.repository.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.data.source.ScheduleViewerSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -21,6 +23,7 @@ import org.joda.time.LocalDate
 import javax.inject.Inject
 
 class ScheduleViewerUseCase @Inject constructor(
+    private val preference: SchedulePreference,
     private val storage: ScheduleStorage,
 ) {
     fun createPager(
@@ -40,6 +43,10 @@ class ScheduleViewerUseCase @Inject constructor(
             }
         )
     }
+
+    fun isVerticalViewer(): Flow<Boolean> = preference.isVerticalViewer()
+
+    fun pairColorGroup(): Flow<PairColorGroup> = preference.scheduleColorGroup()
 
     fun scheduleInfo(scheduleId: Long): Flow<ScheduleInfo?> = storage.schedule(scheduleId)
 

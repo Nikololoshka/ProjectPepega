@@ -228,7 +228,7 @@ private fun SubgroupText(
 @Composable
 private fun textColor(background: Color): Color {
     val isLightColor = background.luminance() > 0.5f
-    if ((!isSystemInDarkTheme() && isLightColor) || !isLightColor) {
+    if (!isSystemInDarkTheme() && isLightColor) {
         return MaterialTheme.colorScheme.onSurface
     }
     return MaterialTheme.colorScheme.surface

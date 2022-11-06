@@ -15,4 +15,5 @@ interface ScheduleCoreModule {
     @Binds
     @ViewModelScoped
     fun provideScheduleStorage(storage: ScheduleStorageImpl): ScheduleStorage
+
 }

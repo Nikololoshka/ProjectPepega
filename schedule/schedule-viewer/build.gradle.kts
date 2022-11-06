@@ -58,6 +58,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":schedule:schedule-core"))
     implementation(project(":schedule:schedule-core-ui"))
+    implementation(project(":schedule:schedule-settings"))
     implementation(project(":schedule:schedule-editor"))
 
     // Kotlin

@@ -97,6 +97,8 @@ dependencies {
 
     implementation(project(":core"))
 
+    implementation(project(":settings"))
+
     implementation(project(":schedule:schedule-core"))
     implementation(project(":schedule:schedule-core-ui"))
     implementation(project(":schedule:schedule-home"))
@@ -105,6 +107,7 @@ dependencies {
     implementation(project(":schedule:schedule-list"))
     implementation(project(":schedule:schedule-repository"))
     implementation(project(":schedule:schedule-viewer"))
+    implementation(project(":schedule:schedule-settings"))
 
     implementation(project(":journal:journal-core"))
     implementation(project(":journal:journal-login"))

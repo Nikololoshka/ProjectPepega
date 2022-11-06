@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Настройки</string>
+
+    <string name="pref_dark_mode">Темная тема</string>
+    <string name="dark_mode_default">Следовать настройкам системы</string>
+    <string name="dark_mode_dark">Включена</string>
+    <string name="dark_mode_light">Выключена</string>
+
+    <string name="pref_schedule">Расписание</string>
+    <string name="pref_schedule_summary">Изменение настроек расписания</string>
+
+    <string name="pref_widget">Виджет</string>
+    <string name="pref_widget_summary">Настройка виджетов приложения</string>
+
+    <string name="pref_notification">Уведомления</string>
+    <string name="pref_notification_summary">Настройка уведомлений</string>
+
+    <string name="terms_and_conditions">Условия использования</string>
+    <string name="terms_and_conditions_summary">Правила, которым должны следовать пользователи приложения</string>
+
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="privacy_policy_summary">Сбор и обработка персональных данных пользователей</string>
+
+    <string name="about_description_developer">Разработчик: Верещагин Николай</string>
+    <string name="about_description_text">
+        \tСпасибо за тестирование:  \n
+        \t\t - Богодайко С.       \n
+        \t\t - Биннятов Р.        \n
+        \t\t - Одинцова Э.        \n
+        \t\t - Алексеев С.        \n
+        \t\t - Алтунин А.         \n
+        \t\t - Матвейчук П.       \n
+        \t\t - Лопатин Д.         \n
+        \t\t - Архипова Д.        \n
+        \t\t - Еловиков А.        \n
+        \t\t - Дума А.            \n
+        \t\t - Добровольский Д.   \n
+        \t\t - Белова Е.          \n
+    </string>
+
+    <string name="setting_schedule_title">Настройки расписания</string>
+
+    <string name="schedule_view_ver">Вертикальный просмотр расписания</string>
+    <string name="schedule_view_ver_summary">При просмотре использовать вертикальную прокрутку вместо горизонтальной</string>
+
+    <string name="schedule_pair_settings">Пара</string>
+
+    <string name="lecture_color">Цвет лекции</string>
+    <string name="seminar_color">Цвет семинара</string>
+    <string name="laboratory_color">Цвет лабораторных занятий</string>
+    <string name="subgroup_a_color">Цвет подгруппы А</string>
+    <string name="subgroup_b_color">Цвет подгруппы Б</string>
+    <string name="color_summary">Цвет, отображаемый в расписании</string>
+
+    <string name="default_color">По умолчанию</string>
+</resources>

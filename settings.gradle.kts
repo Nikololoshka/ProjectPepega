@@ -14,8 +14,11 @@ include(
     ":app",
     ":core",
 
+    ":settings",
+
     ":schedule:schedule-core",
     ":schedule:schedule-core-ui",
+    ":schedule:schedule-settings",
     ":schedule:schedule-creator",
     ":schedule:schedule-editor",
     ":schedule:schedule-home",

@@ -10,6 +10,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.ScheduleViewDay
+import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.usecase.ScheduleViewerUseCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.RenameEvent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.RenameState
@@ -29,6 +30,9 @@ class ScheduleViewerViewModel @Inject constructor(
     private val useCase: ScheduleViewerUseCase,
     private val handle: SavedStateHandle,
 ) : ViewModel() {
+
+    val isVerticalViewer: Flow<Boolean> = useCase.isVerticalViewer()
+    val pairColorGroup: Flow<PairColorGroup> = useCase.pairColorGroup()
 
     private val _scheduleState = MutableStateFlow<ScheduleState>(ScheduleState.Loading)
     val scheduleState = _scheduleState.asStateFlow()

@@ -1,10 +1,10 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.home.domain.usecase
 
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.repository.SchedulePreference
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.ScheduleStorage
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.data.toViewPair
 import com.vereshchagin.nikolay.stankinschedule.schedule.home.domain.model.ScheduleHomeInfo
+import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.repository.SchedulePreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.firstOrNull
