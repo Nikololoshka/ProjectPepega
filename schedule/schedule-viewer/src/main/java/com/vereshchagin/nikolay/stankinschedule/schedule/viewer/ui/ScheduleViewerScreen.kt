@@ -1,11 +1,11 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
 import android.os.Build
+import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.gestures.FlingBehavior
-import androidx.compose.foundation.gestures.ScrollableDefaults
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
 import androidx.compose.foundation.rememberScrollState
@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
@@ -33,8 +34,9 @@ import dev.chrisbanes.snapper.SnapOffsets
 import dev.chrisbanes.snapper.SnapperLayoutInfo
 import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalSnapperApi::class,
-    ExperimentalPermissionsApi::class
+@OptIn(
+    ExperimentalMaterial3Api::class, ExperimentalSnapperApi::class,
+    ExperimentalPermissionsApi::class, ExperimentalFoundationApi::class
 )
 @Composable
 fun ScheduleViewerScreen(
@@ -57,14 +59,14 @@ fun ScheduleViewerScreen(
         }
     }
 
-    val currentScheduleName by derivedStateOf {
-        (scheduleState.scheduleName ?: scheduleName) ?: ""
+    val currentScheduleName by remember(scheduleState.scheduleName) {
+        derivedStateOf { (scheduleState.scheduleName ?: scheduleName) ?: "" }
     }
 
     val context = LocalContext.current
     val writeScheduleLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.CreateDocument("application/json"),
-        onResult =  {
+        onResult = {
             if (it != null) {
                 viewModel.saveToDevice(context, it)
             }
@@ -136,19 +138,10 @@ fun ScheduleViewerScreen(
 
         val scheduleDays = viewModel.scheduleDays.collectAsLazyPagingItems()
         val scheduleListState = rememberLazyListState()
-        val scheduleSnapper = rememberSnapperFlingBehavior(
-            lazyListState = scheduleListState,
-            snapOffsetForItem = SnapOffsets.Center,
-            snapIndex = { info, start, target ->
-                val index = computeScheduleIndex(info, start, target)
-                viewModel.updatePagingDate(scheduleDays.peek(index)?.day)
-                index
-            }
-        )
 
         val isVerticalViewer by viewModel.isVerticalViewer.collectAsState(false)
         val pairColorGroup by viewModel.pairColorGroup.collectAsState(PairColorGroup.default())
-        val pairColors by derivedStateOf { pairColorGroup.toColor() }
+        val pairColors by remember(pairColorGroup) { derivedStateOf { pairColorGroup.toColor() } }
 
         if (scheduleState.isLoading) {
             Box(
@@ -160,10 +153,20 @@ fun ScheduleViewerScreen(
             }
         }
 
+        val visibleItem by remember(scheduleListState) {
+            derivedStateOf { scheduleListState.firstVisibleItemIndex }
+        }
+
+        LaunchedEffect(visibleItem) {
+            Log.d("MyLog", "ScheduleViewerScreen: $visibleItem")
+            if (scheduleDays.itemCount > 0 && visibleItem < scheduleDays.itemCount) {
+                viewModel.updatePagingDate(scheduleDays.peek(visibleItem)?.day)
+            }
+        }
+
         PairsList(
             state = scheduleListState,
             isVertical = isVerticalViewer,
-            flingBehavior = scheduleSnapper,
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
@@ -176,7 +179,9 @@ fun ScheduleViewerScreen(
                         onPairClicked = { pair ->
                             onEditorClicked(scheduleId, pair.id)
                         },
-                        modifier = Modifier.fillParentMaxWidth()
+                        modifier = Modifier
+                            .fillParentMaxWidth()
+                            .sizeIn(minHeight = 128.dp)
                     )
                 }
             }
@@ -204,25 +209,29 @@ fun ScheduleViewerScreen(
     }
 }
 
+@OptIn(ExperimentalSnapperApi::class)
 @Composable
 private fun PairsList(
     state: LazyListState,
     isVertical: Boolean,
     modifier: Modifier = Modifier,
-    flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),
     content: LazyListScope.() -> Unit
 ) {
     if (isVertical) {
         LazyColumn(
             state = state,
-            flingBehavior = flingBehavior,
             modifier = modifier,
+            verticalArrangement = Arrangement.spacedBy(24.dp),
             content = content
         )
     } else {
         LazyRow(
             state = state,
-            flingBehavior = flingBehavior,
+            flingBehavior = rememberSnapperFlingBehavior(
+                lazyListState = state,
+                snapOffsetForItem = SnapOffsets.Center,
+                snapIndex = { info, start, target -> computeScheduleIndex(info, start, target) }
+            ),
             modifier = modifier
                 .verticalScroll(rememberScrollState())
                 .animateContentSize(),

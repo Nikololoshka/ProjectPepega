@@ -226,10 +226,13 @@ private fun SubgroupText(
 }
 
 @Composable
-private fun textColor(background: Color): Color {
-    val isLightColor = background.luminance() > 0.5f
-    if (!isSystemInDarkTheme() && isLightColor) {
-        return MaterialTheme.colorScheme.onSurface
+private fun textColor(
+    background: Color,
+    isDark: Boolean = background.luminance() < 0.5f
+): Color {
+    return if (isSystemInDarkTheme()) {
+        if (isDark) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.surface
+    } else {
+        if (isDark) MaterialTheme.colorScheme.surface else MaterialTheme.colorScheme.onSurface
     }
-    return MaterialTheme.colorScheme.surface
 }
