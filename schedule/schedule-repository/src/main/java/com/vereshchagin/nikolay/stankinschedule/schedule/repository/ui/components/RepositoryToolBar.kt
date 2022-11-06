@@ -1,5 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.components
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.BackdropScaffoldState
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.TopAppBar
@@ -16,6 +18,7 @@ import com.vereshchagin.nikolay.stankinschedule.core.R as R_core
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun RepositoryToolBar(
+    lastUpdate: String?,
     scaffoldState: BackdropScaffoldState,
     onBackPressed: () -> Unit,
     onRefreshRepository: () -> Unit,
@@ -29,10 +32,23 @@ fun RepositoryToolBar(
     ) {
         TopAppBar(
             title = {
-                Text(
-                    text = stringResource(R.string.repository_title),
-                    style = MaterialTheme.typography.titleLarge
-                )
+                Column {
+                    Text(
+                        text = stringResource(R.string.repository_title),
+                        style = MaterialTheme.typography.titleLarge
+                    )
+                    AnimatedVisibility(
+                        visible = lastUpdate.isNullOrEmpty()
+                    ) {
+                        Text(
+                            text = stringResource(
+                                R.string.repository_last_update,
+                                lastUpdate ?: ""
+                            ),
+                            style = MaterialTheme.typography.titleSmall
+                        )
+                    }
+                }
             },
             navigationIcon = {
                 if (scaffoldState.isRevealed) {

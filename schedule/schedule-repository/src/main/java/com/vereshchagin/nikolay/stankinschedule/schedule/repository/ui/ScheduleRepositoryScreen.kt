@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.Stateful
+import com.vereshchagin.nikolay.stankinschedule.core.ui.getOrNull
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.R
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.data.worker.ScheduleDownloadWorker
@@ -90,6 +91,7 @@ fun ScheduleRepositoryScreen(
     BackdropScaffold(
         appBar = {
             RepositoryToolBar(
+                lastUpdate = description.getOrNull()?.lastUpdate,
                 scaffoldState = scaffoldState,
                 onBackPressed = onBackPressed,
                 onRefreshRepository = { viewModel.refresh() }
