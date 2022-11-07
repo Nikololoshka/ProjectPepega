@@ -38,7 +38,7 @@ fun RepositoryToolBar(
                         style = MaterialTheme.typography.titleLarge
                     )
                     AnimatedVisibility(
-                        visible = lastUpdate.isNullOrEmpty()
+                        visible = !lastUpdate.isNullOrEmpty()
                     ) {
                         Text(
                             text = stringResource(
