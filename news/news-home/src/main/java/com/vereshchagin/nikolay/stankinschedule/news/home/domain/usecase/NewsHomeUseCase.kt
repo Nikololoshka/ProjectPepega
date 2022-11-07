@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.news.home.domain.usecase
 
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.mapper.toPost
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsSubdivision
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -16,4 +17,10 @@ class NewsHomeUseCase @Inject constructor(
         repository.lastNews(newsCount = newsCount)
             .map { news -> news.map { it.toPost() } }
             .flowOn(Dispatchers.IO)
+
+    suspend fun refreshAll(force: Boolean = false) {
+        for (subdivision in NewsSubdivision.values()) {
+            repository.refresh(subdivision.id, force)
+        }
+    }
 }

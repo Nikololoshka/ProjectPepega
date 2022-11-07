@@ -26,6 +26,9 @@ class NewsReviewViewModel @Inject constructor(
     private val newsRefreshing = mutableMapOf<Int, MutableStateFlow<Boolean>>()
 
     private fun pagerForSubdivision(newsSubdivision: Int): Flow<PagingData<NewsPost>> {
+        // Обновляем новости
+        refreshNews(newsSubdivision, force = false)
+
         return Pager(
             config = PagingConfig(
                 pageSize = 40,
@@ -57,12 +60,12 @@ class NewsReviewViewModel @Inject constructor(
         return stateForNewsRefreshing(newsSubdivision)
     }
 
-    fun refreshNews(newsSubdivision: Int) {
+    fun refreshNews(newsSubdivision: Int, force: Boolean) {
         viewModelScope.launch {
             val isRefreshing = stateForNewsRefreshing(newsSubdivision)
 
             isRefreshing.value = true
-            repository.refresh(newsSubdivision, force = true)
+            repository.refresh(newsSubdivision, force)
             isRefreshing.value = false
         }
     }

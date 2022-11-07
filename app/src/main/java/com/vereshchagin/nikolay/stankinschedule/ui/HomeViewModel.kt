@@ -43,6 +43,7 @@ class HomeViewModel @Inject constructor(
         }
 
         viewModelScope.launch {
+            newsUseCase.refreshAll(force = false)
             newsUseCase.news(newsCount = NEWS_COUNT).collectLatest {
                 _news.value = it
             }

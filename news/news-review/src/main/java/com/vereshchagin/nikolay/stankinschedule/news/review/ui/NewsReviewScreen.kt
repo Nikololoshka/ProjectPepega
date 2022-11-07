@@ -17,6 +17,7 @@ import com.google.accompanist.pager.rememberPagerState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppTabIndicator
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.pagerTabIndicatorOffset
 import com.vereshchagin.nikolay.stankinschedule.core.utils.Zero
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsSubdivision
 import com.vereshchagin.nikolay.stankinschedule.news.core.utils.newsImageLoader
 import com.vereshchagin.nikolay.stankinschedule.news.review.R
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.components.NewsPostColumn
@@ -31,8 +32,14 @@ fun NewsReviewScreen(
     modifier: Modifier = Modifier,
 ) {
     val newsSubdivisions = listOf(
-        NewsSubdivision(nameId = R.string.news_university, subdivisionsId = 0),
-        NewsSubdivision(nameId = R.string.news_deanery, subdivisionsId = 125)
+        NewsSubdivisionItem(
+            nameId = R.string.news_university,
+            subdivisionsId = NewsSubdivision.University.id
+        ),
+        NewsSubdivisionItem(
+            nameId = R.string.news_deanery,
+            subdivisionsId = NewsSubdivision.Deanery.id
+        )
     )
 
     val pagerState = rememberPagerState()
@@ -97,7 +104,7 @@ fun NewsReviewScreen(
                     posts = viewModel.news(subdivisionsId),
                     onClick = { post -> navigateToViewer(post.title, post.id) },
                     isNewsRefreshing = isRefreshing.value,
-                    onRefresh = { viewModel.refreshNews(subdivisionsId) },
+                    onRefresh = { viewModel.refreshNews(subdivisionsId, force = true) },
                     imageLoader = imageLoader,
                     modifier = Modifier.fillMaxSize()
                 )
@@ -106,7 +113,7 @@ fun NewsReviewScreen(
     }
 }
 
-class NewsSubdivision(
+private class NewsSubdivisionItem(
     @StringRes val nameId: Int,
     val subdivisionsId: Int,
 )
