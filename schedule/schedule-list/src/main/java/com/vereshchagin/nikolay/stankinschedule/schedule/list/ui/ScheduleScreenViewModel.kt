@@ -67,11 +67,15 @@ class ScheduleScreenViewModel @Inject constructor(
     }
 
     fun schedulesMove(from: Int, to: Int) {
-        _schedules.value = _schedules.value?.toMutableList()?.apply { add(to, removeAt(from)) }
+        _schedules.value = _schedules.value?.let {
+            it.toMutableList().apply { add(to, removeAt(from)) }
+        }
 
+        /*
         val t = selected[to]
         selected[to] = selected[from] ?: false
         selected[from] = t ?: false
+         */
     }
 
     fun setEditable(enable: Boolean) {
@@ -87,6 +91,10 @@ class ScheduleScreenViewModel @Inject constructor(
         viewModelScope.launch {
             useCase.setFavorite(id)
         }
+    }
+
+    fun isSelected(id: Long): Boolean {
+        return selected.getOrDefault(id.toInt(), false)
     }
 
     fun selectSchedule(id: Long) {

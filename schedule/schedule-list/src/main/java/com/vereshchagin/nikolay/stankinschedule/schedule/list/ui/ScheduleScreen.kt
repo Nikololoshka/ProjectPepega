@@ -169,9 +169,7 @@ fun ScheduleScreen(
                             ) {
                                 ScheduleActionItem(
                                     schedule = schedule,
-                                    isSelected = viewModel.selected.getOrDefault(
-                                        schedule.id.toInt(), false
-                                    ),
+                                    isSelected = viewModel.isSelected(schedule.id),
                                     onClicked = {
                                         viewModel.selectSchedule(schedule.id)
                                     },
