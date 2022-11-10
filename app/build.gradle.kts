@@ -108,6 +108,7 @@ dependencies {
     implementation(project(":schedule:schedule-repository"))
     implementation(project(":schedule:schedule-viewer"))
     implementation(project(":schedule:schedule-settings"))
+    implementation(project(":schedule:schedule-widget"))
 
     implementation(project(":journal:journal-core"))
     implementation(project(":journal:journal-login"))

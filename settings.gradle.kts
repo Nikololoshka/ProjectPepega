@@ -25,6 +25,7 @@ include(
     ":schedule:schedule-list",
     ":schedule:schedule-repository",
     ":schedule:schedule-viewer",
+    ":schedule:schedule-widget",
 
     ":journal:journal-core",
     ":journal:journal-login",

@@ -50,6 +50,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <intent-filter>
+                <action android:name="com.vereshchagin.nikolay.stankinschedule.action.SCHEDULE_VIEWER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="stankinschedule.com"
+                    android:scheme="app" />
+            </intent-filter>
+
         </activity>
 
     </application>

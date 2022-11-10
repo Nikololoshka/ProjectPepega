@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@android:id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/schedule_widget_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/schedule_widget_header_background"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/widget_schedule_name"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Schedule name very long"
+            android:textSize="16sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/onTertiaryContainer" />
+
+        <ImageButton
+            android:id="@+id/widget_settings"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/widget_action_more"
+            android:background="@color/tertiaryContainer"
+            android:contentDescription=""
+            app:tint="@color/onTertiaryContainer" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/widget_days"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        tools:listitem="@layout/widget_schedule_item" />
+
+
+</LinearLayout>
