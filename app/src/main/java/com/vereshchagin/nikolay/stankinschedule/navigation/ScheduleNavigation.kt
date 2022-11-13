@@ -18,6 +18,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.PairEditorAct
 import com.vereshchagin.nikolay.stankinschedule.schedule.list.ui.ScheduleScreen
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.ScheduleRepositoryActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.ScheduleViewerScreen
+import com.vereshchagin.nikolay.stankinschedule.schedule.widget.utils.ScheduleDeepLink
 
 object ScheduleNavEntry : BottomNavEntry(
     route = "schedule",
@@ -27,13 +28,16 @@ object ScheduleNavEntry : BottomNavEntry(
 )
 
 object ScheduleViewerNavEntry : DestinationNavEntry(
-    route = "schedule/{scheduleId}",
+    route = "schedule/{scheduleId}?date={startDate}",
     arguments = listOf(
-        navArgument(name = "scheduleId") { type = NavType.LongType }
+        navArgument(name = "scheduleId") { type = NavType.LongType },
+        navArgument(name = "startDate") { type = NavType.StringType; nullable = true }
     )
 ) {
     fun routeWithArgs(id: Long): String = "schedule/$id"
     fun parseScheduleId(entry: NavBackStackEntry) = entry.arguments?.getLong("scheduleId") ?: -1
+
+    fun parseStartDate(entry: NavBackStackEntry) = entry.arguments?.getString("startDate")
 }
 
 object ScheduleCreatorNavEntry : DestinationNavEntry(
@@ -61,12 +65,14 @@ fun NavGraphBuilder.schedule(
     // Просмотр расписания
     composable(
         route = ScheduleViewerNavEntry.route,
-        arguments = ScheduleViewerNavEntry.arguments
+        arguments = ScheduleViewerNavEntry.arguments,
+        deepLinks = listOf(NavDeepLink(ScheduleDeepLink.DEEP_LINK))
     ) { backStackEntry ->
         val context = LocalContext.current
 
         ScheduleViewerScreen(
             scheduleId = ScheduleViewerNavEntry.parseScheduleId(backStackEntry),
+            startDate = ScheduleViewerNavEntry.parseStartDate(backStackEntry),
             scheduleName = null,
             viewModel = hiltViewModel(),
             onBackPressed = { navController.navigateUp() },

@@ -19,11 +19,10 @@
 
         <service
             android:name=".ui.ScheduleWidgetService"
-            android:exported="false"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <activity
-            android:name=".ui.ScheduleWidgetConfigureActivity"
+            android:name=".ui.configure.ScheduleWidgetConfigureActivity"
             android:theme="@style/AppTheme"
             android:exported="false">
             <intent-filter>

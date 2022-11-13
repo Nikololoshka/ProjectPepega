@@ -5,14 +5,14 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.reposit
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ViewModelComponent::class)
+@InstallIn(SingletonComponent::class)
 interface ScheduleSettingsModule {
 
     @Binds
-    @ViewModelScoped
+    @Singleton
     fun provideSchedulePreference(preference: ScheduleDataStore): SchedulePreference
 }

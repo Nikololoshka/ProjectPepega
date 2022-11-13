@@ -20,8 +20,9 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Schedule name very long"
+            android:text="@string/widget_schedule_description"
             android:textSize="16sp"
+            android:paddingHorizontal="8dp"
             android:maxLines="1"
             android:ellipsize="end"
             android:textColor="@color/onTertiaryContainer" />
@@ -32,7 +33,7 @@
             android:layout_height="24dp"
             android:src="@drawable/widget_action_more"
             android:background="@color/tertiaryContainer"
-            android:contentDescription=""
+            android:contentDescription="@null"
             app:tint="@color/onTertiaryContainer" />
 
     </LinearLayout>

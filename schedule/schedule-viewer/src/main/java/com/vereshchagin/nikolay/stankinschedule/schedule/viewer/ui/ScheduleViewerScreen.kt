@@ -32,6 +32,7 @@ import dev.chrisbanes.snapper.ExperimentalSnapperApi
 import dev.chrisbanes.snapper.SnapOffsets
 import dev.chrisbanes.snapper.SnapperLayoutInfo
 import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
+import org.joda.time.LocalDate
 
 @OptIn(
     ExperimentalMaterial3Api::class, ExperimentalSnapperApi::class,
@@ -40,6 +41,7 @@ import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
 @Composable
 fun ScheduleViewerScreen(
     scheduleId: Long,
+    startDate: String?,
     scheduleName: String?,
     viewModel: ScheduleViewerViewModel,
     onBackPressed: () -> Unit,
@@ -47,7 +49,7 @@ fun ScheduleViewerScreen(
     modifier: Modifier = Modifier,
 ) {
     LaunchedEffect(scheduleId) {
-        viewModel.loadSchedule(scheduleId)
+        viewModel.loadSchedule(scheduleId, startDate?.let { LocalDate.parse(it) })
     }
 
     val scheduleState by viewModel.scheduleState.collectAsState()

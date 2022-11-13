@@ -5,12 +5,14 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.widget.domain.repositor
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.ServiceComponent
+import dagger.hilt.android.components.ViewModelComponent
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(ViewModelComponent::class, ServiceComponent::class)
 interface ScheduleWidgetModule {
 
     @Binds
-    fun provideScheduleWidgetPreference(pref: ScheduleWidgetPreferenceImpl): ScheduleWidgetPreference
+    // Unscoped
+    fun providePreference(pref: ScheduleWidgetPreferenceImpl): ScheduleWidgetPreference
 }

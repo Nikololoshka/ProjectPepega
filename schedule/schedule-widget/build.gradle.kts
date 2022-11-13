@@ -59,6 +59,8 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":schedule:schedule-core"))
+    implementation(project(":schedule:schedule-core-ui"))
+    implementation(project(":schedule:schedule-settings"))
 
     // Core
     implementation(libs.androidx.core)
@@ -75,7 +77,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.ui.material)
     implementation(libs.compose.navigation)
-    implementation(libs.androidx.glance)
+    // implementation(libs.androidx.glance)
 
     // DI
     implementation(libs.hilt.android)

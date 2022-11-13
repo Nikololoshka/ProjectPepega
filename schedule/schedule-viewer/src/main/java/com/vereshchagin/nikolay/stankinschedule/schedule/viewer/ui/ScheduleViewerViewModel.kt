@@ -59,9 +59,11 @@ class ScheduleViewerViewModel @Inject constructor(
                 .flowOn(Dispatchers.IO).cachedIn(viewModelScope)
         ).flattenMerge(2)
 
-    fun loadSchedule(scheduleId: Long) {
+    fun loadSchedule(scheduleId: Long, startDate: LocalDate?) {
         // Расписание с таким ID уже загружено
         if (_scheduleId == scheduleId) return
+
+        if (startDate != null) updatePagingDate(startDate)
 
         viewModelScope.launch {
             useCase.scheduleModel(scheduleId)
