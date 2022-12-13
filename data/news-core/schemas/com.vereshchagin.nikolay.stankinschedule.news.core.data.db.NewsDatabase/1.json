@@ -1,0 +1,64 @@
+{
+    "formatVersion": 1,
+    "database": {
+        "version": 1,
+        "identityHash": "a7ae96e78bb19a368a5f94b27df4f2e0",
+        "entities": [
+            {
+                "tableName": "news_posts",
+                "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `index_order` INTEGER NOT NULL, `news_subdivision` INTEGER NOT NULL, `title` TEXT NOT NULL, `date` TEXT NOT NULL, `logo` TEXT NOT NULL, PRIMARY KEY(`id`))",
+                "fields": [
+                    {
+                        "fieldPath": "id",
+                        "columnName": "id",
+                        "affinity": "INTEGER",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "indexOrder",
+                        "columnName": "index_order",
+                        "affinity": "INTEGER",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "newsSubdivision",
+                        "columnName": "news_subdivision",
+                        "affinity": "INTEGER",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "title",
+                        "columnName": "title",
+                        "affinity": "TEXT",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "date",
+                        "columnName": "date",
+                        "affinity": "TEXT",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "logo",
+                        "columnName": "logo",
+                        "affinity": "TEXT",
+                        "notNull": true
+                    }
+                ],
+                "primaryKey": {
+                    "columnNames": [
+                        "id"
+                    ],
+                    "autoGenerate": false
+                },
+                "indices": [],
+                "foreignKeys": []
+            }
+        ],
+        "views": [],
+        "setupQueries": [
+            "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+            "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a7ae96e78bb19a368a5f94b27df4f2e0')"
+        ]
+    }
+}

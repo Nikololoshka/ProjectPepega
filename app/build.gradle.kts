@@ -1,9 +1,10 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
+
     id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -95,30 +96,33 @@ kapt {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(project(":core"))
+    implementation(project(":domain:core"))
 
-    implementation(project(":settings"))
+    implementation(project(":data:core"))
+    implementation(project(":data:journal-core"))
+    implementation(project(":data:schedule-core"))
+    implementation(project(":data:schedule-repository"))
+    implementation(project(":data:schedule-settings"))
+    implementation(project(":data:schedule-viewer"))
+    implementation(project(":data:schedule-widget"))
+    implementation(project(":data:news-core"))
+    implementation(project(":data:settings"))
 
-    implementation(project(":schedule:schedule-core"))
-    implementation(project(":schedule:schedule-core-ui"))
-    implementation(project(":schedule:schedule-home"))
-    implementation(project(":schedule:schedule-creator"))
-    implementation(project(":schedule:schedule-editor"))
-    implementation(project(":schedule:schedule-list"))
-    implementation(project(":schedule:schedule-repository"))
-    implementation(project(":schedule:schedule-viewer"))
-    implementation(project(":schedule:schedule-settings"))
-    implementation(project(":schedule:schedule-widget"))
+    implementation(project(":ui:core"))
+    implementation(project(":ui:home"))
+    implementation(project(":ui:journal-login"))
+    implementation(project(":ui:journal-predict"))
+    implementation(project(":ui:journal-viewer"))
+    implementation(project(":ui:schedule-creator"))
+    implementation(project(":ui:schedule-editor"))
+    implementation(project(":ui:schedule-list"))
+    implementation(project(":ui:schedule-repository"))
+    implementation(project(":ui:schedule-viewer"))
+    implementation(project(":ui:schedule-widget"))
+    implementation(project(":ui:news-review"))
+    implementation(project(":ui:news-viewer"))
+    implementation(project(":ui:settings"))
 
-    implementation(project(":journal:journal-core"))
-    implementation(project(":journal:journal-login"))
-    implementation(project(":journal:journal-predict"))
-    implementation(project(":journal:journal-viewer"))
-
-    implementation(project(":news:news-core"))
-    implementation(project(":news:news-home"))
-    implementation(project(":news:news-review"))
-    implementation(project(":news:news-viewer"))
 
     // Core
     implementation(libs.androidx.core)

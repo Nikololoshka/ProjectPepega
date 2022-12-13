@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
-import com.vereshchagin.nikolay.stankinschedule.core.settings.ApplicationPreference
-import com.vereshchagin.nikolay.stankinschedule.core.settings.DarkMode
+import com.vereshchagin.nikolay.stankinschedule.core.domain.settings.ApplicationPreference
+import com.vereshchagin.nikolay.stankinschedule.core.domain.settings.DarkMode
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 

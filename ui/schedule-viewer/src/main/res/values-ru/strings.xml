@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="schedule_no_pairs">Нет пар</string>
+
+    <string name="link_copied">Ссылка скопирована!</string>
+
+    <string name="type_lecture">Лекция</string>
+    <string name="type_seminar">Семинар</string>
+    <string name="type_laboratory">Лабораторная работа</string>
+
+    <string name="subgroup_common">---</string>
+    <string name="subgroup_a">(А)</string>
+    <string name="subgroup_b">(Б)</string>
+
+    <string name="schedule_is_empty">Расписание пустое</string>
+    <string name="schedule_add_pair">Добавить пару</string>
+    <string name="save_to_device">Сохранить на устройство</string>
+    <string name="rename_schedule">Переименновать</string>
+    <string name="remove_schedule">Удалить</string>
+
+    <string name="schedule_remove_title">Удаление</string>
+    <string name="schedule_single_remove">Вы уверены, что хотите удалить расписание: \"%1$s\"?</string>
+    <string name="schedule_remove">Удалить</string>
+
+    <string name="rename_schedule_title">Переименновать расписание</string>
+    <string name="current_schedule_name">Название</string>
+    <string name="schedule_exists">Расписание с текущим именем уже существует!</string>
+    <string name="schedule_rename_error">Не удалось переименновать расписание</string>
+    <string name="rename">Переименновать</string>
+
+</resources>

@@ -18,7 +18,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.PairEditorAct
 import com.vereshchagin.nikolay.stankinschedule.schedule.list.ui.ScheduleScreen
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.ScheduleRepositoryActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.ScheduleViewerScreen
-import com.vereshchagin.nikolay.stankinschedule.schedule.widget.utils.ScheduleDeepLink
+import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.utils.ScheduleDeepLink
 
 object ScheduleNavEntry : BottomNavEntry(
     route = "schedule",
