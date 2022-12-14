@@ -4,7 +4,7 @@
     <application>
         <!-- Schedule widget -->
         <receiver
-            android:name=".ui.ScheduleWidgetProvider"
+            android:name=".ScheduleWidgetProvider"
             android:exported="false">
 
             <intent-filter>
@@ -18,11 +18,11 @@
         </receiver>
 
         <service
-            android:name=".ui.ScheduleWidgetService"
+            android:name=".ScheduleWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <activity
-            android:name=".ui.configure.ScheduleWidgetConfigureActivity"
+            android:name=".configure.ScheduleWidgetConfigureActivity"
             android:theme="@style/AppTheme"
             android:exported="false">
             <intent-filter>
