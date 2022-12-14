@@ -12,7 +12,8 @@
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@id/widget_pair_type"
         android:orientation="vertical"
-        android:paddingHorizontal="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="8dp"
         android:paddingVertical="8dp">
 
         <TextView
@@ -39,12 +40,14 @@
 
     <ImageView
         android:id="@+id/widget_pair_type"
-        android:layout_width="20dp"
+        android:layout_width="16dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/widget_pair_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:contentDescription="@null"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="8dp"
         android:src="@color/tertiary" />
 
 </RelativeLayout>
