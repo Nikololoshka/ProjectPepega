@@ -23,6 +23,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair.toColor
 @Composable
 fun ScheduleHome(
     days: List<ScheduleViewDay>,
+    onLinkClicked: (url: String) -> Unit,
     modifier: Modifier = Modifier,
     colors: PairColors = PairColorGroup.default().toColor()
 ) {
@@ -50,7 +51,7 @@ fun ScheduleHome(
                 scheduleDay = days[page],
                 pairColors = colors,
                 onPairClicked = {},
-                onLinkClicked = {},
+                onLinkClicked = onLinkClicked,
                 enabled = false,
                 modifier = Modifier
                     .fillMaxWidth()

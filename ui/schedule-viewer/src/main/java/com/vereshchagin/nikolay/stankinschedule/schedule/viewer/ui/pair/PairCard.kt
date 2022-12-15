@@ -1,15 +1,15 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair
 
 import android.widget.Toast
-import androidx.compose.foundation.*
-import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
@@ -17,7 +17,8 @@ import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.Dp
@@ -29,9 +30,12 @@ import com.google.accompanist.flowlayout.FlowRow
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Type
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.LinkContent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewPair
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.TextContent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ViewContent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.R
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.LongClickableText
 
 @Composable
 fun PairCard(
@@ -114,7 +118,6 @@ fun PairCard(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun ClassroomText(
     classroom: ViewContent,
@@ -122,8 +125,9 @@ private fun ClassroomText(
     onLinkClicked: (link: String) -> Unit,
 ) {
     when (classroom) {
-        is ViewContent.LinkContent -> {
+        is LinkContent -> {
             val context = LocalContext.current
+            // TODO("Вынести clipboardManager наверх")
             val clipboardManager = LocalClipboardManager.current
 
             val linkColor = if (isSystemInDarkTheme()) {
@@ -132,29 +136,52 @@ private fun ClassroomText(
                 Color(51, 102, 204)
             }
 
-            Text(
-                text = classroom.name,
-                style = TextStyle(
-                    fontSize = fontSize,
-                    textDecoration = TextDecoration.Underline,
-                    color = linkColor
-                ),
-                modifier = Modifier
-                    .combinedClickable(
-                        interactionSource = remember { MutableInteractionSource() },
-                        indication = null,
-                        onClick = { onLinkClicked(classroom.link) },
-                        onLongClick = {
-                            clipboardManager.setText(AnnotatedString((classroom.link)))
-                            Toast.makeText(context, R.string.link_copied, Toast.LENGTH_SHORT).show()
-                        }
-                    )
+            LongClickableText(
+                text = classroom.toAnnotatedString(fontSize, linkColor),
+                onClick = { annotation ->
+                    if (annotation.tag == "URL") {
+                        onLinkClicked(annotation.item)
+                    }
+                },
+                onLongClick = { annotation ->
+                    if (annotation.tag == "URL") {
+                        clipboardManager.setText(AnnotatedString((annotation.item)))
+                        Toast.makeText(context, R.string.link_copied, Toast.LENGTH_SHORT).show()
+                    }
+                }
             )
         }
-        is ViewContent.TextContent -> {
+        is TextContent -> {
             Text(
                 text = classroom.content,
                 fontSize = fontSize,
+            )
+        }
+    }
+}
+
+private fun LinkContent.toAnnotatedString(
+    fontSize: TextUnit,
+    linkColor: Color
+): AnnotatedString {
+    return buildAnnotatedString {
+        append(name)
+
+        for (link in links) {
+            addStyle(
+                style = SpanStyle(
+                    color = linkColor,
+                    fontSize = fontSize,
+                    textDecoration = TextDecoration.Underline
+                ),
+                start = link.position,
+                end = link.position + link.lenght
+            )
+            addStringAnnotation(
+                tag = "URL",
+                annotation = link.url,
+                start = link.position,
+                end = link.position + link.lenght
             )
         }
     }

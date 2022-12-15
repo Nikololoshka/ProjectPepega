@@ -20,6 +20,7 @@ import coil.ImageLoader
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.Stateful
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
+import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.newsImageLoader
 import com.vereshchagin.nikolay.stankinschedule.home.ui.components.schedule.ScheduleHome
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.components.NewsPost
@@ -62,6 +63,8 @@ fun HomeScreen(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
     ) { innerPadding ->
 
+        val context = LocalContext.current
+
         val favorite by viewModel.favorite.collectAsState()
         val scheduleDays by viewModel.days.collectAsState()
         val pairColorGroup by viewModel.pairColorGroup.collectAsState(PairColorGroup.default())
@@ -99,6 +102,7 @@ fun HomeScreen(
                         if (days.isNotEmpty()) {
                             ScheduleHome(
                                 days = days,
+                                onLinkClicked = { BrowserUtils.openLink(context, it) },
                                 colors = pairColors,
                                 modifier = Modifier
                                     .fillParentMaxWidth()
