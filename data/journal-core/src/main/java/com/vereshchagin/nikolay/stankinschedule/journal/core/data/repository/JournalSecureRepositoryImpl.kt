@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.journal.core.data.repository
 
 import android.content.Context
+import android.util.Log
 import androidx.core.content.edit
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
@@ -38,10 +39,28 @@ class JournalSecureRepositoryImpl @Inject constructor(
 
     @kotlin.jvm.Throws(StudentAuthorizedException::class)
     override suspend fun signIn(credentials: StudentCredentials) {
-        preferences.edit {
-            putString(LOGIN, credentials.login)
-            putString(PASSWORD, credentials.password)
+        try {
+            preferences.edit {
+                putString(LOGIN, credentials.login)
+                putString(PASSWORD, credentials.password)
+            }
+        } catch (e: StudentAuthorizedException) {
+            // Попытка убрать preference, т.к. раньше не было
+            // добавлено исключение на backup
+            tryClearPreference()
+
+            preferences.edit {
+                putString(LOGIN, credentials.login)
+                putString(PASSWORD, credentials.password)
+            }
         }
+    }
+
+    private fun tryClearPreference() {
+        context.getSharedPreferences(MODULE_JOURNAL_SECURE_PREFERENCE, Context.MODE_PRIVATE).edit {
+            clear()
+        }
+        Log.d("JournalSecureRepositoryImpl", "signIn: try clear...")
     }
 
     @kotlin.jvm.Throws(StudentAuthorizedException::class)
@@ -70,6 +89,9 @@ class JournalSecureRepositoryImpl @Inject constructor(
     }
 
     companion object {
+        /**
+         * Необходимо прописать исключения для правил backup!!!
+         */
         private const val MODULE_JOURNAL_SECURE_PREFERENCE = "module_journal_secure_preference"
         private const val LOGIN = "login"
         private const val PASSWORD = "password"
