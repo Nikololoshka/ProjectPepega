@@ -16,6 +16,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -25,6 +26,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.exceptions.
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.*
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.R
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.*
+import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.ScheduleWidget
 import kotlinx.coroutines.launch
 import com.vereshchagin.nikolay.stankinschedule.core.ui.R as R_core
 
@@ -76,8 +78,7 @@ fun PairEditorScreen(
     val date by viewModel.date.collectAsState()
 
     var scheduleError by remember { mutableStateOf<Exception?>(null) }
-    val errorScope = rememberCoroutineScope()
-    errorScope.launch {
+    LaunchedEffect(Unit) {
         viewModel.scheduleErrors.collect { scheduleError = it }
     }
 
@@ -85,6 +86,35 @@ fun PairEditorScreen(
 
     LaunchedEffect(scheduleId, pairId, mode) {
         viewModel.loadPair(scheduleId, pairId, mode)
+    }
+
+    val context = LocalContext.current
+    LaunchedEffect(pairState) {
+        when (val state = pairState) {
+            is PairEditorState.Content -> {
+                if (state.pair != null && !viewModel.isInitial) {
+                    val initial = state.pair
+
+                    titleField = initial.title
+                    lecturerField = initial.lecturer
+                    classroomField = initial.classroom
+                    typeField = initial.type
+                    subgroupField = initial.subgroup
+                    startTime = initial.time.startString()
+                    endTime = initial.time.endString()
+
+                    viewModel.setPairInitial()
+                }
+            }
+            is PairEditorState.Complete -> {
+                ScheduleWidget.updateWidgetById(context, scheduleId, true)
+                onBackClicked()
+            }
+            is PairEditorState.Error -> {
+                onBackClicked()
+            }
+            else -> {}
+        }
     }
 
     ModalBottomSheetLayout(
@@ -171,33 +201,6 @@ fun PairEditorScreen(
                 )
             }
 
-            LaunchedEffect(pairState) {
-                when (val state = pairState) {
-                    is PairEditorState.Content -> {
-                        if (state.pair != null && !viewModel.isInitial) {
-                            val initial = state.pair
-
-                            titleField = initial.title
-                            lecturerField = initial.lecturer
-                            classroomField = initial.classroom
-                            typeField = initial.type
-                            subgroupField = initial.subgroup
-                            startTime = initial.time.startString()
-                            endTime = initial.time.endString()
-
-                            viewModel.setPairInitial()
-                        }
-                    }
-                    is PairEditorState.Complete -> {
-                        onBackClicked()
-                    }
-                    is PairEditorState.Error -> {
-                        onBackClicked()
-                    }
-                    else -> {}
-                }
-            }
-
             when (pairState) {
                 is PairEditorState.Content -> {
                     EditorContent(
@@ -236,7 +239,7 @@ fun PairEditorScreen(
                 else -> {
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
+                            .fillMaxSize()
                             .padding(innerPadding)
                     ) {
                         CircularProgressIndicator(
@@ -273,8 +276,10 @@ private fun EditorContent(
     onDateNew: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val endTimesCalc by derivedStateOf {
-        endTimes.slice(startTimes.indexOf(startTime) until endTimes.size)
+    val endTimesCalc by remember {
+        derivedStateOf {
+            endTimes.slice(startTimes.indexOf(startTime) until endTimes.size)
+        }
     }
 
     Column(

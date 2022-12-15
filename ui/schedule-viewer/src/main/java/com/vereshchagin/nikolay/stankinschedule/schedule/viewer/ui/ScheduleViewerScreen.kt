@@ -23,6 +23,7 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
+import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.*
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair.ScheduleDayCard
@@ -129,6 +130,7 @@ fun ScheduleViewerScreen(
             )
         }
 
+        // TODO("Изменение имени расписания на виджете")
         renameState?.let {
             ScheduleRenameDialog(
                 currentScheduleName = currentScheduleName,
@@ -181,7 +183,7 @@ fun ScheduleViewerScreen(
                             onEditorClicked(scheduleId, pair.id)
                         },
                         onLinkClicked = { url ->
-
+                            BrowserUtils.openLink(context, url)
                         },
                         modifier = Modifier
                             .fillParentMaxWidth()

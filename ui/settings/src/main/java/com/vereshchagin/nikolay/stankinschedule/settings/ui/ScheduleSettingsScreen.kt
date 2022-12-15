@@ -3,11 +3,13 @@ package com.vereshchagin.nikolay.stankinschedule.settings.ui
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.toHEX
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorType
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair.toColor
+import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.ScheduleWidget
 import com.vereshchagin.nikolay.stankinschedule.settings.ui.components.PreferenceCategory
 import com.vereshchagin.nikolay.stankinschedule.settings.ui.components.SettingsScaffold
 import com.vereshchagin.nikolay.stankinschedule.settings.ui.components.SwitchPreference
@@ -24,7 +26,6 @@ fun ScheduleSettingsScreen(
         onBackPressed = onBackPressed,
         modifier = modifier
     ) {
-
         val isVertical by viewModel.isVerticalViewer.collectAsState(false)
 
         SwitchPreference(
@@ -42,6 +43,13 @@ fun ScheduleSettingsScreen(
         val pairColorGroup by viewModel.pairColorGroup.collectAsState(PairColorGroup.default())
         val pairColors by remember { derivedStateOf { pairColorGroup.toColor() } }
         val pairColorsDefault = PairColorGroup.default().toColor()
+
+        val context = LocalContext.current
+        LaunchedEffect(Unit) {
+            viewModel.colorChanged.collect {
+                ScheduleWidget.updateAllWidgets(context, true)
+            }
+        }
 
         ColorPreference(
             title = stringResource(R.string.lecture_color),

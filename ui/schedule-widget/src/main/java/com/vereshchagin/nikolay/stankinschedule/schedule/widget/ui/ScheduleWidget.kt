@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui
 import android.app.PendingIntent
 import android.app.TaskStackBuilder
 import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -10,18 +11,55 @@ import android.os.Build
 import android.widget.RemoteViews
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.domain.model.ScheduleWidgetData
-import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.R
+import com.vereshchagin.nikolay.stankinschedule.schedule.widget.domain.repository.ScheduleWidgetPreference
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.configure.ScheduleWidgetConfigureActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.utils.ScheduleDeepLink
+import com.vereshchagin.nikolay.stankinschedule.widget.data.repository.ScheduleWidgetPreferenceImpl
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.R as R_core
 
 object ScheduleWidget {
+
+    fun widgetPreference(context: Context): ScheduleWidgetPreference =
+        ScheduleWidgetPreferenceImpl(context)
+
+    fun updateWidgetById(context: Context, scheduleId: Long, fullUpdate: Boolean) {
+        val widgetManager = AppWidgetManager.getInstance(context)
+        val preference = widgetPreference(context)
+
+        val ids = allScheduleWidgets(context, widgetManager)
+        for (id in ids) {
+            val data = preference.loadData(id)
+            if (data != null && data.scheduleId == scheduleId) {
+                onUpdateWidget(context, widgetManager, id, data, fullUpdate)
+                return
+            }
+        }
+    }
+
+    fun updateAllWidgets(context: Context, fullUpdate: Boolean) {
+        val widgetManager = AppWidgetManager.getInstance(context)
+        val preference = widgetPreference(context)
+
+        val ids = allScheduleWidgets(context, widgetManager)
+        for (id in ids) {
+            val data = preference.loadData(id)
+            if (data != null) {
+                onUpdateWidget(context, widgetManager, id, data, fullUpdate)
+            }
+        }
+    }
+
+    private fun allScheduleWidgets(context: Context, manager: AppWidgetManager): List<Int> {
+        val componentName = ComponentName(context, ScheduleWidgetProvider::class.java)
+        return manager.getAppWidgetIds(componentName).toList()
+    }
 
     fun onUpdateWidget(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int,
-        appWidgetData: ScheduleWidgetData?
+        appWidgetData: ScheduleWidgetData?,
+        fullUpdate: Boolean
     ) {
         val views = RemoteViews(context.packageName, R.layout.widget_schedule)
 
@@ -51,7 +89,10 @@ object ScheduleWidget {
 
         // Обновление виджета
         appWidgetManager.updateAppWidget(appWidgetId, views)
-        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.widget_days)
+
+        if (fullUpdate) {
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.widget_days)
+        }
     }
 
     private fun dayPendingIntent(context: Context, appWidgetId: Int): PendingIntent {

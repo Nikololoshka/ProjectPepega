@@ -44,7 +44,7 @@ class ScheduleWidgetConfigureActivity : AppCompatActivity() {
     private fun onScheduleWidgetChanged(appWidgetId: Int, data: ScheduleWidgetData) {
         // обновляем виджет
         val appWidgetManager = AppWidgetManager.getInstance(this)
-        ScheduleWidget.onUpdateWidget(this, appWidgetManager, appWidgetId, data)
+        ScheduleWidget.onUpdateWidget(this, appWidgetManager, appWidgetId, data, true)
 
         // завершаем конфигурирование виджета
         setResult(

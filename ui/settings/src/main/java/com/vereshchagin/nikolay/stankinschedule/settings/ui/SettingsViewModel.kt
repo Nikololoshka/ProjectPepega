@@ -8,10 +8,8 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.P
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorType
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.repository.SchedulePreference
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -40,11 +38,21 @@ class SettingsViewModel @Inject constructor(
     val isVerticalViewer: Flow<Boolean> = schedulePreference.isVerticalViewer()
     val pairColorGroup: Flow<PairColorGroup> = schedulePreference.scheduleColorGroup()
 
+    private val _colorChanged = MutableSharedFlow<PairColorType>(
+        replay = 1,
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST
+    )
+    val colorChanged = _colorChanged.asSharedFlow()
+
     fun setVerticalViewer(isVertical: Boolean) {
         viewModelScope.launch { schedulePreference.setVerticalViewer(isVertical) }
     }
 
     fun setPairColor(hex: String, type: PairColorType) {
-        viewModelScope.launch { schedulePreference.setScheduleColor(hex, type) }
+        viewModelScope.launch {
+            schedulePreference.setScheduleColor(hex, type)
+            _colorChanged.emit(type)
+        }
     }
 }
