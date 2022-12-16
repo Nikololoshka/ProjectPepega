@@ -10,9 +10,9 @@ import androidx.core.graphics.ColorUtils
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.toTitleCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Type
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.PairColors
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.toColor
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair.PairColors
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair.toColor
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.domain.model.ScheduleWidgetDay
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.domain.model.ScheduleWidgetPair
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.domain.model.ScheduleWidgetPairType

@@ -1,6 +1,5 @@
-package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair
+package com.vereshchagin.nikolay.stankinschedule.schedule.core.ui
 
-import android.widget.Toast
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -16,8 +15,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
-import androidx.compose.ui.platform.LocalClipboardManager
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
@@ -33,12 +30,11 @@ import com.google.accompanist.flowlayout.FlowRow
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Type
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.components.LongClickableText
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.LinkContent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewPair
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.TextContent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ViewContent
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.R
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.LongClickableText
 
 @Composable
 fun PairCard(
@@ -46,6 +42,7 @@ fun PairCard(
     pairColors: PairColors,
     onClicked: () -> Unit,
     onLinkClicked: (link: String) -> Unit,
+    onLinkCopied: (link: String) -> Unit,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(Dimen.ContentPadding),
     enabled: Boolean = true,
@@ -102,6 +99,7 @@ fun PairCard(
                             classroom = pair.classroom,
                             fontSize = 14.sp,
                             onLinkClicked = onLinkClicked,
+                            onLinkCopied = onLinkCopied,
                             onClicked = onClicked,
                             interactionSource = interactionSource
                         )
@@ -133,14 +131,11 @@ private fun ClassroomText(
     fontSize: TextUnit,
     onClicked: () -> Unit,
     onLinkClicked: (link: String) -> Unit,
+    onLinkCopied: (link: String) -> Unit,
     interactionSource: MutableInteractionSource
 ) {
     when (classroom) {
         is LinkContent -> {
-            val context = LocalContext.current
-            // TODO("Вынести clipboardManager наверх")
-            val clipboardManager = LocalClipboardManager.current
-
             val linkColor = if (isSystemInDarkTheme()) {
                 Color(113, 170, 235)
             } else {
@@ -158,8 +153,7 @@ private fun ClassroomText(
                 },
                 onLongClick = { annotation ->
                     if (annotation?.tag == "URL") {
-                        clipboardManager.setText(AnnotatedString((annotation.item)))
-                        Toast.makeText(context, R.string.link_copied, Toast.LENGTH_SHORT).show()
+                        onLinkCopied(annotation.item)
                     }
                 },
                 interactionSource = interactionSource

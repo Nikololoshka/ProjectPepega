@@ -24,8 +24,8 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.newsImageLoader
 import com.vereshchagin.nikolay.stankinschedule.home.ui.components.schedule.ScheduleHome
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.components.NewsPost
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.toColor
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair.toColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

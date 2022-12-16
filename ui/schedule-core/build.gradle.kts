@@ -20,8 +20,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -42,7 +44,7 @@ android {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
-    namespace = "com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui"
+    namespace = "com.vereshchagin.nikolay.stankinschedule.schedule.core.ui"
 }
 
 // Allow references to generated code
@@ -56,36 +58,21 @@ hilt {
 
 dependencies {
     implementation(project(":ui:core"))
-    implementation(project(":ui:schedule-core"))
-
     implementation(project(":domain:core"))
     implementation(project(":domain:schedule-core"))
     implementation(project(":domain:schedule-viewer"))
     implementation(project(":domain:schedule-settings"))
 
-    // Kotlin
+    // Core
     implementation(libs.androidx.core)
 
     // Jetpack Compose & Material 3
     implementation(libs.bundles.compose)
     implementation(libs.compose.material3)
-    implementation(libs.compose.paging)
-    implementation(libs.compose.activity)
-
-    implementation(libs.accompanist.permission)
     implementation(libs.accompanist.flowLayout)
 
     // Components
-    implementation(libs.androidx.lifecycle.viewmodel)
-    implementation(libs.androidx.lifecycle.java8)
-    implementation(libs.androidx.paging)
     implementation(libs.ui.material)
-
-    // Snapper
-    implementation(libs.other.snapper)
-
-    // Network
-    implementation(libs.network.gson)
 
     // DI
     implementation(libs.hilt.android)

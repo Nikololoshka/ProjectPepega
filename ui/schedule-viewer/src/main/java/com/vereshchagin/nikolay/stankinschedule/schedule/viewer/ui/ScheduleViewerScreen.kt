@@ -1,10 +1,10 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
 import android.os.Build
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
 import androidx.compose.foundation.rememberScrollState
@@ -13,8 +13,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
@@ -24,21 +26,19 @@ import com.google.accompanist.permissions.rememberPermissionState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.ScheduleDayCard
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.toColor
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.*
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair.ScheduleDayCard
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair.toColor
 import dev.chrisbanes.snapper.ExperimentalSnapperApi
 import dev.chrisbanes.snapper.SnapOffsets
 import dev.chrisbanes.snapper.SnapperLayoutInfo
 import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.joda.time.LocalDate
 
 @OptIn(
-    ExperimentalMaterial3Api::class, ExperimentalSnapperApi::class,
-    ExperimentalPermissionsApi::class, ExperimentalFoundationApi::class,
-    ExperimentalCoroutinesApi::class
+    ExperimentalMaterial3Api::class,
+    ExperimentalPermissionsApi::class
 )
 @Composable
 fun ScheduleViewerScreen(
@@ -67,6 +67,8 @@ fun ScheduleViewerScreen(
     }
 
     val context = LocalContext.current
+    val clipboardManager = LocalClipboardManager.current
+
     val writeScheduleLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.CreateDocument("application/json"),
         onResult = {
@@ -184,6 +186,10 @@ fun ScheduleViewerScreen(
                         },
                         onLinkClicked = { url ->
                             BrowserUtils.openLink(context, url)
+                        },
+                        onLinkCopied = {
+                            clipboardManager.setText(AnnotatedString((it)))
+                            Toast.makeText(context, R.string.link_copied, Toast.LENGTH_SHORT).show()
                         },
                         modifier = Modifier
                             .fillParentMaxWidth()

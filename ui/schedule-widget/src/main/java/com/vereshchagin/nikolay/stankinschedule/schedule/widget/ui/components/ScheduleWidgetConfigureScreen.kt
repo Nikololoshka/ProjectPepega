@@ -17,7 +17,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.widget.domain.model.Sch
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.domain.model.ScheduleWidgetData
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.R
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.configure.ScheduleWidgetConfigureViewModel
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.R as R_core
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.R as R_core
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

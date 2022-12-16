@@ -59,8 +59,8 @@ dependencies {
     implementation(project(":ui:core"))
     implementation(project(":domain:core"))
 
+    implementation(project(":ui:schedule-core"))
     implementation(project(":ui:schedule-widget"))
-    implementation(project(":ui:schedule-viewer"))
     implementation(project(":domain:schedule-settings"))
 
     // Kotlin

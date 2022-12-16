@@ -40,6 +40,7 @@ include(
     ":ui:journal-predict",
     ":ui:news-review",
     ":ui:news-viewer",
+    ":ui:schedule-core",
     ":ui:schedule-list",
     ":ui:schedule-viewer",
     ":ui:schedule-creator",

@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair
+package com.vereshchagin.nikolay.stankinschedule.schedule.core.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,7 +12,6 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.toTitleCase
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewPair
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.R
 
 @Composable
 fun ScheduleDayCard(
@@ -20,6 +19,7 @@ fun ScheduleDayCard(
     pairColors: PairColors,
     onPairClicked: (pair: ScheduleViewPair) -> Unit,
     onLinkClicked: (link: String) -> Unit,
+    onLinkCopied: (link: String) -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
@@ -52,6 +52,7 @@ fun ScheduleDayCard(
                 onClicked = { onPairClicked(pair) },
                 enabled = enabled,
                 onLinkClicked = onLinkClicked,
+                onLinkCopied = onLinkCopied,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(Dimen.ContentPadding)

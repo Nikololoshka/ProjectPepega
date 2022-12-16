@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.home.ui.components.schedule
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -7,17 +8,21 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
+import com.vereshchagin.nikolay.stankinschedule.home.ui.R
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.PairColors
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.ScheduleDayCard
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.toColor
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair.PairColors
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair.ScheduleDayCard
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair.toColor
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
@@ -31,6 +36,10 @@ fun ScheduleHome(
     val isScrolling = remember(pagerState) {
         derivedStateOf { pagerState.currentPageOffset != 0f }
     }
+
+
+    val context = LocalContext.current
+    val clipboardManager = LocalClipboardManager.current
 
     Column(modifier = modifier) {
 
@@ -52,6 +61,10 @@ fun ScheduleHome(
                 pairColors = colors,
                 onPairClicked = {},
                 onLinkClicked = onLinkClicked,
+                onLinkCopied = {
+                    clipboardManager.setText(AnnotatedString((it)))
+                    Toast.makeText(context, R.string.link_copied, Toast.LENGTH_SHORT).show()
+                },
                 enabled = false,
                 modifier = Modifier
                     .fillMaxWidth()

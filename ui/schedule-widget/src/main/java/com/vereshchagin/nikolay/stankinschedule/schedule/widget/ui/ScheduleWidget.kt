@@ -15,7 +15,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.widget.domain.repositor
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.configure.ScheduleWidgetConfigureActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.utils.ScheduleDeepLink
 import com.vereshchagin.nikolay.stankinschedule.widget.data.repository.ScheduleWidgetPreferenceImpl
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.R as R_core
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.R as R_core
 
 object ScheduleWidget {
 

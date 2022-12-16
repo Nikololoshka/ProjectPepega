@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.pair
+package com.vereshchagin.nikolay.stankinschedule.schedule.core.ui
 
 import androidx.compose.ui.graphics.Color
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.parse
