@@ -1,6 +1,8 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components
 
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -20,28 +22,38 @@ fun LongClickableText(
     softWrap: Boolean = false,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
-    onClick: (annotation: AnnotatedString.Range<String>) -> Unit,
-    onLongClick: (annotation: AnnotatedString.Range<String>) -> Unit
+    interactionSource: MutableInteractionSource,
+    onClick: (annotation: AnnotatedString.Range<String>?) -> Unit,
+    onLongClick: (annotation: AnnotatedString.Range<String>?) -> Unit
 ) {
     val layoutResult = remember { mutableStateOf<TextLayoutResult?>(null) }
-    val gesture = Modifier.pointerInput(onLongClick) {
+    val gesture = Modifier.pointerInput(onClick, onLongClick, interactionSource) {
         detectTapGestures(
             onLongPress = { pos ->
                 layoutResult.value?.let { layout ->
                     val offset = layout.getOffsetForPosition(pos)
                     val annotation = text.getStringAnnotations(offset, offset).firstOrNull()
-                    if (annotation != null) {
-                        onLongClick(annotation)
-                    }
+                    onLongClick(annotation)
                 }
             },
             onTap = { pos ->
                 layoutResult.value?.let { layout ->
                     val offset = layout.getOffsetForPosition(pos)
                     val annotation = text.getStringAnnotations(offset, offset).firstOrNull()
-                    if (annotation != null) {
-                        onClick(annotation)
-                    }
+                    onClick(annotation)
+                }
+            },
+            onPress = { pos ->
+                val annotation = layoutResult.value?.let { layout ->
+                    val offset = layout.getOffsetForPosition(pos)
+                    text.getStringAnnotations(offset, offset).firstOrNull()
+                }
+
+                if (annotation == null) {
+                    val press = PressInteraction.Press(pos)
+                    interactionSource.emit(press)
+                    awaitRelease()
+                    interactionSource.emit(PressInteraction.Release(press))
                 }
             }
         )
