@@ -6,7 +6,7 @@ import androidx.annotation.StringRes
 import androidx.core.app.NotificationManagerCompat
 import androidx.hilt.work.HiltWorker
 import androidx.work.*
-import com.vereshchagin.nikolay.stankinschedule.core.data.notification.NotificationUtils
+import com.vereshchagin.nikolay.stankinschedule.core.ui.notification.NotificationUtils
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.model.RepositoryItem
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.usecase.RepositoryLoaderUseCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.BuildConfig
@@ -44,7 +44,7 @@ class ScheduleDownloadWorker @AssistedInject constructor(
             .setSmallIcon(R.drawable.ic_notification_file_download)
 
         // уведомление о начале загрузки
-        NotificationUtils.notifyCommon(
+        NotificationUtils.notify(
             applicationContext, manager, notificationId,
             notificationBuilder
                 .setWhen(DateTimeUtils.currentTimeMillis())
@@ -57,7 +57,7 @@ class ScheduleDownloadWorker @AssistedInject constructor(
             loaderUseCase.loadSchedule(scheduleCategory, schedulePath, scheduleName, replaceExist)
 
             // уведомление об окончании загрузки
-            NotificationUtils.notifyCommon(
+            NotificationUtils.notify(
                 applicationContext, manager, notificationId,
                 notificationBuilder
                     .setWhen(DateTimeUtils.currentTimeMillis())
@@ -69,7 +69,7 @@ class ScheduleDownloadWorker @AssistedInject constructor(
 
         } catch (e: Exception) {
             // ошибка загрузки
-            NotificationUtils.notifyCommon(
+            NotificationUtils.notify(
                 applicationContext,
                 manager,
                 notificationId,
