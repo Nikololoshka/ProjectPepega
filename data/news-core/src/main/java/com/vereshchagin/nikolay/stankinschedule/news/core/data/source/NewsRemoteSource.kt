@@ -1,13 +1,14 @@
 package com.vereshchagin.nikolay.stankinschedule.news.core.data.source
 
+import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsRemoteRepository
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsStorageRepository
-import kotlin.math.roundToInt
 
 @OptIn(ExperimentalPagingApi::class)
 class NewsRemoteSource(
@@ -25,11 +26,15 @@ class NewsRemoteSource(
         state: PagingState<Int, NewsPost>,
     ): MediatorResult {
         return try {
-            val page = (when (loadType) {
-                LoadType.REFRESH -> null
+            val page = when (loadType) {
+                LoadType.REFRESH -> 1
                 LoadType.PREPEND -> return MediatorResult.Success(true)
-                LoadType.APPEND -> state.anchorPosition?.div(state.config.pageSize.toDouble())
-            } ?: 0.0).roundToInt() + 1
+                LoadType.APPEND -> state.pages.size + 1
+            }
+
+            if (BuildConfig.DEBUG) {
+                Log.d("NewsRemoteSource", "load=$newsSubdivision, page=$page}")
+            }
 
             val response = remoteRepository.loadPage(newsSubdivision, page, state.config.pageSize)
             storageRepository.saveNews(newsSubdivision, response, loadType == LoadType.REFRESH)

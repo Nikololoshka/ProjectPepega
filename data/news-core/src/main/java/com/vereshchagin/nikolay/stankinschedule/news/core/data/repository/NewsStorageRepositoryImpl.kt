@@ -2,7 +2,6 @@ package com.vereshchagin.nikolay.stankinschedule.news.core.data.repository
 
 import androidx.paging.PagingSource
 import androidx.room.withTransaction
-import com.vereshchagin.nikolay.stankinschedule.core.data.mapper.transform
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.db.NewsDao
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.db.NewsDatabase
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.mapper.toEntity
@@ -19,7 +18,7 @@ class NewsStorageRepositoryImpl @Inject constructor(
 ) : NewsStorageRepository {
 
     override fun news(newsSubdivision: Int): PagingSource<Int, NewsPost> {
-        return dao.all(newsSubdivision).transform(mapper = { it.toPost() })
+        return dao.all(newsSubdivision) // .transform(mapper = { it.toPost() })
     }
 
     override fun lastNews(newsCount: Int): Flow<List<NewsPost>> {

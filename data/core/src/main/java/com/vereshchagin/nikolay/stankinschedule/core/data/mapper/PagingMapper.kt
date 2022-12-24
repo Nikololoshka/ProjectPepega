@@ -11,14 +11,7 @@ class PagingSourceMapper<K : Any, V : Any, R : Any>(
     override val jumpingSupported: Boolean get() = oldSource.jumpingSupported
 
     override fun getRefreshKey(state: PagingState<K, R>): K? {
-        return oldSource.getRefreshKey(
-            PagingState(
-                pages = emptyList(),
-                leadingPlaceholderCount = 0,
-                anchorPosition = state.anchorPosition,
-                config = state.config,
-            )
-        )
+        return state.pages.lastOrNull()?.nextKey
     }
 
     override suspend fun load(params: LoadParams<K>): LoadResult<K, R> {

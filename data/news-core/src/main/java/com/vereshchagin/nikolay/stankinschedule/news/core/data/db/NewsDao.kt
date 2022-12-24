@@ -1,10 +1,8 @@
 package com.vereshchagin.nikolay.stankinschedule.news.core.data.db
 
 import androidx.paging.PagingSource
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsPost
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -24,8 +22,17 @@ interface NewsDao {
      * Возвращает список (DataSource) за кэшированных новостей.
      * @param newsSubdivision номер отдела новостей.
      */
-    @Query("SELECT * FROM news_posts WHERE news_subdivision = :newsSubdivision ORDER BY index_order ASC")
-    fun all(newsSubdivision: Int): PagingSource<Int, NewsEntity>
+    @Query(
+        """
+        SELECT 
+            id as id, 
+            title as title, 
+            logo as previewImageUrl, 
+            date as date 
+        FROM news_posts WHERE news_subdivision = :newsSubdivision ORDER BY index_order ASC
+        """
+    )
+    fun all(newsSubdivision: Int): PagingSource<Int, NewsPost>
 
     /**
      * Возвращает список (DataSource) из последних нескольких элементов.

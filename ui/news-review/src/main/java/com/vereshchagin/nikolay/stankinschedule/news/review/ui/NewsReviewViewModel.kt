@@ -30,7 +30,7 @@ class NewsReviewViewModel @Inject constructor(
             config = PagingConfig(
                 pageSize = 40,
                 enablePlaceholders = false,
-                initialLoadSize = 40
+                initialLoadSize = 40,
             ),
             remoteMediator = useCase.newsMediator(newsSubdivision),
             pagingSourceFactory = { useCase.news(newsSubdivision) }
