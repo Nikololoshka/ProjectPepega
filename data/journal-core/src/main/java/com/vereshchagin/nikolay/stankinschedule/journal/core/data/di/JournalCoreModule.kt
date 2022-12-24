@@ -9,17 +9,17 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
-@InstallIn(ViewModelComponent::class)
+@InstallIn(ViewModelComponent::class, SingletonComponent::class)
 object JournalCoreModule {
 
     @Provides
-    @ViewModelScoped
+    // Unscoped
     fun provideModuleJournalService(client: OkHttpClient): ModuleJournalAPI {
         return Retrofit.Builder()
             .baseUrl(Constants.MODULE_JOURNAL_URL)
@@ -30,32 +30,37 @@ object JournalCoreModule {
     }
 
     @Provides
-    @ViewModelScoped
+    // Unscoped
     fun provideServiceRepository(
         repository: JournalServiceRepositoryImpl,
     ): JournalServiceRepository = repository
 
     @Provides
-    @ViewModelScoped
+    // Unscoped
     fun provideStorageRepository(
         repository: JournalStorageRepositoryImpl,
     ): JournalStorageRepository = repository
 
     @Provides
-    @ViewModelScoped
+    // Unscoped
     fun provideSecureRepository(
         repository: JournalSecureRepositoryImpl,
     ): JournalSecureRepository = repository
 
     @Provides
-    @ViewModelScoped
+    // Unscoped
     fun provideJournalRepository(
         repository: JournalRepositoryImpl,
     ): JournalRepository = repository
 
     @Provides
-    @ViewModelScoped
+    // Unscoped
     fun providePagingRepository(
         repository: JournalPagingRepositoryImpl,
     ): JournalPagingRepository = repository
+
+    @Provides
+    fun provideJournalPreference(
+        preference: JournalPreferenceImpl
+    ): JournalPreference = preference
 }

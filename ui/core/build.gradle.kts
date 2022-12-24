@@ -51,6 +51,8 @@ dependencies {
     implementation(libs.compose.paging)
     implementation(libs.compose.coil)
 
+    implementation(libs.accompanist.permission)
+
     implementation(libs.androidx.paging)
 
     // Components

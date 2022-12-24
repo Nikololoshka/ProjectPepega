@@ -6,7 +6,7 @@ import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.model.Studen
 
 interface JournalRepository {
 
-    suspend fun student(useCache: Boolean = true): Student?
+    suspend fun student(useCache: Boolean = true): Student
 
     suspend fun semesterMarks(
         semester: String,

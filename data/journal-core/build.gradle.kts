@@ -48,6 +48,9 @@ dependencies {
     // Kotlin
     implementation(libs.androidx.core)
 
+    // Store
+    implementation(libs.androidx.datastore)
+
     // Paging
     implementation(libs.androidx.paging)
 

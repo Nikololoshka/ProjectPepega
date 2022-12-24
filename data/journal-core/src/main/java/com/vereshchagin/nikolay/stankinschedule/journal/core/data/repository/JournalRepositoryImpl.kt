@@ -4,7 +4,6 @@ import android.util.Log
 import com.vereshchagin.nikolay.stankinschedule.core.domain.ext.subHours
 import com.vereshchagin.nikolay.stankinschedule.core.domain.ext.subMinutes
 import com.vereshchagin.nikolay.stankinschedule.journal.core.data.BuildConfig
-import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.exceptions.StudentAuthorizedException
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.model.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.model.Student
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.repository.JournalRepository
@@ -24,7 +23,7 @@ class JournalRepositoryImpl @Inject constructor(
 
     private val semesterLocker = Mutex()
 
-    override suspend fun student(useCache: Boolean): Student? {
+    override suspend fun student(useCache: Boolean): Student {
 
         val cache = storage.loadStudent()
         if (cache != null && useCache && (cache.cacheTime subHours DateTime.now() < 24)) {
@@ -36,16 +35,11 @@ class JournalRepositoryImpl @Inject constructor(
             return cache.data
         }
 
-        return try {
-            val studentCredentials = secure.signCredentials()
-            val student = service.loadSemesters(studentCredentials)
-            storage.saveStudent(student)
+        val studentCredentials = secure.signCredentials()
+        val student = service.loadSemesters(studentCredentials)
+        storage.saveStudent(student)
 
-            student
-
-        } catch (e: StudentAuthorizedException) {
-            null
-        }
+        return student
     }
 
     override suspend fun semesterMarks(

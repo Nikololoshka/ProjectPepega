@@ -48,6 +48,8 @@ dependencies {
     implementation(libs.androidx.paging)
     implementation(libs.androidx.preference)
 
+    implementation(libs.bundles.network)
+
     // DI
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)

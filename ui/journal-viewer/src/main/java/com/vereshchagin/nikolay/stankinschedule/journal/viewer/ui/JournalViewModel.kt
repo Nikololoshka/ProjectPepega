@@ -29,6 +29,8 @@ class JournalViewModel @Inject constructor(
     private val _isSignIn = MutableStateFlow(true)
     val isSignIn = _isSignIn.asStateFlow()
 
+    val isNotification = journal.isUpdateMarksAllow()
+
     private val _student = MutableStateFlow<UIState<Student>>(UIState.loading())
     val student = _student.asStateFlow()
 
@@ -116,6 +118,12 @@ class JournalViewModel @Inject constructor(
             }
 
             updateStudentInfo(useCache = useCache)
+        }
+    }
+
+    fun setUpdateMarksAllow(allow: Boolean) {
+        viewModelScope.launch {
+            journal.setUpdateMarksAllow(allow)
         }
     }
 

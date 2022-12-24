@@ -67,6 +67,11 @@ dependencies {
     implementation(libs.androidx.paging)
     implementation(libs.ui.material)
 
+    // Worker
+    implementation(libs.work.runtime)
+    implementation(libs.work.hilt)
+    kapt(libs.work.hiltCompiler)
+
     // DI
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)

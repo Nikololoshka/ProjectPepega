@@ -12,6 +12,8 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.R as R_core
 @Composable
 fun JournalToolBar(
     onPredictAction: () -> Unit,
+    isNotification: Boolean,
+    onNotificationAction: () -> Unit,
     onSignOutAction: () -> Unit,
     modifier: Modifier = Modifier,
     title: String = stringResource(R.string.journal_title),
@@ -30,6 +32,17 @@ fun JournalToolBar(
             IconButton(onClick = onPredictAction) {
                 Icon(
                     painter = painterResource(R.drawable.ic_predict),
+                    contentDescription = null
+                )
+            }
+
+            IconButton(onClick = onNotificationAction) {
+                Icon(
+                    painter = if (isNotification) {
+                        painterResource(R_core.drawable.ic_notifications_on)
+                    } else {
+                        painterResource(R_core.drawable.ic_notifications_off)
+                    },
                     contentDescription = null
                 )
             }

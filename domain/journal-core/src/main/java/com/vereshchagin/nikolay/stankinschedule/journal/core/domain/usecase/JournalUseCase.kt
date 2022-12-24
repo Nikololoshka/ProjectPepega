@@ -4,6 +4,7 @@ import androidx.paging.PagingSource
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.model.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.model.Student
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.repository.JournalPagingRepository
+import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.repository.JournalPreference
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.repository.JournalRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -13,8 +14,13 @@ import javax.inject.Inject
 
 class JournalUseCase @Inject constructor(
     private val journal: JournalRepository,
-    private val paging: JournalPagingRepository
+    private val paging: JournalPagingRepository,
+    private val preference: JournalPreference
 ) {
+    fun isUpdateMarksAllow(): Flow<Boolean> = preference.isUpdateMarksAllow()
+
+    suspend fun setUpdateMarksAllow(allow: Boolean) = preference.setUpdateMarksAllow(allow)
+
     fun semesterSource(student: Student): PagingSource<String, SemesterMarks> {
         return paging.semesterSource(
             journal = journal,

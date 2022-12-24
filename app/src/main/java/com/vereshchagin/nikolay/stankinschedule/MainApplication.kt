@@ -24,11 +24,20 @@ class MainApplication : Application(), Configuration.Provider {
     override fun onCreate() {
         super.onCreate()
 
+        if (BuildConfig.DEBUG) {
+            // StrictMode.enableDefaults()
+        }
+
         updateDarkMode()
     }
 
     override fun getWorkManagerConfiguration(): Configuration {
         return Configuration.Builder()
+            .apply {
+                if (BuildConfig.DEBUG) {
+                    setMinimumLoggingLevel(android.util.Log.DEBUG)
+                }
+            }
             .setWorkerFactory(workerFactory)
             .build()
     }

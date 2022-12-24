@@ -11,7 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
@@ -22,10 +24,13 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.NotificationUpdateDialog
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.Stateful
-import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.rememberNotificationUpdateState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
+import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.journal.viewer.ui.components.*
+import com.vereshchagin.nikolay.stankinschedule.journal.viewer.ui.worker.JournalMarksUpdateWorker
 
 
 @OptIn(ExperimentalPagerApi::class, ExperimentalFoundationApi::class,
@@ -60,13 +65,27 @@ fun JournalScreen(
         state = rememberTopAppBarState()
     )
 
+    val context = LocalContext.current
+    val isNotification by viewModel.isNotification.collectAsState(false)
+    LaunchedEffect(isNotification) {
+        if (isNotification) {
+            JournalMarksUpdateWorker.startWorker(context)
+        } else {
+            JournalMarksUpdateWorker.cancelWorker(context)
+        }
+    }
+    val notificationState = rememberNotificationUpdateState(
+        isEnabled = isNotification,
+        onChanged = viewModel::setUpdateMarksAllow
+    )
+
     Scaffold(
         topBar = {
             JournalToolBar(
                 onPredictAction = navigateToPredict,
-                onSignOutAction = {
-                    viewModel.signOut()
-                },
+                isNotification = isNotification,
+                onNotificationAction = notificationState::showDialog,
+                onSignOutAction = viewModel::signOut,
                 scrollBehavior = scrollBehavior,
             )
         },
@@ -81,6 +100,12 @@ fun JournalScreen(
                     onRefresh = { viewModel.refreshStudentInfo(useCache = false) },
                     modifier = Modifier.padding(innerPadding)
                 ) {
+                    NotificationUpdateDialog(
+                        title = stringResource(R.string.notification_journal_title),
+                        content = stringResource(R.string.notification_journal_text),
+                        state = notificationState
+                    )
+
                     LazyColumn(
                         state = lazyCollapseState,
                         modifier = modifier
