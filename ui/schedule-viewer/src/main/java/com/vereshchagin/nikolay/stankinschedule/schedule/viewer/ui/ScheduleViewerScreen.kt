@@ -1,9 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
-import android.os.Build
 import android.widget.Toast
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
@@ -21,8 +18,6 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.isGranted
-import com.google.accompanist.permissions.rememberPermissionState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
@@ -69,20 +64,11 @@ fun ScheduleViewerScreen(
     val context = LocalContext.current
     val clipboardManager = LocalClipboardManager.current
 
-    val writeScheduleLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.CreateDocument("application/json"),
-        onResult = {
+    val saveState = rememberScheduleSaveController(
+        fileName = currentScheduleName,
+        onPickerResult = {
             if (it != null) {
                 viewModel.saveToDevice(it)
-            }
-        }
-    )
-
-    val writePermission = rememberPermissionState(
-        permission = android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        onPermissionResult = { isGrand ->
-            if (isGrand) {
-                writeScheduleLauncher.launch(currentScheduleName)
             }
         }
     )
@@ -100,21 +86,14 @@ fun ScheduleViewerScreen(
                 onAddClicked = { onEditorClicked(scheduleId, null) },
                 onRenameSchedule = { viewModel.onRenameEvent(RenameEvent.Rename) },
                 onRemoveSchedule = { isRemoveSchedule = true },
-                onSaveToDevice = {
-                    // TODO(Доделать окна по показу доступа к записи)
-                    writeScheduleLauncher.launch(currentScheduleName)
-
-                    if (writePermission.status.isGranted || Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                        writeScheduleLauncher.launch(currentScheduleName)
-                    } else {
-                        writePermission.launchPermissionRequest()
-                    }
-                }
+                onSaveToDevice = { saveState.save() }
             )
         },
         contentWindowInsets = WindowInsets.Zero,
         modifier = modifier
     ) { innerPadding ->
+
+        ScheduleSaveDialogs(state = saveState)
 
         if (isDaySelector) {
             CalendarDialog(
