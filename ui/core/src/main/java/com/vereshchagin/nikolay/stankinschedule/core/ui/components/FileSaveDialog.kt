@@ -1,6 +1,7 @@
-package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components
+package com.vereshchagin.nikolay.stankinschedule.core.ui.components
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -14,19 +15,19 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.google.accompanist.permissions.*
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.R
-import com.vereshchagin.nikolay.stankinschedule.core.ui.R as R_core
+import com.vereshchagin.nikolay.stankinschedule.core.ui.R
 
 
 @OptIn(ExperimentalPermissionsApi::class)
-class ScheduleSaveState internal constructor(
+class FileSaveState internal constructor(
     private val launchPicker: () -> Unit,
+    private val launchData: MutableState<String>,
     internal val permission: PermissionState,
     internal val showDeniedDialog: MutableState<Boolean>,
+    internal val showRationaleDialog: MutableState<Boolean>
 ) {
-    internal var showRationaleDialog = mutableStateOf(false)
-
-    fun save() {
+    fun save(fileName: String, fileType: String) {
+        launchData.value = "$fileName;$fileType"
         when {
             isGranted() -> launchPicker()
             permission.status.shouldShowRationale -> showRationaleDialog.value = true
@@ -35,24 +36,33 @@ class ScheduleSaveState internal constructor(
     }
 
     private fun isGranted(): Boolean {
-        return permission.status.isGranted || Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+        return permission.status.isGranted || Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+    }
+}
+
+private class CreateDocument : ActivityResultContracts.CreateDocument("*/*") {
+    override fun createIntent(context: Context, input: String): Intent {
+        val (startPath, type) = input.split(";")
+        return super.createIntent(context, startPath)
+            .setType(type)
     }
 }
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
-fun rememberScheduleSaveController(
-    fileName: String,
+fun rememberFileSaveState(
     onPickerResult: (uri: Uri?) -> Unit
-): ScheduleSaveState {
+): FileSaveState {
 
     val writeScheduleLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.CreateDocument("application/json"),
+        contract = CreateDocument(),
         onResult = onPickerResult
     )
 
-    val launchPicker = { writeScheduleLauncher.launch(fileName) }
+    val launchData = remember { mutableStateOf("") }
+    val launchPicker = { writeScheduleLauncher.launch(launchData.value) }
     val showDeniedDialog = remember { mutableStateOf(false) }
+    val showRationaleDialog = remember { mutableStateOf(false) }
 
     val writePermission = rememberPermissionState(
         permission = Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -62,18 +72,20 @@ fun rememberScheduleSaveController(
     )
 
     return remember(launchPicker) {
-        ScheduleSaveState(
+        FileSaveState(
             launchPicker = launchPicker,
+            launchData = launchData,
             permission = writePermission,
-            showDeniedDialog = showDeniedDialog
+            showDeniedDialog = showDeniedDialog,
+            showRationaleDialog = showRationaleDialog
         )
     }
 }
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
-fun ScheduleSaveDialogs(
-    state: ScheduleSaveState
+fun FileSaveDialogs(
+    state: FileSaveState
 ) {
     if (state.showRationaleDialog.value) {
         AlertDialog(
@@ -87,7 +99,7 @@ fun ScheduleSaveDialogs(
                         state.permission.launchPermissionRequest()
                     }
                 ) {
-                    Text(text = stringResource(R_core.string.ok))
+                    Text(text = stringResource(R.string.ok))
                 }
             }
         )
@@ -110,7 +122,7 @@ fun ScheduleSaveDialogs(
                         context.startActivity(intent)
                     }
                 ) {
-                    Text(text = stringResource(R.string.permisson_write_to_settings))
+                    Text(text = stringResource(R.string.permission_write_to_settings))
                 }
             }
         )

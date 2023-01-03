@@ -25,9 +25,9 @@ class JournalMarksUpdateWorker @AssistedInject constructor(
         try {
             val manager = NotificationManagerCompat.from(applicationContext)
             val (student, newSemesters) = useCase.updateSemesters()
-            //if (newSemesters.isNotEmpty()) {
-            sendSemestersNotification(manager, newSemesters)
-            //}
+            if (newSemesters.isNotEmpty()) {
+                sendSemestersNotification(manager, newSemesters)
+            }
 
             if (student != null) {
                 val lastSemester = student.semesters.lastOrNull()
@@ -107,9 +107,9 @@ class JournalMarksUpdateWorker @AssistedInject constructor(
             val manager = WorkManager.getInstance(context)
 
             val workerClass = JournalMarksUpdateWorker::class.java
-            val worker = PeriodicWorkRequest.Builder(workerClass, 30, TimeUnit.MINUTES)
+            val worker = PeriodicWorkRequest.Builder(workerClass, 2, TimeUnit.HOURS)
                 .addTag(TAG)
-                .setInitialDelay(30, TimeUnit.MINUTES)
+                .setInitialDelay(1, TimeUnit.HOURS)
                 .setConstraints(
                     Constraints.Builder()
                         .setRequiredNetworkType(NetworkType.CONNECTED)
@@ -117,7 +117,7 @@ class JournalMarksUpdateWorker @AssistedInject constructor(
                 )
                 .build()
 
-            manager.enqueueUniquePeriodicWork(TAG, ExistingPeriodicWorkPolicy.REPLACE, worker)
+            manager.enqueueUniquePeriodicWork(TAG, ExistingPeriodicWorkPolicy.KEEP, worker)
         }
 
         fun cancelWorker(context: Context) {

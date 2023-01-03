@@ -21,10 +21,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowRow
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.OutlinedSelectField
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.exceptions.PairIntersectException
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.*
-import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.R
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.*
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.ScheduleWidget
 import kotlinx.coroutines.launch

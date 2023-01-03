@@ -113,6 +113,13 @@ class ScheduleModel(val info: ScheduleInfo) : Iterable<PairModel> {
     }
 
     /**
+     * Возвращает список пар, которые есть в заданный день недели.
+     */
+    fun pairsByDay(dayOfWeek: DayOfWeek): List<PairModel> {
+        return dayFor(dayOfWeek).toList()
+    }
+
+    /**
      * Возвращает список пар, которые есть в заданный день.
      */
     fun pairsByDate(date: LocalDate): List<PairModel> {

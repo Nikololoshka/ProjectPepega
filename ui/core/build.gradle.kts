@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.compose.paging)
     implementation(libs.compose.coil)
+    implementation(libs.compose.activity)
 
     implementation(libs.accompanist.permission)
 

@@ -141,6 +141,7 @@ fun ScheduleScreen(
             LazyColumn(
                 state = reorderState.listState,
                 verticalArrangement = Arrangement.spacedBy(2.dp),
+                contentPadding = PaddingValues(bottom = 72.dp),
                 modifier = Modifier
                     .fillMaxSize()
                     .reorderable(reorderState)

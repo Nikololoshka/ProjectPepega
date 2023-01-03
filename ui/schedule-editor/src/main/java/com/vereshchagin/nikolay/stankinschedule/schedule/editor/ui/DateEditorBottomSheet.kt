@@ -19,6 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.OutlinedSelectField
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.exceptions.DateDayOfWeekException
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.exceptions.DateFrequencyException
@@ -28,7 +29,10 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.DateI
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.DateRange
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.DateSingle
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Frequency
-import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.*
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.DateEditorRequest
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.DateError
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.DateRequest
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.OutlinedDateField
 
 
 private const val SINGLE_DATE_ID = "single_date"

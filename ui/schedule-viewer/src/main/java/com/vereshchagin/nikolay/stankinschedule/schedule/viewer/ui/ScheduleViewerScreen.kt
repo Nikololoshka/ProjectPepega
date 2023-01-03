@@ -12,13 +12,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.FileSaveDialogs
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.rememberFileSaveState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.ScheduleDayCard
@@ -31,10 +33,7 @@ import dev.chrisbanes.snapper.SnapperLayoutInfo
 import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
 import org.joda.time.LocalDate
 
-@OptIn(
-    ExperimentalMaterial3Api::class,
-    ExperimentalPermissionsApi::class
-)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScheduleViewerScreen(
     scheduleId: Long,
@@ -43,6 +42,7 @@ fun ScheduleViewerScreen(
     viewModel: ScheduleViewerViewModel,
     onBackPressed: () -> Unit,
     onEditorClicked: (scheduleId: Long, pairId: Long?) -> Unit,
+    onTableViewClicked: (scheduleId: Long) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     LaunchedEffect(scheduleId) {
@@ -64,8 +64,7 @@ fun ScheduleViewerScreen(
     val context = LocalContext.current
     val clipboardManager = LocalClipboardManager.current
 
-    val saveState = rememberScheduleSaveController(
-        fileName = currentScheduleName,
+    val saveState = rememberFileSaveState(
         onPickerResult = {
             if (it != null) {
                 viewModel.saveToDevice(it)
@@ -86,14 +85,25 @@ fun ScheduleViewerScreen(
                 onAddClicked = { onEditorClicked(scheduleId, null) },
                 onRenameSchedule = { viewModel.onRenameEvent(RenameEvent.Rename) },
                 onRemoveSchedule = { isRemoveSchedule = true },
-                onSaveToDevice = { saveState.save() }
+                onSaveToDevice = { saveState.save(currentScheduleName, "application/json") }
             )
         },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = { onTableViewClicked(scheduleId) }
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_table_chart),
+                    contentDescription = null
+                )
+            }
+        },
+        floatingActionButtonPosition = FabPosition.End,
         contentWindowInsets = WindowInsets.Zero,
         modifier = modifier
     ) { innerPadding ->
 
-        ScheduleSaveDialogs(state = saveState)
+        FileSaveDialogs(state = saveState)
 
         if (isDaySelector) {
             CalendarDialog(
@@ -171,6 +181,7 @@ fun ScheduleViewerScreen(
                             Toast.makeText(context, R.string.link_copied, Toast.LENGTH_SHORT).show()
                         },
                         modifier = Modifier
+                            .padding(bottom = 72.dp)
                             .fillParentMaxWidth()
                             .sizeIn(minHeight = 128.dp)
                     )

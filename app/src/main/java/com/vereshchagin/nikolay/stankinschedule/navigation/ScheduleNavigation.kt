@@ -17,6 +17,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.creator.ui.ScheduleCrea
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.PairEditorActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.list.ui.ScheduleScreen
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.ScheduleRepositoryActivity
+import com.vereshchagin.nikolay.stankinschedule.schedule.table.ui.ScheduleTableViewActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.ScheduleViewerScreen
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.utils.ScheduleDeepLink
 
@@ -80,6 +81,10 @@ fun NavGraphBuilder.schedule(
                 val intent = PairEditorActivity.createIntent(
                     context, scheduleId, pairId
                 )
+                context.startActivity(intent)
+            },
+            onTableViewClicked = { scheduleId ->
+                val intent = ScheduleTableViewActivity.createIntent(context, scheduleId)
                 context.startActivity(intent)
             },
             modifier = Modifier.fillMaxSize()
