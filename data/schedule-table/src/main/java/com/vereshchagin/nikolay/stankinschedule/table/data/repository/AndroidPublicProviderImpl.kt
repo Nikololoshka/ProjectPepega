@@ -44,6 +44,14 @@ class AndroidPublicProviderImpl @Inject constructor(
         }
     }
 
+    override fun exportBitmap(bitmap: Bitmap, uri: Uri) {
+        val contentResolver = context.contentResolver
+        contentResolver.openOutputStream(uri).use { stream ->
+            if (stream == null) throw IllegalAccessException("Failed to get file descriptor")
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream)
+        }
+    }
+
     private fun getSharedFolder(): File {
         val folder = File(context.cacheDir, "shared_data")
         folder.deleteRecursively()

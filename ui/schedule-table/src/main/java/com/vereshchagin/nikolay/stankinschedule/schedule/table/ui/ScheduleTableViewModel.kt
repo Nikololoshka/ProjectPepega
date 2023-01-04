@@ -143,7 +143,7 @@ class ScheduleTableViewModel @Inject constructor(
         _exportProgress.value = ExportProgress.Running
 
         val exportTask = when (format) {
-            ExportFormat.Image -> TODO()
+            ExportFormat.Image -> tableUseCase::saveImageTable
             ExportFormat.Pdf -> tableUseCase::savePdfTable
         }
 

@@ -21,6 +21,16 @@ class AndroidTableUseCase @Inject constructor(
         return creator.createImage(schedule, config)
     }
 
+    fun saveImageTable(
+        schedule: ScheduleModel,
+        config: TableConfig,
+        uri: Uri
+    ): Flow<Uri> = flow {
+        val bitmap = creator.createImage(schedule, config)
+        provider.exportBitmap(bitmap, uri)
+        emit(uri)
+    }.flowOn(Dispatchers.IO)
+
     fun savePdfTable(
         schedule: ScheduleModel,
         config: TableConfig,

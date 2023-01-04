@@ -11,5 +11,6 @@ interface AndroidPublicProvider {
     fun createUri(name: String, pdf: PdfDocument): Uri
 
     fun exportPdf(pdf: PdfDocument, uri: Uri)
+    fun exportBitmap(bitmap: Bitmap, uri: Uri)
 
 }
