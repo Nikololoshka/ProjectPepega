@@ -3,7 +3,6 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.table.ui
 import android.content.Intent
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.*
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetLayout
@@ -53,7 +52,8 @@ fun ScheduleTableScreen(
         viewModel.loadSchedule(scheduleId)
     }
 
-    val image by viewModel.image.collectAsState()
+    val tableConfig by viewModel.tableConfig.collectAsState()
+    val table by viewModel.table.collectAsState()
 
     val color = MaterialTheme.colorScheme.onBackground
     val configuration = LocalConfiguration.current
@@ -152,7 +152,7 @@ fun ScheduleTableScreen(
         ) {
             ZoomableBox(
                 minScale = 1f,
-                maxScale = 8f,
+                maxScale = 6f,
                 onTap = { showUI = !showUI },
                 modifier = Modifier
                     .fillMaxSize()
@@ -163,18 +163,19 @@ fun ScheduleTableScreen(
                     scrollBehavior.state.contentOffset = if (scale > 1f) -100f else 0f
                 }
 
-                with(image) {
+                with(table) {
                     if (this != null) {
-                        Image(
-                            bitmap = this,
-                            contentDescription = null,
+                        TableView(
+                            table = this,
+                            tableConfig = tableConfig,
+                            scale = 1.5f, // для увеличения полотна, чтобы не сжимать буквы
                             modifier = Modifier
-                                .align(Alignment.Center)
+                                .fillMaxSize()
                                 .graphicsLayer(
-                                    scaleX = scale,
-                                    scaleY = scale,
+                                    scaleX = scale / 1.5f,
+                                    scaleY = scale / 1.5f,
                                     translationX = offsetX,
-                                    translationY = offsetY
+                                    translationY = offsetY,
                                 ),
                         )
                     } else {

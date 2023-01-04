@@ -1,12 +1,11 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.table.ui
 
 import android.net.Uri
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.usecase.ScheduleUseCase
+import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.ScheduleTable
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.TableConfig
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.TableMode
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.usecase.AndroidTableUseCase
@@ -18,6 +17,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import org.joda.time.LocalDate
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,14 +26,17 @@ class ScheduleTableViewModel @Inject constructor(
     private val tableUseCase: AndroidTableUseCase
 ) : ViewModel() {
 
-    private val _image = MutableStateFlow<ImageBitmap?>(null)
-    val image = _image.asStateFlow()
-
     private val _scheduleName = MutableStateFlow("")
     val scheduleName = _scheduleName.asStateFlow()
 
     private val _schedule = MutableStateFlow<ScheduleModel?>(null)
+
     private val _tableConfig = MutableStateFlow(TableConfig.default())
+    val tableConfig = _tableConfig.asStateFlow()
+
+    private val _table = MutableStateFlow<ScheduleTable?>(null)
+    val table = _table.asStateFlow()
+
 
     private val _exportProgress = MutableStateFlow<ExportProgress>(ExportProgress.Nothing)
     val exportProgress = _exportProgress.asStateFlow()
@@ -43,16 +46,26 @@ class ScheduleTableViewModel @Inject constructor(
 
 
     init {
-        loadImage()
+        loadTable()
     }
 
-    private fun loadImage() {
+    private fun loadTable() {
         viewModelScope.launch {
             _tableConfig.combine(_schedule.filterNotNull()) { t1, t2 -> t1 to t2 }
                 .collectLatest { (config, schedule) ->
-                    _image.value = null
-                    val bitmap = tableUseCase.createBitmap(schedule, config).asImageBitmap()
-                    _image.value = bitmap
+                    _table.value = null
+
+                    val table = when (config.mode) {
+                        TableMode.Full -> ScheduleTable(
+                            schedule = schedule
+                        )
+                        TableMode.Weekly -> ScheduleTable(
+                            schedule = schedule,
+                            date = LocalDate.now().plusDays(config.page * 7)
+                        )
+                    }
+
+                    _table.value = table
                 }
         }
     }
