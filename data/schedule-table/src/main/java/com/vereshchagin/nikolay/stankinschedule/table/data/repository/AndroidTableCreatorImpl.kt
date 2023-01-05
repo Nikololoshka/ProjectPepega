@@ -28,14 +28,14 @@ class AndroidTableCreatorImpl @Inject constructor() : AndroidTableCreator {
                 schedule = schedule,
                 date = LocalDate.now().plusDays(config.page * 7)
             )
-        }
+        }.prepareForDraw()
 
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         bitmap.applyCanvas {
             drawScheduleTable(
-                scheduleTable = table,
-                pageHeight = height,
-                pageWidth = width,
+                drawScheduleTable = table,
+                pageHeight = height.toFloat(),
+                pageWidth = width.toFloat(),
                 scale = scale,
                 tableColor = config.color
             )
@@ -60,9 +60,9 @@ class AndroidTableCreatorImpl @Inject constructor() : AndroidTableCreator {
             TableMode.Full -> {
                 pdf.createPage(width, height, 1) { page ->
                     page.canvas.drawScheduleTable(
-                        scheduleTable = ScheduleTable(schedule),
-                        pageHeight = height,
-                        pageWidth = width
+                        drawScheduleTable = ScheduleTable(schedule).prepareForDraw(),
+                        pageHeight = height.toFloat(),
+                        pageWidth = width.toFloat()
                     )
                 }
             }
@@ -75,12 +75,12 @@ class AndroidTableCreatorImpl @Inject constructor() : AndroidTableCreator {
 
                     pdf.createPage(width, height, pageNumber) { page ->
                         page.canvas.drawScheduleTable(
-                            scheduleTable = ScheduleTable(
+                            drawScheduleTable = ScheduleTable(
                                 schedule = schedule,
                                 date = from
-                            ),
-                            pageHeight = height,
-                            pageWidth = width
+                            ).prepareForDraw(),
+                            pageHeight = height.toFloat(),
+                            pageWidth = width.toFloat()
                         )
                     }
 

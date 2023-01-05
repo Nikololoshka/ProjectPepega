@@ -1,24 +1,41 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.table.ui.components
 
 import android.content.res.Configuration
+import android.graphics.Paint
+import android.text.TextPaint
 import androidx.compose.foundation.Canvas
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.platform.LocalConfiguration
-import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.ScheduleTable
+import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.DrawScheduleTable
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.TableConfig
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.usecase.drawScheduleTable
 
 @Composable
 fun TableView(
-    table: ScheduleTable,
+    table: DrawScheduleTable,
     tableConfig: TableConfig,
     modifier: Modifier = Modifier,
     scale: Float = 1f,
 ) {
     val configuration = LocalConfiguration.current
+
+    val textPaint = remember(tableConfig.color) {
+        TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
+            style = Paint.Style.FILL
+            color = tableConfig.color
+        }
+    }
+    val linePaint = remember(tableConfig.color) {
+        TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
+            style = Paint.Style.STROKE
+            color = tableConfig.color
+            strokeWidth = 1f
+        }
+    }
 
     Canvas(
         modifier = modifier,
@@ -46,10 +63,12 @@ fun TableView(
                 )
 
                 drawScheduleTable(
-                    scheduleTable = table,
-                    pageHeight = height.toInt(),
-                    pageWidth = width.toInt(),
-                    tableColor = tableConfig.color
+                    drawScheduleTable = table,
+                    pageHeight = height,
+                    pageWidth = width,
+                    tableColor = tableConfig.color,
+                    textPaint = textPaint,
+                    linePaint = linePaint
                 )
             }
         }

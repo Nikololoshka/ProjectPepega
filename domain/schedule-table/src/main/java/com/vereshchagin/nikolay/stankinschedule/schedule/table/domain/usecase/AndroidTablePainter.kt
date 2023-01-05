@@ -9,29 +9,27 @@ import android.text.TextPaint
 import android.text.TextUtils
 import androidx.core.graphics.withRotation
 import androidx.core.graphics.withTranslation
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.*
-import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.ScheduleTable
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.DayOfWeek
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Time
+import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.DrawScheduleTable
 
 fun Canvas.drawScheduleTable(
-    scheduleTable: ScheduleTable,
-    pageHeight: Int,
-    pageWidth: Int,
+    drawScheduleTable: DrawScheduleTable,
+    pageHeight: Float,
+    pageWidth: Float,
     tableColor: Int = Color.BLACK,
-    scale: Float = pageWidth / 1920f,
-    pagePadding: Float = pageHeight * 0.05f
-) {
-    val textPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
+    textPaint: TextPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
         color = tableColor
-        strokeWidth = 1f
-    }
-
-    val linePaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
+    },
+    linePaint: TextPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         color = tableColor
         strokeWidth = 1f
-    }
-
+    },
+    scale: Float = pageWidth / 1920f,
+    pagePadding: Float = pageHeight * 0.05f
+) {
     val ROW_COUNT = 6
     val COLUMN_COUNT = 8
 
@@ -48,7 +46,7 @@ fun Canvas.drawScheduleTable(
 
     // Schedule title
     val titleHeight = drawText(
-        text = scheduleTable.scheduleName,
+        text = drawScheduleTable.scheduleName,
         x = x + drawWidth / 2,
         y = y,
         fontSize = TITLE_SIZE,
@@ -103,59 +101,9 @@ fun Canvas.drawScheduleTable(
         )
     }
 
-    for ((index, rowCount) in scheduleTable.linesPerDay().withIndex()) {
+    for ((index, rowCount) in drawScheduleTable.linesPerDay().withIndex()) {
 
-        val cells = scheduleTable.cells(
-            dayOfWeek = DayOfWeek.values()[index],
-            pairsToText = { pairs ->
-                pairs.joinToString("\n") { pair ->
-                    // Title. Lecture. Type. Subgroup. Classroom. [Date1, Date2...]
-                    buildString {
-                        append(pair.title)
-                        append(". ")
-                        append(if (pair.lecturer.isEmpty()) "" else pair.lecturer + ". ")
-                        append(
-                            when (pair.type) {
-                                Type.LECTURE -> "Лекция"
-                                Type.SEMINAR -> "Семинар"
-                                Type.LABORATORY -> "Лабораторная"
-                            }
-                        )
-                        append(". ")
-                        append(
-                            if (pair.subgroup.isShow()) {
-                                when (pair.subgroup) {
-                                    Subgroup.A -> "(А)"
-                                    Subgroup.B -> "(Б)"
-                                    Subgroup.COMMON -> ""
-                                } + ". "
-                            } else {
-                                ""
-                            }
-                        )
-                        append(if (pair.classroom.isEmpty()) "" else pair.classroom + ". ")
-                        append("[")
-                        append(pair.date.joinToString(", ") { date ->
-                            when (date) {
-                                is DateSingle -> {
-                                    date.toString("dd.MM.yy")
-                                }
-                                is DateRange -> {
-                                    date.toString(
-                                        "dd.MM.yy", "-"
-                                    ) + " " + when (date.frequency()) {
-                                        Frequency.ONCE -> ""
-                                        Frequency.EVERY -> "к.н."
-                                        Frequency.THROUGHOUT -> "ч.н."
-                                    }
-                                }
-                            }
-                        })
-                        append("]")
-                    }
-                }
-            }
-        )
+        val cells = drawScheduleTable[DayOfWeek.values()[index]]
         val subRowHeight = rowHeight / rowCount
 
         for (cell in cells) {

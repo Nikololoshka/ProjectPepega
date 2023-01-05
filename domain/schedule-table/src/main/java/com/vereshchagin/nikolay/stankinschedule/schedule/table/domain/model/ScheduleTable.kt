@@ -1,8 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model
 
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.DayOfWeek
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.PairModel
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.*
 import org.joda.time.LocalDate
 
 class ScheduleTable {
@@ -42,14 +40,70 @@ class ScheduleTable {
         mode = TableMode.Weekly
     }
 
-    fun cells(
-        dayOfWeek: DayOfWeek,
-        pairsToText: (pairs: List<PairModel>) -> String = { it.joinToString("\n") }
-    ): List<ScheduleTableCell> {
-        return days[dayOfWeek]!!.cells(pairsToText)
+    fun prepareForDraw(): DrawScheduleTable {
+        return DrawScheduleTable(
+            scheduleName = scheduleName,
+            days = days.mapValues { day ->
+                day.value.cells { pairs ->
+                    pairs.joinToString(separator = "\n", transform = ::pairForTable)
+                }
+            },
+            lines = linesPerDay()
+        )
     }
 
     fun linesPerDay(): List<Int> {
         return days.values.map { day -> day.lines() }
+    }
+
+    companion object {
+
+        fun pairForTable(pair: PairModel): String {
+            // Title. Lecture. Type. Subgroup. Classroom. [Date1, Date2...]
+            return buildString {
+                append(pair.title)
+                append(". ")
+                append(if (pair.lecturer.isEmpty()) "" else pair.lecturer + ". ")
+                append(
+                    when (pair.type) {
+                        Type.LECTURE -> "Лекция"
+                        Type.SEMINAR -> "Семинар"
+                        Type.LABORATORY -> "Лабораторные занятия"
+                    }
+                )
+                append(". ")
+                append(
+                    if (pair.subgroup.isShow()) {
+                        when (pair.subgroup) {
+                            Subgroup.A -> "(А)"
+                            Subgroup.B -> "(Б)"
+                            Subgroup.COMMON -> ""
+                        } + ". "
+                    } else {
+                        ""
+                    }
+                )
+                append(if (pair.classroom.isEmpty()) "" else pair.classroom + ". ")
+                append("[")
+                append(pair.date.joinToString(", ") { date ->
+                    when (date) {
+                        is DateSingle -> {
+                            date.toString("dd.MM")
+                        }
+                        is DateRange -> {
+                            date.toString(
+                                "dd.MM", "-"
+                            ) + " " + when (date.frequency()) {
+                                Frequency.ONCE -> ""
+                                Frequency.EVERY -> "к.н."
+                                Frequency.THROUGHOUT -> "ч.н."
+                            }
+                        }
+                    }
+                })
+                append("]")
+            }
+        }
+
     }
 }
