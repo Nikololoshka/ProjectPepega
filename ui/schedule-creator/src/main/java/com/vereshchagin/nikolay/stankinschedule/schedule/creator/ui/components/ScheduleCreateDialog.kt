@@ -10,6 +10,8 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
@@ -23,29 +25,11 @@ fun ScheduleCreateDialog(
     state: CreateState,
     onDismiss: () -> Unit,
     onCreate: (scheduleName: String) -> Unit,
-    onShowKeyBoard: () -> Unit,
 ) {
     var showExistError by remember { mutableStateOf(false) }
     var showCreateError by remember { mutableStateOf(false) }
 
     var currentValue by rememberSaveable { mutableStateOf("") }
-    val focusRequester = remember { FocusRequester() }
-
-    LaunchedEffect(state) {
-        showExistError = state is CreateState.AlreadyExist
-        showCreateError = state is CreateState.Error
-
-        if (state is CreateState.New) {
-            currentValue = ""
-
-            focusRequester.requestFocus()
-            delay(1300)
-            onShowKeyBoard()
-        }
-        if (state is CreateState.Success) {
-            onDismiss()
-        }
-    }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -53,6 +37,24 @@ fun ScheduleCreateDialog(
             Text(text = stringResource(R.string.create_schedule))
         },
         text = {
+            val focusRequester = remember { FocusRequester() }
+            val keyboardController = LocalSoftwareKeyboardController.current
+
+            LaunchedEffect(state) {
+                showExistError = state is CreateState.AlreadyExist
+                showCreateError = state is CreateState.Error
+
+                if (state is CreateState.New) {
+                    currentValue = ""
+
+                    delay(timeMillis = 300)
+                    focusRequester.requestFocus()
+                }
+                if (state is CreateState.Success) {
+                    onDismiss()
+                }
+            }
+
             Column(
                 verticalArrangement = Arrangement.spacedBy(2.dp),
             ) {
@@ -66,7 +68,13 @@ fun ScheduleCreateDialog(
                     singleLine = true,
                     isError = showExistError || showCreateError,
                     label = { Text(text = stringResource(R.string.new_schedule_name)) },
-                    modifier = Modifier.focusRequester(focusRequester)
+                    modifier = Modifier
+                        .focusRequester(focusRequester)
+                        .onFocusChanged {
+                            if (it.isFocused) {
+                                keyboardController?.show()
+                            }
+                        }
                 )
 
                 AnimatedVisibility(visible = showExistError) {

@@ -19,7 +19,6 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -43,7 +42,6 @@ fun ScheduleCreatorSheet(
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
-    val keyboardController = LocalSoftwareKeyboardController.current
 
     val createState by viewModel.createState.collectAsState()
     LaunchedEffect(createState) {
@@ -60,9 +58,6 @@ fun ScheduleCreatorSheet(
             },
             onCreate = { scheduleName ->
                 viewModel.createSchedule(scheduleName)
-            },
-            onShowKeyBoard = {
-                keyboardController?.show()
             }
         )
     }
