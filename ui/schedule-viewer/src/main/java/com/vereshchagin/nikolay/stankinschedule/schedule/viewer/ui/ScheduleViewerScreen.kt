@@ -20,6 +20,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.FileSaveDialogs
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.rememberFileSaveState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
@@ -45,6 +46,8 @@ fun ScheduleViewerScreen(
     onTableViewClicked: (scheduleId: Long) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    TrackCurrentScreen(screen = "ScheduleViewerScreen")
+
     LaunchedEffect(scheduleId) {
         viewModel.loadSchedule(scheduleId, startDate?.let { LocalDate.parse(it) })
     }
@@ -181,7 +184,6 @@ fun ScheduleViewerScreen(
                             Toast.makeText(context, R.string.link_copied, Toast.LENGTH_SHORT).show()
                         },
                         modifier = Modifier
-                            .padding(bottom = 72.dp)
                             .fillParentMaxWidth()
                             .sizeIn(minHeight = 128.dp)
                     )
@@ -234,6 +236,7 @@ private fun PairsList(
                 snapOffsetForItem = SnapOffsets.Center,
                 snapIndex = { info, start, target -> computeScheduleIndex(info, start, target) }
             ),
+            contentPadding = PaddingValues(bottom = 72.dp),
             modifier = modifier
                 .verticalScroll(rememberScrollState())
                 .animateContentSize(),

@@ -52,7 +52,7 @@
                     android:elevation="0dp"
                     app:layout_collapseMode="pin"
                     app:menu="@menu/news_viewer_menu"
-                    app:navigationIcon="@drawable/ic_arrow_back"
+                    app:navigationIcon="@drawable/ic_back"
                     app:title="@string/news_viewer_title" />
 
                 <TextView

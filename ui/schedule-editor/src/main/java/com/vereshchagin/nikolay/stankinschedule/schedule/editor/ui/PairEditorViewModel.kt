@@ -2,7 +2,9 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.*
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.DateItem
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.DateModel
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.PairModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.usecase.PairUseCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.DateRequest
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.DateResult
@@ -112,27 +114,9 @@ class PairEditorViewModel @Inject constructor(
         }
     }
 
-    fun applyPair(
-        title: String,
-        lecturer: String,
-        classroom: String,
-        type: Type,
-        subgroup: Subgroup,
-        startTime: String,
-        endTime: String,
-    ) {
+    fun applyPair(newPair: PairModel) {
         viewModelScope.launch {
             try {
-                val newPair = PairModel(
-                    title = title,
-                    lecturer = lecturer,
-                    classroom = classroom,
-                    type = type,
-                    subgroup = subgroup,
-                    time = Time(startTime, endTime),
-                    date = _date.value,
-                )
-
                 val pair = _pair.value.getOrNull()
 
                 useCase.changePair(scheduleId, pair, newPair)

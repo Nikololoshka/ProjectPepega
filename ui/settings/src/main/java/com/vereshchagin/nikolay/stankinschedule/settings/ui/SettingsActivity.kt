@@ -10,11 +10,16 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SettingsActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var loggerAnalytics: LoggerAnalytics
 
     private val viewModel: SettingsViewModel by viewModels()
 
@@ -55,5 +60,12 @@ class SettingsActivity : AppCompatActivity() {
                 }
             }
         }
+
+        loggerAnalytics.logEvent(LoggerAnalytics.SCREEN_ENTER, "SettingsActivity")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        loggerAnalytics.logEvent(LoggerAnalytics.SCREEN_LEAVE, "SettingsActivity")
     }
 }

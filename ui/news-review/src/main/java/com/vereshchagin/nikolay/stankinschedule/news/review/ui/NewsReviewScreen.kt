@@ -14,9 +14,10 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
-import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsSubdivision
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.newsImageLoader
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsSubdivision
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.components.AppTabIndicator
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.components.NewsPostColumn
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.components.NewsReviewToolBar
@@ -30,6 +31,8 @@ fun NewsReviewScreen(
     navigateToViewer: (title: String?, newsId: Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    TrackCurrentScreen(screen = "NewsReviewScreen")
+
     val newsSubdivisions = listOf(
         NewsSubdivisionItem(
             nameId = R.string.news_university,

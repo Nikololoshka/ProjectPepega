@@ -18,18 +18,23 @@ import androidx.webkit.WebViewAssetLoader
 import androidx.webkit.WebViewFeature
 import coil.load
 import com.vereshchagin.nikolay.stankinschedule.core.domain.ext.formatDate
+import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.UIState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.setVisibility
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
-import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsContent
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.newsImageLoader
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsContent
 import com.vereshchagin.nikolay.stankinschedule.news.viewer.ui.databinding.ActivityNewsViewerBinding
 import com.vereshchagin.nikolay.stankinschedule.news.viewer.utils.NewsBrowserUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class NewsViewerActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var loggerAnalytics: LoggerAnalytics
 
     private val viewModel: NewsViewerViewModel by viewModels()
 
@@ -74,6 +79,13 @@ class NewsViewerActivity : AppCompatActivity() {
                 }
             }
         }
+
+        loggerAnalytics.logEvent(LoggerAnalytics.SCREEN_ENTER, "NewsViewerActivity")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        loggerAnalytics.logEvent(LoggerAnalytics.SCREEN_LEAVE, "NewsViewerActivity")
     }
 
     private fun onMenuItemClickListener(item: MenuItem): Boolean {
@@ -179,7 +191,9 @@ class NewsViewerActivity : AppCompatActivity() {
         if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK) && isDarkTheme) {
             // Old API
             // WebSettingsCompat.setForceDark(settings, WebSettingsCompat.FORCE_DARK_ON)
-            WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, true)
+            if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
+                WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, true)
+            }
         }
     }
 

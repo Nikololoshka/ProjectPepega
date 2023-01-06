@@ -49,10 +49,9 @@ fun ScheduleItem(
         Text(
             text = schedule.scheduleName,
             overflow = TextOverflow.Ellipsis,
-            maxLines = 1
+            maxLines = 1,
+            modifier = Modifier.weight(1f)
         )
-
-        Spacer(modifier = Modifier.weight(1f))
 
         AnimatedVisibility(
             visible = isFavorite,

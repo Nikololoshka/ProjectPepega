@@ -5,6 +5,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.BackButton
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.R
 import com.vereshchagin.nikolay.stankinschedule.core.ui.R as R_core
@@ -28,7 +29,9 @@ fun ScheduleViewerToolBar(
         title = {
             Text(
                 text = scheduleName,
-                style = MaterialTheme.typography.titleLarge
+                style = MaterialTheme.typography.titleLarge,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
             )
         },
         navigationIcon = {

@@ -53,7 +53,7 @@ dependencies {
     implementation(libs.compose.activity)
 
     implementation(libs.accompanist.permission)
-
+    implementation(libs.ui.material)
     implementation(libs.androidx.paging)
 
     // Components

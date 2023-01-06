@@ -15,7 +15,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
@@ -28,11 +27,12 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.creator.ui.components.*
 
 
-@OptIn(ExperimentalPermissionsApi::class, ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun ScheduleCreatorSheet(
     onNavigateBack: () -> Unit,
@@ -41,6 +41,8 @@ fun ScheduleCreatorSheet(
     viewModel: ScheduleCreatorViewModel,
     modifier: Modifier = Modifier,
 ) {
+    TrackCurrentScreen(screen = "ScheduleCreatorSheet")
+
     val context = LocalContext.current
 
     val createState by viewModel.createState.collectAsState()

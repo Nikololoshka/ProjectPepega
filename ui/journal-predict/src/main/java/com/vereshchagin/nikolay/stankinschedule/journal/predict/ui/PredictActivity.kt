@@ -10,6 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
+import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.setVisibility
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import com.vereshchagin.nikolay.stankinschedule.journal.predict.ui.components.PredictRatingPanel
@@ -18,15 +19,18 @@ import com.vereshchagin.nikolay.stankinschedule.journal.predict.ui.paging.Predic
 import com.vereshchagin.nikolay.stankinschedule.journal.predict.ui.view.SemesterSelectorDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class PredictActivity : AppCompatActivity() {
 
+    @Inject
+    lateinit var loggerAnalytics: LoggerAnalytics
+
     private val viewModel: PredictViewModel by viewModels()
 
     private lateinit var binding: ActivityPredictBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,6 +103,13 @@ class PredictActivity : AppCompatActivity() {
                 }
             }
         }
+
+        loggerAnalytics.logEvent(LoggerAnalytics.SCREEN_ENTER, "PredictActivity")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        loggerAnalytics.logEvent(LoggerAnalytics.SCREEN_LEAVE, "PredictActivity")
     }
 
     private fun showUI(

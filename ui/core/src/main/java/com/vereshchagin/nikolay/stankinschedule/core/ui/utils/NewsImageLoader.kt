@@ -17,7 +17,7 @@ fun newsImageLoader(
         .diskCache(
             DiskCache.Builder()
                 .directory(context.cacheDir.resolve(cacheName))
-                .maximumMaxSizeBytes(1024 * 1024 * 16)
+                .maximumMaxSizeBytes(1024 * 1024 * 64)
                 .build()
         )
         .build()

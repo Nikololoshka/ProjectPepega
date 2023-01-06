@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.Stateful
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.getOrNull
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.components.*
@@ -23,6 +24,8 @@ fun ScheduleRepositoryScreen(
     viewModel: ScheduleRepositoryViewModel,
     modifier: Modifier = Modifier,
 ) {
+    TrackCurrentScreen(screen = "ScheduleRepositoryScreen")
+
     val context = LocalContext.current
     val scaffoldState = rememberBackdropScaffoldState(BackdropValue.Concealed)
 

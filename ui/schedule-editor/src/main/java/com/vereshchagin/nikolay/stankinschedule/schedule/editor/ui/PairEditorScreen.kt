@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowRow
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.OutlinedSelectField
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.exceptions.PairIntersectException
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.*
@@ -41,6 +42,8 @@ fun PairEditorScreen(
     viewModel: PairEditorViewModel,
     modifier: Modifier = Modifier,
 ) {
+    TrackCurrentScreen(screen = "PairEditorScreen")
+
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(
         state = rememberTopAppBarState()
     )
@@ -57,24 +60,9 @@ fun PairEditorScreen(
     var request by remember { mutableStateOf<DateEditorRequest>(DateEditorRequest.New) }
     var isDeletePair by remember { mutableStateOf(false) }
 
-    var titleField by rememberSaveable { mutableStateOf("") }
-    var lecturerField by rememberSaveable { mutableStateOf("") }
-    var classroomField by rememberSaveable { mutableStateOf("") }
+    val pairState by viewModel.pair.collectAsState()
 
-    var typeField: Type by rememberSaveable(
-        stateSaver = Saver(save = { it.tag }, restore = { Type.of(it) })
-    ) { mutableStateOf(Type.LECTURE) }
-
-    var subgroupField: Subgroup by rememberSaveable(
-        stateSaver = Saver(save = { it.tag }, restore = { Subgroup.of(it) })
-    ) { mutableStateOf(Subgroup.COMMON) }
-
-    val startTimes = Time.STARTS
-    var startTime by rememberSaveable { mutableStateOf(startTimes.first()) }
-
-    val endTimes = Time.ENDS
-    var endTime by rememberSaveable { mutableStateOf(endTimes.first()) }
-
+    val editorState = rememberEditorState(pair = pairState.getOrNull())
     val date by viewModel.date.collectAsState()
 
     var scheduleError by remember { mutableStateOf<Exception?>(null) }
@@ -82,30 +70,13 @@ fun PairEditorScreen(
         viewModel.scheduleErrors.collect { scheduleError = it }
     }
 
-    val pairState by viewModel.pair.collectAsState()
-
     LaunchedEffect(scheduleId, pairId, mode) {
         viewModel.loadPair(scheduleId, pairId, mode)
     }
 
     val context = LocalContext.current
     LaunchedEffect(pairState) {
-        when (val state = pairState) {
-            is PairEditorState.Content -> {
-                if (state.pair != null && !viewModel.isInitial) {
-                    val initial = state.pair
-
-                    titleField = initial.title
-                    lecturerField = initial.lecturer
-                    classroomField = initial.classroom
-                    typeField = initial.type
-                    subgroupField = initial.subgroup
-                    startTime = initial.time.startString()
-                    endTime = initial.time.endString()
-
-                    viewModel.setPairInitial()
-                }
-            }
+        when (pairState) {
             is PairEditorState.Complete -> {
                 ScheduleWidget.updateWidgetById(context, scheduleId, true)
                 onBackClicked()
@@ -133,15 +104,7 @@ fun PairEditorScreen(
             topBar = {
                 EditorToolbar(
                     onApplyClicked = {
-                        viewModel.applyPair(
-                            title = titleField,
-                            lecturer = lecturerField,
-                            classroom = classroomField,
-                            type = typeField,
-                            subgroup = subgroupField,
-                            startTime = startTime,
-                            endTime = endTime
-                        )
+                        viewModel.applyPair(editorState.toPair(date))
                     },
                     onDeleteClicked = { isDeletePair = true },
                     onBackClicked = onBackClicked,
@@ -204,22 +167,7 @@ fun PairEditorScreen(
             when (pairState) {
                 is PairEditorState.Content -> {
                     EditorContent(
-                        title = titleField,
-                        onTitleChanged = { titleField = it },
-                        lecturer = lecturerField,
-                        onLecturerChanged = { lecturerField = it },
-                        classroom = classroomField,
-                        onClassroomChanged = { classroomField = it },
-                        type = typeField,
-                        onTypeChanged = { typeField = it },
-                        subgroup = subgroupField,
-                        onSubgroupChanged = { subgroupField = it },
-                        startTime = startTime,
-                        onStartTimeChanged = { startTime = it },
-                        startTimes = startTimes,
-                        endTime = endTime,
-                        onEndTimeChanged = { endTime = it },
-                        endTimes = endTimes,
+                        editorState = editorState,
                         date = date,
                         onDateEdit = { item ->
                             request = DateEditorRequest.Edit(item)
@@ -255,30 +203,17 @@ fun PairEditorScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun EditorContent(
-    title: String,
-    onTitleChanged: (title: String) -> Unit,
-    lecturer: String,
-    onLecturerChanged: (lecturer: String) -> Unit,
-    classroom: String,
-    onClassroomChanged: (classroom: String) -> Unit,
-    type: Type,
-    onTypeChanged: (type: Type) -> Unit,
-    subgroup: Subgroup,
-    onSubgroupChanged: (subgroup: Subgroup) -> Unit,
-    startTime: String,
-    onStartTimeChanged: (time: String) -> Unit,
-    startTimes: List<String>,
-    endTime: String,
-    onEndTimeChanged: (time: String) -> Unit,
-    endTimes: List<String>,
+    editorState: EditorState,
     date: DateModel,
     onDateEdit: (item: DateItem) -> Unit,
     onDateNew: () -> Unit,
     modifier: Modifier = Modifier,
+    startTimes: List<String> = Time.STARTS,
+    endTimes: List<String> = Time.ENDS
 ) {
-    val endTimesCalc by remember {
+    val endTimesCalc by remember(editorState.startTime) {
         derivedStateOf {
-            endTimes.slice(startTimes.indexOf(startTime) until endTimes.size)
+            endTimes.slice(startTimes.indexOf(editorState.startTime) until endTimes.size)
         }
     }
 
@@ -288,31 +223,31 @@ private fun EditorContent(
     ) {
 
         OutlinedTextField(
-            value = title,
-            onValueChange = onTitleChanged,
+            value = editorState.title,
+            onValueChange = { editorState.title = it },
             label = { Text(text = stringResource(R.string.editor_title_label)) },
             modifier = Modifier.fillMaxWidth()
         )
 
 
         OutlinedTextField(
-            value = lecturer,
-            onValueChange = onLecturerChanged,
+            value = editorState.lecturer,
+            onValueChange = { editorState.lecturer = it },
             label = { Text(text = stringResource(R.string.editor_lecturer_label)) },
             modifier = Modifier.fillMaxWidth()
         )
 
 
         OutlinedTextField(
-            value = classroom,
-            onValueChange = onClassroomChanged,
+            value = editorState.classroom,
+            onValueChange = { editorState.classroom = it },
             label = { Text(text = stringResource(R.string.editor_classroom_label)) },
             modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedSelectField(
-            value = type,
-            onValueChanged = onTypeChanged,
+            value = editorState.type,
+            onValueChanged = { editorState.type = it },
             items = listOf(
                 Type.LECTURE,
                 Type.SEMINAR,
@@ -331,8 +266,8 @@ private fun EditorContent(
         )
 
         OutlinedSelectField(
-            value = subgroup,
-            onValueChanged = onSubgroupChanged,
+            value = editorState.subgroup,
+            onValueChanged = { editorState.subgroup = it },
             items = listOf(
                 Subgroup.COMMON,
                 Subgroup.A,
@@ -355,15 +290,15 @@ private fun EditorContent(
             modifier = Modifier.fillMaxWidth()
         ) {
             OutlinedSelectField(
-                value = startTime,
+                value = editorState.startTime,
                 onValueChanged = {
-                    onStartTimeChanged(it)
+                    editorState.startTime = it
 
                     val s = startTimes.indexOf(it)
-                    val e = endTimes.indexOf(endTime)
+                    val e = endTimes.indexOf(editorState.endTime)
 
                     if (s - e > 0 && s in endTimes.indices) {
-                        onEndTimeChanged(endTimes[s])
+                        editorState.endTime = endTimes[s]
                     }
                 },
                 items = startTimes,
@@ -374,8 +309,8 @@ private fun EditorContent(
                 modifier = Modifier.fillMaxWidth(0.5f)
             )
             OutlinedSelectField(
-                value = endTime,
-                onValueChanged = onEndTimeChanged,
+                value = editorState.endTime,
+                onValueChanged = { editorState.endTime = it },
                 items = endTimesCalc,
                 menuLabel = { it },
                 label = {
@@ -424,4 +359,78 @@ private fun EditorContent(
         }
     }
 
+}
+
+class EditorState(
+    titleField: MutableState<String>,
+    lecturerField: MutableState<String>,
+    classroomField: MutableState<String>,
+    typeField: MutableState<Type>,
+    subgroupField: MutableState<Subgroup>,
+    startTimeField: MutableState<String>,
+    endTimeField: MutableState<String>,
+) {
+    var title by titleField
+    var lecturer by lecturerField
+    var classroom by classroomField
+    var type by typeField
+    var subgroup by subgroupField
+    var startTime by startTimeField
+    var endTime by endTimeField
+
+
+    fun toPair(date: DateModel): PairModel {
+        return PairModel(
+            title = title,
+            lecturer = lecturer,
+            classroom = classroom,
+            type = type,
+            subgroup = subgroup,
+            time = Time(startTime, endTime),
+            date = date,
+        )
+    }
+}
+
+@Composable
+fun rememberEditorState(
+    pair: PairModel?
+): EditorState {
+
+    val title = rememberSaveable { mutableStateOf("") }
+    val lecturer = rememberSaveable { mutableStateOf("") }
+    val classroom = rememberSaveable { mutableStateOf("") }
+
+    val type = rememberSaveable(
+        stateSaver = Saver(save = { it.tag }, restore = { Type.of(it) })
+    ) { mutableStateOf(Type.LECTURE) }
+
+    val subgroup = rememberSaveable(
+        stateSaver = Saver(save = { it.tag }, restore = { Subgroup.of(it) })
+    ) { mutableStateOf(Subgroup.COMMON) }
+
+    val startTime = rememberSaveable { mutableStateOf(Time.STARTS.first()) }
+    val endTime = rememberSaveable { mutableStateOf(Time.ENDS.first()) }
+
+    return remember(pair) {
+        EditorState(
+            titleField = title,
+            lecturerField = lecturer,
+            classroomField = classroom,
+            typeField = type,
+            subgroupField = subgroup,
+            startTimeField = startTime,
+            endTimeField = endTime
+        ).apply {
+            if (pair != null) {
+                this.title = pair.title
+                this.lecturer = pair.lecturer
+                this.classroom = pair.classroom
+                this.type = pair.type
+                this.subgroup = pair.subgroup
+                this.startTime = pair.time.startString()
+                this.endTime = pair.time.endString()
+            }
+        }
+    }
 }

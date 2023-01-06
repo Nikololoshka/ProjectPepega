@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.FileSaveDialogs
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.rememberFileSaveState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.shareDataIntent
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.TableMode
@@ -36,6 +37,8 @@ fun ScheduleTableScreen(
     onBackClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    TrackCurrentScreen(screen = "ScheduleTableScreen")
+
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(state = rememberTopAppBarState())
 
     val sheetState = rememberModalBottomSheetState(
