@@ -40,6 +40,10 @@ sealed class UIState<T> {
     }
 }
 
+fun UIState<*>.isSuccess(): Boolean {
+    return this is UIState.Success
+}
+
 fun <T> UIState<T>.getOrNull(): T? {
     if (this is UIState.Success) {
         return data

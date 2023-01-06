@@ -6,7 +6,9 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.UIState
+import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.exceptions.StudentAuthorizedException
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.model.SemesterMarks
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.model.Student
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.usecase.JournalUseCase
@@ -23,7 +25,8 @@ import javax.inject.Inject
 class JournalViewModel @Inject constructor(
     private val journal: JournalUseCase,
     private val login: LoginUseCase,
-    private val predict: PredictUseCase
+    private val predict: PredictUseCase,
+    private val logger: LoggerAnalytics
 ) : ViewModel() {
 
     private val _isSignIn = MutableStateFlow(true)
@@ -72,8 +75,13 @@ class JournalViewModel @Inject constructor(
     private fun updateStudentInfo(useCache: Boolean = true) {
         viewModelScope.launch {
             journal.student(useCache = useCache)
-                .catch { e ->
-                    _student.value = UIState.failed(e)
+                .catch { t ->
+                    if (t is StudentAuthorizedException) {
+                        _isSignIn.value = false
+                    } else {
+                        _student.value = UIState.failed(t)
+                        logger.recordException(t)
+                    }
                 }
                 .collect { student ->
                     if (student == null) {
@@ -131,8 +139,8 @@ class JournalViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 login.signOut()
-            } catch (ignored: Exception) {
-
+            } catch (e: Exception) {
+                logger.recordException(e)
             }
             _isSignIn.value = false
         }

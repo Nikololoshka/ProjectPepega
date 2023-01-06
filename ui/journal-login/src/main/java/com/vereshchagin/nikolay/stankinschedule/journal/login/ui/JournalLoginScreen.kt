@@ -25,6 +25,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
@@ -40,6 +41,8 @@ fun JournalLoginScreen(
     navigateToJournal: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    TrackCurrentScreen(screen = "JournalLoginScreen")
+
     val focusManager = LocalFocusManager.current
     val context = LocalContext.current
 
@@ -131,15 +134,6 @@ fun JournalLoginScreen(
                         .padding(vertical = Dimen.ContentPadding)
                 )
 
-                AnimatedVisibility(visible = isLoginError) {
-                    Text(
-                        text = stringResource(R.string.field_is_empty),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.error,
-                        modifier = Modifier.padding(start = 16.dp)
-                    )
-                }
-
                 PasswordField(
                     password = password,
                     onPasswordChanged = {
@@ -153,15 +147,6 @@ fun JournalLoginScreen(
                         .fillMaxWidth()
                         .padding(vertical = Dimen.ContentPadding)
                 )
-
-                AnimatedVisibility(visible = isPasswordError) {
-                    Text(
-                        text = stringResource(R.string.field_is_empty),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.error,
-                        modifier = Modifier.padding(start = 16.dp)
-                    )
-                }
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -202,6 +187,18 @@ fun LoginField(
         enabled = !isLogging,
         singleLine = true,
         isError = isLoginError,
+        supportingText = {
+            AnimatedVisibility(
+                visible = isLoginError,
+                enter = slideInVertically(),
+                exit = slideOutVertically()
+            ) {
+                Text(
+                    text = stringResource(R.string.field_is_empty),
+                    color = MaterialTheme.colorScheme.error,
+                )
+            }
+        },
         label = { Text(text = stringResource(R.string.login)) },
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Text,
@@ -230,6 +227,18 @@ fun PasswordField(
         singleLine = true,
         isError = isPasswordError,
         label = { Text(text = stringResource(R.string.password)) },
+        supportingText = {
+            AnimatedVisibility(
+                visible = isPasswordError,
+                enter = slideInVertically(),
+                exit = slideOutVertically(),
+            ) {
+                Text(
+                    text = stringResource(R.string.field_is_empty),
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
+        },
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Password,
             imeAction = ImeAction.Done

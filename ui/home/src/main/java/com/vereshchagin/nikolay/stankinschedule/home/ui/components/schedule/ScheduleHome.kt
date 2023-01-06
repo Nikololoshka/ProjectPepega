@@ -77,7 +77,6 @@ fun ScheduleHome(
 
 
 @OptIn(ExperimentalPagerApi::class)
-@Composable
 private fun Modifier.wrapPagerHeight(
     page: Int,
     pagerState: PagerState,

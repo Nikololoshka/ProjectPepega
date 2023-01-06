@@ -48,6 +48,7 @@ hilt { enableAggregatingTask = true }
 
 dependencies {
     implementation(project(":ui:core"))
+    implementation(project(":domain:core"))
     implementation(project(":domain:journal-core"))
 
     // Kotlin

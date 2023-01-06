@@ -8,6 +8,9 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import com.vereshchagin.nikolay.stankinschedule.core.domain.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.core.domain.settings.DarkMode
 import com.vereshchagin.nikolay.stankinschedule.core.ui.R
@@ -32,6 +35,8 @@ class MainApplication : Application(), Configuration.Provider {
 
         if (BuildConfig.DEBUG) {
             // StrictMode.enableDefaults()
+            Firebase.analytics.setAnalyticsCollectionEnabled(false)
+            Firebase.crashlytics.setCrashlyticsCollectionEnabled(false)
         }
 
         updateDarkMode()

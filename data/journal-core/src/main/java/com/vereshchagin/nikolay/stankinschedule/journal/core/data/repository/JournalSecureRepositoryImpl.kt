@@ -65,8 +65,12 @@ class JournalSecureRepositoryImpl @Inject constructor(
 
     @kotlin.jvm.Throws(StudentAuthorizedException::class)
     override suspend fun signOut() {
-        preferences.edit {
-            clear()
+        try {
+            preferences.edit {
+                clear()
+            }
+        } catch (ignored: Exception) {
+            tryClearPreference()
         }
     }
 

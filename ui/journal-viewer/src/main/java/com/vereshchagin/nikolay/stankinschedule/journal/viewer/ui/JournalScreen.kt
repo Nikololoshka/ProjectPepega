@@ -24,9 +24,7 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import com.vereshchagin.nikolay.stankinschedule.core.ui.components.NotificationUpdateDialog
-import com.vereshchagin.nikolay.stankinschedule.core.ui.components.Stateful
-import com.vereshchagin.nikolay.stankinschedule.core.ui.components.rememberNotificationUpdateState
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.*
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.journal.viewer.ui.components.*
@@ -42,6 +40,8 @@ fun JournalScreen(
     navigateToPredict: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    TrackCurrentScreen(screen = "JournalScreen")
+
     val isSignIn by viewModel.isSignIn.collectAsState()
     LaunchedEffect(isSignIn) {
         if (!isSignIn) {
@@ -82,7 +82,7 @@ fun JournalScreen(
     Scaffold(
         topBar = {
             JournalToolBar(
-                onPredictAction = navigateToPredict,
+                onPredictAction = { if (student.isSuccess()) navigateToPredict() },
                 isNotification = isNotification,
                 onNotificationAction = notificationState::showDialog,
                 onSignOutAction = viewModel::signOut,

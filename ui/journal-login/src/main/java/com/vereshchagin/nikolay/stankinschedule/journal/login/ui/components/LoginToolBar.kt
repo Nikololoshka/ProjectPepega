@@ -4,6 +4,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import com.vereshchagin.nikolay.stankinschedule.journal.login.ui.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -17,7 +18,9 @@ fun LoginToolBar(
         title = {
             Text(
                 text = title,
-                style = MaterialTheme.typography.titleLarge
+                style = MaterialTheme.typography.titleLarge,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1
             )
         },
         scrollBehavior = scrollBehavior,

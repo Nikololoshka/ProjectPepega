@@ -14,10 +14,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.ImageLoader
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.Stateful
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
@@ -38,6 +40,8 @@ fun HomeScreen(
     modifier: Modifier = Modifier,
     imageLoader: ImageLoader = newsImageLoader(LocalContext.current)
 ) {
+    TrackCurrentScreen(screen = "HomeScreen")
+
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(
         state = rememberTopAppBarState()
     )
@@ -45,7 +49,13 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = stringResource(R.string.nav_home)) },
+                title = {
+                    Text(
+                        text = stringResource(R.string.nav_home),
+                        overflow = TextOverflow.Ellipsis,
+                        maxLines = 1
+                    )
+                },
                 actions = {
                     IconButton(
                         onClick = navigateToSettings
@@ -181,7 +191,9 @@ private fun HomeText(
         Text(
             text = text,
             style = TextStyle(fontSize = 18.sp),
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
+            overflow = TextOverflow.Ellipsis,
+            maxLines = 1
         )
         Icon(
             painter = painterResource(R.drawable.ic_arrow_right),
