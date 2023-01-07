@@ -10,6 +10,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.LocalAnalytics
+import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.exceptionDescription
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.R
 
 @Composable
@@ -18,13 +20,22 @@ fun NewsError(
     onRetry: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val analytics = LocalAnalytics.current
+
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = error.toString(),
+            text = exceptionDescription(error).let { description ->
+                if (description == null) {
+                    analytics.recordException(error)
+                    error.toString()
+                } else {
+                    description
+                }
+            },
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )

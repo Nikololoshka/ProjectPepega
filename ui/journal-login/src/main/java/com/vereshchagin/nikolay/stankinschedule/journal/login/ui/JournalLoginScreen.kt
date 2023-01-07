@@ -107,9 +107,9 @@ fun JournalLoginScreen(
                     .padding(Dimen.ContentPadding)
             ) {
 
-                if (loginError != null) {
+                loginError?.let { error ->
                     LoginError(
-                        error = loginError,
+                        error = error,
                         modifier = Modifier
                             .fillMaxWidth()
                             .border(

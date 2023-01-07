@@ -7,13 +7,20 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
+import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.LocalAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ScheduleTableViewActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var loggerAnalytics: LoggerAnalytics
 
     private val viewModel: ScheduleTableViewModel by viewModels()
 
@@ -26,12 +33,14 @@ class ScheduleTableViewActivity : AppCompatActivity() {
 
         setContent {
             AppTheme {
-                ScheduleTableScreen(
-                    scheduleId = scheduleId,
-                    viewModel = viewModel,
-                    onBackClicked = { onBackPressedDispatcher.onBackPressed() },
-                    modifier = Modifier.fillMaxSize()
-                )
+                CompositionLocalProvider(LocalAnalytics provides loggerAnalytics) {
+                    ScheduleTableScreen(
+                        scheduleId = scheduleId,
+                        viewModel = viewModel,
+                        onBackClicked = { onBackPressedDispatcher.onBackPressed() },
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
             }
         }
     }

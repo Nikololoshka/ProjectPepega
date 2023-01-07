@@ -22,6 +22,7 @@ import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalyti
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.UIState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.setVisibility
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
+import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.exceptionDescription
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.newsImageLoader
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsContent
 import com.vereshchagin.nikolay.stankinschedule.news.viewer.ui.databinding.ActivityNewsViewerBinding
@@ -72,7 +73,8 @@ class NewsViewerActivity : AppCompatActivity() {
                         updateContent(state.data)
                     }
                     if (state is UIState.Failed) {
-                        binding.errorTitle.text = state.error.toString()
+                        val description = exceptionDescription(state.error)
+                        binding.errorTitle.text = description ?: state.error.toString()
                     }
 
                     updateVisibleView(state)

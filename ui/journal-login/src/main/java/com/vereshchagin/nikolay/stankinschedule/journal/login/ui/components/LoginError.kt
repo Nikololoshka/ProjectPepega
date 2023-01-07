@@ -10,14 +10,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.LocalAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
+import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.exceptionDescription
 import com.vereshchagin.nikolay.stankinschedule.journal.login.ui.R
 
 @Composable
 fun LoginError(
-    error: String?,
+    error: Throwable,
     modifier: Modifier = Modifier,
 ) {
+    val analytics = LocalAnalytics.current
+
     Row(
         horizontalArrangement = Arrangement.spacedBy(Dimen.ContentPadding),
         modifier = modifier
@@ -29,7 +33,14 @@ fun LoginError(
             modifier = Modifier.align(Alignment.CenterVertically)
         )
         Text(
-            text = error ?: "Unknown exception",
+            text = exceptionDescription(error).let { description ->
+                if (description == null) {
+                    analytics.recordException(error)
+                    error.toString()
+                } else {
+                    description
+                }
+            },
             color = MaterialTheme.colorScheme.error,
             textAlign = TextAlign.Center,
             modifier = Modifier

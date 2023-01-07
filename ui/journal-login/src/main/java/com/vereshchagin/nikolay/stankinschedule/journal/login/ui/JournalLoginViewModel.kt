@@ -21,7 +21,7 @@ class JournalLoginViewModel @Inject constructor(
     private val _isLogging = MutableStateFlow(false)
     val isLogging = _isLogging.asStateFlow()
 
-    private val _loginError = MutableStateFlow<String?>(null)
+    private val _loginError = MutableStateFlow<Throwable?>(null)
     val loginError = _loginError.asStateFlow()
 
 
@@ -32,7 +32,7 @@ class JournalLoginViewModel @Inject constructor(
 
             loginUseCase.signIn(login, password)
                 .catch { e ->
-                    _loginError.value = e.toString()
+                    _loginError.value = e
                 }
                 .collect {
                     _loginState.value = true
