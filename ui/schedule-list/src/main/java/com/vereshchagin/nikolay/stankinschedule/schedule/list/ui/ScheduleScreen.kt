@@ -50,7 +50,6 @@ fun ScheduleScreen(
         onMove = { from, to ->
             viewModel.schedulesMove(from.index, to.index)
         },
-        canDragOver = { true }
     )
     val schedules by viewModel.schedules.collectAsState()
     val favorite by viewModel.favorite.collectAsState()

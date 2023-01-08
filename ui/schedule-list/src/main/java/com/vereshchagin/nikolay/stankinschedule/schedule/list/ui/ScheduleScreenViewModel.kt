@@ -96,12 +96,12 @@ class ScheduleScreenViewModel @Inject constructor(
     }
 
     fun isSelected(id: Long): Boolean {
-        return selected.getOrDefault(id.toInt(), false)
+        return selected.getOrElse(id.toInt()) { false }
     }
 
     fun selectSchedule(id: Long) {
         val index = id.toInt()
-        selected[index] = !selected.getOrDefault(index, false)
+        selected[index] = !selected.getOrElse(index) { false }
     }
 
     fun removeSelectedSchedules() {
