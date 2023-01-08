@@ -67,6 +67,7 @@ fun FrontLayerContent(
                     Text(
                         text = stringResource(R.string.repository_no_schedules_found),
                         textAlign = TextAlign.Center,
+                        color = MaterialTheme.colorScheme.onSurface,
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.fillMaxWidth()
                     )
