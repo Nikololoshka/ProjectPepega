@@ -6,7 +6,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.BackButton
+import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -16,7 +18,7 @@ fun ScheduleWidgetConfigureAppBar(
     modifier: Modifier = Modifier
 ) {
     TopAppBar(
-        title = { Text(text = "Configure") },
+        title = { Text(text = stringResource(R.string.configure_title)) },
         navigationIcon = { BackButton(onClick = onBackPressed) },
         scrollBehavior = scrollBehavior,
         modifier = modifier
