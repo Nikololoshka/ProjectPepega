@@ -7,11 +7,16 @@ plugins {
 }
 
 android {
-    compileSdk = AppConfig.compileSdk
+    val appCompileSdkVersion: Int by rootProject.extra
+    val appMinSdkVersion: Int by rootProject.extra
+    val appTargetSdkVersion: Int by rootProject.extra
+
+    compileSdk = appCompileSdkVersion
+    namespace = "com.vereshchagin.nikolay.stankinschedule.news.viewer.ui"
 
     defaultConfig {
-        minSdk = AppConfig.minSdk
-        targetSdk = AppConfig.targetSdk
+        minSdk = appMinSdkVersion
+        targetSdk = appTargetSdkVersion
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
@@ -45,8 +50,6 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
-
-    namespace = "com.vereshchagin.nikolay.stankinschedule.news.viewer.ui"
 }
 
 // Allow references to generated code

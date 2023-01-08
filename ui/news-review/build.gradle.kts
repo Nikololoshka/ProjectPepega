@@ -7,11 +7,15 @@ plugins {
 }
 
 android {
-    compileSdk = AppConfig.compileSdk
+    val appCompileSdkVersion: Int by rootProject.extra
+    val appMinSdkVersion: Int by rootProject.extra
+    val appTargetSdkVersion: Int by rootProject.extra
+
+    compileSdk = appCompileSdkVersion
 
     defaultConfig {
-        minSdk = AppConfig.minSdk
-        targetSdk = AppConfig.targetSdk
+        minSdk = appMinSdkVersion
+        targetSdk = appTargetSdkVersion
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }

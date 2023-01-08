@@ -1,5 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+ext {
+    extra["appCompileSdkVersion"] = 33
+    extra["appMinSdkVersion"] = 23
+    extra["appTargetSdkVersion"] = 33
+    extra["appVersionCode"] = 101
+    extra["appVersionName"] = "2.0.0-beta2"
+    extra["appBuildToolsVersion"] = "33.0.0"
+}
+
 buildscript {
 
     repositories {
@@ -27,7 +36,7 @@ plugins {
 
 allprojects {
 
-repositories {
+    repositories {
         mavenCentral()
         google()
         maven("https://oss.sonatype.org/content/repositories/snapshots/")

@@ -10,21 +10,29 @@ plugins {
 
 android {
 
-    compileSdk = AppConfig.compileSdk
-    buildToolsVersion = AppConfig.buildToolsVersion
+    val appCompileSdkVersion: Int by rootProject.extra
+    val appMinSdkVersion: Int by rootProject.extra
+    val appTargetSdkVersion: Int by rootProject.extra
+    val appVersionCode: Int by rootProject.extra
+    val appVersionName: String by rootProject.extra
+    val appBuildToolsVersion: String by rootProject.extra
+
+    compileSdk = appCompileSdkVersion
+    buildToolsVersion = appBuildToolsVersion
 
     defaultConfig {
 
         applicationId = "com.vereshchagin.nikolay.stankinschedule"
 
-        minSdk = AppConfig.minSdk
-        targetSdk = AppConfig.targetSdk
-        versionCode = AppConfig.versionCode
-        versionName = AppConfig.versionName
+        minSdk = appMinSdkVersion
+        targetSdk = appTargetSdkVersion
+        versionCode = appVersionCode
+        versionName = appVersionName
+
+        setProperty("archivesBaseName", "stankin-schedule_v$versionName($versionCode)")
 
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -40,6 +48,8 @@ android {
 
     buildTypes {
         debug {
+            versionNameSuffix = "-debug"
+
             isDebuggable = true
             isMinifyEnabled = false
             isShrinkResources = false
