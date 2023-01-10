@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.settings.data.repository
 
 import android.content.Context
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorType
@@ -32,11 +33,11 @@ class ScheduleDataStore @Inject constructor(
     }
 
     override fun isVerticalViewer(): Flow<Boolean> = context.dataStore.data
-        .map { preferences -> preferences[VERTIVAL_VIEWER] ?: false }
+        .map { preferences -> preferences[VERTICAL_VIEWER] ?: false }
 
     override suspend fun setVerticalViewer(isVertical: Boolean) {
         context.dataStore.edit { preferences ->
-            preferences[VERTIVAL_VIEWER] = isVertical
+            preferences[VERTICAL_VIEWER] = isVertical
         }
     }
 
@@ -70,17 +71,11 @@ class ScheduleDataStore @Inject constructor(
 
         private fun keyForColorType(type: PairColorType): androidx.datastore.preferences.core.Preferences.Key<String> {
             return when (type) {
-                PairColorType.Lecture -> androidx.datastore.preferences.core.stringPreferencesKey("schedule_lecture_color")
-                PairColorType.Seminar -> androidx.datastore.preferences.core.stringPreferencesKey("schedule_seminar_color")
-                PairColorType.Laboratory -> androidx.datastore.preferences.core.stringPreferencesKey(
-                    "schedule_laboratory_color"
-                )
-                PairColorType.SubgroupA -> androidx.datastore.preferences.core.stringPreferencesKey(
-                    "schedule_subgroup_a_color"
-                )
-                PairColorType.SubgroupB -> androidx.datastore.preferences.core.stringPreferencesKey(
-                    "schedule_subgroup_b_color"
-                )
+                PairColorType.Lecture -> stringPreferencesKey("schedule_lecture_color")
+                PairColorType.Seminar -> stringPreferencesKey("schedule_seminar_color")
+                PairColorType.Laboratory -> stringPreferencesKey("schedule_laboratory_color")
+                PairColorType.SubgroupA -> stringPreferencesKey("schedule_subgroup_a_color")
+                PairColorType.SubgroupB -> stringPreferencesKey("schedule_subgroup_b_color")
             }
         }
 
@@ -89,7 +84,7 @@ class ScheduleDataStore @Inject constructor(
                 "favorite_schedule_id"
             )
 
-        private val VERTIVAL_VIEWER
+        private val VERTICAL_VIEWER
             get() = androidx.datastore.preferences.core.booleanPreferencesKey(
                 "schedule_vertical_viewer"
             )

@@ -6,6 +6,11 @@ class ApplicationPreference @Inject constructor(
     private val manager: PreferenceRepository
 ) {
 
+    var isMigrate_2_0
+        get() = manager.getBoolean(MIGRATE_2_0, false)
+        set(value) = manager.saveBoolean(MIGRATE_2_0, value)
+
+
     fun currentDarkMode(): DarkMode {
         return DarkMode.from(manager.getString(DARK_MODE)) ?: DarkMode.Default
     }
@@ -16,5 +21,6 @@ class ApplicationPreference @Inject constructor(
 
     companion object {
         private const val DARK_MODE = "dark_mode_v2"
+        private const val MIGRATE_2_0 = "migrate_2_0"
     }
 }

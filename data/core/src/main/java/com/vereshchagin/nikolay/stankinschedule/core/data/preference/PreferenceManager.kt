@@ -14,6 +14,14 @@ class PreferenceManager @Inject constructor(
 
     private val preferences = PreferenceManager.getDefaultSharedPreferences(context)
 
+    override fun getBoolean(key: String, default: Boolean): Boolean {
+        return preferences.getBoolean(key, default)
+    }
+
+    override fun saveBoolean(key: String, value: Boolean) {
+        preferences.edit { putBoolean(key, value) }
+    }
+
     override fun getString(key: String): String? {
         return preferences.getString(key, null)
     }

@@ -15,7 +15,7 @@ interface ScheduleStorage {
 
     fun schedulePair(pairId: Long): Flow<PairModel?>
 
-    suspend fun saveSchedule(model: ScheduleModel, replaceExist: Boolean = false)
+    suspend fun saveSchedule(model: ScheduleModel, replaceExist: Boolean = false): Long
 
     suspend fun isScheduleExist(scheduleName: String): Boolean
 

@@ -37,8 +37,8 @@ class ScheduleStorageImpl @Inject constructor(
         return dao.getPairEntity(pairId).map { it?.toPairModel() }
     }
 
-    override suspend fun saveSchedule(model: ScheduleModel, replaceExist: Boolean) {
-        db.withTransaction {
+    override suspend fun saveSchedule(model: ScheduleModel, replaceExist: Boolean): Long {
+        return db.withTransaction {
             if (replaceExist) {
                 val prevItem = dao.getScheduleEntity(model.info.scheduleName)
                 if (prevItem != null) {
@@ -47,7 +47,7 @@ class ScheduleStorageImpl @Inject constructor(
                     val pairEntities = model.map { pair -> pair.toEntity(prevItem.id) }
                     dao.insertPairs(pairEntities)
 
-                    return@withTransaction
+                    return@withTransaction prevItem.id
                 }
             }
 
@@ -57,6 +57,8 @@ class ScheduleStorageImpl @Inject constructor(
 
             val pairEntities = model.map { pair -> pair.toEntity(scheduleId) }
             dao.insertPairs(pairEntities)
+
+            return@withTransaction scheduleId
         }
     }
 
