@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -59,8 +58,6 @@ fun BackLayerContent(
             contentColor = contentColor,
             modifier = Modifier.fillMaxWidth()
         )
-        Divider(color = contentColor, modifier = Modifier.padding(Dimen.ContentPadding))
-
 
         Text(
             text = stringResource(R.string.repository_title_degree),
@@ -86,7 +83,6 @@ fun BackLayerContent(
             contentColor = contentColor,
             modifier = Modifier.fillMaxWidth()
         )
-        Divider(color = contentColor, modifier = Modifier.padding(Dimen.ContentPadding))
 
         Text(
             text = stringResource(R.string.repository_title_course),

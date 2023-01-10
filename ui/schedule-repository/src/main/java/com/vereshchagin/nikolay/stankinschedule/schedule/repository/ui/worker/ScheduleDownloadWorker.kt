@@ -1,21 +1,20 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.worker
 
 import android.content.Context
-import android.util.Log
 import androidx.annotation.StringRes
-import androidx.core.app.NotificationManagerCompat
 import androidx.hilt.work.HiltWorker
 import androidx.work.*
 import com.vereshchagin.nikolay.stankinschedule.core.ui.notification.NotificationUtils
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.model.RepositoryItem
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.usecase.RepositoryLoaderUseCase
-import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.R
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import org.joda.time.DateTimeUtils
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
+import com.vereshchagin.nikolay.stankinschedule.core.ui.R as R_core
 
 /**
  * Worker для скачивание расписания с репозитория
@@ -27,6 +26,8 @@ class ScheduleDownloadWorker @AssistedInject constructor(
     private val loaderUseCase: RepositoryLoaderUseCase
 ) : CoroutineWorker(context, workerParameters) {
 
+    // private val manager = NotificationManagerCompat.from(context)
+
     override suspend fun doWork(): Result {
 
         val scheduleName = inputData.getString(SCHEDULE_NAME)!!
@@ -36,59 +37,46 @@ class ScheduleDownloadWorker @AssistedInject constructor(
 
         val notificationId = createID()
 
-        // подготовка уведомлений
-        val manager = NotificationManagerCompat.from(applicationContext)
+        val info = createForegroundInfo(scheduleName, notificationId)
+        setForeground(info)
 
-        val notificationBuilder = NotificationUtils.createCommonNotification(applicationContext)
-            .setContentTitle(scheduleName)
-            .setSmallIcon(R.drawable.ic_notification_file_download)
+        download(scheduleCategory, schedulePath, scheduleName, replaceExist)
 
-        // уведомление о начале загрузки
-        NotificationUtils.notify(
-            applicationContext, manager, notificationId,
-            notificationBuilder
-                .setWhen(DateTimeUtils.currentTimeMillis())
-                .setProgress(100, 0, true)
+        return Result.success(
+            Data.Builder()
+                .putString("scheduleName", scheduleName)
                 .build()
         )
+    }
 
-        try {
-            // загрузка расписания
-            loaderUseCase.loadSchedule(scheduleCategory, schedulePath, scheduleName, replaceExist)
+    private fun createForegroundInfo(scheduleName: String, notificationId: Int): ForegroundInfo {
+        val cancel = WorkManager.getInstance(applicationContext)
+            .createCancelPendingIntent(id)
 
-            // уведомление об окончании загрузки
-            NotificationUtils.notify(
-                applicationContext, manager, notificationId,
-                notificationBuilder
-                    .setWhen(DateTimeUtils.currentTimeMillis())
-                    .setProgress(0, 0, false)
-                    .setContentText(getString(R.string.repository_schedule_loaded))
-                    .setAutoCancel(true)
-                    .build()
-            )
+        val notification = NotificationUtils.createCommonNotification(applicationContext)
+            .setContentTitle(scheduleName)
+            .setTicker(scheduleName)
+            .setSmallIcon(R.drawable.ic_notification_file_download)
+            .setWhen(DateTimeUtils.currentTimeMillis())
+            .setProgress(100, 0, true)
+            .addAction(R.drawable.ic_notification_cancel, getString(R_core.string.cancel), cancel)
+            .build()
 
-        } catch (e: Exception) {
-            // ошибка загрузки
-            NotificationUtils.notify(
-                applicationContext,
-                manager,
-                notificationId,
-                notificationBuilder
-                    .setWhen(DateTimeUtils.currentTimeMillis())
-                    .setProgress(0, 0, false)
-                    .setContentText(getString(R.string.repository_loading_failure))
-                    .setAutoCancel(true)
-                    .build()
-            )
+        return ForegroundInfo(notificationId, notification)
+    }
 
-            if (BuildConfig.DEBUG) {
-                Log.e(TAG, "doWork: ", e)
-            }
-
-            return Result.failure()
-        }
-
-        return Result.success()
+    private suspend fun download(
+        scheduleCategory: String,
+        schedulePath: String,
+        scheduleName: String,
+        replaceExist: Boolean
+    ) {
+        setProgress(
+            data = Data.Builder()
+                .putString("scheduleName", scheduleName)
+                .build()
+        )
+        loaderUseCase.loadSchedule(scheduleCategory, schedulePath, scheduleName, replaceExist)
     }
 
     /**
@@ -106,7 +94,7 @@ class ScheduleDownloadWorker @AssistedInject constructor(
 
         private const val TAG = "ScheduleWorkerLog"
 
-        private const val WORKER_TAG = "schedule_download_worker_tag"
+        const val WORKER_TAG = "schedule_download_worker_tag"
 
         private const val SCHEDULE_REPLACE_EXIST = "schedule_replace_exist"
         private const val SCHEDULE_NAME = "schedule_save_name"
@@ -141,6 +129,7 @@ class ScheduleDownloadWorker @AssistedInject constructor(
                         .putBoolean(SCHEDULE_REPLACE_EXIST, replaceExist)
                         .build()
                 )
+                .keepResultsForAtLeast(24, TimeUnit.HOURS)
                 .addTag(WORKER_TAG)
                 .build()
 
