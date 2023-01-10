@@ -190,7 +190,7 @@ class NewsViewerActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun WebView.supportDarkMode(isDarkTheme: Boolean) {
-        if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK) && isDarkTheme) {
+        if (isDarkTheme) {
             // Old API
             // WebSettingsCompat.setForceDark(settings, WebSettingsCompat.FORCE_DARK_ON)
             if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
