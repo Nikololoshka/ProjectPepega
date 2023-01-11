@@ -7,6 +7,7 @@ plugins {
 }
 
 android {
+    val appVersionName: String by rootProject.extra
     val appCompileSdkVersion: Int by rootProject.extra
     val appMinSdkVersion: Int by rootProject.extra
     val appTargetSdkVersion: Int by rootProject.extra
@@ -23,7 +24,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "APP_VERSION", "\"$appVersionName\"")
+        }
         release {
+            buildConfigField("string", "APP_VERSION", "\"$appVersionName\"")
+
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

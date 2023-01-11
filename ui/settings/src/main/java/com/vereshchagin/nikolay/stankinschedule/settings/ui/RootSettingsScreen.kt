@@ -138,7 +138,7 @@ fun RootSettingsScreen(
         )
 
         Text(
-            text = "Version: 2.0.0",
+            text = stringResource(R.string.version) + BuildConfig.APP_VERSION,
             style = MaterialTheme.typography.titleMedium
         )
 
