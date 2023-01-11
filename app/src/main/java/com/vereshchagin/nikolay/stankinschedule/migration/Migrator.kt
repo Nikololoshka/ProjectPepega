@@ -1,13 +1,16 @@
 package com.vereshchagin.nikolay.stankinschedule.migration
 
 import android.content.Context
+import androidx.compose.ui.graphics.Color
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.toHEX
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.api.PairJson
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.data.mapper.toPairModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleInfo
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.ScheduleStorage
+import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorType
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.repository.SchedulePreference
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
@@ -47,5 +50,29 @@ class Migrator @Inject constructor(
 
             }
         }
+
+        val colors = AppPreference_1_0.colors(
+            context,
+            AppPreference_1_0.LECTURE_COLOR,
+            AppPreference_1_0.SEMINAR_COLOR,
+            AppPreference_1_0.LECTURE_COLOR,
+            AppPreference_1_0.SUBGROUP_A_COLOR,
+            AppPreference_1_0.SUBGROUP_B_COLOR
+        ).map { if (it == 0) null else Color(it).toHEX() }
+
+        val newColors = listOf(
+            PairColorType.Lecture,
+            PairColorType.Seminar,
+            PairColorType.Laboratory,
+            PairColorType.SubgroupA,
+            PairColorType.SubgroupB
+        )
+        for ((hex, type) in colors.zip(newColors)) {
+            if (hex != null) {
+                schedulePreference.setScheduleColor(hex, type)
+            }
+        }
+
+
     }
 }

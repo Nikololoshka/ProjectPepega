@@ -154,6 +154,7 @@ dependencies {
     // Components
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.lifecycle.java8)
+    implementation(libs.androidx.preference)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.paging)
     implementation(libs.androidx.startup)

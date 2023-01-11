@@ -11,9 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import kotlin.Deprecated;
 
-@Deprecated(message = "Unsupported API")
 public class SchedulePreference_1_0 {
 
     public static final String ROOT_PATH = "schedules";

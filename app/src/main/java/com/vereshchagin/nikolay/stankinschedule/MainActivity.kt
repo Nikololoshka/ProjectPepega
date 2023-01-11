@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launchWhenCreated {
-            if (appPreference.isMigrate_2_0) {
+            if (!appPreference.isMigrate_2_0) {
                 withContext(Dispatchers.IO) {
                     migrator.get().migrate_2_0_0()
                 }
