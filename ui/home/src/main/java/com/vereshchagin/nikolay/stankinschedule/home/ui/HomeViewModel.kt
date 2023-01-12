@@ -57,7 +57,11 @@ class HomeViewModel @Inject constructor(
         }
 
         viewModelScope.launch {
-            newsUseCase.refreshAllNews(force = false)
+            try {
+                newsUseCase.refreshAllNews(force = false)
+            } catch (ignored: Exception) {
+
+            }
         }
     }
 
