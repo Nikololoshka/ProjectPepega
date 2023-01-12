@@ -55,4 +55,16 @@ class SettingsViewModel @Inject constructor(
             _colorChanged.emit(type)
         }
     }
+
+    /**
+     * More settings
+     */
+
+    private val _isAnalyticsEnabled = MutableStateFlow(applicationPreference.isAnalyticsEnabled)
+    val isAnalyticsEnabled = _isAnalyticsEnabled.asStateFlow()
+
+    fun setAnalyticsEnabled(enable: Boolean) {
+        applicationPreference.isAnalyticsEnabled = enable
+        _isAnalyticsEnabled.value = enable
+    }
 }

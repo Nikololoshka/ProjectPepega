@@ -33,6 +33,8 @@ class MainApplication : Application(), Configuration.Provider {
     override fun onCreate() {
         super.onCreate()
 
+        Firebase.analytics.setAnalyticsCollectionEnabled(applicationPreference.isAnalyticsEnabled)
+
         if (BuildConfig.DEBUG) {
             // StrictMode.enableDefaults()
             Firebase.analytics.setAnalyticsCollectionEnabled(false)

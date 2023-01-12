@@ -40,18 +40,21 @@ class SettingsActivity : AppCompatActivity() {
                         RootSettingsScreen(
                             viewModel = viewModel,
                             onBackPressed = { onBackPressedDispatcher.onBackPressed() },
-                            navigateToSchedule = {
-                                navController.navigate("schedule")
-                            },
-                            navigateToWidgets = {
-
-                            },
+                            navigateToSchedule = { navController.navigate("schedule") },
+                            navigateToMore = { navController.navigate("more") },
                             modifier = Modifier.fillMaxSize()
                         )
                     }
 
                     composable(route = "schedule") {
                         ScheduleSettingsScreen(
+                            viewModel = viewModel,
+                            onBackPressed = { navController.navigateUp() },
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
+                    composable(route = "more") {
+                        MoreSettingsScreen(
                             viewModel = viewModel,
                             onBackPressed = { navController.navigateUp() },
                             modifier = Modifier.fillMaxSize()

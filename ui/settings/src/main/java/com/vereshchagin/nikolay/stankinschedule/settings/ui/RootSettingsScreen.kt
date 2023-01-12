@@ -22,15 +22,13 @@ import androidx.compose.ui.unit.dp
 import com.vereshchagin.nikolay.stankinschedule.core.domain.settings.DarkMode
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.settings.ui.components.*
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-@OptIn(ExperimentalCoroutinesApi::class)
 @Composable
 fun RootSettingsScreen(
     viewModel: SettingsViewModel,
     onBackPressed: () -> Unit,
     navigateToSchedule: () -> Unit,
-    navigateToWidgets: () -> Unit,
+    navigateToMore: () -> Unit,
     modifier: Modifier = Modifier
 ) {
 
@@ -80,15 +78,6 @@ fun RootSettingsScreen(
             icon = R.drawable.ic_pref_schedule
         )
 
-        /*
-        RegularPreference(
-            title = stringResource(R.string.pref_widget),
-            subtitle = stringResource(R.string.pref_widget_summary),
-            onClick = { },
-            icon = R.drawable.ic_pref_widgets
-        )
-         */
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             RegularPreference(
                 title = stringResource(R.string.pref_notification),
@@ -101,6 +90,13 @@ fun RootSettingsScreen(
                 icon = R.drawable.ic_pref_notifications
             )
         }
+
+        RegularPreference(
+            title = stringResource(R.string.pref_more),
+            subtitle = stringResource(R.string.pref_more_summary),
+            onClick = navigateToMore,
+            icon = R.drawable.ic_pref_more
+        )
 
         PreferenceDivider()
 
