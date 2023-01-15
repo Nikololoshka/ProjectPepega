@@ -28,7 +28,7 @@ android {
             buildConfigField("String", "APP_VERSION", "\"$appVersionName\"")
         }
         release {
-            buildConfigField("string", "APP_VERSION", "\"$appVersionName\"")
+            buildConfigField("String", "APP_VERSION", "\"$appVersionName\"")
 
             isMinifyEnabled = false
             proguardFiles(
