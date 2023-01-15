@@ -64,13 +64,16 @@ fun ColorPickerDialog(
                         leadingIcon = {
                             ColorIcon(color = currentColor)
                         },
-                        onValueChange = {
-                            try {
-                                currentHex = it
-                                currentColor = Color.parse(it)
-                                isHexError = false
-
-                            } catch (e: IllegalArgumentException) {
+                        onValueChange = { newHex ->
+                            currentHex = newHex
+                            if (newHex.isNotEmpty()) {
+                                try {
+                                    currentColor = Color.parse(newHex)
+                                    isHexError = false
+                                } catch (e: IllegalArgumentException) {
+                                    isHexError = true
+                                }
+                            } else {
                                 isHexError = true
                             }
                         }
