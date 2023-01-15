@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="schedule_creator">Добавить расписание</string>
+    <string name="schedule_create_new">Новое (пустое)</string>
+    <string name="schedule_from_device">С устройства</string>
+    <string name="schedule_from_repository">Из репозитория</string>
+
+    <string name="new_schedule_name">Название расписания</string>
+    <string name="create_schedule">Создать расписание</string>
+    <string name="create">Создать</string>
+    <string name="schedule_exists">Расписание с текущим именем уже существует!</string>
+    <string name="schedule_create_error">Не удалось создать расписание</string>
+
+    <string name="read_permission_denied">Отказано в разрешении на чтение</string>
+    <string name="read_permissions_details">Приложению необходимо разрешение на чтение, чтобы импортировать с устройства json файл с расписанием</string>
+    <string name="schedule_added">Добавлено расписание: \"%1$s\"</string>
+    <string name="import_error">Ошибка импорта расписания.</string>
+
+</resources>

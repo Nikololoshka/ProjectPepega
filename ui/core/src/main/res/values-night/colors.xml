@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark theme -->
+    <color name="primary">@color/md_theme_dark_primary</color>
+    <color name="onPrimary">@color/md_theme_dark_onPrimary</color>
+    <color name="primaryContainer">@color/md_theme_dark_primaryContainer</color>
+    <color name="onPrimaryContainer">@color/md_theme_dark_onPrimaryContainer</color>
+
+    <color name="secondary">@color/md_theme_dark_secondary</color>
+    <color name="onSecondary">@color/md_theme_dark_onSecondary</color>
+    <color name="secondaryContainer">@color/md_theme_dark_secondaryContainer</color>
+    <color name="onSecondaryContainer">@color/md_theme_dark_onSecondaryContainer</color>
+
+    <color name="tertiary">@color/md_theme_dark_tertiary</color>
+    <color name="onTertiary">@color/md_theme_dark_onTertiary</color>
+    <color name="tertiaryContainer">@color/md_theme_dark_tertiaryContainer</color>
+    <color name="onTertiaryContainer">@color/md_theme_dark_onTertiaryContainer</color>
+
+    <color name="error">@color/md_theme_dark_error</color>
+    <color name="onError">@color/md_theme_dark_onError</color>
+    <color name="errorContainer">@color/md_theme_dark_errorContainer</color>
+    <color name="onErrorContainer">@color/md_theme_dark_onErrorContainer</color>
+
+    <color name="background">@color/md_theme_dark_background</color>
+    <color name="onBackground">@color/md_theme_dark_onBackground</color>
+
+    <color name="surface">@color/md_theme_dark_surface</color>
+    <color name="onSurface">@color/md_theme_dark_onSurface</color>
+    <color name="surfaceVariant">@color/md_theme_dark_surfaceVariant</color>
+    <color name="onSurfaceVariant">@color/md_theme_dark_onSurfaceVariant</color>
+
+
+    <color name="outline">@color/md_theme_dark_outline</color>
+    <color name="inverseSurface">@color/md_theme_dark_inverseSurface</color>
+    <color name="inverseOnSurface">@color/md_theme_dark_inverseOnSurface</color>
+    <color name="inversePrimary">@color/md_theme_dark_inversePrimary</color>
+    <color name="surfaceTint">@color/md_theme_dark_surfaceTint</color>
+
+    <color name="news_placeholder">#666</color>
+</resources>

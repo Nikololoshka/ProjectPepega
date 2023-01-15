@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="back_button">Назад</string>
+
+    <string name="notification_common">Общие</string>
+    <string name="notification_common_description">Загрузка расписания, важная информация</string>
+    <string name="notification_mj">Модульный журнал</string>
+    <string name="notification_mj_description">Изменения в модульном журнале</string>
+
+    <string name="notification_on">Включить</string>
+    <string name="notification_off">Выключить</string>
+
+    <string name="calendar_select_date">Выберете дату</string>
+
+    <string name="error">Ошибка</string>
+    <string name="cancel">Отмена</string>
+    <string name="ok">ОК</string>
+
+    <string name="ex_unknown_host">Хост недоступен. Попробуйте проверить подключение к сети.</string>
+    <string name="ex_failed_unauthorized">Не удалось войти. Убедитесь, что вы правильно ввели логин и пароль.</string>
+    <string name="ex_socket_timeout">Хост долго не отвечает. Попробуйте позже.</string>
+
+    <string name="permission_write_title">Разрешение на запись</string>
+    <string name="permission_write_text">Требуется разрешение на запись для сохранения файла на устройстве</string>
+    <string name="permission_write_denied_title">Отказано в разрешении на запись</string>
+    <string name="permission_write_denied_text">Без разрешения на запись приложение не сможет сохранить файл на устройстве. Разрешения можно включить в настройках приложения</string>
+    <string name="permission_write_to_settings">В настройки</string>
+
+</resources>

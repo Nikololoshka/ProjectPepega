@@ -1,0 +1,156 @@
+{
+    "formatVersion": 1,
+    "database": {
+        "version": 1,
+        "identityHash": "f755b023560c7a1559acbf2e102d3da6",
+        "entities": [
+            {
+                "tableName": "schedule_entities",
+                "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`schedule_name` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `last_update` TEXT, `synced` INTEGER NOT NULL, `position` INTEGER NOT NULL)",
+                "fields": [
+                    {
+                        "fieldPath": "scheduleName",
+                        "columnName": "schedule_name",
+                        "affinity": "TEXT",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "id",
+                        "columnName": "id",
+                        "affinity": "INTEGER",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "lastUpdate",
+                        "columnName": "last_update",
+                        "affinity": "TEXT",
+                        "notNull": false
+                    },
+                    {
+                        "fieldPath": "synced",
+                        "columnName": "synced",
+                        "affinity": "INTEGER",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "position",
+                        "columnName": "position",
+                        "affinity": "INTEGER",
+                        "notNull": true
+                    }
+                ],
+                "primaryKey": {
+                    "columnNames": [
+                        "id"
+                    ],
+                    "autoGenerate": true
+                },
+                "indices": [
+                    {
+                        "name": "index_schedule_entities_schedule_name",
+                        "unique": true,
+                        "columnNames": [
+                            "schedule_name"
+                        ],
+                        "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_schedule_entities_schedule_name` ON `${TABLE_NAME}` (`schedule_name`)"
+                    }
+                ],
+                "foreignKeys": []
+            },
+            {
+                "tableName": "schedule_pair_entities",
+                "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`schedule_id` INTEGER NOT NULL, `title` TEXT NOT NULL, `lecturer` TEXT NOT NULL, `classroom` TEXT NOT NULL, `type` TEXT NOT NULL, `subgroup` TEXT NOT NULL, `time` TEXT NOT NULL, `date` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, FOREIGN KEY(`schedule_id`) REFERENCES `schedule_entities`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+                "fields": [
+                    {
+                        "fieldPath": "scheduleId",
+                        "columnName": "schedule_id",
+                        "affinity": "INTEGER",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "title",
+                        "columnName": "title",
+                        "affinity": "TEXT",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "lecturer",
+                        "columnName": "lecturer",
+                        "affinity": "TEXT",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "classroom",
+                        "columnName": "classroom",
+                        "affinity": "TEXT",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "type",
+                        "columnName": "type",
+                        "affinity": "TEXT",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "subgroup",
+                        "columnName": "subgroup",
+                        "affinity": "TEXT",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "time",
+                        "columnName": "time",
+                        "affinity": "TEXT",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "date",
+                        "columnName": "date",
+                        "affinity": "TEXT",
+                        "notNull": true
+                    },
+                    {
+                        "fieldPath": "id",
+                        "columnName": "id",
+                        "affinity": "INTEGER",
+                        "notNull": true
+                    }
+                ],
+                "primaryKey": {
+                    "columnNames": [
+                        "id"
+                    ],
+                    "autoGenerate": true
+                },
+                "indices": [
+                    {
+                        "name": "index_schedule_pair_entities_schedule_id",
+                        "unique": false,
+                        "columnNames": [
+                            "schedule_id"
+                        ],
+                        "createSql": "CREATE INDEX IF NOT EXISTS `index_schedule_pair_entities_schedule_id` ON `${TABLE_NAME}` (`schedule_id`)"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "table": "schedule_entities",
+                        "onDelete": "CASCADE",
+                        "onUpdate": "CASCADE",
+                        "columns": [
+                            "schedule_id"
+                        ],
+                        "referencedColumns": [
+                            "id"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "views": [],
+        "setupQueries": [
+            "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+            "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f755b023560c7a1559acbf2e102d3da6')"
+        ]
+    }
+}

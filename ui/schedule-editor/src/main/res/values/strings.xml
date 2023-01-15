@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="editor_title">Editor</string>
+    <string name="editor_title_label">Title</string>
+    <string name="editor_lecturer_label">Lecturer</string>
+    <string name="editor_classroom_label">Classroom</string>
+    <string name="editor_type_label">Type</string>
+    <string name="editor_type_lecture">Lecture</string>
+    <string name="editor_type_seminar">Seminar</string>
+    <string name="editor_type_laboratory">Laboratory</string>
+    <string name="editor_subgroup_label">Subgroup</string>
+    <string name="editor_subgroup_common">---</string>
+    <string name="editor_subgroup_a">(A)</string>
+    <string name="editor_subgroup_b">(B)</string>
+    <string name="editor_time_start">Start</string>
+    <string name="editor_time_end">End</string>
+
+    <string name="editor_removing_pair">Removing a pair</string>
+    <string name="editor_removing_pair_detail">Are you sure you want to remove a pair from the schedule?</string>
+
+    <string name="editor_date_mode">Date type</string>
+    <string name="editor_date_single_mode">Single</string>
+    <string name="editor_date_range_mode">Range</string>
+    <string name="editor_select_single_date">Select date</string>
+    <string name="editor_select_start_date">Select start date</string>
+    <string name="editor_select_end_date">Select end date</string>
+    <string name="editor_date_title">Date editor</string>
+    <string name="editor_start_date">Start date</string>
+    <string name="editor_end_date">End date</string>
+    <string name="editor_single_date">Date</string>
+    <string name="editor_add_date">Add date</string>
+    <string name="editor_edit_date">Edit date</string>
+    <string name="editor_dates">Dates</string>
+    <string name="editor_new_date">New date</string>
+    <string name="editor_remove_date">Remove date</string>
+    <string name="editor_delete_pair">Delete</string>
+
+    <string name="editor_invalid_date">Unable to create date. Check the correct date.</string>
+    <string name="editor_invalid_day_of_week">You cannot create a date with this day of the week.</string>
+    <string name="editor_invalid_frequency">The date range is not a multiple of its duration.</string>
+    <string name="editor_impossible_added_date">You cannot add a date because there will be a date intersection / no match on day of the week.</string>
+    <string name="editor_conflict_pair">You cannot add a pair. Conflicts with \"%1$s\".</string>
+
+    <string name="frequency">Frequency</string>
+    <string name="frequency_every_week">Every week</string>
+    <string name="frequency_throughout_week">Throughout a week</string>
+    <string name="frequency_every_week_simple">e.w</string>
+    <string name="frequency_throughout_simple">t.w</string>
+
+
+</resources>

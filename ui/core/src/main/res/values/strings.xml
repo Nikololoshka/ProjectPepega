@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="back_button">Back button</string>
+
+    <string name="notification_common">Common</string>
+    <string name="notification_common_description">Download schedule, important information</string>
+    <string name="notification_mj">Module journal</string>
+    <string name="notification_mj_description">Changes in the module journal</string>
+
+    <string name="notification_on">On</string>
+    <string name="notification_off">Off</string>
+
+    <string name="calendar_select_date">Select date</string>
+
+    <string name="error">Error</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+
+    <string name="ex_unknown_host">Host is unavailable. Try to test your network connection.</string>
+    <string name="ex_failed_unauthorized">Login failed. Make sure you entered your username and password correctly.</string>
+    <string name="ex_socket_timeout">The host does not respond for a long time. Try later.</string>
+
+    <string name="permission_write_title">Write permission</string>
+    <string name="permission_write_text">Write permission is required to save the file to the device</string>
+    <string name="permission_write_denied_title">Write permission denied</string>
+    <string name="permission_write_denied_text">Without write permissions, the app will not be able to save the file to your device. Permissions can be enabled in the app settings</string>
+    <string name="permission_write_to_settings">Open settings</string>
+
+</resources>

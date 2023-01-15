@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="schedule_creator">Add schedule</string>
+    <string name="schedule_create_new">Create new</string>
+    <string name="schedule_from_device">From device</string>
+    <string name="schedule_from_repository">From repository</string>
+
+    <string name="new_schedule_name">Schedule name</string>
+    <string name="create_schedule">Create schedule</string>
+    <string name="create">Create</string>
+    <string name="schedule_exists">Schedule with current name already exists!</string>
+    <string name="schedule_create_error">Failed to create a schedule</string>
+
+    <string name="read_permission_denied">Read permission denied</string>
+    <string name="read_permissions_details">The app needs read permission to import the schedule json file from the device</string>
+    <string name="schedule_added">Schedule added: \"%1$s\"</string>
+    <string name="import_error">Schedule import error</string>
+
+</resources>

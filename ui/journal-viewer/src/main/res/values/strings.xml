@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Journal screen -->
+    <string name="journal_title">Journal</string>
+    <string name="journal_retry">Retry</string>
+    <string name="predict_rating">Predict rating: %1$s</string>
+    <string name="current_rating">Rating: %1$s</string>
+    <string name="sign_out">Sign out</string>
+
+    <!-- Updater notification  -->
+    <string name="journal_notification">Module journal</string>
+    <string name="journal_new_semester">Added a new semester: </string>
+    <string name="journal_new_marks">Updated marks:</string>
+
+    <string name="notification_journal_title">Journal notification</string>
+    <string name="notification_journal_text">Receive notifications of new grades in the journal</string>
+
+</resources>
