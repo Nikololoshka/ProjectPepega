@@ -26,7 +26,7 @@
             android:paddingEnd="0dp"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textColor="@color/onTertiaryContainer" />
+            android:textColor="@color/onPrimaryContainer" />
 
         <ImageButton
             android:id="@+id/widget_settings"
@@ -35,7 +35,7 @@
             android:src="@drawable/widget_action_more"
             android:background="@android:color/transparent"
             android:contentDescription="@string/widget_settings"
-            app:tint="@color/onTertiaryContainer" />
+            app:tint="@color/onPrimaryContainer" />
 
     </LinearLayout>
 
