@@ -158,6 +158,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.paging)
     implementation(libs.androidx.startup)
+    implementation(libs.androidx.splashscreen)
     implementation(libs.ui.material)
 
     implementation(libs.integration.coreGooglePlay)

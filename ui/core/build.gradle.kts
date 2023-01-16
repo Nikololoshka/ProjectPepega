@@ -59,6 +59,7 @@ dependencies {
     implementation(libs.accompanist.permission)
     implementation(libs.ui.material)
     implementation(libs.androidx.paging)
+    implementation(libs.androidx.splashscreen)
 
     // Components
     implementation(libs.integration.browser)

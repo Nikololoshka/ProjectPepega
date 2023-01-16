@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
 import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
@@ -16,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
-import com.vereshchagin.nikolay.stankinschedule.core.ui.R as R_core
 
 
 @AndroidEntryPoint
@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var loggerAnalytics: LoggerAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R_core.style.AppTheme)
         super.onCreate(savedInstanceState)
+        installSplashScreen()
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
