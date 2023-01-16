@@ -11,5 +11,5 @@
         android:gravity="center"
         android:padding="16dp"
         android:textColor="@color/onErrorContainer"
-        android:text="Cannot load widget" />
+        android:text="@string/widget_error" />
 </FrameLayout>

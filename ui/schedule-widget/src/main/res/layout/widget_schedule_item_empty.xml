@@ -4,6 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="24dp"
-    android:text="No pairs"
+    android:text="@string/widget_no_pairs"
     android:textColor="@color/onBackground"
     android:textAlignment="center" />
