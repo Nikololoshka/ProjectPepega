@@ -16,9 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.*
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.Dp
@@ -212,10 +210,16 @@ private fun TypeText(
         Type.LABORATORY -> R.string.type_laboratory
     }
 
+    @Suppress("DEPRECATION")
     Text(
         text = stringResource(typeText),
-        color = textColor(typeColor),
-        fontSize = 14.sp,
+        style = TextStyle(
+            color = textColor(typeColor),
+            fontSize = 14.sp,
+            platformStyle = PlatformTextStyle(
+                includeFontPadding = false
+            )
+        ),
         modifier = Modifier
             .background(
                 color = typeColor,
@@ -243,10 +247,16 @@ private fun SubgroupText(
     }
 
     if (subgroupColor != null && subgroupText != null) {
+        @Suppress("DEPRECATION")
         Text(
             text = stringResource(subgroupText),
-            color = textColor(subgroupColor),
-            fontSize = 14.sp,
+            style = TextStyle(
+                color = textColor(subgroupColor),
+                fontSize = 14.sp,
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false
+                )
+            ),
             modifier = Modifier
                 .background(
                     color = subgroupColor,
