@@ -171,12 +171,11 @@ fun ScheduleTableScreen(
                         TableView(
                             table = this,
                             tableConfig = tableConfig,
-                            scale = 1.5f, // для увеличения полотна, чтобы не сжимать буквы
                             modifier = Modifier
                                 .fillMaxSize()
                                 .graphicsLayer(
-                                    scaleX = scale / 1.5f,
-                                    scaleY = scale / 1.5f,
+                                    scaleX = scale,
+                                    scaleY = scale,
                                     translationX = offsetX,
                                     translationY = offsetY,
                                 ),
