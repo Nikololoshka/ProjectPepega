@@ -18,7 +18,7 @@ import androidx.webkit.WebViewAssetLoader
 import androidx.webkit.WebViewFeature
 import coil.load
 import com.vereshchagin.nikolay.stankinschedule.core.domain.ext.formatDate
-import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
+import com.vereshchagin.nikolay.stankinschedule.core.domain.repository.LoggerAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.UIState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.setVisibility
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils

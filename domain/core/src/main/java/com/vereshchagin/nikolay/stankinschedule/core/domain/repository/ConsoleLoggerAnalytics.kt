@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.core.domain.logger
+package com.vereshchagin.nikolay.stankinschedule.core.domain.repository
 
 import android.util.Log
 

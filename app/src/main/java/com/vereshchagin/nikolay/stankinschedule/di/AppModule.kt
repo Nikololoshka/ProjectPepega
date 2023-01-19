@@ -1,7 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.di
 
-import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
-import com.vereshchagin.nikolay.stankinschedule.logger.FirebaseLoggerAnalytics
+import com.vereshchagin.nikolay.stankinschedule.core.domain.repository.LoggerAnalytics
+import com.vereshchagin.nikolay.stankinschedule.data.FirebaseLoggerAnalytics
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
