@@ -24,6 +24,8 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.newsImageLoader
+import com.vereshchagin.nikolay.stankinschedule.home.ui.components.InAppUpdateDialog
+import com.vereshchagin.nikolay.stankinschedule.home.ui.components.rememberInAppUpdater
 import com.vereshchagin.nikolay.stankinschedule.home.ui.components.schedule.ScheduleHome
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.components.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.toColor
@@ -75,6 +77,11 @@ fun HomeScreen(
 
         val context = LocalContext.current
 
+        val updateState = rememberInAppUpdater(
+            saveLastUpdate = viewModel::saveLastUpdate,
+            currentLastUpdate = viewModel::currentLastUpdate
+        )
+
         val favorite by viewModel.favorite.collectAsState()
         val scheduleDays by viewModel.days.collectAsState()
         val pairColorGroup by viewModel.pairColorGroup.collectAsState(PairColorGroup.default())
@@ -89,7 +96,16 @@ fun HomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            item {
+            item(key = "updater") {
+                InAppUpdateDialog(
+                    state = updateState,
+                    modifier = Modifier
+                        .fillParentMaxWidth()
+                        .padding(Dimen.ContentPadding)
+                )
+            }
+
+            item(key = "schedule_title") {
                 HomeText(
                     text = favorite?.scheduleName
                         ?: stringResource(R.string.section_favorite_schedule),
@@ -105,7 +121,7 @@ fun HomeScreen(
                 )
             }
 
-            item {
+            item(key = "schedule_pager") {
                 Stateful(
                     state = scheduleDays,
                     onSuccess = { days ->
@@ -139,7 +155,7 @@ fun HomeScreen(
                 )
             }
 
-            item {
+            item(key = "news_title") {
                 HomeText(
                     text = stringResource(R.string.section_news),
                     modifier = Modifier
