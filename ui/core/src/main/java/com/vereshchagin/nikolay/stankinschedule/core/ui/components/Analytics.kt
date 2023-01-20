@@ -3,8 +3,8 @@ package com.vereshchagin.nikolay.stankinschedule.core.ui.components
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.staticCompositionLocalOf
-import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.ConsoleLoggerAnalytics
-import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
+import com.vereshchagin.nikolay.stankinschedule.core.domain.repository.ConsoleLoggerAnalytics
+import com.vereshchagin.nikolay.stankinschedule.core.domain.repository.LoggerAnalytics
 
 
 val LocalAnalytics = staticCompositionLocalOf<LoggerAnalytics> {

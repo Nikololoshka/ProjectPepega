@@ -7,6 +7,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Sched
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.ScheduleTable
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.TableConfig
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.TableMode
+import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.toDraw
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.repository.AndroidTableCreator
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.usecase.drawScheduleTable
 import org.joda.time.LocalDate
@@ -16,7 +17,6 @@ import kotlin.math.sqrt
 class AndroidTableCreatorImpl @Inject constructor() : AndroidTableCreator {
 
     override fun createImage(schedule: ScheduleModel, config: TableConfig): Bitmap {
-        val scale = config.longScreenSize / 1600f
         val width: Int = config.longScreenSize.toInt()
         val height: Int = (config.longScreenSize / sqrt(2f)).toInt()
 
@@ -28,17 +28,15 @@ class AndroidTableCreatorImpl @Inject constructor() : AndroidTableCreator {
                 schedule = schedule,
                 date = LocalDate.now().plusDays(config.page * 7)
             )
-        }.prepareForDraw()
+        }.toDraw(
+            pageHeight = height.toFloat(),
+            pageWidth = width.toFloat(),
+            tableColor = config.color
+        )
 
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         bitmap.applyCanvas {
-            drawScheduleTable(
-                drawScheduleTable = table,
-                pageHeight = height.toFloat(),
-                pageWidth = width.toFloat(),
-                scale = scale,
-                tableColor = config.color
-            )
+            drawScheduleTable(table)
         }
 
         return bitmap
@@ -60,9 +58,11 @@ class AndroidTableCreatorImpl @Inject constructor() : AndroidTableCreator {
             TableMode.Full -> {
                 pdf.createPage(width, height, 1) { page ->
                     page.canvas.drawScheduleTable(
-                        drawScheduleTable = ScheduleTable(schedule).prepareForDraw(),
-                        pageHeight = height.toFloat(),
-                        pageWidth = width.toFloat()
+                        drawScheduleTable = ScheduleTable(schedule)
+                            .toDraw(
+                                pageHeight = height.toFloat(),
+                                pageWidth = width.toFloat()
+                            ),
                     )
                 }
             }
@@ -78,9 +78,10 @@ class AndroidTableCreatorImpl @Inject constructor() : AndroidTableCreator {
                             drawScheduleTable = ScheduleTable(
                                 schedule = schedule,
                                 date = from
-                            ).prepareForDraw(),
-                            pageHeight = height.toFloat(),
-                            pageWidth = width.toFloat()
+                            ).toDraw(
+                                pageHeight = height.toFloat(),
+                                pageWidth = width.toFloat()
+                            ),
                         )
                     }
 

@@ -73,6 +73,7 @@ dependencies {
     // Jetpack Compose & Material 3
     implementation(libs.bundles.compose)
     implementation(libs.compose.material3)
+    implementation(libs.compose.activity)
     implementation(libs.compose.coil)
 
     implementation(libs.accompanist.pager)
@@ -82,6 +83,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.java8)
     implementation(libs.ui.material)
 
+    implementation(libs.integration.coreGooglePlay)
+    implementation(libs.integration.googleServices)
 
     // DI
     implementation(libs.hilt.android)

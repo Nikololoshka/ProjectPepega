@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.home.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.vereshchagin.nikolay.stankinschedule.core.domain.settings.ApplicationPreference
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.UIState
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.usecase.NewsReviewUseCase
@@ -18,6 +19,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.joda.time.DateTime
 import org.joda.time.LocalDate
 import javax.inject.Inject
 
@@ -27,6 +29,7 @@ class HomeViewModel @Inject constructor(
     private val scheduleViewerUseCase: ScheduleViewerUseCase,
     private val scheduleSettingsUseCase: ScheduleSettingsUseCase,
     private val newsUseCase: NewsReviewUseCase,
+    private val applicationPreference: ApplicationPreference
 ) : ViewModel() {
 
     val pairColorGroup: Flow<PairColorGroup> = scheduleSettingsUseCase.pairColorGroup()
@@ -63,6 +66,14 @@ class HomeViewModel @Inject constructor(
 
             }
         }
+    }
+
+    fun saveLastUpdate(last: DateTime) {
+        applicationPreference.lastInAppUpdate = last
+    }
+
+    fun currentLastUpdate(): DateTime? {
+        return applicationPreference.lastInAppUpdate
     }
 
     private fun updateScheduleBlock(model: ScheduleModel?, delta: Int) {

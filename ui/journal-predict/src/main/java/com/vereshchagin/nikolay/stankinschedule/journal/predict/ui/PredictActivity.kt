@@ -10,7 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
-import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
+import com.vereshchagin.nikolay.stankinschedule.core.domain.repository.LoggerAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.setVisibility
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import com.vereshchagin.nikolay.stankinschedule.journal.predict.ui.components.PredictRatingPanel

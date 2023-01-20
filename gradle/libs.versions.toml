@@ -38,6 +38,7 @@ splashscreen = "1.0.0"
 browser = "1.4.0"
 coreGooglePlay = "1.8.1"
 googleServices = "4.3.13"
+inAppUpdate = "2.0.1"
 
 # Firebase
 firebase = "30.4.1"
@@ -126,6 +127,7 @@ androidx-lifecycle-java8 = { module = "androidx.lifecycle:lifecycle-common-java8
 # Integration
 integration-browser = { module = "androidx.browser:browser", version.ref = "browser" }
 integration-coreGooglePlay = { module = "com.google.android.play:core-ktx", version.ref = "coreGooglePlay" }
+integration-inAppUpdate = { module = "com.google.android.play:app-update-ktx", version.ref = "inAppUpdate" }
 integration-googleServices = { module = "com.google.gms:google-services", version.ref = "googleServices" }
 
 # UI

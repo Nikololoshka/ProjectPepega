@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.usecase.ScheduleUseCase
-import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.DrawScheduleTable
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.ScheduleTable
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.TableConfig
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.TableMode
@@ -35,7 +34,7 @@ class ScheduleTableViewModel @Inject constructor(
     private val _tableConfig = MutableStateFlow(TableConfig.default())
     val tableConfig = _tableConfig.asStateFlow()
 
-    private val _table = MutableStateFlow<DrawScheduleTable?>(null)
+    private val _table = MutableStateFlow<ScheduleTable?>(null)
     val table = _table.asStateFlow()
 
 
@@ -64,7 +63,7 @@ class ScheduleTableViewModel @Inject constructor(
                             schedule = schedule,
                             date = LocalDate.now().plusDays(config.page * 7)
                         )
-                    }.prepareForDraw()
+                    }
 
                     _table.value = table
                 }

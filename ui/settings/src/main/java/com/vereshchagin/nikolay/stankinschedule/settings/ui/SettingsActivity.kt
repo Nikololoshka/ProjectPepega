@@ -10,7 +10,7 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
+import com.vereshchagin.nikolay.stankinschedule.core.domain.repository.LoggerAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

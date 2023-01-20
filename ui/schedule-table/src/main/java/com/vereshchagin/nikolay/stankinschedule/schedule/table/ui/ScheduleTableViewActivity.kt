@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
-import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
+import com.vereshchagin.nikolay.stankinschedule.core.domain.repository.LoggerAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.LocalAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint

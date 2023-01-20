@@ -6,7 +6,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.vereshchagin.nikolay.stankinschedule.core.domain.logger.LoggerAnalytics
+import com.vereshchagin.nikolay.stankinschedule.core.domain.repository.LoggerAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.UIState
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.exceptions.StudentAuthorizedException
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.model.SemesterMarks
