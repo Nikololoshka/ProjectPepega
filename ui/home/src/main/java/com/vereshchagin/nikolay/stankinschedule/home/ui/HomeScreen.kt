@@ -4,6 +4,7 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -27,6 +28,7 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.newsImageLoader
 import com.vereshchagin.nikolay.stankinschedule.home.ui.components.InAppUpdateDialog
 import com.vereshchagin.nikolay.stankinschedule.home.ui.components.rememberInAppUpdater
 import com.vereshchagin.nikolay.stankinschedule.home.ui.components.schedule.ScheduleHome
+import com.vereshchagin.nikolay.stankinschedule.home.ui.data.UpdateState
 import com.vereshchagin.nikolay.stankinschedule.news.review.ui.components.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.toColor
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
@@ -76,11 +78,18 @@ fun HomeScreen(
     ) { innerPadding ->
 
         val context = LocalContext.current
+        val columnState = rememberLazyListState()
 
         val updateState = rememberInAppUpdater(
             saveLastUpdate = viewModel::saveLastUpdate,
             currentLastUpdate = viewModel::currentLastUpdate
         )
+        LaunchedEffect(updateState.progress.value) {
+            if (updateState.progress.value is UpdateState.UpdateRequired) {
+                columnState.animateScrollToItem(0)
+                scrollBehavior.state.contentOffset = 0f
+            }
+        }
 
         val favorite by viewModel.favorite.collectAsState()
         val scheduleDays by viewModel.days.collectAsState()
@@ -90,6 +99,7 @@ fun HomeScreen(
         val news by viewModel.news.collectAsState()
 
         LazyColumn(
+            state = columnState,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),

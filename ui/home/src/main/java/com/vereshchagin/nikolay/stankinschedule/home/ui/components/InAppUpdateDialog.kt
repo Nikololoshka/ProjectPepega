@@ -55,20 +55,20 @@ fun rememberInAppUpdater(
         contract = ActivityResultContracts.StartIntentSenderForResult(),
         onResult = {
             if (it.resultCode == Activity.RESULT_CANCELED) {
-                saveLastUpdate(DateTime.now())
+                updateManager.later()
             }
         }
     )
 
     LaunchedEffect(progress) {
         if (progress.value is UpdateState.UpToDate) {
-            saveLastUpdate(DateTime.now().minusDays(8))
+            saveLastUpdate(DateTime.now())
         }
     }
 
     LaunchedEffect(currentLastUpdate) {
         val lastUpdate = currentLastUpdate()
-        if (lastUpdate == null || lastUpdate subHours DateTime.now() < 24 * 7) {
+        if (lastUpdate == null || lastUpdate subHours DateTime.now() > 24 * 7) {
             updateManager.checkUpdate()
         }
     }
