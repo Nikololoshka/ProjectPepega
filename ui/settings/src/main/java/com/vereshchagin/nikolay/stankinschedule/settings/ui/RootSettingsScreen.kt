@@ -134,7 +134,7 @@ fun RootSettingsScreen(
         )
 
         Text(
-            text = stringResource(R.string.version) + BuildConfig.APP_VERSION,
+            text = stringResource(R.string.version) + " " + BuildConfig.APP_VERSION,
             style = MaterialTheme.typography.titleMedium
         )
 
