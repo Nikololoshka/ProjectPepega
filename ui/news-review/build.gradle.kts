@@ -73,7 +73,6 @@ dependencies {
 
     implementation(libs.accompanist.pager)
     implementation(libs.accompanist.indicators)
-    implementation(libs.accompanist.swiperefresh)
 
     // Components
     implementation(libs.androidx.paging)

@@ -4,6 +4,10 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.pullrefresh.PullRefreshIndicator
+import androidx.compose.material.pullrefresh.pullRefresh
+import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -22,8 +26,6 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import com.google.accompanist.swiperefresh.SwipeRefresh
-import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.*
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
@@ -31,8 +33,10 @@ import com.vereshchagin.nikolay.stankinschedule.journal.viewer.ui.components.*
 import com.vereshchagin.nikolay.stankinschedule.journal.viewer.ui.worker.JournalMarksUpdateWorker
 
 
-@OptIn(ExperimentalPagerApi::class, ExperimentalFoundationApi::class,
-    ExperimentalMaterial3Api::class)
+@OptIn(
+    ExperimentalPagerApi::class, ExperimentalFoundationApi::class,
+    ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class
+)
 @Composable
 fun JournalScreen(
     viewModel: JournalViewModel,
@@ -92,13 +96,18 @@ fun JournalScreen(
         contentWindowInsets = WindowInsets.Zero,
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
     ) { innerPadding ->
+        val refreshState = rememberPullRefreshState(
+            refreshing = forceRefreshing,
+            onRefresh = { viewModel.refreshStudentInfo(useCache = false) }
+        )
+
         Stateful(
             state = student,
             onSuccess = { data ->
-                SwipeRefresh(
-                    state = rememberSwipeRefreshState(isRefreshing = forceRefreshing),
-                    onRefresh = { viewModel.refreshStudentInfo(useCache = false) },
-                    modifier = Modifier.padding(innerPadding)
+                Box(
+                    modifier = Modifier
+                        .pullRefresh(refreshState)
+                        .padding(innerPadding)
                 ) {
                     NotificationUpdateDialog(
                         title = stringResource(R.string.notification_journal_title),
@@ -183,6 +192,12 @@ fun JournalScreen(
                             }
                         }
                     }
+
+                    PullRefreshIndicator(
+                        refreshing = forceRefreshing,
+                        state = refreshState,
+                        modifier = Modifier.align(Alignment.TopCenter)
+                    )
                 }
             },
             onLoading = {

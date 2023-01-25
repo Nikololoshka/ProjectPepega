@@ -65,6 +65,27 @@ fun NewsReviewScreen(
         Box(
             modifier = Modifier.padding(innerPadding)
         ) {
+            HorizontalPager(
+                count = newsSubdivisions.size,
+                state = pagerState,
+                key = { it },
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = tabRowHeight)
+            ) { page ->
+                val subdivisionsId = newsSubdivisions[page].subdivisionsId
+                val isRefreshing = viewModel.newsRefreshing(subdivisionsId).collectAsState()
+
+                NewsPostColumn(
+                    posts = viewModel.news(subdivisionsId),
+                    onClick = { post -> navigateToViewer(post.title, post.id) },
+                    isNewsRefreshing = isRefreshing.value,
+                    onRefresh = { viewModel.refreshNews(subdivisionsId, force = true) },
+                    imageLoader = imageLoader,
+                    modifier = Modifier.fillMaxSize()
+                )
+            }
+
             TabRow(
                 selectedTabIndex = pagerState.currentPage,
                 indicator = { tabPositions ->
@@ -89,27 +110,6 @@ fun NewsReviewScreen(
                         }
                     )
                 }
-            }
-
-            HorizontalPager(
-                count = newsSubdivisions.size,
-                state = pagerState,
-                key = { it },
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = tabRowHeight)
-            ) { page ->
-                val subdivisionsId = newsSubdivisions[page].subdivisionsId
-                val isRefreshing = viewModel.newsRefreshing(subdivisionsId).collectAsState()
-
-                NewsPostColumn(
-                    posts = viewModel.news(subdivisionsId),
-                    onClick = { post -> navigateToViewer(post.title, post.id) },
-                    isNewsRefreshing = isRefreshing.value,
-                    onRefresh = { viewModel.refreshNews(subdivisionsId, force = true) },
-                    imageLoader = imageLoader,
-                    modifier = Modifier.fillMaxSize()
-                )
             }
         }
     }
