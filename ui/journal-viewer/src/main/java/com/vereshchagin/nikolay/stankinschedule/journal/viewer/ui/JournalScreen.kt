@@ -123,7 +123,7 @@ fun JournalScreen(
                             }
                     ) {
 
-                        item {
+                        item(key = "student_info") {
                             StudentInfo(
                                 student = data,
                                 rating = rating,
@@ -135,7 +135,7 @@ fun JournalScreen(
                             )
                         }
 
-                        stickyHeader {
+                        stickyHeader(key = "semesters") {
                             SemesterTabRow(
                                 semesters = data.semesters,
                                 currentPage = pagerState.currentPage,
@@ -148,7 +148,7 @@ fun JournalScreen(
                             )
                         }
 
-                        item {
+                        item(key = "marks") {
                             val semesters = viewModel.semesters.collectAsLazyPagingItems()
                             val semesterError: Throwable? = with(semesters.loadState) {
                                 listOf(append, refresh, prepend)
