@@ -26,7 +26,7 @@ import org.joda.time.DateTime
 class InAppUpdateState internal constructor(
     private val updateManager: InAppUpdater,
     private val updateLauncher: (info: AppUpdateInfo) -> Unit,
-    internal val progress: State<UpdateState>
+    internal val progress: State<UpdateState?>
 ) {
     internal fun later() {
         updateManager.later()
@@ -60,7 +60,7 @@ fun rememberInAppUpdater(
         }
     )
 
-    LaunchedEffect(progress) {
+    LaunchedEffect(progress.value) {
         if (progress.value is UpdateState.UpToDate) {
             saveLastUpdate(DateTime.now())
         }
@@ -103,7 +103,8 @@ fun InAppUpdateDialog(
     state: InAppUpdateState,
     modifier: Modifier = Modifier
 ) {
-    if (state.progress.value !is UpdateState.UpToDate) {
+    val progress = state.progress.value
+    if (progress != null && progress !is UpdateState.UpToDate) {
         ElevatedCard(
             modifier = modifier
         ) {
@@ -113,7 +114,7 @@ fun InAppUpdateDialog(
                     .padding(Dimen.ContentPadding)
             ) {
                 UpdateContent(
-                    progress = state.progress.value,
+                    progress = progress,
                     onLater = state::later,
                     onUpdate = state::startUpdate,
                     onRestart = state::restart

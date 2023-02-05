@@ -64,7 +64,6 @@ dependencies {
     implementation(libs.compose.paging)
 
     implementation(libs.accompanist.pager)
-    implementation(libs.accompanist.swiperefresh)
 
     // UI
     implementation(libs.androidx.lifecycle.viewmodel)

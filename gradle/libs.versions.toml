@@ -1,7 +1,7 @@
 [versions]
 # Main
 kotlin = "1.7.20"
-coroutines = "1.3.9"
+coroutines = "1.6.1"
 agp = "7.3.1"
 core = "1.9.0"
 ksp = "1.6.20-1.0.4"
@@ -10,9 +10,9 @@ ksp = "1.6.20-1.0.4"
 compose = "1.3.1"
 compose-compiler = "1.3.2"
 
-accompanist = "0.27.0"
-coil = "2.2.1"
-navigation = "2.5.2"
+accompanist = "0.28.0"
+coil = "2.2.2"
+navigation = "2.5.3"
 material3 = "1.0.1"
 
 # App components
@@ -21,8 +21,8 @@ activity-compose = "1.6.1"
 paging = "3.1.1"
 paging-compose = "1.0.0-alpha17"
 
-appcompat = "1.5.1"
-fragment = "1.3.6"
+appcompat = "1.6.0"
+fragment = "1.5.5"
 glance = "1.0.0-alpha05"
 lifecycle = "2.5.1"
 material = "1.7.0"
@@ -37,27 +37,27 @@ splashscreen = "1.0.0"
 # Integration
 browser = "1.4.0"
 coreGooglePlay = "1.8.1"
-googleServices = "4.3.13"
+googleServices = "4.3.15"
 inAppUpdate = "2.0.1"
 
 # Firebase
-firebase = "30.4.1"
-firebaseGradle = "2.9.1"
+firebase = "31.2.0"
+firebaseGradle = "2.9.2"
 
 # Network
 retrofit = "2.9.0"
 okhttp3 = "4.8.0"
 
 # Room DB
-room = "2.3.0"
+room = "2.5.0"
 
 # DI
-hilt = "2.44"
+hilt = "2.44.2"
 hilt-work = "1.0.0"
 hilt-nav = "1.0.0"
 
 # Worker
-work = "2.7.0"
+work = "2.7.1"
 work-hilt = "1.0.0"
 
 # Other
@@ -91,7 +91,6 @@ compose-livedata = { module = "androidx.compose.runtime:runtime-livedata", versi
 
 accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
 accompanist-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
-accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
 accompanist-placeholder = { module = "com.google.accompanist:accompanist-placeholder-material", version.ref = "accompanist" }
 accompanist-navigation = { module = "com.google.accompanist:accompanist-navigation-material", version.ref = "accompanist" }
 accompanist-flowLayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
@@ -150,6 +149,7 @@ network-okhttp3 = { module = "com.squareup.okhttp3:logging-interceptor", version
 # Room DB
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 
 # DI

@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.news.review.ui
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -65,6 +66,29 @@ fun NewsReviewScreen(
         Box(
             modifier = Modifier.padding(innerPadding)
         ) {
+            HorizontalPager(
+                count = newsSubdivisions.size,
+                state = pagerState,
+                key = { it },
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = tabRowHeight)
+            ) { page ->
+                val subdivisionsId = newsSubdivisions[page].subdivisionsId
+                val isRefreshing = viewModel.newsRefreshing(subdivisionsId).collectAsState()
+                val columnState = rememberLazyListState()
+
+                NewsPostColumn(
+                    posts = viewModel.news(subdivisionsId),
+                    onClick = { post -> navigateToViewer(post.title, post.id) },
+                    isNewsRefreshing = isRefreshing.value,
+                    onRefresh = { viewModel.refreshNews(subdivisionsId, force = true) },
+                    imageLoader = imageLoader,
+                    columnState = columnState,
+                    modifier = Modifier.fillMaxSize()
+                )
+            }
+
             TabRow(
                 selectedTabIndex = pagerState.currentPage,
                 indicator = { tabPositions ->
@@ -89,27 +113,6 @@ fun NewsReviewScreen(
                         }
                     )
                 }
-            }
-
-            HorizontalPager(
-                count = newsSubdivisions.size,
-                state = pagerState,
-                key = { it },
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = tabRowHeight)
-            ) { page ->
-                val subdivisionsId = newsSubdivisions[page].subdivisionsId
-                val isRefreshing = viewModel.newsRefreshing(subdivisionsId).collectAsState()
-
-                NewsPostColumn(
-                    posts = viewModel.news(subdivisionsId),
-                    onClick = { post -> navigateToViewer(post.title, post.id) },
-                    isNewsRefreshing = isRefreshing.value,
-                    onRefresh = { viewModel.refreshNews(subdivisionsId, force = true) },
-                    imageLoader = imageLoader,
-                    modifier = Modifier.fillMaxSize()
-                )
             }
         }
     }

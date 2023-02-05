@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.StateFlow
 
 interface InAppUpdater {
 
-    val updateState: StateFlow<UpdateState>
+    val updateState: StateFlow<UpdateState?>
 
     suspend fun checkUpdate()
 

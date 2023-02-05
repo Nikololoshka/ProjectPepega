@@ -26,8 +26,8 @@ class GooglePlayInAppUpdater constructor(
 
     private val appUpdater = AppUpdateManagerFactory.create(context)
 
-    private val _updateState = MutableStateFlow<UpdateState>(UpdateState.UpToDate)
-    override val updateState: StateFlow<UpdateState> = _updateState.asStateFlow()
+    private val _updateState = MutableStateFlow<UpdateState?>(null)
+    override val updateState: StateFlow<UpdateState?> = _updateState.asStateFlow()
 
     init {
         appUpdater.registerListener(this)

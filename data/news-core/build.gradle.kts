@@ -70,6 +70,7 @@ dependencies {
 
     // Room DB
     implementation(libs.bundles.room)
+    implementation(libs.room.paging)
     kapt(libs.room.compiler)
 
     // DI
