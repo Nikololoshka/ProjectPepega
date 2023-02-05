@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.news.review.ui
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -75,6 +76,7 @@ fun NewsReviewScreen(
             ) { page ->
                 val subdivisionsId = newsSubdivisions[page].subdivisionsId
                 val isRefreshing = viewModel.newsRefreshing(subdivisionsId).collectAsState()
+                val columnState = rememberLazyListState()
 
                 NewsPostColumn(
                     posts = viewModel.news(subdivisionsId),
@@ -82,6 +84,7 @@ fun NewsReviewScreen(
                     isNewsRefreshing = isRefreshing.value,
                     onRefresh = { viewModel.refreshNews(subdivisionsId, force = true) },
                     imageLoader = imageLoader,
+                    columnState = columnState,
                     modifier = Modifier.fillMaxSize()
                 )
             }

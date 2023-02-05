@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.pullrefresh.PullRefreshIndicator
@@ -35,9 +36,9 @@ fun NewsPostColumn(
     onRefresh: () -> Unit,
     modifier: Modifier = Modifier,
     imageLoader: ImageLoader = newsImageLoader(LocalContext.current),
+    columnState: LazyListState = rememberLazyListState()
 ) {
     val lazyPostItems: LazyPagingItems<NewsPost> = posts.collectAsLazyPagingItems()
-    val lazyColumnState = rememberLazyListState()
 
     val refreshingState = rememberPullRefreshState(
         refreshing = isNewsRefreshing,
@@ -48,7 +49,7 @@ fun NewsPostColumn(
         modifier = modifier.pullRefresh(refreshingState)
     ) {
         PagingLazyColumn(
-            state = lazyColumnState,
+            state = columnState,
             pagingItems = lazyPostItems,
             modifier = Modifier.fillMaxSize(),
             key = { it.id },
