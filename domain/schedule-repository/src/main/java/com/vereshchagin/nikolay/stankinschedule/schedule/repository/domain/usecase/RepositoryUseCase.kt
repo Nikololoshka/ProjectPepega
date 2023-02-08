@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.usecase
 
 
+import com.vereshchagin.nikolay.stankinschedule.core.domain.ext.subHours
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.repository.ScheduleStorage
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.model.RepositoryDescription
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.model.RepositoryItem
@@ -8,6 +9,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.repos
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.repository.ScheduleRemoteService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import org.joda.time.DateTime
 import javax.inject.Inject
 
 
@@ -19,9 +21,10 @@ class RepositoryUseCase @Inject constructor(
 
     fun repositoryDescription(
         useCache: Boolean = true,
+        expireHours: Int = 24
     ): Flow<RepositoryDescription> = flow {
         val cache = repositoryStorage.loadDescription()
-        if (cache != null && useCache) {
+        if (cache != null && useCache && (cache.cacheTime subHours DateTime.now() < expireHours)) {
             emit(cache.data)
             return@flow
         }
@@ -29,6 +32,7 @@ class RepositoryUseCase @Inject constructor(
         try {
             val description = service.description()
             repositoryStorage.saveDescription(description)
+            repositoryStorage.clearEntries()
             emit(description)
 
         } catch (e: Exception) {

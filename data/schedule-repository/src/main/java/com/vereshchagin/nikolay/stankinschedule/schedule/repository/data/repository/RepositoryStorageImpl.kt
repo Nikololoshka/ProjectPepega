@@ -41,6 +41,10 @@ class RepositoryStorageImpl @Inject constructor(
         return db.withTransaction { dao.getAll(category) }.map { it.toItem() }
     }
 
+    override suspend fun clearEntries() {
+        db.withTransaction { dao.deleteAll() }
+    }
+
     companion object {
         private const val ROOT = "firebase_storage"
         private const val DESCRIPTION = "description"
