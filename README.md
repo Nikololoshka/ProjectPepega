@@ -22,7 +22,7 @@ Stankin Schedule (проект назывался Project Pepega изначал�
 
 Последняя версия приложения: **2.0**
 
-Google play store версия: **1.2.6**
+Google play store версия: **2.0**
 
 <a href='https://play.google.com/store/apps/details?id=com.vereshchagin.nikolay.stankinschedule'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width=200/></a>
 
