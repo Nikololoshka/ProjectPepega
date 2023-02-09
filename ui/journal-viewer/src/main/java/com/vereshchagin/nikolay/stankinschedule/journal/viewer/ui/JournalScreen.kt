@@ -144,7 +144,7 @@ fun JournalScreen(
                                 },
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(tabsHeight)
+                                    .defaultMinSize(minHeight = tabsHeight)
                             )
                         }
 
