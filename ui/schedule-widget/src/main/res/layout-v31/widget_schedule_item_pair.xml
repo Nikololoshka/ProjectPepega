@@ -4,11 +4,11 @@
     android:id="@+id/widget_pair"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="8dp"
     android:background="@drawable/schedule_widget_pair_background"
     android:orientation="vertical"
-    android:padding="8dp"
-    android:layout_marginBottom="8dp">
+    android:paddingVertical="4dp"
+    android:paddingHorizontal="@dimen/widget_inner_radius"
+    android:layout_marginBottom="4dp">
 
     <TextView
         android:id="@+id/widget_pair_title"

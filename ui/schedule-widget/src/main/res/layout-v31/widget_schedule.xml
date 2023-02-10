@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/schedule_widget_background"
+    android:clipToOutline="true"
     android:orientation="vertical">
 
     <LinearLayout
@@ -13,7 +14,7 @@
         android:background="@drawable/schedule_widget_header_background"
         android:gravity="center_vertical"
         android:paddingVertical="4dp"
-        android:paddingHorizontal="@dimen/widget_background_radius"
+        android:paddingHorizontal="@dimen/widget_inner_radius"
         android:orientation="horizontal">
 
         <TextView
@@ -23,8 +24,7 @@
             android:layout_height="wrap_content"
             android:text="@string/widget_schedule_description"
             android:textSize="16sp"
-            android:paddingStart="0dp"
-            android:paddingEnd="8dp"
+            android:paddingHorizontal="8dp"
             android:maxLines="1"
             android:ellipsize="end"
             android:textColor="@color/onPrimaryContainer" />
