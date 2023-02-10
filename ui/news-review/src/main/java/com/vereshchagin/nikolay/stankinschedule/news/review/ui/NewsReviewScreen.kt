@@ -98,7 +98,7 @@ fun NewsReviewScreen(
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(tabRowHeight)
+                    .defaultMinSize(minHeight = tabRowHeight)
             ) {
                 newsSubdivisions.forEachIndexed { index, subdivision ->
                     Tab(
