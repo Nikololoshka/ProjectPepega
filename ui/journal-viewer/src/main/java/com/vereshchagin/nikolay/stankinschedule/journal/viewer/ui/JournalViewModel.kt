@@ -80,7 +80,6 @@ class JournalViewModel @Inject constructor(
                         _isSignIn.value = false
                     } else {
                         _student.value = UIState.failed(t)
-                        logger.recordException(t)
                     }
                 }
                 .collect { student ->
