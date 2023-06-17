@@ -49,6 +49,7 @@ android {
     buildTypes {
         debug {
             versionNameSuffix = "-debug"
+            applicationIdSuffix = ".debug"
 
             isDebuggable = true
             isMinifyEnabled = false
@@ -88,7 +89,7 @@ android {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
-    packagingOptions {
+    packaging {
         resources.excludes.addAll(
             listOf(
                 "META-INF/LICENSE.md",
@@ -144,6 +145,7 @@ dependencies {
     implementation(libs.androidx.core)
 
     // Jetpack Compose & Material 3
+    implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.compose.material3)
     implementation(libs.compose.activity)

@@ -9,14 +9,12 @@ plugins {
 android {
     val appCompileSdkVersion: Int by rootProject.extra
     val appMinSdkVersion: Int by rootProject.extra
-    val appTargetSdkVersion: Int by rootProject.extra
 
     compileSdk = appCompileSdkVersion
     namespace = "com.vereshchagin.nikolay.stankinschedule.core.domain"
 
     defaultConfig {
         minSdk = appMinSdkVersion
-        targetSdk = appTargetSdkVersion
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -39,6 +37,9 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
+
+kapt { correctErrorTypes = true }
+hilt { enableAggregatingTask = true }
 
 dependencies {
     // Kotlin

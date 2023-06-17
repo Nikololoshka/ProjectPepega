@@ -1,4 +1,4 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// Top-level build file where you can add configuration options common to all subprojects/modules.
 
 ext {
     extra["appCompileSdkVersion"] = 33
@@ -41,6 +41,13 @@ allprojects {
         google()
         maven("https://oss.sonatype.org/content/repositories/snapshots/")
         maven("https://jitpack.io")
+    }
+}
+
+subprojects {
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+
     }
 }
 

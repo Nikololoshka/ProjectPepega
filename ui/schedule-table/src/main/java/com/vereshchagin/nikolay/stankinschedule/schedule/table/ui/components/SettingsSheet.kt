@@ -63,7 +63,7 @@ fun SettingsSheet(
         )
 
         ListItem(
-            headlineText = { Text(text = stringResource(R.string.send_copy)) },
+            headlineContent = { Text(text = stringResource(R.string.send_copy)) },
             leadingContent = {
                 Icon(
                     painter = painterResource(R.drawable.ic_send_copy),
@@ -76,7 +76,7 @@ fun SettingsSheet(
         )
 
         ListItem(
-            headlineText = { Text(text = stringResource(R.string.save_as)) },
+            headlineContent = { Text(text = stringResource(R.string.save_as)) },
             leadingContent = {
                 Icon(
                     painter = painterResource(R.drawable.ic_save),

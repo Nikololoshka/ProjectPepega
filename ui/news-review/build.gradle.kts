@@ -66,6 +66,7 @@ dependencies {
     implementation(project(":domain:news-core"))
 
     // Jetpack Compose & Material 3
+    implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.compose.material3)
     implementation(libs.compose.paging)
