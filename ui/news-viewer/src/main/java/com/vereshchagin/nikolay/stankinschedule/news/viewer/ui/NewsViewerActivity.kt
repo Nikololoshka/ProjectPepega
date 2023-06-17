@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.news.viewer.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
@@ -119,6 +120,7 @@ class NewsViewerActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun setupWebViewSettings() {
         val assetLoader = WebViewAssetLoader.Builder()
             .addPathHandler("/assets/", WebViewAssetLoader.AssetsPathHandler(this))

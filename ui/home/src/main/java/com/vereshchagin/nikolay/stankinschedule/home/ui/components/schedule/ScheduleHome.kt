@@ -1,7 +1,11 @@
 package com.vereshchagin.nikolay.stankinschedule.home.ui.components.schedule
 
 import android.widget.Toast
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
@@ -12,10 +16,6 @@ import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.PagerState
-import com.google.accompanist.pager.rememberPagerState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.home.ui.R
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.PairColors
@@ -24,7 +24,8 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.toColor
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
 
-@OptIn(ExperimentalPagerApi::class)
+
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ScheduleHome(
     days: List<ScheduleViewDay>,
@@ -32,9 +33,9 @@ fun ScheduleHome(
     modifier: Modifier = Modifier,
     colors: PairColors = PairColorGroup.default().toColor()
 ) {
-    val pagerState = rememberPagerState((days.size - 1) / 2)
+    val pagerState = rememberPagerState(initialPage = (days.size - 1) / 2)
     val isScrolling = remember(pagerState) {
-        derivedStateOf { pagerState.currentPageOffset != 0f }
+        derivedStateOf { pagerState.currentPageOffsetFraction != 0f }
     }
 
 
@@ -51,7 +52,7 @@ fun ScheduleHome(
         )
 
         HorizontalPager(
-            count = days.size,
+            pageCount = days.size,
             state = pagerState,
             verticalAlignment = Alignment.Top,
             modifier = Modifier.fillMaxWidth(),
@@ -76,7 +77,7 @@ fun ScheduleHome(
 }
 
 
-@OptIn(ExperimentalPagerApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 private fun Modifier.wrapPagerHeight(
     page: Int,
     pagerState: PagerState,
