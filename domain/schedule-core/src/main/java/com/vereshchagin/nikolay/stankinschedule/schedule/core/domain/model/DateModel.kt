@@ -1,9 +1,10 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model
 
+import com.vereshchagin.nikolay.stankinschedule.core.domain.ext.removeIf7
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.exceptions.DateDayOfWeekException
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.exceptions.DateIntersectException
 import org.joda.time.LocalDate
-import java.util.*
+import java.util.TreeSet
 
 /**
  * Дата пары.
@@ -43,7 +44,7 @@ class DateModel : Cloneable, Iterable<DateItem> {
      */
     fun remove(position: Int): DateItem {
         val item = dates.elementAt(position)
-        dates.removeIf { item == it }
+        dates.removeIf7 { item == it }
         if (dates.isEmpty()) {
             dayOfWeek = null
         }

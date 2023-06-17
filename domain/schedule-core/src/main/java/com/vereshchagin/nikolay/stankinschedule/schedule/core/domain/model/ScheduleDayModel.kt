@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model
 
+import com.vereshchagin.nikolay.stankinschedule.core.domain.ext.removeIf7
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.exceptions.PairIntersectException
 import org.joda.time.LocalDate
 
@@ -25,7 +26,7 @@ class ScheduleDayModel : Iterable<PairModel> {
      * Удаляет пару.
      */
     fun remove(pair: PairModel) {
-        pairs.removeIf { it == pair }
+        pairs.removeIf7 { it == pair }
     }
 
     /**
