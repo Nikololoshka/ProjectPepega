@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.creator.ui
 
+import android.content.res.Configuration
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -8,6 +9,9 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
@@ -17,6 +21,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -37,6 +42,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.creator.ui.components.*
 fun ScheduleCreatorSheet(
     onNavigateBack: () -> Unit,
     onRepositoryClicked: () -> Unit,
+    onImportClicked: () -> Unit,
     onShowSnackBar: (message: String) -> Unit,
     viewModel: ScheduleCreatorViewModel,
     modifier: Modifier = Modifier,
@@ -104,6 +110,36 @@ fun ScheduleCreatorSheet(
         }
     )
 
+
+    val createItems = listOf(
+        ScheduleCreatorItem(
+            title = R.string.schedule_create_new,
+            icon = R.drawable.ic_schedule_new,
+            onItemClicked = { viewModel.onCreateSchedule(CreateEvent.New) }
+        ),
+        ScheduleCreatorItem(
+            title = R.string.schedule_from_device,
+            icon = R.drawable.ic_schedule_from_device,
+            onItemClicked = {
+                if (readStoragePermission.status.isGranted || Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    openScheduleLauncher.launch(arrayOf("application/json"))
+                } else {
+                    readStoragePermission.launchPermissionRequest()
+                }
+            }
+        ),
+        ScheduleCreatorItem(
+            title = R.string.schedule_import,
+            icon = R.drawable.ic_schedule_import,
+            onItemClicked = onImportClicked
+        ),
+        ScheduleCreatorItem(
+            title = R.string.schedule_from_repository,
+            icon = R.drawable.ic_schedule_from_repo,
+            onItemClicked = onRepositoryClicked
+        )
+    )
+
     Column(
         verticalArrangement = Arrangement.spacedBy(Dimen.ContentPadding),
         modifier = modifier.padding(top = Dimen.ContentPadding * 2)
@@ -115,39 +151,22 @@ fun ScheduleCreatorSheet(
             color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.fillMaxWidth()
         )
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(2.dp),
+        val configuration = LocalConfiguration.current
+
+        LazyVerticalGrid(
+            columns = if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                GridCells.Fixed(4)
+            } else {
+                GridCells.Fixed(2)
+            },
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalArrangement = Arrangement.Bottom,
             modifier = Modifier.fillMaxWidth()
         ) {
-            val items = listOf(
-                ScheduleCreatorItem(
-                    title = R.string.schedule_create_new,
-                    icon = R.drawable.ic_schedule_new,
-                    onItemClicked = { viewModel.onCreateSchedule(CreateEvent.New) }
-                ),
-                ScheduleCreatorItem(
-                    title = R.string.schedule_from_device,
-                    icon = R.drawable.ic_schedule_from_device,
-                    onItemClicked = {
-                        if (readStoragePermission.status.isGranted || Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                            openScheduleLauncher.launch(arrayOf("application/json"))
-                        } else {
-                            readStoragePermission.launchPermissionRequest()
-                        }
-                    }
-                ),
-                ScheduleCreatorItem(
-                    title = R.string.schedule_from_repository,
-                    icon = R.drawable.ic_schedule_from_repo,
-                    onItemClicked = onRepositoryClicked
-                )
-            )
-            items.forEach { item ->
+            items(createItems, key = { it.icon }) { item ->
                 CreateScheduleItem(
                     item = item,
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(Dimen.ContentPadding),
+                    modifier = Modifier.padding(Dimen.ContentPadding),
                     contentPadding = PaddingValues(vertical = Dimen.ContentPadding)
                 )
             }

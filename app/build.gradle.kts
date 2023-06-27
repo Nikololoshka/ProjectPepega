@@ -132,6 +132,7 @@ dependencies {
     implementation(project(":ui:schedule-creator"))
     implementation(project(":ui:schedule-editor"))
     implementation(project(":ui:schedule-table"))
+    implementation(project(":ui:schedule-parser"))
     implementation(project(":ui:schedule-list"))
     implementation(project(":ui:schedule-repository"))
     implementation(project(":ui:schedule-viewer"))

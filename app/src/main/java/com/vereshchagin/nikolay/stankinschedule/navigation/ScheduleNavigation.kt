@@ -16,6 +16,7 @@ import com.vereshchagin.nikolay.stankinschedule.navigation.entry.DestinationNavE
 import com.vereshchagin.nikolay.stankinschedule.schedule.creator.ui.ScheduleCreatorSheet
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.PairEditorActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.list.ui.ScheduleScreen
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.ScheduleParserActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.ScheduleRepositoryActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.ui.ScheduleTableViewActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.ScheduleViewerScreen
@@ -97,9 +98,11 @@ fun NavGraphBuilder.schedule(
         ScheduleCreatorSheet(
             onNavigateBack = { navController.navigateUp() },
             onRepositoryClicked = {
-                context.startActivity(
-                    Intent(context, ScheduleRepositoryActivity::class.java)
-                )
+                context.startActivity(Intent(context, ScheduleRepositoryActivity::class.java))
+                navController.navigateUp()
+            },
+            onImportClicked = {
+                context.startActivity(Intent(context, ScheduleParserActivity::class.java))
                 navController.navigateUp()
             },
             onShowSnackBar = showSnackBarState,
