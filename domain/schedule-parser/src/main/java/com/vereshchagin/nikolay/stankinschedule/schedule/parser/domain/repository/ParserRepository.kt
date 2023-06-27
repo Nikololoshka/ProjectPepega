@@ -3,5 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.reposito
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParseDetail
 
 interface ParserRepository {
+
     suspend fun parsePDF(path: String): ParseDetail
+
 }

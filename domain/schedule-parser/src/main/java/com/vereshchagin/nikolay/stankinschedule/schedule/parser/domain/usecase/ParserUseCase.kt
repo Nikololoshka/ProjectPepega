@@ -2,22 +2,26 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.usecase
 
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Time
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.CellBound
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParseResult
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.TimeCellBound
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.repository.ParserRepository
+import javax.inject.Inject
 
-class ParserUseCase(
+class ParserUseCase @Inject constructor(
     private val parser: ParserRepository
 ) {
 
     private val extractor = PairExtractor()
 
-    suspend fun parsePDF(path: String) {
+    suspend fun parsePDF(path: String): List<ParseResult> {
         val details = parser.parsePDF(path)
         val timeCells = detectTimeCells(details.cells)
 
         val result = details.cells.flatMap { cell ->
             extractor.extractAllPairsFromCell(cell, timeCells)
         }
+
+        return result
     }
 
     private fun detectTimeCells(cells: List<CellBound>): List<TimeCellBound> {

@@ -1,15 +1,36 @@
 package com.vereshchagin.nikolay.stankinschedule.parser.data.repository
 
+import android.content.Context
+import android.net.Uri
+import com.tom_roush.pdfbox.android.PDFBoxResourceLoader
 import com.tom_roush.pdfbox.pdmodel.PDDocument
 import com.tom_roush.pdfbox.text.PDFTextStripper
 import com.tom_roush.pdfbox.text.TextPosition
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.CellBound
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParseDetail
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.repository.ParserRepository
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 import java.io.OutputStreamWriter
+import javax.inject.Inject
 import kotlin.math.abs
 
-class ImportRepository {
+class ImportRepository @Inject constructor(
+    @ApplicationContext private val context: Context
+) : ParserRepository {
+
+    override suspend fun parsePDF(path: String): ParseDetail {
+        PDFBoxResourceLoader.init(context)
+
+        return context.contentResolver.openInputStream(Uri.parse(path)).use { stream ->
+            if (stream == null) throw IllegalAccessException("Failed to get file descriptor")
+            ParseDetail(
+                scheduleName = "",
+                cells = import(stream)
+            )
+        }
+    }
 
     fun import(pdf: InputStream): List<CellBound> {
         return PDDocument.load(pdf).use { document ->

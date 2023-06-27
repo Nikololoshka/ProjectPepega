@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
@@ -153,7 +154,7 @@ fun ScheduleParserScreen(
                 }
 
                 OutlinedTextField(
-                    value = (parserState as ParserState.SelectFile?)?.uri?.toString() ?: "",
+                    value = (parserState as ParserState.SelectFile?)?.data?.name ?: "",
                     onValueChange = {},
                     readOnly = true,
                     singleLine = true,
@@ -174,21 +175,17 @@ fun ScheduleParserScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 OutlinedButton(
-                    onClick = {
-
-                    },
+                    onClick = viewModel::back,
                     enabled = parserState !is ParserState.SelectFile
                 ) {
-                    Text(text = "back")
+                    Text(text = stringResource(R.string.step_back))
                 }
 
                 Button(
-                    enabled = (parserState as ParserState.SelectFile?)?.uri != null,
-                    onClick = {
-
-                    },
+                    enabled = (parserState as ParserState.SelectFile?)?.data?.uri != null,
+                    onClick = viewModel::next,
                 ) {
-                    Text(text = "Next")
+                    Text(text = stringResource(R.string.step_next))
                 }
             }
         }

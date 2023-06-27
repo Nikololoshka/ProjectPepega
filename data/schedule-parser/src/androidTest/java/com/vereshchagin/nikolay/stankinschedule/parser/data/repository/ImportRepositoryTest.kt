@@ -37,10 +37,10 @@ class ImportRepositoryTest {
 
     @Test
     fun parse() {
-        val repository = ImportRepository()
-        repository.import(file).forEach { cell ->
-            println(cell)
-        }
+//        val repository = ImportRepository()
+//        repository.import(file).forEach { cell ->
+//            println(cell)
+//        }
     }
 
 

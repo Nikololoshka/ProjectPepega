@@ -31,9 +31,10 @@ class PairExtractor {
         cell: CellBound,
         timeCells: List<TimeCellBound>
     ): List<ParseResult> {
-        val textPairs = cell.text
-            .replace('\n', ' ')
-            .split(splitRegex)
+        val textPairs = splitRegex
+            .findAll(cell.text)
+            .map { it.value.trim() }
+            .toList()
 
         if (textPairs.isEmpty()) {
             return emptyList()
