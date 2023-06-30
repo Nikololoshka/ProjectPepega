@@ -1,14 +1,16 @@
 package com.vereshchagin.nikolay.stankinschedule.parser.data.repository
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.net.Uri
 import com.tom_roush.pdfbox.android.PDFBoxResourceLoader
 import com.tom_roush.pdfbox.pdmodel.PDDocument
+import com.tom_roush.pdfbox.rendering.PDFRenderer
 import com.tom_roush.pdfbox.text.PDFTextStripper
 import com.tom_roush.pdfbox.text.TextPosition
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.CellBound
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParseDetail
-import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.repository.ParserRepository
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.repository.PDFRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
@@ -16,9 +18,9 @@ import java.io.OutputStreamWriter
 import javax.inject.Inject
 import kotlin.math.abs
 
-class ImportRepository @Inject constructor(
+class PDFRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context
-) : ParserRepository {
+) : PDFRepository {
 
     override suspend fun parsePDF(path: String): ParseDetail {
         PDFBoxResourceLoader.init(context)
@@ -29,6 +31,22 @@ class ImportRepository @Inject constructor(
                 scheduleName = "",
                 cells = import(stream)
             )
+        }
+    }
+
+    override suspend fun renderPDF(path: String): Bitmap {
+        PDFBoxResourceLoader.init(context)
+
+        return context.contentResolver.openInputStream(Uri.parse(path)).use { stream ->
+            if (stream == null) throw IllegalAccessException("Failed to get file descriptor")
+            render(stream)
+        }
+    }
+
+    fun render(pdf: InputStream): Bitmap {
+        return PDDocument.load(pdf).use { document ->
+            val renderer = PDFRenderer(document)
+            renderer.renderImageWithDPI(0, 300f)
         }
     }
 

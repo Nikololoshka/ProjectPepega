@@ -52,7 +52,7 @@ fun ProgressStepperPreview() {
                     .padding(innerPadding)
                     .padding(4.dp)
             ) {
-                ProgressStepper(
+                CircleProgressStepper(
                     step = 1,
                     count = 4,
                     modifier = Modifier
@@ -79,7 +79,7 @@ fun ProgressStepperPreview() {
 
 @OptIn(ExperimentalTextApi::class)
 @Composable
-fun ProgressStepper(
+fun CircleProgressStepper(
     step: Int,
     count: Int,
     modifier: Modifier = Modifier,

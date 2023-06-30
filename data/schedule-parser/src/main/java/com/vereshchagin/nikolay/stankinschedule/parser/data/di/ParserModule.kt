@@ -1,7 +1,7 @@
 package com.vereshchagin.nikolay.stankinschedule.parser.data.di
 
-import com.vereshchagin.nikolay.stankinschedule.parser.data.repository.ImportRepository
-import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.repository.ParserRepository
+import com.vereshchagin.nikolay.stankinschedule.parser.data.repository.PDFRepositoryImpl
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.repository.PDFRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,6 +14,6 @@ interface ParserModule {
 
     @Binds
     @ViewModelScoped
-    fun provideParseRepository(repository: ImportRepository): ParserRepository
+    fun provideParseRepository(repository: PDFRepositoryImpl): PDFRepository
 
 }

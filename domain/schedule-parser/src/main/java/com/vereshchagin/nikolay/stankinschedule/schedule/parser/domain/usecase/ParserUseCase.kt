@@ -1,14 +1,15 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.usecase
 
+import android.graphics.Bitmap
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Time
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.CellBound
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParseResult
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.TimeCellBound
-import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.repository.ParserRepository
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.repository.PDFRepository
 import javax.inject.Inject
 
 class ParserUseCase @Inject constructor(
-    private val parser: ParserRepository
+    private val parser: PDFRepository
 ) {
 
     private val extractor = PairExtractor()
@@ -22,6 +23,10 @@ class ParserUseCase @Inject constructor(
         }
 
         return result
+    }
+
+    suspend fun renderPreview(path: String): Bitmap {
+        return parser.renderPDF(path)
     }
 
     private fun detectTimeCells(cells: List<CellBound>): List<TimeCellBound> {

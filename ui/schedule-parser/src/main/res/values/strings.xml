@@ -5,7 +5,11 @@
     <string name="parser_read_permission_denied">Read permission denied</string>
     <string name="parser_read_permissions_details">The app needs read permission to import the schedule pdf file from the device</string>
 
-    <string name="step_back">back</string>
+    <string name="select_pdf_file">Select PDF file with schedule from device</string>
+    <string name="file_not_selected">File is not selected</string>
+    <string name="selected_filename">Selected file: %1$s</string>
+
+    <string name="step_back">Back</string>
     <string name="step_next">Next</string>
 
 </resources>
