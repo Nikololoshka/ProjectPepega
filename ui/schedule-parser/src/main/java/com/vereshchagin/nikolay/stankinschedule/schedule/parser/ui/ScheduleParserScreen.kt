@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -32,6 +33,10 @@ fun ScheduleParserScreen(
 
     val stepState by viewModel.stepState.collectAsState()
     val parserState by viewModel.parserState.collectAsState()
+
+    BackHandler(enabled = !stepState.isStart) {
+        viewModel.back()
+    }
 
     AppScaffold(
         topBar = {

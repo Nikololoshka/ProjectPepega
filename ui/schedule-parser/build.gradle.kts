@@ -62,9 +62,11 @@ hilt {
 dependencies {
     implementation(project(":ui:core"))
     implementation(project(":ui:schedule-core"))
+    implementation(project(":ui:schedule-table"))
     implementation(project(":domain:core"))
     implementation(project(":domain:schedule-core"))
     implementation(project(":domain:schedule-parser"))
+    implementation(project(":domain:schedule-table"))
 
     // Kotlin
     implementation(libs.androidx.core)

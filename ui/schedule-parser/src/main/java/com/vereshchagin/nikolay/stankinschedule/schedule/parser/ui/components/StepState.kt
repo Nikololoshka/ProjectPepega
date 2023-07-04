@@ -4,6 +4,9 @@ class StepState(
     val currentStep: Int,
     val totalSteps: Int
 ) {
+
+    val isStart: Boolean get() = currentStep == 1
+
     fun next() = StepState(
         currentStep = (currentStep + 1).coerceAtMost(totalSteps),
         totalSteps = totalSteps

@@ -2,7 +2,6 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components
 
 import android.Manifest
 import android.content.res.Configuration
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -93,50 +92,50 @@ fun SelectForm(
             derivedStateOf { configuration.orientation == Configuration.ORIENTATION_LANDSCAPE }
         }
 
-        when (val preview = state.data?.preview) {
-            is Bitmap -> {
-                Image(
-                    bitmap = preview.asImageBitmap(),
-                    contentDescription = null,
-                    contentScale = ContentScale.Fit,
-                    modifier = Modifier
-                        .fillMaxWidth(fraction = if (isLandscape) 0.5f else 1f)
-                        .aspectRatio(ratio = 1.41f, matchHeightConstraintsFirst = !isLandscape)
-                        .border(width = 1.dp, color = MaterialTheme.colorScheme.onBackground)
-                        .clickable(onClick = onSelectFile)
-                )
+        if (state.preview != null) {
+            val preview by remember(state.preview) {
+                derivedStateOf { state.preview.asImageBitmap() }
             }
 
-            else -> {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier
-                        .fillMaxWidth(fraction = if (isLandscape) 0.5f else 1f)
-                        .aspectRatio(ratio = 1.41f, matchHeightConstraintsFirst = !isLandscape)
-                        .border(width = 1.dp, color = MaterialTheme.colorScheme.onBackground)
-                        .clickable(onClick = onSelectFile)
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.ic_upload_file),
-                        contentDescription = null,
-                        modifier = Modifier.size(48.dp)
-                    )
+            Image(
+                bitmap = preview,
+                contentDescription = null,
+                contentScale = ContentScale.Fit,
+                modifier = Modifier
+                    .fillMaxWidth(fraction = if (isLandscape) 0.5f else 1f)
+                    .aspectRatio(ratio = 1.41f, matchHeightConstraintsFirst = !isLandscape)
+                    .border(width = 1.dp, color = MaterialTheme.colorScheme.onBackground)
+                    .clickable(onClick = onSelectFile)
+            )
+        } else {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+                modifier = Modifier
+                    .fillMaxWidth(fraction = if (isLandscape) 0.5f else 1f)
+                    .aspectRatio(ratio = 1.41f, matchHeightConstraintsFirst = !isLandscape)
+                    .border(width = 1.dp, color = MaterialTheme.colorScheme.onBackground)
+                    .clickable(onClick = onSelectFile)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.ic_upload_file),
+                    contentDescription = null,
+                    modifier = Modifier.size(48.dp)
+                )
 
-                    Text(
-                        text = stringResource(R.string.select_pdf_file),
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = Dimen.ContentPadding)
-                    )
-                }
+                Text(
+                    text = stringResource(R.string.select_pdf_file),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = Dimen.ContentPadding)
+                )
             }
         }
 
         Text(
-            text = if (state.data != null) {
-                stringResource(R.string.selected_filename, state.data.name)
+            text = if (state.name != null) {
+                stringResource(R.string.selected_filename, state.name)
             } else {
                 stringResource(R.string.file_not_selected)
             },
@@ -145,7 +144,6 @@ fun SelectForm(
                 .fillMaxWidth()
                 .padding(vertical = Dimen.ContentPadding)
         )
-
     }
 }
 
