@@ -17,6 +17,7 @@ import java.io.InputStream
 import java.io.OutputStreamWriter
 import javax.inject.Inject
 import kotlin.math.abs
+import kotlin.math.max
 
 class PDFRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context
@@ -76,7 +77,7 @@ class PDFRepositoryImpl @Inject constructor(
                     x = cell.x,
                     y = cell.y,
                     h = (bound.y - cell.y) + bound.h,
-                    w = cell.w,
+                    w = max(cell.w, bound.w),
                     maxFontHeight = cell.maxFontHeight
                 )
             } else {
