@@ -10,9 +10,15 @@ sealed interface ParseResult {
         }
     }
 
-    class Error(val error: Throwable) : ParseResult {
+    class Missing(val context: String) : ParseResult {
         override fun toString(): String {
-            return "Error(error=$error)"
+            return "Missing(context='$context')"
+        }
+    }
+
+    class Error(val error: String, val context: String) : ParseResult {
+        override fun toString(): String {
+            return "Error(error='$error', context='$context')"
         }
     }
 }

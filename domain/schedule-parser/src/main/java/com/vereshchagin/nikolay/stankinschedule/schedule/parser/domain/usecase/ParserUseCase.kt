@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Time
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.CellBound
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParseResult
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParserSettings
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.TimeCellBound
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.repository.PDFRepository
 import javax.inject.Inject
@@ -14,10 +15,14 @@ class ParserUseCase @Inject constructor(
 
     private val extractor = PairExtractor()
 
-    suspend fun parsePDF(path: String): List<ParseResult> {
+    suspend fun parsePDF(
+        path: String,
+        settings: ParserSettings
+    ): List<ParseResult> {
         val details = parser.parsePDF(path)
         val timeCells = detectTimeCells(details.cells)
 
+        extractor.dateYear = settings.scheduleYear
         val result = details.cells.flatMap { cell ->
             extractor.extractAllPairsFromCell(cell, timeCells)
         }

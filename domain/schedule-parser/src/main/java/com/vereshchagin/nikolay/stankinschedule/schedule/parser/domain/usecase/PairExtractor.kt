@@ -37,15 +37,24 @@ class PairExtractor {
             .toList()
 
         if (textPairs.isEmpty()) {
-            return emptyList()
+            if (cell.text.isEmpty()) {
+                return emptyList()
+            }
+            return listOf(ParseResult.Missing(cell.text))
         }
 
         val cellTime = detectTimeFromCell(cell.x, cell.x + cell.w, timeCells)
+        if (cellTime.duration < 1) {
+            return textPairs.map { textPair ->
+                ParseResult.Error(error = "Invalid time: $cellTime", context = textPair)
+            }
+        }
+
         return textPairs.map { textPair ->
             try {
                 ParseResult.Success(extractPairFromCell(textPair, cellTime))
             } catch (e: Exception) {
-                ParseResult.Error(e)
+                ParseResult.Error(error = e.message ?: e.toString(), context = textPair)
             }
         }
     }
