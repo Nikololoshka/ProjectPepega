@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.R
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.StepState
 
 @Composable
 fun StepperNavigation(

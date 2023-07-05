@@ -12,4 +12,20 @@
     <string name="step_back">Back</string>
     <string name="step_next">Next</string>
 
+
+    <string name="settings_year">Year of schedule</string>
+    <string name="settings_year_details">Year used in the schedule dates</string>
+    <string name="settings_threshold">Parser threshold</string>
+    <string name="settings_threshold_details">Threshold between the text in the cell</string>
+
+    <string name="table_preview">Table preview</string>
+    <string name="parse_success">Success: %1$s</string>
+    <string name="parse_missing">Missing: %1$s</string>
+    <string name="parse_error">Error: %1$s</string>
+
+    <string name="pair_time">Time:</string>
+    <string name="pair_data">Data:</string>
+    <string name="error_reason">Reason:</string>
+    <string name="error_context">Context:</string>
+
 </resources>

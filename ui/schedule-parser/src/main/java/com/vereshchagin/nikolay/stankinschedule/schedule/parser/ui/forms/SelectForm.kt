@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components
+package com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.forms
 
 import android.Manifest
 import android.content.res.Configuration
@@ -15,8 +15,7 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -40,6 +39,8 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.R
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.ReadPermissionDeniedDialog
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.ParserState
 
 
 @OptIn(ExperimentalPermissionsApi::class)
@@ -53,8 +54,6 @@ fun SelectForm(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = modifier
-            .padding(Dimen.ContentPadding)
-            .verticalScroll(state = rememberScrollState())
     ) {
         var readDeniedDialog by remember { mutableStateOf(false) }
         if (readDeniedDialog) {
@@ -117,7 +116,7 @@ fun SelectForm(
                     .border(width = 1.dp, color = MaterialTheme.colorScheme.onBackground)
                     .clickable(onClick = onSelectFile)
             ) {
-                Image(
+                Icon(
                     painter = painterResource(R.drawable.ic_upload_file),
                     contentDescription = null,
                     modifier = Modifier.size(48.dp)
@@ -134,8 +133,8 @@ fun SelectForm(
         }
 
         Text(
-            text = if (state.name != null) {
-                stringResource(R.string.selected_filename, state.name)
+            text = if (state.file != null) {
+                stringResource(R.string.selected_filename, state.file.filename)
             } else {
                 stringResource(R.string.file_not_selected)
             },

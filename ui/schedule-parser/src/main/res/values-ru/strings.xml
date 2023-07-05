@@ -12,4 +12,19 @@
     <string name="step_back">Назад</string>
     <string name="step_next">Дальше</string>
 
+    <string name="settings_year">Год расписания</string>
+    <string name="settings_year_details">Год, который используется в датах расписания</string>
+    <string name="settings_threshold">Порог парсера</string>
+    <string name="settings_threshold_details">Порог между текстом в ячейке</string>
+
+    <string name="table_preview">Предпросмотр</string>
+    <string name="parse_success">Успешно: %1$s</string>
+    <string name="parse_missing">Пропущено: %1$s</string>
+    <string name="parse_error">Ошибки: %1$s</string>
+
+    <string name="pair_time">Время:</string>
+    <string name="pair_data">Данные:</string>
+    <string name="error_reason">Причина:</string>
+    <string name="error_context">Контекст:</string>
+
 </resources>

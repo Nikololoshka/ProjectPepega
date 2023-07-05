@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBarDefaults
@@ -15,11 +17,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppScaffold
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
-import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.ParserForm
-import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.ParserState
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.ScheduleParserAppBar
-import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.SelectForm
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.StepperNavigation
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.forms.ParserForm
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.forms.SelectForm
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.forms.SettingsForm
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.ParserState
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -59,12 +62,26 @@ fun ScheduleParserScreen(
                         state = currentState,
                         selectFile = viewModel::selectFile,
                         modifier = Modifier
+                            .padding(Dimen.ContentPadding)
+                            .verticalScroll(state = rememberScrollState())
                             .weight(1f)
                             .fillMaxWidth()
                     )
                 }
 
-                is ParserState.ParseSchedule -> {
+                is ParserState.Settings -> {
+                    SettingsForm(
+                        state = currentState,
+                        onSetupSettings = viewModel::onSetupSettings,
+                        modifier = Modifier
+                            .padding(Dimen.ContentPadding)
+                            .verticalScroll(state = rememberScrollState())
+                            .weight(1f)
+                            .fillMaxWidth()
+                    )
+                }
+
+                is ParserState.ParserResult -> {
                     ParserForm(
                         state = currentState,
                         modifier = Modifier

@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components
+package com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model
 
 class StepState(
     val currentStep: Int,

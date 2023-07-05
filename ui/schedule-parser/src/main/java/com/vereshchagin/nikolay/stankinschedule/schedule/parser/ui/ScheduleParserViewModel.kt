@@ -7,14 +7,17 @@ import com.vereshchagin.nikolay.stankinschedule.core.domain.usecase.DeviceUseCas
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleInfo
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParseResult
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParserSettings
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.usecase.ParserUseCase
-import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.ParserState
-import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.StepState
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.ParserState
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.SelectedFile
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.StepState
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.ScheduleTable
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.joda.time.LocalDate
 import javax.inject.Inject
 
 @HiltViewModel
@@ -29,13 +32,22 @@ class ScheduleParserViewModel @Inject constructor(
     private val _parserState = MutableStateFlow<ParserState>(ParserState.SelectFile())
     val parserState = _parserState.asStateFlow()
 
+    // cache
+    private var _selectedFile: SelectedFile? = null
+    private var _parserSettings: ParserSettings = ParserSettings(
+        scheduleYear = LocalDate.now().year,
+        parserThreshold = 1f
+    )
 
     fun selectFile(uri: Uri) {
         viewModelScope.launch {
             try {
                 val filename = deviceUseCase.extractFilename(uri.toString())
                 val preview = parserUseCase.renderPreview(uri.toString())
-                _parserState.value = ParserState.SelectFile(uri, filename, preview)
+                val selectedFile = SelectedFile(uri, filename)
+
+                _parserState.value = ParserState.SelectFile(selectedFile, preview)
+                _selectedFile = selectedFile
 
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -43,19 +55,34 @@ class ScheduleParserViewModel @Inject constructor(
         }
     }
 
-    private fun startScheduleParser(path: Uri, name: String) {
+    fun onSetupSettings(settings: ParserSettings) {
+        if (_parserState.value is ParserState.Settings) {
+            _parserState.value = ParserState.Settings(settings)
+            _parserSettings = settings
+        }
+    }
+
+    private fun startScheduleParser(
+        selectedFile: SelectedFile,
+        settings: ParserSettings
+    ) {
         viewModelScope.launch {
             try {
-                val result = parserUseCase.parsePDF(path.toString())
+                val result = parserUseCase.parsePDF(selectedFile.path.toString(), settings)
 
                 val successResult = mutableListOf<ParseResult.Success>()
+                val missingResult = mutableListOf<ParseResult.Missing>()
                 val errorResult = mutableListOf<ParseResult.Error>()
                 for (r in result) {
-                    if (r is ParseResult.Success) successResult += r
-                    if (r is ParseResult.Error) errorResult += r
+                    when (r) {
+                        is ParseResult.Success -> successResult += r
+                        is ParseResult.Error -> errorResult += r
+                        is ParseResult.Missing -> missingResult += r
+                    }
                 }
 
-                val schedule = ScheduleModel(info = ScheduleInfo(name))
+                val scheduleName = selectedFile.filename.substringBeforeLast('.')
+                val schedule = ScheduleModel(info = ScheduleInfo(scheduleName))
                 successResult.forEach {
                     try {
                         schedule.add(it.pair)
@@ -64,8 +91,9 @@ class ScheduleParserViewModel @Inject constructor(
                     }
                 }
 
-                _parserState.value = ParserState.ParseSchedule(
+                _parserState.value = ParserState.ParserResult(
                     successResult = successResult,
+                    missingResult = missingResult,
                     errorResult = errorResult,
                     table = ScheduleTable(schedule)
                 )
@@ -80,10 +108,16 @@ class ScheduleParserViewModel @Inject constructor(
     fun back() {
         when (val currentState = _parserState.value) {
             is ParserState.SelectFile -> {
+
             }
 
-            is ParserState.ParseSchedule -> {
-                _parserState.value = ParserState.SelectFile()
+            is ParserState.Settings -> {
+                _selectedFile?.let { currentSelectedFile -> selectFile(currentSelectedFile.path) }
+                _stepState.value = _stepState.value.back()
+            }
+
+            is ParserState.ParserResult -> {
+                _parserState.value = ParserState.Settings(_parserSettings)
                 _stepState.value = _stepState.value.back()
             }
         }
@@ -92,13 +126,21 @@ class ScheduleParserViewModel @Inject constructor(
     fun next() {
         when (val currentState = _parserState.value) {
             is ParserState.SelectFile -> {
-                if (currentState.uri != null && currentState.name != null) {
-                    startScheduleParser(currentState.uri, currentState.name)
+                if (_selectedFile != null) {
+                    _parserState.value = ParserState.Settings(_parserSettings)
                     _stepState.value = _stepState.value.next()
                 }
             }
 
-            is ParserState.ParseSchedule -> {
+            is ParserState.Settings -> {
+                val currentSelectedFile = _selectedFile
+                if (currentSelectedFile != null) {
+                    startScheduleParser(currentSelectedFile, _parserSettings)
+                    _stepState.value = _stepState.value.next()
+                }
+            }
+
+            is ParserState.ParserResult -> {
 
             }
         }
