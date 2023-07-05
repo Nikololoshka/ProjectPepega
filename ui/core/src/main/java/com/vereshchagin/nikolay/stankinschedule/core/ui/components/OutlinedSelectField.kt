@@ -13,6 +13,9 @@ fun <T> OutlinedSelectField(
     menuLabel: @Composable (item: T) -> String,
     modifier: Modifier = Modifier,
     label: (@Composable () -> Unit)? = null,
+    prefix: @Composable (() -> Unit)? = null,
+    suffix: @Composable (() -> Unit)? = null,
+    supportingText: (@Composable () -> Unit)? = null
 ) {
 
     var isExposed by remember { mutableStateOf(false) }
@@ -27,6 +30,9 @@ fun <T> OutlinedSelectField(
             readOnly = true,
             label = label,
             singleLine = true,
+            prefix = prefix,
+            suffix = suffix,
+            supportingText = supportingText,
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = isExposed) },
             colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
             modifier = modifier.menuAnchor()
