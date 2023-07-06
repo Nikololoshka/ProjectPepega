@@ -5,11 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -33,16 +28,11 @@ fun SettingsForm(
         verticalArrangement = Arrangement.spacedBy(Dimen.ContentPadding),
         modifier = modifier
     ) {
-        var scheduleYear by rememberSaveable { mutableStateOf(state.settings.scheduleYear) }
-        var parserThreshold by rememberSaveable { mutableStateOf(state.settings.parserThreshold) }
-
-        LaunchedEffect(scheduleYear, parserThreshold) {
-            onSetupSettings(ParserSettings(scheduleYear, parserThreshold))
-        }
-
         OutlinedSelectField(
-            value = scheduleYear,
-            onValueChanged = { scheduleYear = it },
+            value = state.settings.scheduleYear,
+            onValueChanged = { scheduleYear ->
+                onSetupSettings(state.settings.copy(scheduleYear = scheduleYear))
+            },
             items = scheduleYearVariants,
             label = { Text(text = stringResource(R.string.settings_year)) },
             menuLabel = { it.toString() },
@@ -51,8 +41,10 @@ fun SettingsForm(
         )
 
         OutlinedSelectField(
-            value = parserThreshold,
-            onValueChanged = { parserThreshold = it },
+            value = state.settings.parserThreshold,
+            onValueChanged = { parserThreshold ->
+                onSetupSettings(state.settings.copy(parserThreshold = parserThreshold))
+            },
             items = parserThresholdVariants,
             label = { Text(text = stringResource(R.string.settings_threshold)) },
             menuLabel = { it.toString() },

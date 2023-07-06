@@ -11,7 +11,6 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.Par
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.usecase.ParserUseCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.ParserState
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.SelectedFile
-import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.StepState
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.ScheduleTable
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -25,9 +24,6 @@ class ScheduleParserViewModel @Inject constructor(
     private val deviceUseCase: DeviceUseCase,
     private val parserUseCase: ParserUseCase,
 ) : ViewModel() {
-
-    private val _stepState = MutableStateFlow(StepState(currentStep = 1, totalSteps = 4))
-    val stepState = _stepState.asStateFlow()
 
     private val _parserState = MutableStateFlow<ParserState>(ParserState.SelectFile())
     val parserState = _parserState.asStateFlow()
@@ -107,18 +103,12 @@ class ScheduleParserViewModel @Inject constructor(
 
     fun back() {
         when (val currentState = _parserState.value) {
-            is ParserState.SelectFile -> {
-
-            }
-
             is ParserState.Settings -> {
                 _selectedFile?.let { currentSelectedFile -> selectFile(currentSelectedFile.path) }
-                _stepState.value = _stepState.value.back()
             }
 
             is ParserState.ParserResult -> {
                 _parserState.value = ParserState.Settings(_parserSettings)
-                _stepState.value = _stepState.value.back()
             }
         }
     }
@@ -128,7 +118,6 @@ class ScheduleParserViewModel @Inject constructor(
             is ParserState.SelectFile -> {
                 if (_selectedFile != null) {
                     _parserState.value = ParserState.Settings(_parserSettings)
-                    _stepState.value = _stepState.value.next()
                 }
             }
 
@@ -136,7 +125,6 @@ class ScheduleParserViewModel @Inject constructor(
                 val currentSelectedFile = _selectedFile
                 if (currentSelectedFile != null) {
                     startScheduleParser(currentSelectedFile, _parserSettings)
-                    _stepState.value = _stepState.value.next()
                 }
             }
 

@@ -12,14 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.R
-import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.StepState
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.ParserState
 
 @Composable
 fun StepperNavigation(
-    stepState: StepState,
+    parserState: ParserState,
     navigateBack: () -> Unit,
     navigateNext: () -> Unit,
     canNext: Boolean,
+    stepCount: Int,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -35,8 +36,8 @@ fun StepperNavigation(
         }
 
         LineProgressStepper(
-            step = stepState.currentStep,
-            count = stepState.totalSteps,
+            step = parserState.step,
+            count = stepCount,
             modifier = Modifier
                 .weight(1f)
                 .padding(horizontal = Dimen.ContentPadding)

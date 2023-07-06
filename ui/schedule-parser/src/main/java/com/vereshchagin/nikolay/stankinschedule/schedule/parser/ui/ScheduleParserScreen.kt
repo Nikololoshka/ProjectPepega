@@ -1,6 +1,13 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.with
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,7 +32,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.forms.Setting
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.ParserState
 
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class)
 @Composable
 fun ScheduleParserScreen(
     viewModel: ScheduleParserViewModel,
@@ -34,10 +41,9 @@ fun ScheduleParserScreen(
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
 
-    val stepState by viewModel.stepState.collectAsState()
     val parserState by viewModel.parserState.collectAsState()
 
-    BackHandler(enabled = !stepState.isStart) {
+    BackHandler(enabled = parserState.step != 1) {
         viewModel.back()
     }
 
@@ -56,48 +62,69 @@ fun ScheduleParserScreen(
                 .fillMaxSize()
         ) {
 
-            when (val currentState = parserState) {
-                is ParserState.SelectFile -> {
-                    SelectForm(
-                        state = currentState,
-                        selectFile = viewModel::selectFile,
-                        modifier = Modifier
-                            .padding(Dimen.ContentPadding)
-                            .verticalScroll(state = rememberScrollState())
-                            .weight(1f)
-                            .fillMaxWidth()
-                    )
-                }
+            AnimatedContent(
+                targetState = parserState,
+                transitionSpec = {
+                    when {
+                        targetState.step > initialState.step -> {
+                            slideInHorizontally { it / 2 } + fadeIn() with
+                                    slideOutHorizontally() + fadeOut()
+                        }
 
-                is ParserState.Settings -> {
-                    SettingsForm(
-                        state = currentState,
-                        onSetupSettings = viewModel::onSetupSettings,
-                        modifier = Modifier
-                            .padding(Dimen.ContentPadding)
-                            .verticalScroll(state = rememberScrollState())
-                            .weight(1f)
-                            .fillMaxWidth()
-                    )
-                }
+                        targetState.step < initialState.step -> {
+                            slideInHorizontally() + fadeIn() with
+                                    slideOutHorizontally { it / 2 } + fadeOut()
+                        }
 
-                is ParserState.ParserResult -> {
-                    ParserForm(
-                        state = currentState,
-                        modifier = Modifier
-                            .weight(1f)
-                            .fillMaxWidth()
-                    )
+                        else -> {
+                            fadeIn() with fadeOut()
+                        }
+                    }
+                },
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+            ) { currentState ->
+                when (currentState) {
+                    is ParserState.SelectFile -> {
+                        SelectForm(
+                            state = currentState,
+                            selectFile = viewModel::selectFile,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .verticalScroll(state = rememberScrollState())
+                                .padding(Dimen.ContentPadding)
+                        )
+                    }
+
+                    is ParserState.Settings -> {
+                        SettingsForm(
+                            state = currentState,
+                            onSetupSettings = viewModel::onSetupSettings,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .verticalScroll(state = rememberScrollState())
+                                .padding(Dimen.ContentPadding)
+                        )
+                    }
+
+                    is ParserState.ParserResult -> {
+                        ParserForm(
+                            state = currentState,
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
                 }
             }
 
             Divider(modifier = Modifier.fillMaxWidth())
 
             StepperNavigation(
-                stepState = stepState,
+                parserState = parserState,
                 navigateBack = viewModel::back,
                 navigateNext = viewModel::next,
                 canNext = parserState.isSuccess,
+                stepCount = 4,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(Dimen.ContentPadding)

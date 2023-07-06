@@ -1,6 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model
 
-class ParserSettings(
+data class ParserSettings(
     val scheduleYear: Int,
     val parserThreshold: Float
 )
