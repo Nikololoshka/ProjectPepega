@@ -7,14 +7,18 @@ import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -96,16 +100,35 @@ fun SelectForm(
                 derivedStateOf { state.preview.asImageBitmap() }
             }
 
-            Image(
-                bitmap = preview,
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
+            Box(
                 modifier = Modifier
                     .fillMaxWidth(fraction = if (isLandscape) 0.5f else 1f)
                     .aspectRatio(ratio = 1.41f, matchHeightConstraintsFirst = !isLandscape)
                     .border(width = 1.dp, color = MaterialTheme.colorScheme.onBackground)
                     .clickable(onClick = onSelectFile)
-            )
+            ) {
+                Image(
+                    bitmap = preview,
+                    contentDescription = null,
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier.fillMaxSize()
+                )
+
+                Icon(
+                    painter = painterResource(R.drawable.ic_upload_file),
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                    modifier = Modifier
+                        .size(36.dp)
+                        .align(Alignment.TopEnd)
+                        .background(
+                            color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f),
+                            shape = RoundedCornerShape(bottomStartPercent = 50)
+                        )
+                        .padding(8.dp)
+                )
+            }
+
         } else {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
