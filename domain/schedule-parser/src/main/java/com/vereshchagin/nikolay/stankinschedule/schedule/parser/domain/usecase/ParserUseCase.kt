@@ -19,7 +19,7 @@ class ParserUseCase @Inject constructor(
         path: String,
         settings: ParserSettings
     ): List<ParseResult> {
-        val details = parser.parsePDF(path)
+        val details = parser.parsePDF(path, settings.parserThreshold)
         val timeCells = detectTimeCells(details.cells)
 
         extractor.dateYear = settings.scheduleYear

@@ -23,14 +23,17 @@ class PDFRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context
 ) : PDFRepository {
 
-    override suspend fun parsePDF(path: String): ParseDetail {
+    override suspend fun parsePDF(
+        path: String,
+        multilineTextThreshold: Float
+    ): ParseDetail {
         PDFBoxResourceLoader.init(context)
 
         return context.contentResolver.openInputStream(Uri.parse(path)).use { stream ->
             if (stream == null) throw IllegalAccessException("Failed to get file descriptor")
             ParseDetail(
                 scheduleName = "",
-                cells = import(stream)
+                cells = import(stream, multilineTextThreshold)
             )
         }
     }
@@ -51,23 +54,24 @@ class PDFRepositoryImpl @Inject constructor(
         }
     }
 
-    fun import(pdf: InputStream): List<CellBound> {
+    fun import(pdf: InputStream, multilineTextThreshold: Float): List<CellBound> {
         return PDDocument.load(pdf).use { document ->
             val stripper = StringBoundStripper()
             val bounds = stripper.processStringBounds(document)
-            mergeStringBounds(bounds)
+            mergeStringBounds(bounds, multilineTextThreshold)
         }
     }
 
     private fun mergeStringBounds(
-        bounds: List<StringBoundStripper.StringBound>
+        bounds: List<StringBoundStripper.StringBound>,
+        multilineTextThreshold: Float
     ): List<CellBound> {
         val cells = mutableListOf<CellBound>()
 
         for (bound in bounds) {
             val cell = cells.find { cell ->
                 abs(cell.maxFontHeight - bound.h) < 0.1f && // equal font
-                        (bound.y - (cell.y + cell.h)) < cell.maxFontHeight && // close (< maxFontHeight) 'y'
+                        (bound.y - (cell.y + cell.h)) < cell.maxFontHeight * multilineTextThreshold && // close (< maxFontHeight) 'y'
                         abs(cell.x - bound.x) < 1f // equal text block start 'x'
             }
             cells += if (cell != null) {

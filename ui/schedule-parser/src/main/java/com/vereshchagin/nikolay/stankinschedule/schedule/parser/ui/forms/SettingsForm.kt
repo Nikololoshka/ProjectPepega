@@ -21,7 +21,7 @@ fun SettingsForm(
     onSetupSettings: (settings: ParserSettings) -> Unit,
     modifier: Modifier = Modifier,
     scheduleYearVariants: List<Int> = MutableList(5) { LocalDate.now().year - 2 + it },
-    parserThresholdVariants: List<Float> = MutableList(9) { 0.5f + 0.25f * it }
+    parserThresholdVariants: List<Float> = MutableList(8) { 0.25f + 0.25f * it }
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -48,7 +48,6 @@ fun SettingsForm(
             items = parserThresholdVariants,
             label = { Text(text = stringResource(R.string.settings_threshold)) },
             menuLabel = { it.toString() },
-            suffix = { Text(text = "px") },
             supportingText = { Text(text = stringResource(R.string.settings_threshold_details)) },
             modifier = Modifier.fillMaxWidth()
         )
