@@ -3,12 +3,15 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.vereshchagin.nikolay.stankinschedule.core.domain.repository.LoggerAnalytics
 import com.vereshchagin.nikolay.stankinschedule.core.domain.usecase.DeviceUseCase
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.UIState
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleInfo
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParseResult
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParserSettings
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.usecase.ParserUseCase
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.ParsedFile
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.ParserState
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.SelectedFile
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.ScheduleTable
@@ -23,6 +26,7 @@ import javax.inject.Inject
 class ScheduleParserViewModel @Inject constructor(
     private val deviceUseCase: DeviceUseCase,
     private val parserUseCase: ParserUseCase,
+    private val loggerAnalytics: LoggerAnalytics
 ) : ViewModel() {
 
     private val _parserState = MutableStateFlow<ParserState>(ParserState.SelectFile())
@@ -64,6 +68,8 @@ class ScheduleParserViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             try {
+                _parserState.value = ParserState.ParserResult(UIState.loading())
+
                 val result = parserUseCase.parsePDF(selectedFile.path.toString(), settings)
 
                 val successResult = mutableListOf<ParseResult.Success>()
@@ -87,15 +93,18 @@ class ScheduleParserViewModel @Inject constructor(
                     }
                 }
 
-                _parserState.value = ParserState.ParserResult(
+                val parsedFile = ParsedFile(
                     successResult = successResult,
                     missingResult = missingResult,
                     errorResult = errorResult,
                     table = ScheduleTable(schedule)
                 )
 
+                _parserState.value = ParserState.ParserResult(UIState.success(parsedFile))
+
             } catch (e: Exception) {
-                e.printStackTrace()
+                _parserState.value = ParserState.ParserResult(UIState.failed(e))
+                loggerAnalytics.recordException(e)
             }
         }
     }

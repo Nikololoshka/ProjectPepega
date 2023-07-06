@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.forms
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -27,35 +29,66 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.Stateful
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.components.PairFormatter
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.R
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.ParsedFile
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.ParserState
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.TableConfig
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.ui.components.TableView
 
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ParserForm(
     state: ParserState.ParserResult,
+    modifier: Modifier = Modifier
+) {
+    Stateful(
+        state = state.state,
+        onSuccess = { parsedFile ->
+            SuccessParsed(
+                parsedFile = parsedFile,
+                modifier = modifier
+            )
+        },
+        onLoading = {
+            Box(modifier = modifier) {
+                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            }
+        },
+        onFailed = {
+            Box(modifier = modifier) {
+                Text(
+                    text = it.toString(),
+                    modifier = Modifier.align(Alignment.Center)
+                )
+            }
+        }
+    )
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+private fun SuccessParsed(
+    parsedFile: ParsedFile,
     modifier: Modifier = Modifier
 ) {
     val formatter = remember { PairFormatter() }
 
     var showSuccessResult by remember { mutableStateOf(false) }
     val successResult by remember(showSuccessResult) {
-        derivedStateOf { if (showSuccessResult) state.successResult else emptyList() }
+        derivedStateOf { if (showSuccessResult) parsedFile.successResult else emptyList() }
     }
 
     var showMissingResult by remember { mutableStateOf(false) }
     val missingResult by remember(showMissingResult) {
-        derivedStateOf { if (showMissingResult) state.missingResult else emptyList() }
+        derivedStateOf { if (showMissingResult) parsedFile.missingResult else emptyList() }
     }
 
     var showErrorResult by remember { mutableStateOf(false) }
     val errorResult by remember(showErrorResult) {
-        derivedStateOf { if (showErrorResult) state.errorResult else emptyList() }
+        derivedStateOf { if (showErrorResult) parsedFile.errorResult else emptyList() }
     }
 
     LazyColumn(
@@ -80,7 +113,7 @@ fun ParserForm(
 
         item(key = "table") {
             TableView(
-                table = state.table,
+                table = parsedFile.table,
                 tableConfig = TableConfig.default()
                     .copy(color = MaterialTheme.colorScheme.onBackground.toArgb()),
                 modifier = Modifier
@@ -91,7 +124,7 @@ fun ParserForm(
 
         stickyExpandHeader(
             isExpand = showSuccessResult,
-            labelText = { stringResource(R.string.parse_success, state.successResult.size) },
+            labelText = { stringResource(R.string.parse_success, parsedFile.successResult.size) },
             onClick = { showSuccessResult = !showSuccessResult },
             key = "success_label"
         )
@@ -122,7 +155,7 @@ fun ParserForm(
 
         stickyExpandHeader(
             isExpand = showMissingResult,
-            labelText = { stringResource(R.string.parse_missing, state.missingResult.size) },
+            labelText = { stringResource(R.string.parse_missing, parsedFile.missingResult.size) },
             onClick = { showMissingResult = !showMissingResult },
             key = "missing_label"
         )
@@ -149,7 +182,7 @@ fun ParserForm(
 
         stickyExpandHeader(
             isExpand = showErrorResult,
-            labelText = { stringResource(R.string.parse_error, state.errorResult.size) },
+            labelText = { stringResource(R.string.parse_error, parsedFile.errorResult.size) },
             onClick = { showErrorResult = !showErrorResult },
             key = "error_label"
         )
