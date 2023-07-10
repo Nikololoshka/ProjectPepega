@@ -22,7 +22,10 @@ class ScheduleUseCase @Inject constructor(
 
         storage.saveSchedule(schedule)
         emit(true)
-    }
+    }.flowOn(Dispatchers.IO)
+
+    suspend fun isScheduleExists(scheduleName: String) =
+        storage.isScheduleExist(scheduleName)
 
     fun createEmptySchedule(scheduleName: String): Flow<Boolean> = flow {
         if (storage.isScheduleExist(scheduleName)) {
@@ -35,7 +38,7 @@ class ScheduleUseCase @Inject constructor(
         storage.saveSchedule(model)
 
         emit(true)
-    }
+    }.flowOn(Dispatchers.IO)
 
     fun schedules(): Flow<List<ScheduleInfo>> =
         storage.schedules()
