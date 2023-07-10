@@ -9,8 +9,15 @@
     <string name="file_not_selected">Файл не выбран</string>
     <string name="selected_filename">Выбран файл: %1$s</string>
 
+    <string name="step_1">Шаг 1. Выбор файла</string>
+    <string name="step_2">Шаг 2. Настройка импорта</string>
+    <string name="step_3">Шаг 3. Результат импорта</string>
+    <string name="step_4">Шаг 4. Сохранение</string>
+    <string name="step_5">Шаг 5. Завершение</string>
+
     <string name="step_back">Назад</string>
     <string name="step_next">Дальше</string>
+    <string name="step_done">Готово</string>
 
     <string name="settings_year">Год расписания</string>
     <string name="settings_year_details">Год, который используется в датах расписания</string>
@@ -26,5 +33,7 @@
     <string name="pair_data">Данные:</string>
     <string name="error_reason">Причина:</string>
     <string name="error_context">Контекст:</string>
+
+    <string name="schedule_name">Название расписания</string>
 
 </resources>

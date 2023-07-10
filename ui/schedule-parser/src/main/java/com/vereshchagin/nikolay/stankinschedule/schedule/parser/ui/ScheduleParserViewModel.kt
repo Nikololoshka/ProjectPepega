@@ -8,6 +8,7 @@ import com.vereshchagin.nikolay.stankinschedule.core.domain.usecase.DeviceUseCas
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.UIState
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleInfo
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.usecase.ScheduleUseCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParseResult
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.model.ParserSettings
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.domain.usecase.ParserUseCase
@@ -26,7 +27,8 @@ import javax.inject.Inject
 class ScheduleParserViewModel @Inject constructor(
     private val deviceUseCase: DeviceUseCase,
     private val parserUseCase: ParserUseCase,
-    private val loggerAnalytics: LoggerAnalytics
+    private val loggerAnalytics: LoggerAnalytics,
+    private val scheduleUseCase: ScheduleUseCase
 ) : ViewModel() {
 
     private val _parserState = MutableStateFlow<ParserState>(ParserState.SelectFile())
@@ -38,11 +40,14 @@ class ScheduleParserViewModel @Inject constructor(
         scheduleYear = LocalDate.now().year,
         parserThreshold = 1f
     )
+    private var _parserResult: ParsedFile? = null
+    private var _scheduleName: String = ""
 
     fun selectFile(uri: Uri) {
         viewModelScope.launch {
             try {
                 val filename = deviceUseCase.extractFilename(uri.toString())
+                    .substringBeforeLast('.')
                 val preview = parserUseCase.renderPreview(uri.toString())
                 val selectedFile = SelectedFile(uri, filename)
 
@@ -56,9 +61,16 @@ class ScheduleParserViewModel @Inject constructor(
     }
 
     fun onSetupSettings(settings: ParserSettings) {
-        if (_parserState.value is ParserState.Settings) {
-            _parserState.value = ParserState.Settings(settings)
-            _parserSettings = settings
+        _parserSettings = settings
+    }
+
+    fun onScheduleNameChanged(scheduleName: String) {
+        _scheduleName = scheduleName
+    }
+
+    private fun saveSchedule(scheduleName: String, schedule: ScheduleModel) {
+        viewModelScope.launch {
+
         }
     }
 
@@ -83,7 +95,7 @@ class ScheduleParserViewModel @Inject constructor(
                     }
                 }
 
-                val scheduleName = selectedFile.filename.substringBeforeLast('.')
+                val scheduleName = selectedFile.filename
                 val schedule = ScheduleModel(info = ScheduleInfo(scheduleName))
                 successResult.forEach {
                     try {
@@ -100,6 +112,7 @@ class ScheduleParserViewModel @Inject constructor(
                     table = ScheduleTable(schedule)
                 )
 
+                _parserResult = parsedFile
                 _parserState.value = ParserState.ParserResult(UIState.success(parsedFile))
 
             } catch (e: Exception) {
@@ -111,7 +124,7 @@ class ScheduleParserViewModel @Inject constructor(
 
 
     fun back() {
-        when (val currentState = _parserState.value) {
+        when (_parserState.value) {
             is ParserState.Settings -> {
                 _selectedFile?.let { currentSelectedFile -> selectFile(currentSelectedFile.path) }
             }
@@ -119,11 +132,20 @@ class ScheduleParserViewModel @Inject constructor(
             is ParserState.ParserResult -> {
                 _parserState.value = ParserState.Settings(_parserSettings)
             }
+
+            is ParserState.SaveResult -> {
+                val currentResult = _parserResult
+                if (currentResult != null) {
+                    _parserState.value = ParserState.ParserResult(UIState.success(currentResult))
+                } else {
+                    _parserState.value = ParserState.SelectFile()
+                }
+            }
         }
     }
 
     fun next() {
-        when (val currentState = _parserState.value) {
+        when (_parserState.value) {
             is ParserState.SelectFile -> {
                 if (_selectedFile != null) {
                     _parserState.value = ParserState.Settings(_parserSettings)
@@ -138,7 +160,8 @@ class ScheduleParserViewModel @Inject constructor(
             }
 
             is ParserState.ParserResult -> {
-
+                val name = _scheduleName.ifEmpty { _selectedFile?.filename ?: "" }
+                _parserState.value = ParserState.SaveResult(name)
             }
         }
     }

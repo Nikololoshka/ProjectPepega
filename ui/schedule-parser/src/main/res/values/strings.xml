@@ -9,9 +9,15 @@
     <string name="file_not_selected">File is not selected</string>
     <string name="selected_filename">Selected file: %1$s</string>
 
+    <string name="step_1">Step 1. File Selection</string>
+    <string name="step_2">Step 2. Setting up the import</string>
+    <string name="step_3">Step 3. Import result</string>
+    <string name="step_4">Step 4. Saving</string>
+    <string name="step_5">Step 5. Finish</string>
+
     <string name="step_back">Back</string>
     <string name="step_next">Next</string>
-
+    <string name="step_done">Done</string>
 
     <string name="settings_year">Year of schedule</string>
     <string name="settings_year_details">Year used in the schedule dates</string>
@@ -27,5 +33,7 @@
     <string name="pair_data">Data:</string>
     <string name="error_reason">Reason:</string>
     <string name="error_context">Context:</string>
+
+    <string name="schedule_name">Schedule name</string>
 
 </resources>

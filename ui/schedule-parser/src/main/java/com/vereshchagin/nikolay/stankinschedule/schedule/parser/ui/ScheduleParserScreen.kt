@@ -26,7 +26,9 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppScaffold
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.ScheduleParserAppBar
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.StepperNavigation
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.forms.FinishForm
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.forms.ParserForm
+import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.forms.SaveForm
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.forms.SelectForm
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.forms.SettingsForm
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.model.ParserState
@@ -43,13 +45,16 @@ fun ScheduleParserScreen(
 
     val parserState by viewModel.parserState.collectAsState()
 
-    BackHandler(enabled = parserState.step != 1) {
+    BackHandler(
+        enabled = parserState.step > 1 && parserState.step < ParserState.STEP_TOTAL
+    ) {
         viewModel.back()
     }
 
     AppScaffold(
         topBar = {
             ScheduleParserAppBar(
+                state = parserState,
                 onBackPressed = onBackPressed,
                 scrollBehavior = scrollBehavior
             )
@@ -114,6 +119,24 @@ fun ScheduleParserScreen(
                             modifier = Modifier.fillMaxSize()
                         )
                     }
+
+                    is ParserState.SaveResult -> {
+                        SaveForm(
+                            state = currentState,
+                            onScheduleNameChanged = viewModel::onScheduleNameChanged,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(Dimen.ContentPadding)
+                        )
+                    }
+
+                    is ParserState.ImportFinish -> {
+                        FinishForm(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(Dimen.ContentPadding)
+                        )
+                    }
                 }
             }
 
@@ -123,8 +146,6 @@ fun ScheduleParserScreen(
                 parserState = parserState,
                 navigateBack = viewModel::back,
                 navigateNext = viewModel::next,
-                canNext = parserState.isSuccess,
-                stepCount = 4,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(Dimen.ContentPadding)

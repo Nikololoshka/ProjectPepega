@@ -2,7 +2,7 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -19,8 +19,6 @@ fun StepperNavigation(
     parserState: ParserState,
     navigateBack: () -> Unit,
     navigateNext: () -> Unit,
-    canNext: Boolean,
-    stepCount: Int,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -28,26 +26,38 @@ fun StepperNavigation(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
     ) {
-        OutlinedButton(
-            onClick = navigateBack,
-            enabled = true
-        ) {
-            Text(text = stringResource(R.string.step_back))
+        if (parserState !is ParserState.ImportFinish) {
+            OutlinedButton(
+                onClick = navigateBack,
+                enabled = parserState !is ParserState.SelectFile
+            ) {
+                Text(text = stringResource(R.string.step_back))
+            }
         }
 
+        Spacer(modifier = Modifier.weight(1f))
+
+        /*
         LineProgressStepper(
             step = parserState.step,
-            count = stepCount,
+            count = ParserState.STEP_TOTAL,
             modifier = Modifier
                 .weight(1f)
                 .padding(horizontal = Dimen.ContentPadding)
         )
+         */
 
         Button(
             onClick = navigateNext,
-            enabled = canNext,
+            enabled = parserState.isSuccess,
         ) {
-            Text(text = stringResource(R.string.step_next))
+            Text(
+                text = if (parserState is ParserState.ImportFinish) {
+                    stringResource(R.string.step_done)
+                } else {
+                    stringResource(R.string.step_next)
+                }
+            )
         }
     }
 }

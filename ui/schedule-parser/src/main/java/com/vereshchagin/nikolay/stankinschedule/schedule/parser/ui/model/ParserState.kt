@@ -20,5 +20,17 @@ abstract class ParserState(val step: Int) {
 
     class ParserResult(
         val state: UIState<ParsedFile>
-    ) : ParserState(3)
+    ) : ParserState(3) {
+        override val isSuccess: Boolean get() = state is UIState.Success
+    }
+
+    class SaveResult(
+        val scheduleName: String
+    ) : ParserState(4)
+
+    class ImportFinish : ParserState(5)
+
+    companion object {
+        const val STEP_TOTAL = 5
+    }
 }
