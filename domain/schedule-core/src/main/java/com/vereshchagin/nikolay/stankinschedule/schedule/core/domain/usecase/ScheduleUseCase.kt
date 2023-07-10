@@ -14,6 +14,16 @@ class ScheduleUseCase @Inject constructor(
     private val storage: ScheduleStorage,
 ) {
 
+    fun createSchedule(schedule: ScheduleModel): Flow<Boolean> = flow {
+        if (storage.isScheduleExist(schedule.info.scheduleName)) {
+            emit(false)
+            return@flow
+        }
+
+        storage.saveSchedule(schedule)
+        emit(true)
+    }
+
     fun createEmptySchedule(scheduleName: String): Flow<Boolean> = flow {
         if (storage.isScheduleExist(scheduleName)) {
             emit(false)
