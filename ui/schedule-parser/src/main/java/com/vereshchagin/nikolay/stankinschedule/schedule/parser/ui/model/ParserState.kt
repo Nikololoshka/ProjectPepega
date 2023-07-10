@@ -25,10 +25,13 @@ abstract class ParserState(val step: Int) {
     }
 
     class SaveResult(
-        val scheduleName: String
+        val scheduleName: String,
+        val saveScheduleError: SaveScheduleError? = null
     ) : ParserState(4)
 
-    class ImportFinish : ParserState(5)
+    class ImportFinish(
+        val state: UIState<Unit>
+    ) : ParserState(5)
 
     companion object {
         const val STEP_TOTAL = 5

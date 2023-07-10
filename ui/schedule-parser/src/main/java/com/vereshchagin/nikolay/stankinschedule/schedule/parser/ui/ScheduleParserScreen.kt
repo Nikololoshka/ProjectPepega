@@ -132,6 +132,7 @@ fun ScheduleParserScreen(
 
                     is ParserState.ImportFinish -> {
                         FinishForm(
+                            state = currentState,
                             modifier = Modifier
                                 .fillMaxSize()
                                 .padding(Dimen.ContentPadding)
@@ -146,6 +147,7 @@ fun ScheduleParserScreen(
                 parserState = parserState,
                 navigateBack = viewModel::back,
                 navigateNext = viewModel::next,
+                navigateDone = onBackPressed,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(Dimen.ContentPadding)

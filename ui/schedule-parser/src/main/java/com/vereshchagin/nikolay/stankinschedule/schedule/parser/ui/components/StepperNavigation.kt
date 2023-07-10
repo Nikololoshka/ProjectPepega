@@ -19,6 +19,7 @@ fun StepperNavigation(
     parserState: ParserState,
     navigateBack: () -> Unit,
     navigateNext: () -> Unit,
+    navigateDone: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -48,7 +49,11 @@ fun StepperNavigation(
          */
 
         Button(
-            onClick = navigateNext,
+            onClick = if (parserState is ParserState.ImportFinish) {
+                navigateDone
+            } else {
+                navigateNext
+            },
             enabled = parserState.isSuccess,
         ) {
             Text(
