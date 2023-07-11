@@ -190,7 +190,7 @@ fun HomeScreen(
                 Divider()
             }
 
-            item {
+            item(key = "more_news") {
                 Box(
                     modifier = Modifier.fillParentMaxWidth()
                 ) {
