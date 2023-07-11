@@ -188,7 +188,7 @@ class PairExtractor {
 
     object ParserPatterns {
 
-        const val Title = "([а-яА-ЯёЁa-zA-Z0-9\\s\\,\\-\\(\\)\\/\\:]+?\\.)"
+        const val Title = "([а-яА-ЯёЁa-zA-Z0-9\\.\\s\\,\\-\\(\\)\\/\\:]+?\\.)"
         const val Lecturer = "([а-яА-ЯёЁae\\s\\_]+\\s([а-яА-я]\\.?){1,2})?"
         const val Type = "((лабораторные занятия|семинар|лекции)?\\.)"
         const val Subgroup = "(\\([абАБ]\\)\\.)?"
