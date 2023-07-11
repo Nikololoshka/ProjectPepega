@@ -23,6 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.AppScaffold
+import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.ScheduleParserAppBar
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.components.StepperNavigation
@@ -41,8 +42,9 @@ fun ScheduleParserScreen(
     onBackPressed: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+    TrackCurrentScreen(screen = "ScheduleParserScreen")
 
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     val parserState by viewModel.parserState.collectAsState()
 
     BackHandler(
