@@ -51,8 +51,8 @@ fun ScheduleParserAppBar(
         },
         actions = {
             CircleProgressStepper(
-                step = state.step,
-                count = ParserState.STEP_TOTAL,
+                step = state.step - 1,
+                count = ParserState.STEP_TOTAL - 1,
                 modifier = Modifier
                     .padding(horizontal = 8.dp)
                     .size(32.dp)
