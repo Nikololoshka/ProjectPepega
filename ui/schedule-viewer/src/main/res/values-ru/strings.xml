@@ -5,7 +5,7 @@
 
     <string name="schedule_is_empty">Расписание пустое</string>
     <string name="schedule_add_pair">Добавить пару</string>
-    <string name="save_to_device">Сохранить на устройство</string>
+    <string name="save_to_device">Сохранить как</string>
     <string name="rename_schedule">Переименновать</string>
     <string name="remove_schedule">Удалить</string>
 
@@ -18,5 +18,12 @@
     <string name="schedule_exists">Расписание с текущим именем уже существует!</string>
     <string name="schedule_rename_error">Не удалось переименновать расписание</string>
     <string name="rename">Переименновать</string>
+
+    <string name="save_as">Сохранить как</string>
+    <string name="choose_format">Выберите формат</string>
+    <string name="format_json">Json расписание (.json)</string>
+    <string name="format_ical">iCalendar (.ics)</string>
+    <string name="successfully_saved">Успешно сохранено</string>
+    <string name="open">Открыть</string>
 
 </resources>

@@ -1,7 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,17 +11,19 @@ import androidx.paging.cachedIn
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.usecase.ScheduleDeviceUseCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.usecase.ScheduleUseCase
+import com.vereshchagin.nikolay.stankinschedule.schedule.ical.domain.usecase.ICalExporterUseCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.usecase.ScheduleSettingsUseCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewDay
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.usecase.ScheduleViewerUseCase
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ExportFormat
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ExportProgress
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.RenameEvent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.RenameState
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -35,6 +36,7 @@ class ScheduleViewerViewModel @Inject constructor(
     private val scheduleUseCase: ScheduleUseCase,
     private val scheduleDeviceUseCase: ScheduleDeviceUseCase,
     private val settingsUseCase: ScheduleSettingsUseCase,
+    private val iCalExporterUseCase: ICalExporterUseCase,
     private val handle: SavedStateHandle,
 ) : ViewModel() {
 
@@ -52,10 +54,14 @@ class ScheduleViewerViewModel @Inject constructor(
     private var _scheduleId: Long = -1
     private val _schedule = MutableStateFlow<ScheduleModel?>(null)
 
+    private var _saveFormat = ExportFormat.Json
+    private val _saveProgress = MutableStateFlow<ExportProgress>(ExportProgress.Nothing)
+    val saveProgress = _saveProgress.asStateFlow()
+
     private val _renameState = MutableStateFlow<RenameState?>(null)
     val renameState = _renameState.asStateFlow()
 
-    @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
+    @OptIn(ExperimentalCoroutinesApi::class)
     val scheduleDays: Flow<PagingData<ScheduleViewDay>> =
         flowOf(
             clearPager.receiveAsFlow().map { PagingData.empty() },
@@ -108,6 +114,14 @@ class ScheduleViewerViewModel @Inject constructor(
         }
     }
 
+    fun setSaveFormat(format: ExportFormat) {
+        _saveFormat = format
+    }
+
+    fun saveFinished() {
+        _saveProgress.value = ExportProgress.Nothing
+    }
+
     fun selectDate(date: LocalDate) {
         if (date == currentDay) return
 
@@ -141,14 +155,39 @@ class ScheduleViewerViewModel @Inject constructor(
         }
     }
 
-    fun saveToDevice(uri: Uri) {
+    fun saveAs(uri: Uri) {
         viewModelScope.launch {
-            scheduleDeviceUseCase.saveToDevice(_scheduleId, uri.toString())
-                .catch { e ->
-                    Log.d("MyLog", "saveToDevice: $e")
+            when (_saveFormat) {
+                ExportFormat.Json -> {
+                    saveAsJson(uri)
                 }
-                .collect { isSave ->
-                    Log.d("MyLog", "saveToDevice: $isSave")
+
+                ExportFormat.ICal -> {
+                    saveAsICal(uri)
+                }
+            }
+        }
+    }
+
+    private suspend fun saveAsJson(uri: Uri) {
+        scheduleDeviceUseCase.saveToDevice(_scheduleId, uri.toString())
+            .catch { e ->
+                _saveProgress.value = ExportProgress.Error(e)
+            }
+            .collect {
+                _saveProgress.value = ExportProgress.Finished(uri, _saveFormat)
+            }
+    }
+
+    private suspend fun saveAsICal(uri: Uri) {
+        val currentSchedule = _schedule.value
+        if (currentSchedule != null) {
+            iCalExporterUseCase.exportSchedule(currentSchedule, uri.toString())
+                .catch { e ->
+                    _saveProgress.value = ExportProgress.Error(e)
+                }
+                .collect {
+                    _saveProgress.value = ExportProgress.Finished(uri, _saveFormat)
                 }
         }
     }

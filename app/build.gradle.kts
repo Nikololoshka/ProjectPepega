@@ -116,6 +116,7 @@ dependencies {
     implementation(project(":data:core"))
     implementation(project(":data:journal-core"))
     implementation(project(":data:schedule-core"))
+    implementation(project(":data:schedule-ical"))
     implementation(project(":data:schedule-table"))
     implementation(project(":data:schedule-parser"))
     implementation(project(":data:schedule-repository"))

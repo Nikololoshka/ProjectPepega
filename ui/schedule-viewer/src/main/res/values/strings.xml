@@ -5,7 +5,7 @@
 
     <string name="schedule_is_empty">Schedule is empty</string>
     <string name="schedule_add_pair">Add pair</string>
-    <string name="save_to_device">Save to device</string>
+    <string name="save_to_device">Save as</string>
     <string name="rename_schedule">Rename schedule</string>
     <string name="remove_schedule">Remove schedule</string>
 
@@ -18,5 +18,12 @@
     <string name="schedule_exists">Schedule with current name already exists!</string>
     <string name="schedule_rename_error">Failed to rename a schedule</string>
     <string name="rename">Rename</string>
+
+    <string name="save_as">Save as</string>
+    <string name="choose_format">Choose format</string>
+    <string name="format_json">Json schedule (.json)</string>
+    <string name="format_ical">iCalendar (.ics)</string>
+    <string name="successfully_saved">Successfully saved</string>
+    <string name="open">Open</string>
 
 </resources>

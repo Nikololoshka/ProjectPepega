@@ -63,6 +63,7 @@ dependencies {
 
     implementation(project(":domain:core"))
     implementation(project(":domain:schedule-core"))
+    implementation(project(":domain:schedule-ical"))
     implementation(project(":domain:schedule-viewer"))
     implementation(project(":domain:schedule-settings"))
 

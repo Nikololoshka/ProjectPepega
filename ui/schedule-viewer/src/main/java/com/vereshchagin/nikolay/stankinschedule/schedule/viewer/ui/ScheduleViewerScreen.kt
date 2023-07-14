@@ -1,5 +1,6 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.*
@@ -67,13 +68,59 @@ fun ScheduleViewerScreen(
     val context = LocalContext.current
     val clipboardManager = LocalClipboardManager.current
 
-    val saveState = rememberFileSaveState(
+    val saveFileState = rememberFileSaveState(
         onPickerResult = {
             if (it != null) {
-                viewModel.saveToDevice(it)
+                viewModel.saveAs(it)
             }
         }
     )
+
+    val saveFormatState = rememberSaveFormatDialogState(
+        onFormatSelected = {
+            viewModel.setSaveFormat(it)
+            saveFileState.save(currentScheduleName, it.memeType)
+        }
+    )
+
+    val snackBarHostState = remember { SnackbarHostState() }
+    val successfullySaved = stringResource(R.string.successfully_saved)
+    val openAction = stringResource(R.string.open)
+    val saveProgress by viewModel.saveProgress.collectAsState()
+
+    LaunchedEffect(saveProgress) {
+        when (val progress = saveProgress) {
+            is ExportProgress.Finished -> {
+                val snackResult = snackBarHostState.showSnackbar(
+                    message = successfullySaved,
+                    actionLabel = openAction,
+                    duration = SnackbarDuration.Long
+                )
+
+                if (snackResult == SnackbarResult.ActionPerformed) {
+                    val intent = Intent().apply {
+                        action = Intent.ACTION_VIEW
+                        setDataAndType(progress.path, progress.format.memeType)
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    }
+                    context.startActivity(Intent.createChooser(intent, null))
+                }
+
+                viewModel.saveFinished()
+            }
+
+            is ExportProgress.Error -> {
+                snackBarHostState.showSnackbar(
+                    message = progress.error.toString(),
+                    duration = SnackbarDuration.Short
+                )
+                viewModel.saveFinished()
+            }
+
+            else -> {}
+        }
+    }
 
     var isDaySelector by remember { mutableStateOf(false) }
     var isRemoveSchedule by remember { mutableStateOf(false) }
@@ -88,7 +135,7 @@ fun ScheduleViewerScreen(
                 onAddClicked = { onEditorClicked(scheduleId, null) },
                 onRenameSchedule = { viewModel.onRenameEvent(RenameEvent.Rename) },
                 onRemoveSchedule = { isRemoveSchedule = true },
-                onSaveToDevice = { saveState.save(currentScheduleName, "application/json") }
+                onSaveToDevice = saveFormatState::showDialog
             )
         },
         floatingActionButton = {
@@ -102,11 +149,14 @@ fun ScheduleViewerScreen(
             }
         },
         floatingActionButtonPosition = FabPosition.End,
+        snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
         contentWindowInsets = WindowInsets.Zero,
         modifier = modifier
     ) { innerPadding ->
 
-        FileSaveDialogs(state = saveState)
+        FileSaveDialogs(state = saveFileState)
+
+        SaveFormatDialog(state = saveFormatState)
 
         if (isDaySelector) {
             CalendarDialog(
@@ -271,6 +321,7 @@ private fun computeScheduleIndex(
             distance < -delta -> {
                 return target + 1
             }
+
             distance > delta -> {
                 return target - 1
             }
