@@ -36,7 +36,7 @@ class FileSaveState internal constructor(
     }
 
     private fun isGranted(): Boolean {
-        return permission.status.isGranted || Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+        return permission.status.isGranted || Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
     }
 }
 
