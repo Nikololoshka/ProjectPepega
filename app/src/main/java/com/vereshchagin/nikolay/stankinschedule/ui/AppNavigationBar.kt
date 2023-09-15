@@ -9,6 +9,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -35,7 +36,13 @@ fun AppNavigationBar(
                     contentDescription = null
                 )
             },
-            label = { Text(text = stringResource(screen.nameRes)) },
+            label = {
+                Text(
+                    text = stringResource(screen.nameRes),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            },
             selected = isSelected,
             onClick = {
                 navController.navigate(screen.route) {

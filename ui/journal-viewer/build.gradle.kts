@@ -64,8 +64,6 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.compose.paging)
 
-    implementation(libs.accompanist.pager)
-
     // UI
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.lifecycle.java8)

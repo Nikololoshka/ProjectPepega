@@ -72,9 +72,6 @@ dependencies {
     implementation(libs.compose.paging)
     implementation(libs.compose.coil)
 
-    implementation(libs.accompanist.pager)
-    implementation(libs.accompanist.indicators)
-
     // Components
     implementation(libs.androidx.paging)
     implementation(libs.ui.material)

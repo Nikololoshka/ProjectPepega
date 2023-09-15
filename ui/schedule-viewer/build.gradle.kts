@@ -78,7 +78,6 @@ dependencies {
     implementation(libs.compose.activity)
 
     implementation(libs.accompanist.permission)
-    implementation(libs.accompanist.flowLayout)
 
     // Components
     implementation(libs.androidx.lifecycle.viewmodel)

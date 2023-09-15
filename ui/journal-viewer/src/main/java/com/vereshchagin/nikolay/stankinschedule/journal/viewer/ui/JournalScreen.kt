@@ -81,8 +81,17 @@ fun JournalScreen(
     val predictRating by viewModel.predictedRating.collectAsState()
     val forceRefreshing by viewModel.isForceRefreshing.collectAsState()
 
+    val semesters = viewModel.semesters.collectAsLazyPagingItems()
+    val semesterError: Throwable? = with(semesters.loadState) {
+        listOf(append, refresh, prepend)
+            .filterIsInstance(LoadState.Error::class.java)
+            .firstOrNull()?.error
+    }
+
     val lazyCollapseState = rememberLazyListState()
-    val pagerState = rememberPagerState()
+    val pagerState = rememberPagerState(
+        pageCount = { semesters.itemCount }
+    )
 
     val density = LocalDensity.current
     var pagerHeight by remember { mutableStateOf(Dp.Unspecified) }
@@ -172,15 +181,7 @@ fun JournalScreen(
                         }
 
                         item(key = "marks") {
-                            val semesters = viewModel.semesters.collectAsLazyPagingItems()
-                            val semesterError: Throwable? = with(semesters.loadState) {
-                                listOf(append, refresh, prepend)
-                                    .filterIsInstance(LoadState.Error::class.java)
-                                    .firstOrNull()?.error
-                            }
-
                             HorizontalPager(
-                                pageCount = data.semesters.size,
                                 state = pagerState,
                                 verticalAlignment = Alignment.Top,
                                 modifier = Modifier

@@ -174,8 +174,7 @@ class MarksTableView @JvmOverloads constructor(
         setMeasuredDimension(widthSize, heightSize)
     }
 
-    override fun onDraw(maybeCanvas: Canvas?) {
-        val canvas = maybeCanvas ?: return super.onDraw(maybeCanvas)
+    override fun onDraw(canvas: Canvas) {
         val fontExtra = (contentPainter.descent() + contentPainter.ascent()) / 2
 
         // рисование заголовка таблицы

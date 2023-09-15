@@ -73,8 +73,6 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.compose.activity)
 
-    implementation(libs.accompanist.flowLayout)
-
     // Components
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.lifecycle.java8)

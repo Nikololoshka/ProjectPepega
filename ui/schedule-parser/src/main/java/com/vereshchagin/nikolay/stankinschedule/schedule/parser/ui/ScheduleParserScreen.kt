@@ -7,7 +7,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.animation.with
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -74,23 +74,24 @@ fun ScheduleParserScreen(
                 transitionSpec = {
                     when {
                         targetState.step > initialState.step -> {
-                            slideInHorizontally { it / 2 } + fadeIn() with
+                            slideInHorizontally { it / 2 } + fadeIn() togetherWith
                                     slideOutHorizontally() + fadeOut()
                         }
 
                         targetState.step < initialState.step -> {
-                            slideInHorizontally() + fadeIn() with
+                            slideInHorizontally() + fadeIn() togetherWith
                                     slideOutHorizontally { it / 2 } + fadeOut()
                         }
 
                         else -> {
-                            fadeIn() with fadeOut()
+                            fadeIn() togetherWith fadeOut()
                         }
                     }
                 },
                 modifier = Modifier
                     .weight(1f)
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
+                label = "Parser"
             ) { currentState ->
                 when (currentState) {
                     is ParserState.SelectFile -> {

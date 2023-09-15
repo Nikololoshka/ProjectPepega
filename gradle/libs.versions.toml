@@ -1,48 +1,48 @@
 [versions]
 # Main
-kotlin = "1.8.20"
-coroutines = "1.7.1"
-agp = "8.0.2"
-core = "1.10.1"
-ksp = "1.6.20-1.0.4"
+kotlin = "1.8.22"
+coroutines = "1.7.3"
+agp = "8.1.1"
+core = "1.12.0"
+ksp = "1.8.10-1.0.9"
 
 # Compose
-compose = "2023.06.01"
-compose-compiler = "1.4.6"
+compose = "2023.08.00"
+compose-compiler = "1.4.8"
 
-accompanist = "0.30.1"
+accompanist = "0.31.6-rc"
 coil = "2.4.0"
-navigation = "2.5.3"
+navigation = "2.6.0"
 material3 = "1.1.1"
 
 # App components
 activity = "1.7.2"
 activity-compose = "1.7.2"
-paging = "3.1.1"
-paging-compose = "1.0.0-alpha17"
+paging = "3.2.1"
+paging-compose = "3.2.1"
 
 appcompat = "1.6.1"
-fragment = "1.6.0"
+fragment = "1.6.1"
 glance = "1.0.0-alpha05"
-lifecycle = "2.6.1"
+lifecycle = "2.6.2"
 material = "1.9.0"
-preference = "1.2.0"
-security = "1.1.0-alpha04"
+preference = "1.2.1"
+security = "1.1.0-alpha06"
 swiperefreshlayout = "1.1.0"
-webkit = "1.5.0"
+webkit = "1.8.0"
 datastore = "1.0.0"
 startup = "1.1.1"
 splashscreen = "1.0.1"
 
 # Integration
-browser = "1.4.0"
+browser = "1.6.0"
 coreGooglePlay = "1.8.1"
 googleServices = "4.3.15"
-inAppUpdate = "2.0.1"
+inAppUpdate = "2.1.0"
 
 # Firebase
-firebase = "31.2.0"
-firebaseGradle = "2.9.2"
+firebase = "32.2.3"
+firebaseGradle = "2.9.9"
 
 # Network
 retrofit = "2.9.0"
@@ -52,7 +52,7 @@ okhttp3 = "4.8.0"
 room = "2.5.2"
 
 # DI
-hilt = "2.46.1"
+hilt = "2.48"
 hilt-work = "1.0.0"
 hilt-nav = "1.0.0"
 
@@ -89,11 +89,9 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-foundation = { module = "androidx.compose.foundation:foundation" }
 compose-material = { module = "androidx.compose.material:material" }
 
-accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
-accompanist-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
+
 accompanist-placeholder = { module = "com.google.accompanist:accompanist-placeholder-material", version.ref = "accompanist" }
 accompanist-navigation = { module = "com.google.accompanist:accompanist-navigation-material", version.ref = "accompanist" }
-accompanist-flowLayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
 accompanist-permission = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
 
 compose-coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
