@@ -7,15 +7,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.items
+
 
 @Composable
 fun <T : Any> PagingLazyColumn(
     state: LazyListState,
     pagingItems: LazyPagingItems<T>,
     modifier: Modifier = Modifier,
-    key: ((item: T) -> Any)? = null,
-    onContent: @Composable LazyItemScope.(value: T?) -> Unit,
+    key: ((item: Int) -> Any)? = null,
+    contentType: ((item: Int) -> Any?) = { null },
+    onContent: @Composable LazyItemScope.(index: Int) -> Unit,
     onContentLoading: @Composable LazyItemScope.() -> Unit,
     onContentError: @Composable LazyItemScope.(error: Throwable) -> Unit,
     onAppendLoading: @Composable LazyItemScope.() -> Unit,
@@ -26,10 +27,12 @@ fun <T : Any> PagingLazyColumn(
         modifier = modifier
     ) {
         items(
-            items = pagingItems,
+            count = pagingItems.itemCount,
             key = key,
+            contentType = contentType,
             itemContent = onContent
         )
+
         val loadState = pagingItems.loadState
         when {
             loadState.refresh is LoadState.Loading -> {
