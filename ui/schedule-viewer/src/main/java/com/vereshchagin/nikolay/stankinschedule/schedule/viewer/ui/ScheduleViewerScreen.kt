@@ -18,7 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
-import androidx.paging.compose.items
+import androidx.paging.compose.itemKey
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.CalendarDialog
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.FileSaveDialogs
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
@@ -218,7 +218,11 @@ fun ScheduleViewerScreen(
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            items(scheduleDays, key = { it.day }) { day ->
+            items(
+                count = scheduleDays.itemCount,
+                key = scheduleDays.itemKey { it.day }
+            ) { index ->
+                val day = scheduleDays[index]
                 if (day != null) {
                     ScheduleDayCard(
                         scheduleDay = day,

@@ -33,7 +33,10 @@ fun ScheduleHome(
     modifier: Modifier = Modifier,
     colors: PairColors = PairColorGroup.default().toColor()
 ) {
-    val pagerState = rememberPagerState(initialPage = (days.size - 1) / 2)
+    val pagerState = rememberPagerState(
+        initialPage = (days.size - 1) / 2,
+        pageCount = { days.size }
+    )
     val isScrolling = remember(pagerState) {
         derivedStateOf { pagerState.currentPageOffsetFraction != 0f }
     }
@@ -52,7 +55,6 @@ fun ScheduleHome(
         )
 
         HorizontalPager(
-            pageCount = days.size,
             state = pagerState,
             verticalAlignment = Alignment.Top,
             modifier = Modifier.fillMaxWidth(),

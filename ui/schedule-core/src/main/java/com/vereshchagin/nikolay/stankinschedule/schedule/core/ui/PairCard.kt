@@ -23,8 +23,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.google.accompanist.flowlayout.FlowMainAxisAlignment
-import com.google.accompanist.flowlayout.FlowRow
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Subgroup
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Type
@@ -34,6 +32,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.Sch
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.TextContent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ViewContent
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun PairCard(
     pair: ScheduleViewPair,
@@ -85,13 +84,13 @@ fun PairCard(
 
                 if (pair.lecturer.isNotEmpty() || !pair.classroom.isEmpty()) {
                     FlowRow(
-                        mainAxisAlignment = FlowMainAxisAlignment.SpaceBetween,
-                        mainAxisSpacing = itemSpacing,
+                        horizontalArrangement = Arrangement.SpaceBetween,
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Text(
                             text = pair.lecturer,
                             fontSize = 14.sp,
+                            modifier = Modifier.padding(end = itemSpacing)
                         )
                         ClassroomText(
                             classroom = pair.classroom,
@@ -105,7 +104,7 @@ fun PairCard(
                 }
 
                 FlowRow(
-                    mainAxisSpacing = itemSpacing,
+                    horizontalArrangement = Arrangement.spacedBy(itemSpacing),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     TypeText(
@@ -210,7 +209,6 @@ private fun TypeText(
         Type.LABORATORY -> R.string.type_laboratory
     }
 
-    @Suppress("DEPRECATION")
     Text(
         text = stringResource(typeText),
         style = TextStyle(

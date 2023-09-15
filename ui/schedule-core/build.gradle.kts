@@ -73,7 +73,6 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.compose.material3)
-    implementation(libs.accompanist.flowLayout)
 
     // Components
     implementation(libs.ui.material)

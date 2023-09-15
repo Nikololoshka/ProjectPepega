@@ -77,8 +77,6 @@ dependencies {
     implementation(libs.compose.activity)
     implementation(libs.compose.coil)
 
-    implementation(libs.accompanist.pager)
-
     // Components
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.lifecycle.java8)

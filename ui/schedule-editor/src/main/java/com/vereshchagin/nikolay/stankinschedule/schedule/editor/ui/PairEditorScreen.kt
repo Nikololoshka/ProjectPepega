@@ -2,17 +2,47 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui
 
 import androidx.activity.compose.BackHandler
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.rememberModalBottomSheetState
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberTopAppBarState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -20,13 +50,22 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.flowlayout.FlowRow
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.OutlinedSelectField
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.exceptions.PairIntersectException
-import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.*
-import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.*
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.DateItem
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.DateModel
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.PairModel
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Subgroup
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Time
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Type
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.DateChip
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.DateEditorRequest
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.EditorMode
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.EditorToolbar
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.PairEditorState
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.getOrNull
 import com.vereshchagin.nikolay.stankinschedule.schedule.widget.ui.ScheduleWidget
 import kotlinx.coroutines.launch
 import com.vereshchagin.nikolay.stankinschedule.core.ui.R as R_core
@@ -200,7 +239,7 @@ fun PairEditorScreen(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 private fun EditorContent(
     editorState: EditorState,
@@ -330,8 +369,8 @@ private fun EditorContent(
             )
 
             FlowRow(
-                mainAxisSpacing = 8.dp,
-                crossAxisSpacing = 0.dp,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(0.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 date.forEach { item ->

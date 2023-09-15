@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -24,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.TrackCurrentScreen
 import com.vereshchagin.nikolay.stankinschedule.core.ui.ext.Zero
@@ -59,7 +61,9 @@ fun NewsReviewScreen(
         ),
     )
 
-    val pagerState = rememberPagerState()
+    val pagerState = rememberPagerState(
+        pageCount = { newsSubdivisions.size }
+    )
     val pagerScroller = rememberCoroutineScope()
     val imageLoader = newsImageLoader(LocalContext.current)
     val tabRowHeight = 48.dp
@@ -80,8 +84,7 @@ fun NewsReviewScreen(
         Box(
             modifier = Modifier.padding(innerPadding)
         ) {
-            androidx.compose.foundation.pager.HorizontalPager(
-                pageCount = newsSubdivisions.size,
+            HorizontalPager(
                 state = pagerState,
                 key = { it },
                 modifier = Modifier
@@ -123,7 +126,11 @@ fun NewsReviewScreen(
                             }
                         },
                         text = {
-                            Text(text = stringResource(id = subdivision.nameId))
+                            Text(
+                                text = stringResource(id = subdivision.nameId),
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
                         }
                     )
                 }

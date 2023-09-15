@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
+import androidx.paging.compose.itemKey
 import coil.ImageLoader
 import com.vereshchagin.nikolay.stankinschedule.core.ui.components.PagingLazyColumn
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
@@ -52,8 +53,9 @@ fun NewsPostColumn(
             state = columnState,
             pagingItems = lazyPostItems,
             modifier = Modifier.fillMaxSize(),
-            key = { it.id },
-            onContent = { post ->
+            key = lazyPostItems.itemKey { it.id },
+            onContent = { index ->
+                val post = lazyPostItems[index]
                 NewsPost(
                     post = post,
                     imageLoader = imageLoader,
