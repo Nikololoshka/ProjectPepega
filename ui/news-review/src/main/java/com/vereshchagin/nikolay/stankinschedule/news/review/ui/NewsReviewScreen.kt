@@ -52,7 +52,11 @@ fun NewsReviewScreen(
         NewsSubdivisionItem(
             nameId = R.string.news_deanery,
             subdivisionsId = NewsSubdivision.Deanery.id
-        )
+        ),
+        NewsSubdivisionItem(
+            nameId = R.string.news_postgraduate,
+            subdivisionsId = NewsSubdivision.Postgraduate.id
+        ),
     )
 
     val pagerState = rememberPagerState()
