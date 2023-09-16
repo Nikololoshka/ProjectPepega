@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.table.ui
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.vereshchagin.nikolay.stankinschedule.core.domain.repository.LoggerAnalytics
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.ScheduleModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.usecase.ScheduleUseCase
 import com.vereshchagin.nikolay.stankinschedule.schedule.table.domain.model.ScheduleTable
@@ -15,7 +16,12 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.table.ui.components.Exp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 import org.joda.time.LocalDate
 import javax.inject.Inject
@@ -23,7 +29,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ScheduleTableViewModel @Inject constructor(
     private val scheduleUseCase: ScheduleUseCase,
-    private val tableUseCase: AndroidTableUseCase
+    private val tableUseCase: AndroidTableUseCase,
+    private val loggerAnalytics: LoggerAnalytics
 ) : ViewModel() {
 
     private val _scheduleName = MutableStateFlow("")
@@ -136,6 +143,7 @@ class ScheduleTableViewModel @Inject constructor(
         exportTask(name, schedule, config)
             .catch { t ->
                 _exportProgress.value = ExportProgress.Error(t)
+                loggerAnalytics.recordException(t)
             }
             .collect { result ->
                 _exportProgress.value = ExportProgress.Finished(
@@ -163,6 +171,7 @@ class ScheduleTableViewModel @Inject constructor(
         exportTask(schedule, config, uri)
             .catch { t ->
                 _exportProgress.value = ExportProgress.Error(t)
+                loggerAnalytics.recordException(t)
             }
             .collect { result ->
                 _exportProgress.value = ExportProgress.Finished(
