@@ -1,9 +1,12 @@
 package com.vereshchagin.nikolay.stankinschedule.home.ui.data
 
 import android.content.Context
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.IntentSenderRequest
+import com.google.android.gms.tasks.Task
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
-import com.google.android.play.core.common.IntentSenderForResultStarter
+import com.google.android.play.core.appupdate.AppUpdateOptions
 import com.google.android.play.core.install.InstallState
 import com.google.android.play.core.install.InstallStateUpdatedListener
 import com.google.android.play.core.install.model.AppUpdateType
@@ -12,7 +15,6 @@ import com.google.android.play.core.install.model.UpdateAvailability
 import com.google.android.play.core.ktx.bytesDownloaded
 import com.google.android.play.core.ktx.installStatus
 import com.google.android.play.core.ktx.totalBytesToDownload
-import com.google.android.play.core.tasks.Task
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -51,14 +53,10 @@ class GooglePlayInAppUpdater constructor(
 
     override fun startUpdate(
         info: AppUpdateInfo,
-        starter: IntentSenderForResultStarter
+        launcher: ActivityResultLauncher<IntentSenderRequest>,
+        options: AppUpdateOptions
     ) {
-        appUpdater.startUpdateFlowForResult(
-            info,
-            AppUpdateType.FLEXIBLE,
-            starter,
-            UPDATE_REQUEST
-        )
+        appUpdater.startUpdateFlowForResult(info, launcher, options)
     }
 
     override fun onStateUpdate(state: InstallState) {

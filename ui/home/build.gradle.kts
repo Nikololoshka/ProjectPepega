@@ -82,7 +82,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.java8)
     implementation(libs.ui.material)
 
-    implementation(libs.integration.coreGooglePlay)
+    implementation(libs.integration.inAppUpdate)
     implementation(libs.integration.googleServices)
 
     // DI
