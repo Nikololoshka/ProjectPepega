@@ -99,7 +99,7 @@ object ScheduleWidget {
         return PendingIntent.getActivity(
             context,
             appWidgetId,
-            Intent(ScheduleDeepLink.SCHEDULE_VIEWER_ACTION),
+            Intent(ScheduleDeepLink.SCHEDULE_VIEWER_ACTION).setPackage(context.packageName),
             PendingIntent.FLAG_UPDATE_CURRENT or FLAG_MUTABLE_COMPAT
         )
     }
