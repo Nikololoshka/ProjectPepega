@@ -1,9 +1,20 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.worker
 
 import android.content.Context
+import android.content.pm.ServiceInfo
+import android.os.Build
 import androidx.annotation.StringRes
 import androidx.hilt.work.HiltWorker
-import androidx.work.*
+import androidx.work.Constraints
+import androidx.work.CoroutineWorker
+import androidx.work.Data
+import androidx.work.ExistingWorkPolicy
+import androidx.work.ForegroundInfo
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequest
+import androidx.work.OutOfQuotaPolicy
+import androidx.work.WorkManager
+import androidx.work.WorkerParameters
 import com.vereshchagin.nikolay.stankinschedule.core.ui.notification.NotificationUtils
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.model.RepositoryItem
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.domain.usecase.RepositoryLoaderUseCase
@@ -12,7 +23,8 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import org.joda.time.DateTimeUtils
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 import com.vereshchagin.nikolay.stankinschedule.core.ui.R as R_core
 
@@ -62,7 +74,15 @@ class ScheduleDownloadWorker @AssistedInject constructor(
             .addAction(R.drawable.ic_notification_cancel, getString(R_core.string.cancel), cancel)
             .build()
 
-        return ForegroundInfo(notificationId, notification)
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ForegroundInfo(
+                notificationId,
+                notification,
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC
+            )
+        } else {
+            ForegroundInfo(notificationId, notification)
+        }
     }
 
     private suspend fun download(
@@ -116,6 +136,7 @@ class ScheduleDownloadWorker @AssistedInject constructor(
             val workerName = "ScheduleWorker-${item.name}-${item.category}"
 
             val worker = OneTimeWorkRequest.Builder(ScheduleDownloadWorker::class.java)
+                .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
                 .setConstraints(
                     Constraints.Builder()
                         .setRequiredNetworkType(NetworkType.CONNECTED)
