@@ -47,10 +47,9 @@ class ScheduleDownloadWorker @AssistedInject constructor(
         val scheduleCategory = inputData.getString(SCHEDULE_CATEGORY)!!
         val replaceExist = inputData.getBoolean(SCHEDULE_REPLACE_EXIST, false)
 
-        val notificationId = createID()
-
-        val info = createForegroundInfo(scheduleName, notificationId)
-        setForeground(info)
+        // val notificationId = createID()
+        // val info = createForegroundInfo(scheduleName, notificationId)
+        // setForeground(info)
 
         download(scheduleCategory, schedulePath, scheduleName, replaceExist)
 
@@ -58,6 +57,13 @@ class ScheduleDownloadWorker @AssistedInject constructor(
             Data.Builder()
                 .putString("scheduleName", scheduleName)
                 .build()
+        )
+    }
+
+    override suspend fun getForegroundInfo(): ForegroundInfo {
+        return createForegroundInfo(
+            scheduleName = inputData.getString(SCHEDULE_NAME) ?: "",
+            notificationId = createID()
         )
     }
 
