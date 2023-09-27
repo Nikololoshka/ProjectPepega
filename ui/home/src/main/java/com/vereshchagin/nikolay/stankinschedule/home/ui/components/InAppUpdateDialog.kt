@@ -188,7 +188,7 @@ private fun ColumnScope.UpdateProgressContent(
         modifier = Modifier.padding(bottom = Dimen.ContentPadding)
     )
 
-    if (progress.progress == 0f) {
+    if (!progress.progress.isFinite() || progress.progress == 0f) {
         LinearProgressIndicator(
             modifier = Modifier
                 .fillMaxWidth()
