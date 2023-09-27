@@ -172,7 +172,9 @@ fun JournalScreen(
                                 semesters = data.semesters,
                                 currentPage = pagerState.currentPage,
                                 onPageScrolled = { index ->
-                                    pagerState.animateScrollToPage(index)
+                                    if (index >= 0 && index < pagerState.pageCount) {
+                                        pagerState.animateScrollToPage(index)
+                                    }
                                 },
                                 modifier = Modifier
                                     .fillMaxWidth()
