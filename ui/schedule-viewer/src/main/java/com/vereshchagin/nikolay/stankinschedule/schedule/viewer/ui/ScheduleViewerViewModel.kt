@@ -25,7 +25,18 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flattenMerge
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import org.joda.time.LocalDate
 import javax.inject.Inject
@@ -78,9 +89,9 @@ class ScheduleViewerViewModel @Inject constructor(
     ): Pager<LocalDate, ScheduleViewDay> {
         return Pager(
             config = PagingConfig(
-                pageSize = 30,
-                initialLoadSize = 30,
-                prefetchDistance = 10,
+                pageSize = 60,
+                initialLoadSize = 60,
+                prefetchDistance = 30,
                 enablePlaceholders = false
             ),
             initialKey = currentDay,
