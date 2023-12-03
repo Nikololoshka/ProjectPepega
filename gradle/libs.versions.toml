@@ -63,7 +63,6 @@ work-hilt = "1.0.0"
 # Other
 joda = "2.12.5"
 reorderable = "0.9.6"
-snapper = "0.3.0"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -163,7 +162,6 @@ work-hiltCompiler = { module = "androidx.hilt:hilt-compiler", version.ref = "wor
 # Other
 other-joda = { module = "joda-time:joda-time", version.ref = "joda" }
 other-reorderable = { module = "org.burnoutcrew.composereorderable:reorderable", version.ref = "reorderable" }
-other-snapper = { module = "dev.chrisbanes.snapper:snapper", version.ref = "snapper" }
 
 [bundles]
 compose = [
