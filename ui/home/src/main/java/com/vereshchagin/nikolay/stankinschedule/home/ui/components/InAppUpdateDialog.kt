@@ -2,18 +2,29 @@ package com.vereshchagin.nikolay.stankinschedule.home.ui.components
 
 import android.app.Activity
 import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.google.android.play.core.appupdate.AppUpdateInfo
+import com.google.android.play.core.appupdate.AppUpdateOptions
+import com.google.android.play.core.install.model.AppUpdateType
 import com.vereshchagin.nikolay.stankinschedule.core.domain.ext.subHours
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
 import com.vereshchagin.nikolay.stankinschedule.home.ui.R
@@ -84,14 +95,11 @@ fun rememberInAppUpdater(
         InAppUpdateState(
             updateManager = updateManager,
             updateLauncher = { info ->
-                updateManager.startUpdate(info) { intent, _, fillInIntent, flagsMask, flagsValues, _, _ ->
-                    updateLauncher.launch(
-                        IntentSenderRequest.Builder(intent)
-                            .setFillInIntent(fillInIntent)
-                            .setFlags(flagsValues, flagsMask)
-                            .build()
-                    )
-                }
+                updateManager.startUpdate(
+                    info = info,
+                    launcher = updateLauncher,
+                    options = AppUpdateOptions.defaultOptions(AppUpdateType.FLEXIBLE)
+                )
             },
             progress = progress
         )
@@ -180,7 +188,7 @@ private fun ColumnScope.UpdateProgressContent(
         modifier = Modifier.padding(bottom = Dimen.ContentPadding)
     )
 
-    if (progress.progress == 0f) {
+    if (!progress.progress.isFinite() || progress.progress == 0f) {
         LinearProgressIndicator(
             modifier = Modifier
                 .fillMaxWidth()

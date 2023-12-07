@@ -1,11 +1,20 @@
 package com.vereshchagin.nikolay.stankinschedule.journal.viewer.ui.worker
 
 import android.content.Context
+import android.content.pm.ServiceInfo
+import android.os.Build
 import androidx.annotation.StringRes
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.hilt.work.HiltWorker
-import androidx.work.*
+import androidx.work.Constraints
+import androidx.work.CoroutineWorker
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.ForegroundInfo
+import androidx.work.NetworkType
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
+import androidx.work.WorkerParameters
 import com.vereshchagin.nikolay.stankinschedule.core.ui.notification.NotificationUtils
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.exceptions.StudentAuthorizedException
 import com.vereshchagin.nikolay.stankinschedule.journal.core.domain.usecase.JournalUpdateUseCase
@@ -50,6 +59,28 @@ class JournalMarksUpdateWorker @AssistedInject constructor(
 
     private fun getString(@StringRes id: Int, vararg args: Any): String {
         return applicationContext.getString(id, args)
+    }
+
+    override suspend fun getForegroundInfo(): ForegroundInfo {
+        val notification = NotificationUtils.createModuleJournalNotification(applicationContext)
+            .setContentTitle(getString(R.string.journal_notification))
+            .setContentText(getString(R.string.journal_notification_update))
+            .setWhen(System.currentTimeMillis())
+            .setSmallIcon(R.drawable.ic_journal_notification)
+            .setAutoCancel(true)
+            .build()
+
+        val notificationId = NotificationUtils.MODULE_JOURNAL_IDS;
+
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ForegroundInfo(
+                notificationId,
+                notification,
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC
+            )
+        } else {
+            ForegroundInfo(notificationId, notification)
+        }
     }
 
     private fun sendSemestersNotification(

@@ -166,7 +166,6 @@ dependencies {
     implementation(libs.androidx.splashscreen)
     implementation(libs.ui.material)
 
-    implementation(libs.integration.coreGooglePlay)
     implementation(libs.integration.googleServices)
 
     // Firebase

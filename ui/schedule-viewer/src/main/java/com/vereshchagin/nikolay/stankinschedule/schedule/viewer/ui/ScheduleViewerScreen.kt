@@ -3,12 +3,42 @@ package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui
 import android.content.Intent
 import android.widget.Toast
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.*
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FabPosition
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
@@ -28,11 +58,14 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.BrowserUtils
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.ScheduleDayCard
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.ui.toColor
 import com.vereshchagin.nikolay.stankinschedule.schedule.settings.domain.model.PairColorGroup
-import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.*
-import dev.chrisbanes.snapper.ExperimentalSnapperApi
-import dev.chrisbanes.snapper.SnapOffsets
-import dev.chrisbanes.snapper.SnapperLayoutInfo
-import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ExportProgress
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.RenameEvent
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.SaveFormatDialog
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleRemoveDialog
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleRenameDialog
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleState
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.ScheduleViewerToolBar
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components.rememberSaveFormatDialogState
 import org.joda.time.LocalDate
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -237,9 +270,7 @@ fun ScheduleViewerScreen(
                             clipboardManager.setText(AnnotatedString((it)))
                             Toast.makeText(context, R.string.link_copied, Toast.LENGTH_SHORT).show()
                         },
-                        modifier = Modifier
-                            .fillParentMaxWidth()
-                            .sizeIn(minHeight = 128.dp)
+                        modifier = Modifier.fillParentMaxWidth()
                     )
                 }
             }
@@ -267,7 +298,7 @@ fun ScheduleViewerScreen(
     }
 }
 
-@OptIn(ExperimentalSnapperApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun PairsList(
     state: LazyListState,
@@ -285,11 +316,7 @@ private fun PairsList(
     } else {
         LazyRow(
             state = state,
-            flingBehavior = rememberSnapperFlingBehavior(
-                lazyListState = state,
-                snapOffsetForItem = SnapOffsets.Center,
-                snapIndex = { info, start, target -> computeScheduleIndex(info, start, target) }
-            ),
+            flingBehavior = rememberSnapFlingBehavior(lazyListState = state),
             contentPadding = PaddingValues(bottom = 72.dp),
             modifier = modifier
                 .verticalScroll(rememberScrollState())
@@ -310,26 +337,3 @@ private val ScheduleState.isLoading
 private val ScheduleState.isEmpty
     get() =
         if (this is ScheduleState.Success) this.isEmpty else false
-
-@OptIn(ExperimentalSnapperApi::class)
-private fun computeScheduleIndex(
-    info: SnapperLayoutInfo,
-    start: Int,
-    target: Int,
-    delta: Int = 120,
-): Int {
-    if (start == target) {
-        val distance = info.distanceToIndexSnap(target)
-
-        when {
-            distance < -delta -> {
-                return target + 1
-            }
-
-            distance > delta -> {
-                return target - 1
-            }
-        }
-    }
-    return target
-}

@@ -85,9 +85,6 @@ dependencies {
     implementation(libs.androidx.paging)
     implementation(libs.ui.material)
 
-    // Snapper
-    implementation(libs.other.snapper)
-
     // Network
     implementation(libs.network.gson)
 

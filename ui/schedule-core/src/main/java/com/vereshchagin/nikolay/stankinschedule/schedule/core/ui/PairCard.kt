@@ -5,7 +5,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -16,7 +23,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.*
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.PlatformTextStyle
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.Dp
@@ -31,6 +42,7 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.Lin
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewPair
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.TextContent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ViewContent
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.isNotEmpty
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -82,7 +94,7 @@ fun PairCard(
                     fontSize = 16.sp,
                 )
 
-                if (pair.lecturer.isNotEmpty() || !pair.classroom.isEmpty()) {
+                if (pair.lecturer.isNotEmpty() || pair.classroom.isNotEmpty()) {
                     FlowRow(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         modifier = Modifier.fillMaxWidth()
@@ -129,7 +141,8 @@ private fun ClassroomText(
     onClicked: () -> Unit,
     onLinkClicked: (link: String) -> Unit,
     onLinkCopied: (link: String) -> Unit,
-    interactionSource: MutableInteractionSource
+    interactionSource: MutableInteractionSource,
+    modifier: Modifier = Modifier
 ) {
     when (classroom) {
         is LinkContent -> {
@@ -153,13 +166,16 @@ private fun ClassroomText(
                         onLinkCopied(annotation.item)
                     }
                 },
-                interactionSource = interactionSource
+                interactionSource = interactionSource,
+                modifier = modifier
             )
         }
+
         is TextContent -> {
             Text(
                 text = classroom.content,
                 fontSize = fontSize,
+                modifier = modifier
             )
         }
     }
@@ -245,7 +261,6 @@ private fun SubgroupText(
     }
 
     if (subgroupColor != null && subgroupText != null) {
-        @Suppress("DEPRECATION")
         Text(
             text = stringResource(subgroupText),
             style = TextStyle(

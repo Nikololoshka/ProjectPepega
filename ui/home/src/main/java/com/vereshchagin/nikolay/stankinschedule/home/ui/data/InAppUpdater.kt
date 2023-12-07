@@ -1,7 +1,9 @@
 package com.vereshchagin.nikolay.stankinschedule.home.ui.data
 
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.IntentSenderRequest
 import com.google.android.play.core.appupdate.AppUpdateInfo
-import com.google.android.play.core.common.IntentSenderForResultStarter
+import com.google.android.play.core.appupdate.AppUpdateOptions
 import kotlinx.coroutines.flow.StateFlow
 
 interface InAppUpdater {
@@ -10,7 +12,11 @@ interface InAppUpdater {
 
     suspend fun checkUpdate()
 
-    fun startUpdate(info: AppUpdateInfo, starter: IntentSenderForResultStarter)
+    fun startUpdate(
+        info: AppUpdateInfo,
+        launcher: ActivityResultLauncher<IntentSenderRequest>,
+        options: AppUpdateOptions
+    )
 
     fun later()
 

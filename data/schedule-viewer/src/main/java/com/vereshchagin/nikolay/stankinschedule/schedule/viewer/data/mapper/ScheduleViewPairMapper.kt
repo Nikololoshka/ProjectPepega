@@ -4,6 +4,7 @@ import android.util.Patterns
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.PairModel
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.LinkContent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ScheduleViewPair
+import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.TextContent
 import com.vereshchagin.nikolay.stankinschedule.schedule.viewer.domain.model.ViewContent
 
 fun PairModel.toViewPair(): ScheduleViewPair {
@@ -36,6 +37,10 @@ private fun classroomViewContent(classroom: String): ViewContent {
         links.add(
             LinkContent.Link(start, urlName.length, url)
         )
+    }
+
+    if (links.isEmpty()) {
+        return TextContent(classroom)
     }
 
     return LinkContent(

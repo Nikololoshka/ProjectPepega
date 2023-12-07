@@ -5,7 +5,7 @@ class LinkContent(
     val links: List<Link>
 ) : ViewContent {
 
-    override fun isEmpty(): Boolean = links.isEmpty()
+    override fun isEmpty(): Boolean = name.isEmpty()
 
     class Link(
         val position: Int,
