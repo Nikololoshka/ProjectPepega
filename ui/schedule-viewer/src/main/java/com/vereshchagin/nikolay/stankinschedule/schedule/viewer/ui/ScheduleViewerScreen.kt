@@ -76,7 +76,8 @@ fun ScheduleViewerScreen(
     scheduleName: String?,
     viewModel: ScheduleViewerViewModel,
     onBackPressed: () -> Unit,
-    onEditorClicked: (scheduleId: Long, pairId: Long?) -> Unit,
+    onScheduleEditorClicked: (scheduleId: Long) -> Unit,
+    onPairEditorClicked: (scheduleId: Long, pairId: Long?) -> Unit,
     onTableViewClicked: (scheduleId: Long) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -164,8 +165,9 @@ fun ScheduleViewerScreen(
             ScheduleViewerToolBar(
                 scheduleName = currentScheduleName,
                 onBackClicked = onBackPressed,
+                onEditClicked = { onScheduleEditorClicked(scheduleId) },
                 onDayChangeClicked = { isDaySelector = true },
-                onAddClicked = { onEditorClicked(scheduleId, null) },
+                onAddClicked = { onPairEditorClicked(scheduleId, null) },
                 onRenameSchedule = { viewModel.onRenameEvent(RenameEvent.Rename) },
                 onRemoveSchedule = { isRemoveSchedule = true },
                 onSaveToDevice = saveFormatState::showDialog
@@ -261,7 +263,7 @@ fun ScheduleViewerScreen(
                         scheduleDay = day,
                         pairColors = pairColors,
                         onPairClicked = { pair ->
-                            onEditorClicked(scheduleId, pair.id)
+                            onPairEditorClicked(scheduleId, pair.id)
                         },
                         onLinkClicked = { url ->
                             BrowserUtils.openLink(context, url)
@@ -286,7 +288,7 @@ fun ScheduleViewerScreen(
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
                 TextButton(
-                    onClick = { onEditorClicked(scheduleId, null) },
+                    onClick = { onPairEditorClicked(scheduleId, null) },
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 ) {
                     Text(

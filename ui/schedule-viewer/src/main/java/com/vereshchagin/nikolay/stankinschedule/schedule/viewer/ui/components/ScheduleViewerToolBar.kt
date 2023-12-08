@@ -1,7 +1,19 @@
 package com.vereshchagin.nikolay.stankinschedule.schedule.viewer.ui.components
 
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarScrollBehavior
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -15,6 +27,7 @@ import com.vereshchagin.nikolay.stankinschedule.core.ui.R as R_core
 fun ScheduleViewerToolBar(
     scheduleName: String,
     onBackClicked: () -> Unit,
+    onEditClicked: () -> Unit,
     onDayChangeClicked: () -> Unit,
     onAddClicked: () -> Unit,
     onRemoveSchedule: () -> Unit,
@@ -38,6 +51,15 @@ fun ScheduleViewerToolBar(
             BackButton(onClick = onBackClicked)
         },
         actions = {
+            IconButton(
+                onClick = onEditClicked
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_schedule_edit),
+                    contentDescription = null
+                )
+            }
+
             IconButton(
                 onClick = onDayChangeClicked
             ) {

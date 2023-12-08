@@ -6,8 +6,13 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.*
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavController
+import androidx.navigation.NavDeepLink
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.google.accompanist.navigation.material.bottomSheet
 import com.vereshchagin.nikolay.stankinschedule.R
@@ -15,6 +20,7 @@ import com.vereshchagin.nikolay.stankinschedule.navigation.entry.BottomNavEntry
 import com.vereshchagin.nikolay.stankinschedule.navigation.entry.DestinationNavEntry
 import com.vereshchagin.nikolay.stankinschedule.schedule.creator.ui.ScheduleCreatorSheet
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.PairEditorActivity
+import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.ScheduleEditorActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.list.ui.ScheduleScreen
 import com.vereshchagin.nikolay.stankinschedule.schedule.parser.ui.ScheduleParserActivity
 import com.vereshchagin.nikolay.stankinschedule.schedule.repository.ui.ScheduleRepositoryActivity
@@ -78,7 +84,11 @@ fun NavGraphBuilder.schedule(
             scheduleName = null,
             viewModel = hiltViewModel(),
             onBackPressed = { navController.navigateUp() },
-            onEditorClicked = { scheduleId, pairId ->
+            onScheduleEditorClicked = { scheduleId ->
+                val intent = ScheduleEditorActivity.createIntent(context, scheduleId)
+                context.startActivity(intent)
+            },
+            onPairEditorClicked = { scheduleId, pairId ->
                 val intent = PairEditorActivity.createIntent(
                     context, scheduleId, pairId
                 )

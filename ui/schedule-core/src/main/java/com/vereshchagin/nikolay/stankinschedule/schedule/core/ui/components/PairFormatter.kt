@@ -27,9 +27,13 @@ class PairFormatter {
                 append(". ")
             }
 
+            append("[")
             append(pairDate(pair.date))
+            append("]")
         }
     }
+
+    fun format(date: DateModel): String = pairDate(date)
 
     private fun pairType(type: Type): String {
         return when (type) {
@@ -50,23 +54,21 @@ class PairFormatter {
 
 
     private fun pairDate(date: DateModel): String {
-        return "[" +
-                date.joinToString(
-                    separator = ", ",
-                    transform = { item ->
-                        when (item) {
-                            is DateSingle -> {
-                                item.toString("dd.MM")
-                            }
-
-                            is DateRange -> {
-                                item.toString("dd.MM", "-") + " " +
-                                        pairDateFrequency(item.frequency())
-                            }
-                        }
+        return date.joinToString(
+            separator = ", ",
+            transform = { item ->
+                when (item) {
+                    is DateSingle -> {
+                        item.toString("dd.MM")
                     }
-                ) +
-                "]"
+
+                    is DateRange -> {
+                        item.toString("dd.MM", "-") + " " +
+                                pairDateFrequency(item.frequency())
+                    }
+                }
+            }
+        )
     }
 
     private fun pairDateFrequency(frequency: Frequency): String {

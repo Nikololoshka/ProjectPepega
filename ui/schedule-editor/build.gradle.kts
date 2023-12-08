@@ -59,6 +59,7 @@ hilt {
 
 dependencies {
     implementation(project(":ui:core"))
+    implementation(project(":ui:schedule-core"))
     implementation(project(":ui:schedule-widget"))
 
     implementation(project(":domain:core"))

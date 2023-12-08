@@ -5,5 +5,10 @@
         <activity
             android:name=".PairEditorActivity"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".ScheduleEditorActivity"
+            android:theme="@style/AppTheme" />
+
     </application>
 </manifest>
