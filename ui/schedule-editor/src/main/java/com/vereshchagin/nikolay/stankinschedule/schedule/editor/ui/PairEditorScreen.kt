@@ -77,6 +77,7 @@ fun PairEditorScreen(
     mode: EditorMode,
     scheduleId: Long,
     pairId: Long?,
+    formPreset: FormPreset?,
     onBackClicked: () -> Unit,
     viewModel: PairEditorViewModel,
     modifier: Modifier = Modifier,
@@ -101,7 +102,7 @@ fun PairEditorScreen(
 
     val pairState by viewModel.pair.collectAsState()
 
-    val editorState = rememberEditorState(pair = pairState.getOrNull())
+    val editorState = rememberEditorState(pair = pairState.getOrNull(), preset = formPreset)
     val date by viewModel.date.collectAsState()
 
     var scheduleError by remember { mutableStateOf<Exception?>(null) }
@@ -433,7 +434,8 @@ class EditorState(
 
 @Composable
 fun rememberEditorState(
-    pair: PairModel?
+    pair: PairModel?,
+    preset: FormPreset?
 ): EditorState {
 
     val title = rememberSaveable { mutableStateOf("") }
@@ -450,6 +452,13 @@ fun rememberEditorState(
 
     val startTime = rememberSaveable { mutableStateOf(Time.STARTS.first()) }
     val endTime = rememberSaveable { mutableStateOf(Time.ENDS.first()) }
+
+    LaunchedEffect(preset) {
+        preset?.let {
+            title.value = it.title
+            type.value = it.type
+        }
+    }
 
     return remember(pair) {
         EditorState(

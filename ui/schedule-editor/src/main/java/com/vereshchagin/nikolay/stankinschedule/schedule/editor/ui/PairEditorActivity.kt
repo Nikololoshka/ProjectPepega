@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
+import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Type
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.DateRequest
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.DateResult
 import com.vereshchagin.nikolay.stankinschedule.schedule.editor.ui.components.EditorMode
@@ -37,12 +38,23 @@ class PairEditorActivity : AppCompatActivity() {
         var pairId: Long? = intent.getLongExtra(PAIR_ID, -1L)
         if (pairId == -1L) pairId = null
 
+        // Preset
+        val titlePreset = intent.getStringExtra(TITLE_PRESET)
+        val typePresetTag = intent.getStringExtra(TYPE_PRESET)
+        val typePreset = if (typePresetTag != null) Type.of(typePresetTag) else null
+        val formPreset = if (titlePreset != null && typePreset != null) {
+            FormPreset(titlePreset, typePreset)
+        } else {
+            null
+        }
+
         setContent {
             AppTheme {
                 PairEditorScreen(
                     mode = if (pairId == null) EditorMode.Create else EditorMode.Edit,
                     scheduleId = scheduleId,
                     pairId = pairId,
+                    formPreset = formPreset,
                     onBackClicked = {
                         onBackPressedDispatcher.onBackPressed()
                     },
@@ -80,11 +92,20 @@ class PairEditorActivity : AppCompatActivity() {
 
         private const val PAIR_ID = "pair_id"
         private const val SCHEDULE_ID = "schedule_id"
+        private const val TITLE_PRESET = "title_preset"
+        private const val TYPE_PRESET = "type_preset"
 
-        fun createIntent(context: Context, scheduleId: Long, pairId: Long?): Intent {
+        fun createIntent(
+            context: Context,
+            scheduleId: Long,
+            pairId: Long?,
+            preset: FormPreset? = null
+        ): Intent {
             return Intent(context, PairEditorActivity::class.java).apply {
                 putExtra(PAIR_ID, pairId)
                 putExtra(SCHEDULE_ID, scheduleId)
+                putExtra(TITLE_PRESET, preset?.title)
+                putExtra(TYPE_PRESET, preset?.type?.tag)
             }
         }
     }

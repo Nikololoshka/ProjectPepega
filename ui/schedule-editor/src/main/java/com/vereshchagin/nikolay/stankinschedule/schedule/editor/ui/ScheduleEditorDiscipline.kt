@@ -4,17 +4,15 @@ import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.PairM
 import com.vereshchagin.nikolay.stankinschedule.schedule.core.domain.model.Type
 
 
-data class ScheduleEditorDiscipline(
-    val discipline: String,
-    val lecturers: List<PairModel>,
-    val seminars: List<PairModel>,
-    val labs: List<PairModel>,
-) : Iterable<Map.Entry<Type, List<PairModel>>> {
+sealed class ScheduleDiscipline(val key: String) {
 
-    override fun iterator(): Iterator<Map.Entry<Type, List<PairModel>>> =
-        mapOf(
-            Type.LECTURE to lecturers,
-            Type.SEMINAR to seminars,
-            Type.LABORATORY to labs
-        ).iterator()
+    class ScheduleTypeDiscipline(
+        val type: Type,
+        key: String
+    ) : ScheduleDiscipline(key)
+
+    class SchedulePairDiscipline(
+        val pair: PairModel,
+        key: String
+    ) : ScheduleDiscipline(key)
 }

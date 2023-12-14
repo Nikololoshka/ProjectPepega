@@ -15,13 +15,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.PlatformTextStyle
@@ -228,7 +226,7 @@ private fun TypeText(
     Text(
         text = stringResource(typeText),
         style = TextStyle(
-            color = textColor(typeColor),
+            color = pairTextColor(typeColor),
             fontSize = 14.sp,
             platformStyle = PlatformTextStyle(
                 includeFontPadding = false
@@ -264,7 +262,7 @@ private fun SubgroupText(
         Text(
             text = stringResource(subgroupText),
             style = TextStyle(
-                color = textColor(subgroupColor),
+                color = pairTextColor(subgroupColor),
                 fontSize = 14.sp,
                 platformStyle = PlatformTextStyle(
                     includeFontPadding = false
@@ -277,17 +275,5 @@ private fun SubgroupText(
                 )
                 .padding(4.dp)
         )
-    }
-}
-
-@Composable
-private fun textColor(
-    background: Color,
-    isDark: Boolean = background.luminance() < 0.5f
-): Color {
-    return if (isSystemInDarkTheme()) {
-        if (isDark) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.surface
-    } else {
-        if (isDark) MaterialTheme.colorScheme.surface else MaterialTheme.colorScheme.onSurface
     }
 }

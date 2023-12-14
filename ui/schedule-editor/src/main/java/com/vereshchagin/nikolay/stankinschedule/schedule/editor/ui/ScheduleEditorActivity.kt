@@ -31,10 +31,32 @@ class ScheduleEditorActivity : AppCompatActivity() {
                     scheduleId = scheduleId,
                     onBackClicked = onBackPressedDispatcher::onBackPressed,
                     viewModel = viewModel,
+                    onAddPairClicked = { preset ->
+                        startPairEditActivity(scheduleId, null, preset)
+                    },
+                    onEditPairClicked = { id ->
+                        startPairEditActivity(scheduleId, id)
+                    },
                     modifier = Modifier.fillMaxSize()
                 )
             }
         }
+    }
+
+    private fun startPairEditActivity(
+        scheduleId: Long?,
+        pairId: Long?,
+        preset: FormPreset? = null
+    ) {
+        if (scheduleId == null) return // just ignore
+
+        val intent = PairEditorActivity.createIntent(
+            context = this,
+            scheduleId = scheduleId,
+            pairId = pairId,
+            preset = preset
+        )
+        startActivity(intent)
     }
 
     companion object {

@@ -63,6 +63,7 @@ dependencies {
     implementation(project(":ui:schedule-widget"))
 
     implementation(project(":domain:core"))
+    implementation(project(":domain:schedule-settings"))
     implementation(project(":domain:schedule-core"))
 
     // Core
