@@ -4,6 +4,7 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingSource
 import androidx.paging.RemoteMediator
 import com.vereshchagin.nikolay.stankinschedule.core.domain.ext.subMinutes
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.BuildConfig
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsSubdivision
 import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsMediatorRepository
@@ -40,7 +41,7 @@ class NewsReviewUseCase @Inject constructor(
     suspend fun refreshNews(subdivision: Int, force: Boolean = false) {
         val lastRefresh = preferenceRepository.currentNewsDateTime(subdivision)
 
-        if (force || lastRefresh == null || lastRefresh subMinutes DateTime.now() > 30) {
+        if (BuildConfig.DEBUG || force || lastRefresh == null || lastRefresh subMinutes DateTime.now() > 30) {
             val posts = remoteRepository.loadPage(subdivision, page = 1)
             storageRepository.saveNews(subdivision, posts, true)
             preferenceRepository.updateNewsDateTime(subdivision)

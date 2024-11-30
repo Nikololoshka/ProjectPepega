@@ -109,6 +109,7 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation(project(":domain:core"))
+    implementation(project(":domain:news-core"))
     implementation(project(":domain:schedule-core"))
     implementation(project(":domain:schedule-settings"))
     implementation(project(":domain:settings"))
