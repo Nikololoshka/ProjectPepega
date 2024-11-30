@@ -94,6 +94,6 @@ class HomeViewModel @Inject constructor(
     }
 
     companion object {
-        const val NEWS_COUNT = 20
+        const val NEWS_COUNT = 12
     }
 }
