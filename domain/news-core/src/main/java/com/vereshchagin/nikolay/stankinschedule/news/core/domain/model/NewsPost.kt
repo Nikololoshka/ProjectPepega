@@ -5,4 +5,5 @@ data class NewsPost(
     val title: String,
     val previewImageUrl: String?,
     val date: String,
+    val relativeUrl: String?
 )

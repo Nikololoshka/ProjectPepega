@@ -13,7 +13,8 @@ fun NewsResponse.NewsData.NewsItem.toPost(): NewsPost {
         id = id,
         title = title,
         previewImageUrl = StankinNewsAPI.BASE_URL + logo,
-        date = date.split(" ").first()
+        date = date.split(" ").first(),
+        relativeUrl = null
     )
 }
 
@@ -27,7 +28,8 @@ fun NewsPost.toEntity(
         newsSubdivision = newsSubdivision,
         title = title,
         date = date,
-        logo = previewImageUrl ?: ""
+        logo = previewImageUrl ?: "",
+        relativeUrl = relativeUrl
     )
 }
 
@@ -47,6 +49,7 @@ fun NewsEntity.toPost(): NewsPost {
         id = id,
         title = title,
         previewImageUrl = logo,
-        date = date
+        date = date,
+        relativeUrl = relativeUrl
     )
 }

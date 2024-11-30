@@ -2,9 +2,18 @@ package com.vereshchagin.nikolay.stankinschedule.news.core.data.di
 
 import com.google.gson.GsonBuilder
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.api.PostResponse
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.api.StankinNews2024API
 import com.vereshchagin.nikolay.stankinschedule.news.core.data.api.StankinNewsAPI
-import com.vereshchagin.nikolay.stankinschedule.news.core.data.repository.*
-import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.*
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.repository.NewsMediatorRepositoryImpl
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.repository.NewsPostRepositoryImpl
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.repository.NewsPreferenceRepositoryImpl
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.repository.NewsRemoteRepository2024Impl
+import com.vereshchagin.nikolay.stankinschedule.news.core.data.repository.NewsStorageRepositoryImpl
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsMediatorRepository
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsPostRepository
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsPreferenceRepository
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsRemoteRepository
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.repository.NewsStorageRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,6 +22,7 @@ import dagger.hilt.android.scopes.ViewModelScoped
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 
 @Module
 @InstallIn(ViewModelComponent::class)
@@ -39,6 +49,17 @@ object NewsModule {
 
     @Provides
     @ViewModelScoped
+    fun provideNews2024Service(client: OkHttpClient): StankinNews2024API {
+        return Retrofit.Builder()
+            .baseUrl(StankinNews2024API.BASE_URL)
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .client(client)
+            .build()
+            .create(StankinNews2024API::class.java)
+    }
+
+    @Provides
+    @ViewModelScoped
     fun provideNewsStorageRepository(
         repository: NewsStorageRepositoryImpl
     ): NewsStorageRepository = repository
@@ -46,7 +67,7 @@ object NewsModule {
     @Provides
     @ViewModelScoped
     fun provideNewsRemoteRepository(
-        repository: NewsRemoteRepositoryImpl
+        repository: NewsRemoteRepository2024Impl
     ): NewsRemoteRepository = repository
 
     @Provides

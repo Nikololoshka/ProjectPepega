@@ -140,6 +140,7 @@ firebase-plugin = { module = "com.google.firebase:firebase-crashlytics-gradle", 
 network-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 network-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 network-mock = { module = "com.squareup.retrofit2:retrofit-mock", version.ref = "retrofit" }
+network-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofit" }
 network-okhttp3 = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp3" }
 
 # Room DB
@@ -175,7 +176,8 @@ network = [
     "network-retrofit",
     "network-gson",
     "network-mock",
-    "network-okhttp3"
+    "network-okhttp3",
+    "network-scalars"
 ]
 room = [
     "room-runtime",
