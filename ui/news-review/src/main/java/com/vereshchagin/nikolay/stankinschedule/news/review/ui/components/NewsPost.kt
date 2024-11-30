@@ -2,7 +2,15 @@ package com.vereshchagin.nikolay.stankinschedule.news.review.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,8 +26,8 @@ import coil.compose.AsyncImage
 import com.vereshchagin.nikolay.stankinschedule.core.domain.ext.formatDate
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.AppTheme
 import com.vereshchagin.nikolay.stankinschedule.core.ui.theme.Dimen
-import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsPost
 import com.vereshchagin.nikolay.stankinschedule.core.ui.utils.newsImageLoader
+import com.vereshchagin.nikolay.stankinschedule.news.core.domain.model.NewsPost
 
 @Preview(showBackground = true)
 @Composable
@@ -27,7 +35,7 @@ fun NewsPostPreview() {
     AppTheme {
         NewsPost(
             post = NewsPost(
-                0, "Example title.", "", "07.07.22",
+                0, "Example title.", "", "07.07.22", ""
             ),
             imageLoader = newsImageLoader(LocalContext.current),
             onClick = {},

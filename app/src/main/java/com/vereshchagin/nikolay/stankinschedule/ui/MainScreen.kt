@@ -1,8 +1,17 @@
 package com.vereshchagin.nikolay.stankinschedule.ui
 
 import android.content.Intent
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.exclude
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.ScaffoldDefaults
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -19,7 +28,13 @@ import com.google.accompanist.navigation.material.ExperimentalMaterialNavigation
 import com.google.accompanist.navigation.material.ModalBottomSheetLayout
 import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.vereshchagin.nikolay.stankinschedule.home.ui.HomeScreen
-import com.vereshchagin.nikolay.stankinschedule.navigation.*
+import com.vereshchagin.nikolay.stankinschedule.navigation.HomeNavEntry
+import com.vereshchagin.nikolay.stankinschedule.navigation.JournalNavEntry
+import com.vereshchagin.nikolay.stankinschedule.navigation.NewsNavEntry
+import com.vereshchagin.nikolay.stankinschedule.navigation.ScheduleNavEntry
+import com.vereshchagin.nikolay.stankinschedule.navigation.ScheduleViewerNavEntry
+import com.vereshchagin.nikolay.stankinschedule.navigation.moduleJournal
+import com.vereshchagin.nikolay.stankinschedule.navigation.schedule
 import com.vereshchagin.nikolay.stankinschedule.news.viewer.ui.NewsViewerActivity
 import com.vereshchagin.nikolay.stankinschedule.settings.ui.SettingsActivity
 import kotlinx.coroutines.launch
@@ -50,8 +65,7 @@ fun MainScreen() {
                     screens = listOf(
                         HomeNavEntry,
                         ScheduleNavEntry,
-                        JournalNavEntry,
-                        NewsNavEntry
+                        JournalNavEntry
                     )
                 )
             },
@@ -108,7 +122,7 @@ fun MainScreen() {
 
                 schedule(navController, showSnackBarState)
                 moduleJournal(navController)
-                news(navController)
+                // news(navController)
             }
         }
     }
